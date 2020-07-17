@@ -7,16 +7,16 @@ use Exception;
 class HttpResponseException extends Exception
 {
     public $messages;  // 自定义message
-    public $code;
+    public $status;    // Http状态码
 
-    public function __construct($messages = [], $code = 200)
+    public function __construct($messages = [], $status = 200)
     {
         $this->messages = $messages;
-        $this->code = $code;
+        $this->status = $status;
     }
 
     public function render()
     {
-        return response()->json($this->messages, $this->code);
+        return response($this->messages, $this->status);
     }
 }

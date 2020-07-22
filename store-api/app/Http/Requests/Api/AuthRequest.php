@@ -15,9 +15,24 @@ class AuthRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'username'=>'required|string',
-            'password'=>'required|alpha_dash|min:6',
-        ];
+        switch ($this->route()->getActionMethod())
+        {
+            case 'login':
+            {
+                return [
+                    'username'=>'required|string',
+                    'password'=>'required|alpha_dash|min:6',
+                ];
+            }
+            case 'register':
+            {
+                return [
+                    'username'=>'required|string',
+                    'password'=>'required|alpha_dash|min:6|confirmed',
+                    'password_confirmation' => 'required|same:password',
+                    'invitation_code' => 'required|string'
+                ];
+            }
+        }
     }
 }

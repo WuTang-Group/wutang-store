@@ -23,6 +23,70 @@ Welcome to the generated API reference.
 #general
 
 
+<!-- START_77797615aeaa4fce9a94150989aed46f -->
+## ResponseCode explain
+本方法仅作返回code通用说明(无其他作用)
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://store.wutang.com/api/response_code?10001=ex&10003=quis&20001=qui&40001=aut&40003=est&40004=quam&40005=velit&50001=quia" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://store.wutang.com/api/response_code"
+);
+
+let params = {
+    "10001": "ex",
+    "10003": "quis",
+    "20001": "qui",
+    "40001": "aut",
+    "40003": "est",
+    "40004": "quam",
+    "40005": "velit",
+    "50001": "quia",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`GET api/response_code`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `10001` |  optional  | 参数有误
+    `10003` |  optional  | 数据有误
+    `20001` |  optional  | 操作成功
+    `40001` |  optional  | 禁止访问
+    `40003` |  optional  | 权限不足
+    `40004` |  optional  | 查询为空
+    `40005` |  optional  | 请求过期
+    `50001` |  optional  | 操作失败
+
+<!-- END_77797615aeaa4fce9a94150989aed46f -->
+
 <!-- START_a925a8d22b3615f12fca79456d286859 -->
 ## Get a JWT via given credentials.
 

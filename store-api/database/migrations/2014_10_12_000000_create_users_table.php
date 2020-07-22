@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable()->unique()->comment('手机号');
             $table->string('password')->comment('密码');
             $table->rememberToken();
+            $table->string('invitation_code')->comment('用户被邀请的邀请码');
             $table->timestamps();
         });
     }

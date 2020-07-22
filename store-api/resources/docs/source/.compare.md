@@ -31,7 +31,7 @@ Welcome to the generated API reference.
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/response_code?10001=ex&10003=quis&20001=qui&40001=aut&40003=est&40004=quam&40005=velit&50001=quia" \
+    -G "http://store.wutang.com/api/response_code?10001=ex&10003=incidunt&20001=maiores&40001=quibusdam&40003=dignissimos&40004=et&40005=quia&50001=tempore" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -43,13 +43,13 @@ const url = new URL(
 
 let params = {
     "10001": "ex",
-    "10003": "quis",
-    "20001": "qui",
-    "40001": "aut",
-    "40003": "est",
-    "40004": "quam",
-    "40005": "velit",
-    "50001": "quia",
+    "10003": "incidunt",
+    "20001": "maiores",
+    "40001": "quibusdam",
+    "40003": "dignissimos",
+    "40004": "et",
+    "40005": "quia",
+    "50001": "tempore",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -86,6 +86,93 @@ Parameter | Status | Description
     `50001` |  optional  | 操作失败
 
 <!-- END_77797615aeaa4fce9a94150989aed46f -->
+
+<!-- START_3266c06bb58be7f09822eec02a02823c -->
+## Generate captcha code and save to cache
+生成验证码并写入缓存
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://store.wutang.com/api/captchas?username=quia" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://store.wutang.com/api/captchas"
+);
+
+let params = {
+    "username": "quia",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/captchas`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `username` |  required  | 用户名
+
+<!-- END_3266c06bb58be7f09822eec02a02823c -->
+
+<!-- START_2e1c96dcffcfe7e0eb58d6408f1d619e -->
+## api/auth/register
+> Example request:
+
+```bash
+curl -X POST \
+    "http://store.wutang.com/api/auth/register" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://store.wutang.com/api/auth/register"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/auth/register`
+
+
+<!-- END_2e1c96dcffcfe7e0eb58d6408f1d619e -->
 
 <!-- START_a925a8d22b3615f12fca79456d286859 -->
 ## Get a JWT via given credentials.

@@ -8,7 +8,7 @@ use App\Enums\ResponseStatusCode;
 
 class ResponseData
 {
-    public function paramError($data = null, $msg = null): array
+    public static function paramError($data = null, $msg = null): array
     {
         return [
             'data' => $data,
@@ -17,7 +17,7 @@ class ResponseData
         ];
     }
 
-    public function dataError($data = null, $msg = null): array
+    public static function dataError($data = null, $msg = null): array
     {
         return [
             'data' => $data,
@@ -26,7 +26,7 @@ class ResponseData
         ];
     }
 
-    public function requestSuccess($data = null, $msg = null): array
+    public static function requestSuccess($data = null, $msg = null): array
     {
         return [
             'data' => $data,
@@ -35,7 +35,7 @@ class ResponseData
         ];
     }
 
-    public function requestDeny($data = null, $msg = null): array
+    public static function requestDeny($data = null, $msg = null): array
     {
         return [
             'data' => $data,
@@ -44,7 +44,7 @@ class ResponseData
         ];
     }
 
-    public function requestWithoutAuth($data = null, $msg = null): array
+    public static function requestWithoutAuth($data = null, $msg = null): array
     {
         return [
             'data' => $data,
@@ -53,7 +53,7 @@ class ResponseData
         ];
     }
 
-    public function requestFails($data = null, $msg = null): array
+    public static function requestFails($data = null, $msg = null): array
     {
         return [
             'data' => $data,
@@ -62,7 +62,7 @@ class ResponseData
         ];
     }
 
-    public function queryVoid($data = null, $msg = null): array
+    public static function queryVoid($data = null, $msg = null): array
     {
         return [
             'data' => $data,
@@ -71,7 +71,7 @@ class ResponseData
         ];
     }
 
-    public function tokenExpired($data = null, $msg = null): array
+    public static function tokenExpired($data = null, $msg = null): array
     {
         return [
             'data' => $data,

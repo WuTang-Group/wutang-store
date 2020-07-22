@@ -18,6 +18,15 @@ const modules = modulesFiles.keys().reduce((modules, modulePath) => {
 }, {})
 
 const store = new Vuex.Store({
+  state: {
+    screenHeight: 720
+  },
+  mutations: {
+    // 更新屏幕高度
+    updateScreenHeight(state, screenHeight) {
+      state.screenHeight = screenHeight
+    }
+  },
   modules,
   getters
 })

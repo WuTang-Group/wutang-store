@@ -4,6 +4,8 @@ Route::group(['middleware' => 'api'], function () {
     Route::get('/unauthorized', function () {
         return response()->json(\App\Helpers\ResponseData::tokenExpired());
     })->name('login');
+    // 状态码说明
+    Route::get('response_code','ResponseCodeController@index')->name('response_code.index');
     /**
      * auth route
      */

@@ -174,8 +174,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        // 返回参数服务提供者
-        App\Providers\ResponseDataServiceProvider::class,
 
     ],
 

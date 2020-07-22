@@ -43,7 +43,7 @@ class AuthController extends Controller
 
     public function register(AuthRequest $request)
     {
-        return 'test';
+        return 'test123';
     }
 
     /**

@@ -43,7 +43,12 @@ class AuthController extends Controller
 
     public function register(AuthRequest $request)
     {
-        return 'test123';
+        $username = $request->username;
+        $invitationCode = $request->invitation_code;
+
+        // 允许以邮箱或手机号
+        filter_var($username, FILTER_VALIDATE_EMAIL) ? $credentials['email'] = $username : $credentials['phone'] = $username;
+        $credentials['password'] = $request->password;
     }
 
     /**

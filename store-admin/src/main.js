@@ -22,6 +22,8 @@ import * as filters from './filters' // global filters
 
 import permission from './directive/permission'
 
+import moment from 'moment' // moment.js  // momentjs
+
 // 注册权限检测指令
 Vue.directive('permission', permission)
 
@@ -34,6 +36,9 @@ Vue.use(Element, {
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })
+
+// register global momentjs
+Object.defineProperty(Vue.prototype, '$moment', { value: moment })
 
 Vue.config.productionTip = false
 

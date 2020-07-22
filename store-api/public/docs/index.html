@@ -49,6 +49,99 @@
 <a href="http://store.wutang.com/docs/collection.json">Get Postman Collection</a></p>
 <!-- END_INFO -->
 <h1>general</h1>
+<!-- START_77797615aeaa4fce9a94150989aed46f -->
+<h2>ResponseCode explain</h2>
+<p>本方法仅作返回code通用说明(无其他作用)</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://store.wutang.com/api/response_code?10001=ex&amp;10003=quis&amp;20001=qui&amp;40001=aut&amp;40003=est&amp;40004=quam&amp;40005=velit&amp;50001=quia" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://store.wutang.com/api/response_code"
+);
+
+let params = {
+    "10001": "ex",
+    "10003": "quis",
+    "20001": "qui",
+    "40001": "aut",
+    "40003": "est",
+    "40004": "quam",
+    "40005": "velit",
+    "50001": "quia",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/response_code</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>10001</code></td>
+<td>optional</td>
+<td>参数有误</td>
+</tr>
+<tr>
+<td><code>10003</code></td>
+<td>optional</td>
+<td>数据有误</td>
+</tr>
+<tr>
+<td><code>20001</code></td>
+<td>optional</td>
+<td>操作成功</td>
+</tr>
+<tr>
+<td><code>40001</code></td>
+<td>optional</td>
+<td>禁止访问</td>
+</tr>
+<tr>
+<td><code>40003</code></td>
+<td>optional</td>
+<td>权限不足</td>
+</tr>
+<tr>
+<td><code>40004</code></td>
+<td>optional</td>
+<td>查询为空</td>
+</tr>
+<tr>
+<td><code>40005</code></td>
+<td>optional</td>
+<td>请求过期</td>
+</tr>
+<tr>
+<td><code>50001</code></td>
+<td>optional</td>
+<td>操作失败</td>
+</tr>
+</tbody>
+</table>
+<!-- END_77797615aeaa4fce9a94150989aed46f -->
 <!-- START_a925a8d22b3615f12fca79456d286859 -->
 <h2>Get a JWT via given credentials.</h2>
 <p>通过登录信息获取JWT凭证</p>

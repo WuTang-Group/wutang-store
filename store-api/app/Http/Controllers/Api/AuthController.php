@@ -17,7 +17,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', ['except' => ['login','register']]);
     }
 
     /**
@@ -39,6 +39,11 @@ class AuthController extends Controller
             throw new HttpResponseException(ResponseData::dataError($request->all(), '用户名或密码有误'));
         }
         return $this->respondWithToken($token);
+    }
+
+    public function register(AuthRequest $request)
+    {
+        return 'test123';
     }
 
     /**

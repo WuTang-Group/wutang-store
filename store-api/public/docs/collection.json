@@ -1,0 +1,129 @@
+{
+    "variables": [],
+    "info": {
+        "name": "WuTangStore API",
+        "_postman_id": "3fdca4cd-848c-4cf5-a0fc-3132863dfe63",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "general",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get a JWT via given credentials.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "store.wutang.com",
+                            "path": "api\/auth\/login",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "\u901a\u8fc7\u767b\u5f55\u4fe1\u606f\u83b7\u53d6JWT\u51ed\u8bc1",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Log the user out (Invalidate the token).",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "store.wutang.com",
+                            "path": "api\/auth\/logout",
+                            "query": []
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "\u6ce8\u9500\u7528\u6237",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Refresh a token.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "store.wutang.com",
+                            "path": "api\/auth\/refresh",
+                            "query": []
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "\u5237\u65b0token",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get the authenticated User.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "store.wutang.com",
+                            "path": "api\/auth\/me",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "\u83b7\u53d6\u901a\u8fc7\u8eab\u4efd\u9a8c\u8bc1\u7684\u7528\u6237",
+                        "response": []
+                    }
+                }
+            ]
+        }
+    ]
+}

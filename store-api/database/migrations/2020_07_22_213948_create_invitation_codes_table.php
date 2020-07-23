@@ -15,6 +15,12 @@ class CreateInvitationCodesTable extends Migration
     {
         Schema::create('invitation_codes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('code')->comment('邀请码');
+            $table->integer('status')->default(1)->comment('启用状态:1可用,-1不可用');
+            $table->unsignedBigInteger('user_id')->index()->comment('邀请码制作者');
+            $table->integer('usage_limit')->default(999)->comment('使用次数上限');
+            $table->unsignedInteger('usage_times')->default(0)->comment('当前使用次数');
+            $table->timestamp('valid_until')->comment('有效期至');
             $table->timestamps();
         });
     }

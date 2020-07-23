@@ -16,7 +16,7 @@ class CaptchaRequest extends FormRequest
     public function rules()
     {
         return [
-            'username' => 'required|string'
+            //
         ];
     }
 }

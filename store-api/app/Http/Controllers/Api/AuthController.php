@@ -82,7 +82,7 @@ class AuthController extends Controller
      */
     public function me()
     {
-        return response()->json(ResponseData::requestSuccess(auth('api')->user()));
+        return response()->json(ResponseData::requestSuccess($this->userInfo()));
     }
 
     /**

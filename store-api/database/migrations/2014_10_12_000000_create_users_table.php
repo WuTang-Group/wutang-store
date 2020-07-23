@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->string('invitation_code')->comment('用户被邀请的邀请码');
             $table->integer('status')->default(1)->comment('账号状态');
+            $table->string('avatar')->nullable()->comment('用户头像');
             $table->timestamps();
         });
     }

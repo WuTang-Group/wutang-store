@@ -27,10 +27,13 @@ class AuthRequest extends FormRequest
             case 'register':
             {
                 return [
-                    'username'=>'required|string',
+                    'name' => 'required',
+                    'username'=>['required','min:6','regex:/^(([0-9])|([a-z])|([a-z]+[0-9]+)|([0-9]+[a-z]+))[a-z0-9]*$/i'],
                     'password'=>'required|alpha_dash|min:6|confirmed',
                     'password_confirmation' => 'required|same:password',
-                    'invitation_code' => 'required|string'
+                    'invitation_code' => 'required|string',
+                    'captcha_key' => 'required|string',
+                    'captcha_code' => 'required|string'
                 ];
             }
         }

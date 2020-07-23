@@ -31,7 +31,7 @@ Welcome to the generated API reference.
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/response_code?10001=ex&10003=incidunt&20001=maiores&40001=quibusdam&40003=dignissimos&40004=et&40005=quia&50001=tempore" \
+    -G "http://store.wutang.com/api/response_code?10001=veniam&10003=nobis&20001=illo&40001=voluptates&40003=porro&40004=expedita&40005=perferendis&50001=facere" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -42,14 +42,14 @@ const url = new URL(
 );
 
 let params = {
-    "10001": "ex",
-    "10003": "incidunt",
-    "20001": "maiores",
-    "40001": "quibusdam",
-    "40003": "dignissimos",
-    "40004": "et",
-    "40005": "quia",
-    "50001": "tempore",
+    "10001": "veniam",
+    "10003": "nobis",
+    "20001": "illo",
+    "40001": "voluptates",
+    "40003": "porro",
+    "40004": "expedita",
+    "40005": "perferendis",
+    "50001": "facere",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -95,7 +95,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/api/captchas?username=quia" \
+    "http://store.wutang.com/api/captchas?username=aut" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -106,7 +106,7 @@ const url = new URL(
 );
 
 let params = {
-    "username": "quia",
+    "username": "aut",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -138,12 +138,13 @@ Parameter | Status | Description
 <!-- END_3266c06bb58be7f09822eec02a02823c -->
 
 <!-- START_2e1c96dcffcfe7e0eb58d6408f1d619e -->
-## api/auth/register
+## Register user
+
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/api/auth/register" \
+    "http://store.wutang.com/api/auth/register?name=in&username=omnis&password=aliquid&password_confirmation=error&invitation_code=nihil&captcha_key=minima&captcha_code=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -152,6 +153,18 @@ curl -X POST \
 const url = new URL(
     "http://store.wutang.com/api/auth/register"
 );
+
+let params = {
+    "name": "in",
+    "username": "omnis",
+    "password": "aliquid",
+    "password_confirmation": "error",
+    "invitation_code": "nihil",
+    "captcha_key": "minima",
+    "captcha_code": "et",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -171,8 +184,63 @@ fetch(url, {
 ### HTTP Request
 `POST api/auth/register`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `name` |  required  | 姓名
+    `username` |  required  | 账号(允许:英文字符/数字/字符+数字)
+    `password` |  required  | 密码
+    `password_confirmation` |  required  | 确认密码
+    `invitation_code` |  required  | 邀请码
+    `captcha_key` |  required  | 验证码的key
+    `captcha_code` |  required  | 验证码的code
 
 <!-- END_2e1c96dcffcfe7e0eb58d6408f1d619e -->
+
+<!-- START_0bef4e738c9d6720ad43b062015d1078 -->
+## api/test
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://store.wutang.com/api/test" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://store.wutang.com/api/test"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": []
+}
+```
+
+### HTTP Request
+`GET api/test`
+
+
+<!-- END_0bef4e738c9d6720ad43b062015d1078 -->
 
 <!-- START_a925a8d22b3615f12fca79456d286859 -->
 ## Get a JWT via given credentials.

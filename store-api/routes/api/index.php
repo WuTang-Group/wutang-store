@@ -15,6 +15,8 @@ Route::middleware('throttle:' . config('api.rate_limits.sign'))
         Route::post('captchas', 'CaptchaController@store')->name('captchas.store');
         // 用户注册
         Route::post('auth/register', 'AuthController@register')->name('auth.register');
+        // 测试路由
+        Route::get('test','UserController@test');
     });
 
 /**

@@ -1,8 +1,8 @@
 {
     "variables": [],
     "info": {
-        "name": "WuTangStore API",
-        "_postman_id": "bc63b3f7-86dd-4322-b020-d3b27f7616bc",
+        "name": "Laravel API",
+        "_postman_id": "4a0519b9-7bdb-4f11-83ae-b07acb30cc23",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -16,54 +16,54 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/response_code",
                             "query": [
                                 {
                                     "key": 10001,
-                                    "value": "aliquid",
+                                    "value": "aut",
                                     "description": "\u53c2\u6570\u6709\u8bef",
                                     "disabled": false
                                 },
                                 {
                                     "key": 10003,
-                                    "value": "velit",
+                                    "value": "molestias",
                                     "description": "\u6570\u636e\u6709\u8bef",
                                     "disabled": false
                                 },
                                 {
                                     "key": 20001,
-                                    "value": "qui",
+                                    "value": "eos",
                                     "description": "\u64cd\u4f5c\u6210\u529f",
                                     "disabled": false
                                 },
                                 {
                                     "key": 40001,
-                                    "value": "saepe",
+                                    "value": "delectus",
                                     "description": "\u7981\u6b62\u8bbf\u95ee",
                                     "disabled": false
                                 },
                                 {
                                     "key": 40003,
-                                    "value": "et",
+                                    "value": "saepe",
                                     "description": "\u6743\u9650\u4e0d\u8db3",
                                     "disabled": false
                                 },
                                 {
                                     "key": 40004,
-                                    "value": "tempora",
+                                    "value": "nobis",
                                     "description": "\u67e5\u8be2\u4e3a\u7a7a",
                                     "disabled": false
                                 },
                                 {
                                     "key": 40005,
-                                    "value": "dolore",
+                                    "value": "atque",
                                     "description": "\u8bf7\u6c42\u8fc7\u671f",
                                     "disabled": false
                                 },
                                 {
                                     "key": 50001,
-                                    "value": "aspernatur",
+                                    "value": "fugit",
                                     "description": "\u64cd\u4f5c\u5931\u8d25",
                                     "disabled": false
                                 }
@@ -93,12 +93,12 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/captchas",
                             "query": [
                                 {
                                     "key": "username",
-                                    "value": "recusandae",
+                                    "value": "reiciendis",
                                     "description": "\u7528\u6237\u540d",
                                     "disabled": false
                                 }
@@ -128,48 +128,48 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/auth\/register",
                             "query": [
                                 {
                                     "key": "name",
-                                    "value": "voluptatibus",
+                                    "value": "perspiciatis",
                                     "description": "\u59d3\u540d",
                                     "disabled": false
                                 },
                                 {
                                     "key": "username",
-                                    "value": "expedita",
+                                    "value": "numquam",
                                     "description": "\u8d26\u53f7(\u5141\u8bb8:\u82f1\u6587\u5b57\u7b26\/\u6570\u5b57\/\u5b57\u7b26+\u6570\u5b57)",
                                     "disabled": false
                                 },
                                 {
                                     "key": "password",
-                                    "value": "saepe",
+                                    "value": "totam",
                                     "description": "\u5bc6\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "password_confirmation",
-                                    "value": "impedit",
+                                    "value": "tempore",
                                     "description": "\u786e\u8ba4\u5bc6\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "invitation_code",
-                                    "value": "doloribus",
+                                    "value": "quasi",
                                     "description": "\u9080\u8bf7\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "captcha_key",
-                                    "value": "quae",
+                                    "value": "libero",
                                     "description": "\u9a8c\u8bc1\u7801\u7684key",
                                     "disabled": false
                                 },
                                 {
                                     "key": "captcha_code",
-                                    "value": "aliquid",
+                                    "value": "aut",
                                     "description": "\u9a8c\u8bc1\u7801\u7684code",
                                     "disabled": false
                                 }
@@ -199,7 +199,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/auth\/login",
                             "query": []
                         },
@@ -227,7 +227,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/auth\/logout",
                             "query": []
                         },
@@ -255,7 +255,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/auth\/refresh",
                             "query": []
                         },
@@ -283,7 +283,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/auth\/me",
                             "query": []
                         },
@@ -307,11 +307,180 @@
                     }
                 },
                 {
+                    "name": "Query user list\n\u67e5\u8be2\u7528\u6237\u6570\u636e\u5217\u8868",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/user_info",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "autem",
+                                    "description": "option \u9875\u7801\uff0c\u9ed8\u8ba41",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page_limit",
+                                    "value": "nam",
+                                    "description": "option \u6bcf\u9875\u6570\u91cf\uff0c\u9ed8\u8ba420",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Edit user\n\u4fee\u6539\u7528\u6237\u8d44\u6599",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/user_info\/:username",
+                            "query": [
+                                {
+                                    "key": "name",
+                                    "value": "quisquam",
+                                    "description": "option \u59d3\u540d",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "sunt",
+                                    "description": "option \u90ae\u7bb1",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "phone",
+                                    "value": "quidem",
+                                    "description": "option \u624b\u673a\u53f7",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "avatar",
+                                    "value": "qui",
+                                    "description": "option \u5934\u50cf",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "delete User\n\u5220\u9664\u7528\u6237",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/user_info\/:username",
+                            "query": []
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "change password\n\u4fee\u6539\u5bc6\u7801",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/user\/password\/:username",
+                            "query": [
+                                {
+                                    "key": "oldPassword",
+                                    "value": "aut",
+                                    "description": "\u65e7\u5bc6\u7801",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "newPassword",
+                                    "value": "labore",
+                                    "description": "\u65b0\u5bc6\u7801",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "newPassword_confirmation",
+                                    "value": "qui",
+                                    "description": "\u786e\u8ba4\u5bc6\u7801",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
                     "name": "Query user address list\n \u7528\u6237\u5730\u5740\u5217\u8868",
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/user_addresses",
                             "query": []
                         },
@@ -339,48 +508,48 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/user_addresses",
                             "query": [
                                 {
                                     "key": "province",
-                                    "value": "possimus",
+                                    "value": "quam",
                                     "description": "\u7701",
                                     "disabled": false
                                 },
                                 {
                                     "key": "city",
-                                    "value": "et",
+                                    "value": "porro",
                                     "description": "\u5e02",
                                     "disabled": false
                                 },
                                 {
                                     "key": "district",
-                                    "value": "perferendis",
+                                    "value": "omnis",
                                     "description": "\u533a",
                                     "disabled": false
                                 },
                                 {
                                     "key": "address",
-                                    "value": "ea",
+                                    "value": "pariatur",
                                     "description": "\u8be6\u7ec6\u5730\u5740",
                                     "disabled": false
                                 },
                                 {
                                     "key": "zip",
-                                    "value": "reprehenderit",
+                                    "value": "aut",
                                     "description": "\u90ae\u7f16",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contact_name",
-                                    "value": "eos",
+                                    "value": "commodi",
                                     "description": "\u8054\u7cfb\u4eba",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contact_phone",
-                                    "value": "eos",
+                                    "value": "quae",
                                     "description": "\u624b\u673a\u53f7",
                                     "disabled": false
                                 }
@@ -410,54 +579,54 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/user_addresses\/:address_id",
                             "query": [
                                 {
                                     "key": "address_id",
-                                    "value": "repellat",
+                                    "value": "et",
                                     "description": "address\u8868id",
                                     "disabled": false
                                 },
                                 {
                                     "key": "province",
-                                    "value": "voluptas",
+                                    "value": "minima",
                                     "description": "\u7701",
                                     "disabled": false
                                 },
                                 {
                                     "key": "city",
-                                    "value": "corrupti",
+                                    "value": "ut",
                                     "description": "\u5e02",
                                     "disabled": false
                                 },
                                 {
                                     "key": "district",
-                                    "value": "ut",
+                                    "value": "accusantium",
                                     "description": "\u533a",
                                     "disabled": false
                                 },
                                 {
                                     "key": "address",
-                                    "value": "natus",
+                                    "value": "porro",
                                     "description": "\u8be6\u7ec6\u5730\u5740",
                                     "disabled": false
                                 },
                                 {
                                     "key": "zip",
-                                    "value": "quia",
+                                    "value": "ea",
                                     "description": "\u90ae\u7f16",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contact_name",
-                                    "value": "eos",
+                                    "value": "beatae",
                                     "description": "\u8054\u7cfb\u4eba",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contact_phone",
-                                    "value": "ut",
+                                    "value": "minus",
                                     "description": "\u624b\u673a\u53f7",
                                     "disabled": false
                                 }
@@ -487,12 +656,12 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/user_addresses\/:address_id",
                             "query": [
                                 {
                                     "key": "address_id",
-                                    "value": "delectus",
+                                    "value": "necessitatibus",
                                     "description": "address\u8868id",
                                     "disabled": false
                                 }
@@ -522,7 +691,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/user_profiles",
                             "query": []
                         },
@@ -550,12 +719,12 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/user_profiles\/:profile_id",
                             "query": [
                                 {
                                     "key": "profie_id",
-                                    "value": "quisquam",
+                                    "value": "amet",
                                     "description": "profile\u8868id",
                                     "disabled": false
                                 }
@@ -585,12 +754,12 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/user_profiles\/:profile",
                             "query": [
                                 {
                                     "key": "profile_id",
-                                    "value": "hic",
+                                    "value": "qui",
                                     "description": "profile\u8868id",
                                     "disabled": false
                                 }

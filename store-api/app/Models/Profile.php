@@ -15,8 +15,8 @@ class Profile extends Model
         return $this->belongsTo(User::class);
     }
     // 格式化性别输出
-    public function getSexAttribute()
-    {
-        return $this->attributes['sex'] === 1 ? '男' : '女';
-    }
+//    public function getSexAttribute()
+//    {
+//        return $this->attributes['sex'] === 1 ? '男' : '女';
+//    }
 }

@@ -44,11 +44,17 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         // 获取登录用户信息
         Route::get('auth/me', 'AuthController@me')->name('auth.me');
         /**
-         * User route
+         * User address
          */
         Route::get('user_addresses', 'UserAddressController@list')->name('user_addresses.list');
         Route::post('user_addresses','UserAddressController@store')->name('user_addresses.store');
         Route::put('user_addresses/{address_id}','UserAddressController@update')->name('user_addresses.update');
         Route::delete('user_addresses/{address_id}','UserAddressController@destroy')->name('user_addresses.destroy');
+        /**
+         * User profile
+         */
+        Route::get('user_profiles', 'UserProfileController@list')->name('user_profiles.list');
+        Route::put('user_profiles/{profile_id}','UserProfileController@update')->name('user_profiles.update');
+        Route::delete('user_profiles/{profile}','UserProfileController@destroy')->name('user_profiles.destroy');
     });
 });

@@ -37,4 +37,28 @@ class UserAddressService extends Service
         }
         return $user;
     }
+
+    public function update($address_id,$queries)
+    {
+        try {
+            $userAddress = $this->userAddress->find($address_id);
+            $userAddress->update($queries);
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            return false;
+        }
+        return $userAddress;
+    }
+
+    public function destroy($queries)
+    {
+        try {
+            $userAddress = $this->userAddress->find($queries);
+            $userAddress->delete();
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            return false;
+        }
+        return $queries;
+    }
 }

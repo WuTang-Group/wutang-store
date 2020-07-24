@@ -21,7 +21,6 @@ class CreateProfilesTable extends Migration
             $table->integer('sex')->default(1)->comment('性别,1男,0女,-1其他');
             $table->timestamp('birthday')->nullable()->comment('出生年月日');
             $table->string('age')->nullable()->comment('年龄');
-            $table->string('address')->nullable()->comment('住址');
             $table->timestamps();
         });
     }

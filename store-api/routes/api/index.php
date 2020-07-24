@@ -46,6 +46,7 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         /**
          * User route
          */
-        Route::get('address', 'UserAddressController@list')->name('address.list');
+        Route::get('user_addresses', 'UserAddressController@list')->name('user_addresses.list');
+        Route::post('user_addresses','UserAddressController@store')->name('user_addresses.store');
     });
 });

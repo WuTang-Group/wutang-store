@@ -57,4 +57,47 @@ class UserAddressController extends Controller
         $results = $this->service->store($requestData);
         return $results ? response(ResponseData::requestSuccess($results)) : response(ResponseData::requestFails($requestData));
     }
+
+    /**
+     * Update user address
+     * 编辑用户地址
+     * @queryParam address_id required address表id
+     * @queryParam province required 省
+     * @queryParam city required 市
+     * @queryParam district required 区
+     * @queryParam address required 详细地址
+     * @queryParam zip required 邮编
+     * @queryParam contact_name required 联系人
+     * @queryParam contact_phone required 手机号
+     * @param $address_id
+     * @param UserAddressRequest $request
+     * @return Application|ResponseFactory|Response
+     */
+    public function update($address_id,UserAddressRequest $request)
+    {
+        $requestData = $request->only([
+            'province',
+            'city',
+            'district',
+            'address',
+            'zip',
+            'contact_name',
+            'contact_phone',
+        ]);
+        $results = $this->service->update($address_id,$requestData);
+        return $results ? response(ResponseData::requestSuccess($results)) : response(ResponseData::requestFails($requestData));
+    }
+
+    /**
+     * Destroy user address
+     * 删除用户地址
+     * @queryParam address_id required address表id
+     * @param $address_id
+     * @return Application|ResponseFactory|Response
+     */
+    public function destroy($address_id)
+    {
+        $results = $this->service->destroy($address_id);
+        return $results ? response(ResponseData::requestSuccess($results)) : response(ResponseData::requestFails());
+    }
 }

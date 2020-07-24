@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "WuTangStore API",
-        "_postman_id": "8bdf044b-1806-45cf-83d1-931205a33200",
+        "_postman_id": "32df9c34-cae5-4225-a28d-791dcb3f27dd",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -21,49 +21,49 @@
                             "query": [
                                 {
                                     "key": 10001,
-                                    "value": "ducimus",
+                                    "value": "assumenda",
                                     "description": "\u53c2\u6570\u6709\u8bef",
                                     "disabled": false
                                 },
                                 {
                                     "key": 10003,
-                                    "value": "quo",
+                                    "value": "tempore",
                                     "description": "\u6570\u636e\u6709\u8bef",
                                     "disabled": false
                                 },
                                 {
                                     "key": 20001,
-                                    "value": "dolore",
+                                    "value": "reprehenderit",
                                     "description": "\u64cd\u4f5c\u6210\u529f",
                                     "disabled": false
                                 },
                                 {
                                     "key": 40001,
-                                    "value": "id",
+                                    "value": "harum",
                                     "description": "\u7981\u6b62\u8bbf\u95ee",
                                     "disabled": false
                                 },
                                 {
                                     "key": 40003,
-                                    "value": "sunt",
+                                    "value": "nemo",
                                     "description": "\u6743\u9650\u4e0d\u8db3",
                                     "disabled": false
                                 },
                                 {
                                     "key": 40004,
-                                    "value": "molestias",
+                                    "value": "est",
                                     "description": "\u67e5\u8be2\u4e3a\u7a7a",
                                     "disabled": false
                                 },
                                 {
                                     "key": 40005,
-                                    "value": "vel",
+                                    "value": "deleniti",
                                     "description": "\u8bf7\u6c42\u8fc7\u671f",
                                     "disabled": false
                                 },
                                 {
                                     "key": 50001,
-                                    "value": "libero",
+                                    "value": "consequatur",
                                     "description": "\u64cd\u4f5c\u5931\u8d25",
                                     "disabled": false
                                 }
@@ -98,7 +98,7 @@
                             "query": [
                                 {
                                     "key": "username",
-                                    "value": "repellat",
+                                    "value": "molestiae",
                                     "description": "\u7528\u6237\u540d",
                                     "disabled": false
                                 }
@@ -133,43 +133,43 @@
                             "query": [
                                 {
                                     "key": "name",
-                                    "value": "fugit",
+                                    "value": "dolor",
                                     "description": "\u59d3\u540d",
                                     "disabled": false
                                 },
                                 {
                                     "key": "username",
-                                    "value": "magnam",
+                                    "value": "eveniet",
                                     "description": "\u8d26\u53f7(\u5141\u8bb8:\u82f1\u6587\u5b57\u7b26\/\u6570\u5b57\/\u5b57\u7b26+\u6570\u5b57)",
                                     "disabled": false
                                 },
                                 {
                                     "key": "password",
-                                    "value": "maxime",
+                                    "value": "qui",
                                     "description": "\u5bc6\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "password_confirmation",
-                                    "value": "cumque",
+                                    "value": "quo",
                                     "description": "\u786e\u8ba4\u5bc6\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "invitation_code",
-                                    "value": "eum",
+                                    "value": "sed",
                                     "description": "\u9080\u8bf7\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "captcha_key",
-                                    "value": "soluta",
+                                    "value": "assumenda",
                                     "description": "\u9a8c\u8bc1\u7801\u7684key",
                                     "disabled": false
                                 },
                                 {
                                     "key": "captcha_code",
-                                    "value": "et",
+                                    "value": "assumenda",
                                     "description": "\u9a8c\u8bc1\u7801\u7684code",
                                     "disabled": false
                                 }
@@ -344,49 +344,161 @@
                             "query": [
                                 {
                                     "key": "province",
-                                    "value": "possimus",
+                                    "value": "magnam",
                                     "description": "\u7701",
                                     "disabled": false
                                 },
                                 {
                                     "key": "city",
-                                    "value": "aut",
+                                    "value": "nihil",
                                     "description": "\u5e02",
                                     "disabled": false
                                 },
                                 {
                                     "key": "district",
-                                    "value": "sunt",
+                                    "value": "assumenda",
                                     "description": "\u533a",
                                     "disabled": false
                                 },
                                 {
                                     "key": "address",
-                                    "value": "inventore",
+                                    "value": "animi",
                                     "description": "\u8be6\u7ec6\u5730\u5740",
                                     "disabled": false
                                 },
                                 {
                                     "key": "zip",
-                                    "value": "ad",
+                                    "value": "deserunt",
                                     "description": "\u90ae\u7f16",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contact_name",
-                                    "value": "et",
+                                    "value": "quia",
                                     "description": "\u8054\u7cfb\u4eba",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contact_phone",
-                                    "value": "occaecati",
+                                    "value": "magni",
                                     "description": "\u624b\u673a\u53f7",
                                     "disabled": false
                                 }
                             ]
                         },
                         "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update user address\n\u7f16\u8f91\u7528\u6237\u5730\u5740",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "store.wutang.com",
+                            "path": "api\/user_addresses\/:address_id",
+                            "query": [
+                                {
+                                    "key": "address_id",
+                                    "value": "quis",
+                                    "description": "address\u8868id",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "province",
+                                    "value": "molestias",
+                                    "description": "\u7701",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "city",
+                                    "value": "non",
+                                    "description": "\u5e02",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "district",
+                                    "value": "veniam",
+                                    "description": "\u533a",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "address",
+                                    "value": "corrupti",
+                                    "description": "\u8be6\u7ec6\u5730\u5740",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "zip",
+                                    "value": "cumque",
+                                    "description": "\u90ae\u7f16",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "contact_name",
+                                    "value": "magnam",
+                                    "description": "\u8054\u7cfb\u4eba",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "contact_phone",
+                                    "value": "corporis",
+                                    "description": "\u624b\u673a\u53f7",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Destroy user address\n\u5220\u9664\u7528\u6237\u5730\u5740",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "store.wutang.com",
+                            "path": "api\/user_addresses\/:address_id",
+                            "query": [
+                                {
+                                    "key": "address_id",
+                                    "value": "labore",
+                                    "description": "address\u8868id",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
                         "header": [
                             {
                                 "key": "Content-Type",

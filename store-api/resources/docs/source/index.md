@@ -31,7 +31,7 @@ Welcome to the generated API reference.
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/response_code?10001=ducimus&10003=quo&20001=dolore&40001=id&40003=sunt&40004=molestias&40005=vel&50001=libero" \
+    -G "http://store.wutang.com/api/response_code?10001=assumenda&10003=tempore&20001=reprehenderit&40001=harum&40003=nemo&40004=est&40005=deleniti&50001=consequatur" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -42,14 +42,14 @@ const url = new URL(
 );
 
 let params = {
-    "10001": "ducimus",
-    "10003": "quo",
-    "20001": "dolore",
-    "40001": "id",
-    "40003": "sunt",
-    "40004": "molestias",
-    "40005": "vel",
-    "50001": "libero",
+    "10001": "assumenda",
+    "10003": "tempore",
+    "20001": "reprehenderit",
+    "40001": "harum",
+    "40003": "nemo",
+    "40004": "est",
+    "40005": "deleniti",
+    "50001": "consequatur",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -95,7 +95,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/api/captchas?username=repellat" \
+    "http://store.wutang.com/api/captchas?username=molestiae" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -106,7 +106,7 @@ const url = new URL(
 );
 
 let params = {
-    "username": "repellat",
+    "username": "molestiae",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -144,7 +144,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/api/auth/register?name=fugit&username=magnam&password=maxime&password_confirmation=cumque&invitation_code=eum&captcha_key=soluta&captcha_code=et" \
+    "http://store.wutang.com/api/auth/register?name=dolor&username=eveniet&password=qui&password_confirmation=quo&invitation_code=sed&captcha_key=assumenda&captcha_code=assumenda" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -155,13 +155,13 @@ const url = new URL(
 );
 
 let params = {
-    "name": "fugit",
-    "username": "magnam",
-    "password": "maxime",
-    "password_confirmation": "cumque",
-    "invitation_code": "eum",
-    "captcha_key": "soluta",
-    "captcha_code": "et",
+    "name": "dolor",
+    "username": "eveniet",
+    "password": "qui",
+    "password_confirmation": "quo",
+    "invitation_code": "sed",
+    "captcha_key": "assumenda",
+    "captcha_code": "assumenda",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -418,7 +418,7 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/api/user_addresses?province=possimus&city=aut&district=sunt&address=inventore&zip=ad&contact_name=et&contact_phone=occaecati" \
+    "http://store.wutang.com/api/user_addresses?province=magnam&city=nihil&district=assumenda&address=animi&zip=deserunt&contact_name=quia&contact_phone=magni" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -429,13 +429,13 @@ const url = new URL(
 );
 
 let params = {
-    "province": "possimus",
-    "city": "aut",
-    "district": "sunt",
-    "address": "inventore",
-    "zip": "ad",
-    "contact_name": "et",
-    "contact_phone": "occaecati",
+    "province": "magnam",
+    "city": "nihil",
+    "district": "assumenda",
+    "address": "animi",
+    "zip": "deserunt",
+    "contact_name": "quia",
+    "contact_phone": "magni",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -471,5 +471,119 @@ Parameter | Status | Description
     `contact_phone` |  required  | 手机号
 
 <!-- END_ea009b31c2e7270334c8f572f3ad4561 -->
+
+<!-- START_58d901fe49390c7afe94755dd24b0c3c -->
+## Update user address
+编辑用户地址
+
+> Example request:
+
+```bash
+curl -X PUT \
+    "http://store.wutang.com/api/user_addresses/1?address_id=quis&province=molestias&city=non&district=veniam&address=corrupti&zip=cumque&contact_name=magnam&contact_phone=corporis" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://store.wutang.com/api/user_addresses/1"
+);
+
+let params = {
+    "address_id": "quis",
+    "province": "molestias",
+    "city": "non",
+    "district": "veniam",
+    "address": "corrupti",
+    "zip": "cumque",
+    "contact_name": "magnam",
+    "contact_phone": "corporis",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`PUT api/user_addresses/{address_id}`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `address_id` |  required  | address表id
+    `province` |  required  | 省
+    `city` |  required  | 市
+    `district` |  required  | 区
+    `address` |  required  | 详细地址
+    `zip` |  required  | 邮编
+    `contact_name` |  required  | 联系人
+    `contact_phone` |  required  | 手机号
+
+<!-- END_58d901fe49390c7afe94755dd24b0c3c -->
+
+<!-- START_afef23553387f635192dbbac6f4f2675 -->
+## Destroy user address
+删除用户地址
+
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://store.wutang.com/api/user_addresses/1?address_id=labore" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://store.wutang.com/api/user_addresses/1"
+);
+
+let params = {
+    "address_id": "labore",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`DELETE api/user_addresses/{address_id}`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `address_id` |  required  | address表id
+
+<!-- END_afef23553387f635192dbbac6f4f2675 -->
 
 

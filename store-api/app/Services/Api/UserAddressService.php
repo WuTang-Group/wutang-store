@@ -4,6 +4,7 @@ namespace App\Services\Api;
 use App\Enums\Roles;
 use App\Models\UserAddress;
 use App\Services\Service;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 class UserAddressService extends Service
@@ -28,6 +29,12 @@ class UserAddressService extends Service
 
     public function store($queries)
     {
-
+        try {
+            $user = $this->user()->addresses()->create($queries);
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            return false;
+        }
+        return $user;
     }
 }

@@ -34,7 +34,7 @@ class UserProfileController extends Controller
     /**
      * Update user profile
      * 编辑用户资料
-     * @queryParam profie_id required profile表id
+     * @queryParam profile_id required profile表id
      * @param $profile_id
      * @param UserProfileRequest $request
      * @return Application|ResponseFactory|Response

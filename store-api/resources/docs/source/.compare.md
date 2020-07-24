@@ -31,7 +31,7 @@ Welcome to the generated API reference.
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/response_code?10001=similique&10003=et&20001=quia&40001=molestiae&40003=deleniti&40004=ea&40005=assumenda&50001=ut" \
+    -G "http://store.wutang.com/api/response_code?10001=ducimus&10003=quo&20001=dolore&40001=id&40003=sunt&40004=molestias&40005=vel&50001=libero" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -42,14 +42,14 @@ const url = new URL(
 );
 
 let params = {
-    "10001": "similique",
-    "10003": "et",
-    "20001": "quia",
-    "40001": "molestiae",
-    "40003": "deleniti",
-    "40004": "ea",
-    "40005": "assumenda",
-    "50001": "ut",
+    "10001": "ducimus",
+    "10003": "quo",
+    "20001": "dolore",
+    "40001": "id",
+    "40003": "sunt",
+    "40004": "molestias",
+    "40005": "vel",
+    "50001": "libero",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -95,7 +95,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/api/captchas?username=odit" \
+    "http://store.wutang.com/api/captchas?username=repellat" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -106,7 +106,7 @@ const url = new URL(
 );
 
 let params = {
-    "username": "odit",
+    "username": "repellat",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -144,7 +144,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/api/auth/register?name=laudantium&username=sapiente&password=quia&password_confirmation=non&invitation_code=consequatur&captcha_key=repellat&captcha_code=quia" \
+    "http://store.wutang.com/api/auth/register?name=fugit&username=magnam&password=maxime&password_confirmation=cumque&invitation_code=eum&captcha_key=soluta&captcha_code=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -155,13 +155,13 @@ const url = new URL(
 );
 
 let params = {
-    "name": "laudantium",
-    "username": "sapiente",
-    "password": "quia",
-    "password_confirmation": "non",
-    "invitation_code": "consequatur",
-    "captcha_key": "repellat",
-    "captcha_code": "quia",
+    "name": "fugit",
+    "username": "magnam",
+    "password": "maxime",
+    "password_confirmation": "cumque",
+    "invitation_code": "eum",
+    "captcha_key": "soluta",
+    "captcha_code": "et",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -364,5 +364,112 @@ fetch(url, {
 
 
 <!-- END_7c4c8c21aa8bf7ffa0ae617fb274806d -->
+
+<!-- START_157e0e734e5b19915b7f41bafbe39486 -->
+## Query user address list
+ 用户地址列表
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://store.wutang.com/api/user_addresses" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://store.wutang.com/api/user_addresses"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+
+### HTTP Request
+`GET api/user_addresses`
+
+
+<!-- END_157e0e734e5b19915b7f41bafbe39486 -->
+
+<!-- START_ea009b31c2e7270334c8f572f3ad4561 -->
+## Create user address
+
+> Example request:
+
+```bash
+curl -X POST \
+    "http://store.wutang.com/api/user_addresses?province=possimus&city=aut&district=sunt&address=inventore&zip=ad&contact_name=et&contact_phone=occaecati" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://store.wutang.com/api/user_addresses"
+);
+
+let params = {
+    "province": "possimus",
+    "city": "aut",
+    "district": "sunt",
+    "address": "inventore",
+    "zip": "ad",
+    "contact_name": "et",
+    "contact_phone": "occaecati",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/user_addresses`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `province` |  required  | 省
+    `city` |  required  | 市
+    `district` |  required  | 区
+    `address` |  required  | 详细地址
+    `zip` |  required  | 邮编
+    `contact_name` |  required  | 联系人
+    `contact_phone` |  required  | 手机号
+
+<!-- END_ea009b31c2e7270334c8f572f3ad4561 -->
 
 

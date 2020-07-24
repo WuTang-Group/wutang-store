@@ -56,7 +56,7 @@
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/response_code?10001=similique&amp;10003=et&amp;20001=quia&amp;40001=molestiae&amp;40003=deleniti&amp;40004=ea&amp;40005=assumenda&amp;50001=ut" \
+    -G "http://store.wutang.com/api/response_code?10001=ducimus&amp;10003=quo&amp;20001=dolore&amp;40001=id&amp;40003=sunt&amp;40004=molestias&amp;40005=vel&amp;50001=libero" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -64,14 +64,14 @@
 );
 
 let params = {
-    "10001": "similique",
-    "10003": "et",
-    "20001": "quia",
-    "40001": "molestiae",
-    "40003": "deleniti",
-    "40004": "ea",
-    "40005": "assumenda",
-    "50001": "ut",
+    "10001": "ducimus",
+    "10003": "quo",
+    "20001": "dolore",
+    "40001": "id",
+    "40003": "sunt",
+    "40004": "molestias",
+    "40005": "vel",
+    "50001": "libero",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -149,7 +149,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://store.wutang.com/api/captchas?username=odit" \
+    "http://store.wutang.com/api/captchas?username=repellat" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -157,7 +157,7 @@ fetch(url, {
 );
 
 let params = {
-    "username": "odit",
+    "username": "repellat",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -199,7 +199,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://store.wutang.com/api/auth/register?name=laudantium&amp;username=sapiente&amp;password=quia&amp;password_confirmation=non&amp;invitation_code=consequatur&amp;captcha_key=repellat&amp;captcha_code=quia" \
+    "http://store.wutang.com/api/auth/register?name=fugit&amp;username=magnam&amp;password=maxime&amp;password_confirmation=cumque&amp;invitation_code=eum&amp;captcha_key=soluta&amp;captcha_code=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -207,13 +207,13 @@ fetch(url, {
 );
 
 let params = {
-    "name": "laudantium",
-    "username": "sapiente",
-    "password": "quia",
-    "password_confirmation": "non",
-    "invitation_code": "consequatur",
-    "captcha_key": "repellat",
-    "captcha_code": "quia",
+    "name": "fugit",
+    "username": "magnam",
+    "password": "maxime",
+    "password_confirmation": "cumque",
+    "invitation_code": "eum",
+    "captcha_key": "soluta",
+    "captcha_code": "et",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -397,6 +397,126 @@ fetch(url, {
 <h3>HTTP Request</h3>
 <p><code>GET api/auth/me</code></p>
 <!-- END_7c4c8c21aa8bf7ffa0ae617fb274806d -->
+<!-- START_157e0e734e5b19915b7f41bafbe39486 -->
+<h2>Query user address list</h2>
+<p>用户地址列表</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://store.wutang.com/api/user_addresses" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://store.wutang.com/api/user_addresses"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/user_addresses</code></p>
+<!-- END_157e0e734e5b19915b7f41bafbe39486 -->
+<!-- START_ea009b31c2e7270334c8f572f3ad4561 -->
+<h2>Create user address</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://store.wutang.com/api/user_addresses?province=possimus&amp;city=aut&amp;district=sunt&amp;address=inventore&amp;zip=ad&amp;contact_name=et&amp;contact_phone=occaecati" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://store.wutang.com/api/user_addresses"
+);
+
+let params = {
+    "province": "possimus",
+    "city": "aut",
+    "district": "sunt",
+    "address": "inventore",
+    "zip": "ad",
+    "contact_name": "et",
+    "contact_phone": "occaecati",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/user_addresses</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>province</code></td>
+<td>required</td>
+<td>省</td>
+</tr>
+<tr>
+<td><code>city</code></td>
+<td>required</td>
+<td>市</td>
+</tr>
+<tr>
+<td><code>district</code></td>
+<td>required</td>
+<td>区</td>
+</tr>
+<tr>
+<td><code>address</code></td>
+<td>required</td>
+<td>详细地址</td>
+</tr>
+<tr>
+<td><code>zip</code></td>
+<td>required</td>
+<td>邮编</td>
+</tr>
+<tr>
+<td><code>contact_name</code></td>
+<td>required</td>
+<td>联系人</td>
+</tr>
+<tr>
+<td><code>contact_phone</code></td>
+<td>required</td>
+<td>手机号</td>
+</tr>
+</tbody>
+</table>
+<!-- END_ea009b31c2e7270334c8f572f3ad4561 -->
       </div>
       <div class="dark-box">
                         <div class="lang-selector">

@@ -31,6 +31,18 @@ class UserAddressController extends Controller
         return response(ResponseData::requestSuccess($this->service->list($requestData)));
     }
 
+    /**
+     * Create user address
+     * @queryParam province required 省
+     * @queryParam city required 市
+     * @queryParam district required 区
+     * @queryParam address required 详细地址
+     * @queryParam zip required 邮编
+     * @queryParam contact_name required 联系人
+     * @queryParam contact_phone required 手机号
+     * @param UserAddressRequest $request
+     * @return Application|ResponseFactory|Response
+     */
     public function store(UserAddressRequest $request)
     {
         $requestData = $request->only([
@@ -42,5 +54,7 @@ class UserAddressController extends Controller
             'contact_name',
             'contact_phone',
         ]);
+        $results = $this->service->store($requestData);
+        return $results ? response(ResponseData::requestSuccess($results)) : response(ResponseData::requestFails($requestData));
     }
 }

@@ -48,5 +48,7 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
          */
         Route::get('user_addresses', 'UserAddressController@list')->name('user_addresses.list');
         Route::post('user_addresses','UserAddressController@store')->name('user_addresses.store');
+        Route::put('user_addresses/{address_id}','UserAddressController@update')->name('user_addresses.update');
+        Route::delete('user_addresses/{address_id}','UserAddressController@destroy')->name('user_addresses.destroy');
     });
 });

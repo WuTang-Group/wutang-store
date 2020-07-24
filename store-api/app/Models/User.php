@@ -62,6 +62,15 @@ class User extends Authenticatable implements JWTSubject
     }
 
     /**
+     * 一对一关联用户资料模型
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
+
+    /**
      * 一对多关联地址模型
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

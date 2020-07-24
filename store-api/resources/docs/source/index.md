@@ -31,7 +31,7 @@ Welcome to the generated API reference.
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/response_code?10001=assumenda&10003=tempore&20001=reprehenderit&40001=harum&40003=nemo&40004=est&40005=deleniti&50001=consequatur" \
+    -G "http://store.wutang.com/api/response_code?10001=aliquid&10003=velit&20001=qui&40001=saepe&40003=et&40004=tempora&40005=dolore&50001=aspernatur" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -42,14 +42,14 @@ const url = new URL(
 );
 
 let params = {
-    "10001": "assumenda",
-    "10003": "tempore",
-    "20001": "reprehenderit",
-    "40001": "harum",
-    "40003": "nemo",
-    "40004": "est",
-    "40005": "deleniti",
-    "50001": "consequatur",
+    "10001": "aliquid",
+    "10003": "velit",
+    "20001": "qui",
+    "40001": "saepe",
+    "40003": "et",
+    "40004": "tempora",
+    "40005": "dolore",
+    "50001": "aspernatur",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -95,7 +95,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/api/captchas?username=molestiae" \
+    "http://store.wutang.com/api/captchas?username=recusandae" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -106,7 +106,7 @@ const url = new URL(
 );
 
 let params = {
-    "username": "molestiae",
+    "username": "recusandae",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -144,7 +144,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/api/auth/register?name=dolor&username=eveniet&password=qui&password_confirmation=quo&invitation_code=sed&captcha_key=assumenda&captcha_code=assumenda" \
+    "http://store.wutang.com/api/auth/register?name=voluptatibus&username=expedita&password=saepe&password_confirmation=impedit&invitation_code=doloribus&captcha_key=quae&captcha_code=aliquid" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -155,13 +155,13 @@ const url = new URL(
 );
 
 let params = {
-    "name": "dolor",
-    "username": "eveniet",
-    "password": "qui",
-    "password_confirmation": "quo",
-    "invitation_code": "sed",
-    "captcha_key": "assumenda",
-    "captcha_code": "assumenda",
+    "name": "voluptatibus",
+    "username": "expedita",
+    "password": "saepe",
+    "password_confirmation": "impedit",
+    "invitation_code": "doloribus",
+    "captcha_key": "quae",
+    "captcha_code": "aliquid",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -418,7 +418,7 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/api/user_addresses?province=magnam&city=nihil&district=assumenda&address=animi&zip=deserunt&contact_name=quia&contact_phone=magni" \
+    "http://store.wutang.com/api/user_addresses?province=possimus&city=et&district=perferendis&address=ea&zip=reprehenderit&contact_name=eos&contact_phone=eos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -429,13 +429,13 @@ const url = new URL(
 );
 
 let params = {
-    "province": "magnam",
-    "city": "nihil",
-    "district": "assumenda",
-    "address": "animi",
-    "zip": "deserunt",
-    "contact_name": "quia",
-    "contact_phone": "magni",
+    "province": "possimus",
+    "city": "et",
+    "district": "perferendis",
+    "address": "ea",
+    "zip": "reprehenderit",
+    "contact_name": "eos",
+    "contact_phone": "eos",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -480,7 +480,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/api/user_addresses/1?address_id=quis&province=molestias&city=non&district=veniam&address=corrupti&zip=cumque&contact_name=magnam&contact_phone=corporis" \
+    "http://store.wutang.com/api/user_addresses/1?address_id=repellat&province=voluptas&city=corrupti&district=ut&address=natus&zip=quia&contact_name=eos&contact_phone=ut" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -491,14 +491,14 @@ const url = new URL(
 );
 
 let params = {
-    "address_id": "quis",
-    "province": "molestias",
-    "city": "non",
-    "district": "veniam",
-    "address": "corrupti",
-    "zip": "cumque",
-    "contact_name": "magnam",
-    "contact_phone": "corporis",
+    "address_id": "repellat",
+    "province": "voluptas",
+    "city": "corrupti",
+    "district": "ut",
+    "address": "natus",
+    "zip": "quia",
+    "contact_name": "eos",
+    "contact_phone": "ut",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -544,7 +544,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X DELETE \
-    "http://store.wutang.com/api/user_addresses/1?address_id=labore" \
+    "http://store.wutang.com/api/user_addresses/1?address_id=delectus" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -555,7 +555,7 @@ const url = new URL(
 );
 
 let params = {
-    "address_id": "labore",
+    "address_id": "delectus",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -585,5 +585,151 @@ Parameter | Status | Description
     `address_id` |  required  | address表id
 
 <!-- END_afef23553387f635192dbbac6f4f2675 -->
+
+<!-- START_0dfc43254177dc34e3f52ec8dd6ee2bd -->
+## User profile list
+用户资料信息
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://store.wutang.com/api/user_profiles" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://store.wutang.com/api/user_profiles"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+
+### HTTP Request
+`GET api/user_profiles`
+
+
+<!-- END_0dfc43254177dc34e3f52ec8dd6ee2bd -->
+
+<!-- START_b246eeb9e5b21565d6ab47d209bae638 -->
+## Update user profile
+编辑用户资料
+
+> Example request:
+
+```bash
+curl -X PUT \
+    "http://store.wutang.com/api/user_profiles/1?profie_id=quisquam" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://store.wutang.com/api/user_profiles/1"
+);
+
+let params = {
+    "profie_id": "quisquam",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`PUT api/user_profiles/{profile_id}`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `profie_id` |  required  | profile表id
+
+<!-- END_b246eeb9e5b21565d6ab47d209bae638 -->
+
+<!-- START_b349ce30d75353e0df82af17d0bb98d2 -->
+## Destroy user profile
+删除用户资料
+
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://store.wutang.com/api/user_profiles/1?profile_id=hic" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://store.wutang.com/api/user_profiles/1"
+);
+
+let params = {
+    "profile_id": "hic",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`DELETE api/user_profiles/{profile}`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `profile_id` |  required  | profile表id
+
+<!-- END_b349ce30d75353e0df82af17d0bb98d2 -->
 
 

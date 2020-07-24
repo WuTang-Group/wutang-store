@@ -17,6 +17,7 @@ class UserAddressRequest extends FormRequest
     {
         switch ($this->route()->getActionMethod())
         {
+            case 'update':
             case 'store':
             {
                 return [
@@ -27,6 +28,12 @@ class UserAddressRequest extends FormRequest
                     'zip'           => 'required',
                     'contact_name'  => 'required',
                     'contact_phone' => 'required',
+                ];
+            }
+            case 'destroy':
+            {
+                return [
+                    'id' => 'required'
                 ];
             }
         }

@@ -56,7 +56,7 @@
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/response_code?10001=veniam&amp;10003=nobis&amp;20001=illo&amp;40001=voluptates&amp;40003=porro&amp;40004=expedita&amp;40005=perferendis&amp;50001=facere" \
+    -G "http://store.wutang.com/api/response_code?10001=similique&amp;10003=et&amp;20001=quia&amp;40001=molestiae&amp;40003=deleniti&amp;40004=ea&amp;40005=assumenda&amp;50001=ut" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -64,14 +64,14 @@
 );
 
 let params = {
-    "10001": "veniam",
-    "10003": "nobis",
-    "20001": "illo",
-    "40001": "voluptates",
-    "40003": "porro",
-    "40004": "expedita",
-    "40005": "perferendis",
-    "50001": "facere",
+    "10001": "similique",
+    "10003": "et",
+    "20001": "quia",
+    "40001": "molestiae",
+    "40003": "deleniti",
+    "40004": "ea",
+    "40005": "assumenda",
+    "50001": "ut",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -149,7 +149,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://store.wutang.com/api/captchas?username=aut" \
+    "http://store.wutang.com/api/captchas?username=odit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -157,7 +157,7 @@ fetch(url, {
 );
 
 let params = {
-    "username": "aut",
+    "username": "odit",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -199,7 +199,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://store.wutang.com/api/auth/register?name=in&amp;username=omnis&amp;password=aliquid&amp;password_confirmation=error&amp;invitation_code=nihil&amp;captcha_key=minima&amp;captcha_code=et" \
+    "http://store.wutang.com/api/auth/register?name=laudantium&amp;username=sapiente&amp;password=quia&amp;password_confirmation=non&amp;invitation_code=consequatur&amp;captcha_key=repellat&amp;captcha_code=quia" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -207,13 +207,13 @@ fetch(url, {
 );
 
 let params = {
-    "name": "in",
-    "username": "omnis",
-    "password": "aliquid",
-    "password_confirmation": "error",
-    "invitation_code": "nihil",
-    "captcha_key": "minima",
-    "captcha_code": "et",
+    "name": "laudantium",
+    "username": "sapiente",
+    "password": "quia",
+    "password_confirmation": "non",
+    "invitation_code": "consequatur",
+    "captcha_key": "repellat",
+    "captcha_code": "quia",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -279,39 +279,6 @@ fetch(url, {
 </tbody>
 </table>
 <!-- END_2e1c96dcffcfe7e0eb58d6408f1d619e -->
-<!-- START_0bef4e738c9d6720ad43b062015d1078 -->
-<h2>api/test</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/test" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"</code></pre>
-<pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/test"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response =&gt; response.json())
-    .then(json =&gt; console.log(json));</code></pre>
-<blockquote>
-<p>Example response (200):</p>
-</blockquote>
-<pre><code class="language-json">{
-    "data": []
-}</code></pre>
-<h3>HTTP Request</h3>
-<p><code>GET api/test</code></p>
-<!-- END_0bef4e738c9d6720ad43b062015d1078 -->
 <!-- START_a925a8d22b3615f12fca79456d286859 -->
 <h2>Get a JWT via given credentials.</h2>
 <p>通过登录信息获取JWT凭证</p>

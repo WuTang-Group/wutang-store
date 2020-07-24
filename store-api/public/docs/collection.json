@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "WuTangStore API",
-        "_postman_id": "c6b3d1bf-ef1f-441a-873f-bf92d6b55c6f",
+        "_postman_id": "4d845248-f0cf-46ed-9e02-e8bf4933b576",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -21,49 +21,49 @@
                             "query": [
                                 {
                                     "key": 10001,
-                                    "value": "veniam",
+                                    "value": "similique",
                                     "description": "\u53c2\u6570\u6709\u8bef",
                                     "disabled": false
                                 },
                                 {
                                     "key": 10003,
-                                    "value": "nobis",
+                                    "value": "et",
                                     "description": "\u6570\u636e\u6709\u8bef",
                                     "disabled": false
                                 },
                                 {
                                     "key": 20001,
-                                    "value": "illo",
+                                    "value": "quia",
                                     "description": "\u64cd\u4f5c\u6210\u529f",
                                     "disabled": false
                                 },
                                 {
                                     "key": 40001,
-                                    "value": "voluptates",
+                                    "value": "molestiae",
                                     "description": "\u7981\u6b62\u8bbf\u95ee",
                                     "disabled": false
                                 },
                                 {
                                     "key": 40003,
-                                    "value": "porro",
+                                    "value": "deleniti",
                                     "description": "\u6743\u9650\u4e0d\u8db3",
                                     "disabled": false
                                 },
                                 {
                                     "key": 40004,
-                                    "value": "expedita",
+                                    "value": "ea",
                                     "description": "\u67e5\u8be2\u4e3a\u7a7a",
                                     "disabled": false
                                 },
                                 {
                                     "key": 40005,
-                                    "value": "perferendis",
+                                    "value": "assumenda",
                                     "description": "\u8bf7\u6c42\u8fc7\u671f",
                                     "disabled": false
                                 },
                                 {
                                     "key": 50001,
-                                    "value": "facere",
+                                    "value": "ut",
                                     "description": "\u64cd\u4f5c\u5931\u8d25",
                                     "disabled": false
                                 }
@@ -98,7 +98,7 @@
                             "query": [
                                 {
                                     "key": "username",
-                                    "value": "aut",
+                                    "value": "odit",
                                     "description": "\u7528\u6237\u540d",
                                     "disabled": false
                                 }
@@ -133,77 +133,49 @@
                             "query": [
                                 {
                                     "key": "name",
-                                    "value": "in",
+                                    "value": "laudantium",
                                     "description": "\u59d3\u540d",
                                     "disabled": false
                                 },
                                 {
                                     "key": "username",
-                                    "value": "omnis",
+                                    "value": "sapiente",
                                     "description": "\u8d26\u53f7(\u5141\u8bb8:\u82f1\u6587\u5b57\u7b26\/\u6570\u5b57\/\u5b57\u7b26+\u6570\u5b57)",
                                     "disabled": false
                                 },
                                 {
                                     "key": "password",
-                                    "value": "aliquid",
+                                    "value": "quia",
                                     "description": "\u5bc6\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "password_confirmation",
-                                    "value": "error",
+                                    "value": "non",
                                     "description": "\u786e\u8ba4\u5bc6\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "invitation_code",
-                                    "value": "nihil",
+                                    "value": "consequatur",
                                     "description": "\u9080\u8bf7\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "captcha_key",
-                                    "value": "minima",
+                                    "value": "repellat",
                                     "description": "\u9a8c\u8bc1\u7801\u7684key",
                                     "disabled": false
                                 },
                                 {
                                     "key": "captcha_code",
-                                    "value": "et",
+                                    "value": "quia",
                                     "description": "\u9a8c\u8bc1\u7801\u7684code",
                                     "disabled": false
                                 }
                             ]
                         },
                         "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "api\/test",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "store.wutang.com",
-                            "path": "api\/test",
-                            "query": []
-                        },
-                        "method": "GET",
                         "header": [
                             {
                                 "key": "Content-Type",

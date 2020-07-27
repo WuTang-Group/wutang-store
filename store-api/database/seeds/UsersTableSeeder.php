@@ -14,9 +14,5 @@ class UsersTableSeeder extends Seeder
         $users = factory(\App\Models\User::class)->times(50)->make();
         \App\Models\User::insert($users->makeVisible(['password','remember_token'])->toArray());
 
-        $user = \App\Models\User::find(1);
-        $user->name = 'GabbyMrH';
-        $user->email = 'gabbymrh@gmail.com';
-        $user->save();
     }
 }

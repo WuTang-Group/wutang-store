@@ -6,6 +6,8 @@ use App\Exceptions\HttpResponseException;
 use App\Helpers\ResponseData;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\AuthRequest;
+use App\Models\User;
+use App\Services\Api\AuthService;
 
 class AuthController extends Controller
 {
@@ -17,33 +19,60 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login','register']]);
+        $this->middleware('auth:api', ['except' => ['login', 'register']]);
     }
 
     /**
      * Get a JWT via given credentials.
      * 通过登录信息获取JWT凭证
-     *
+     *@queryParam username required 用户名
+     *@queryParam password required 密码
      * @return \Illuminate\Http\JsonResponse
      * @throws HttpResponseException
      */
     public function login(AuthRequest $request)
     {
-        $username = $request->username;
-
-        // 允许以邮箱或手机号
-        filter_var($username, FILTER_VALIDATE_EMAIL) ? $credentials['email'] = $username : $credentials['phone'] = $username;
-        $credentials['password'] = $request->password;
-        $token = auth('api')->attempt($credentials);
+        $token = auth('api')->attempt($request->all());
         if (!$token) {
             throw new HttpResponseException(ResponseData::dataError($request->all(), '用户名或密码有误'));
         }
         return $this->respondWithToken($token);
     }
 
-    public function register(AuthRequest $request)
+    /**
+     * Register user
+     * @queryParam name required 姓名
+     * @queryParam username required 账号(允许:英文字符/数字/字符+数字)
+     * @queryParam password required 密码
+     * @queryParam password_confirmation required 确认密码
+     * @queryParam invitation_code required 邀请码
+     * @queryParam captcha_key required 验证码的key
+     * @queryParam captcha_code required 验证码的code
+     * @param AuthRequest $request
+     * @param AuthService $authService
+     * @return \Illuminate\Http\JsonResponse
+     * @throws HttpResponseException
+     */
+    public function register(AuthRequest $request, AuthService $authService)
     {
-        return 'test123';
+        $captchaData = \Cache::get($request->captcha_key);
+        if (!$captchaData) {
+            throw new HttpResponseException(ResponseData::dataError($request->captcha_code, '验证码无效'));
+        }
+        if (!hash_equals(strtolower($captchaData['code']), $request->captcha_code)) {
+            // 验证错误就清除缓存
+            \Cache::forget($request->captcha_key);
+            throw new HttpResponseException(ResponseData::dataError($request->captcha_code, '验证码错误'));
+        }
+        $user = User::whereUsername($request->username)->first();
+        if($user){
+            // 清除验证码缓存
+            \Cache::forget($request->captcha_key);
+            throw new HttpResponseException(ResponseData::requestDeny($request->username,'用户已存在'));
+        }
+        // 传参到service处理
+        $results = $authService->register($request->all());
+        return $results ? response()->json(ResponseData::requestSuccess($results)) : response()->json(ResponseData::requestFails());
     }
 
     /**
@@ -54,7 +83,7 @@ class AuthController extends Controller
      */
     public function me()
     {
-        return response()->json(ResponseData::requestSuccess(auth('api')->user()));
+        return response()->json(ResponseData::requestSuccess($this->userInfo()));
     }
 
     /**
@@ -67,7 +96,7 @@ class AuthController extends Controller
     {
         auth('api')->logout();
 
-        return response()->json(ResponseData::requestSuccess(null,'注销成功'));
+        return response()->json(ResponseData::requestSuccess(null, '注销成功'));
     }
 
     /**

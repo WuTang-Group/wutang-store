@@ -24,17 +24,19 @@ class UserController extends Controller
     /**
      * Query user list(Admin)
      * 查询用户数据列表
-     * @queryParam page option 页码，默认1
-     * @queryParam page_limit option 每页数量，默认20
+     * @queryParam username 用户名(选填)
+     * @queryParam page 页码，默认1
+     * @queryParam page_limit 每页数量，默认20
      * @return \Illuminate\Http\JsonResponse
      */
     public function list(Request $request)
     {
         $requestData = page_limit($request);
+        $queryParam = $request->only(['username']);
         // 管理员
         $userRoles = $this->user()->getRoleNames();
         if (Str::contains($userRoles, Roles::Admin)) {
-            $results = User::paginate($requestData['page_limit']);
+            $results = User::where($queryParam)->paginate($requestData['page_limit']);
             return response()->json(ResponseData::requestSuccess($results));
         } else {
             $res = User::whereId($this->user()->id)->get();
@@ -112,4 +114,5 @@ class UserController extends Controller
         }
 
     }
+
 }

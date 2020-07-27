@@ -31,7 +31,7 @@ Welcome to the generated API reference.
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/response_code?10001=recusandae&10003=laboriosam&20001=neque&40001=fugit&40003=quis&40004=occaecati&40005=expedita&50001=totam" \
+    -G "http://localhost/api/response_code?10001=sed&10003=aut&20001=eveniet&40001=ipsam&40003=inventore&40004=est&40005=recusandae&50001=totam" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -42,13 +42,13 @@ const url = new URL(
 );
 
 let params = {
-    "10001": "recusandae",
-    "10003": "laboriosam",
-    "20001": "neque",
-    "40001": "fugit",
-    "40003": "quis",
-    "40004": "occaecati",
-    "40005": "expedita",
+    "10001": "sed",
+    "10003": "aut",
+    "20001": "eveniet",
+    "40001": "ipsam",
+    "40003": "inventore",
+    "40004": "est",
+    "40005": "recusandae",
     "50001": "totam",
 };
 Object.keys(params)
@@ -95,7 +95,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/api/captchas?username=officiis" \
+    "http://localhost/api/captchas?username=velit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -106,7 +106,7 @@ const url = new URL(
 );
 
 let params = {
-    "username": "officiis",
+    "username": "velit",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -144,7 +144,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/api/auth/register?name=quis&username=et&password=debitis&password_confirmation=quo&invitation_code=eum&captcha_key=qui&captcha_code=esse" \
+    "http://localhost/api/auth/register?name=quod&username=ipsa&password=aut&password_confirmation=aut&invitation_code=possimus&captcha_key=provident&captcha_code=recusandae" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -155,13 +155,13 @@ const url = new URL(
 );
 
 let params = {
-    "name": "quis",
-    "username": "et",
-    "password": "debitis",
-    "password_confirmation": "quo",
-    "invitation_code": "eum",
-    "captcha_key": "qui",
-    "captcha_code": "esse",
+    "name": "quod",
+    "username": "ipsa",
+    "password": "aut",
+    "password_confirmation": "aut",
+    "invitation_code": "possimus",
+    "captcha_key": "provident",
+    "captcha_code": "recusandae",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -207,7 +207,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/api/auth/login" \
+    "http://localhost/api/auth/login?username=ratione&password=blanditiis" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -216,6 +216,13 @@ curl -X POST \
 const url = new URL(
     "http://localhost/api/auth/login"
 );
+
+let params = {
+    "username": "ratione",
+    "password": "blanditiis",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -235,6 +242,12 @@ fetch(url, {
 ### HTTP Request
 `POST api/auth/login`
 
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `username` |  required  | 用户名
+    `password` |  required  | 密码
 
 <!-- END_a925a8d22b3615f12fca79456d286859 -->
 
@@ -373,7 +386,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/user_info?page=voluptas&page_limit=distinctio" \
+    -G "http://localhost/api/user_info?username=cum&page=quia&page_limit=vero" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -384,8 +397,9 @@ const url = new URL(
 );
 
 let params = {
-    "page": "voluptas",
-    "page_limit": "distinctio",
+    "username": "cum",
+    "page": "quia",
+    "page_limit": "vero",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -419,8 +433,9 @@ fetch(url, {
 
 Parameter | Status | Description
 --------- | ------- | ------- | -----------
-    `page` |  optional  | option 页码，默认1
-    `page_limit` |  optional  | option 每页数量，默认20
+    `username` |  optional  | 用户名(选填)
+    `page` |  optional  | 页码，默认1
+    `page_limit` |  optional  | 每页数量，默认20
 
 <!-- END_8ea83200acfc1e23fd76db9cdafef002 -->
 
@@ -432,7 +447,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://localhost/api/user_info/1?name=ducimus&email=aut&phone=quia&avatar=quis" \
+    "http://localhost/api/user_info/1?name=autem&email=nisi&phone=distinctio&avatar=commodi" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -443,10 +458,10 @@ const url = new URL(
 );
 
 let params = {
-    "name": "ducimus",
-    "email": "aut",
-    "phone": "quia",
-    "avatar": "quis",
+    "name": "autem",
+    "email": "nisi",
+    "phone": "distinctio",
+    "avatar": "commodi",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -527,7 +542,7 @@ fetch(url, {
 
 ```bash
 curl -X PUT \
-    "http://localhost/api/user/password/1?oldPassword=sint&newPassword=dolor&newPassword_confirmation=et" \
+    "http://localhost/api/user/password/1?oldPassword=et&newPassword=hic&newPassword_confirmation=id" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -538,9 +553,9 @@ const url = new URL(
 );
 
 let params = {
-    "oldPassword": "sint",
-    "newPassword": "dolor",
-    "newPassword_confirmation": "et",
+    "oldPassword": "et",
+    "newPassword": "hic",
+    "newPassword_confirmation": "id",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -626,7 +641,7 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://localhost/api/user_addresses?province=nihil&city=corrupti&district=rem&address=consequatur&zip=quam&contact_name=sed&contact_phone=voluptatem" \
+    "http://localhost/api/user_addresses?province=consequatur&city=possimus&district=at&address=eligendi&zip=et&contact_name=cupiditate&contact_phone=voluptatem" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -637,12 +652,12 @@ const url = new URL(
 );
 
 let params = {
-    "province": "nihil",
-    "city": "corrupti",
-    "district": "rem",
-    "address": "consequatur",
-    "zip": "quam",
-    "contact_name": "sed",
+    "province": "consequatur",
+    "city": "possimus",
+    "district": "at",
+    "address": "eligendi",
+    "zip": "et",
+    "contact_name": "cupiditate",
     "contact_phone": "voluptatem",
 };
 Object.keys(params)
@@ -688,7 +703,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://localhost/api/user_addresses/1?address_id=neque&province=perspiciatis&city=similique&district=est&address=tempore&zip=qui&contact_name=voluptatem&contact_phone=repellendus" \
+    "http://localhost/api/user_addresses/1?address_id=possimus&province=doloribus&city=repellat&district=itaque&address=quas&zip=aut&contact_name=quia&contact_phone=dolorem" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -699,14 +714,14 @@ const url = new URL(
 );
 
 let params = {
-    "address_id": "neque",
-    "province": "perspiciatis",
-    "city": "similique",
-    "district": "est",
-    "address": "tempore",
-    "zip": "qui",
-    "contact_name": "voluptatem",
-    "contact_phone": "repellendus",
+    "address_id": "possimus",
+    "province": "doloribus",
+    "city": "repellat",
+    "district": "itaque",
+    "address": "quas",
+    "zip": "aut",
+    "contact_name": "quia",
+    "contact_phone": "dolorem",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -752,7 +767,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X DELETE \
-    "http://localhost/api/user_addresses/1?address_id=aspernatur" \
+    "http://localhost/api/user_addresses/1?address_id=explicabo" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -763,7 +778,7 @@ const url = new URL(
 );
 
 let params = {
-    "address_id": "aspernatur",
+    "address_id": "explicabo",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -848,7 +863,7 @@ fetch(url, {
 
 ```bash
 curl -X PUT \
-    "http://localhost/api/user_profiles/1?profile_id=id" \
+    "http://localhost/api/user_profiles/1?profile_id=neque" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -859,7 +874,7 @@ const url = new URL(
 );
 
 let params = {
-    "profile_id": "id",
+    "profile_id": "neque",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -898,7 +913,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X DELETE \
-    "http://localhost/api/user_profiles/1?profile_id=delectus" \
+    "http://localhost/api/user_profiles/1?profile_id=eligendi" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -909,7 +924,7 @@ const url = new URL(
 );
 
 let params = {
-    "profile_id": "delectus",
+    "profile_id": "eligendi",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));

@@ -25,7 +25,8 @@ class AuthController extends Controller
     /**
      * Get a JWT via given credentials.
      * 通过登录信息获取JWT凭证
-     *
+     *@queryParam username required 用户名
+     *@queryParam password required 密码
      * @return \Illuminate\Http\JsonResponse
      * @throws HttpResponseException
      */

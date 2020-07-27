@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Services\Api\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 class UserController extends Controller
@@ -32,11 +33,16 @@ class UserController extends Controller
     public function list(Request $request)
     {
         $requestData = page_limit($request);
-        $queryParam = $request->only(['username']);
         // 管理员
         $userRoles = $this->user()->getRoleNames();
         if (Str::contains($userRoles, Roles::Admin)) {
-            $results = User::where($queryParam)->paginate($requestData['page_limit']);
+            if($requestData->username)
+            {
+                $results = User::where('username', $requestData->username)->paginate($requestData['page_limit']);
+            }else
+            {
+                $results = User::paginate($requestData['page_limit']);
+            }
             return response()->json(ResponseData::requestSuccess($results));
         } else {
             $res = User::whereId($this->user()->id)->get();
@@ -113,6 +119,28 @@ class UserController extends Controller
             return response()->json(ResponseData::paramError(null,'旧密码错误'));
         }
 
+    }
+
+    /**
+     * Get user info
+     * 获取单个用户信息
+     * @queryParam id required 用户主键ID
+     * @param UserRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function info(UserRequest $request)
+    {
+        $id = $request->id;
+        try
+        {
+            $res = $this->user()->find($id);
+            return response()->json(ResponseData::requestSuccess($res));
+        }
+        catch (\Exception $e)
+        {
+            Log::error($e);
+            return response()->json(ResponseData::paramError());
+        }
     }
 
 }

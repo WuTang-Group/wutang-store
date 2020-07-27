@@ -14,8 +14,14 @@ class UserRequest extends FormRequest
             {
                 return [
                     'oldPassword'=>'required',
-                    'newPassword'=>'required|required|alpha_dash|min:6|confirmed',
+                    'newPassword'=>'required|alpha_dash|min:6|confirmed',
                     'newPassword_confirmation' => 'required|same:newPassword',
+                ];
+            }
+            case 'info':
+            {
+                return [
+                    'id'=>'required'
                 ];
             }
         }

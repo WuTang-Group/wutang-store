@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "4a0519b9-7bdb-4f11-83ae-b07acb30cc23",
+        "_postman_id": "287278c4-b7a9-4274-9c3b-ca3277d36881",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -21,49 +21,49 @@
                             "query": [
                                 {
                                     "key": 10001,
-                                    "value": "aut",
+                                    "value": "recusandae",
                                     "description": "\u53c2\u6570\u6709\u8bef",
                                     "disabled": false
                                 },
                                 {
                                     "key": 10003,
-                                    "value": "molestias",
+                                    "value": "laboriosam",
                                     "description": "\u6570\u636e\u6709\u8bef",
                                     "disabled": false
                                 },
                                 {
                                     "key": 20001,
-                                    "value": "eos",
+                                    "value": "neque",
                                     "description": "\u64cd\u4f5c\u6210\u529f",
                                     "disabled": false
                                 },
                                 {
                                     "key": 40001,
-                                    "value": "delectus",
+                                    "value": "fugit",
                                     "description": "\u7981\u6b62\u8bbf\u95ee",
                                     "disabled": false
                                 },
                                 {
                                     "key": 40003,
-                                    "value": "saepe",
+                                    "value": "quis",
                                     "description": "\u6743\u9650\u4e0d\u8db3",
                                     "disabled": false
                                 },
                                 {
                                     "key": 40004,
-                                    "value": "nobis",
+                                    "value": "occaecati",
                                     "description": "\u67e5\u8be2\u4e3a\u7a7a",
                                     "disabled": false
                                 },
                                 {
                                     "key": 40005,
-                                    "value": "atque",
+                                    "value": "expedita",
                                     "description": "\u8bf7\u6c42\u8fc7\u671f",
                                     "disabled": false
                                 },
                                 {
                                     "key": 50001,
-                                    "value": "fugit",
+                                    "value": "totam",
                                     "description": "\u64cd\u4f5c\u5931\u8d25",
                                     "disabled": false
                                 }
@@ -98,7 +98,7 @@
                             "query": [
                                 {
                                     "key": "username",
-                                    "value": "reiciendis",
+                                    "value": "officiis",
                                     "description": "\u7528\u6237\u540d",
                                     "disabled": false
                                 }
@@ -133,43 +133,43 @@
                             "query": [
                                 {
                                     "key": "name",
-                                    "value": "perspiciatis",
+                                    "value": "quis",
                                     "description": "\u59d3\u540d",
                                     "disabled": false
                                 },
                                 {
                                     "key": "username",
-                                    "value": "numquam",
+                                    "value": "et",
                                     "description": "\u8d26\u53f7(\u5141\u8bb8:\u82f1\u6587\u5b57\u7b26\/\u6570\u5b57\/\u5b57\u7b26+\u6570\u5b57)",
                                     "disabled": false
                                 },
                                 {
                                     "key": "password",
-                                    "value": "totam",
+                                    "value": "debitis",
                                     "description": "\u5bc6\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "password_confirmation",
-                                    "value": "tempore",
+                                    "value": "quo",
                                     "description": "\u786e\u8ba4\u5bc6\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "invitation_code",
-                                    "value": "quasi",
+                                    "value": "eum",
                                     "description": "\u9080\u8bf7\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "captcha_key",
-                                    "value": "libero",
+                                    "value": "qui",
                                     "description": "\u9a8c\u8bc1\u7801\u7684key",
                                     "disabled": false
                                 },
                                 {
                                     "key": "captcha_code",
-                                    "value": "aut",
+                                    "value": "esse",
                                     "description": "\u9a8c\u8bc1\u7801\u7684code",
                                     "disabled": false
                                 }
@@ -307,7 +307,7 @@
                     }
                 },
                 {
-                    "name": "Query user list\n\u67e5\u8be2\u7528\u6237\u6570\u636e\u5217\u8868",
+                    "name": "Query user list(Admin)\n\u67e5\u8be2\u7528\u6237\u6570\u636e\u5217\u8868",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -316,13 +316,13 @@
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "autem",
+                                    "value": "voluptas",
                                     "description": "option \u9875\u7801\uff0c\u9ed8\u8ba41",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page_limit",
-                                    "value": "nam",
+                                    "value": "distinctio",
                                     "description": "option \u6bcf\u9875\u6570\u91cf\uff0c\u9ed8\u8ba420",
                                     "disabled": false
                                 }
@@ -348,7 +348,7 @@
                     }
                 },
                 {
-                    "name": "Edit user\n\u4fee\u6539\u7528\u6237\u8d44\u6599",
+                    "name": "Edit user(Admin)\n\u4fee\u6539\u7528\u6237\u8d44\u6599",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -357,26 +357,26 @@
                             "query": [
                                 {
                                     "key": "name",
-                                    "value": "quisquam",
-                                    "description": "option \u59d3\u540d",
+                                    "value": "ducimus",
+                                    "description": "\u59d3\u540d",
                                     "disabled": false
                                 },
                                 {
                                     "key": "email",
-                                    "value": "sunt",
-                                    "description": "option \u90ae\u7bb1",
+                                    "value": "aut",
+                                    "description": "\u90ae\u7bb1",
                                     "disabled": false
                                 },
                                 {
                                     "key": "phone",
-                                    "value": "quidem",
-                                    "description": "option \u624b\u673a\u53f7",
+                                    "value": "quia",
+                                    "description": "\u624b\u673a\u53f7",
                                     "disabled": false
                                 },
                                 {
                                     "key": "avatar",
-                                    "value": "qui",
-                                    "description": "option \u5934\u50cf",
+                                    "value": "quis",
+                                    "description": "\u5934\u50cf",
                                     "disabled": false
                                 }
                             ]
@@ -401,7 +401,7 @@
                     }
                 },
                 {
-                    "name": "delete User\n\u5220\u9664\u7528\u6237",
+                    "name": "delete User(Admin)\n\u5220\u9664\u7528\u6237",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -429,7 +429,7 @@
                     }
                 },
                 {
-                    "name": "change password\n\u4fee\u6539\u5bc6\u7801",
+                    "name": "change password(Admin)\n\u4fee\u6539\u5bc6\u7801",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -438,19 +438,19 @@
                             "query": [
                                 {
                                     "key": "oldPassword",
-                                    "value": "aut",
+                                    "value": "sint",
                                     "description": "\u65e7\u5bc6\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "newPassword",
-                                    "value": "labore",
+                                    "value": "dolor",
                                     "description": "\u65b0\u5bc6\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "newPassword_confirmation",
-                                    "value": "qui",
+                                    "value": "et",
                                     "description": "\u786e\u8ba4\u5bc6\u7801",
                                     "disabled": false
                                 }
@@ -513,43 +513,43 @@
                             "query": [
                                 {
                                     "key": "province",
-                                    "value": "quam",
+                                    "value": "nihil",
                                     "description": "\u7701",
                                     "disabled": false
                                 },
                                 {
                                     "key": "city",
-                                    "value": "porro",
+                                    "value": "corrupti",
                                     "description": "\u5e02",
                                     "disabled": false
                                 },
                                 {
                                     "key": "district",
-                                    "value": "omnis",
+                                    "value": "rem",
                                     "description": "\u533a",
                                     "disabled": false
                                 },
                                 {
                                     "key": "address",
-                                    "value": "pariatur",
+                                    "value": "consequatur",
                                     "description": "\u8be6\u7ec6\u5730\u5740",
                                     "disabled": false
                                 },
                                 {
                                     "key": "zip",
-                                    "value": "aut",
+                                    "value": "quam",
                                     "description": "\u90ae\u7f16",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contact_name",
-                                    "value": "commodi",
+                                    "value": "sed",
                                     "description": "\u8054\u7cfb\u4eba",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contact_phone",
-                                    "value": "quae",
+                                    "value": "voluptatem",
                                     "description": "\u624b\u673a\u53f7",
                                     "disabled": false
                                 }
@@ -584,49 +584,49 @@
                             "query": [
                                 {
                                     "key": "address_id",
-                                    "value": "et",
+                                    "value": "neque",
                                     "description": "address\u8868id",
                                     "disabled": false
                                 },
                                 {
                                     "key": "province",
-                                    "value": "minima",
+                                    "value": "perspiciatis",
                                     "description": "\u7701",
                                     "disabled": false
                                 },
                                 {
                                     "key": "city",
-                                    "value": "ut",
+                                    "value": "similique",
                                     "description": "\u5e02",
                                     "disabled": false
                                 },
                                 {
                                     "key": "district",
-                                    "value": "accusantium",
+                                    "value": "est",
                                     "description": "\u533a",
                                     "disabled": false
                                 },
                                 {
                                     "key": "address",
-                                    "value": "porro",
+                                    "value": "tempore",
                                     "description": "\u8be6\u7ec6\u5730\u5740",
                                     "disabled": false
                                 },
                                 {
                                     "key": "zip",
-                                    "value": "ea",
+                                    "value": "qui",
                                     "description": "\u90ae\u7f16",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contact_name",
-                                    "value": "beatae",
+                                    "value": "voluptatem",
                                     "description": "\u8054\u7cfb\u4eba",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contact_phone",
-                                    "value": "minus",
+                                    "value": "repellendus",
                                     "description": "\u624b\u673a\u53f7",
                                     "disabled": false
                                 }
@@ -661,7 +661,7 @@
                             "query": [
                                 {
                                     "key": "address_id",
-                                    "value": "necessitatibus",
+                                    "value": "aspernatur",
                                     "description": "address\u8868id",
                                     "disabled": false
                                 }
@@ -723,8 +723,8 @@
                             "path": "api\/user_profiles\/:profile_id",
                             "query": [
                                 {
-                                    "key": "profie_id",
-                                    "value": "amet",
+                                    "key": "profile_id",
+                                    "value": "id",
                                     "description": "profile\u8868id",
                                     "disabled": false
                                 }
@@ -759,7 +759,7 @@
                             "query": [
                                 {
                                     "key": "profile_id",
-                                    "value": "qui",
+                                    "value": "delectus",
                                     "description": "profile\u8868id",
                                     "disabled": false
                                 }

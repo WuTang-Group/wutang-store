@@ -112,6 +112,29 @@ export const asyncRoutes = [
   /** when your routing map is too long, you can split it into small modules **/
   ...routeModules,
 
+  {
+    path: '/center',
+    component: Layout,
+    redirect: '/center/modify',
+    alwaysShow: true,
+    name: 'Center',
+    meta: {
+      title: 'profile',
+      icon: 'lock'
+    },
+    children: [
+      {
+        path: 'modify',
+        component: () => import('@/views/center/modify'),
+        name: 'ModifyInfo',
+        meta: {
+          title: '修改密码',
+          icon: 'documentation'
+        }
+      }
+    ]
+  },
+
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]

@@ -26,6 +26,9 @@ class SeedRolesAndPermissionsData extends Migration
 
         // 创建管理员角色，并赋予权限
         $admin = Role::create(['name' => 'admin']);
+        // 创建前台用户角色以及访客角色
+        Role::create(['name' => 'customer']);
+        Role::create(['name' => 'visitor']);
         $admin->givePermissionTo('add_users');
         $admin->givePermissionTo('delete_users');
         $admin->givePermissionTo('edit_users');

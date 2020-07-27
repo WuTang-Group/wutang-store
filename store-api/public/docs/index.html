@@ -56,7 +56,7 @@
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost/api/response_code?10001=recusandae&amp;10003=laboriosam&amp;20001=neque&amp;40001=fugit&amp;40003=quis&amp;40004=occaecati&amp;40005=expedita&amp;50001=totam" \
+    -G "http://localhost/api/response_code?10001=sed&amp;10003=aut&amp;20001=eveniet&amp;40001=ipsam&amp;40003=inventore&amp;40004=est&amp;40005=recusandae&amp;50001=totam" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -64,13 +64,13 @@
 );
 
 let params = {
-    "10001": "recusandae",
-    "10003": "laboriosam",
-    "20001": "neque",
-    "40001": "fugit",
-    "40003": "quis",
-    "40004": "occaecati",
-    "40005": "expedita",
+    "10001": "sed",
+    "10003": "aut",
+    "20001": "eveniet",
+    "40001": "ipsam",
+    "40003": "inventore",
+    "40004": "est",
+    "40005": "recusandae",
     "50001": "totam",
 };
 Object.keys(params)
@@ -149,7 +149,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/api/captchas?username=officiis" \
+    "http://localhost/api/captchas?username=velit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -157,7 +157,7 @@ fetch(url, {
 );
 
 let params = {
-    "username": "officiis",
+    "username": "velit",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -199,7 +199,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/api/auth/register?name=quis&amp;username=et&amp;password=debitis&amp;password_confirmation=quo&amp;invitation_code=eum&amp;captcha_key=qui&amp;captcha_code=esse" \
+    "http://localhost/api/auth/register?name=quod&amp;username=ipsa&amp;password=aut&amp;password_confirmation=aut&amp;invitation_code=possimus&amp;captcha_key=provident&amp;captcha_code=recusandae" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -207,13 +207,13 @@ fetch(url, {
 );
 
 let params = {
-    "name": "quis",
-    "username": "et",
-    "password": "debitis",
-    "password_confirmation": "quo",
-    "invitation_code": "eum",
-    "captcha_key": "qui",
-    "captcha_code": "esse",
+    "name": "quod",
+    "username": "ipsa",
+    "password": "aut",
+    "password_confirmation": "aut",
+    "invitation_code": "possimus",
+    "captcha_key": "provident",
+    "captcha_code": "recusandae",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -286,12 +286,19 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/api/auth/login" \
+    "http://localhost/api/auth/login?username=ratione&amp;password=blanditiis" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/auth/login"
 );
+
+let params = {
+    "username": "ratione",
+    "password": "blanditiis",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -306,6 +313,28 @@ fetch(url, {
     .then(json =&gt; console.log(json));</code></pre>
 <h3>HTTP Request</h3>
 <p><code>POST api/auth/login</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>username</code></td>
+<td>required</td>
+<td>用户名</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>required</td>
+<td>密码</td>
+</tr>
+</tbody>
+</table>
 <!-- END_a925a8d22b3615f12fca79456d286859 -->
 <!-- START_b149d65d620129d1a17607c81a70c010 -->
 <h2>Log the user out (Invalidate the token).</h2>
@@ -404,7 +433,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost/api/user_info?page=voluptas&amp;page_limit=distinctio" \
+    -G "http://localhost/api/user_info?username=cum&amp;page=quia&amp;page_limit=vero" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -412,8 +441,9 @@ fetch(url, {
 );
 
 let params = {
-    "page": "voluptas",
-    "page_limit": "distinctio",
+    "username": "cum",
+    "page": "quia",
+    "page_limit": "vero",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -448,14 +478,19 @@ fetch(url, {
 </thead>
 <tbody>
 <tr>
+<td><code>username</code></td>
+<td>optional</td>
+<td>用户名(选填)</td>
+</tr>
+<tr>
 <td><code>page</code></td>
 <td>optional</td>
-<td>option 页码，默认1</td>
+<td>页码，默认1</td>
 </tr>
 <tr>
 <td><code>page_limit</code></td>
 <td>optional</td>
-<td>option 每页数量，默认20</td>
+<td>每页数量，默认20</td>
 </tr>
 </tbody>
 </table>
@@ -467,7 +502,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "http://localhost/api/user_info/1?name=ducimus&amp;email=aut&amp;phone=quia&amp;avatar=quis" \
+    "http://localhost/api/user_info/1?name=autem&amp;email=nisi&amp;phone=distinctio&amp;avatar=commodi" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -475,10 +510,10 @@ fetch(url, {
 );
 
 let params = {
-    "name": "ducimus",
-    "email": "aut",
-    "phone": "quia",
-    "avatar": "quis",
+    "name": "autem",
+    "email": "nisi",
+    "phone": "distinctio",
+    "avatar": "commodi",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -564,7 +599,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "http://localhost/api/user/password/1?oldPassword=sint&amp;newPassword=dolor&amp;newPassword_confirmation=et" \
+    "http://localhost/api/user/password/1?oldPassword=et&amp;newPassword=hic&amp;newPassword_confirmation=id" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -572,9 +607,9 @@ fetch(url, {
 );
 
 let params = {
-    "oldPassword": "sint",
-    "newPassword": "dolor",
-    "newPassword_confirmation": "et",
+    "oldPassword": "et",
+    "newPassword": "hic",
+    "newPassword_confirmation": "id",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -660,7 +695,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/api/user_addresses?province=nihil&amp;city=corrupti&amp;district=rem&amp;address=consequatur&amp;zip=quam&amp;contact_name=sed&amp;contact_phone=voluptatem" \
+    "http://localhost/api/user_addresses?province=consequatur&amp;city=possimus&amp;district=at&amp;address=eligendi&amp;zip=et&amp;contact_name=cupiditate&amp;contact_phone=voluptatem" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -668,12 +703,12 @@ fetch(url, {
 );
 
 let params = {
-    "province": "nihil",
-    "city": "corrupti",
-    "district": "rem",
-    "address": "consequatur",
-    "zip": "quam",
-    "contact_name": "sed",
+    "province": "consequatur",
+    "city": "possimus",
+    "district": "at",
+    "address": "eligendi",
+    "zip": "et",
+    "contact_name": "cupiditate",
     "contact_phone": "voluptatem",
 };
 Object.keys(params)
@@ -747,7 +782,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "http://localhost/api/user_addresses/1?address_id=neque&amp;province=perspiciatis&amp;city=similique&amp;district=est&amp;address=tempore&amp;zip=qui&amp;contact_name=voluptatem&amp;contact_phone=repellendus" \
+    "http://localhost/api/user_addresses/1?address_id=possimus&amp;province=doloribus&amp;city=repellat&amp;district=itaque&amp;address=quas&amp;zip=aut&amp;contact_name=quia&amp;contact_phone=dolorem" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -755,14 +790,14 @@ fetch(url, {
 );
 
 let params = {
-    "address_id": "neque",
-    "province": "perspiciatis",
-    "city": "similique",
-    "district": "est",
-    "address": "tempore",
-    "zip": "qui",
-    "contact_name": "voluptatem",
-    "contact_phone": "repellendus",
+    "address_id": "possimus",
+    "province": "doloribus",
+    "city": "repellat",
+    "district": "itaque",
+    "address": "quas",
+    "zip": "aut",
+    "contact_name": "quia",
+    "contact_phone": "dolorem",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -840,7 +875,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://localhost/api/user_addresses/1?address_id=aspernatur" \
+    "http://localhost/api/user_addresses/1?address_id=explicabo" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -848,7 +883,7 @@ fetch(url, {
 );
 
 let params = {
-    "address_id": "aspernatur",
+    "address_id": "explicabo",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -925,7 +960,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "http://localhost/api/user_profiles/1?profile_id=id" \
+    "http://localhost/api/user_profiles/1?profile_id=neque" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -933,7 +968,7 @@ fetch(url, {
 );
 
 let params = {
-    "profile_id": "id",
+    "profile_id": "neque",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -976,7 +1011,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://localhost/api/user_profiles/1?profile_id=delectus" \
+    "http://localhost/api/user_profiles/1?profile_id=eligendi" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -984,7 +1019,7 @@ fetch(url, {
 );
 
 let params = {
-    "profile_id": "delectus",
+    "profile_id": "eligendi",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));

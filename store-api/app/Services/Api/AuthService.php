@@ -1,6 +1,7 @@
 <?php
 namespace App\Services\Api;
 
+use App\Enums\Roles;
 use App\Models\InvitationCode;
 use App\Models\Profile;
 use App\Models\User;
@@ -33,6 +34,8 @@ class AuthService extends Service
                 InvitationCode::whereCode($queries['invitation_code'])->increment('usage_times');
                 // 清除验证码缓存
                 \Cache::forget($queries['captcha_key']);
+                // 默认分配注册用户customer角色
+                $user->assignRole(Roles::Customer);
                 // 用户注册成功自动在profile表新建占位数据行
                 Profile::create(['user_id'=>$user->id]);
             });

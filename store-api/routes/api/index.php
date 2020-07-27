@@ -54,6 +54,8 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         Route::delete('user_info/{username}', 'UserController@destroy')->name('user_info.destroy');
         // 修改密码
         Route::put('user/password/{username}', 'UserController@password')->name('user.password');
+        // 获取单个用户信息
+        Route::get('get_user', 'UserController@info')->name('user.info');
         /**
          * User address
          */

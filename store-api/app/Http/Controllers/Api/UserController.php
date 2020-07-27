@@ -22,7 +22,7 @@ class UserController extends Controller
     }
 
     /**
-     * Query user list
+     * Query user list(Admin)
      * 查询用户数据列表
      * @queryParam page option 页码，默认1
      * @queryParam page_limit option 每页数量，默认20
@@ -45,12 +45,12 @@ class UserController extends Controller
     }
 
     /**
-     * Edit user
+     * Edit user(Admin)
      * 修改用户资料
-     * @queryParam name option 姓名
-     * @queryParam email option 邮箱
-     * @queryParam phone option 手机号
-     * @queryParam avatar option 头像
+     * @queryParam name 姓名
+     * @queryParam email 邮箱
+     * @queryParam phone 手机号
+     * @queryParam avatar 头像
      * @param $username
      * @param UserRequest $request
      * @return \Illuminate\Http\JsonResponse
@@ -68,7 +68,7 @@ class UserController extends Controller
     }
 
     /**
-     * delete User
+     * delete User(Admin)
      * 删除用户
      * @param $username
      * @return \Illuminate\Http\JsonResponse
@@ -80,7 +80,7 @@ class UserController extends Controller
     }
 
     /**
-     * change password
+     * change password(Admin)
      * 修改密码
      * @queryParam oldPassword required 旧密码
      * @queryParam newPassword required 新密码

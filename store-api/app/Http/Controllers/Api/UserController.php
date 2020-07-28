@@ -38,10 +38,11 @@ class UserController extends Controller
         if (Str::contains($userRoles, Roles::Admin)) {
             if($requestData->username)
             {
-                $results = User::where('username', $requestData->username)->paginate($requestData['page_limit']);
+                $results = User::where('username', $requestData->username)
+                    ->where('status', 1)->paginate($requestData['page_limit']);
             }else
             {
-                $results = User::paginate($requestData['page_limit']);
+                $results = User::where('status', 1)->paginate($requestData['page_limit']);
             }
             return response()->json(ResponseData::requestSuccess($results));
         } else {

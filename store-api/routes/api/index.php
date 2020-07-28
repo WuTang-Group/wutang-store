@@ -69,5 +69,12 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         Route::get('user_profiles', 'UserProfileController@list')->name('user_profiles.list');
         Route::put('user_profiles/{profile_id}', 'UserProfileController@update')->name('user_profiles.update');
         Route::delete('user_profiles/{profile}', 'UserProfileController@destroy')->name('user_profiles.destroy');
+        /**
+         * invitation Code
+         */
+        Route::get('invitation/code', 'InvitationController@genInvitation');
+        Route::post('invitation/code', 'InvitationController@bindCode');
+        Route::get('invitation/phone', 'InvitationController@get_user');
     });
+
 });

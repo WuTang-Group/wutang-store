@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Helpers\ResponseData;
+use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\CaptchaRequest;
 use Gregwar\Captcha\CaptchaBuilder;

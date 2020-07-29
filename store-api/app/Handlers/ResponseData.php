@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Helpers;
+namespace App\Handlers;
 
 
 use App\Enums\ResponseStatusCode;

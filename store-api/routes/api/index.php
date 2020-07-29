@@ -17,7 +17,7 @@ Route::middleware('throttle:' . config('api.rate_limits.sign'))
         Route::post('auth/register', 'AuthController@register')->name('auth.register');
         // token无效或失效,针对处理该问题闭包路由
         Route::get('/unauthorized', function () {
-            return response()->json(\App\Helpers\ResponseData::tokenExpired());
+            return response()->json(\App\Handlers\ResponseData::tokenExpired());
         })->name('login');
         // 用户登录
         Route::post('auth/login', 'AuthController@login')->name('auth.login');

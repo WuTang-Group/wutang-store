@@ -225,8 +225,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        // 返回参数Facade别名
-        'ResponseData' => App\Helpers\Facades\ResponseDataFacades::class,
 
     ],
 

@@ -1,7 +1,10 @@
 # Official shop website of Wu Tang Group
 
 ## 📦扩展包说明
-* 2020-07-22 引入[regwar/captcha](https://github.com/Gregwar/Captcha) 作验证码处理
+* 2020-07-29 引入 [omnipay-unionpay](https://github.com/lokielse/omnipay-unionpay) 银联支付(由于使用三方支付，该包暂未启用)
+* 2020-07-29 引入 [laravel-omnipay](https://github.com/ignited/laravel-omnipay) 支付集成扩展包用于支付
+* 2020-07-29 引入 [iidestiny/laravel-filesystem-oss](https://github.com/iiDestiny/laravel-filesystem-oss) 作OSS处理
+* 2020-07-22 引入 [regwar/captcha](https://github.com/Gregwar/Captcha) 作验证码处理
 * 2020-07-22 引入 [laravel-apidoc-generator](https://github.com/mpociot/laravel-apidoc-generator) 作api文档管理
 * 2020-07-22 引入 [laravel-permission](https://github.com/spatie/laravel-permission) 作角色权限处理
 * 2020-07-21 引入 [predis](https://github.com/nrk/predis) 作redis客户端

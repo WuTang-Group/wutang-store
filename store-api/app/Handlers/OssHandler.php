@@ -17,7 +17,7 @@ class OssHandler
      * @param string $disk 盘名
      * @return bool|string[]
      */
-    public static function save($file, $ossFolder, $disk = 'oss')
+    public static function save($file, $ossFolder, $disk = 'aliyun')
     {
         try {
             $storage = Storage::disk($disk);
@@ -44,7 +44,7 @@ class OssHandler
      * @param string $disk  盘名
      * @return array|bool
      */
-    public static function delete($fileUrl, $disk = 'oss')
+    public static function delete($fileUrl, $disk = 'aliyun')
     {
         try {
             $storage = Storage::disk($disk);

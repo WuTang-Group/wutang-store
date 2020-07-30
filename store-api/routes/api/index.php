@@ -35,6 +35,16 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
     Route::middleware('auth:api')->group(function () {
 
         /**
+         * 银联支付路由
+         */
+        // 发起支付
+        Route::get('unionpay/pay','PaymentController@payByUnionpay')->name('unionpay.payByUnionpay');
+        // 支付后回调url
+        Route::post('unionpay/return','PaymentController@unionpayReturn')->name('unionpay.unionpayReturn');
+        // 支付后通知url
+        Route::post('unionpay/notify','PaymentController@unionpayNotify')->name('unionpay.unionpayNotify');
+
+        /**
          * auth route
          */
         // 退出登录

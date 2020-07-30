@@ -27,7 +27,7 @@ class OrderService extends Service
                         'status' => OrderStatusCode::StatusPending,
                         'payment_method' => 'unionpay',
                         'payment_no' => $queries['queryId'],
-                        'paid_at' => $queries['txnTime']
+                        'paid_at' => date('Y-m-d H:i:s',strtotime($queries['txnTime']))
                     ]);
                 }
             }

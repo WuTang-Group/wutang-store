@@ -23,7 +23,7 @@ return [
                 'certPassword' =>'000000',
                 'certDir'=>'/Users/gabbymrh/DevelopTools/union-pay-cert',
                 'returnUrl' => 'http://store.wutang.com/unionpay/return',
-                'notifyUrl' => 'dsadadas'
+                'notifyUrl' => 'http://store.wutang.com/unionpay/notify',
             ]
         ]
 	]

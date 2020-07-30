@@ -23,7 +23,12 @@ class OrderService extends Service
             switch ($queries['status']) {
                 case UnionPayCode::Success:
                 {
-                    $this->order->whereNo($queries['orderId'])->update(['status' => OrderStatusCode::StatusPending]);
+                    $this->order->whereNo($queries['orderId'])->update([
+                        'status' => OrderStatusCode::StatusPending,
+                        'payment_method' => 'unionpay',
+                        'payment_no' => $queries['queryId'],
+                        'paid_at' => $queries['txnTime']
+                    ]);
                 }
             }
         } catch (\Exception $e) {

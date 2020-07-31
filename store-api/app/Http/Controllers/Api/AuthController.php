@@ -41,6 +41,7 @@ class AuthController extends Controller
 
     /**
      * Register user
+     * 用户注册
      * @queryParam name required 姓名
      * @queryParam username required 账号(允许:英文字符/数字/字符+数字)
      * @queryParam password required 密码

@@ -21,7 +21,7 @@ class UserRequest extends FormRequest
             case 'info':
             {
                 return [
-                    'id'=>'required'
+                    'hash_id'=>'required'
                 ];
             }
         }

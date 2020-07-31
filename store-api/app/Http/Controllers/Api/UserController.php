@@ -6,8 +6,10 @@ use App\Enums\Roles;
 use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\UserRequest;
+use App\Models\Traits\HashIdHelper;
 use App\Models\User;
 use App\Services\Api\UserService;
+use Hashids;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -39,10 +41,10 @@ class UserController extends Controller
             if($requestData->username)
             {
                 $results = User::where('username', $requestData->username)
-                    ->where('status', 1)->paginate($requestData['page_limit']);
+                    ->active()->paginate($requestData['page_limit']);
             }else
             {
-                $results = User::where('status', 1)->paginate($requestData['page_limit']);
+                $results = User::active()->paginate($requestData['page_limit']);
             }
             return response()->json(ResponseData::requestSuccess($results));
         } else {
@@ -125,13 +127,13 @@ class UserController extends Controller
     /**
      * Get user info
      * 获取单个用户信息
-     * @queryParam id required 用户主键ID
+     * @queryParam hash_id required hash加密的ID
      * @param UserRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function info(UserRequest $request)
     {
-        $id = $request->id;
+        $id = Hashids::decode($request->hash_id)[0];
         try
         {
             $res = $this->user()->find($id);
@@ -143,5 +145,4 @@ class UserController extends Controller
             return response()->json(ResponseData::paramError());
         }
     }
-
 }

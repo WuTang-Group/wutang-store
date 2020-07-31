@@ -45,7 +45,6 @@ class AuthController extends Controller
      * @queryParam username required 账号(允许:英文字符/数字/字符+数字)
      * @queryParam password required 密码
      * @queryParam password_confirmation required 确认密码
-     * @queryParam invitation_code required 邀请码
      * @queryParam captcha_key required 验证码的key
      * @queryParam captcha_code required 验证码的code
      * @param AuthRequest $request

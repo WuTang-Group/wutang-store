@@ -41,30 +41,36 @@ Route::group(['middleware' => ['web']], function () use ($router) {
 	Route::get('cart', 'ShoppingController@cart');*/
 	Route::get('wishlist', function () { return view('wishlist'); });
 	Route::get('cart', function () { return view('cart'); });
+});
 
-	Route::group(['prefix' => 'the-brand'], function () use ($router) {
-		Route::get('/', function () { return view('the-brand.index'); });
-		Route::get('story', function () { return view('the-brand.story'); });
-		Route::get('queen-spades-and-you', function () { return view('the-brand.queen-spades-and-you'); });
-		Route::get('start-from-your-inner-skin', function () { return view('the-brand.start-from-your-inner-skin'); });
-	});
+Route::group(['prefix' => 'the-brand'], function () use ($router) {
+	Route::get('/', function () { return view('the-brand.index'); });
+	Route::get('story', function () { return view('the-brand.story'); });
+	Route::get('queen-spades-and-you', function () { return view('the-brand.queen-spades-and-you'); });
+	Route::get('start-from-your-inner-skin', function () { return view('the-brand.start-from-your-inner-skin'); });
+});
 
-	Route::group(['prefix' => 'product-idea'], function () use ($router) {
-		Route::get('/', function () { return view('product-idea.index'); });
-		Route::get('lithotherapy-technology', function () { return view('product-idea.lithotherapy-technology'); });
-		Route::get('queen-spades-and-you', function () { return view('product-idea.queen-spades-and-you'); });
-		Route::get('arts', function () { return view('product-idea.arts'); });
-	});
+Route::group(['prefix' => 'product-idea'], function () use ($router) {
+	Route::get('/', function () { return view('product-idea.index'); });
+	Route::get('lithotherapy-technology', function () { return view('product-idea.lithotherapy-technology'); });
+	Route::get('queen-spades-and-you', function () { return view('product-idea.queen-spades-and-you'); });
+	Route::get('arts', function () { return view('product-idea.arts'); });
+});
 
-	Route::group(['prefix' => 'the-house'], function () use ($router) {
-		Route::get('/', 'TheHouseController@index');
-		Route::get('{slug}', 'TheHouseController@show');
-	});
+Route::group(['prefix' => 'the-house'], function () use ($router) {
+	Route::get('/', 'TheHouseController@index');
+	Route::get('{slug}', 'TheHouseController@show');
+});
 
-	Route::get('e-boutique-services', function () { return view('others.e-boutique-services'); });
-	Route::get('contact-us', function () { return view('others.contact-us'); });
-	Route::get('customer-services', function () { return view('others.customer-services'); });
-	Route::get('shipping', function () { return view('others.shipping'); });
-	Route::get('privacy-policy', function () { return view('others.privacy-policy'); });
-	Route::get('terms-and-conditions', function () { return view('others.terms-and-conditions'); });
+Route::get('e-boutique-services', function () { return view('others.e-boutique-services'); });
+Route::get('contact-us', function () { return view('others.contact-us'); });
+Route::get('customer-services', function () { return view('others.customer-services'); });
+Route::get('shipping', function () { return view('others.shipping'); });
+Route::get('privacy-policy', function () { return view('others.privacy-policy'); });
+Route::get('terms-and-conditions', function () { return view('others.terms-and-conditions'); });
+
+Route::get('test',function(){
+//    $data = ResponseData::paramError('123','456');
+//    return $data;
+    throw new \App\Exceptions\HttpResponseException(ResponseData::tokenExpired('123','456'));
 });

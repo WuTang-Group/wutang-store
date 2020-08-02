@@ -13,7 +13,6 @@ class CaptchaController extends Controller
     /**
      * Generate captcha code and save to cache
      * 生成验证码并写入缓存
-     * @queryParam username required 用户名
      * @param CaptchaBuilder $captchaBuilder
      * @return \Illuminate\Http\JsonResponse
      */
@@ -21,7 +20,7 @@ class CaptchaController extends Controller
     {
         $key = 'captcha-'.Str::random(15);
         $captcha = $captchaBuilder->build();
-        $expiredAt = now()->addMinutes(3);  // 3分钟有效期
+        $expiredAt = now()->addMinutes(15);  //15分钟有效期
         \Cache::put($key, ['code'=>strtolower($captcha->getPhrase()),$expiredAt]);
 
         $result = [

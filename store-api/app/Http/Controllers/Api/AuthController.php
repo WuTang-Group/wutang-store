@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\AuthRequest;
 use App\Models\User;
 use App\Services\Api\AuthService;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
@@ -19,7 +21,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login', 'register', 'questions']]);
+        $this->middleware('auth:api', ['except' => ['login', 'register', 'questions', 'get_question']]);
     }
 
     /**
@@ -135,6 +137,20 @@ class AuthController extends Controller
      */
     public function questions(AuthService $authService){
         $result = $authService->question();
+        return $result ? response()->json(ResponseData::requestSuccess($result)) : response()->json(ResponseData::dataError());
+    }
+
+    /**
+     * get user password question
+     * 获取用户的密保问题
+     * @queryParam
+     * @param AuthService $authService
+     * @param $username
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function get_question(Request $request, AuthService $authService){
+        Log::info($request->username);
+        $result = $authService->get_question($request->username);
         return $result ? response()->json(ResponseData::requestSuccess($result)) : response()->json(ResponseData::dataError());
     }
 }

@@ -23,7 +23,7 @@ class User extends Authenticatable implements JWTSubject
         'name','username', 'email', 'password','phone','invitation_code','avatar','password_question_id','password_answer'
     ];
 
-    protected $appends = ['hash_id']; //hash_id现实字段
+    protected $appends = ['hash_id']; //hash_id显示字段
 
     /**
      * The attributes that should be hidden for arrays.

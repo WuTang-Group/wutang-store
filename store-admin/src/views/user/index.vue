@@ -14,10 +14,10 @@
     </el-card>
     <el-card class="box-card box-card-content">
       <el-table v-loading="listLoading" :data="userlist" border fit highlight-current-row :height="tableHeight < 500 ? 500 : tableHeight" :header-cell-style="{background:'#ebeef5'}">
-        <el-table-column align="center" label="用户ID" min-width="100">
-          <template slot-scope="scope">
+        <el-table-column type="index" align="center" label="序号" width="80">
+          <!--<template slot-scope="scope">
             <span>{{ scope.row.id }}</span>
-          </template>
+          </template> -->
         </el-table-column>
         <el-table-column align="center" label="用户名" min-width="180">
           <template slot-scope="scope">
@@ -157,13 +157,12 @@ export default {
       const params = {
         isEdit: 'edit'
       }
-      that.$router.push({ path: '/user/edit/' + row.id, query: params })
+      that.$router.push({ path: '/user/edit/' + row.hash_id, query: params })
     },
 
     // 删除用户
     deleteUserButton(row, index) {
       const that = this
-
       that.$confirm(`是否删除${row.username}用户?`, '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',

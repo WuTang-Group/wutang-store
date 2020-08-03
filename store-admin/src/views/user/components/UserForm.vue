@@ -70,7 +70,6 @@ export default {
   created() {
     const that = this
     that.query = that.$route.query
-
     if (that.query.isEdit === 'edit') {
       // 根据id获取用户id
       that.getUserInfoById()
@@ -79,10 +78,10 @@ export default {
   methods: {
     getUserInfoById() {
       const that = this
+      console.log(that.$route.params)
       const data = {
-        id: that.$route.params.id
+        hash_id: that.$route.params.id
       }
-
       getInfoById(data).then(res => {
         const data = res.data
         if (data) {

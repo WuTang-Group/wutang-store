@@ -33,9 +33,18 @@ class AuthRequest extends FormRequest
                     'password_confirmation' => 'required|same:password',
 //                    'invitation_code' => 'required|string',
                     'captcha_key' => 'required|string',
-                    'captcha_code' => 'required|string'
+                    'captcha_code' => 'required|string',
+                    'password_question_id'=>'required|exists:password_questions,id',
+                    'password_answer'=>'required|string'
                 ];
             }
         }
+    }
+
+    public function messages()
+    {
+        return [
+            'password_question_id.exists'=>'密保问题不存在'
+        ];
     }
 }

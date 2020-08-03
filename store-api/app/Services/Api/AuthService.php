@@ -56,4 +56,19 @@ class AuthService extends Service
             return false;
         }
     }
+
+    public function get_question($username){
+        try{
+            $result = User::join('password_questions', 'users.password_question_id', '=', 'password_questions.id')
+                ->where('users.username', $username)
+                ->select('users.username', 'users.password_question_id', 'password_questions.question')
+                ->get();
+            return $result;
+        }catch (\Exception $e){
+            Log::error($e->getMessage());
+            return false;
+        }
+    }
+
+
 }

@@ -4,6 +4,7 @@ namespace App\Http\Requests\Api;
 
 
 use App\Http\Requests\FormRequest;
+use Illuminate\Support\Facades\Log;
 
 class AuthRequest extends FormRequest
 {
@@ -36,6 +37,12 @@ class AuthRequest extends FormRequest
                     'captcha_code' => 'required|string',
                     'password_question_id'=>'required|exists:password_questions,id',
                     'password_answer'=>'required|string'
+                ];
+            }
+            case 'get_question':
+            {
+                return [
+                  'username' => 'required|exists:users,username'
                 ];
             }
         }

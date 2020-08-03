@@ -43,7 +43,8 @@ class SeedRolesAndPermissionsData extends Migration
             'email_verified_at'=>now(),
             'password'=>'$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'remember_token' =>\Illuminate\Support\Str::random(15),
-            'invitation_code'=>'999999',
+            'password_question_id' => 1,
+            'password_answer' => 'test',
             'status' => 1,
             'avatar'=>'http://thirdwx.qlogo.cn/mmopen/vi_32/M5SibDXA0k8bbEGpFAZkyNcUCBZicicgY2RNMEMcoJFwubweq7uocgq6EiacaYpNTFswWicSSfTIYOBKZPnLLwnKgqw/132',
         ]);

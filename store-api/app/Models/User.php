@@ -20,7 +20,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name','username', 'email', 'password','phone','invitation_code','avatar'
+        'name','username', 'email', 'password','phone','invitation_code','avatar','password_question_id','password_answer'
     ];
 
     protected $appends = ['hash_id']; //hash_id现实字段

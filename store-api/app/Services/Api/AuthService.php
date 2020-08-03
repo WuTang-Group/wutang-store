@@ -3,6 +3,7 @@
 namespace App\Services\Api;
 
 use App\Enums\Roles;
+use App\Models\PasswordQuestion;
 use App\Models\Profile;
 use App\Models\User;
 use App\Services\Service;
@@ -44,5 +45,15 @@ class AuthService extends Service
             return false;
         }
         return $queries;
+    }
+
+    public function question(){
+        try{
+            $result = PasswordQuestion::all();
+            return $result;
+        }catch(\Exception $e){
+            Log::error($e->getMessage());
+            return false;
+        }
     }
 }

@@ -19,7 +19,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
+        $this->middleware('auth:api', ['except' => ['login', 'register', 'questions']]);
     }
 
     /**
@@ -48,6 +48,8 @@ class AuthController extends Controller
      * @queryParam password_confirmation required 确认密码
      * @queryParam captcha_key required 验证码的key
      * @queryParam captcha_code required 验证码的code
+     * @queryParam password_question_id required 密保问题ID
+     * @queryParam password_answer required 密保问题答案
      * @param AuthRequest $request
      * @param AuthService $authService
      * @return \Illuminate\Http\JsonResponse
@@ -123,5 +125,16 @@ class AuthController extends Controller
             'token_type' => 'Bearer',
             'expires_in' => auth('api')->factory()->getTTL()
         ]));
+    }
+
+    /**
+     * Get password question list
+     * 获取密保问题列表
+     * @param AuthService $authService
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function questions(AuthService $authService){
+        $result = $authService->question();
+        return $result ? response()->json(ResponseData::requestSuccess($result)) : response()->json(ResponseData::dataError());
     }
 }

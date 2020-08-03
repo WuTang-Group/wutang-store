@@ -11,6 +11,8 @@ Route::get('response_code', 'ResponseCodeController@index')->name('response_code
  */
 Route::middleware('throttle:' . config('api.rate_limits.sign'))
     ->group(function () {
+        // 密保问题列表
+        Route::get('questions', 'AuthController@questions');
         // 图片验证码
         Route::post('captchas', 'CaptchaController@store')->name('captchas.store');
         // 用户注册

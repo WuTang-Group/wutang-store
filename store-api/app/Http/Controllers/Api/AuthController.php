@@ -124,4 +124,15 @@ class AuthController extends Controller
             'expires_in' => auth('api')->factory()->getTTL()
         ]));
     }
+
+    /**
+     * Get password question list
+     * 获取密保问题列表
+     * @param AuthService $authService
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function question(AuthService $authService){
+        $result = $authService->question();
+        return $result ? response()->json(ResponseData::requestSuccess($result)) : response()->json(ResponseData::dataError());
+    }
 }

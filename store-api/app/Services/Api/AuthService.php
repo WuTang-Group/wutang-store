@@ -45,4 +45,14 @@ class AuthService extends Service
         }
         return $queries;
     }
+
+    public function question(){
+        try{
+            $result = passwordQuestion::all();
+            return $result;
+        }catch(\Exception $e){
+            Log::error($e->getMessage());
+            return false;
+        }
+    }
 }

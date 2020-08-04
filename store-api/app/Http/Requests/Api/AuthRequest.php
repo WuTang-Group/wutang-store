@@ -45,13 +45,25 @@ class AuthRequest extends FormRequest
                   'username' => 'required|exists:users,username'
                 ];
             }
+
+            case 'reset':
+            {
+                return [
+                    'username'=>'required|exists:users,username',
+                    'password_question_id'=>'required',
+                    'password_answer'=>'required|string',
+                    'password'=>'required|alpha_dash|min:6|confirmed',
+                    'password_confirmation'=>'required|same:password',
+                ];
+            }
         }
     }
 
     public function messages()
     {
         return [
-            'password_question_id.exists'=>'密保问题不存在'
+            'password_question_id.exists'=>'密保问题不存在',
+            'username.exists'=>'用户不存在'
         ];
     }
 }

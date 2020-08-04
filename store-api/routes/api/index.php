@@ -70,26 +70,26 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
          * User info
          */
         // 获取用户信息
-        Route::get('user_info', 'UserController@list')->name('user_info.list');
+        Route::get('user', 'UserController@queryList')->name('user.queryList');
         // 更新用户信息
-        Route::put('user_info/{username}', 'UserController@update')->name('user_info.update');
+        Route::put('user/{username}', 'UserController@update')->name('user.update');
         // 删除用户
-        Route::delete('user_info/{username}', 'UserController@destroy')->name('user_info.destroy');
+        Route::delete('user/{username}', 'UserController@destroy')->name('user.destroy');
         // 修改密码
-        Route::put('user/password/{username}', 'UserController@password')->name('user.password');
+        Route::put('user/reset_password/{username}', 'UserController@resetPassword')->name('user.resetPassword');
         // 获取单个用户信息
         Route::get('get_user', 'UserController@info')->name('user.info');
         /**
          * User address
          */
-        Route::get('user_addresses', 'UserAddressController@list')->name('user_addresses.list');
+        Route::get('user_addresses', 'UserAddressController@queryList')->name('user_addresses.queryList');
         Route::post('user_addresses', 'UserAddressController@store')->name('user_addresses.store');
         Route::put('user_addresses/{address_id}', 'UserAddressController@update')->name('user_addresses.update');
         Route::delete('user_addresses/{address_id}', 'UserAddressController@destroy')->name('user_addresses.destroy');
         /**
          * User profile
          */
-        Route::get('user_profiles', 'UserProfileController@list')->name('user_profiles.list');
+        Route::get('user_profiles', 'UserProfileController@queryList')->name('user_profiles.queryList');
         Route::put('user_profiles/{profile_id}', 'UserProfileController@update')->name('user_profiles.update');
         Route::delete('user_profiles/{profile}', 'UserProfileController@destroy')->name('user_profiles.destroy');
         /**

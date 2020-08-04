@@ -22,11 +22,11 @@ Route::middleware('throttle:' . config('api.rate_limits.sign'))
         // 用户登录
         Route::post('auth/login', 'AuthController@login')->name('auth.login');
         // 密保问题列表
-        Route::get('questions/list', 'AuthController@questions');
+        Route::get('question_list', 'AuthController@questionList')->name('question_list.questionList');
         // 获取用户的密保问题
-        Route::get('questions/show', 'AuthController@get_question');
+        Route::get('questions', 'AuthController@getQuestion')->name('questions.getQuestion');
         // 重置密码
-        Route::put('password/reset', 'AuthController@reset');
+        Route::put('password_reset', 'AuthController@resetPassword')->name('password_reset.resetPassword');
         // 测试路由
         Route::get('test', 'UserController@test');
     });
@@ -101,10 +101,10 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         /**
          * product categories
          */
-        Route::get('product/categories', 'ProductCategoriesController@list');
-        Route::post('product/categories', 'ProductCategoriesController@store');
-        Route::put('product/categories', 'ProductCategoriesController@edit');
-        Route::delete('product/categories', 'ProductCategoriesController@destroy');
+        Route::get('product_categories', 'ProductCategoryController@queryList')->name('product_categories.queryList');
+        Route::post('product_categories', 'ProductCategoryController@store')->name('product_categories.store');
+        Route::post('product_categories/{productCategoriesId}', 'ProductCategoryController@edit')->name('product_categories.edit');
+        Route::delete('product_categories/{productCategoriesId}', 'ProductCategoryController@destroy')->name('product_categories.destroy');
     });
 
 });

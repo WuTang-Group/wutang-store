@@ -21,7 +21,6 @@ class CreateProductCategoryStoriesTable extends Migration
             $table->string('description_en')->nullable()->comment('英文分类简介');
             $table->string('banner')->nullable()->comment('故事banner');
             $table->string('product_category_id')->nullable()->comment('属于产品类ID');
-            $table->foreign('product_category_id')->references('id')->on('product_categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

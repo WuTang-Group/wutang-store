@@ -6,13 +6,31 @@ const userRouter = {
   path: '/user',
   component: Layout,
   redirect: '/user/list',
+  alwaysShow: true,
   name: 'UserManager',
+  meta: {
+    title: '用户管理',
+    icon: 'peoples',
+    roles: ['admin', 'editor'] // you can set roles in root nav
+  },
   children: [
     {
       path: 'list',
       component: () => import('@/views/user/index'),
       name: 'User',
-      meta: { title: '用户管理', icon: 'documentation', isBack: false, noCache: true }
+      meta: { title: '用户列表', isBack: false, noCache: true }
+    },
+    {
+      path: 'permission',
+      component: () => import('@/views/table/inline-edit-table'),
+      name: 'Permission',
+      meta: { title: '权限管理' }
+    },
+    {
+      path: 'role',
+      component: () => import('@/views/table/inline-edit-table'),
+      name: 'Role',
+      meta: { title: '角色管理' }
     },
     {
       path: 'edit/:id(\\w+)',

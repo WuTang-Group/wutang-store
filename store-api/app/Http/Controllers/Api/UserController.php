@@ -10,10 +10,10 @@ use App\Models\Traits\HashIdHelper;
 use App\Models\User;
 use App\Services\Api\UserService;
 use Hashids;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Str;
+use Illuminate\ {
+    Http\Request,Support\Facades\Auth,Support\Facades\Log,
+    Support\Str
+};
 
 class UserController extends Controller
 {
@@ -32,7 +32,7 @@ class UserController extends Controller
      * @queryParam page_limit 每页数量，默认20
      * @return \Illuminate\Http\JsonResponse
      */
-    public function list(Request $request)
+    public function queryList(Request $request)
     {
         $requestData = page_limit($request);
         // 管理员
@@ -100,7 +100,7 @@ class UserController extends Controller
      * @param UserRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function password($username, UserRequest $request)
+    public function resetPassword($username, UserRequest $request)
     {
         $oldPassword = $request->oldPassword;
         $newPassword = $request->newPassword;
@@ -116,7 +116,7 @@ class UserController extends Controller
         ]);
         if ($token) // 验证通过
         {
-            $result = $this->service->password($username, $request);
+            $result = $this->service->resetPassword($username, $request);
             return $result ? response()->json(ResponseData::requestSuccess()) : response()->json(ResponseData::requestFails());
         } else {
             return response()->json(ResponseData::paramError(null,'旧密码错误'));

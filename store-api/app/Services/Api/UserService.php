@@ -18,7 +18,7 @@ class UserService extends Service
         $this->user = $user;
     }
 
-    public function list()
+    public function queryList()
     {
         return $this->user->all();
     }
@@ -48,7 +48,7 @@ class UserService extends Service
         return true;
     }
 
-    public function password($username, $requires)
+    public function resetPassword($username, $requires)
     {
         try{
             $newPasswordHash = Hash::make($requires->newPassword);   // 密码加密

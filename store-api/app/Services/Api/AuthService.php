@@ -57,7 +57,7 @@ class AuthService extends Service
         }
     }
 
-    public function get_question($username){
+    public function getQuestion($username){
         // 获取用户的密保问题
         try{
 

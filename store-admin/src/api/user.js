@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function login(data) {
   return request({
-    url: '/api/auth/login',
+    url: 'auth/login',
     method: 'post',
     data
   })
@@ -10,7 +10,7 @@ export function login(data) {
 
 export function getInfo(token) {
   return request({
-    url: '/api/auth/me',
+    url: 'auth/me',
     method: 'get',
     params: { token }
   })
@@ -18,7 +18,7 @@ export function getInfo(token) {
 
 export function getInfoById(params) {
   return request({
-    url: '/api/get_user',
+    url: 'get_user',
     method: 'get',
     params: params
   })
@@ -26,14 +26,14 @@ export function getInfoById(params) {
 
 export function logout() {
   return request({
-    url: '/api/auth/logout',
+    url: 'auth/logout',
     method: 'delete'
   })
 }
 
 export function fetchUserList(params) {
   return request({
-    url: '/api/user_info',
+    url: 'user_info',
     method: 'get',
     params
   })
@@ -41,7 +41,7 @@ export function fetchUserList(params) {
 
 export function editUserInfo(params) {
   return request({
-    url: `/api/user_info/${params.username}`,
+    url: `user_info/${params.username}`,
     method: 'put',
     data: params.data
   })
@@ -49,14 +49,14 @@ export function editUserInfo(params) {
 
 export function deleteUser(data) {
   return request({
-    url: `/api/user_info/${data.username}`,
+    url: `user_info/${data.username}`,
     method: 'delete'
   })
 }
 
 export function updateUserPassword(params) {
   return request({
-    url: `/api/user/password/${params.username}`,
+    url: `user/password/${params.username}`,
     method: 'PUT',
     data: params.data
   })

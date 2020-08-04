@@ -61,6 +61,10 @@ const actions = {
 
         const { roles, name, username, avatar, email } = data
 
+        // 循环roles将数组对象数据替换为其各项数组内的name值
+        roles.forEach((item, index) => {
+          roles[index] = item.name
+        })
         // roles must be a non-empty array
         if (!roles || roles.length <= 0) {
           reject('getInfo: roles must be a non-null array!')

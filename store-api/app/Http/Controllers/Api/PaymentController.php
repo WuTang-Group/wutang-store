@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Enums\UnionPayCode;
+use App\Enums\ {
+    AlipayCode,UnionPayCode
+};
 use App\Handlers\ResponseData;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\PaymentRequest;
+use App\Http\ {
+    Controllers\Controller,Requests\Api\PaymentRequest
+};
 use App\Services\Api\OrderService;
-use Illuminate\Http\Request;
+use Exception;
+use Illuminate\ {
+    Contracts\Foundation\Application,Contracts\Routing\ResponseFactory,
+    Http\RedirectResponse,Http\Request,Http\Response,Support\Facades\Log
+};
 use Omnipay;
 
 class PaymentController extends Controller
@@ -49,7 +56,7 @@ class PaymentController extends Controller
      * Return unionpay results
      * 银联支付返回结果
      * @param Request $request
-     * @return array|\Illuminate\Http\RedirectResponse
+     * @return array|RedirectResponse
      */
     public function unionpayReturn(Request $request)
     {
@@ -59,6 +66,7 @@ class PaymentController extends Controller
             // 重定向到结算页面并返回参数-参数将交由前端获取,该route name为临时测试用
             return redirect()->route('unionpay.test', $request->all());
         } else {
+            Log::error($response);
             return ResponseData::requestFails($request->all(), '支付失败');
         }
     }
@@ -73,7 +81,69 @@ class PaymentController extends Controller
     {
         // 支付成功
         if ($request['respCode'] == UnionPayCode::Success) {
+            // 调用服务层更新该订单状态数据
             return $this->service->changeStatus($request);
         }
+    }
+
+    /**
+     * 支付宝发起支付
+     * @param PaymentRequest $request
+     * @return mixed
+     */
+    public function payByAlipay(PaymentRequest $request)
+    {
+        $requestData = $request->all();
+        // 调用支付宝的网页支付
+        return app('alipay')->web([
+            'out_trade_no' => $requestData['no'], // 订单编号，需保证在商户端不重复
+            'total_amount' => $requestData['total_amount'], // 订单金额，单位元，支持小数点后两位
+            'subject'      => $requestData['product_name'], // 订单标题
+        ]);
+    }
+
+    /**
+     *  支付宝前端回调页面
+     * @param Request $request
+     * @return Application|ResponseFactory|Response
+     */
+    public function alipayReturn(Request $request)
+    {
+        // 校验提交的参数是否合法
+        try {
+            app('alipay')->verify();
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+            return response(ResponseData::requestFails($request->all(),'数据不正确'));
+        }
+
+        return response(ResponseData::requestSuccess($request->all(),'付款成功'));
+//        // 订单号：$data->out_trade_no
+//        // 支付宝交易号：$data->trade_no
+//        // 订单总金额：$data->total_amount
+//        dd($request->all());
+    }
+
+    /**
+     * 支付宝服务器端回调
+     * @param Request $request
+     * @return mixed
+     */
+    public function alipayNotify()
+    {
+        // 校验输入参数
+        $data = app('alipay')->verify();
+        // 如果订单状态是成功或者结束
+        if(in_array($data->trade_status, [AlipayCode::TRADE_SUCCESS, AlipayCode::TRADE_FINISHED])) {
+            $requestData = [
+                'no' => $data->out_trade_no,
+                'status' => AlipayCode::TRADE_SUCCESS,
+                'payment_no' =>$data->trade_no
+            ];
+            // 调用服务层更新该订单状态数据
+            $this->service->changeStatus($requestData);
+            return app('alipay')->success();  //  返回数据给支付宝
+        }
+        return response(ResponseData::requestFails());
     }
 }

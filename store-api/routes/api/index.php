@@ -39,6 +39,13 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
      * 登录后的路由组
      */
     Route::middleware('auth:api')->group(function () {
+        /**
+         * 支付支付路由组
+         */
+
+        Route::get('alipay/pay','PaymentController@payByAlipay')->name('alipay.payByAlipay');
+        Route::get('alipay/return', 'PaymentController@alipayReturn')->name('alipay.alipayReturn');
+        Route::post('alipay/notify', 'PaymentController@alipayNotify')->name('alipay.alipayNotify');
 
         /**
          * 银联支付路由

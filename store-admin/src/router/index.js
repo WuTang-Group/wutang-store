@@ -6,15 +6,23 @@ Vue.use(Router)
 /* Layout */
 import Layout from '@/layout'
 
+/* Router Modules */
+import categoriesRouter from '@/router/modules/category'
+import usersRouter from '@/router/modules/user'
+import purchaseOrder from '@/router/modules/purchaseOrder'
+import goodsRouter from '@/router/modules/goods'
+import logisticsRouter from '@/router/modules/logistics'
+import paymentRouter from '@/router/modules/payment'
+
 // https://webpack.js.org/guides/dependency-management/#requirecontext
-const modulesFiles = require.context('./modules', true, /\.js$/)
+// const modulesFiles = require.context('./modules', true, /\.js$/)
 
 // you do not need `import app from './modules/app'`
 // it will auto require all vuex module from modules file
-const routeModules = modulesFiles.keys().map(modulePath => {
-  const value = modulesFiles(modulePath)
-  return value.default
-}, {})
+// const routeModules = modulesFiles.keys().map(modulePath => {
+//   const value = modulesFiles(modulePath)
+//   return value.default
+// }, {})
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -108,19 +116,21 @@ export const constantRoutes = [
  * the routes that need to be dynamically loaded based on user roles
  */
 export const asyncRoutes = [
-
-  /** when your routing map is too long, you can split it into small modules **/
-  ...routeModules,
-
+  usersRouter,
+  categoriesRouter,
+  goodsRouter,
+  purchaseOrder,
+  logisticsRouter,
+  paymentRouter,
   {
-    path: '/center',
+    path: '/user-center',
     component: Layout,
-    redirect: '/center/modify',
+    redirect: '/user-center/modify',
     alwaysShow: true,
-    name: 'Center',
+    name: 'UserCenter',
     meta: {
-      title: 'profile',
-      icon: 'lock'
+      title: '个人中心',
+      icon: 'user'
     },
     children: [
       {
@@ -128,8 +138,7 @@ export const asyncRoutes = [
         component: () => import('@/views/center/modify'),
         name: 'ModifyInfo',
         meta: {
-          title: '修改密码',
-          icon: 'documentation'
+          title: '修改密码'
         }
       }
     ]
@@ -151,7 +160,7 @@ export const asyncRoutes = [
 // ]
 
 const createRouter = () => new Router({
-  // mode: 'history', // require service support
+  mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRoutes
 })

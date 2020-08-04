@@ -138,7 +138,7 @@ class AuthController extends Controller
      * @param AuthService $authService
      * @return \Illuminate\Http\JsonResponse
      */
-    public function questions()
+    public function question()
     {
         $result = $this->authService->question();
         return $result ? response()->json(ResponseData::requestSuccess($result)) : response()->json(ResponseData::dataError());
@@ -152,9 +152,9 @@ class AuthController extends Controller
      * @param $username
      * @return \Illuminate\Http\JsonResponse
      */
-    public function get_question(AuthRequest $request)
+    public function getQuestion(AuthRequest $request)
     {
-        $result = $this->authService->get_question($request->username);
+        $result = $this->authService->getQuestion($request->username);
         return $result ? response()->json(ResponseData::requestSuccess($result)) : response()->json(ResponseData::dataError());
     }
 

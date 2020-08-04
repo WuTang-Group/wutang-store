@@ -22,11 +22,11 @@ Route::middleware('throttle:' . config('api.rate_limits.sign'))
         // 用户登录
         Route::post('auth/login', 'AuthController@login')->name('auth.login');
         // 密保问题列表
-        Route::get('questions/queryList', 'AuthController@questions');
+        Route::get('question_list', 'AuthController@questionList')->name('question_list.questionList');
         // 获取用户的密保问题
-        Route::get('questions/show', 'AuthController@get_question');
+        Route::get('question', 'AuthController@getQuestion')->name('question.getQuestion');
         // 重置密码
-        Route::put('password/reset', 'AuthController@reset');
+        Route::put('password_reset', 'AuthController@resetPassword')->name('password_reset.resetPassword');
         // 测试路由
         Route::get('test', 'UserController@test');
     });

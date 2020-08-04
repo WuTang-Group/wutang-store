@@ -1,6 +1,7 @@
 <?php
 namespace App\Services\Api;
 
+use App\Enums\AlipayCode;
 use App\Enums\OrderStatusCode;
 use App\Enums\UnionPayCode;
 use App\Models\Order;
@@ -27,7 +28,16 @@ class OrderService extends Service
                         'status' => OrderStatusCode::StatusPending,
                         'payment_method' => 'unionpay',
                         'payment_no' => $queries['queryId'],
-                        'paid_at' => date('Y-m-d H:i:s',strtotime($queries['txnTime']))
+                        'paid_at' => now()->toDateTimeString()
+                    ]);
+                }
+                case AlipayCode::TRADE_SUCCESS:
+                {
+                    $this->order->whereNo($queries['no'])->update([
+                        'status' => OrderStatusCode::StatusPending,
+                        'payment_method' => 'alipay',
+                        'payment_no' => $queries['payment_no'],
+                        'paid_at' => now()->toDateTimeString()
                     ]);
                 }
             }

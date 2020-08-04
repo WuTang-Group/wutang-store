@@ -91,6 +91,13 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         Route::get('invitation/code', 'InvitationController@genInvitation');
         Route::post('invitation/code', 'InvitationController@bindCode');
         Route::get('invitation/phone', 'InvitationController@get_user');
+        /**
+         * product categories
+         */
+        Route::get('product/categories', 'ProductCategoriesController@list');
+        Route::post('product/categories', 'ProductCategoriesController@store');
+        Route::put('product/categories', 'ProductCategoriesController@edit');
+        Route::delete('product/categories', 'ProductCategoriesController@destroy');
     });
 
 });

@@ -72,7 +72,7 @@ class AuthService extends Service
         }
     }
 
-    public function reset($queries)
+    public function resetPassword($queries)
     {
         // 重置密码
         $password_question_id = $queries['password_question_id'];

@@ -21,6 +21,12 @@ Route::middleware('throttle:' . config('api.rate_limits.sign'))
         })->name('login');
         // 用户登录
         Route::post('auth/login', 'AuthController@login')->name('auth.login');
+        // 密保问题列表
+        Route::get('questions/list', 'AuthController@questions');
+        // 获取用户的密保问题
+        Route::get('questions/show', 'AuthController@get_question');
+        // 重置密码
+        Route::put('password/reset', 'AuthController@reset');
         // 测试路由
         Route::get('test', 'UserController@test');
     });

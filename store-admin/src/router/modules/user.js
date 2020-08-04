@@ -12,7 +12,7 @@ const userRouter = {
       path: 'list',
       component: () => import('@/views/user/index'),
       name: 'User',
-      meta: { title: '用户管理', icon: 'documentation', isBack: false }
+      meta: { title: '用户管理', icon: 'documentation', isBack: false, noCache: true }
     },
     {
       path: 'edit/:id(\\w+)',

@@ -4,6 +4,7 @@ namespace App\Http\Requests\Api;
 
 
 use App\Http\Requests\FormRequest;
+use Illuminate\Support\Facades\Log;
 
 class AuthRequest extends FormRequest
 {
@@ -33,9 +34,36 @@ class AuthRequest extends FormRequest
                     'password_confirmation' => 'required|same:password',
 //                    'invitation_code' => 'required|string',
                     'captcha_key' => 'required|string',
-                    'captcha_code' => 'required|string'
+                    'captcha_code' => 'required|string',
+                    'password_question_id'=>'required|exists:password_questions,id',
+                    'password_answer'=>'required|string'
+                ];
+            }
+            case 'get_question':
+            {
+                return [
+                  'username' => 'required|exists:users,username'
+                ];
+            }
+
+            case 'reset':
+            {
+                return [
+                    'username'=>'required|exists:users,username',
+                    'password_question_id'=>'required',
+                    'password_answer'=>'required|string',
+                    'password'=>'required|alpha_dash|min:6|confirmed',
+                    'password_confirmation'=>'required|same:password',
                 ];
             }
         }
+    }
+
+    public function messages()
+    {
+        return [
+            'password_question_id.exists'=>'密保问题不存在',
+            'username.exists'=>'用户不存在'
+        ];
     }
 }

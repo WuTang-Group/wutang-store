@@ -3,6 +3,7 @@
 namespace App\Services\Api;
 
 use App\Enums\Roles;
+use App\Models\PasswordQuestion;
 use App\Models\Profile;
 use App\Models\User;
 use App\Services\Service;
@@ -45,4 +46,54 @@ class AuthService extends Service
         }
         return $queries;
     }
+
+    public function question(){
+        try{
+            $result = PasswordQuestion::all();
+            return $result;
+        }catch(\Exception $e){
+            Log::error($e->getMessage());
+            return false;
+        }
+    }
+
+    public function get_question($username){
+        // 获取用户的密保问题
+        try{
+
+            $result = User::join('password_questions', 'users.password_question_id', '=', 'password_questions.id')
+                ->where('users.username', $username)
+                ->select('users.username', 'users.password_question_id', 'password_questions.question')
+                ->get();
+            return $result;
+        }catch (\Exception $e){
+            Log::error($e->getMessage());
+            return false;
+        }
+    }
+
+    public function reset($queries)
+    {
+        // 重置密码
+        $password_question_id = $queries['password_question_id'];
+        $password_answer = $queries['password_answer'];
+
+        try{
+            $user_info = User::where('username', $queries['username'])
+                ->where('password_question_id', $password_question_id)
+                ->where('password_answer', $password_answer)
+                ->first();
+        }catch(\Exception $e){
+            Log::error($e->getMessage());
+            return false;
+        }
+        if($user_info){
+            $password = Hash::make($queries['password']);
+            $user_info->update(['password'=>$password]);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

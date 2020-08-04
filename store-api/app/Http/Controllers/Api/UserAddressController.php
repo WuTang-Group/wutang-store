@@ -25,10 +25,10 @@ class UserAddressController extends Controller
      * @param UserAddressRequest $request
      * @return Application|ResponseFactory|Response
      */
-    public function list(UserAddressRequest $request)
+    public function queryList(UserAddressRequest $request)
     {
         $requestData = page_limit($request->all());
-        return response(ResponseData::requestSuccess($this->service->list($requestData)));
+        return response(ResponseData::requestSuccess($this->service->queryList($requestData)));
     }
 
     /**

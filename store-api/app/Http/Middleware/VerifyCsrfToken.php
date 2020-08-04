@@ -20,6 +20,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         'unionpay/return',
-        'unionpay/notify'
+        'unionpay/notify',
+        'api/alipay/notify'
     ];
 }

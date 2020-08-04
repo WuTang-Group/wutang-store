@@ -16,7 +16,7 @@ class UserAddressService extends Service
         $this->userAddress = $userAddress;
     }
 
-    public function list($queries)
+    public function queryList($queries)
     {
         $userRoles = $this->user()->getRoleNames();
         // 管理员

@@ -16,6 +16,7 @@ class PaymentRequest extends FormRequest
     public function rules()
     {
         switch ($this->route()->getActionMethod()) {
+            case 'payByAlipay':
             case 'payByUnionpay' :
             {
                 return [

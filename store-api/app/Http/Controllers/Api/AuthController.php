@@ -138,7 +138,7 @@ class AuthController extends Controller
      * @param AuthService $authService
      * @return \Illuminate\Http\JsonResponse
      */
-    public function question()
+    public function questionList()
     {
         $result = $this->authService->question();
         return $result ? response()->json(ResponseData::requestSuccess($result)) : response()->json(ResponseData::dataError());
@@ -169,7 +169,7 @@ class AuthController extends Controller
      * @param AuthRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function reset(AuthRequest $request)
+    public function resetPassword(AuthRequest $request)
     {
         $result = $this->authService->reset($request->all());
         return $result ? response()->json(ResponseData::requestSuccess(null, '密码重置成功')) : response()->json(ResponseData::dataError(null, '密保问题或答案不正确'));

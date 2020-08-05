@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ProductCategory extends Model
 {
@@ -17,5 +18,14 @@ class ProductCategory extends Model
         'img',
         'parent_id'
     ];
+
+    /**
+     * 一对多关联产品分类故事模型
+     * @return HasMany
+     */
+    public function productCategoryStories()
+    {
+        return $this->hasMany(ProductCategoryStory::class);
+    }
 
 }

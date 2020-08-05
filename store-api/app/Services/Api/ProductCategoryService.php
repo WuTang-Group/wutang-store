@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services\Api;
 
 use App\Handlers\OssHandler;
@@ -29,10 +30,10 @@ class ProductCategoryService extends Service
     {
         // 添加商品分类
         $filtered = Arr::where($queries, function ($value, $key) {
-            return Str::contains($key,['banner','img']) && $key;
+            return Str::contains($key, ['banner', 'img']) && $key;
         });
 
-        foreach ($filtered as $key=>$value){
+        foreach ($filtered as $key => $value) {
             // 图片存储到OSS，本地保存OSS地址
             try {
                 $ossRes = OssHandler::save($queries[$key], 'ProductCategories');  // 图片存储到OSS
@@ -43,22 +44,22 @@ class ProductCategoryService extends Service
             }
         }
 
-        try{
+        try {
             return $this->productCategory->create($queries);
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             Log::error($e->getMessage());
             return false;
         }
     }
 
-    public function edit($queries, $productCategoriesId){
+    public function edit($queries, $productCategoriesId)
+    {
         // 编辑产品分类
         $filtered = Arr::where($queries, function ($value, $key) {
-            Log::info($key);
-            return Str::contains($key,['banner','img']) && $key;
+            return Str::contains($key, ['banner', 'img']) && $key;
         });
 
-        foreach ($filtered as $key=>$value){
+        foreach ($filtered as $key => $value) {
             // 图片存储到OSS，本地保存OSS地址
             try {
                 $ossRes = OssHandler::save($queries[$key], 'ProductCategories');  // 图片存储到OSS
@@ -69,20 +70,21 @@ class ProductCategoryService extends Service
             }
         }
 
-        try{
+        try {
             return $this->productCategory->find($productCategoriesId)->update($queries);
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             Log::error($e->getMessage());
             return false;
         }
     }
 
-    public function destroy($productCategoriesId){
+    public function destroy($productCategoriesId)
+    {
         // 删除分类
-        try{
-            $res = $this->productCategory->where('id', $productCategoriesId)->delete();
-            return $res;
-        }catch (\Exception $e) {
+        try {
+
+            return $this->productCategory->where('id', $productCategoriesId)->delete();
+        } catch (\Exception $e) {
             Log::error($e->getMessage());
             return false;
         }

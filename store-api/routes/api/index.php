@@ -105,6 +105,14 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         Route::post('product_categories', 'ProductCategoryController@store')->name('product_categories.store');
         Route::post('product_categories/{productCategoriesId}', 'ProductCategoryController@edit')->name('product_categories.edit');
         Route::delete('product_categories/{productCategoriesId}', 'ProductCategoryController@destroy')->name('product_categories.destroy');
+
+        /**
+         * product categories story
+         */
+        Route::get('category_stories', 'CategoryStoryController@queryList')->name('category_stories.queryList');
+        Route::post('category_stories', 'CategoryStoryController@store')->name('category_stories.store');
+        Route::post('category_stories/{CategoriesStoriesId}', 'CategoryStoryController@edit')->name('category_stories.edit');
+        Route::delete('category_stories/{CategoriesStoriesId}', 'CategoryStoryController@destroy')->name('category_stories.destroy');
     });
 
 });

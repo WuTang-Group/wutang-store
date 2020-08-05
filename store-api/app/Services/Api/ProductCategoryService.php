@@ -29,7 +29,6 @@ class ProductCategoryService extends Service
     {
         // 添加商品分类
         $filtered = Arr::where($queries, function ($value, $key) {
-            Log::info($key);
             return Str::contains($key,['banner','img']) && $key;
         });
 
@@ -45,8 +44,7 @@ class ProductCategoryService extends Service
         }
 
         try{
-            $res = $this->productCategory->create($queries);
-            return $res;
+            return $this->productCategory->create($queries);
         }catch(\Exception $e){
             Log::error($e->getMessage());
             return false;

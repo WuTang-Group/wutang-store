@@ -17,6 +17,7 @@ class CreateShopCartsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->comment('所属用户id');
             $table->unsignedBigInteger('product_sku_id')->nullable()->comment('所属sku表id');
+            $table->unsignedBigInteger('product_id')->nullable()->comment('所属商品表id');
             $table->unsignedInteger('amount')->comment('数量');
             $table->timestamps();
         });

@@ -1,6 +1,8 @@
 # Official shop website of Wu Tang Group
 
 ## 📦扩展包说明
+* 2020-07-30 引入 [yansongda/pay](https://github.com/yansongda/pay) 用于微信支付及支付宝支付
+* 2020-07-30 引入 [vinkla/hashids](https://github.com/vinkla/hashids) 作hashid使用
 * 2020-07-29 引入 [omnipay-unionpay](https://github.com/lokielse/omnipay-unionpay) 银联支付(由于使用三方支付，该包暂未启用)
 * 2020-07-29 引入 [laravel-omnipay](https://github.com/ignited/laravel-omnipay) 支付集成扩展包用于支付
 * 2020-07-29 引入 [iidestiny/laravel-filesystem-oss](https://github.com/iiDestiny/laravel-filesystem-oss) 作OSS处理

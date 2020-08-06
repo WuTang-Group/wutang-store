@@ -46,7 +46,7 @@
           <!-- START_INFO -->
 <h1>Info</h1>
 <p>Welcome to the generated API reference.
-<a href="http://store.wutang.com/docs/collection.json">Get Postman Collection</a></p>
+<a href="http://localhost/docs/collection.json">Get Postman Collection</a></p>
 <!-- END_INFO -->
 <h1>general</h1>
 <!-- START_77797615aeaa4fce9a94150989aed46f -->
@@ -56,22 +56,22 @@
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/response_code?10001=odio&amp;10003=quia&amp;20001=unde&amp;40001=repellendus&amp;40003=ut&amp;40004=dicta&amp;40005=hic&amp;50001=excepturi" \
+    -G "http://localhost/api/response_code?10001=distinctio&amp;10003=voluptas&amp;20001=quia&amp;40001=officia&amp;40003=hic&amp;40004=non&amp;40005=nobis&amp;50001=sed" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/response_code"
+    "http://localhost/api/response_code"
 );
 
 let params = {
-    "10001": "odio",
-    "10003": "quia",
-    "20001": "unde",
-    "40001": "repellendus",
-    "40003": "ut",
-    "40004": "dicta",
-    "40005": "hic",
-    "50001": "excepturi",
+    "10001": "distinctio",
+    "10003": "voluptas",
+    "20001": "quia",
+    "40001": "officia",
+    "40003": "hic",
+    "40004": "non",
+    "40005": "nobis",
+    "50001": "sed",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -149,11 +149,11 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://store.wutang.com/api/captchas" \
+    "http://localhost/api/captchas" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/captchas"
+    "http://localhost/api/captchas"
 );
 
 let headers = {
@@ -177,20 +177,22 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://store.wutang.com/api/auth/register?name=praesentium&amp;username=facilis&amp;password=provident&amp;password_confirmation=occaecati&amp;captcha_key=rerum&amp;captcha_code=perspiciatis" \
+    "http://localhost/api/auth/register?name=voluptatem&amp;username=iusto&amp;password=voluptas&amp;password_confirmation=ducimus&amp;captcha_key=non&amp;captcha_code=aut&amp;password_question_id=eos&amp;password_answer=nesciunt" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/auth/register"
+    "http://localhost/api/auth/register"
 );
 
 let params = {
-    "name": "praesentium",
-    "username": "facilis",
-    "password": "provident",
-    "password_confirmation": "occaecati",
-    "captcha_key": "rerum",
-    "captcha_code": "perspiciatis",
+    "name": "voluptatem",
+    "username": "iusto",
+    "password": "voluptas",
+    "password_confirmation": "ducimus",
+    "captcha_key": "non",
+    "captcha_code": "aut",
+    "password_question_id": "eos",
+    "password_answer": "nesciunt",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -248,6 +250,16 @@ fetch(url, {
 <td>required</td>
 <td>验证码的code</td>
 </tr>
+<tr>
+<td><code>password_question_id</code></td>
+<td>required</td>
+<td>密保问题ID</td>
+</tr>
+<tr>
+<td><code>password_answer</code></td>
+<td>required</td>
+<td>密保问题答案</td>
+</tr>
 </tbody>
 </table>
 <!-- END_2e1c96dcffcfe7e0eb58d6408f1d619e -->
@@ -258,16 +270,16 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://store.wutang.com/api/auth/login?username=modi&amp;password=eius" \
+    "http://localhost/api/auth/login?username=qui&amp;password=illum" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/auth/login"
+    "http://localhost/api/auth/login"
 );
 
 let params = {
-    "username": "modi",
-    "password": "eius",
+    "username": "qui",
+    "password": "illum",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -308,6 +320,265 @@ fetch(url, {
 </tbody>
 </table>
 <!-- END_a925a8d22b3615f12fca79456d286859 -->
+<!-- START_d69bbb4b1b3b426bec3e1c11b029c116 -->
+<h2>Get password question list</h2>
+<p>获取密保问题列表</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/question_list" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/question_list"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/question_list</code></p>
+<!-- END_d69bbb4b1b3b426bec3e1c11b029c116 -->
+<!-- START_de9212b4bd813e07f73b53cc3bd13088 -->
+<h2>get user password question</h2>
+<p>获取用户的密保问题</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/questions?username=quia" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/questions"
+);
+
+let params = {
+    "username": "quia",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/questions</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>username</code></td>
+<td>required</td>
+<td>用户名</td>
+</tr>
+</tbody>
+</table>
+<!-- END_de9212b4bd813e07f73b53cc3bd13088 -->
+<!-- START_20d5f227169180dbf935585e0387f6c3 -->
+<h2>reset password</h2>
+<p>重置密码</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT \
+    "http://localhost/api/password_reset?username=dolorem&amp;password_question_id=reiciendis&amp;password_answer=natus&amp;password=molestias&amp;password_confirmation=est" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/password_reset"
+);
+
+let params = {
+    "username": "dolorem",
+    "password_question_id": "reiciendis",
+    "password_answer": "natus",
+    "password": "molestias",
+    "password_confirmation": "est",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/password_reset</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>username</code></td>
+<td>required</td>
+<td>用户名</td>
+</tr>
+<tr>
+<td><code>password_question_id</code></td>
+<td>required</td>
+<td>密保问题ID</td>
+</tr>
+<tr>
+<td><code>password_answer</code></td>
+<td>required</td>
+<td>密保问题的答案</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>required</td>
+<td>密码</td>
+</tr>
+<tr>
+<td><code>password_confirmation</code></td>
+<td>required</td>
+<td>二次确认密码</td>
+</tr>
+</tbody>
+</table>
+<!-- END_20d5f227169180dbf935585e0387f6c3 -->
+<!-- START_bd1f2555bc6633390fa0cd3902b6ea26 -->
+<h2>支付宝发起支付</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/alipay/pay" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/alipay/pay"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/alipay/pay</code></p>
+<!-- END_bd1f2555bc6633390fa0cd3902b6ea26 -->
+<!-- START_43e96a9060fca58becd5a755b4e3aa4e -->
+<h2>支付宝前端回调页面</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/alipay/return" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/alipay/return"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/alipay/return</code></p>
+<!-- END_43e96a9060fca58becd5a755b4e3aa4e -->
+<!-- START_c30352faca2b1d81fafd84d7c4a79cdd -->
+<h2>支付宝服务器端回调</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/alipay/notify" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/alipay/notify"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/alipay/notify</code></p>
+<!-- END_c30352faca2b1d81fafd84d7c4a79cdd -->
 <!-- START_b2e091365f9f03862a73b53b8a32eb41 -->
 <h2>Request the unionpay</h2>
 <p>银联支付发起请求</p>
@@ -315,17 +586,17 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/unionpay/pay?no=mollitia&amp;product_name=doloribus&amp;total_amount=praesentium" \
+    -G "http://localhost/api/unionpay/pay?no=sunt&amp;product_name=et&amp;total_amount=blanditiis" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/unionpay/pay"
+    "http://localhost/api/unionpay/pay"
 );
 
 let params = {
-    "no": "mollitia",
-    "product_name": "doloribus",
-    "total_amount": "praesentium",
+    "no": "sunt",
+    "product_name": "et",
+    "total_amount": "blanditiis",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -384,11 +655,11 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://store.wutang.com/api/unionpay/return" \
+    "http://localhost/api/unionpay/return" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/unionpay/return"
+    "http://localhost/api/unionpay/return"
 );
 
 let headers = {
@@ -412,11 +683,11 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://store.wutang.com/api/unionpay/notify" \
+    "http://localhost/api/unionpay/notify" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/unionpay/notify"
+    "http://localhost/api/unionpay/notify"
 );
 
 let headers = {
@@ -440,11 +711,11 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://store.wutang.com/api/auth/logout" \
+    "http://localhost/api/auth/logout" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/auth/logout"
+    "http://localhost/api/auth/logout"
 );
 
 let headers = {
@@ -468,11 +739,11 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "http://store.wutang.com/api/auth/refresh" \
+    "http://localhost/api/auth/refresh" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/auth/refresh"
+    "http://localhost/api/auth/refresh"
 );
 
 let headers = {
@@ -496,11 +767,11 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/auth/me" \
+    -G "http://localhost/api/auth/me" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/auth/me"
+    "http://localhost/api/auth/me"
 );
 
 let headers = {
@@ -523,24 +794,24 @@ fetch(url, {
 <h3>HTTP Request</h3>
 <p><code>GET api/auth/me</code></p>
 <!-- END_7c4c8c21aa8bf7ffa0ae617fb274806d -->
-<!-- START_8ea83200acfc1e23fd76db9cdafef002 -->
+<!-- START_2b6e5a4b188cb183c7e59558cce36cb6 -->
 <h2>Query user list(Admin)</h2>
 <p>查询用户数据列表</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/user_info?username=et&amp;page=quae&amp;page_limit=veniam" \
+    -G "http://localhost/api/user?username=sit&amp;page=inventore&amp;page_limit=soluta" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/user_info"
+    "http://localhost/api/user"
 );
 
 let params = {
-    "username": "et",
-    "page": "quae",
-    "page_limit": "veniam",
+    "username": "sit",
+    "page": "inventore",
+    "page_limit": "soluta",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -563,7 +834,7 @@ fetch(url, {
     "message": "Unauthenticated."
 }</code></pre>
 <h3>HTTP Request</h3>
-<p><code>GET api/user_info</code></p>
+<p><code>GET api/user</code></p>
 <h4>Query Parameters</h4>
 <table>
 <thead>
@@ -591,26 +862,26 @@ fetch(url, {
 </tr>
 </tbody>
 </table>
-<!-- END_8ea83200acfc1e23fd76db9cdafef002 -->
-<!-- START_e2c192a0a4f190ae064198897538eec1 -->
+<!-- END_2b6e5a4b188cb183c7e59558cce36cb6 -->
+<!-- START_423f5eae0641e400f92081d60646f9b7 -->
 <h2>Edit user(Admin)</h2>
 <p>修改用户资料</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "http://store.wutang.com/api/user_info/1?name=explicabo&amp;email=laboriosam&amp;phone=aut&amp;avatar=ea" \
+    "http://localhost/api/user/1?name=eius&amp;email=sequi&amp;phone=ut&amp;avatar=est" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/user_info/1"
+    "http://localhost/api/user/1"
 );
 
 let params = {
-    "name": "explicabo",
-    "email": "laboriosam",
-    "phone": "aut",
-    "avatar": "ea",
+    "name": "eius",
+    "email": "sequi",
+    "phone": "ut",
+    "avatar": "est",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -627,7 +898,7 @@ fetch(url, {
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <h3>HTTP Request</h3>
-<p><code>PUT api/user_info/{username}</code></p>
+<p><code>PUT api/user/{username}</code></p>
 <h4>Query Parameters</h4>
 <table>
 <thead>
@@ -660,19 +931,19 @@ fetch(url, {
 </tr>
 </tbody>
 </table>
-<!-- END_e2c192a0a4f190ae064198897538eec1 -->
-<!-- START_ffde60a768955ec5b524e56a61a96460 -->
+<!-- END_423f5eae0641e400f92081d60646f9b7 -->
+<!-- START_ecf6bb0e605df556b061fec5590511e8 -->
 <h2>delete User(Admin)</h2>
 <p>删除用户</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://store.wutang.com/api/user_info/1" \
+    "http://localhost/api/user/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/user_info/1"
+    "http://localhost/api/user/1"
 );
 
 let headers = {
@@ -687,26 +958,26 @@ fetch(url, {
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <h3>HTTP Request</h3>
-<p><code>DELETE api/user_info/{username}</code></p>
-<!-- END_ffde60a768955ec5b524e56a61a96460 -->
-<!-- START_63c3950756683d5d10797d7902963686 -->
+<p><code>DELETE api/user/{username}</code></p>
+<!-- END_ecf6bb0e605df556b061fec5590511e8 -->
+<!-- START_08c38be52ff59ddad83e83f4fbda6646 -->
 <h2>change password(Admin)</h2>
 <p>修改密码</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "http://store.wutang.com/api/user/password/1?oldPassword=rem&amp;newPassword=earum&amp;newPassword_confirmation=fuga" \
+    "http://localhost/api/user/reset_password/1?oldPassword=perferendis&amp;newPassword=error&amp;newPassword_confirmation=expedita" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/user/password/1"
+    "http://localhost/api/user/reset_password/1"
 );
 
 let params = {
-    "oldPassword": "rem",
-    "newPassword": "earum",
-    "newPassword_confirmation": "fuga",
+    "oldPassword": "perferendis",
+    "newPassword": "error",
+    "newPassword_confirmation": "expedita",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -723,7 +994,7 @@ fetch(url, {
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <h3>HTTP Request</h3>
-<p><code>PUT api/user/password/{username}</code></p>
+<p><code>PUT api/user/reset_password/{username}</code></p>
 <h4>Query Parameters</h4>
 <table>
 <thead>
@@ -751,7 +1022,7 @@ fetch(url, {
 </tr>
 </tbody>
 </table>
-<!-- END_63c3950756683d5d10797d7902963686 -->
+<!-- END_08c38be52ff59ddad83e83f4fbda6646 -->
 <!-- START_5eaa718aa49e18482a9217806c4a5d1b -->
 <h2>Get user info</h2>
 <p>获取单个用户信息</p>
@@ -759,15 +1030,15 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/get_user?hash_id=ratione" \
+    -G "http://localhost/api/get_user?hash_id=saepe" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/get_user"
+    "http://localhost/api/get_user"
 );
 
 let params = {
-    "hash_id": "ratione",
+    "hash_id": "saepe",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -816,11 +1087,11 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/user_addresses" \
+    -G "http://localhost/api/user_addresses" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/user_addresses"
+    "http://localhost/api/user_addresses"
 );
 
 let headers = {
@@ -849,21 +1120,21 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://store.wutang.com/api/user_addresses?province=non&amp;city=reiciendis&amp;district=sed&amp;address=voluptatibus&amp;zip=sit&amp;contact_name=tempora&amp;contact_phone=eveniet" \
+    "http://localhost/api/user_addresses?province=ut&amp;city=temporibus&amp;district=neque&amp;address=quia&amp;zip=voluptatibus&amp;contact_name=tenetur&amp;contact_phone=fuga" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/user_addresses"
+    "http://localhost/api/user_addresses"
 );
 
 let params = {
-    "province": "non",
-    "city": "reiciendis",
-    "district": "sed",
-    "address": "voluptatibus",
-    "zip": "sit",
-    "contact_name": "tempora",
-    "contact_phone": "eveniet",
+    "province": "ut",
+    "city": "temporibus",
+    "district": "neque",
+    "address": "quia",
+    "zip": "voluptatibus",
+    "contact_name": "tenetur",
+    "contact_phone": "fuga",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -936,22 +1207,22 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "http://store.wutang.com/api/user_addresses/1?address_id=magnam&amp;province=facilis&amp;city=culpa&amp;district=minima&amp;address=illo&amp;zip=fugit&amp;contact_name=distinctio&amp;contact_phone=est" \
+    "http://localhost/api/user_addresses/1?address_id=aut&amp;province=deserunt&amp;city=nihil&amp;district=dolore&amp;address=reprehenderit&amp;zip=iure&amp;contact_name=et&amp;contact_phone=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/user_addresses/1"
+    "http://localhost/api/user_addresses/1"
 );
 
 let params = {
-    "address_id": "magnam",
-    "province": "facilis",
-    "city": "culpa",
-    "district": "minima",
-    "address": "illo",
-    "zip": "fugit",
-    "contact_name": "distinctio",
-    "contact_phone": "est",
+    "address_id": "aut",
+    "province": "deserunt",
+    "city": "nihil",
+    "district": "dolore",
+    "address": "reprehenderit",
+    "zip": "iure",
+    "contact_name": "et",
+    "contact_phone": "et",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1029,15 +1300,15 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://store.wutang.com/api/user_addresses/1?address_id=voluptate" \
+    "http://localhost/api/user_addresses/1?address_id=quia" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/user_addresses/1"
+    "http://localhost/api/user_addresses/1"
 );
 
 let params = {
-    "address_id": "voluptate",
+    "address_id": "quia",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1080,11 +1351,11 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/user_profiles" \
+    -G "http://localhost/api/user_profiles" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/user_profiles"
+    "http://localhost/api/user_profiles"
 );
 
 let headers = {
@@ -1114,15 +1385,15 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "http://store.wutang.com/api/user_profiles/1?profile_id=totam" \
+    "http://localhost/api/user_profiles/1?profile_id=ad" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/user_profiles/1"
+    "http://localhost/api/user_profiles/1"
 );
 
 let params = {
-    "profile_id": "totam",
+    "profile_id": "ad",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1165,15 +1436,15 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://store.wutang.com/api/user_profiles/1?profile_id=similique" \
+    "http://localhost/api/user_profiles/1?profile_id=dolor" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/user_profiles/1"
+    "http://localhost/api/user_profiles/1"
 );
 
 let params = {
-    "profile_id": "similique",
+    "profile_id": "dolor",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1215,11 +1486,11 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/invitation/code" \
+    -G "http://localhost/api/invitation/code" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/invitation/code"
+    "http://localhost/api/invitation/code"
 );
 
 let headers = {
@@ -1234,10 +1505,10 @@ fetch(url, {
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <blockquote>
-<p>Example response (401):</p>
+<p>Example response (500):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "message": "Unauthenticated."
+    "message": "Server Error"
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/invitation/code</code></p>
@@ -1249,16 +1520,16 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://store.wutang.com/api/invitation/code?phone=alias&amp;code=praesentium" \
+    "http://localhost/api/invitation/code?phone=et&amp;code=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/invitation/code"
+    "http://localhost/api/invitation/code"
 );
 
 let params = {
-    "phone": "alias",
-    "code": "praesentium",
+    "phone": "et",
+    "code": "et",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1306,16 +1577,16 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/invitation/phone?page=suscipit&amp;page_limit=distinctio" \
+    -G "http://localhost/api/invitation/phone?page=atque&amp;page_limit=at" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://store.wutang.com/api/invitation/phone"
+    "http://localhost/api/invitation/phone"
 );
 
 let params = {
-    "page": "suscipit",
-    "page_limit": "distinctio",
+    "page": "atque",
+    "page_limit": "at",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1332,10 +1603,10 @@ fetch(url, {
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <blockquote>
-<p>Example response (401):</p>
+<p>Example response (500):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "message": "Unauthenticated."
+    "message": "Server Error"
 }</code></pre>
 <h3>HTTP Request</h3>
 <p><code>GET api/invitation/phone</code></p>
@@ -1362,6 +1633,1191 @@ fetch(url, {
 </tbody>
 </table>
 <!-- END_095020a001574dfac37a634772a2519c -->
+<!-- START_40a9d7f4b53f15ee8f8fec5cd5294c55 -->
+<h2>get product category list</h2>
+<p>获取产品分类列表</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/product_categories?page=facilis&amp;page_limit=et" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/product_categories"
+);
+
+let params = {
+    "page": "facilis",
+    "page_limit": "et",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/product_categories</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>page</code></td>
+<td>optional</td>
+<td>页码</td>
+</tr>
+<tr>
+<td><code>page_limit</code></td>
+<td>optional</td>
+<td>每页数量</td>
+</tr>
+</tbody>
+</table>
+<!-- END_40a9d7f4b53f15ee8f8fec5cd5294c55 -->
+<!-- START_55c5a0853ea113d314fbe6bb22c7a32a -->
+<h2>create product category</h2>
+<p>新建产品分类</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/product_categories?title=quia&amp;title_en=iure&amp;describe=dolore&amp;describe_en=optio&amp;banner=autem&amp;description=fuga&amp;description_en=ab&amp;img=quia&amp;parent_id=deleniti" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/product_categories"
+);
+
+let params = {
+    "title": "quia",
+    "title_en": "iure",
+    "describe": "dolore",
+    "describe_en": "optio",
+    "banner": "autem",
+    "description": "fuga",
+    "description_en": "ab",
+    "img": "quia",
+    "parent_id": "deleniti",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/product_categories</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td>required</td>
+<td>分类名称</td>
+</tr>
+<tr>
+<td><code>title_en</code></td>
+<td>optional</td>
+<td>分类英文名称</td>
+</tr>
+<tr>
+<td><code>describe</code></td>
+<td>optional</td>
+<td>分类描述</td>
+</tr>
+<tr>
+<td><code>describe_en</code></td>
+<td>optional</td>
+<td>英文分类描述</td>
+</tr>
+<tr>
+<td><code>banner</code></td>
+<td>optional</td>
+<td>分类banner图</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>optional</td>
+<td>分类简介</td>
+</tr>
+<tr>
+<td><code>description_en</code></td>
+<td>optional</td>
+<td>分类英文简介</td>
+</tr>
+<tr>
+<td><code>img</code></td>
+<td>optional</td>
+<td>分类简介图</td>
+</tr>
+<tr>
+<td><code>parent_id</code></td>
+<td>optional</td>
+<td>上级分类ID</td>
+</tr>
+</tbody>
+</table>
+<!-- END_55c5a0853ea113d314fbe6bb22c7a32a -->
+<!-- START_5185fa87570dc2eb783a3745022ee58c -->
+<h2>edit product category</h2>
+<p>编辑产品分类</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/product_categories/1?title=fuga&amp;title_en=nobis&amp;describe=impedit&amp;describe_en=dicta&amp;banner=sit&amp;description=harum&amp;description_en=optio&amp;img=aut&amp;parent_id=eius" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/product_categories/1"
+);
+
+let params = {
+    "title": "fuga",
+    "title_en": "nobis",
+    "describe": "impedit",
+    "describe_en": "dicta",
+    "banner": "sit",
+    "description": "harum",
+    "description_en": "optio",
+    "img": "aut",
+    "parent_id": "eius",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/product_categories/{productCategoriesId}</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td>optional</td>
+<td>分类名称</td>
+</tr>
+<tr>
+<td><code>title_en</code></td>
+<td>optional</td>
+<td>分类英文名称</td>
+</tr>
+<tr>
+<td><code>describe</code></td>
+<td>optional</td>
+<td>分类描述</td>
+</tr>
+<tr>
+<td><code>describe_en</code></td>
+<td>optional</td>
+<td>英文分类描述</td>
+</tr>
+<tr>
+<td><code>banner</code></td>
+<td>optional</td>
+<td>分类banner图</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>optional</td>
+<td>分类简介</td>
+</tr>
+<tr>
+<td><code>description_en</code></td>
+<td>optional</td>
+<td>分类英文简介</td>
+</tr>
+<tr>
+<td><code>img</code></td>
+<td>optional</td>
+<td>分类简介图</td>
+</tr>
+<tr>
+<td><code>parent_id</code></td>
+<td>optional</td>
+<td>上级分类ID</td>
+</tr>
+</tbody>
+</table>
+<!-- END_5185fa87570dc2eb783a3745022ee58c -->
+<!-- START_6c421bb89a5181c9af9e9d448422d062 -->
+<h2>delete product category</h2>
+<p>删除产品分类</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "http://localhost/api/product_categories/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/product_categories/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE api/product_categories/{productCategoriesId}</code></p>
+<!-- END_6c421bb89a5181c9af9e9d448422d062 -->
+<!-- START_6e739b5be973e6341308813d22c20e38 -->
+<h2>Get product category stoies</h2>
+<p>获取产品分类故事</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/category_stories?page=magni&amp;page_limit=quidem" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/category_stories"
+);
+
+let params = {
+    "page": "magni",
+    "page_limit": "quidem",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/category_stories</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>page</code></td>
+<td>optional</td>
+<td>页码</td>
+</tr>
+<tr>
+<td><code>page_limit</code></td>
+<td>optional</td>
+<td>没页数量</td>
+</tr>
+</tbody>
+</table>
+<!-- END_6e739b5be973e6341308813d22c20e38 -->
+<!-- START_fd1bfb3833144b67103d359b6bdff0ef -->
+<h2>Create product category story</h2>
+<p>添加产品分类故事</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/category_stories?title=minus&amp;title_en=nisi&amp;description=est&amp;description_en=voluptatum&amp;banner=libero&amp;product_category_id=quia" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/category_stories"
+);
+
+let params = {
+    "title": "minus",
+    "title_en": "nisi",
+    "description": "est",
+    "description_en": "voluptatum",
+    "banner": "libero",
+    "product_category_id": "quia",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/category_stories</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td>required</td>
+<td>分类故事名称</td>
+</tr>
+<tr>
+<td><code>title_en</code></td>
+<td>optional</td>
+<td>英文故事名称</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>optional</td>
+<td>分类简介</td>
+</tr>
+<tr>
+<td><code>description_en</code></td>
+<td>optional</td>
+<td>英文分类简介</td>
+</tr>
+<tr>
+<td><code>banner</code></td>
+<td>optional</td>
+<td>故事banner</td>
+</tr>
+<tr>
+<td><code>product_category_id</code></td>
+<td>optional</td>
+<td>属于产品类ID</td>
+</tr>
+</tbody>
+</table>
+<!-- END_fd1bfb3833144b67103d359b6bdff0ef -->
+<!-- START_a4f26166128204b23ca18d5bd2ab05af -->
+<h2>edit product category story</h2>
+<p>编辑产品分类故事</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/category_stories/1?title=libero&amp;title_en=consequatur&amp;description=quo&amp;description_en=tempora&amp;banner=ducimus&amp;product_category_id=ratione" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/category_stories/1"
+);
+
+let params = {
+    "title": "libero",
+    "title_en": "consequatur",
+    "description": "quo",
+    "description_en": "tempora",
+    "banner": "ducimus",
+    "product_category_id": "ratione",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/category_stories/{CategoriesStoriesId}</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td>optional</td>
+<td>分类故事名称</td>
+</tr>
+<tr>
+<td><code>title_en</code></td>
+<td>optional</td>
+<td>英文故事名称</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>optional</td>
+<td>分类简介</td>
+</tr>
+<tr>
+<td><code>description_en</code></td>
+<td>optional</td>
+<td>英文分类简介</td>
+</tr>
+<tr>
+<td><code>banner</code></td>
+<td>optional</td>
+<td>故事banner</td>
+</tr>
+<tr>
+<td><code>product_category_id</code></td>
+<td>optional</td>
+<td>属于产品类ID</td>
+</tr>
+</tbody>
+</table>
+<!-- END_a4f26166128204b23ca18d5bd2ab05af -->
+<!-- START_1f8ac1234eac3c24495d0dba65c51750 -->
+<h2>Delete product category story</h2>
+<p>删除产品分类故事</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "http://localhost/api/category_stories/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/category_stories/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE api/category_stories/{CategoriesStoriesId}</code></p>
+<!-- END_1f8ac1234eac3c24495d0dba65c51750 -->
+<!-- START_dc538d69a8586a7a3c36d4393cee42e6 -->
+<h2>Get product list</h2>
+<p>获取产品列表</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/product?page=qui&amp;page_limit=eos" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/product"
+);
+
+let params = {
+    "page": "qui",
+    "page_limit": "eos",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/product</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>page</code></td>
+<td>optional</td>
+<td>页码</td>
+</tr>
+<tr>
+<td><code>page_limit</code></td>
+<td>optional</td>
+<td>每页数量</td>
+</tr>
+</tbody>
+</table>
+<!-- END_dc538d69a8586a7a3c36d4393cee42e6 -->
+<!-- START_2d62ba7cf16a7d6db447375e13e86c34 -->
+<h2>Create product</h2>
+<p>新建商品</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/product?product_category_id=qui&amp;product_name=quibusdam&amp;product_name_en=iure&amp;thumbnail=cupiditate&amp;slug=sed&amp;short_description=nobis&amp;short_description_en=ab&amp;price=assumenda&amp;sale_price=veniam&amp;stock=molestiae&amp;seo_title=dolores&amp;seo_keyword=quis&amp;seo_description=reiciendis&amp;benefit=et&amp;benefit_en=quia&amp;tech_description=nostrum&amp;tech_description_en=iure&amp;description=doloribus&amp;description_en=ut&amp;usage=ut&amp;usage_en=veritatis&amp;main_image=minus&amp;main_image_2=quod&amp;benefit_image=placeat&amp;product_video=ut&amp;status=voluptas&amp;rating=amet&amp;sold_count=possimus&amp;review_count=et" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/product"
+);
+
+let params = {
+    "product_category_id": "qui",
+    "product_name": "quibusdam",
+    "product_name_en": "iure",
+    "thumbnail": "cupiditate",
+    "slug": "sed",
+    "short_description": "nobis",
+    "short_description_en": "ab",
+    "price": "assumenda",
+    "sale_price": "veniam",
+    "stock": "molestiae",
+    "seo_title": "dolores",
+    "seo_keyword": "quis",
+    "seo_description": "reiciendis",
+    "benefit": "et",
+    "benefit_en": "quia",
+    "tech_description": "nostrum",
+    "tech_description_en": "iure",
+    "description": "doloribus",
+    "description_en": "ut",
+    "usage": "ut",
+    "usage_en": "veritatis",
+    "main_image": "minus",
+    "main_image_2": "quod",
+    "benefit_image": "placeat",
+    "product_video": "ut",
+    "status": "voluptas",
+    "rating": "amet",
+    "sold_count": "possimus",
+    "review_count": "et",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/product</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>product_category_id</code></td>
+<td>optional</td>
+<td>所属产品分类id</td>
+</tr>
+<tr>
+<td><code>product_name</code></td>
+<td>required</td>
+<td>商品名称</td>
+</tr>
+<tr>
+<td><code>product_name_en</code></td>
+<td>required</td>
+<td>商品英文名称</td>
+</tr>
+<tr>
+<td><code>thumbnail</code></td>
+<td>optional</td>
+<td>产品缩略图</td>
+</tr>
+<tr>
+<td><code>slug</code></td>
+<td>optional</td>
+<td>导航名称:即url</td>
+</tr>
+<tr>
+<td><code>short_description</code></td>
+<td>optional</td>
+<td>简短介绍</td>
+</tr>
+<tr>
+<td><code>short_description_en</code></td>
+<td>optional</td>
+<td>英文简短介绍</td>
+</tr>
+<tr>
+<td><code>price</code></td>
+<td>required</td>
+<td>价格</td>
+</tr>
+<tr>
+<td><code>sale_price</code></td>
+<td>required</td>
+<td>优惠价</td>
+</tr>
+<tr>
+<td><code>stock</code></td>
+<td>required</td>
+<td>库存量</td>
+</tr>
+<tr>
+<td><code>seo_title</code></td>
+<td>optional</td>
+<td>网页title</td>
+</tr>
+<tr>
+<td><code>seo_keyword</code></td>
+<td>optional</td>
+<td>网页关键字</td>
+</tr>
+<tr>
+<td><code>seo_description</code></td>
+<td>optional</td>
+<td>网页描述</td>
+</tr>
+<tr>
+<td><code>benefit</code></td>
+<td>optional</td>
+<td>产品功效</td>
+</tr>
+<tr>
+<td><code>benefit_en</code></td>
+<td>optional</td>
+<td>英文产品功效</td>
+</tr>
+<tr>
+<td><code>tech_description</code></td>
+<td>optional</td>
+<td>科技介绍</td>
+</tr>
+<tr>
+<td><code>tech_description_en</code></td>
+<td>optional</td>
+<td>英文科技介绍</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>optional</td>
+<td>产品细节</td>
+</tr>
+<tr>
+<td><code>description_en</code></td>
+<td>optional</td>
+<td>英文产品细节</td>
+</tr>
+<tr>
+<td><code>usage</code></td>
+<td>optional</td>
+<td>使用方法</td>
+</tr>
+<tr>
+<td><code>usage_en</code></td>
+<td>optional</td>
+<td>英文使用方法</td>
+</tr>
+<tr>
+<td><code>main_image</code></td>
+<td>required</td>
+<td>页面主图</td>
+</tr>
+<tr>
+<td><code>main_image_2</code></td>
+<td>required</td>
+<td>页面主图2:用于较低分辨率设备</td>
+</tr>
+<tr>
+<td><code>benefit_image</code></td>
+<td>optional</td>
+<td>功效背景图</td>
+</tr>
+<tr>
+<td><code>product_video</code></td>
+<td>optional</td>
+<td>产品相关视频</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>required</td>
+<td>商品状态：1新品，2畅销，3促销，-1下架</td>
+</tr>
+<tr>
+<td><code>rating</code></td>
+<td>required</td>
+<td>平均评分</td>
+</tr>
+<tr>
+<td><code>sold_count</code></td>
+<td>required</td>
+<td>销量</td>
+</tr>
+<tr>
+<td><code>review_count</code></td>
+<td>required</td>
+<td>评价数量</td>
+</tr>
+</tbody>
+</table>
+<!-- END_2d62ba7cf16a7d6db447375e13e86c34 -->
+<!-- START_d5e3be7e58053cd0e038f77eb2162635 -->
+<h2>Edit product</h2>
+<p>编辑商品</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/product/1?product_category_id=iusto&amp;product_name=tempore&amp;product_name_en=aut&amp;thumbnail=aliquid&amp;slug=voluptatem&amp;short_description=eveniet&amp;short_description_en=eos&amp;price=tempora&amp;sale_price=quos&amp;stock=voluptatibus&amp;seo_title=quia&amp;seo_keyword=id&amp;seo_description=asperiores&amp;benefit=eligendi&amp;benefit_en=adipisci&amp;tech_description=reiciendis&amp;tech_description_en=eius&amp;description=repellendus&amp;description_en=est&amp;usage=quia&amp;usage_en=officia&amp;main_image=aut&amp;main_image_2=aperiam&amp;benefit_image=fuga&amp;product_video=voluptatem&amp;status=et&amp;rating=officiis&amp;sold_count=eum&amp;review_count=illo" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/product/1"
+);
+
+let params = {
+    "product_category_id": "iusto",
+    "product_name": "tempore",
+    "product_name_en": "aut",
+    "thumbnail": "aliquid",
+    "slug": "voluptatem",
+    "short_description": "eveniet",
+    "short_description_en": "eos",
+    "price": "tempora",
+    "sale_price": "quos",
+    "stock": "voluptatibus",
+    "seo_title": "quia",
+    "seo_keyword": "id",
+    "seo_description": "asperiores",
+    "benefit": "eligendi",
+    "benefit_en": "adipisci",
+    "tech_description": "reiciendis",
+    "tech_description_en": "eius",
+    "description": "repellendus",
+    "description_en": "est",
+    "usage": "quia",
+    "usage_en": "officia",
+    "main_image": "aut",
+    "main_image_2": "aperiam",
+    "benefit_image": "fuga",
+    "product_video": "voluptatem",
+    "status": "et",
+    "rating": "officiis",
+    "sold_count": "eum",
+    "review_count": "illo",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/product/{productId}</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>product_category_id</code></td>
+<td>optional</td>
+<td>所属产品分类id</td>
+</tr>
+<tr>
+<td><code>product_name</code></td>
+<td>optional</td>
+<td>商品名称</td>
+</tr>
+<tr>
+<td><code>product_name_en</code></td>
+<td>optional</td>
+<td>商品英文名称</td>
+</tr>
+<tr>
+<td><code>thumbnail</code></td>
+<td>optional</td>
+<td>产品缩略图</td>
+</tr>
+<tr>
+<td><code>slug</code></td>
+<td>optional</td>
+<td>导航名称:即url</td>
+</tr>
+<tr>
+<td><code>short_description</code></td>
+<td>optional</td>
+<td>简短介绍</td>
+</tr>
+<tr>
+<td><code>short_description_en</code></td>
+<td>optional</td>
+<td>英文简短介绍</td>
+</tr>
+<tr>
+<td><code>price</code></td>
+<td>optional</td>
+<td>价格</td>
+</tr>
+<tr>
+<td><code>sale_price</code></td>
+<td>optional</td>
+<td>优惠价</td>
+</tr>
+<tr>
+<td><code>stock</code></td>
+<td>optional</td>
+<td>库存量</td>
+</tr>
+<tr>
+<td><code>seo_title</code></td>
+<td>optional</td>
+<td>网页title</td>
+</tr>
+<tr>
+<td><code>seo_keyword</code></td>
+<td>optional</td>
+<td>网页关键字</td>
+</tr>
+<tr>
+<td><code>seo_description</code></td>
+<td>optional</td>
+<td>网页描述</td>
+</tr>
+<tr>
+<td><code>benefit</code></td>
+<td>optional</td>
+<td>产品功效</td>
+</tr>
+<tr>
+<td><code>benefit_en</code></td>
+<td>optional</td>
+<td>英文产品功效</td>
+</tr>
+<tr>
+<td><code>tech_description</code></td>
+<td>optional</td>
+<td>科技介绍</td>
+</tr>
+<tr>
+<td><code>tech_description_en</code></td>
+<td>optional</td>
+<td>英文科技介绍</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>optional</td>
+<td>产品细节</td>
+</tr>
+<tr>
+<td><code>description_en</code></td>
+<td>optional</td>
+<td>英文产品细节</td>
+</tr>
+<tr>
+<td><code>usage</code></td>
+<td>optional</td>
+<td>使用方法</td>
+</tr>
+<tr>
+<td><code>usage_en</code></td>
+<td>optional</td>
+<td>英文使用方法</td>
+</tr>
+<tr>
+<td><code>main_image</code></td>
+<td>optional</td>
+<td>页面主图</td>
+</tr>
+<tr>
+<td><code>main_image_2</code></td>
+<td>optional</td>
+<td>页面主图2:用于较低分辨率设备</td>
+</tr>
+<tr>
+<td><code>benefit_image</code></td>
+<td>optional</td>
+<td>功效背景图</td>
+</tr>
+<tr>
+<td><code>product_video</code></td>
+<td>optional</td>
+<td>产品相关视频</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>required</td>
+<td>商品状态：1新品，2畅销，3促销，-1下架</td>
+</tr>
+<tr>
+<td><code>rating</code></td>
+<td>required</td>
+<td>平均评分</td>
+</tr>
+<tr>
+<td><code>sold_count</code></td>
+<td>optional</td>
+<td>销量</td>
+</tr>
+<tr>
+<td><code>review_count</code></td>
+<td>optional</td>
+<td>评价数量</td>
+</tr>
+</tbody>
+</table>
+<!-- END_d5e3be7e58053cd0e038f77eb2162635 -->
+<!-- START_c96f9db6d91320655a6d7763d0b54003 -->
+<h2>Off the Product</h2>
+<p>下架产品</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "http://localhost/api/product/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/product/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE api/product/{productId}</code></p>
+<!-- END_c96f9db6d91320655a6d7763d0b54003 -->
+<!-- START_85f5e0416e43baf6efe6798257b42c31 -->
+<h2>api/product_sku</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost/api/product_sku" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/product_sku"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/product_sku</code></p>
+<!-- END_85f5e0416e43baf6efe6798257b42c31 -->
+<!-- START_70f2617e9fa174a8ec9c6823a9174bfc -->
+<h2>api/product_sku</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/product_sku" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/product_sku"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/product_sku</code></p>
+<!-- END_70f2617e9fa174a8ec9c6823a9174bfc -->
+<!-- START_bc6bcef6cd223698a0404188ebcde37b -->
+<h2>api/product_sku/{productSkuId}</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost/api/product_sku/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/product_sku/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/product_sku/{productSkuId}</code></p>
+<!-- END_bc6bcef6cd223698a0404188ebcde37b -->
+<!-- START_29e40e9b2b856861ef5b2b250e965009 -->
+<h2>api/product_sku/{productSkuId}</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "http://localhost/api/product_sku/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/product_sku/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE api/product_sku/{productSkuId}</code></p>
+<!-- END_29e40e9b2b856861ef5b2b250e965009 -->
       </div>
       <div class="dark-box">
                         <div class="lang-selector">

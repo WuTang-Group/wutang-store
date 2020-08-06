@@ -2,6 +2,7 @@
 
 namespace App\Services\Api;
 
+use App\Enums\AliyunOssDir;
 use App\Enums\ProductStatusCode;
 use App\Handlers\OssHandler;
 use App\Models\Product;
@@ -77,7 +78,7 @@ class ProductService extends Service
         foreach ($filtered as $key => $value) {
             // 图片存储到OSS，本地保存OSS地址
             try {
-                $ossRes = OssHandler::save($array[$key], 'ProductCategories');  // 图片存储到OSS
+                $ossRes = OssHandler::save($array[$key], AliyunOssDir::Product);  // 图片存储到OSS
                 $ossRes ? $array[$key] = $ossRes['data'] : null;
             } catch (\Exception $e) {
                 Log::error($e->getMessage());

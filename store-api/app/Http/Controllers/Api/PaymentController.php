@@ -27,7 +27,7 @@ class PaymentController extends Controller
     }
 
     /**
-     * Request the unionpay
+     * Unionpay request payment
      * 银联支付发起请求
      * @queryParam no required 订单号
      * @queryParam product_name required 商品名称
@@ -53,7 +53,7 @@ class PaymentController extends Controller
     }
 
     /**
-     * Return unionpay results
+     * Unionpay return payment results
      * 银联支付返回结果
      * @param Request $request
      * @return array|RedirectResponse
@@ -72,7 +72,7 @@ class PaymentController extends Controller
     }
 
     /**
-     * Notify unionpay results
+     * Unionpay notify payment results
      * 通知银联支付结果
      * @param Request $request
      * @return bool
@@ -87,6 +87,7 @@ class PaymentController extends Controller
     }
 
     /**
+     * Alipay request payment
      * 支付宝发起支付
      * @param PaymentRequest $request
      * @return mixed
@@ -103,6 +104,7 @@ class PaymentController extends Controller
     }
 
     /**
+     * Alipay return payment results
      *  支付宝前端回调页面
      * @param Request $request
      * @return Application|ResponseFactory|Response
@@ -125,6 +127,7 @@ class PaymentController extends Controller
     }
 
     /**
+     * Alipay notify payment results
      * 支付宝服务器端回调
      * @param Request $request
      * @return mixed

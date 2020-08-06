@@ -5,7 +5,7 @@ namespace App\Models;
 
 class ShopCart extends Model
 {
-    protected $fillable = ['amount'];
+    protected $fillable = ['amount', 'product_id', 'user_id'];
     public $timestamps = false;
 
     public function user()
@@ -16,5 +16,10 @@ class ShopCart extends Model
     public function productSku()
     {
         return $this->belongsTo(ProductSku::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
     }
 }

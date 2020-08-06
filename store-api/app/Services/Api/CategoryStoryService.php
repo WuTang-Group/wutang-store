@@ -1,6 +1,7 @@
 <?php
 namespace App\Services\Api;
 
+use App\Enums\AliyunOssDir;
 use App\Handlers\OssHandler;
 use App\Models\ProductCategoryStory;
 use App\Services\Service;
@@ -29,7 +30,7 @@ class CategoryStoryService extends Service
         // 新增分类故事列表
         if(isset($queries['banner'])){
             try {
-                $ossRes = OssHandler::save($queries['banner'], 'ProductCategoryStory');  // 图片存储到OSS
+                $ossRes = OssHandler::save($queries['banner'], AliyunOssDir::ProductCategoryStory);  // 图片存储到OSS
                 $ossRes ? $queries['banner'] = $ossRes['data'] : null;
             } catch (\Exception $e) {
                 Log::error($e->getMessage());
@@ -49,7 +50,7 @@ class CategoryStoryService extends Service
         // 编辑分类故事
         if(isset($queries['banner'])){
             try {
-                $ossRes = OssHandler::save($queries['banner'], 'ProductCategoryStory');  // 图片存储到OSS
+                $ossRes = OssHandler::save($queries['banner'], AliyunOssDir::ProductCategoryStory);  // 图片存储到OSS
                 $ossRes ? $queries['banner'] = $ossRes['data'] : null;
             } catch (\Exception $e) {
                 Log::error($e->getMessage());

@@ -18,7 +18,7 @@ class ProductController extends Controller
 
     /**
      * Get product category (Api)
-     * 获取商品类别
+     * 获取商品类目
      * @return \Illuminate\Http\JsonResponse
      */
     public function categoryQueryList(){
@@ -26,6 +26,12 @@ class ProductController extends Controller
         return $result?response()->json(ResponseData::requestSuccess($result)):response()->json(ResponseData::requestFails());
     }
 
+    /**
+     * Get product list
+     * 获取商品列表
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function productQueryList(Request $request){
         $queries = page_limit($request);
         $result = $this->productService->productQueryList($queries->all());

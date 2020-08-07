@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Admin;
 
-use App\Helpers\ResponseData;
+use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\CodeRequest;
+use App\Http\Requests\Admin\CodeRequest;
 use App\Models\InvitationCode;
 use App\Models\User;
 use Illuminate\Http\Request;

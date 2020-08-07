@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Admin;
 
 use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\UserProfileRequest;
-use App\Services\Api\UserProfileService;
+use App\Http\Requests\Admin\UserProfileRequest;
+use App\Services\Admin\UserProfileService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Response;

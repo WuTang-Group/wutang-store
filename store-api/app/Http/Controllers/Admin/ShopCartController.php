@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Admin;
 
 use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\ShopCartRequest;
-use App\Services\Api\ShopCartService;
+use App\Http\Requests\Admin\ShopCartRequest;
+use App\Services\Admin\ShopCartService;
 use Illuminate\Http\Request;
 
 class ShopCartController extends Controller

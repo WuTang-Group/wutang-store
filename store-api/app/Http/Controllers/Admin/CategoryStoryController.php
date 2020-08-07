@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Admin;
 
 use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\CategoryStoryRequest;
-use App\Services\Api\CategoryStoryService;
+use App\Http\Requests\Admin\CategoryStoryRequest;
+use App\Services\Admin\CategoryStoryService;
 use Illuminate\Http\Request;
 
 

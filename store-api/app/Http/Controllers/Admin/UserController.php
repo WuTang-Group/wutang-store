@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Admin;
 
 use App\Enums\Roles;
 use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\UserRequest;
+use App\Http\Requests\Admin\UserRequest;
 use App\Models\Traits\HashIdHelper;
 use App\Models\User;
-use App\Services\Api\UserService;
+use App\Services\Admin\UserService;
 use Hashids;
 use Illuminate\ {
     Http\Request,Support\Facades\Auth,Support\Facades\Log,

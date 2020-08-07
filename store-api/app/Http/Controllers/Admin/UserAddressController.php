@@ -20,7 +20,7 @@ class UserAddressController extends Controller
     }
 
     /**
-     * Query user address list
+     *「ADMIN」Query user address list
      *  用户地址列表
      * @param UserAddressRequest $request
      * @return Application|ResponseFactory|Response
@@ -32,7 +32,7 @@ class UserAddressController extends Controller
     }
 
     /**
-     * Create user address
+     *「ADMIN」Create user address
      * @queryParam province required 省
      * @queryParam city required 市
      * @queryParam district required 区
@@ -59,7 +59,7 @@ class UserAddressController extends Controller
     }
 
     /**
-     * Update user address
+     *「ADMIN」Update user address
      * 编辑用户地址
      * @queryParam address_id required address表id
      * @queryParam province required 省
@@ -89,7 +89,7 @@ class UserAddressController extends Controller
     }
 
     /**
-     * Destroy user address
+     *「ADMIN」Destroy user address
      * 删除用户地址
      * @queryParam address_id required address表id
      * @param $address_id

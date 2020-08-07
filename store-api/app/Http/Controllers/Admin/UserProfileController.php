@@ -20,7 +20,7 @@ class UserProfileController extends Controller
     }
 
     /**
-     * User profile list
+     *「ADMIN」User profile list
      * 用户资料信息
      * @param UserProfileRequest $request
      * @return Application|ResponseFactory|Response
@@ -32,7 +32,7 @@ class UserProfileController extends Controller
     }
 
     /**
-     * Update user profile
+     *「ADMIN」Update user profile
      * 编辑用户资料
      * @queryParam profile_id required profile表id
      * @param $profile_id
@@ -52,7 +52,7 @@ class UserProfileController extends Controller
     }
 
     /**
-     * Destroy user profile
+     *「ADMIN」Destroy user profile
      * 删除用户资料
      * @queryParam profile_id required profile表id
      * @param $profile_id

@@ -18,7 +18,8 @@ class InvitationController extends Controller
         $this->invitationCode = $invitationCode;
     }
 
-    /**Get invitation code
+    /**
+     *「ADMIN」Get invitation code
      * 获取邀请码
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
@@ -29,7 +30,7 @@ class InvitationController extends Controller
     }
 
     /**
-     * Get user phone
+     *「ADMIN」Get user phone
      * 获取用户的手机号
      * @queryParam page 页码
      * @queryParam page_limit 页数
@@ -54,7 +55,7 @@ class InvitationController extends Controller
     }
 
     /**
-     * bind code
+     *「ADMIN」bind code
      * 绑定用户与邀请码
      * @queryParam phone required 手机号
      * @queryParam code required 邀请码

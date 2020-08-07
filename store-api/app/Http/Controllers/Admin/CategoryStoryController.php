@@ -18,7 +18,7 @@ class CategoryStoryController extends Controller
     }
 
     /**
-     * Get product category stoies
+     * 「ADMIN」Get product category stoies
      * 获取产品分类故事
      * @queryParam page 页码
      * @queryParam page_limit 没页数量
@@ -33,7 +33,7 @@ class CategoryStoryController extends Controller
     }
 
     /**
-     * Create product category story
+     *「ADMIN」Create product category story
      * 添加产品分类故事
      * @queryParam title required 分类故事名称
      * @queryParam title_en 英文故事名称
@@ -54,7 +54,7 @@ class CategoryStoryController extends Controller
     }
 
     /**
-     * edit product category story
+     *「ADMIN」edit product category story
      * 编辑产品分类故事
      * @queryParam title 分类故事名称
      * @queryParam title_en 英文故事名称
@@ -75,7 +75,7 @@ class CategoryStoryController extends Controller
     }
 
     /**
-     * Delete product category story
+     *「ADMIN」Delete product category story
      * 删除产品分类故事
      * @param $categoriesStoriesId
      * @return array|\Illuminate\Http\JsonResponse

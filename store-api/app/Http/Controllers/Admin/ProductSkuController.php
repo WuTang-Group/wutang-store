@@ -17,7 +17,7 @@ class ProductSkuController extends Controller
     }
 
     /**
-     * Get product sku list
+     *「ADMIN」Get product sku list
      * 获取商品SKU列表
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
@@ -29,7 +29,7 @@ class ProductSkuController extends Controller
     }
 
     /**
-     * Create product sku
+     *「ADMIN」Create product sku
      * 新增产品SKU
      * @queryParam title required sku名称
      * @queryParam description required sku描述
@@ -45,7 +45,7 @@ class ProductSkuController extends Controller
     }
 
     /**
-     * Edit product sku
+     *「ADMIN」Edit product sku
      * 编辑产品SKU
      * @queryParam title sku名称
      * @queryParam description sku描述
@@ -62,7 +62,7 @@ class ProductSkuController extends Controller
     }
 
     /**
-     * Delete product sku
+     *「ADMIN」Delete product sku
      * 删除商品sku
      * @param $productSkuId
      * @return \Illuminate\Http\JsonResponse

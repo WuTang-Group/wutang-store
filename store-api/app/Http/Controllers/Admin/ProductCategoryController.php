@@ -18,7 +18,7 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     * get product category list
+     *「ADMIN」get product category list
      * 获取产品分类列表
      * @queryParam page 页码
      * @queryParam page_limit 每页数量
@@ -34,7 +34,7 @@ class ProductCategoryController extends Controller
 
 
     /**
-     * create product category
+     *「ADMIN」create product category
      * 新建产品分类
      * @queryParam title required 分类名称
      * @queryParam title_en 分类英文名称
@@ -57,7 +57,7 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     * edit product category
+     *「ADMIN」edit product category
      * 编辑产品分类
      * @queryParam title 分类名称
      * @queryParam title_en 分类英文名称
@@ -80,7 +80,7 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     * delete product category
+     *「ADMIN」delete product category
      * 删除产品分类
      * @param $productCategoriesId
      * @return \Illuminate\Http\JsonResponse

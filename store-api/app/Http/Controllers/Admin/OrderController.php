@@ -18,7 +18,7 @@ class OrderController extends Controller
     }
 
     /**
-     * Get order list
+     *「ADMIN」Get order list
      * 获取订单列表
      * @queryParam page 页码
      * @queryParam page_limit 每页数量
@@ -32,7 +32,7 @@ class OrderController extends Controller
     }
 
     /**
-     * Search order
+     *「ADMIN」Search order
      * 搜索订单
      * @queryParam page 页码
      * @queryParam page_limit 每页数量

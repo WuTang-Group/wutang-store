@@ -19,7 +19,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Get product list
+     *「ADMIN」Get product list
      * 获取产品列表
      * @queryParam page 页码
      * @queryParam page_limit 每页数量
@@ -35,7 +35,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Create product
+     *「ADMIN」Create product
      * 新建商品
      * @queryParam product_category_id 所属产品分类id
      * @queryParam product_name required 商品名称
@@ -77,7 +77,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Edit product
+     *「ADMIN」Edit product
      * 编辑商品
      * @queryParam product_category_id 所属产品分类id
      * @queryParam product_name 商品名称
@@ -119,7 +119,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Off the Product
+     *「ADMIN」Off the Product
      * 下架产品
      * @param $productId
      * @return \Illuminate\Http\JsonResponse

@@ -64,6 +64,17 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         // 获取登录用户信息
         Route::get('auth/me', 'AuthController@me')->name('auth.me');
         /**
+         * Product
+         */
+        // 获取产品类别
+        Route::get('product_category', 'ProductController@categoryQueryList')->name('product_category.categoryQueryList');
+        // 产品列表
+        Route::get('product', 'ProductController@productQueryList')->name('product.productQueryList');
+        // 获取对应类别下的产品
+        Route::get('product/{categoryId}', 'ProductController@getCategoryProduct')->name('product.getCategoryProduct');
+        // 新品
+        Route::get('product_new', 'ProductController@newProduct')->name('product.newProduct');
+        /**
          * 购物车
          */
         // 结合cookie:若传参数则表示是通过cookie或手动写入数据表并返回最新购物车信息，若不传参数则返回已有购物车表数据信息

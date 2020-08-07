@@ -25,6 +25,7 @@ class CreateProductsTable extends Migration
             $table->decimal('price', 10, 2)->comment('价格');
             $table->decimal('sale_price',10,2)->comment('优惠价');
             $table->unsignedBigInteger('stock')->comment('库存量');
+            $table->string('spec')->nullable()->comment('商品规格');
             $table->string('seo_title')->nullable()->comment('网页title');
             $table->string('seo_keyword')->nullable()->comment('网页关键字');
             $table->string('seo_description')->nullable()->comment('网页描述');

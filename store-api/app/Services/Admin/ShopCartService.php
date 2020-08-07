@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\Api;
+namespace App\Services\Admin;
 
 use App\Models\ShopCart;
 use App\Models\User;

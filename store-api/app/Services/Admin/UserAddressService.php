@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\Api;
+namespace App\Services\Admin;
 
 use App\Enums\Roles;
 use App\Models\UserAddress;

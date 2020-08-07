@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\Api;
+namespace App\Services\Admin;
 
 use App\Models\ProductSku;
 use App\Services\Service;

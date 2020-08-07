@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Api;
+namespace App\Services\Admin;
 
 use App\Enums\AliyunOssDir;
 use App\Handlers\OssHandler;

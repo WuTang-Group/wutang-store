@@ -5,8 +5,7 @@ namespace App\Models;
 
 class ShopCartItem extends Model
 {
-    protected $fillable = ['amount', 'product_id', 'user_id'];
-    public $timestamps = false;
+    protected $fillable = ['amount', 'product_sku_id','product_id', 'user_id'];
 
     public function user()
     {

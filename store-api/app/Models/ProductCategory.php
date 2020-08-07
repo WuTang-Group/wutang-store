@@ -27,5 +27,4 @@ class ProductCategory extends Model
     {
         return $this->hasMany(ProductCategoryStory::class);
     }
-
 }

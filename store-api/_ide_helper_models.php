@@ -277,7 +277,7 @@ namespace App\Models {
      * @method _ShopCartQueryBuilder newModelQuery()
      * @method _ShopCartQueryBuilder newQuery()
      * @method static _ShopCartQueryBuilder query()
-     * @method static _ShopCartCollection|ShopCart[] all()
+     * @method static _ShopCartCollection|ShopCartItem[] all()
      * @mixin _ShopCartQueryBuilder
      */
     class ShopCart extends Model1
@@ -735,7 +735,7 @@ namespace LaravelIdea\Helper\App\Models {
     use App\Models\ProductRecommend;
     use App\Models\ProductSku;
     use App\Models\Profile;
-    use App\Models\ShopCart;
+    use App\Models\ShopCartItem;
     use App\Models\User;
     use App\Models\UserAddress;
     use App\Models\WebSeo;
@@ -1338,20 +1338,20 @@ namespace LaravelIdea\Helper\App\Models {
     }
 
     /**
-     * @method ShopCart shift()
-     * @method ShopCart pop()
-     * @method ShopCart get($key, $default = null)
-     * @method ShopCart pull($key, $default = null)
-     * @method ShopCart first(callable $callback = null, $default = null)
-     * @method ShopCart firstWhere(string $key, $operator = null, $value = null)
-     * @method ShopCart[] all()
-     * @method ShopCart last(callable $callback = null, $default = null)
+     * @method ShopCartItem shift()
+     * @method ShopCartItem pop()
+     * @method ShopCartItem get($key, $default = null)
+     * @method ShopCartItem pull($key, $default = null)
+     * @method ShopCartItem first(callable $callback = null, $default = null)
+     * @method ShopCartItem firstWhere(string $key, $operator = null, $value = null)
+     * @method ShopCartItem[] all()
+     * @method ShopCartItem last(callable $callback = null, $default = null)
      */
     class _ShopCartCollection extends _BaseCollection
     {
         /**
          * @param int $size
-         * @return ShopCart[][]
+         * @return ShopCartItem[][]
          */
         public function chunk($size)
         {
@@ -1366,27 +1366,27 @@ namespace LaravelIdea\Helper\App\Models {
      * @method _ShopCartQueryBuilder whereAmount($value)
      * @method _ShopCartQueryBuilder whereCreatedAt($value)
      * @method _ShopCartQueryBuilder whereUpdatedAt($value)
-     * @method ShopCart create(array $attributes = [])
-     * @method _ShopCartCollection|ShopCart[] cursor()
-     * @method ShopCart|null find($id, array $columns = ['*'])
-     * @method _ShopCartCollection|ShopCart[] findMany(array|Arrayable $ids, array $columns = ['*'])
-     * @method ShopCart findOrFail($id, array $columns = ['*'])
-     * @method _ShopCartCollection|ShopCart[] findOrNew($id, array $columns = ['*'])
-     * @method ShopCart first(array|string $columns = ['*'])
-     * @method ShopCart firstOr(array|\Closure $columns = ['*'], \Closure $callback = null)
-     * @method ShopCart firstOrCreate(array $attributes, array $values = [])
-     * @method ShopCart firstOrFail(array $columns = ['*'])
-     * @method ShopCart firstOrNew(array $attributes, array $values = [])
-     * @method ShopCart firstWhere(array|\Closure|string $column, $operator = null, $value = null, string $boolean = 'and')
-     * @method ShopCart forceCreate(array $attributes)
-     * @method _ShopCartCollection|ShopCart[] fromQuery(string $query, array $bindings = [])
-     * @method _ShopCartCollection|ShopCart[] get(array|string $columns = ['*'])
-     * @method ShopCart getModel()
-     * @method ShopCart[] getModels(array|string $columns = ['*'])
-     * @method _ShopCartCollection|ShopCart[] hydrate(array $items)
-     * @method ShopCart make(array $attributes = [])
-     * @method ShopCart newModelInstance(array $attributes = [])
-     * @method ShopCart updateOrCreate(array $attributes, array $values = [])
+     * @method ShopCartItem create(array $attributes = [])
+     * @method _ShopCartCollection|ShopCartItem[] cursor()
+     * @method ShopCartItem|null find($id, array $columns = ['*'])
+     * @method _ShopCartCollection|ShopCartItem[] findMany(array|Arrayable $ids, array $columns = ['*'])
+     * @method ShopCartItem findOrFail($id, array $columns = ['*'])
+     * @method _ShopCartCollection|ShopCartItem[] findOrNew($id, array $columns = ['*'])
+     * @method ShopCartItem first(array|string $columns = ['*'])
+     * @method ShopCartItem firstOr(array|\Closure $columns = ['*'], \Closure $callback = null)
+     * @method ShopCartItem firstOrCreate(array $attributes, array $values = [])
+     * @method ShopCartItem firstOrFail(array $columns = ['*'])
+     * @method ShopCartItem firstOrNew(array $attributes, array $values = [])
+     * @method ShopCartItem firstWhere(array|\Closure|string $column, $operator = null, $value = null, string $boolean = 'and')
+     * @method ShopCartItem forceCreate(array $attributes)
+     * @method _ShopCartCollection|ShopCartItem[] fromQuery(string $query, array $bindings = [])
+     * @method _ShopCartCollection|ShopCartItem[] get(array|string $columns = ['*'])
+     * @method ShopCartItem getModel()
+     * @method ShopCartItem[] getModels(array|string $columns = ['*'])
+     * @method _ShopCartCollection|ShopCartItem[] hydrate(array $items)
+     * @method ShopCartItem make(array $attributes = [])
+     * @method ShopCartItem newModelInstance(array $attributes = [])
+     * @method ShopCartItem updateOrCreate(array $attributes, array $values = [])
      */
     class _ShopCartQueryBuilder extends _BaseBuilder
     {

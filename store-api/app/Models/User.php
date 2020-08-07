@@ -92,8 +92,8 @@ class User extends Authenticatable implements JWTSubject
         return $query->whereStatus(UserStatus::Enabled);
     }
 
-    public function shopCart()
+    public function shopCartItems()
     {
-        return $this->hasOne(ShopCart::class);
+        return $this->hasMany(ShopCartItem::class);
     }
 }

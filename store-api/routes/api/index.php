@@ -79,6 +79,11 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
          */
         // 结合cookie:若传参数则表示是通过cookie或手动写入数据表并返回最新购物车信息，若不传参数则返回已有购物车表数据信息
         Route::post('shop_carts','ShopCartController@queryList')->name('shop_carts.queryList');
+        /**
+         * 订单
+         */
+        Route::get('orders','OrderController@queryList')->name('orders.queryList');
+        Route::get('order_details','OrderController@getOrderDetail')->name('order_details.getOrderDetail');
 
     });
 

@@ -66,10 +66,6 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         // 获取登录用户信息
         Route::get('auth/me', 'AuthController@me')->name('auth.me');
 
-        /**
-         * Admin相关路由(登录后)
-         */
-        require base_path('routes/admin/index.php');
     });
 
 });

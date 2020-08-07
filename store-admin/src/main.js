@@ -17,6 +17,7 @@ import i18n from './lang' // internationalization
 import './icons' // icon
 import './permission' // permission control
 import './utils/error-log' // error log
+import VueParticles from 'vue-particles' // 粒子动画
 
 import * as filters from './filters' // global filters
 
@@ -31,6 +32,9 @@ Vue.use(Element, {
   size: Cookies.get('size') || 'medium', // set element-ui default size
   i18n: (key, value) => i18n.t(key, value)
 })
+
+// 全局注册粒子动画
+Vue.use(VueParticles)
 
 // register global utility filters
 Object.keys(filters).forEach(key => {

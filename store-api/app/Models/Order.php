@@ -60,5 +60,11 @@ class Order extends Model
         'paid_at',
     ];
 
+    // 一对多关联订单详情表
+    public function items()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+
 
 }

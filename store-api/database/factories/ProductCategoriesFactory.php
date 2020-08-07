@@ -15,7 +15,7 @@ $factory->define(\App\Models\ProductCategory::class, function (Faker $faker) {
         'description'=>$faker->sentence(5, true),
         'description_en'=>$faker->sentence(5, true),
         'img'=>$faker->imageUrl(),
-        'parent_id'=>$faker->numberBetween(0, 40),
+        'parent_id'=>$faker->numberBetween(1, 20),
         'created_at' => $faker->dateTimeThisMonth(),
         'updated_at' => $faker->dateTimeThisMonth()
     ];

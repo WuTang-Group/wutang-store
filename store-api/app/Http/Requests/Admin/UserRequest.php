@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Requests\Api;
+namespace App\Http\Requests\Admin;
 
 use App\Http\Requests\FormRequest;
 

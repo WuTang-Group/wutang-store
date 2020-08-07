@@ -27,8 +27,6 @@ Route::middleware('throttle:' . config('api.rate_limits.sign'))
         Route::get('questions', 'AuthController@getQuestion')->name('questions.getQuestion');
         // 重置密码
         Route::put('password_reset', 'AuthController@resetPassword')->name('password_reset.resetPassword');
-        // 测试路由
-        Route::get('test', 'UserController@test');
     });
 
 /**
@@ -65,6 +63,11 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         Route::put('auth/refresh', 'AuthController@refresh')->name('auth.refresh');
         // 获取登录用户信息
         Route::get('auth/me', 'AuthController@me')->name('auth.me');
+        /**
+         * 购物车
+         */
+        // 结合cookie:若传参数则表示是通过cookie或手动写入数据表并返回最新购物车信息，若不传参数则返回已有购物车表数据信息
+        Route::post('shop_carts','ShopCartController@queryList')->name('shop_carts.queryList');
 
     });
 

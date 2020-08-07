@@ -9,7 +9,7 @@ const userRouter = {
   alwaysShow: true,
   name: 'UserManager',
   meta: {
-    title: '用户管理',
+    title: 'userManager',
     icon: 'peoples',
     roles: ['admin', 'editor'] // you can set roles in root nav
   },
@@ -18,19 +18,19 @@ const userRouter = {
       path: 'list',
       component: () => import('@/views/user/index'),
       name: 'User',
-      meta: { title: '用户列表', isBack: false, noCache: true }
+      meta: { title: 'userList', isBack: false, noCache: true }
     },
     {
       path: 'permission',
       component: () => import('@/views/table/inline-edit-table'),
       name: 'Permission',
-      meta: { title: '权限管理' }
+      meta: { title: 'permission' }
     },
     {
       path: 'role',
       component: () => import('@/views/table/inline-edit-table'),
       name: 'Role',
-      meta: { title: '角色管理' }
+      meta: { title: 'role' }
     },
     {
       path: 'edit/:id(\\w+)',

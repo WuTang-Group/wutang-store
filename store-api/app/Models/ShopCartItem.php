@@ -3,7 +3,7 @@
 namespace App\Models;
 
 
-class ShopCart extends Model
+class ShopCartItem extends Model
 {
     protected $fillable = ['amount', 'product_id', 'user_id'];
     public $timestamps = false;

@@ -1,7 +1,7 @@
 <?php
 namespace App\Services\Admin;
 
-use App\Models\ShopCart;
+use App\Models\ShopCartItem;
 use App\Models\User;
 use App\Services\Service;
 use Illuminate\Support\Facades\Log;
@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Log;
 class ShopCartService extends Service
 {
     private $shopCart;
-    public function __construct(ShopCart $shopCart)
+    public function __construct(ShopCartItem $shopCart)
     {
         $this->shopCart = $shopCart;
     }

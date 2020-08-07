@@ -28,7 +28,7 @@ $factory->define(User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
         'password_question_id' => $faker->randomElement([1,2,3,4,5,6]),
         'password_answer' => $faker->text,
-        'avatar' => 'http://thirdwx.qlogo.cn/mmopen/vi_32/M5SibDXA0k8bbEGpFAZkyNcUCBZicicgY2RNMEMcoJFwubweq7uocgq6EiacaYpNTFswWicSSfTIYOBKZPnLLwnKgqw/132',
+        'avatar' => $faker->imageUrl(300,300),
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime
     ];

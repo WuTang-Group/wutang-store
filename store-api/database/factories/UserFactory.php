@@ -27,7 +27,7 @@ $factory->define(User::class, function (Faker $faker) {
         'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
         'remember_token' => Str::random(10),
         'password_question_id' => $faker->randomElement([1,2,3,4,5,6]),
-        'password_answer' => $faker->text,
+        'password_answer' => $faker->words(3, true),
         'avatar' => $faker->imageUrl(300,300),
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime

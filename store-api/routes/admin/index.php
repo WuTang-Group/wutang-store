@@ -72,10 +72,5 @@ Route::middleware('auth:api')->group(function () {
      */
     Route::get('order', 'OrderController@queryList')->name('order.queryList');
     Route::post('order', 'OrderController@searchOrder')->name('order.searchOrder');
-    /**
-     * Shop cart
-     */
-    Route::get('shopCart/{user_id}', 'ShopCartController@queryList')->name('shopCart.queryList');
-    Route::post('shopCart', 'ShopCartController@store')->name('shopCart.store');
 
 });

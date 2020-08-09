@@ -84,7 +84,6 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
          */
         Route::get('user_profiles', 'UserProfileController@queryList')->name('user_profiles.queryList');
         Route::put('user_profiles/{profile_id}', 'UserProfileController@update')->name('user_profiles.update');
-        Route::delete('user_profiles/{profile}', 'UserProfileController@destroy')->name('user_profiles.destroy');
         /**
          * 购物车
          */

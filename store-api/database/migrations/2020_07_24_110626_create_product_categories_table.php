@@ -15,6 +15,7 @@ class CreateProductCategoriesTable extends Migration
     {
         Schema::create('product_categories', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('slug')->index()->nullable()->comment('分类slug');
             $table->string('title')->nullable()->comment('分类名称');
             $table->string('title_en')->nullable()->comment('英文分类名称');
             $table->text('describe')->nullable()->comment('分类描述');

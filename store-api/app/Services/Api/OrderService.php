@@ -21,13 +21,15 @@ class OrderService extends Service
 
     public function queryList()
     {
-        return $this->order->query()->with(['items.product', 'items.productSku'])
-            ->whereUserId($this->user()->id)->orderBy('created_at', 'desc');
+//        return $this->order->query()->with(['items.product', 'items.productSku'])
+//            ->whereUserId($this->user()->id)->orderBy('created_at', 'desc');
+        return $this->order->load(['items.product'])->whereUserId($this->user()->id)->get();
     }
 
-    public function getOrderDetail()
+    public function getOrderDetail($queries)
     {
-        return $this->order->load(['items.product'])->whereUserId($this->user()->id)->get();
+        return $this->order->query()->with(['items.product'])->whereNo($queries)->whereUserId($this->user()->id)->first();
+        // return $this->order->load(['items.product'])->whereUserId($this->user()->id)->get();
     }
 
     public function requestStore($queries)

@@ -40,9 +40,11 @@ class SlugTranslateHandler
             "sign" => $sign
         ]);
 
-        // 发生 HTTP Get请求
+        // 发起 HTTP Get请求
         $response = $http->get($api . $query);
         $result = json_decode($response->getBody(), true);
+
+//        dd($result);
 
         /**
         获取结果，如果请求成功，dd($result) 结果如下：
@@ -71,6 +73,7 @@ class SlugTranslateHandler
 
     public function pinyin($text)
     {
-        return \Str::slug(app(Pinyin::class))->permalink($text);
+        // return \Str::slug(app(Pinyin::class))->permalink($text);
+        return app(Pinyin::class)->permalink($text);
     }
 }

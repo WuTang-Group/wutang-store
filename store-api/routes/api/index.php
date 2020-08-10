@@ -51,7 +51,9 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         // 产品列表
         Route::get('product', 'ProductController@productQueryList')->name('product.productQueryList');
         // 获取对应类别下的产品
-        Route::get('product/{categoryId}', 'ProductController@getCategoryProduct')->name('product.getCategoryProduct');
+        Route::get('product/{category_slug}', 'ProductController@getCategoryProduct')->name('product.getCategoryProduct');
+        // 获取产品详情->传递slug去查询对应的产品
+        Route::get('product/{product_slug}','ProductController@index')->name('product.index');
         // 新品
         Route::get('product_new', 'ProductController@newProduct')->name('product.newProduct');
     });
@@ -88,8 +90,12 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         /**
          * User profile
          */
-        Route::get('user_profiles', 'UserProfileController@queryList')->name('user_profiles.queryList');
+        Route::get('user_profiles', 'UserProfileController@index')->name('user_profiles.index');
         Route::put('user_profiles/{profile_id}', 'UserProfileController@update')->name('user_profiles.update');
+        /**
+         * User address
+         */
+        Route::get('user_addresses','UserAddressController@index')->name('user_addresses.index');
         /**
          * 购物车
          */
@@ -99,7 +105,7 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
          * 订单
          */
         Route::get('orders', 'OrderController@queryList')->name('orders.queryList');
-        Route::get('order_details', 'OrderController@getOrderDetail')->name('order_details.getOrderDetail');
+        Route::get('order_details/{no}', 'OrderController@getOrderDetail')->name('order_details.getOrderDetail');
 
     });
 

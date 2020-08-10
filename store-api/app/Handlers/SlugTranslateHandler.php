@@ -5,6 +5,7 @@ namespace App\Handlers;
 
 
 use GuzzleHttp\Client;
+use Illuminate\Support\Str;
 use Overtrue\Pinyin\Pinyin;
 
 class SlugTranslateHandler
@@ -63,7 +64,7 @@ class SlugTranslateHandler
 
         // 尝试获取获取翻译结果
         if (isset($result['trans_result'][0]['dst'])) {
-            return \Str::slug($result['trans_result'][0]['dst']);
+            return Str::slug($result['trans_result'][0]['dst']);
         } else {
             // 如果百度翻译没有结果，使用拼音作为后备计划。
             return $this->pinyin($text);
@@ -73,7 +74,6 @@ class SlugTranslateHandler
 
     public function pinyin($text)
     {
-        // return \Str::slug(app(Pinyin::class))->permalink($text);
-        return app(Pinyin::class)->permalink($text);
+        return Str::slug(app(Pinyin::class)->permalink($text));
     }
 }

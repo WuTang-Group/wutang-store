@@ -68,7 +68,7 @@ class AuthController extends Controller
         if (!$captchaData) {
             throw new HttpResponseException(ResponseData::dataError($request->captcha_code, '验证码无效'));
         }
-        if (!hash_equals(strtolower($captchaData['code']), $request->captcha_code)) {
+        if (!hash_equals(strtolower($captchaData['code']), strtolower($request->captcha_code))) {
             // 验证错误就清除缓存
             \Cache::forget($request->captcha_key);
             throw new HttpResponseException(ResponseData::dataError($request->captcha_code, '验证码错误'));

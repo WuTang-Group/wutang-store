@@ -95,7 +95,10 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         /**
          * User address
          */
-        Route::get('user_addresses','UserAddressController@queryList')->name('user_addresses.queryList');
+        Route::get('user_addresses','UserAddressController@index')->name('user_addresses.queryList');
+        Route::post('user_addresses','UserAddressController@store')->name('user_addresses.store');
+        Route::put('user_addresses/{address_id}','UserAddressController@edit')->name('user_addresses.edit');
+        Route::delete('user_addresses/{address_id}','UserAddressController@destroy')->name('user_addresses.destroy');
         /**
          * 购物车
          */

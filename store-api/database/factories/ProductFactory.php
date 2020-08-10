@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(Product::class, function (Faker $faker) {
     return [
         'product_category_id' => $faker->numberBetween(1, 40),
-        'slug' => $faker->words(2, true),
+        'slug' => \Str::slug($faker->words(2, true)),
         'product_name' => $faker->randomElement(['黑钻洁净滋养面膜', '钻石冰莹面膜', '钻石焕活面膜', '黑钻臻活眼部精华', '黑钻赋颜面霜', '黑钻肌光精华', '黑钻璀璨晶透肌底精华', '黑钻焕肤水']),
         'product_name_en' => $faker->words(3, true),
         'thumbnail' => $faker->imageUrl(),

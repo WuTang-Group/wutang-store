@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
 use App\Services\Api\ProductService;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 
 class ProductController extends Controller
@@ -17,41 +20,52 @@ class ProductController extends Controller
     }
 
     /**
-     * Get product category (Api)
-     * 获取商品类目
-     * @return \Illuminate\Http\JsonResponse
+     * Query the product detail
+     * 获取商品详情信息
+     * @queryParam slug required 商品slug
+     * @param $product_slug
+     * @return Application|ResponseFactory|Response
+     */
+    public function index($product_slug)
+    {
+        $results = $this->productService->index($product_slug);
+        return response(ResponseData::requestSuccess($results));
+    }
+
+    /**
+     * Get product category list
+     * 获取商品分类列表
+     * @return Application|ResponseFactory|Response
      */
     public function categoryQueryList(){
-        $result = $this->productService->categoryQueryList();
-        return $result?response()->json(ResponseData::requestSuccess($result)):response()->json(ResponseData::requestFails());
+        $results = $this->productService->categoryQueryList();
+        return response(ResponseData::requestSuccess($results));
     }
 
     /**
      * Get product list
      * 获取商品列表
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return Application|ResponseFactory|Response
      */
     public function productQueryList(Request $request){
         $queries = page_limit($request);
-        $result = $this->productService->productQueryList($queries->all());
-        return $result?response()->json(ResponseData::requestSuccess($result)):response()->json(ResponseData::requestFails());
+        $results = $this->productService->productQueryList($queries->all());
+        return response(ResponseData::requestSuccess($results));
     }
 
 
     /**
      * get product of product category
      * 获取对应类别下的产品
-     * @queryParam page 页码
-     * @queryParam page_limit 每页数量
-     * @param $categoryId
+     * @queryParam category_slug required 分类slug
+     * @param $category_slug
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return Application|ResponseFactory|Response
      */
-    public function getCategoryProduct($categoryId, Request $request){
-        $queries = page_limit($request);
-        $result = $this->productService->getCategoryProduct($categoryId, $queries->all());
-        return $result?response()->json(ResponseData::requestSuccess($result)):response()->json(ResponseData::requestFails());
+    public function getCategoryProduct($category_slug, Request $request){
+        $results = $this->productService->getCategoryProduct($category_slug, $request);
+        return response(ResponseData::requestSuccess($results));
     }
 
     /**
@@ -60,11 +74,11 @@ class ProductController extends Controller
      * @queryParam page 页码
      * @queryParam page_limit 每页数量
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return Application|ResponseFactory|Response
      */
     public function newProduct(Request $request){
         $queries = page_limit($request);
-        $result = $this->productService->newProduct($queries->all());
-        return $result?response()->json(ResponseData::requestSuccess($result)):response()->json(ResponseData::requestFails());
+        $results = $this->productService->newProduct($queries->all());
+        return response(ResponseData::requestSuccess($results));
     }
 }

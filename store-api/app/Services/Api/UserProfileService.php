@@ -16,15 +16,9 @@ class UserProfileService extends Service
         $this->profile = $profile;
     }
 
-    public function queryList($queries)
+    public function index($queries)
     {
-        $userRoles = $this->user()->getRoleNames();
-        // 管理员
-        if(Str::contains($userRoles,Roles::Admin)){
-            return $this->profile->paginate($queries['page_limit']);
-        }else{
-            return $this->profile->whereUserId($this->user()->id)->first();
-        }
+        return $this->profile->whereUserId($this->user()->id)->first();
     }
 
     public function update($profile_id,$queries)

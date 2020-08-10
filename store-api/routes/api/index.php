@@ -7,24 +7,30 @@
 Route::get('response_code', 'ResponseCodeController@index')->name('response_code.index');
 
 /**
+ * loose(较宽松)节流路由组
+ */
+Route::middleware('throttle:'.config('api.rate_limits.loose'))->group(function (){
+    // 图片验证码
+    Route::post('captchas', 'CaptchaController@store')->name('captchas.store');
+    // 用户注册
+    Route::post('auth/register', 'AuthController@register')->name('auth.register');
+    // 密保问题列表
+    Route::get('question_list', 'AuthController@questionList')->name('question_list.questionList');
+    // 获取用户的密保问题
+    Route::get('questions', 'AuthController@getQuestion')->name('questions.getQuestion');
+});
+
+/**
  * sign节流路由组
  */
 Route::middleware('throttle:' . config('api.rate_limits.sign'))
     ->group(function () {
-        // 图片验证码
-        Route::post('captchas', 'CaptchaController@store')->name('captchas.store');
-        // 用户注册
-        Route::post('auth/register', 'AuthController@register')->name('auth.register');
         // token无效或失效,针对处理该问题闭包路由
         Route::get('/unauthorized', function () {
             return response()->json(\App\Handlers\ResponseData::tokenExpired());
         })->name('login');
         // 用户登录
         Route::post('auth/login', 'AuthController@login')->name('auth.login');
-        // 密保问题列表
-        Route::get('question_list', 'AuthController@questionList')->name('question_list.questionList');
-        // 获取用户的密保问题
-        Route::get('questions', 'AuthController@getQuestion')->name('questions.getQuestion');
         // 重置密码
         Route::put('password_reset', 'AuthController@resetPassword')->name('password_reset.resetPassword');
     });

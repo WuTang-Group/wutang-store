@@ -8,5 +8,7 @@ return [
         'access' => env('RATE_LIMIT','60,1'),
         // 登录相关,次数/分钟
         'sign' => env('SIGN_RATE_LIMIT','10,1'),
+        // 宽松限流
+        'loose' => env('LOOSE_RATE_LIMIT','120,1'),
     ],
 ];

@@ -33,11 +33,12 @@ class OrderController extends Controller
     /**
      * Get order detail
      *  获取订单详情
+     * @queryParam no required 订单号
      * @return Application|ResponseFactory|Response
      */
-    public function getOrderDetail()
+    public function getOrderDetail($no)
     {
-        $results = $this->service->getOrderDetail();
+        $results = $this->service->getOrderDetail($no);
         return response(ResponseData::requestSuccess($results));
     }
 

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UserProfileRequest;
-use App\Services\Admin\UserProfileService;
+use App\Services\Api\UserProfileService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Response;
@@ -25,10 +25,10 @@ class UserProfileController extends Controller
      * @param UserProfileRequest $request
      * @return Application|ResponseFactory|Response
      */
-    public function queryList(UserProfileRequest $request)
+    public function index(UserProfileRequest $request)
     {
         $requestData = page_limit($request->all());
-        return response(ResponseData::requestSuccess($this->service->queryList($requestData)));
+        return response(ResponseData::requestSuccess($this->service->index($requestData)));
     }
 
     /**

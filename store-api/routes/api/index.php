@@ -95,7 +95,7 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         /**
          * User address
          */
-        Route::get('user_addresses','UserAddressController@index')->name('user_addresses.index');
+        Route::get('user_addresses','UserAddressController@queryList')->name('user_addresses.queryList');
         /**
          * 购物车
          */

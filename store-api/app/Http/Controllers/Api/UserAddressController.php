@@ -22,7 +22,7 @@ class UserAddressController extends Controller
      */
     public function index()
     {
-        $results = $this->service->index();
+        $results = $this->service->queryList();
         return response(ResponseData::requestSuccess($results));
     }
 }

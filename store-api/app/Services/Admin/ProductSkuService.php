@@ -15,12 +15,8 @@ class ProductSkuService extends Service
     }
 
     public function queryList($queries){
-        try{
-            return $this->productSku->paginate($queries['page_limit']);
-        }catch (\Exception $e){
-            Log::error($e->getMessage());
-            return false;
-        }
+        $queries = page_limit($queries);
+        return $this->productSku->paginate($queries['page_limit']);
     }
 
     public function store($queries){

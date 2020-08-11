@@ -22,10 +22,10 @@ class ProductSkuController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function queryList(Request $request){
-        $queries = page_limit($request);
-        $result = $this->productSkuService->queryList($queries);
-        return $result ? response()->json(ResponseData::requestSuccess($result)) : response()->json(ResponseData::requestFails());
+    public function queryList(Request $request)
+    {
+        $result = $this->productSkuService->queryList($request);
+        return response()->json(ResponseData::requestSuccess($result));
     }
 
     /**

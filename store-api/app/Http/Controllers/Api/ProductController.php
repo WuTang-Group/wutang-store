@@ -45,6 +45,8 @@ class ProductController extends Controller
     /**
      * Get product list
      * 获取商品列表
+     * @QueryParam page 页码
+     * @QueryParam page_limit 每页显示的数量
      * @param Request $request
      * @return Application|ResponseFactory|Response
      */

@@ -62,6 +62,10 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
      */
     Route::middleware('auth:api')->group(function () {
         /**
+         * Auth 类
+         */
+        Route::post('auth/password_change', 'AuthController@changePassword')->name('auth.changePassword');
+        /**
          * 支付支付路由组
          */
         Route::get('alipay/pay', 'PaymentController@payByAlipay')->name('alipay.payByAlipay');

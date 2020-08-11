@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Observers\ProductCategoryObserver;
 use App\Observers\ProductObserver;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
@@ -56,6 +57,6 @@ class AppServiceProvider extends ServiceProvider
         // 注册产品观察者
         Product::observe(ProductObserver::class);
         // 注册产品分类观察者
-        ProductCategory::observe(ProductCategory::class);
+        ProductCategory::observe(ProductCategoryObserver::class);
     }
 }

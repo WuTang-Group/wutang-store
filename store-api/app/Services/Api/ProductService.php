@@ -45,13 +45,14 @@ class ProductService extends Service
     public function getCategoryProduct($category_slug, $queries)
     {
         $requestData = page_limit($queries->all());
-        return $this->product->whereSlug($category_slug)->paginate($requestData['page_limit']);
+        //return $this->product->with('product_category')->paginate($requestData['page_limit']);
+        return $this->productCategory->with('products')->whereSlug($category_slug)->get();
     }
 
     // 获取新品
     public function newProduct($queries)
     {
         $requestData = page_limit($queries->all());
-        return $this->product->whereStatus(ProductStatusCode::StatusNew)->paginate($requestData['page_limit']);
+        return $this->product->with(['productCategory'])->whereStatus(ProductStatusCode::StatusNew)->paginate($requestData['page_limit']);
     }
 }

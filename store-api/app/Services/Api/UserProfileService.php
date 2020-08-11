@@ -18,7 +18,7 @@ class UserProfileService extends Service
 
     public function index($queries)
     {
-        return $this->profile->whereUserId($this->user()->id)->first();
+        return $this->profile->with(['user.addresses'])->whereUserId($this->user()->id)->first();
     }
 
     public function update($profile_id,$queries)

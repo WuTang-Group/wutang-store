@@ -16,7 +16,7 @@ $factory->define(UserAddress::class, function (Faker $faker) {
     $address = $faker->randomElement($addresses);
 
     return [
-        'user_id' => $faker->randomElement([1,2,3,4,5]),
+        'user_id' => $faker->numberBetween(1, 51),
         'province' => $address[0],
         'city' => $address[1],
         'district' => $address[2],

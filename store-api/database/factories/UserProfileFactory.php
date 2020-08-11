@@ -6,7 +6,7 @@ use Faker\Generator as Faker;
 
 $factory->define(\App\Models\Profile::class, function (Faker $faker) {
     return [
-        'user_id' => $faker->randomElement([1,2,3,4,5]),
+        'user_id' => $faker->unique()->numberBetween(1, 51),
         'real_name' => $faker->name,
         'sex' => $faker->randomElement([1,0]),
         'birthday' => $faker->date(),

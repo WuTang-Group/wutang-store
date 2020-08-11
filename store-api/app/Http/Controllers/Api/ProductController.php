@@ -78,7 +78,7 @@ class ProductController extends Controller
      * @return Application|ResponseFactory|Response
      */
     public function newProduct(Request $request){
-        $results = $this->productService->newProduct($request->all());
+        $results = $this->productService->newProduct($request);
         return response(ResponseData::requestSuccess($results));
     }
 }

@@ -16,6 +16,8 @@ namespace App\Models {
     use LaravelIdea\Helper\App\Models\_ModelCollection;
     use LaravelIdea\Helper\App\Models\_ModelQueryBuilder;
     use LaravelIdea\Helper\App\Models\_OrderCollection;
+    use LaravelIdea\Helper\App\Models\_OrderItemCollection;
+    use LaravelIdea\Helper\App\Models\_OrderItemQueryBuilder;
     use LaravelIdea\Helper\App\Models\_OrderQueryBuilder;
     use LaravelIdea\Helper\App\Models\_OssDataCollection;
     use LaravelIdea\Helper\App\Models\_OssDataQueryBuilder;
@@ -33,8 +35,8 @@ namespace App\Models {
     use LaravelIdea\Helper\App\Models\_ProductSkuQueryBuilder;
     use LaravelIdea\Helper\App\Models\_ProfileCollection;
     use LaravelIdea\Helper\App\Models\_ProfileQueryBuilder;
-    use LaravelIdea\Helper\App\Models\_ShopCartCollection;
-    use LaravelIdea\Helper\App\Models\_ShopCartQueryBuilder;
+    use LaravelIdea\Helper\App\Models\_ShopCartItemCollection;
+    use LaravelIdea\Helper\App\Models\_ShopCartItemQueryBuilder;
     use LaravelIdea\Helper\App\Models\_UserAddressCollection;
     use LaravelIdea\Helper\App\Models\_UserAddressQueryBuilder;
     use LaravelIdea\Helper\App\Models\_UserCollection;
@@ -61,22 +63,28 @@ namespace App\Models {
      * @property int $id
      * @property string $no
      * @property int $user_id
-     * @property string $address
+     * @property int|null $address_id
      * @property float $total_amount
      * @property string|null $remark
      * @property Carbon|null $paid_at
      * @property string|null $payment_method
      * @property string|null $payment_no
      * @property int $status
-     * @property string|null $refund_status
+     * @property int $refund_status
      * @property string|null $refund_no
      * @property bool $closed
      * @property bool $reviewed
-     * @property string|null $ship_status
+     * @property int $ship_status
      * @property string|null $ship_data
      * @property string|null $extra
      * @property Carbon|null $created_at
      * @property Carbon|null $updated_at
+     * @property-read string $ship_status
+     * @property-read string $status
+     * @property UserAddress $address
+     * @method BelongsTo|_UserAddressQueryBuilder address()
+     * @property _OrderItemCollection|OrderItem[] $items
+     * @method HasMany|_OrderItemQueryBuilder items()
      * @method _OrderQueryBuilder newModelQuery()
      * @method _OrderQueryBuilder newQuery()
      * @method static _OrderQueryBuilder query()
@@ -84,6 +92,34 @@ namespace App\Models {
      * @mixin _OrderQueryBuilder
      */
     class Order extends Model1
+    {
+    }
+
+    /**
+     * @property int $id
+     * @property int $order_id
+     * @property int $product_id
+     * @property int|null $product_sku_id
+     * @property int $amount
+     * @property float $price
+     * @property int|null $rating
+     * @property string|null $review
+     * @property Carbon|null $reviewed_at
+     * @property Carbon|null $created_at
+     * @property Carbon|null $updated_at
+     * @property Order $order
+     * @method BelongsTo|_OrderQueryBuilder order()
+     * @property Product $product
+     * @method BelongsTo|_ProductQueryBuilder product()
+     * @property ProductSku $productSku
+     * @method BelongsTo|_ProductSkuQueryBuilder productSku()
+     * @method _OrderItemQueryBuilder newModelQuery()
+     * @method _OrderItemQueryBuilder newQuery()
+     * @method static _OrderItemQueryBuilder query()
+     * @method static _OrderItemCollection|OrderItem[] all()
+     * @mixin _OrderItemQueryBuilder
+     */
+    class OrderItem extends Model1
     {
     }
 
@@ -131,6 +167,7 @@ namespace App\Models {
      * @property float $price
      * @property float $sale_price
      * @property int $stock
+     * @property string|null $spec
      * @property string|null $seo_title
      * @property string|null $seo_keyword
      * @property string|null $seo_description
@@ -152,6 +189,9 @@ namespace App\Models {
      * @property int $review_count
      * @property Carbon|null $created_at
      * @property Carbon|null $updated_at
+     * @property-read string $status
+     * @property ProductCategory $productCategory
+     * @method BelongsTo|_ProductCategoryQueryBuilder productCategory()
      * @property _ProductSkuCollection|ProductSku[] $skus
      * @method HasMany|_ProductSkuQueryBuilder skus()
      * @method _ProductQueryBuilder newModelQuery()
@@ -166,6 +206,7 @@ namespace App\Models {
 
     /**
      * @property int $id
+     * @property string|null $slug
      * @property string|null $title
      * @property string|null $title_en
      * @property string|null $describe
@@ -177,6 +218,8 @@ namespace App\Models {
      * @property int|null $parent_id
      * @property Carbon|null $created_at
      * @property Carbon|null $updated_at
+     * @property _ProductCategoryStoryCollection|ProductCategoryStory[] $productCategoryStories
+     * @method HasMany|_ProductCategoryStoryQueryBuilder productCategoryStories()
      * @method _ProductCategoryQueryBuilder newModelQuery()
      * @method _ProductCategoryQueryBuilder newQuery()
      * @method static _ProductCategoryQueryBuilder query()
@@ -197,6 +240,8 @@ namespace App\Models {
      * @property string|null $product_category_id
      * @property Carbon|null $created_at
      * @property Carbon|null $updated_at
+     * @property ProductCategory $productCategory
+     * @method BelongsTo|_ProductCategoryQueryBuilder productCategory()
      * @method _ProductCategoryStoryQueryBuilder newModelQuery()
      * @method _ProductCategoryStoryQueryBuilder newQuery()
      * @method static _ProductCategoryStoryQueryBuilder query()
@@ -267,20 +312,23 @@ namespace App\Models {
      * @property int $id
      * @property int $user_id
      * @property int|null $product_sku_id
+     * @property int|null $product_id
      * @property int $amount
      * @property Carbon|null $created_at
      * @property Carbon|null $updated_at
+     * @property Product $product
+     * @method BelongsTo|_ProductQueryBuilder product()
      * @property ProductSku $productSku
      * @method BelongsTo|_ProductSkuQueryBuilder productSku()
      * @property User $user
      * @method BelongsTo|_UserQueryBuilder user()
-     * @method _ShopCartQueryBuilder newModelQuery()
-     * @method _ShopCartQueryBuilder newQuery()
-     * @method static _ShopCartQueryBuilder query()
-     * @method static _ShopCartCollection|ShopCartItem[] all()
-     * @mixin _ShopCartQueryBuilder
+     * @method _ShopCartItemQueryBuilder newModelQuery()
+     * @method _ShopCartItemQueryBuilder newQuery()
+     * @method static _ShopCartItemQueryBuilder query()
+     * @method static _ShopCartItemCollection|ShopCartItem[] all()
+     * @mixin _ShopCartItemQueryBuilder
      */
-    class ShopCart extends Model1
+    class ShopCartItem extends Model1
     {
     }
 
@@ -306,6 +354,8 @@ namespace App\Models {
      * @method MorphToMany|_DatabaseNotificationQueryBuilder notifications()
      * @property Profile $profile
      * @method HasOne|_ProfileQueryBuilder profile()
+     * @property _ShopCartItemCollection|ShopCartItem[] $shopCartItems
+     * @method HasMany|_ShopCartItemQueryBuilder shopCartItems()
      * @method _UserQueryBuilder newModelQuery()
      * @method _UserQueryBuilder newQuery()
      * @method static _UserQueryBuilder query()
@@ -727,6 +777,7 @@ namespace LaravelIdea\Helper\App\Models {
 
     use App\Models\Model;
     use App\Models\Order;
+    use App\Models\OrderItem;
     use App\Models\OssData;
     use App\Models\PasswordQuestion;
     use App\Models\Product;
@@ -818,10 +869,70 @@ namespace LaravelIdea\Helper\App\Models {
     }
 
     /**
+     * @method OrderItem shift()
+     * @method OrderItem pop()
+     * @method OrderItem get($key, $default = null)
+     * @method OrderItem pull($key, $default = null)
+     * @method OrderItem first(callable $callback = null, $default = null)
+     * @method OrderItem firstWhere(string $key, $operator = null, $value = null)
+     * @method OrderItem[] all()
+     * @method OrderItem last(callable $callback = null, $default = null)
+     */
+    class _OrderItemCollection extends _BaseCollection
+    {
+        /**
+         * @param int $size
+         * @return OrderItem[][]
+         */
+        public function chunk($size)
+        {
+            return [];
+        }
+    }
+
+    /**
+     * @method _OrderItemQueryBuilder whereId($value)
+     * @method _OrderItemQueryBuilder whereOrderId($value)
+     * @method _OrderItemQueryBuilder whereProductId($value)
+     * @method _OrderItemQueryBuilder whereProductSkuId($value)
+     * @method _OrderItemQueryBuilder whereAmount($value)
+     * @method _OrderItemQueryBuilder wherePrice($value)
+     * @method _OrderItemQueryBuilder whereRating($value)
+     * @method _OrderItemQueryBuilder whereReview($value)
+     * @method _OrderItemQueryBuilder whereReviewedAt($value)
+     * @method _OrderItemQueryBuilder whereCreatedAt($value)
+     * @method _OrderItemQueryBuilder whereUpdatedAt($value)
+     * @method OrderItem create(array $attributes = [])
+     * @method _OrderItemCollection|OrderItem[] cursor()
+     * @method OrderItem|null find($id, array $columns = ['*'])
+     * @method _OrderItemCollection|OrderItem[] findMany(array|Arrayable $ids, array $columns = ['*'])
+     * @method OrderItem findOrFail($id, array $columns = ['*'])
+     * @method _OrderItemCollection|OrderItem[] findOrNew($id, array $columns = ['*'])
+     * @method OrderItem first(array|string $columns = ['*'])
+     * @method OrderItem firstOr(array|\Closure $columns = ['*'], \Closure $callback = null)
+     * @method OrderItem firstOrCreate(array $attributes, array $values = [])
+     * @method OrderItem firstOrFail(array $columns = ['*'])
+     * @method OrderItem firstOrNew(array $attributes, array $values = [])
+     * @method OrderItem firstWhere(array|\Closure|string $column, $operator = null, $value = null, string $boolean = 'and')
+     * @method OrderItem forceCreate(array $attributes)
+     * @method _OrderItemCollection|OrderItem[] fromQuery(string $query, array $bindings = [])
+     * @method _OrderItemCollection|OrderItem[] get(array|string $columns = ['*'])
+     * @method OrderItem getModel()
+     * @method OrderItem[] getModels(array|string $columns = ['*'])
+     * @method _OrderItemCollection|OrderItem[] hydrate(array $items)
+     * @method OrderItem make(array $attributes = [])
+     * @method OrderItem newModelInstance(array $attributes = [])
+     * @method OrderItem updateOrCreate(array $attributes, array $values = [])
+     */
+    class _OrderItemQueryBuilder extends _BaseBuilder
+    {
+    }
+
+    /**
      * @method _OrderQueryBuilder whereId($value)
      * @method _OrderQueryBuilder whereNo($value)
      * @method _OrderQueryBuilder whereUserId($value)
-     * @method _OrderQueryBuilder whereAddress($value)
+     * @method _OrderQueryBuilder whereAddressId($value)
      * @method _OrderQueryBuilder whereTotalAmount($value)
      * @method _OrderQueryBuilder whereRemark($value)
      * @method _OrderQueryBuilder wherePaidAt($value)
@@ -995,6 +1106,7 @@ namespace LaravelIdea\Helper\App\Models {
 
     /**
      * @method _ProductCategoryQueryBuilder whereId($value)
+     * @method _ProductCategoryQueryBuilder whereSlug($value)
      * @method _ProductCategoryQueryBuilder whereTitle($value)
      * @method _ProductCategoryQueryBuilder whereTitleEn($value)
      * @method _ProductCategoryQueryBuilder whereDescribe($value)
@@ -1124,6 +1236,7 @@ namespace LaravelIdea\Helper\App\Models {
      * @method _ProductQueryBuilder wherePrice($value)
      * @method _ProductQueryBuilder whereSalePrice($value)
      * @method _ProductQueryBuilder whereStock($value)
+     * @method _ProductQueryBuilder whereSpec($value)
      * @method _ProductQueryBuilder whereSeoTitle($value)
      * @method _ProductQueryBuilder whereSeoKeyword($value)
      * @method _ProductQueryBuilder whereSeoDescription($value)
@@ -1347,7 +1460,7 @@ namespace LaravelIdea\Helper\App\Models {
      * @method ShopCartItem[] all()
      * @method ShopCartItem last(callable $callback = null, $default = null)
      */
-    class _ShopCartCollection extends _BaseCollection
+    class _ShopCartItemCollection extends _BaseCollection
     {
         /**
          * @param int $size
@@ -1360,18 +1473,19 @@ namespace LaravelIdea\Helper\App\Models {
     }
 
     /**
-     * @method _ShopCartQueryBuilder whereId($value)
-     * @method _ShopCartQueryBuilder whereUserId($value)
-     * @method _ShopCartQueryBuilder whereProductSkuId($value)
-     * @method _ShopCartQueryBuilder whereAmount($value)
-     * @method _ShopCartQueryBuilder whereCreatedAt($value)
-     * @method _ShopCartQueryBuilder whereUpdatedAt($value)
+     * @method _ShopCartItemQueryBuilder whereId($value)
+     * @method _ShopCartItemQueryBuilder whereUserId($value)
+     * @method _ShopCartItemQueryBuilder whereProductSkuId($value)
+     * @method _ShopCartItemQueryBuilder whereProductId($value)
+     * @method _ShopCartItemQueryBuilder whereAmount($value)
+     * @method _ShopCartItemQueryBuilder whereCreatedAt($value)
+     * @method _ShopCartItemQueryBuilder whereUpdatedAt($value)
      * @method ShopCartItem create(array $attributes = [])
-     * @method _ShopCartCollection|ShopCartItem[] cursor()
+     * @method _ShopCartItemCollection|ShopCartItem[] cursor()
      * @method ShopCartItem|null find($id, array $columns = ['*'])
-     * @method _ShopCartCollection|ShopCartItem[] findMany(array|Arrayable $ids, array $columns = ['*'])
+     * @method _ShopCartItemCollection|ShopCartItem[] findMany(array|Arrayable $ids, array $columns = ['*'])
      * @method ShopCartItem findOrFail($id, array $columns = ['*'])
-     * @method _ShopCartCollection|ShopCartItem[] findOrNew($id, array $columns = ['*'])
+     * @method _ShopCartItemCollection|ShopCartItem[] findOrNew($id, array $columns = ['*'])
      * @method ShopCartItem first(array|string $columns = ['*'])
      * @method ShopCartItem firstOr(array|\Closure $columns = ['*'], \Closure $callback = null)
      * @method ShopCartItem firstOrCreate(array $attributes, array $values = [])
@@ -1379,16 +1493,16 @@ namespace LaravelIdea\Helper\App\Models {
      * @method ShopCartItem firstOrNew(array $attributes, array $values = [])
      * @method ShopCartItem firstWhere(array|\Closure|string $column, $operator = null, $value = null, string $boolean = 'and')
      * @method ShopCartItem forceCreate(array $attributes)
-     * @method _ShopCartCollection|ShopCartItem[] fromQuery(string $query, array $bindings = [])
-     * @method _ShopCartCollection|ShopCartItem[] get(array|string $columns = ['*'])
+     * @method _ShopCartItemCollection|ShopCartItem[] fromQuery(string $query, array $bindings = [])
+     * @method _ShopCartItemCollection|ShopCartItem[] get(array|string $columns = ['*'])
      * @method ShopCartItem getModel()
      * @method ShopCartItem[] getModels(array|string $columns = ['*'])
-     * @method _ShopCartCollection|ShopCartItem[] hydrate(array $items)
+     * @method _ShopCartItemCollection|ShopCartItem[] hydrate(array $items)
      * @method ShopCartItem make(array $attributes = [])
      * @method ShopCartItem newModelInstance(array $attributes = [])
      * @method ShopCartItem updateOrCreate(array $attributes, array $values = [])
      */
-    class _ShopCartQueryBuilder extends _BaseBuilder
+    class _ShopCartItemQueryBuilder extends _BaseBuilder
     {
     }
 

@@ -50,7 +50,7 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         Route::get('product_category', 'ProductController@categoryQueryList')->name('product_category.categoryQueryList');
         // 产品列表
         Route::get('product', 'ProductController@productQueryList')->name('product.productQueryList');
-        // 获取对应类别下的产品
+        // 获取对应类别下的产品->传递slug去查询对应分类下到产品
         Route::get('product/{category_slug}', 'ProductController@getCategoryProduct')->name('product.getCategoryProduct');
         // 获取产品详情->传递slug去查询对应的产品
         Route::get('product/{product_slug}','ProductController@index')->name('product.index');

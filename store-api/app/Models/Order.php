@@ -3,33 +3,11 @@
 namespace App\Models;
 
 
+use App\Enums\OrderShipStatus;
+use App\Enums\OrderStatusCode;
+
 class Order extends Model
 {
-    const REFUND_STATUS_PENDING = 'pending';
-    const REFUND_STATUS_APPLIED = 'applied';
-    const REFUND_STATUS_PROCESSING = 'processing';
-    const REFUND_STATUS_SUCCESS = 'success';
-    const REFUND_STATUS_FAILED = 'failed';
-
-    const SHIP_STATUS_PLACED = 'placed';
-    const SHIP_STATUS_PENDING = 'pending';
-    const SHIP_STATUS_DELIVERED = 'delivered';
-    const SHIP_STATUS_RECEIVED = 'received';
-
-    public static $refundStatusMap = [
-        self::REFUND_STATUS_PENDING => '未退款',
-        self::REFUND_STATUS_APPLIED => '已申请退款',
-        self::REFUND_STATUS_PROCESSING => '退款中',
-        self::REFUND_STATUS_SUCCESS => '退款成功',
-        self::REFUND_STATUS_FAILED => '退款失败',
-    ];
-
-    public static $shipStatusMap = [
-        self::SHIP_STATUS_PLACED => '已下单',
-        self::SHIP_STATUS_PENDING => '待发货',
-        self::SHIP_STATUS_DELIVERED => '运输中',
-        self::SHIP_STATUS_RECEIVED => '已签收',
-    ];
 
     protected $fillable = [
         'no',
@@ -66,10 +44,51 @@ class Order extends Model
         return $this->hasMany(OrderItem::class);
     }
 
-    // 一对多关联地址表
     public function address()
     {
         return $this->belongsTo(UserAddress::class);
+    }
+
+    public function getStatusAttribute()
+    {
+        switch ($this->attributes['status'])
+        {
+            case OrderStatusCode::StatusPlaced:
+            {
+                return '已下单';
+            }
+            case OrderStatusCode::StatusPending:
+            {
+                return '已付款';
+            }
+            case OrderStatusCode::StatusReceived:
+            {
+                return '付款失败';
+            }
+            case OrderStatusCode::StatusDeliverd:
+            {
+                return '未付款';
+            }
+        }
+    }
+
+    public function getShipStatusAttribute()
+    {
+        switch ($this->attributes['ship_status'])
+        {
+            case OrderShipStatus::Delivered:
+            {
+                return '已发货';
+            }
+            case OrderShipStatus::Pending:
+            {
+                return '未发货';
+            }
+            case OrderShipStatus::Recevied:
+            {
+                return '已签收';
+            }
+        }
     }
 
 

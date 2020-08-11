@@ -23,12 +23,8 @@ class ProductService extends Service
     public function queryList($queries)
     {
         // 商品列表
-        try {
-            return $this->product->paginate($queries['page_limit']);
-        } catch (\Exception $e) {
-            Log::error($e->getMessage());
-            return false;
-        }
+        $queries = page_limit($queries);
+        return $this->product->paginate($queries['page_limit']);
     }
 
     public function store($queries)

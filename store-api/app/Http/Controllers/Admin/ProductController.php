@@ -28,10 +28,8 @@ class ProductController extends Controller
      */
     public function queryList(Request $request)
     {
-        $queries = page_limit($request);
-        $result = $this->productService->queryList($queries);
-        return $result ? response()->json(ResponseData::requestSuccess($result)) : response()->json(ResponseData::requestFails());
-
+        $result = $this->productService->queryList($request);
+        return response()->json(ResponseData::requestSuccess($result));
     }
 
     /**

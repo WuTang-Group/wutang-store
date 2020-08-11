@@ -1,6 +1,9 @@
 # Official shop website of Wu Tang Group
 
 ## 📦扩展包说明
+* 2020-08-10 引入 [overtrue/pinyin](https://github.com/overtrue/pinyin) 用于翻译转换
+* 2020-08-10 引入 [mews/purifier](https://github.com/mewebstudio/Purifier) 用于防范XSS攻击
+* 2020-08-10 引入 [guzzlehttp/guzzle](https://github.com/guzzle/guzzle) 用于http请求
 * 2020-07-30 引入 [yansongda/pay](https://github.com/yansongda/pay) 用于微信支付及支付宝支付
 * 2020-07-30 引入 [vinkla/hashids](https://github.com/vinkla/hashids) 作hashid使用
 * 2020-07-29 引入 [omnipay-unionpay](https://github.com/lokielse/omnipay-unionpay) 银联支付(由于使用三方支付，该包暂未启用)

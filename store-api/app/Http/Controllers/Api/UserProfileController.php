@@ -34,21 +34,25 @@ class UserProfileController extends Controller
     /**
      * Update user profile
      * 编辑用户资料
-     * @queryParam profile_id required profile表id
+     * @bodyParam profile_id required profile表id
+     * @bodyParam phone 联系方式
+     * @bodyParam real_name 真实姓名
+     * @bodyParam sex 性别
+     * @bodyParam birthday 生日
+     * @bodyParam age 年龄
+     * @bodyParam province 省
+     * @bodyParam city 市
+     * @bodyParam district 区/县
+     * @bodyParam address 详细地址
+     * @bodyParam zip 邮编
      * @param $profile_id
      * @param UserProfileRequest $request
      * @return Application|ResponseFactory|Response
      */
     public function update($profile_id,UserProfileRequest $request)
     {
-        $requestData = $request->only([
-            'real_name',
-            'sex',
-            'birthday',
-            'age',
-        ]);
-        $results = $this->service->update($profile_id,$requestData);
-        return $results ? response(ResponseData::requestSuccess($results)) : response(ResponseData::requestFails($requestData));
+        $results = $this->service->update($profile_id,$request->all());
+        return $results ? response(ResponseData::requestSuccess($results)) : response(ResponseData::requestFails($request->all()));
     }
 
     /**

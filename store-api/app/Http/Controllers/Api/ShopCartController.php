@@ -22,9 +22,9 @@ class ShopCartController extends Controller
     /**
      * Request shop cart items
      * 请求购物车数据
-     * @bodyParam user_id required 用户id
-     * @bodyParam product_id 商品id
-     * @bodyParam amount 数量
+     * @queryParam user_id required 用户id
+     * @queryParam product_id 商品id
+     * @queryParam amount 数量
      * 原理：若有参数传递则进行数据写入并返回最新购物车数据;
      * 若无参数传递则直接输出购物车表内数据
      * @param Request $request

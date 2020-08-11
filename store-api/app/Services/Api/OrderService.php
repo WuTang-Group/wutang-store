@@ -28,7 +28,7 @@ class OrderService extends Service
 
     public function getOrderDetail($queries)
     {
-        return $this->order->query()->with(['items.product'])->whereNo($queries)->whereUserId($this->user()->id)->first();
+        return $this->order->query()->with(['items.product', 'address'])->whereNo($queries)->whereUserId($this->user()->id)->first();
         // return $this->order->load(['items.product'])->whereUserId($this->user()->id)->get();
     }
 

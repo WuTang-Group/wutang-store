@@ -96,4 +96,15 @@ class AuthService extends Service
         }
     }
 
+    public function changePassword($username, $requires)
+    {
+        try{
+            $newPasswordHash = Hash::make($requires->newPassword);   // 密码加密
+            $this->user->whereUsername($username)->update(['password'=>$newPasswordHash]);  //更新密码
+        }catch (\Exception $e){
+            return false;
+        }
+        return true;
+    }
+
 }

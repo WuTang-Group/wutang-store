@@ -56,6 +56,15 @@ class AuthRequest extends FormRequest
                     'password_confirmation'=>'required|same:password',
                 ];
             }
+
+            case 'changePassword':
+            {
+                return [
+                    'oldPassword'=>'required',
+                    'newPassword'=>'required|alpha_dash|min:6|confirmed',
+                    'newPassword_confirmation' => 'required|same:newPassword',
+                ];
+            }
         }
     }
 

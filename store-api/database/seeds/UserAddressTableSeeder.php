@@ -11,7 +11,7 @@ class UserAddressTableSeeder extends Seeder
      */
     public function run()
     {
-        $userAddress = factory(\App\Models\UserAddress::class)->times(50)->make();
+        $userAddress = factory(\App\Models\UserAddress::class)->times(100)->make();
         \App\Models\UserAddress::insert($userAddress->toArray());
     }
 }

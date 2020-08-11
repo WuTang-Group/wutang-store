@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Api;
 use App\Exceptions\HttpResponseException;
 use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\UserRequest;
 use App\Http\Requests\Api\AuthRequest;
 use App\Models\User;
 use App\Services\Api\AuthService;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -175,5 +175,40 @@ class AuthController extends Controller
     {
         $result = $this->authService->resetPassword($request->all());
         return $result ? response()->json(ResponseData::requestSuccess(null, '密码重置成功')) : response()->json(ResponseData::dataError(null, '密保问题或答案不正确'));
+    }
+
+    /**
+     * change password
+     * 修改密码
+     * @queryParam oldPassword required 旧密码
+     * @queryParam newPassword required 新密码
+     * @queryParam newPassword_confirmation required 确认密码
+     * @param $username
+     * @param UserRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function changePassword(AuthRequest $request)
+    {
+        $oldPassword = $request->oldPassword;
+        $newPassword = $request->newPassword;
+        $username = $this->user()->username;
+
+        // 新密码不能与旧密码相同
+        if ($oldPassword == $newPassword) {
+            return response()->json(ResponseData::paramError(null, '新密码不能与旧密码相同'));
+        }
+        // 调用JWT方法验证用户名密码
+        $token = Auth::guard('api')->attempt([
+            'username' => $username,
+            'password' => $oldPassword
+        ]);
+        if ($token) // 验证通过
+        {
+            $result = $this->authService->changePassword($username, $request);
+            return $result ? response()->json(ResponseData::requestSuccess()) : response()->json(ResponseData::requestFails());
+        } else {
+            return response()->json(ResponseData::paramError(null,'旧密码错误'));
+        }
+
     }
 }

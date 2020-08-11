@@ -23,13 +23,13 @@ class CategoryStoryController extends Controller
      * @queryParam page 页码
      * @queryParam page_limit 没页数量
      * @param Request $request
-     * @return array|\Illuminate\Http\JsonResponse
+     *@return \Illuminate\Http\JsonResponse
      */
     public function queryList(Request $request)
     {
-        $queries = page_limit($request);
-        $result = $this->categoryStoriesService->queryList($queries);
-        return $result ? response()->json(ResponseData::requestSuccess($result)) : ResponseData::requestFails();
+        $result = $this->categoryStoriesService->queryList($request);
+        return response()->json(ResponseData::requestSuccess($result));
+
     }
 
     /**

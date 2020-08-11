@@ -17,13 +17,9 @@ class CategoryStoryService extends Service
     }
 
     public function queryList($queries){
+        $queries = page_limit($queries);
         // 查询分类故事列表
-        try{
-            return $this->categoryStory->paginate($queries['page_limit']);
-        }catch(\Exception $e){
-            Log::error($e->getMessage());
-            return false;
-        }
+        return $this->categoryStory->paginate($queries['page_limit']);
     }
 
     public function store($queries){

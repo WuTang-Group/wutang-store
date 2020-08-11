@@ -7,7 +7,6 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Services\Service;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 
 class ProductService extends Service
 {
@@ -38,7 +37,8 @@ class ProductService extends Service
     // 所有商品列表
     public function productQueryList($queries)
     {
-        return $this->product->paginate($queries['page_limit']);
+        $requestData = page_limit($queries->all());
+        return $this->product->with(['productCategory'])->paginate($requestData['page_limit']);
     }
 
     // 获取对应类别下的产品
@@ -51,6 +51,7 @@ class ProductService extends Service
     // 获取新品
     public function newProduct($queries)
     {
-        return $this->product->whereStatus(ProductStatusCode::StatusNew)->paginate($queries['page_limit']);
+        $requestData = page_limit($queries->all());
+        return $this->product->whereStatus(ProductStatusCode::StatusNew)->paginate($requestData['page_limit']);
     }
 }

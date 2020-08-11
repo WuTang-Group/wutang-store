@@ -49,8 +49,7 @@ class ProductController extends Controller
      * @return Application|ResponseFactory|Response
      */
     public function productQueryList(Request $request){
-        $queries = page_limit($request);
-        $results = $this->productService->productQueryList($queries->all());
+        $results = $this->productService->productQueryList($request);
         return response(ResponseData::requestSuccess($results));
     }
 
@@ -77,8 +76,7 @@ class ProductController extends Controller
      * @return Application|ResponseFactory|Response
      */
     public function newProduct(Request $request){
-        $queries = page_limit($request);
-        $results = $this->productService->newProduct($queries->all());
+        $results = $this->productService->newProduct($request->all());
         return response(ResponseData::requestSuccess($results));
     }
 }

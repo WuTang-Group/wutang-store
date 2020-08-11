@@ -34,17 +34,17 @@ class UserProfileController extends Controller
     /**
      * Update user profile
      * 编辑用户资料
-     * @bodyParam profile_id required profile表id
-     * @bodyParam phone 联系方式
-     * @bodyParam real_name 真实姓名
-     * @bodyParam sex 性别
-     * @bodyParam birthday 生日
-     * @bodyParam age 年龄
-     * @bodyParam province 省
-     * @bodyParam city 市
-     * @bodyParam district 区/县
-     * @bodyParam address 详细地址
-     * @bodyParam zip 邮编
+     * @queryParam profile_id required profile表id
+     * @queryParam phone 联系方式
+     * @queryParam real_name 真实姓名
+     * @queryParam sex 性别
+     * @queryParam birthday 生日
+     * @queryParam age 年龄
+     * @queryParam province 省
+     * @queryParam city 市
+     * @queryParam district 区/县
+     * @queryParam address 详细地址
+     * @queryParam zip 邮编
      * @param $profile_id
      * @param UserProfileRequest $request
      * @return Application|ResponseFactory|Response

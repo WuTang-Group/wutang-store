@@ -89,6 +89,9 @@ class PaymentController extends Controller
     /**
      * Alipay request payment
      * 支付宝发起支付
+     * @queryParam out_trade_no required 订单号
+     * @queryParam total_amount required 总金额
+     * @queryParam subject required 订单标题
      * @param PaymentRequest $request
      * @return mixed
      */

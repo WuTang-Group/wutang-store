@@ -53,12 +53,8 @@ class OrderService extends Service
 
     // 获取订单列表
     public function queryList($queries){
-        try{
-            return $this->order->paginate($queries['page_limit']);
-        }catch(\Exception $e){
-            Log::error($e->getMessage());
-            return false;
-        }
+        $queries = page_limit($queries);
+        return $this->order->paginate($queries['page_limit']);
     }
 
     // 搜索订单

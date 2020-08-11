@@ -66,5 +66,11 @@ class Order extends Model
         return $this->hasMany(OrderItem::class);
     }
 
+    // 一对多关联地址表
+    public function address()
+    {
+        return $this->belongsTo(UserAddress::class);
+    }
+
 
 }

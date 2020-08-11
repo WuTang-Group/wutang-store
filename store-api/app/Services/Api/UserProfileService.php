@@ -1,11 +1,10 @@
 <?php
 namespace App\Services\Api;
 
-use App\Enums\Roles;
 use App\Models\Profile;
 use App\Services\Service;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Str;
+
 
 class UserProfileService extends Service
 {

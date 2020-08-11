@@ -6,7 +6,17 @@ namespace App\Models;
 class Profile extends Model
 {
     protected $fillable = [
-        'user_id', 'real_name', 'sex', 'birthday', 'age'
+        'user_id',
+        'real_name',
+        'sex',
+        'birthday',
+        'age',
+        'phone',
+        'province',
+        'city',
+        'district',
+        'address',
+        'zip'
     ];
 
     // 从属关联User模型

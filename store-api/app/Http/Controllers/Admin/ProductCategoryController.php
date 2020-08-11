@@ -27,9 +27,8 @@ class ProductCategoryController extends Controller
      */
     public function queryList(Request $request)
     {
-        $queries = page_limit($request->all());
-        $result = $this->categoriesService->queryList($queries);
-        return $result ? response()->json(ResponseData::requestSuccess($result)) : response()->json(ResponseData::requestFails());
+        $result = $this->categoriesService->queryList($request);
+        return response()->json(ResponseData::requestSuccess($result));
     }
 
 

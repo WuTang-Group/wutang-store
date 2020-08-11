@@ -23,6 +23,7 @@ class ProductCategoryService extends Service
     public function queryList($queries)
     {
         // 查询所有商品分类
+        $queries = page_limit($queries->all());
         return $this->productCategory->paginate($queries['page_limit']);
     }
 

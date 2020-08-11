@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Exceptions\HttpResponseException;
 use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\UserRequest;
 use App\Http\Requests\Api\AuthRequest;
 use App\Models\User;
 use App\Services\Api\AuthService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
@@ -32,9 +32,10 @@ class AuthController extends Controller
     /**
      * Get a JWT via given credentials.
      * 通过登录信息获取JWT凭证
-     * @queryParam username required 用户名
-     * @queryParam password required 密码
-     * @return \Illuminate\Http\JsonResponse
+     * @bodyParam username string required 用户名
+     * @bodyParam password string required 密码
+     * @param AuthRequest $request
+     * @return JsonResponse
      * @throws HttpResponseException
      */
     public function login(AuthRequest $request)
@@ -49,17 +50,16 @@ class AuthController extends Controller
     /**
      * Register user
      * 用户注册
-     * @queryParam name required 姓名
-     * @queryParam username required 账号(允许:英文字符/数字/字符+数字)
-     * @queryParam password required 密码
-     * @queryParam password_confirmation required 确认密码
-     * @queryParam captcha_key required 验证码的key
-     * @queryParam captcha_code required 验证码的code
-     * @queryParam password_question_id required 密保问题ID
-     * @queryParam password_answer required 密保问题答案
+     * @bodyParam name string required 姓名
+     * @bodyParam username string required 账号(允许:英文字符/数字/字符+数字)
+     * @bodyParam password string required 密码
+     * @bodyParam password string password_confirmation required 确认密码
+     * @bodyParam captcha_key string required 验证码的key
+     * @bodyParam captcha_code string required 验证码的code
+     * @bodyParam password_question_id integer required 密保问题ID
+     * @bodyParam password_answer string required 密保问题答案
      * @param AuthRequest $request
-     * @param AuthService $authService
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      * @throws HttpResponseException
      */
     public function register(AuthRequest $request)
@@ -88,7 +88,7 @@ class AuthController extends Controller
      * Get the authenticated User.
      * 获取通过身份验证的用户
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function me()
     {
@@ -99,7 +99,7 @@ class AuthController extends Controller
      * Log the user out (Invalidate the token).
      * 注销用户
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function logout()
     {
@@ -112,7 +112,7 @@ class AuthController extends Controller
      * Refresh a token.
      * 刷新token
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function refresh()
     {
@@ -123,7 +123,7 @@ class AuthController extends Controller
      * Get the token array structure
      * 获取令牌组结构
      * @param $token
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function respondWithToken($token)
     {
@@ -137,8 +137,7 @@ class AuthController extends Controller
     /**
      * Get password question list
      * 获取密保问题列表
-     * @param AuthService $authService
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function questionList()
     {
@@ -150,9 +149,8 @@ class AuthController extends Controller
      * get user password question
      * 获取用户的密保问题
      * @queryParam username required 用户名
-     * @param AuthService $authService
-     * @param $username
-     * @return \Illuminate\Http\JsonResponse
+     * @param AuthRequest $request
+     * @return JsonResponse
      */
     public function getQuestion(AuthRequest $request)
     {
@@ -162,14 +160,14 @@ class AuthController extends Controller
 
     /**
      * reset password
-     * 重置密码
+     * 重置密码(未登录)
      * @queryParam username required 用户名
      * @queryParam password_question_id required 密保问题ID
      * @queryParam password_answer required 密保问题的答案
      * @queryParam password required 密码
      * @queryParam password_confirmation required 二次确认密码
      * @param AuthRequest $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function resetPassword(AuthRequest $request)
     {
@@ -179,13 +177,12 @@ class AuthController extends Controller
 
     /**
      * change password
-     * 修改密码
-     * @queryParam oldPassword required 旧密码
-     * @queryParam newPassword required 新密码
-     * @queryParam newPassword_confirmation required 确认密码
-     * @param $username
-     * @param UserRequest $request
-     * @return \Illuminate\Http\JsonResponse
+     * 修改密码(已登录)
+     * @bodyParam oldPassword string required 旧密码
+     * @bodyParam newPassword string required 新密码
+     * @bodyParam newPassword_confirmation string required 确认密码
+     * @param AuthRequest $request
+     * @return JsonResponse
      */
     public function changePassword(AuthRequest $request)
     {

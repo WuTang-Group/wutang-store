@@ -79,8 +79,6 @@ namespace App\Models {
      * @property string|null $extra
      * @property Carbon|null $created_at
      * @property Carbon|null $updated_at
-     * @property-read string $ship_status
-     * @property-read string $status
      * @property UserAddress $address
      * @method BelongsTo|_UserAddressQueryBuilder address()
      * @property _OrderItemCollection|OrderItem[] $items
@@ -189,7 +187,6 @@ namespace App\Models {
      * @property int $review_count
      * @property Carbon|null $created_at
      * @property Carbon|null $updated_at
-     * @property-read string $status
      * @property ProductCategory $productCategory
      * @method BelongsTo|_ProductCategoryQueryBuilder productCategory()
      * @property _ProductSkuCollection|ProductSku[] $skus

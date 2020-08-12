@@ -49,9 +49,9 @@ class UserProfileController extends Controller
      * @param UserProfileRequest $request
      * @return Application|ResponseFactory|Response
      */
-    public function update($profile_id,UserProfileRequest $request)
+    public function update(UserProfileRequest $request)
     {
-        $results = $this->service->update($profile_id,$request->all());
+        $results = $this->service->update($request->all());
         return $results ? response(ResponseData::requestSuccess($results)) : response(ResponseData::requestFails($request->all()));
     }
 

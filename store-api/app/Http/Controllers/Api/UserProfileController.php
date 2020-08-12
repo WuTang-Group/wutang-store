@@ -20,8 +20,8 @@ class UserProfileController extends Controller
     }
 
     /**
-     * User profile list
-     * 用户资料信息
+     * Get user profile
+     * 获取用户资料信息
      * @param UserProfileRequest $request
      * @return Application|ResponseFactory|Response
      */
@@ -34,7 +34,6 @@ class UserProfileController extends Controller
     /**
      * Update user profile
      * 编辑用户资料
-     * @queryParam profile_id required profile表id
      * @queryParam phone 联系方式
      * @queryParam real_name 真实姓名
      * @queryParam sex 性别
@@ -45,7 +44,6 @@ class UserProfileController extends Controller
      * @queryParam district 区/县
      * @queryParam address 详细地址
      * @queryParam zip 邮编
-     * @param $profile_id
      * @param UserProfileRequest $request
      * @return Application|ResponseFactory|Response
      */

@@ -95,7 +95,7 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
          * User profile
          */
         Route::get('user_profiles', 'UserProfileController@index')->name('user_profiles.index');
-        Route::put('user_profiles/{profile_id}', 'UserProfileController@update')->name('user_profiles.update');
+        Route::put('user_profiles', 'UserProfileController@update')->name('user_profiles.update');
         /**
          * User address
          */

@@ -15,7 +15,7 @@ $factory->define(\App\Models\Order::class, function (Faker $faker) {
         'paid_at' => $faker->dateTime,
         'payment_method' => $faker->randomElement(['null','Alipay', 'UnionPay']),
         'payment_no' => $faker->randomNumber(5, true),
-        'status' => $faker->randomElement([1, 2, 0, -1]),
+        'status' => $faker->randomElement([1, 0, -1]),
         'refund_status' => $faker->randomElement([1, -1]),
         'refund_no' => $faker->randomNumber(5, true),
         'closed' => $faker->randomElement([0, 1]),

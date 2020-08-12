@@ -28,8 +28,21 @@ class ProductCategory extends Model
         return $this->hasMany(ProductCategoryStory::class);
     }
 
+    // 产品分类父类
+    public function parent() {
+        return $this->belongsTo(ProductCategory::class, 'parent_id');
+    }
+
+    // 产品分类子类
+    public function children() {
+        return $this->hasMany(ProductCategory::class, 'parent_id');
+    }
+
+    // 一对多关联产品表
     public function products()
     {
         return $this->hasMany(Product::class);
     }
+
+
 }

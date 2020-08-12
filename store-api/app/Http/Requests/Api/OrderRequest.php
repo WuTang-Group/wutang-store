@@ -47,6 +47,12 @@ class OrderRequest extends FormRequest
                     'items.*.amount' => ['required', 'integer', 'min:1'],
                 ];
             }
+            case 'payCheck':
+            {
+                return [
+                    'no' => 'required|exists:orders'
+                ];
+            }
         }
     }
 }

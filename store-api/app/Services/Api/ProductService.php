@@ -5,6 +5,7 @@ namespace App\Services\Api;
 use App\Enums\ProductStatusCode;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\ProductCategoryStory;
 use App\Services\Service;
 use Illuminate\Support\Facades\DB;
 
@@ -46,7 +47,7 @@ class ProductService extends Service
     {
         $requestData = page_limit($queries->all());
         //return $this->product->with('product_category')->paginate($requestData['page_limit']);
-        return $this->productCategory->with('products')->whereSlug($category_slug)->get();
+        return $this->productCategory->with('parent', 'children', 'products')->whereSlug($category_slug)->get();
     }
 
     // 获取新品
@@ -54,5 +55,13 @@ class ProductService extends Service
     {
         $requestData = page_limit($queries->all());
         return $this->product->with(['productCategory'])->whereStatus(ProductStatusCode::StatusNew)->paginate($requestData['page_limit']);
+    }
+
+    // 获取产品分类故事
+    public function categoryStory($queries)
+    {
+//        return ProductCategory::with('productCategoryStories')->whereSlug($queries)->get();
+        $category_id = ProductCategory::whereSlug($queries)->value('id');
+        return ProductCategoryStory::where('product_category_id', $category_id)->get();
     }
 }

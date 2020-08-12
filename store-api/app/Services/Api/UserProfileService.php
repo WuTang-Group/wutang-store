@@ -20,10 +20,10 @@ class UserProfileService extends Service
         return $this->profile->whereUserId($this->user()->id)->first();
     }
 
-    public function update($profile_id,$queries)
+    public function update($queries)
     {
         try {
-            $userProfile = $this->profile->find($profile_id);
+            $userProfile = $this->profile->whereUserId($this->user()->id);
             $userProfile->update($queries);
         } catch (\Exception $e) {
             Log::error($e->getMessage());

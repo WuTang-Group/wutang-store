@@ -18,10 +18,11 @@ class PaymentRequest extends FormRequest
         switch ($this->route()->getActionMethod()) {
             case 'payByAlipay':
             case 'payByUnionpay' :
+            case 'payByAlipayGateway':
             {
                 return [
                     'no' => 'required',
-                    'product_name' => 'required|string',
+                    'subject' => 'required|string',
                     'total_amount' => 'required'
                 ];
             }

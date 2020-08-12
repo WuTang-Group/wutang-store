@@ -21,7 +21,7 @@ class ProductService extends Service
     // 获取指定slug的产品详情
     public function index($queries)
     {
-        return $this->product->whereSlug($queries)->first();
+        return $this->product->with('productCategory')->whereSlug($queries)->first();
     }
 
     // 获取商品类别

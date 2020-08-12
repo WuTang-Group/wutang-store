@@ -49,7 +49,7 @@ class OrderService extends Service
                 $order = new Order([
                     'no' => OrderHandler::createOnlyId(),
                     'address_id' => $queries->address_id,
-                    'remark' => $queries->remark,
+                    'remark' => $queries->remark ?? NULL ,
                     'total_amount' => 0,
                 ]);
                 // 订单关联到当前用户

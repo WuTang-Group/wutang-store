@@ -43,12 +43,27 @@ class OrderController extends Controller
     }
 
     /**
-     * Request create order(NO USE NOW)
-     *  订单创建发起(当前未启用)
+     * Request create order
+     *  订单创建发起
      * @param OrderRequest $request
+     * @return Application|ResponseFactory|Response
      */
-    public function requestStore(OrderRequest $request)
+    public function requestCreate(OrderRequest $request)
     {
-        $results = $this->service->requestStore($request);
+        $results = $this->service->requestCreate($request);
+        return $results ? response(ResponseData::requestSuccess($results)) : response(ResponseData::requestFails($request->all()));
+    }
+
+    /**
+     * Check the order status
+     * 查询订单状态
+     * @queryParam no required 订单号
+     * @param OrderRequest $request
+     * @return Application|ResponseFactory|Response
+     */
+    public function payCheck(OrderRequest $request)
+    {
+        $results = $this->service->payCheck($request);
+        return response(ResponseData::requestSuccess($results));
     }
 }

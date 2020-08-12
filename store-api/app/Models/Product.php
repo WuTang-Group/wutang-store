@@ -51,26 +51,26 @@ class Product extends Model
         return $this->belongsTo(ProductCategory::class);
     }
 
-    public function getStatusAttribute()
-    {
-         switch ($this->attributes['status'])
-         {
-             case ProductStatusCode::StatusNew:
-             {
-                 return '新品';
-             }
-             case ProductStatusCode::StatusBestSeller:
-             {
-                 return '畅销';
-             }
-             case ProductStatusCode::StatusPromotion:
-             {
-                 return '促销';
-             }
-             case ProductStatusCode::StatusOff;
-             {
-                 return '下架';
-             }
-         }
-    }
+//    public function getStatusAttribute()
+//    {
+//         switch ($this->attributes['status'])
+//         {
+//             case ProductStatusCode::StatusNew:
+//             {
+//                 return '新品';
+//             }
+//             case ProductStatusCode::StatusBestSeller:
+//             {
+//                 return '畅销';
+//             }
+//             case ProductStatusCode::StatusPromotion:
+//             {
+//                 return '促销';
+//             }
+//             case ProductStatusCode::StatusOff;
+//             {
+//                 return '下架';
+//             }
+//         }
+//    }
 }

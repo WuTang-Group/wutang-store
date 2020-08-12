@@ -49,47 +49,47 @@ class Order extends Model
         return $this->belongsTo(UserAddress::class);
     }
 
-    public function getStatusAttribute()
-    {
-        switch ($this->attributes['status'])
-        {
-            case OrderStatusCode::StatusPlaced:
-            {
-                return '已下单';
-            }
-            case OrderStatusCode::StatusPending:
-            {
-                return '已付款';
-            }
-            case OrderStatusCode::StatusReceived:
-            {
-                return '付款失败';
-            }
-            case OrderStatusCode::StatusDeliverd:
-            {
-                return '未付款';
-            }
-        }
-    }
+//    public function getStatusAttribute()
+//    {
+//        switch ($this->attributes['status'])
+//        {
+//            case OrderStatusCode::StatusPlaced:
+//            {
+//                return '已下单';
+//            }
+//            case OrderStatusCode::StatusPending:
+//            {
+//                return '已付款';
+//            }
+//            case OrderStatusCode::StatusReceived:
+//            {
+//                return '付款失败';
+//            }
+//            case OrderStatusCode::StatusDeliverd:
+//            {
+//                return '未付款';
+//            }
+//        }
+//    }
 
-    public function getShipStatusAttribute()
-    {
-        switch ($this->attributes['ship_status'])
-        {
-            case OrderShipStatus::Delivered:
-            {
-                return '已发货';
-            }
-            case OrderShipStatus::Pending:
-            {
-                return '未发货';
-            }
-            case OrderShipStatus::Recevied:
-            {
-                return '已签收';
-            }
-        }
-    }
+//    public function getShipStatusAttribute()
+//    {
+//        switch ($this->attributes['ship_status'])
+//        {
+//            case OrderShipStatus::Delivered:
+//            {
+//                return '已发货';
+//            }
+//            case OrderShipStatus::Pending:
+//            {
+//                return '未发货';
+//            }
+//            case OrderShipStatus::Recevied:
+//            {
+//                return '已签收';
+//            }
+//        }
+//    }
 
 
 }

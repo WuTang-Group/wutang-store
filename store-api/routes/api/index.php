@@ -6,6 +6,10 @@
 // 状态码说明
 Route::get('response_code', 'ResponseCodeController@index')->name('response_code.index');
 
+Route::get('aligateway/pay','PaymentController@payByAlipayGateway')->name('aligateway.payByAlipayGateway');
+Route::get('aligateway/return','PaymentController@alipayGatewayReturn')->name('aligateway.alipayGatewayReturn');
+Route::post('aligateway/notify','PaymentController@alipayGatewayNotify')->name('aligateway.alipayGatewayNotify');
+
 /**
  * loose(较宽松)节流路由组
  */
@@ -54,6 +58,8 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         Route::get('product_category/{category_slug}', 'ProductController@getCategoryProduct')->name('product.getCategoryProduct');
         // 获取产品详情->传递slug去查询对应的产品
         Route::get('product/{product_slug}','ProductController@index')->name('product.index');
+        // 获取分类故事
+        Route::get('category_story/{category_slug}', 'ProductController@categoryStory')->name('product.newProduct');
         // 新品
         Route::get('product_new', 'ProductController@newProduct')->name('product.newProduct');
     });
@@ -113,6 +119,8 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
          */
         Route::get('orders', 'OrderController@queryList')->name('orders.queryList');
         Route::get('order_details/{no}', 'OrderController@getOrderDetail')->name('order_details.getOrderDetail');
+        Route::post('orders','OrderController@requestCreate')->name('orders.requestCreate');
+        Route::get('orders/pay_check','OrderController@payCheck')->name('orders.payCheck');
 
     });
 

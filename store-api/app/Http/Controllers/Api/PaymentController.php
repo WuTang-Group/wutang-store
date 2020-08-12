@@ -182,13 +182,14 @@ class PaymentController extends Controller
         unset($params['key']);
         $result = AlipayGateway::post('http://api.51sop.com/trade/pay',$params);
         if($result['code'] != AlipayGatewayCode::RequestSuccess){
-            exit('受理失败');
+            //exit('受理失败');
+            return '受理失败';
         }
         try {
             AlipayGateway::verify(config('pay.alipay_gateway.key'),$result);
         }catch (\Exception $e) {
             \Log::error($e->getMessage());
-            exit('验签失败');
+            return '验签失败';
         }
         return redirect($result['pay_url']);
     }
@@ -203,13 +204,13 @@ class PaymentController extends Controller
     {
         $requestData = $request->all();
         if($requestData['code'] != AlipayGatewayCode::RequestSuccess){
-            exit('受理失败');
+           return '受理失败';
         }
         try {
             AlipayGateway::verify(config('pay.alipay_gateway.key'),$requestData);
         }catch (\Exception $e) {
             \Log::error($e->getMessage());
-            exit('验签失败');
+            return '验签失败';
         }
         return redirect(route('checkout')); // 返回支付界面
     }
@@ -224,14 +225,14 @@ class PaymentController extends Controller
     {
         $requestData = $request->all();
         if($requestData['code'] != AlipayGatewayCode::RequestSuccess){
-            exit('受理失败');
+            return '受理失败';
         }
         try {
             AlipayGateway::verify(config('pay.alipay_gateway.key'),$requestData);
             $this->orderService->changeStatus($requestData);
         }catch (\Exception $e) {
             \Log::error($e->getMessage());
-            exit('验签失败');
+            return '验签失败';
         }
         return 'success';
     }

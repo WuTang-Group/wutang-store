@@ -81,4 +81,17 @@ class ProductController extends Controller
         $results = $this->productService->newProduct($request);
         return response(ResponseData::requestSuccess($results));
     }
+
+    /**
+     * Get product category story
+     * 获取产品分类故事
+     * @queryParam category_slug required 分类slug
+     * @param $product_slug
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function categoryStory($product_slug)
+    {
+        $results = $this->productService->categoryStory($product_slug);
+        return response()->json(ResponseData::requestSuccess($results));
+    }
 }

@@ -7,8 +7,8 @@ export default {
     'role': '角色管理',
     category: '类目管理',
     'categoryList': '类目列表',
-    goods: '商品管理',
-    'goodsList': '商品列表',
+    product: '商品管理',
+    'productList': '商品列表',
     profile: '个人中心'
   },
   navbar: {

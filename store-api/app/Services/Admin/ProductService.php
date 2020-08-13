@@ -24,7 +24,9 @@ class ProductService extends Service
     {
         // 商品列表
         $queries = page_limit($queries);
-        return $this->product->paginate($queries['page_limit']);
+        return $this->product->with(['productCategory'=> function ($query){
+            $query->select('id', 'title');
+        }])->paginate($queries['page_limit']);
     }
 
     public function store($queries)

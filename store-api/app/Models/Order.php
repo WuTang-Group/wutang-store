@@ -11,7 +11,7 @@ class Order extends Model
 
     protected $fillable = [
         'no',
-        'address',
+        'address_id',
         'total_amount',
         'remark',
         'paid_at',

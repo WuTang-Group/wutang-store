@@ -6,6 +6,7 @@ use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\OrderRequest;
 use App\Services\Api\OrderService;
+use Illuminate\Broadcasting\BroadcastManager;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
@@ -34,6 +35,7 @@ class OrderController extends Controller
      * Get order detail
      *  获取订单详情
      * @queryParam no required 订单号
+     * @param $no
      * @return Application|ResponseFactory|Response
      */
     public function getOrderDetail($no)
@@ -68,6 +70,10 @@ class OrderController extends Controller
      */
     public function payCheck(OrderRequest $request)
     {
+//        $manager = app(BroadcastManager::class);
+//        $driver = $manager->connection();
+//        // 第一个参数是频道名，第二个参数是事件名，第三个参数是广播内容
+//        $driver->broadcast(['channel_1', 'channel_2'], 'login', ['message' => 'hello world']);
         $results = $this->service->payCheck($request);
         return response(ResponseData::requestSuccess($results));
     }

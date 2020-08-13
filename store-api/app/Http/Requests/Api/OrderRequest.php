@@ -19,7 +19,7 @@ class OrderRequest extends FormRequest
     {
         switch ($this->route()->getActionMethod())
         {
-            case 'requestStore':
+            case 'requestCreate':
             {
                 return [
                     // 判断用户提交的地址 ID 是否存在于数据库并且属于当前用户

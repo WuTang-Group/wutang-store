@@ -13,7 +13,7 @@ const orderRouter = {
   children: [
     {
       path: 'list',
-      component: () => import('@/views/table/inline-edit-table'),
+      component: () => import('@/views/purchaseOrder/index'),
       name: 'PurchaseOrderList',
       meta: { title: '订单列表' }
     }

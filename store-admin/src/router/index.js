@@ -10,7 +10,7 @@ import Layout from '@/layout'
 import categoriesRouter from '@/router/modules/category'
 import usersRouter from '@/router/modules/user'
 import purchaseOrder from '@/router/modules/purchaseOrder'
-import goodsRouter from '@/router/modules/goods'
+import productRouter from '@/router/modules/product'
 import logisticsRouter from '@/router/modules/logistics'
 import paymentRouter from '@/router/modules/payment'
 
@@ -118,7 +118,7 @@ export const constantRoutes = [
 export const asyncRoutes = [
   usersRouter,
   categoriesRouter,
-  goodsRouter,
+  productRouter,
   purchaseOrder,
   logisticsRouter,
   paymentRouter,

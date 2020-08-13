@@ -163,7 +163,7 @@ class PaymentController extends Controller
      * @queryParam total_amount required 总金额
      * @queryParam subject required 交易名称
      * @param PaymentRequest $request
-     * @return Application|RedirectResponse|Redirector
+     * @return string
      */
     public function payByAlipayGateway(PaymentRequest $request)
     {
@@ -198,7 +198,7 @@ class PaymentController extends Controller
      * Alipay gateway return
      * 支付宝网关支付后的同步跳转(前端)
      * @param Request $request
-     * @return Application|RedirectResponse|Redirector
+     * @return string
      */
     public function alipayGatewayReturn(Request $request)
     {
@@ -212,7 +212,7 @@ class PaymentController extends Controller
             \Log::error($e->getMessage());
             return '验签失败';
         }
-        return redirect(route('checkout')); // 返回支付界面
+        return redirect(route('checkout',$requestData)); // 返回支付界面
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\OrderStatusUpdated;
+use GatewayWorker\Lib\Gateway;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -32,6 +33,8 @@ class SendOrderStatusNotification
      */
     public function handle(OrderStatusUpdated $event)
     {
-//        \Log::info($event->order);
+        //\Log::info($event->order);
+        Gateway::$registerAddress = '127.0.0.1:12360';
+        Gateway::sendToAll(json_encode($event->order));
     }
 }

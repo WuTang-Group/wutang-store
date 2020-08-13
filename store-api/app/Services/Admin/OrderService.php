@@ -54,7 +54,9 @@ class OrderService extends Service
     // 获取订单列表
     public function queryList($queries){
         $queries = page_limit($queries);
-        return $this->order->paginate($queries['page_limit']);
+        return $this->order->with(['user'=> function($query){
+            $query->select('id', 'username');
+        }])->paginate($queries['page_limit']);
     }
 
     // 搜索订单

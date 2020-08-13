@@ -102,7 +102,7 @@ class OrderService extends Service
                 case UnionPayCode::Success:
                 {
                     $this->order->whereNo($queries['orderId'])->update([
-                        'status' => OrderStatusCode::StatusPending,
+                        'status' => OrderStatusCode::StatusPlaced,
                         'payment_method' => 'unionpay',
                         'payment_no' => $queries['queryId'],
                         'paid_at' => now()->toDateTimeString()
@@ -111,7 +111,7 @@ class OrderService extends Service
                 case AlipayCode::TRADE_SUCCESS:
                 {
                     $this->order->whereNo($queries['no'])->update([
-                        'status' => OrderStatusCode::StatusPending,
+                        'status' => OrderStatusCode::StatusPlaced,
                         'payment_method' => 'alipay',
                         'payment_no' => $queries['payment_no'],
                         'paid_at' => now()->toDateTimeString()
@@ -125,13 +125,13 @@ class OrderService extends Service
                         'payment_no' => $queries['out_order_no'],
                         'paid_at' => now()->toDateTimeString(),
                         'extra' => json_encode([
-                            'merch_id' => $queries['merch_id'],
-                            'out_order_no' => $queries['out_order_no'],
-                            'order_id' => $queries['order_id'],
-                            'fee' => $queries['fee'],
-                            'amount' => $queries['amount'],
-                            'status' => $queries['status'],
-                            'pay_time' => $queries['pay_time']
+                            'merch_id' => $queries['merch_id'],  // 商户号
+                            'out_order_no' => $queries['out_order_no'],  // 流水号
+                            'order_id' => $queries['order_id'],  // 订单号
+                            'fee' => $queries['fee'],  // 费率
+                            'amount' => $queries['amount'],  // 交易金额
+                            'status' => $queries['status'],  // 交易状态
+                            'pay_time' => $queries['pay_time']  // 支付时间
                         ])
                     ]);
                 }

@@ -6,6 +6,7 @@ use App\Enums\AlipayCode;
 use App\Enums\AlipayGatewayCode;
 use App\Enums\OrderStatusCode;
 use App\Enums\UnionPayCode;
+use App\Events\OrderStatusUpdated;
 use App\Handlers\OrderHandler;
 use App\Models\Order;
 use App\Models\Product;
@@ -49,7 +50,7 @@ class OrderService extends Service
                 $order = new Order([
                     'no' => OrderHandler::createOnlyId(),
                     'address_id' => $queries->address_id,
-                    'remark' => $queries->remark ?? NULL ,
+                    'remark' => $queries->remark ?? NULL,
                     'total_amount' => 0,
                 ]);
                 // 订单关联到当前用户
@@ -87,6 +88,7 @@ class OrderService extends Service
 
                 return $order;
             });
+            event(new OrderStatusUpdated($orderRequest));
         } catch (\Exception $e) {
             Log::error($e->getMessage());
             return false;
@@ -98,53 +100,67 @@ class OrderService extends Service
     public function changeStatus($queries)
     {
         try {
+
             switch ($queries['status']) {
                 case UnionPayCode::Success:
-                {
-                    $this->order->whereNo($queries['orderId'])->update([
-                        'status' => OrderStatusCode::StatusPlaced,
-                        'payment_method' => 'unionpay',
-                        'payment_no' => $queries['queryId'],
-                        'paid_at' => now()->toDateTimeString()
-                    ]);
-                }
+                    {
+                        $this->order->whereNo($queries['orderId'])->update([
+                            'status' => OrderStatusCode::StatusPlaced,
+                            'payment_method' => 'unionpay',
+                            'payment_no' => $queries['queryId'],
+                            'paid_at' => now()->toDateTimeString()
+                        ]);
+                    }
+                    break;
                 case AlipayCode::TRADE_SUCCESS:
-                {
-                    $this->order->whereNo($queries['no'])->update([
-                        'status' => OrderStatusCode::StatusPlaced,
-                        'payment_method' => 'alipay',
-                        'payment_no' => $queries['payment_no'],
-                        'paid_at' => now()->toDateTimeString()
-                    ]);
-                }
+                    {
+                        $this->order->whereNo($queries['no'])->update([
+                            'status' => OrderStatusCode::StatusPlaced,
+                            'payment_method' => 'alipay',
+                            'payment_no' => $queries['payment_no'],
+                            'paid_at' => now()->toDateTimeString()
+                        ]);
+                    }
+                    break;
                 case AlipayGatewayCode::PaySuccess:
-                {
-                    $this->order->whereNo($queries['order_id'])->update([
-                        'status' => OrderStatusCode::StatusPlaced,
-                        'payment_method' => 'alipay_gateway',
-                        'payment_no' => $queries['out_order_no'],
-                        'paid_at' => now()->toDateTimeString(),
-                        'extra' => json_encode([
-                            'merch_id' => $queries['merch_id'],  // 商户号
-                            'out_order_no' => $queries['out_order_no'],  // 流水号
-                            'order_id' => $queries['order_id'],  // 订单号
-                            'fee' => $queries['fee'],  // 费率
-                            'amount' => $queries['amount'],  // 交易金额
-                            'status' => $queries['status'],  // 交易状态
-                            'pay_time' => $queries['pay_time']  // 支付时间
-                        ])
-                    ]);
-                }
+                    {
+                        $this->order->whereNo($queries['order_id'])->update([
+                            'status' => OrderStatusCode::StatusPlaced,
+                            'payment_method' => 'alipay_gateway',
+                            'payment_no' => $queries['out_order_no'],
+                            'paid_at' => now()->toDateTimeString(),
+                            'extra' => json_encode([
+                                'merch_id' => $queries['merch_id'],  // 商户号
+                                'out_order_no' => $queries['out_order_no'],  // 流水号
+                                'order_id' => $queries['order_id'],  // 订单号
+                                'fee' => $queries['fee'],  // 费率
+                                'amount' => $queries['amount'],  // 交易金额
+                                'status' => $queries['status'],  // 交易状态
+                                'pay_time' => $queries['pay_time']  // 支付时间
+                            ])
+                        ]);
+                    }
+                    break;
                 case AlipayGatewayCode::PayFaild:
+                    {
+                        $this->order->whereNo($queries['order_id'])->update([
+                            'status' => OrderStatusCode::StatusReceived,
+                            'payment_method' => 'alipay_gateway',
+                            'payment_no' => $queries['out_order_no'],
+                            'paid_at' => now()->toDateTimeString(),
+                        ]);
+                    }
+                    break;
+                default:
                 {
                     $this->order->whereNo($queries['order_id'])->update([
                         'status' => OrderStatusCode::StatusReceived,
-                        'payment_method' => 'alipay_gateway',
-                        'payment_no' => $queries['out_order_no'],
-                        'paid_at' => now()->toDateTimeString(),
+                        'payment_method' => NULL,
                     ]);
                 }
             }
+            $order = $this->order->whereNo($queries['order_id'])->first();
+            event(new OrderStatusUpdated($order));
         } catch (\Exception $e) {
             Log::error($e->getMessage());
             return false;

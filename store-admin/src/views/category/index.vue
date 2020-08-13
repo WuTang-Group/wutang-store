@@ -67,7 +67,7 @@
         v-show="total>0"
         :total="total"
         :page.sync="listQuery.page"
-        :limit.sync="listQuery.limit"
+        :limit.sync="listQuery.page_limit"
         @pagination="getList"
       />
     </el-card>
@@ -99,7 +99,7 @@ export default {
       listLoading: true,
       listQuery: {
         page: 1,
-        limit: 20
+        page_limit: 20
       },
       previewImg: '',
       previewImgDialogVisible: false,

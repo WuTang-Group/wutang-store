@@ -23,7 +23,7 @@ class Order extends Model
         'reviewed',
         'ship_status',
         'ship_data',
-        'extra',
+        'extra'
     ];
 
     protected $casts = [
@@ -47,6 +47,11 @@ class Order extends Model
     public function address()
     {
         return $this->belongsTo(UserAddress::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
 //    public function getStatusAttribute()

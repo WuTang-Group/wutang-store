@@ -22,7 +22,6 @@ class PaymentRequest extends FormRequest
             {
                 return [
                     'no' => 'required',
-                    'subject' => 'required|string',
                     'total_amount' => 'required'
                 ];
             }

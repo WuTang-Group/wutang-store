@@ -60,8 +60,6 @@ class ProductService extends Service
     // 获取产品分类故事
     public function categoryStory($queries)
     {
-//        return ProductCategory::with('productCategoryStories')->whereSlug($queries)->get();
-        $category_id = ProductCategory::whereSlug($queries)->value('id');
-        return ProductCategoryStory::where('product_category_id', $category_id)->get();
+        return ProductCategory::with('parent', 'productCategoryStories')->whereSlug($queries)->get();
     }
 }

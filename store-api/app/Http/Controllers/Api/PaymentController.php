@@ -224,9 +224,19 @@ class PaymentController extends Controller
     public function alipayGatewayNotify(Request $request)
     {
         $requestData = $request->all();
-        if($requestData['code'] != AlipayGatewayCode::RequestSuccess){
-            return '受理失败';
-        }
+//        $requestData['code'] = 'success';
+//        $requestData['status'] = AlipayGatewayCode::PayFaild;
+//        $requestData['payment_no'] = '20200813737569374660';
+//        $requestData['merch_id'] = '100101';
+//        $requestData['out_order_no'] = time();
+//        $requestData['order_id'] = '20200813737569374660';
+//        $requestData['fee'] = '0.5';
+//        $requestData['amount'] = '110025.00';
+//        $requestData['pay_time'] = now();
+//         if($requestData['code'] != AlipayGatewayCode::RequestSuccess){
+//            return '受理失败';
+//        }
+//        $this->orderService->changeStatus($requestData);
         try {
             AlipayGateway::verify(config('pay.alipay_gateway.key'),$requestData);
             $this->orderService->changeStatus($requestData);

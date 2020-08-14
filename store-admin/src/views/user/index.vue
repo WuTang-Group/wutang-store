@@ -13,7 +13,16 @@
       </el-form>
     </el-card>
     <el-card class="box-card box-card-content">
-      <el-table v-loading="listLoading" :data="userlist" border fit highlight-current-row :height="tableHeight < 500 ? 500 : tableHeight" :header-cell-style="{background:'#ebeef5'}">
+      <el-table
+        v-loading="listLoading"
+        :data="userlist"
+        border
+        fit
+        highlight-current-row
+        :height="tableHeight < 500 ? 500 : tableHeight"
+        :header-cell-style="{background:'#ebeef5'}"
+        @row-click="userProfileDiag"
+      >
         <el-table-column type="index" align="center" label="序号" width="80">
           <!--<template slot-scope="scope">
             <span>{{ scope.row.id }}</span>
@@ -57,6 +66,37 @@
       </el-table>
       <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.page_limit" @pagination="getList" />
     </el-card>
+    <el-dialog title="用户详细信息" :visible.sync="dialogTableVisible">
+      <el-form :inline="true" :model="userDetail" disabled="true" class="form-inline">
+        <el-form-item label="用户名">
+          <el-input v-model="userDetail.username" />
+        </el-form-item>
+        <el-form-item label="姓名">
+          <el-input v-model="userDetail.name" />
+        </el-form-item>
+        <el-form-item label="性别">
+          <el-input v-model="userDetail.profile.sex" />
+        </el-form-item>
+        <el-form-item label="年龄">
+          <el-input v-model="userDetail.profile.age" />
+        </el-form-item>
+        <el-form-item label="生日">
+          <el-input v-model="userDetail.profile.birthday" />
+        </el-form-item>
+        <el-form-item label="邮箱">
+          <el-input v-model="userDetail.email" />
+        </el-form-item>
+        <el-form-item label="电话号码">
+          <el-input v-model="userDetail.phone" />
+        </el-form-item>
+        <el-form-item label="邮编">
+          <el-input v-model="userDetail.profile.zip" />
+        </el-form-item>
+        <el-form-item label="地址">
+          <el-input v-model="userDetail.profile.fullAddress" />
+        </el-form-item>
+      </el-form>
+    </el-dialog>
   </div>
 </template>
 
@@ -78,7 +118,36 @@ export default {
         page_limit: 20,
         username: ''
       },
-      total: 0
+      total: 0,
+      dialogTableVisible: false,
+      userDetail: {
+        avatar: '',
+        created_at: '',
+        email: '',
+        email_verified_at: '',
+        hash_id: '',
+        name: '',
+        password_answer: '',
+        password_question_id: '',
+        phone: '',
+        profile: {
+          fullAddress: '',
+          age: '',
+          birthday: '',
+          created_at: '',
+          id: '',
+          phone: '',
+          real_name: '',
+          sex: '',
+          updated_at: '',
+          user_id: '',
+          zip: '',
+          province: '',
+          city: '',
+          district: '',
+          address: ''
+        }
+      }
     }
   },
   computed: {
@@ -121,7 +190,7 @@ export default {
 
       fetchUserList(listQuery).then(response => {
         const data = response.data
-
+        console.log(data)
         if (data && data.data && data.data.length > 0) {
           that.userlist = data.data
           that.total = data.total
@@ -143,14 +212,12 @@ export default {
         that.listLoading = false
       })
     },
-
     // 查询用户
     handleFilter() {
       const that = this
       that.listQuery.page = 1
       that.getList()
     },
-
     // 编辑用户
     editUserButton(row) {
       const that = this
@@ -159,7 +226,6 @@ export default {
       }
       that.$router.push({ path: '/user/edit/' + row.hash_id, query: params })
     },
-
     // 删除用户
     deleteUserButton(row, index) {
       const that = this
@@ -176,7 +242,6 @@ export default {
             type: 'success',
             message: '删除成功!'
           })
-
           // 更新列表
           that.getList()
         }).catch(() => {
@@ -191,6 +256,12 @@ export default {
           message: '已取消删除'
         })
       })
+    },
+    userProfileDiag(row) {
+      this.userDetail = row
+      const profile = row.profile
+      this.userDetail.profile.fullAddress = profile.province + profile.city + profile.district + profile.address
+      this.dialogTableVisible = true
     }
   }
 }

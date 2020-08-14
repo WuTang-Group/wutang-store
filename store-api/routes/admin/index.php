@@ -72,5 +72,10 @@ Route::middleware('auth:api')->group(function () {
      */
     Route::get('order', 'OrderController@queryList')->name('order.queryList');
     Route::post('order', 'OrderController@searchOrder')->name('order.searchOrder');
+    /**
+     * Logs
+     */
+    Route::get('logs/{collection}','LoggerController@queryList')->name('logs.queryList');
+    Route::delete('logs/{collection}','LoggerController@destroy')->name('logs.destroy');
 
 });

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services\Api;
 
 use App\Models\Profile;
@@ -26,7 +27,7 @@ class UserProfileService extends Service
             $userProfile = $this->profile->whereUserId($this->user()->id);
             $userProfile->update($queries);
         } catch (\Exception $e) {
-            Log::error($e->getMessage());
+            Log::error('用户资料编辑失败', ['message' => $e->getMessage()]);
             return false;
         }
         return $userProfile;
@@ -38,7 +39,7 @@ class UserProfileService extends Service
             $userProfile = $this->profile->find($queries);
             $userProfile->delete();
         } catch (\Exception $e) {
-            Log::error($e->getMessage());
+            Log::error('用户资料删除失败', ['message' => $e->getMessage()]);
             return false;
         }
         return $queries;

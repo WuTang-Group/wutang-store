@@ -4,6 +4,7 @@ namespace App\Services\Api;
 
 use App\Enums\AlipayCode;
 use App\Enums\AlipayGatewayCode;
+use App\Enums\LoggerCollection;
 use App\Enums\OrderStatusCode;
 use App\Enums\UnionPayCode;
 use App\Events\OrderStatusUpdated;
@@ -23,6 +24,7 @@ class OrderService extends Service
     public function __construct(Order $order)
     {
         $this->order = $order;
+        config(['logging.channels.mongodb.collection' => LoggerCollection::OrderLog]);
     }
 
     public function queryList()
@@ -90,7 +92,7 @@ class OrderService extends Service
             });
             event(new OrderStatusUpdated($orderRequest));
         } catch (\Exception $e) {
-            Log::error($e->getMessage());
+            Log::error('订单下单失败',['message'=>$e->getMessage()]);
             return false;
         }
         return $orderRequest;
@@ -162,7 +164,7 @@ class OrderService extends Service
             $order = $this->order->whereNo($queries['order_id'])->first();
             event(new OrderStatusUpdated($order));
         } catch (\Exception $e) {
-            Log::error($e->getMessage());
+            Log::error('订单状态改变失败',['message'=>$e->getMessage()]);
             return false;
         }
         return $queries;

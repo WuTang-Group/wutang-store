@@ -23,6 +23,7 @@
         "lokielse/omnipay-alipay": "^3.1",
         "lokielse/omnipay-unionpay": "dev-master",
         "mews/purifier": "~3.0",
+        "mongodb/mongodb": "^1.7",
         "overtrue/pinyin": "~4.0",
         "predis/predis": "^1.1",
         "spatie/laravel-permission": "^3.13",

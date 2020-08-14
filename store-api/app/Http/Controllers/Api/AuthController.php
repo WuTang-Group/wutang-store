@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Enums\LoggerCollection;
 use App\Exceptions\HttpResponseException;
 use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
@@ -27,6 +28,7 @@ class AuthController extends Controller
             'login', 'register', 'questionList', 'getQuestion', 'resetPassword'
         ]]);
         $this->authService = $authService;
+        config(['logging.channels.mongodb.collection' => LoggerCollection::LoginLog]);
     }
 
     /**
@@ -44,6 +46,7 @@ class AuthController extends Controller
         if (!$token) {
             throw new HttpResponseException(ResponseData::dataError($request->all(), '用户名或密码有误'));
         }
+        \Log::info('用户登录',['username' => $request->username,'login_time' => now()->toDateTimeString(),'ip' =>$request->ip()]);
         return $this->respondWithToken($token);
     }
 
@@ -141,7 +144,7 @@ class AuthController extends Controller
      */
     public function questionList()
     {
-        $result = $this->authService->question();
+        $result = $this->authService->questions();
         return $result ? response()->json(ResponseData::requestSuccess($result)) : response()->json(ResponseData::dataError());
     }
 

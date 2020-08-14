@@ -2,6 +2,7 @@
 
 namespace App\Services\Api;
 
+use App\Enums\LoggerCollection;
 use App\Enums\Roles;
 use App\Models\PasswordQuestion;
 use App\Models\Profile;
@@ -18,6 +19,7 @@ class AuthService extends Service
     public function __construct(User $user)
     {
         $this->user = $user;
+        config(['logging.channels.mongodb.collection' => LoggerCollection::AuthLog]);
     }
 
     /**
@@ -41,35 +43,30 @@ class AuthService extends Service
                 Profile::create(['user_id' => $user->id]);
             });
         } catch (\Exception $e) {
-            Log::error($e->getMessage());
+            Log::error('用户注册失败', ['message' => $e->getMessage()]);
             return false;
         }
         return $queries;
     }
 
-    public function question(){
-        try{
-            $result = PasswordQuestion::all();
-            return $result;
-        }catch(\Exception $e){
-            Log::error($e->getMessage());
-            return false;
-        }
+    public function questions()
+    {
+        return $result = PasswordQuestion::all();
     }
 
-    public function getQuestion($username){
+    public function getQuestion($username)
+    {
         // 获取用户的密保问题
-        try{
-
+        try {
             $result = User::join('password_questions', 'users.password_question_id', '=', 'password_questions.id')
                 ->where('users.username', $username)
                 ->select('users.username', 'users.password_question_id', 'password_questions.question')
                 ->get();
-            return $result;
-        }catch (\Exception $e){
-            Log::error($e->getMessage());
+        } catch (\Exception $e) {
+            Log::error('用户密保问题获取失败', ['message' => $e->getMessage()]);
             return false;
         }
+        return $result;
     }
 
     public function resetPassword($queries)
@@ -78,33 +75,31 @@ class AuthService extends Service
         $password_question_id = $queries['password_question_id'];
         $password_answer = $queries['password_answer'];
 
-        try{
-            $user_info = User::where('username', $queries['username'])
-                ->where('password_question_id', $password_question_id)
-                ->where('password_answer', $password_answer)
-                ->first();
-        }catch(\Exception $e){
-            Log::error($e->getMessage());
-            return false;
-        }
-        if($user_info){
+        $user_info = User::where('username', $queries['username'])
+            ->where('password_question_id', $password_question_id)
+            ->where('password_answer', $password_answer)
+            ->first();
+
+        try {
             $password = Hash::make($queries['password']);
-            $user_info->update(['password'=>$password]);
-            return true;
-        }else{
+            $user = $user_info->update(['password' => $password]);
+        } catch (\Exception $e) {
+            Log::error('重置用户密码失败', ['message' => $e->getMessage()]);
             return false;
         }
+        return $user;
     }
 
     public function changePassword($username, $requires)
     {
-        try{
+        try {
             $newPasswordHash = Hash::make($requires->newPassword);   // 密码加密
-            $this->user->whereUsername($username)->update(['password'=>$newPasswordHash]);  //更新密码
-        }catch (\Exception $e){
+            $user = $this->user->whereUsername($username)->update(['password' => $newPasswordHash]);  //更新密码
+        } catch (\Exception $e) {
+            Log::error('修改用户密码失败', ['message' => $e->getMessage()]);
             return false;
         }
-        return true;
+        return $user;
     }
 
 }

@@ -25,7 +25,7 @@ class UserAddressService extends Service
         try {
             $user = $this->user()->addresses()->create($queries);
         } catch (\Exception $e) {
-            Log::error($e->getMessage());
+            Log::error('用户地址新增失败', ['message' => $e->getMessage()]);
             return false;
         }
         return $user;
@@ -39,7 +39,7 @@ class UserAddressService extends Service
                 ->whereUserId($this->user()->id);
             $userAddress->update($request);
         } catch (\Exception $e) {
-            Log::error($e->getMessage());
+            Log::error('编辑用户地址失败', ['message' => $e->getMessage()]);
             return false;
         }
         return $userAddress->get();
@@ -47,13 +47,13 @@ class UserAddressService extends Service
 
     public function destroy($address_id)
     {
-        try{
+        try {
             $user_address = $this->userAddress->whereId($address_id)->whereUserId($this->user()->id);
-            $user_address->delete();
-        }catch(\Exception $e){
-            Log::error($e->getMessage());
+            $userAddress = $user_address->delete();
+        } catch (\Exception $e) {
+            Log::error('删除用户地址失败', ['message' => $e->getMessage()]);
             return false;
         }
-        return true;
+        return $userAddress;
     }
 }

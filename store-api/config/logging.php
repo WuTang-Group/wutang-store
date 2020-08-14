@@ -99,6 +99,17 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+        // MongoDB-log
+        'mongodb' => [ // 此处可以根据需求调整
+            'driver' => 'custom', // 此处必须为 `custom`
+            'via' => \App\Handlers\CustomLoggerHandler::class, // 当 `driver` 设置为 custom 时，使用 `via` 配置项所指向的工厂类创建 logger
+
+            // 以下 env 配置名可以根据需求调整
+            'server' => env('LOG_MONGO_SERVER', 'mongodb://localhost:27017'),
+            'database' => env('LOG_MONGO_DB', 'logs'),
+            'collection' => env('LOG_MONGO_COLLECTION', 'logs'),
+            'level' => env('LOG_MONGO_LEVEL', 'debug'), // 日志级别
+        ],
     ],
 
 ];

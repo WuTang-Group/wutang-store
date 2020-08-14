@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Enums\{AlipayCode, AlipayGatewayCode, UnionPayCode};
+use App\Enums\{AlipayCode, AlipayGatewayCode, LoggerCollection, UnionPayCode};
 use App\Handlers\ResponseData;
 use App\Payments\AlipayGateway;
 use App\Http\ {
-    Controllers\Controller,Requests\Api\PaymentRequest
+    Controllers\Controller, Requests\Api\PaymentRequest
 };
 use App\Services\Api\OrderService;
 use Exception;
@@ -16,7 +16,8 @@ use Illuminate\{Contracts\Foundation\Application,
     Http\Request,
     Http\Response,
     Routing\Redirector,
-    Support\Facades\Log};
+    Support\Facades\Log
+};
 use Omnipay;
 
 class PaymentController extends Controller
@@ -26,6 +27,7 @@ class PaymentController extends Controller
     public function __construct(OrderService $orderService)
     {
         $this->orderService = $orderService;
+        config(['logging.channels.mongodb.collection' => LoggerCollection::PayLog]);
     }
 
     /**
@@ -104,7 +106,7 @@ class PaymentController extends Controller
         return app('alipay')->web([
             'out_trade_no' => $requestData['no'], // 订单编号，需保证在商户端不重复
             'total_amount' => $requestData['total_amount'], // 订单金额，单位元，支持小数点后两位
-            'subject'      => $requestData['product_name'], // 订单标题
+            'subject' => $requestData['product_name'], // 订单标题
         ]);
     }
 
@@ -121,10 +123,10 @@ class PaymentController extends Controller
             app('alipay')->verify();
         } catch (Exception $e) {
             Log::error($e->getMessage());
-            return response(ResponseData::requestFails($request->all(),'数据不正确'));
+            return response(ResponseData::requestFails($request->all(), '数据不正确'));
         }
 
-        return response(ResponseData::requestSuccess($request->all(),'付款成功'));
+        return response(ResponseData::requestSuccess($request->all(), '付款成功'));
 //        // 订单号：$data->out_trade_no
 //        // 支付宝交易号：$data->trade_no
 //        // 订单总金额：$data->total_amount
@@ -143,11 +145,11 @@ class PaymentController extends Controller
         // 校验输入参数
         $data = app('alipay')->verify();
         // 如果订单状态是成功或者结束
-        if(in_array($data->trade_status, [AlipayCode::TRADE_SUCCESS, AlipayCode::TRADE_FINISHED])) {
+        if (in_array($data->trade_status, [AlipayCode::TRADE_SUCCESS, AlipayCode::TRADE_FINISHED])) {
             $requestData = [
                 'no' => $data->out_trade_no,
                 'status' => AlipayCode::TRADE_SUCCESS,
-                'payment_no' =>$data->trade_no
+                'payment_no' => $data->trade_no
             ];
             // 调用服务层更新该订单状态数据
             $this->orderService->changeStatus($requestData);
@@ -180,15 +182,16 @@ class PaymentController extends Controller
         $params['sign'] = AlipayGateway::sign($params);
         // 签名完成，移除key
         unset($params['key']);
-        $result = AlipayGateway::post('http://api.51sop.com/trade/pay',$params);
-        if($result['code'] != AlipayGatewayCode::RequestSuccess){
+        $result = AlipayGateway::post('http://api.51sop.com/trade/pay', $params);
+        Log::info('支付宝网关支付发起',['message'=>$result]);  // 记录支付发起日志
+        if ($result['code'] != AlipayGatewayCode::RequestSuccess) {
             //exit('受理失败');
             return '受理失败';
         }
         try {
-            AlipayGateway::verify(config('pay.alipay_gateway.key'),$result);
-        }catch (\Exception $e) {
-            \Log::error($e->getMessage());
+            AlipayGateway::verify(config('pay.alipay_gateway.key'), $result);
+        } catch (\Exception $e) {
+            Log::error('支付宝网关发起失败', ['message' => $e->getMessage()]);
             return '验签失败';
         }
         return redirect($result['pay_url']);
@@ -203,16 +206,16 @@ class PaymentController extends Controller
     public function alipayGatewayReturn(Request $request)
     {
         $requestData = $request->all();
-        if($requestData['code'] != AlipayGatewayCode::RequestSuccess){
-           return '受理失败';
+        if ($requestData['code'] != AlipayGatewayCode::RequestSuccess) {
+            return '受理失败';
         }
         try {
-            AlipayGateway::verify(config('pay.alipay_gateway.key'),$requestData);
-        }catch (\Exception $e) {
-            \Log::error($e->getMessage());
+            AlipayGateway::verify(config('pay.alipay_gateway.key'), $requestData);
+        } catch (\Exception $e) {
+            Log::error('支付宝网关跳转失败', ['message' => $e->getMessage()]);
             return '验签失败';
         }
-        return redirect(route('checkout',$requestData)); // 返回支付界面
+        return redirect(route('checkout', $requestData)); // 返回支付界面
     }
 
     /**
@@ -238,10 +241,10 @@ class PaymentController extends Controller
 //        }
 //        $this->orderService->changeStatus($requestData);
         try {
-            AlipayGateway::verify(config('pay.alipay_gateway.key'),$requestData);
+            AlipayGateway::verify(config('pay.alipay_gateway.key'), $requestData);
             $this->orderService->changeStatus($requestData);
-        }catch (\Exception $e) {
-            \Log::error($e->getMessage());
+        } catch (\Exception $e) {
+            Log::error('支付宝网关通知失败', ['message' => $e->getMessage()]);
             return '验签失败';
         }
         return 'success';

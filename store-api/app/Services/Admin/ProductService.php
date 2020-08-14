@@ -23,46 +23,48 @@ class ProductService extends Service
     public function queryList($queries)
     {
         // 商品列表
-        $queries = page_limit($queries);
-        return $this->product->with(['productCategory'=> function ($query){
+        $requestData = page_limit($queries);
+        return $this->product->with(['productCategory' => function ($query) {
             $query->select('id', 'title');
-        }])->paginate($queries['page_limit']);
+        }])->paginate($requestData['page_limit']);
     }
 
     public function store($queries)
     {
         // 添加商品
-        $queries = $this->saveOss($queries);
+        $requestData = $this->saveOss($queries);
         try {
-            return $this->product->create($queries);
+            $products = $this->product->create($requestData);
         } catch (\Exception $e) {
-            Log::error($e->getMessage());
+            Log::error('添加商品失败', ['messsage' => $e->getMessage()]);
             return false;
         }
+        return $products;
     }
 
     public function edit($queries, $productId)
     {
         // 编辑商品
-        $queries = $this->saveOss($queries);
+        $requestData = $this->saveOss($queries);
         try {
-            return $this->product->where('id', $productId)->update($queries);
+            $products = $this->product->whereId($productId)->update($requestData);
         } catch (\Exception $e) {
-            Log::error($e->getMessage());
+            Log::error('编辑商品失败', ['message' => $e->getMessage()]);
             return false;
         }
+        return $products;
     }
 
     public function destroy($productId)
     {
         // 下架商品
-        try{
-            $this->product->where('id', $productId)->update(['status'=>ProductStatusCode::StatusOff]);
-            return true;
-        }catch(\Exception $e){
-            Log::error($e->getMessage());
+        try {
+            $products = $this->product->whereId($productId)->update(['status' => ProductStatusCode::StatusOff]);
+        } catch (\Exception $e) {
+            Log::error('下架商品失败', ['message' => $e->getMessage()]);
             return false;
         }
+        return $products;
     }
 
 

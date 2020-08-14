@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services\Admin;
 
 use App\Enums\Roles;
@@ -20,20 +21,20 @@ class UserProfileService extends Service
     {
         $userRoles = $this->user()->getRoleNames();
         // 管理员
-        if(Str::contains($userRoles,Roles::Admin)){
+        if (Str::contains($userRoles, Roles::Admin)) {
             return $this->profile->paginate($queries['page_limit']);
-        }else{
+        } else {
             return $this->profile->whereUserId($this->user()->id)->first();
         }
     }
 
-    public function update($profile_id,$queries)
+    public function update($profile_id, $queries)
     {
         try {
             $userProfile = $this->profile->find($profile_id);
             $userProfile->update($queries);
         } catch (\Exception $e) {
-            Log::error($e->getMessage());
+            Log::error('编辑用户资料失败', ['message' => $e->getMessage()]);
             return false;
         }
         return $userProfile;
@@ -45,7 +46,7 @@ class UserProfileService extends Service
             $userProfile = $this->profile->find($queries);
             $userProfile->delete();
         } catch (\Exception $e) {
-            Log::error($e->getMessage());
+            Log::error('删除用户资料失败', ['message' => $e->getMessage()]);
             return false;
         }
         return $queries;

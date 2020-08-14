@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Services\Admin;
 
 use App\Enums\AlipayCode;
+use App\Enums\LoggerCollection;
 use App\Enums\OrderStatusCode;
 use App\Enums\UnionPayCode;
 use App\Handlers\OrderHandler;
@@ -18,6 +20,7 @@ class OrderService extends Service
     public function __construct(Order $order)
     {
         $this->order = $order;
+        config(['logging.channels.mongodb.collection' => LoggerCollection::OrderLog]);
     }
 
     // 改变订单状态
@@ -45,39 +48,31 @@ class OrderService extends Service
                 }
             }
         } catch (\Exception $e) {
-            Log::error($e->getMessage());
+            Log::error('订单状态改变失败', ['message' => $e->getMessage()]);
             return false;
         }
         return $queries;
     }
 
     // 获取订单列表
-    public function queryList($queries){
+    public function queryList($queries)
+    {
         $queries = page_limit($queries);
-        return $this->order->with(['user'=> function($query){
+        return $this->order->with(['user' => function ($query) {
             $query->select('id', 'username');
         }])->paginate($queries['page_limit']);
     }
 
     // 搜索订单
-    public function searchOrder($queries){
+    public function searchOrder($queries)
+    {
         $searchParam = Arr::only($queries, ['no', 'status']);
         // 根据用户名查询user_id
-        if(isset($queries['username'])){
-            try{
-                $user_id = User::where('username', $queries['username'])->value('id');
-                $searchParam['user_id'] = $user_id;
-            }catch (\Exception $e){
-                Log::error($e->getMessage());
-                return false;
-            }
+        if (isset($queries['username'])) {
+            $user_id = User::whereUserName($queries['username'])->value('id');
+            $searchParam['user_id'] = $user_id;
         }
         // 根据搜索条件查询订单
-        try{
-            return $this->order->where($searchParam)->paginate($queries['page_limit']);
-        }catch (\Exception $e){
-            Log::error($e->getMessage());
-            return false;
-        }
+        return $this->order->where($searchParam)->paginate($queries['page_limit']);
     }
 }

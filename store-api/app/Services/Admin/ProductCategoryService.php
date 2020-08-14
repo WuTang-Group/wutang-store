@@ -23,46 +23,48 @@ class ProductCategoryService extends Service
     public function queryList($queries)
     {
         // 查询所有商品分类
-        $queries = page_limit($queries->all());
-        return $this->productCategory->paginate($queries['page_limit']);
+        $requestData = page_limit($queries->all());
+        return $this->productCategory->paginate($requestData['page_limit']);
     }
 
     // 添加商品分类
     public function store($queries)
     {
-        $queries = $this->saveOss($queries);
+        $requestData = $this->saveOss($queries);
         try {
-            return $this->productCategory->create($queries);
+            $productCategories = $this->productCategory->create($requestData);
         } catch (\Exception $e) {
-            Log::error($e->getMessage());
+            Log::error('添加商品分类失败', ['message' => $e->getMessage()]);
             return false;
         }
+        return $productCategories;
     }
 
     // 编辑产品分类
     public function edit($queries, $productCategoriesId)
     {
 
-        $queries = $this->saveOss($queries);
+        $requestData = $this->saveOss($queries);
 
         try {
-            return $this->productCategory->find($productCategoriesId)->update($queries);
+            $productCategories = $this->productCategory->find($productCategoriesId)->update($requestData);
         } catch (\Exception $e) {
-            Log::error($e->getMessage());
+            Log::error('编辑产品分类失败', ['message' => $e->getMessage()]);
             return false;
         }
+        return $productCategories;
     }
 
     public function destroy($productCategoriesId)
     {
         // 删除分类
         try {
-
-            return $this->productCategory->where('id', $productCategoriesId)->delete();
+            $productCategories = $this->productCategory->where('id', $productCategoriesId)->delete();
         } catch (\Exception $e) {
-            Log::error($e->getMessage());
+            Log::error('删除产品分类失败', ['message' => $e->getMessage()]);
             return false;
         }
+        return $productCategories;
     }
 
     // 保存文件到OSS中，返回url
@@ -77,7 +79,7 @@ class ProductCategoryService extends Service
                 $ossRes = OssHandler::save($array[$key], AliyunOssDir::ProductCategory);  // 图片存储到OSS
                 $ossRes ? $array[$key] = $ossRes['data'] : null;
             } catch (\Exception $e) {
-                Log::error($e->getMessage());
+                Log::error('OSS文件上传失败', ['message' => $e->getMessage()]);
                 $array[$key] = null;
             }
         }

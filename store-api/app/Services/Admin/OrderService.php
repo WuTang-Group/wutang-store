@@ -37,6 +37,7 @@ class OrderService extends Service
                         'paid_at' => now()->toDateTimeString()
                     ]);
                 }
+                break;
                 case AlipayCode::TRADE_SUCCESS:
                 {
                     $this->order->whereNo($queries['no'])->update([
@@ -46,6 +47,7 @@ class OrderService extends Service
                         'paid_at' => now()->toDateTimeString()
                     ]);
                 }
+                break;
             }
         } catch (\Exception $e) {
             Log::error('订单状态改变失败', ['message' => $e->getMessage()]);

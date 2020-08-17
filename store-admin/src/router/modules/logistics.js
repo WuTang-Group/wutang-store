@@ -7,7 +7,7 @@ const logisticsRouter = {
   alwaysShow: true,
   name: 'Logistics',
   meta: {
-    title: '物流管理',
+    title: 'Logistics',
     icon: 'logistics'
   },
   children: [
@@ -15,7 +15,7 @@ const logisticsRouter = {
       path: 'list',
       component: () => import('@/views/table/inline-edit-table'),
       name: 'LogisticsList',
-      meta: { title: '物流列表' }
+      meta: { title: 'LogisticsList' }
     }
   ]
 }

@@ -9,8 +9,16 @@ export default {
     'categoryList': '类目列表',
     product: '商品管理',
     'productList': '商品列表',
-    profile: '个人中心',
-    logManage: '日志管理'
+    PurchaseOrder: '订单管理',
+    'PurchaseOrderList': '订单列表',
+    Logistics: '物流管理',
+    'LogisticsList': '物流列表',
+    Payment: '支付管理',
+    UserCenter: '个人中心',
+    'ModifyInfo': '修改密码',
+    logManage: '日志管理',
+    'SystemLog': '系统日志',
+    'LoginLog': '登录日志'
   },
   navbar: {
     dashboard: '首页',

@@ -7,7 +7,7 @@ const orderRouter = {
   alwaysShow: true,
   name: 'PurchaseOrder',
   meta: {
-    title: '订单管理',
+    title: 'PurchaseOrder',
     icon: 'order'
   },
   children: [
@@ -15,7 +15,7 @@ const orderRouter = {
       path: 'list',
       component: () => import('@/views/purchaseOrder/index'),
       name: 'PurchaseOrderList',
-      meta: { title: '订单列表' }
+      meta: { title: 'PurchaseOrderList' }
     }
   ]
 }

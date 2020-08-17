@@ -5,7 +5,7 @@ const paymentRouter = {
   component: Layout,
   name: 'Payment',
   meta: {
-    title: '支付管理',
+    title: 'Payment',
     icon: 'payment'
   }
 }

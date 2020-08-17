@@ -15,7 +15,7 @@ const productRouter = {
       path: 'list',
       component: () => import('@/views/product/index'),
       name: 'productList',
-      meta: { title: '商品列表' }
+      meta: { title: 'productList' }
     }
   ]
 }

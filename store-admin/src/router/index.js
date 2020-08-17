@@ -130,7 +130,7 @@ export const asyncRoutes = [
     alwaysShow: true,
     name: 'UserCenter',
     meta: {
-      title: '个人中心',
+      title: 'UserCenter',
       icon: 'user'
     },
     children: [
@@ -139,7 +139,7 @@ export const asyncRoutes = [
         component: () => import('@/views/center/modify'),
         name: 'ModifyInfo',
         meta: {
-          title: '修改密码'
+          title: 'ModifyInfo'
         }
       }
     ]

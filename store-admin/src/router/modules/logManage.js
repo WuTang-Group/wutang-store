@@ -15,13 +15,13 @@ const logManage = {
       path: 'system-log',
       component: () => import('@/views/log-manage/index'),
       name: 'SystemLog',
-      meta: { title: '系统日志' }
+      meta: { title: 'SystemLog' }
     },
     {
       path: 'login-log',
       component: () => import('@/views/log-manage/components/LoginLog'),
       name: 'LoginLog',
-      meta: { title: '登录日志' }
+      meta: { title: 'LoginLog' }
     }
   ]
 }

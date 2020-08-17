@@ -67,7 +67,15 @@
       <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.page_limit" @pagination="getList" />
     </el-card>
     <el-dialog title="用户详细信息" :visible.sync="dialogTableVisible">
-      <el-form :inline="true" :model="userDetail" disabled="true" class="form-inline">
+      <el-form
+        :inline="true"
+        :model="userDetail"
+        disabled="true"
+        label-position="right"
+        class="form-inline"
+        label-width="100px"
+        size="medium"
+      >
         <el-form-item label="用户名">
           <el-input v-model="userDetail.username" />
         </el-form-item>
@@ -80,20 +88,20 @@
         <el-form-item label="年龄">
           <el-input v-model="userDetail.profile.age" />
         </el-form-item>
-        <el-form-item label="生日">
-          <el-input v-model="userDetail.profile.birthday" />
+        <el-form-item label="电话号码">
+          <el-input v-model="userDetail.phone" />
         </el-form-item>
         <el-form-item label="邮箱">
           <el-input v-model="userDetail.email" />
         </el-form-item>
-        <el-form-item label="电话号码">
-          <el-input v-model="userDetail.phone" />
+        <el-form-item label="生日">
+          <el-input v-model="userDetail.profile.birthday" />
         </el-form-item>
         <el-form-item label="邮编">
           <el-input v-model="userDetail.profile.zip" />
         </el-form-item>
         <el-form-item label="地址">
-          <el-input v-model="userDetail.profile.fullAddress" />
+          <el-input v-model="userDetail.profile.fullAddress" style="width:400px" />
         </el-form-item>
       </el-form>
     </el-dialog>

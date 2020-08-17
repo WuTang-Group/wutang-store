@@ -9,7 +9,8 @@ export default {
     'categoryList': '类目列表',
     product: '商品管理',
     'productList': '商品列表',
-    profile: '个人中心'
+    profile: '个人中心',
+    logManage: '日志管理'
   },
   navbar: {
     dashboard: '首页',

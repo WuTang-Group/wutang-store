@@ -46,7 +46,12 @@ class AuthController extends Controller
         if (!$token) {
             throw new HttpResponseException(ResponseData::dataError($request->all(), '用户名或密码有误'));
         }
-        \Log::info('用户登录',['username' => $request->username,'login_time' => now()->toDateTimeString(),'ip' =>$request->ip()]);
+        \Log::info('用户登录',[
+            'username' => $request->username,
+            'status' => '成功',
+            'login_time' => now()->toDateTimeString(),
+            'ip' =>$request->ip()
+        ]);
         return $this->respondWithToken($token);
     }
 

@@ -2,6 +2,7 @@
   <div class="app-container user-container">
     <el-card class="box-card box-card-content">
       <el-table
+        v-loading="listLoading"
         :data="list"
         border
         fit

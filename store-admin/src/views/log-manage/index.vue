@@ -2,6 +2,7 @@
   <div class="app-container user-container">
     <el-card class="box-card box-card-content">
       <el-table
+        v-loading="listLoading"
         :data="list"
         border
         fit
@@ -106,7 +107,6 @@ export default {
     getSystemLogList() {
       // 显示查询loading
       this.listLoading = true
-
       getSystemLog(this.listQuery).then(response => {
         this.total = response.data.total
         this.list = response.data.data

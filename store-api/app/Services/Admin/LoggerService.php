@@ -14,15 +14,15 @@ class LoggerService extends Service
     {
         $requestData = page_limit($params->all());
         $model = DB::connection(static::CONNECTION)->collection($collection);
-        return $model->paginate($requestData['page_limit']);
+        return $model->latest('datetime')->paginate($requestData['page_limit']);
     }
 
     // 删除日志
     public function systemLogDestroy($collection,$params)
     {
         $requestData = $params->all();
-        $model = DB::connection(static::CONNECTION)->collection($collection);
         try {
+            $model = DB::connection(static::CONNECTION)->collection($collection);
             $res = $model->whereIn('_id',$requestData['ids'])->delete();
         }catch (\Exception $e){
             Log::error('日志删除失败',['message'=>$e->getMessage()]);

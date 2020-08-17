@@ -18,7 +18,7 @@ export function getInfo(token) {
 
 export function getInfoById(params) {
   return request({
-    url: 'admin/user',
+    url: 'admin/get_user',
     method: 'get',
     params: params
   })

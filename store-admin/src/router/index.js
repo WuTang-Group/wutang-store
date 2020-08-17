@@ -13,6 +13,7 @@ import purchaseOrder from '@/router/modules/purchaseOrder'
 import productRouter from '@/router/modules/product'
 import logisticsRouter from '@/router/modules/logistics'
 import paymentRouter from '@/router/modules/payment'
+import logManage from '@/router/modules/logManage'
 
 // https://webpack.js.org/guides/dependency-management/#requirecontext
 // const modulesFiles = require.context('./modules', true, /\.js$/)
@@ -143,6 +144,7 @@ export const asyncRoutes = [
       }
     ]
   },
+  logManage,
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }

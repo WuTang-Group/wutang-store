@@ -24,7 +24,7 @@ class CreateProductCategoriesTable extends Migration
             $table->text('description')->nullable()->comment('分类简介');
             $table->text('description_en')->nullable()->comment('英文分类简介');
             $table->string('img')->nullable()->comment('分类简介图');
-            $table->unsignedBigInteger('parent_id')->nullable()->comment('分类上级');
+            $table->unsignedBigInteger('parent_id')->default(0)->comment('分类从属关系,0为默认一级分类');
             $table->timestamps();
         });
     }

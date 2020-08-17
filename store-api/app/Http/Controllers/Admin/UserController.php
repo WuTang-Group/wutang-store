@@ -44,7 +44,7 @@ class UserController extends Controller
                     ->active()->paginate($requestData['page_limit']);
             }else
             {
-                $results = User::active()->paginate($requestData['page_limit']);
+                $results = User::with('profile')->active()->paginate($requestData['page_limit']);
             }
             return response()->json(ResponseData::requestSuccess($results));
         } else {
@@ -136,7 +136,7 @@ class UserController extends Controller
         $id = Hashids::decode($request->hash_id)[0];
         try
         {
-            $res = $this->user()->find($id);
+            $res = $this->user()->with('profile')->find($id);
             return response()->json(ResponseData::requestSuccess($res));
         }
         catch (\Exception $e)

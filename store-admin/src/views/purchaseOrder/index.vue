@@ -28,13 +28,13 @@
         <el-table-column header-align="center" align="center" prop="total_amount" label="总金额" />
         <el-table-column header-align="center" align="center" prop="user.username" label="用户" />
         <el-table-column header-align="center" align="center" prop="status" :formatter="formatOrderStatus" label="订单状态" />
-        <el-table-column header-align="center" align="center" prop="payment_method" :formatter="formatPaymentMethod" label="支付方式" />
         <el-table-column header-align="center" align="center" prop="payment_no" label="支付交易号" />
-        <el-table-column header-align="center" align="center" prop="paid_at" label="支付时间" />
+        <el-table-column header-align="center" align="center" prop="payment_method" :formatter="formatPaymentMethod" label="支付方式" />
         <el-table-column header-align="center" align="center" prop="refund_status" :formatter="formatRefundStatus" label="退款状态" />
         <el-table-column header-align="center" align="center" prop="refund_no" label="退款单号" />
         <el-table-column header-align="center" align="center" prop="reviewed" label="是否评价" />
         <el-table-column header-align="center" align="center" prop="ship_status" :formatter="formatShipStatus" label="物流状态" />
+        <el-table-column header-align="center" align="center" prop="paid_at" label="支付时间" />
       </el-table>
     </el-card>
     <pagination

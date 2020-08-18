@@ -12,7 +12,7 @@ $factory->define(\App\Models\ProductCategoryStory::class, function (Faker $faker
         'description'=>$faker->sentence(5, true),
         'description_en'=>$faker->sentence(5, true),
         'banner'=>$faker->imageUrl(),
-        'product_category_id'=>$faker->numberBetween(1, 40),
+        'product_category_id'=>$faker->numberBetween(1, 20),
         'created_at' => $faker->dateTimeThisMonth(),
         'updated_at' => $faker->dateTimeThisMonth()
     ];

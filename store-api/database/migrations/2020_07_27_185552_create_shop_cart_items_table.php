@@ -16,8 +16,10 @@ class CreateShopCartItemsTable extends Migration
         Schema::create('shop_cart_items', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->comment('所属用户id');
-            $table->unsignedBigInteger('product_sku_id')->nullable()->comment('所属sku表id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+//            $table->unsignedBigInteger('product_sku_id')->nullable()->comment('所属sku表id');
             $table->unsignedBigInteger('product_id')->nullable()->comment('所属商品表id');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->unsignedInteger('amount')->comment('数量');
             $table->timestamps();
         });

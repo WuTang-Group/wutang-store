@@ -15,12 +15,13 @@ class CreateProductCategoryStoriesTable extends Migration
     {
         Schema::create('product_category_stories', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('product_category_id')->nullable()->comment('所属产品分类id');
+            $table->foreign('product_category_id')->references('id')->on('product_categories');
             $table->string('title')->nullable()->comment('分类故事名称');
             $table->string('title_en')->nullable()->comment('英文故事名称');
             $table->text('description')->nullable()->comment('分类简介');
             $table->string('description_en')->nullable()->comment('英文分类简介');
             $table->string('banner')->nullable()->comment('故事banner');
-            $table->string('product_category_id')->nullable()->comment('属于产品类ID');
             $table->timestamps();
         });
     }

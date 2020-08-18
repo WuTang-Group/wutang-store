@@ -15,6 +15,10 @@ class CreateProductRecommendsTable extends Migration
     {
         Schema::create('product_recommends', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('product_id')->nullable()->comment('所属商品id');
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->unsignedBigInteger('user_id')->comment('属于用户id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

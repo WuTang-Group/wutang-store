@@ -76,7 +76,7 @@
       :visible.sync="previewImgDialogVisible"
       width="50%"
     >
-      <el-image :src="previewImg" style="width: 100%;" fit="scale-down" />
+      <el-image :src="previewImg" style="width: 100%;" />
     </el-dialog>
   </div>
 </template>

@@ -48,6 +48,25 @@ class ShopCartController extends Controller
     }
 
     /**
+     * According type to change cart item
+     * 根据type改变购物车商品数量
+     * @queryParam type required 操作类型,可传参数为:add(点击'+'时)/reduce(点击'—'时)/fixed(需传固定数量时)
+     * @queryParam product_id rquired 商品ID
+     * @queryParam amount optional 可选的商品数量(type为fixed时需传该参数)
+     * @param $type
+     * @param ShopCartRequest $request
+     */
+    public function updateItemNumber($type,ShopCartRequest $request)
+    {
+        $requestData = [
+            'type' => $type,
+            'product_id' => $request->product_id,
+            'amount' => $request->amount
+        ];
+        $results = $this->service->updateItemNumber($requestData);
+    }
+
+    /**
      * Request delete the cart items
      * 删除购物车商品
      * @queryParam product_id required 商品id

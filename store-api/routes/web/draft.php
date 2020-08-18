@@ -74,3 +74,70 @@ Route::get('test',function(){
 //    return $data;
     throw new \App\Exceptions\HttpResponseException(ResponseData::tokenExpired('123','456'));
 });
+
+
+<?php
+
+Route::get('/', 'Web\HomeController@index');
+
+Route::group(['middleware' => ['guest.mode']], function () use ($router) {
+	Route::get('login', 'Web\AuthController@login')->name('login');
+	Route::get('register', 'Web\AuthController@register');
+	//Route::get('forgot-password', function () { return view('auth.forgot-password'); });
+	//Route::get('reset-password', function () { return view('auth.reset-password'); });
+	//Route::get('thank-you', function () { return view('auth.thank-you'); });
+});
+
+Route::group(['prefix' => 'my-account', 'middleware' => ['jwt.verify']], function () use ($router) {
+	Route::get('/', 'Web\AccountController@index')->name('my-account');;
+	Route::get('order/{order_number}', 'Web\AccountController@show');
+	Route::get('tracking', function () { return view('my-account.tracking'); });
+	Route::get('profile', 'Web\AccountController@profile');
+
+	/*Route::get('checkout', 'CheckoutController@index');
+	Route::get('checkout/thank-you', 'CheckoutController@checkout');*/
+	Route::get('checkout', function () { return view('checkout'); });
+});
+
+Route::group(['middleware' => ['web']], function () use ($router) {
+	Route::get('products', 'Web\ProductController@index');
+	Route::get('products/{slug}', 'Web\ProductController@show');
+	//Route::get('products', function () { return view(''); });
+	//Route::get('product/{slug}', function () { return view(''); });
+
+	Route::get('product-category/{slug}', 'Web\ProductCategoryController@index');
+	Route::get('product-category/{slug}/story', 'Web\ProductCategoryController@show');
+	//Route::get('product-category/{slug}', function () { return view(''); });
+	//Route::get('product-category/{slug}/story', function () { return view(''); });
+
+	Route::get('wishlist', 'Web\ShoppingController@wishlist');
+	Route::get('cart', 'Web\ShoppingController@cart');
+	//Route::get('wishlist', function () { return view('wishlist'); });
+	//Route::get('cart', function () { return view('cart'); });
+
+	Route::group(['prefix' => 'the-brand'], function () use ($router) {
+		Route::get('/', function () { return view('the-brand.index'); });
+		Route::get('story', function () { return view('the-brand.story'); });
+		Route::get('queen-spades-and-you', function () { return view('the-brand.queen-spades-and-you'); });
+		Route::get('start-from-your-inner-skin', function () { return view('the-brand.start-from-your-inner-skin'); });
+	});
+
+	Route::group(['prefix' => 'product-idea'], function () use ($router) {
+		Route::get('/', function () { return view('product-idea.index'); });
+		Route::get('lithotherapy-technology', function () { return view('product-idea.lithotherapy-technology'); });
+		Route::get('queen-spades-and-you', function () { return view('product-idea.queen-spades-and-you'); });
+		Route::get('arts', function () { return view('product-idea.arts'); });
+	});
+
+	Route::group(['prefix' => 'the-house'], function () use ($router) {
+		Route::get('/', 'Web\TheHouseController@index');
+		Route::get('{slug}', 'Web\TheHouseController@show');
+	});
+
+	Route::get('e-boutique-services', function () { return view('others.e-boutique-services'); });
+	Route::get('contact-us', function () { return view('others.contact-us'); });
+	Route::get('customer-services', function () { return view('others.customer-services'); });
+	Route::get('shipping', function () { return view('others.shipping'); });
+	Route::get('privacy-policy', function () { return view('others.privacy-policy'); });
+	Route::get('terms-and-conditions', function () { return view('others.terms-and-conditions'); });
+});

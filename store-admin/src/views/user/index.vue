@@ -163,6 +163,22 @@ export default {
       tableHeight: state => state.screenHeight - 400
     })
   },
+  watch: {
+    userDetail: function(newUser, oldUser) {
+      const oldSex = newUser.profile.sex
+      switch (oldSex.toString()) {
+        case '0':
+          this.userDetail.profile.sex = '女'
+          return this.userDetail.profile.sex
+        case '1':
+          this.userDetail.profile.sex = '男'
+          return this.userDetail.profile.sex
+        case '-1':
+          this.userDetail.profile.sex = '其他'
+          return this.userDetail.profile.sex
+      }
+    }
+  },
   beforeRouteEnter(to, from, next) {
     // 从以下路由返回时，则指定isBack为true，然后触发activated事件时需要更新页面数据
     const backUpdatePagesName = ['CreateUser', 'EditUser']
@@ -270,6 +286,17 @@ export default {
       const profile = row.profile
       this.userDetail.profile.fullAddress = profile.province + profile.city + profile.district + profile.address
       this.dialogTableVisible = true
+    },
+    formatSex(row) {
+      console.log(row)
+      switch (row.profile.sex) {
+        case 1:
+          return '男'
+        case '0':
+          return '女'
+        case '-1':
+          return '其他'
+      }
     }
   }
 }

@@ -59,7 +59,7 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         // 获取产品详情->传递slug去查询对应的产品
         Route::get('product/{product_slug}', 'ProductController@index')->name('product.index');
         // 根据ID列表查询商品
-        Route::get('product/ids', 'ProductController@productQuery')->name('product.productQuery');
+        Route::get('product_ids', 'ProductController@productQuery')->name('product.productQuery');
         // 获取分类故事
         Route::get('category_story/{category_slug}', 'ProductController@categoryStory')->name('product.newProduct');
         // 新品

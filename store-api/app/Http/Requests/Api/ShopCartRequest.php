@@ -16,12 +16,11 @@ class ShopCartRequest extends FormRequest
      */
     public function rules()
     {
-        switch ($this->route()->getActionMethod())
-        {
+        switch ($this->route()->getActionMethod()) {
             case 'store':
             {
                 return [
-                    'product_id' => ['required',function($attribute, $value, $fail){
+                    'product_id' => ['required', function ($attribute, $value, $fail) {
                         if (!$product = Product::find($value)) {
                             return $fail('该商品不存在');
                         }
@@ -30,6 +29,19 @@ class ShopCartRequest extends FormRequest
                         }
                     }],
                     'amount' => 'required|integer'
+                ];
+            }
+            case 'updateItemNumber':
+            {
+                return [
+                    'product_id' => ['required', function ($attribute, $value, $fail) {
+                        if (!$product = Product::find($value)) {
+                            return $fail('该商品不存在');
+                        }
+                        if ($product->stock === 0) {
+                            return $fail('该商品已售完');
+                        }
+                    }],
                 ];
             }
             case 'delete':

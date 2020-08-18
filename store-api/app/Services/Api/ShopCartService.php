@@ -2,6 +2,7 @@
 
 namespace App\Services\Api;
 
+use App\Enums\ShopCartItemType;
 use App\Models\ShopCartItem;
 use App\Models\User;
 use App\Services\Service;
@@ -33,6 +34,37 @@ class ShopCartService extends Service
             return false;
         }
         return $this->queryList();
+    }
+
+    public function updateItemNumber($params)
+    {
+        try {
+            switch ($params['type']) {
+                case ShopCartItemType::AddItem:
+                {
+                    $result = $this->shopCart->whereUserId($this->user()->id)->whereProductId($params['product_id'])->increment('amount');
+                }
+                break;
+                case ShopCartItemType::ReduceItem:
+                {
+                    $result = $this->shopCart->whereUserId($this->user()->id)->whereProductId($params['product_id'])->decrement('amount');
+                }
+                break;
+                case ShopCartItemType::FixedItem:
+                {
+                    $result = $this->shopCart->whereUserId($this->user()->id)->whereProductId($params['product_id'])->update(['amount' => $params['amount']]);
+                }
+                break;
+                default:
+                {
+                    return false;
+                }
+            }
+        }catch (\Exception $e) {
+            Log::error('购物车商品数量操作失败',['message'=>$e->getMessage()]);
+            return false;
+        }
+        return $result;
     }
 
     public function delete($params)

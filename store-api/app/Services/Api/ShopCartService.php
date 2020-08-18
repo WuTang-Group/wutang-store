@@ -38,7 +38,7 @@ class ShopCartService extends Service
     public function delete($params)
     {
         try {
-            $result = $this->shopCart->whereProductId($params)->delete();
+            $result = $this->shopCart->whereUserId($this->user()->id)->whereProductId($params)->delete();
         }catch (\Exception $e) {
             Log::error('购物车数据删除失败',['message'=>$e->getMessage()]);
             return false;

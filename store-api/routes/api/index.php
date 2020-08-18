@@ -6,14 +6,14 @@
 // 状态码说明
 Route::get('response_code', 'ResponseCodeController@index')->name('response_code.index');
 
-Route::get('aligateway/pay','PaymentController@payByAlipayGateway')->name('aligateway.payByAlipayGateway');
-Route::get('aligateway/return','PaymentController@alipayGatewayReturn')->name('aligateway.alipayGatewayReturn');
-Route::post('aligateway/notify','PaymentController@alipayGatewayNotify')->name('aligateway.alipayGatewayNotify');
+Route::get('aligateway/pay', 'PaymentController@payByAlipayGateway')->name('aligateway.payByAlipayGateway');
+Route::get('aligateway/return', 'PaymentController@alipayGatewayReturn')->name('aligateway.alipayGatewayReturn');
+Route::post('aligateway/notify', 'PaymentController@alipayGatewayNotify')->name('aligateway.alipayGatewayNotify');
 
 /**
  * loose(较宽松)节流路由组
  */
-Route::middleware('throttle:'.config('api.rate_limits.loose'))->group(function (){
+Route::middleware('throttle:' . config('api.rate_limits.loose'))->group(function () {
     // 图片验证码
     Route::post('captchas', 'CaptchaController@store')->name('captchas.store');
     // 用户注册
@@ -57,7 +57,7 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         // 获取对应类别下的产品->传递slug去查询对应分类下到产品
         Route::get('product_category/{category_slug}', 'ProductController@getCategoryProduct')->name('product.getCategoryProduct');
         // 获取产品详情->传递slug去查询对应的产品
-        Route::get('product/{product_slug}','ProductController@index')->name('product.index');
+        Route::get('product/{product_slug}', 'ProductController@index')->name('product.index');
         // 获取分类故事
         Route::get('category_story/{category_slug}', 'ProductController@categoryStory')->name('product.newProduct');
         // 新品
@@ -105,22 +105,23 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         /**
          * User address
          */
-        Route::get('user_addresses','UserAddressController@index')->name('user_addresses.queryList');
-        Route::post('user_addresses','UserAddressController@store')->name('user_addresses.store');
-        Route::put('user_addresses/{address_id}','UserAddressController@edit')->name('user_addresses.edit');
-        Route::delete('user_addresses/{address_id}','UserAddressController@destroy')->name('user_addresses.destroy');
+        Route::get('user_addresses', 'UserAddressController@index')->name('user_addresses.queryList');
+        Route::post('user_addresses', 'UserAddressController@store')->name('user_addresses.store');
+        Route::put('user_addresses/{address_id}', 'UserAddressController@edit')->name('user_addresses.edit');
+        Route::delete('user_addresses/{address_id}', 'UserAddressController@destroy')->name('user_addresses.destroy');
         /**
          * 购物车
          */
-        // 结合cookie:若传参数则表示是通过cookie或手动写入数据表并返回最新购物车信息，若不传参数则返回已有购物车表数据信息
-        Route::post('shop_carts', 'ShopCartController@queryList')->name('shop_carts.queryList');
+        Route::get('shop_carts', 'ShopCartController@queryList')->name('shop_carts.queryList');
+        Route::post('shop_carts', 'ShopCartController@store')->name('shop_carts.store');
+        Route::delete('shop_carts/{product_id}', 'ShopCartController@delete')->name('shop_carts.delete');
         /**
          * 订单
          */
         Route::get('orders', 'OrderController@queryList')->name('orders.queryList');
         Route::get('order_details/{no}', 'OrderController@getOrderDetail')->name('order_details.getOrderDetail');
-        Route::post('orders','OrderController@requestCreate')->name('orders.requestCreate');
-        Route::get('orders/pay_check','OrderController@payCheck')->name('orders.payCheck');
+        Route::post('orders', 'OrderController@requestCreate')->name('orders.requestCreate');
+        Route::get('orders/pay_check', 'OrderController@payCheck')->name('orders.payCheck');
 
     });
 

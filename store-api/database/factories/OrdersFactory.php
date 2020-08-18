@@ -9,7 +9,7 @@ $factory->define(\App\Models\Order::class, function (Faker $faker) {
     return [
         'no' =>$faker->randomNumber(8, true),
         'user_id' => $faker->randomElement([1, 2, 3, 4, 5,6, 7, 8, 9]),
-        'address_id' => $faker->numberBetween(0, 30),
+        'user_address_id' => $faker->numberBetween(0, 30),
         'total_amount' => $faker->randomFloat(2, 5000, 12000),
         'remark' => $faker->sentence(5, true),
         'paid_at' => $faker->dateTime,

@@ -94,4 +94,17 @@ class ProductController extends Controller
         $results = $this->productService->categoryStory($product_slug);
         return response()->json(ResponseData::requestSuccess($results));
     }
+
+    /**
+     * Get product detail by product id list
+     * 根据商品ID列表获取商品详情列表
+     * @queryParam id_list required 商品id列表（数组）
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function productQuery(Request $request)
+    {
+        $results = $this->productService->productQuery($request->all());
+        return response()->json(ResponseData::requestSuccess($results));
+    }
 }

@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Monolog\Logger;
 use Yansongda\Pay\Pay;
+use Illuminate\Support\Facades\View;
+use GuzzleHttp\Client;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -58,5 +60,24 @@ class AppServiceProvider extends ServiceProvider
         Product::observe(ProductObserver::class);
         // 注册产品分类观察者
         ProductCategory::observe(ProductCategoryObserver::class);
+
+        // 获取购物车商品
+        $token = isset($_COOKIE['token']) ? $_COOKIE['token']:null;
+
+        if($token) { //用户已登录
+            $client = new Client(['base_uri' => env('API_URL')]);
+            $request = $client->request('GET', 'shop_carts', ['headers' => [
+                    'Authorization' => 'Bearer '.$token
+                ]
+            ]);
+            $minicart_collection = json_decode($request->getBody());
+            if($minicart_collection->code != 20001) {
+                $minicart_collection =null;
+            }
+        } else {
+            $minicart_collection =null;
+        }
+
+        View::share('minicart_collection', $minicart_collection);
     }
 }

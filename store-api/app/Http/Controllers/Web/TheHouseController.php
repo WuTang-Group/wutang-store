@@ -7,7 +7,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 use App\Http\Controllers\Controller;
 
-class CheckoutController extends Controller
+class TheHouseController extends Controller
 {
     //
     public function __construct()
@@ -15,8 +15,13 @@ class CheckoutController extends Controller
 
     }
 
-    public function store(Request $request)
+    public function index(Request $request)
     {
-    	
+
+    }
+
+    public function show(Request $request, $slug)
+    {
+
     }
 }

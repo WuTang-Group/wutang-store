@@ -116,6 +116,7 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
          */
         Route::get('shop_carts', 'ShopCartController@queryList')->name('shop_carts.queryList');
         Route::post('shop_carts', 'ShopCartController@store')->name('shop_carts.store');
+        Route::put('shop_carts/{type}','ShopCartController@updateItemNumber')->name('shop_carts.updateItemNumber');
         Route::delete('shop_carts/{product_id}', 'ShopCartController@delete')->name('shop_carts.delete');
         /**
          * 订单

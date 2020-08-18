@@ -97,7 +97,7 @@ class ProductController extends Controller
 
     /**
      * Get product detail by product id list
-     * 根据商品ID列表获取商品详情列表
+     * 根据ID列表查询商品
      * @queryParam id_list required 商品id列表（数组）
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse

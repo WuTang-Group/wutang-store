@@ -35,30 +35,37 @@
           <div class="col-12 col-md-9 col-lg-8" id="pay-for-shipping">
             <h2 class="text-white title">支付配送</h2>
             <div class="accordion">
-              <h2 class="text-white title index collapsed mb-0">
+              <h2 class="text-white title index mb-0">
                 <span>01</span>货到付款
               </h2>
-              <div class="accordion-content collapsed">
+              <div class="accordion-content collapse">
+                <div>
                   <p>您的货款将在订单送达后由送货员直接收取，请您务必确认签字。</p>
+                </div>
               </div>
-              <h2 class="text-white title index collapsed mb-0">
+              <h2 class="text-white title index mb-0">
                 <span>02</span>在线支付
               </h2>
-              <div class="accordion-content collapsed">
+              <div class="accordion-content collapse">
+                <div>
                   <p>如您已拥有支付宝账号，银联卡或微信支付账号，您也可以选择使用支付宝/银联在线支付/微信支付货款。请在完成订单后，选择进入支付宝/银联在线支付/微信支付页面进行确认支付，不进行此步操作或支付信息失败，您的订单将无法发出，请重新确认支付。</p>
                   
                   <p>下单后，您必须在二十四（24）小时内将钱款转入我们的银行账户，否则订单会自动取消。 如果支付宝/银联在线支付/微信支付拒绝授权您向我们进行支付，那么不会处理您的订单。通过支付宝/银联在线支付/微信支付进行支付时，您需要服从其条款和政策。</p>
+                </div>
               </div>
-              <h2 class="text-white title index collapsed mb-0">
+              <h2 class="text-white title index mb-0">
                 <span>03</span>配送方式
               </h2>
-              <div class="accordion-content collapsed">
+              <div class="accordion-content collapse">
+                <div>
                   <p>我们将根据您选择的支付方式与收货地址自动选择最优惠、最快的配送方式。 订单购物金额达到包邮条件时，可以享受免费的配送服务。</p>
+                </div>
               </div>
-              <h2 class="text-white title index collapsed mb-0">
+              <h2 class="text-white title index mb-0">
                 <span>04</span>配送时间
               </h2>
-              <div class="accordion-content collapsed">
+              <div class="accordion-content collapse">
+                <div>
                   <p>温馨提醒</p>
                   <ol class="ol-list-style pl-0">
                     <li>出库时间：商品实际有库存的情况下，下午3点前成功付款的在线支付订单，当天可以出库。其他订单48小时内出库。如遇法定节假日，系统故障，订单异常，仓库年度盘点以及官网重大活动期间，出库时间可能会有延误现象，请您谅解!</li>
@@ -67,16 +74,18 @@
                     <li>因天气、交通等各类不可抗力之因素影响，您的订单可能会有延误现象，敬请谅解!</li>
                     <li>我们承诺尽最大努力使商品在预计配送时效内送达，但无法确保每个订单都能顺利送达。如您的订单未在预计配送时效内到达，可致电客服，由客服人员联系配送公司为您查询跟进。</li>
                   </ol>
+                </div>
               </div>
             </div>
           </div>
           <div class="col-12 col-md-9 col-lg-8" id="inspection">
             <h2 class="text-white title">商品验货与签收</h2>
             <div class="accordion">
-              <h2 class="text-white title index collapsed mb-0">
+              <h2 class="text-white title index mb-0">
                 <span>01</span>商品验货与签收
               </h2>
-              <div class="accordion-content collapsed">
+              <div class="accordion-content collapse">
+                <div>
                   <p>为保障您的权益，请您在收货时注意以下环节：</p>
                   <ol class="ol-list-style pl-0">
                     <li>签收时与配送人员当面核对：商品及配件、应付金额（货到付款）、商品数量及发货清单、赠品（如有）等。</li>
@@ -84,16 +93,18 @@
                     <li>为了保护您的权益，建议您尽量不要委托他人代为签收；如由他人代为签收商品而没有在配送人员在场的情况下验货，则视为您所订购商品的包装无任何问题；</li>
                     <li>为了方便日后可能出现的退货流程，请保留商品外包装箱14天。</li>
                   </ol>
+                </div>
               </div>
             </div>
           </div>
           <div class="col-12 col-md-9 col-lg-8" id="after-sales">
             <h2 class="text-white title">售后服务</h2>
             <div class="accordion">
-              <h2 class="text-white title index collapsed mb-0">
+              <h2 class="text-white title index mb-0">
                 <span>01</span>退货规定
               </h2>
-              <div class="accordion-content collapsed">
+              <div class="accordion-content collapse">
+                <div>
                   <p>如需退货，请您参考以下流程并确认您符合本页面所有适用的条件：</p>
                   
                   <p>第一步：<br>
@@ -139,6 +150,7 @@
                   </ol>
                   <p>注：请您务必在运单的备注栏上注明订单号，谢谢配合。</p>
                   <p>特别提醒：若您选择国内挂号的邮寄方式，请在邮局办理完邮寄包裹后，保留您的“国内普通包裹详情单” 以作备查之用。</p>
+                </div>
               </div>
             </div>
           </div>

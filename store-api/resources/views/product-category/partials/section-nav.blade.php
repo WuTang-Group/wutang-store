@@ -1,9 +1,9 @@
 <div class="section-nav">
   	<div class="container">
     	<ul>
-      		<li><a href="/product-category">产品</a></li>
-      		<li class="active"><a href="product-category/story">故事</a></li>
-      		<li class="last"><a href="/product-category">其他套装</a></li>
+      		<li class="{{ (strpos(Route::currentRouteName(), 'category') === 0) ? 'active' : null }}"><a href="/product-category/{{ $slug }}">产品</a></li>
+      		<li class="{{ (strpos(Route::currentRouteName(), 'category.story') === 0) ? 'active' : null }}"><a href="/product-category/{{ $slug }}/story">故事</a></li>
+      		<li class="last"><a href="/product-category/{{ $parent }}">其他套装</a></li>
     	</ul>
   	</div>
 </div>

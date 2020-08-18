@@ -35,11 +35,13 @@
           </div>
           <div class="vertical-line"></div>
           <div class="col-12 col-lg-6">
-            <img src="{{ URL::asset('assets/images/creativity.png') }}" class="img-fluid" />
-            <div class="chapter-pagination">
-              <a href="queen-spades-and-you"><i class="fa fa-angle-left"></i></a>
-              <label>其他章节</label>
-              <a href="lithotherapy-technology"><i class="fa fa-angle-right"></i></a>
+            <div class="scroll-element">
+              <img src="{{ URL::asset('assets/images/creativity.png') }}" class="img-fluid" />
+              <div class="chapter-pagination">
+                <a href="queen-spades-and-you"><i class="fa fa-angle-left"></i></a>
+                <label>其他章节</label>
+                <a href="lithotherapy-technology"><i class="fa fa-angle-right"></i></a>
+              </div>
             </div>
           </div>
         </div>

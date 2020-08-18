@@ -9,8 +9,10 @@
           <div class="col-12">
             <div class="container d-md-flex align-items-center">
               <span class="index d-none d-md-block tx-mont">01</span>
-              <div class="thumbnail">
-                <img src="assets/images/2.png" class="bg-img" />
+              <div class="thumbnail transition-scale">
+                <div class="thumbnail">
+                  <img src="assets/images/2.png" class="bg-img" />
+                </div>
               </div>
               <div>
                 <h1 class="text-white title-lg mb-3">
@@ -27,8 +29,10 @@
           <div class="col-12">
             <div class="container d-md-flex align-items-center">
               <span class="index d-none d-md-block tx-mont">02</span>
-              <div class="thumbnail">
-                <img src="assets/images/thumbnail.png" class="bg-img" />
+              <div class="thumbnail transition-scale">
+                <div class="thumbnail">
+                  <img src="assets/images/2.png" class="bg-img" />
+                </div>
               </div>
               <div>
                 <h1 class="text-white title-lg mb-3">

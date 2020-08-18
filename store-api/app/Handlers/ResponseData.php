@@ -76,7 +76,7 @@ class ResponseData
         return [
             'data' => $data,
             'code' => ResponseStatusCode::TokenExpired,
-            'msg' => is_null($msg) ? '授权过期' : $msg
+            'msg' => is_null($msg) ? '授权无效' : $msg
         ];
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\ProductRequest;
 use App\Services\Api\ProductService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
@@ -102,7 +103,7 @@ class ProductController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function productQuery(Request $request)
+    public function productQuery(ProductRequest $request)
     {
         $results = $this->productService->productQuery($request->all());
         return response()->json(ResponseData::requestSuccess($results));

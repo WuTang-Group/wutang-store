@@ -24,11 +24,25 @@ class ShopCartService extends Service
     public function store($queries)
     {
         try {
-            $this->user()->shopCartItems()->create($queries);
+            $this->user()->shopCartItems()->updateOrCreate(['product_id' => $queries['product_id']], [
+                'product_id' => $queries['product_id'],
+                'amount' => $queries['amount']
+            ]);
         } catch (\Exception $e) {
             Log::error('购物车操作失败', ['message' => $e->getMessage()]);
             return false;
         }
         return $this->queryList();
+    }
+
+    public function delete($params)
+    {
+        try {
+            $result = $this->shopCart->whereProductId($params)->delete();
+        }catch (\Exception $e) {
+            Log::error('购物车数据删除失败',['message'=>$e->getMessage()]);
+            return false;
+        }
+        return $result;
     }
 }

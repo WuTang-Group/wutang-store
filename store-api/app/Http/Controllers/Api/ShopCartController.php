@@ -48,7 +48,7 @@ class ShopCartController extends Controller
     }
 
     /**
-     *  Request delete the cart items
+     * Request delete the cart items
      * 删除购物车商品
      * @queryParam product_id required 商品id
      * @param $product_id

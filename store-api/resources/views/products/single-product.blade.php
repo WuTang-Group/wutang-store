@@ -7,26 +7,28 @@
       <li><a href="#benefit" class="anchor">功效</a></li>
       <li><a href="#application" class="anchor">使用方法</a></li>
       <li><a href="#routine" class="anchor">护肤步骤</a></li>
-      <li class="last"><a href="#">产品系列</a></li>
+      <li class="last"><a href="/product-category/{{ $response->data->product_category->slug }}">产品系列</a></li>
     </ul>
   </div>
 </div>
 <div class="dark-layout single-product">
-  		<div id="product" class="section-t-space section-b-space" style="background: url(assets/images/banner/sp-bg1.jpg) no-repeat center center / cover;">
+  		<div id="product" class="section-t-space section-b-space" style="background: url({{ $response->data->main_image }}) no-repeat center center / cover;">
         <div class="d-block d-lg-none product-image">
-          <img src="assets/images/banner/sp-bg1.png" class="img-fluid" />
+          <img src="{{ $response->data->main_image_2 }}" class="img-fluid" />
         </div>
         <div class="container">
           <div class="col-12 col-lg-5 col-xl-4 offset-lg-7 offset-xl-8">
               <div class="product-right">
-                  <h2 class="product-title tx-mont lh-12 mb-2 font-weight-normal">PLATINUM RARE CELLULAR CREAM</h2>
-                  <h1 class="product-title">臻爱铂金乳霜</h1>
-                  <h3 class="product-price">¥ <span>2,800</span></h3>
-                  <ul class="product-description">
-                      <li>产品规格: 30ml-50ml</li>
-                      <li>产品品类: 面霜</li>
-                      <li>产品功效: 保湿 | 抗衰老 | 紧肤</li>
-                  </ul>
+                  <h2 class="product-title tx-mont lh-12 mb-2 font-weight-normal">{{ $response->data->product_name_en }}</h2>
+                  <h1 class="product-title">{{ $response->data->product_name }}</h1>
+                  <h3 class="product-price">@php echo $response->data->sale_price ? '<del>¥ '.$response->data->price.'</del> ¥ <span>'.$response->data->sale_price.'</span>':'¥ <span>'.$response->data->price.'<span>' @endphp</h3>
+                  <div class="product-description">
+                    @if (!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en')
+                      {{ $response->data->short_description_en }}
+                    @else
+                      {{ $response->data->short_description }}
+                    @endif
+                  </div>
                   <div class="product-form">
                       <form class="form-inline">
                           <div class="input-group product-quantity">
@@ -38,7 +40,7 @@
                                   <img src="{{ URL::asset('assets/images/icon/plus-w.png') }}" />
                               </button>
                           </div>
-                          <button type="submit" class="btn btn-outline d-flex align-items-center btn-add-to-cart"><i class="icon mr-3"></i>添加入购物车</button>
+                          <button type="button" data-id="{{ $response->data->id }}" class="btn btn-outline d-flex align-items-center btn-add-to-cart"><i class="icon mr-3"></i>添加入购物车</button>
                       </form>
                   </div>
                   <div class="product-wishlist">
@@ -51,23 +53,32 @@
           </div>
         </div>
   		</div>
-      <div id="benefit" class="section-t-space section-b-space" style="background: url(assets/images/banner/sp-bg2.jpg) no-repeat center center / cover;">
+      <div id="benefit" class="section-t-space section-b-space" style="background: url({{ $response->data->benefit_image }}) no-repeat center center / cover;">
         <div class="container">
           <div class="col-md-6 col-lg-5 col-xl-4 general-accordion-wrapper">
             <div class="accordion">
               <h2 class="text-white title collapsed mb-0">功效</h2>
-              <div id="benefits" class="collapsed">
-                  有助于淡化明显老化痕迹。<br>
-                  有助于改善细纹、皱纹及表情纹。<br>
-                  帮助恢复并保持肌肤紧致度。<br>
-                  形成无形屏障，卓效保湿，润泽肌肤。<br>
+              <div id="benefits" class="collapse">
+                <div>
+                  @if (!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en')
+                   {{ $response->data->benefit_en }}
+                  @else
+                   {{ $response->data->benefit }}
+                  @endif
+                </div>
               </div>
               <h2 class="text-white title collapsed mb-0">产品细节</h2>
-              <div id="description" class="collapsed">
-                  
+              <div id="description" class="collapse">
+                <div>
+                  @if (!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en')
+                    {{ $response->data->description_en }}
+                  @else
+                    {{ $response->data->description }}
+                  @endif
+                </div>
               </div>
               <h2 class="text-white title mb-0">线上服务</h2>
-              <div id="services" class="show">
+              <div id="services" class="collapse show">
                 <div class="row">
                     <div class="col-6 col-sm-3 services-block">
                       <img src="{{ URL::asset('assets/images/icon/free-shipping.png') }}" alt="">
@@ -93,6 +104,16 @@
       </div>
       <div id="application" class="section-t-space">
         <div class="container">
+          @if (!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en')
+            {{ $response->data->usage_en }}
+          @else 
+            {{ $response->data->usage }}
+          @endif
+          @if (!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en')
+            {{ $response->data->tech_description_en }}
+          @else 
+            {{ $response->data->tech_description }}
+          @endif
         </div>
       </div>
       <div id="routine" class="position-relative section-t-space section-b-space">
@@ -105,98 +126,98 @@
             </ul>
           </div>
         </div>
-          <div class="tab-content routine-content" id="nav-tabContent">
-              <div class="tab-pane fade show active custom-slick " id="recommended" role="tabpanel" aria-labelledby="recommended-tab">
-                  <div class="container">
-                    <div class="product-routine-slider mb-0">
-                      <div class="product-box">
-                        <h3 class="routine-title"><span>1</span>首先使用</h3>
-                        <div class="img-wrapper">
-                            <a href="#">
-                              <img src="assets/images/pro3/p1.png" class="img-fluid" alt="">
-                            </a>
-                            <div class="cart-info cart-wrap">
-                              <div class="cart-button">
-                                  <button class="btn btn-outline mb-2">添加入购物车</button> 
-                                  <a href="single-product.php" class="btn btn-outline">浏览</a> 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-detail">
-                            <div class="product-name">
-                                <h3 class="tx-mont"><a href="single-product.php">WHITE CAVIAR ILLUMINATING PEARL INFUSION</a></h3>
-                                <h3><a href="single-product.php">纯皙紧致珍珠囊精华液套装</a></h3>
-                            </div>
-                            <div class="product-category">
-                                <a href="product-category.php">套装</a>
-                            </div>
-                            <div class="d-flex justify-content-between mt-3">
-                              <h4>¥ 6,600</h4>
-                              <a href="" class="add-to-wishlist"></a>
-                            </div>
-                        </div>
+        <div class="tab-content routine-content" id="nav-tabContent">
+            <div class="tab-pane fade show active custom-slick " id="recommended" role="tabpanel" aria-labelledby="recommended-tab">
+                <div class="container">
+                  <div class="product-routine-slider mb-0">
+                    <div class="product-box">
+                      <h3 class="routine-title"><span>1</span>首先使用</h3>
+                      <div class="img-wrapper">
+                          <a href="#">
+                            <img src="{{ URL::asset('assets/images/pro3/p1.png') }}" class="img-fluid" alt="">
+                          </a>
+                          <div class="cart-info cart-wrap">
+                            <div class="cart-button">
+                                <button class="btn btn-outline mb-2">添加入购物车</button> 
+                                <a href="single-product.php" class="btn btn-outline">浏览</a> 
+                              </div>
+                          </div>
                       </div>
-                      <div class="product-box">
-                        <h3 class="routine-title"><span>2</span>接着使用</h3>
-                        <div class="img-wrapper">
-                            <a href="#">
-                              <img src="assets/images/pro3/p1.png" class="img-fluid" alt="">
-                            </a>
-                            <div class="cart-info cart-wrap">
-                              <div class="cart-button">
-                                  <button class="btn btn-outline mb-2">添加入购物车</button> 
-                                  <a href="single-product.php" class="btn btn-outline">浏览</a> 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-detail">
-                            <div class="product-name">
-                                <h3 class="tx-mont"><a href="single-product.php">WHITE CAVIAR ILLUMINATING PEARL INFUSION</a></h3>
-                                <h3><a href="single-product.php">纯皙紧致珍珠囊精华液套装</a></h3>
-                            </div>
-                            <div class="product-category">
-                                <a href="product-category.php">套装</a>
-                            </div>
-                            <div class="d-flex justify-content-between mt-3">
-                              <h4>¥ 6,600</h4>
-                              <a href="" class="add-to-wishlist"></a>
-                            </div>
-                        </div>
+                      <div class="product-detail">
+                          <div class="product-name">
+                              <h3 class="tx-mont"><a href="single-product.php">WHITE CAVIAR ILLUMINATING PEARL INFUSION</a></h3>
+                              <h3><a href="single-product.php">纯皙紧致珍珠囊精华液套装</a></h3>
+                          </div>
+                          <div class="product-category">
+                              <a href="product-category.php">套装</a>
+                          </div>
+                          <div class="d-flex justify-content-between mt-3">
+                            <h4>¥ 6,600</h4>
+                            <a href="" class="add-to-wishlist"></a>
+                          </div>
                       </div>
-                      <div class="product-box">
-                        <h3 class="routine-title"><span>3</span>最后使用</h3>
-                        <div class="img-wrapper">
-                            <a href="#">
-                              <img src="assets/images/pro3/p1.png" class="img-fluid" alt="">
-                            </a>
-                            <div class="cart-info cart-wrap">
-                              <div class="cart-button">
-                                  <button class="btn btn-outline mb-2">添加入购物车</button> 
-                                  <a href="single-product.php" class="btn btn-outline">浏览</a> 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-detail">
-                            <div class="product-name">
-                                <h3 class="tx-mont"><a href="single-product.php">WHITE CAVIAR ILLUMINATING PEARL INFUSION</a></h3>
-                                <h3><a href="single-product.php">纯皙紧致珍珠囊精华液套装</a></h3>
-                            </div>
-                            <div class="product-category">
-                                <a href="product-category.php">套装</a>
-                            </div>
-                            <div class="d-flex justify-content-between mt-3">
-                              <h4>¥ 6,600</h4>
-                              <a href="" class="add-to-wishlist"></a>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="product-box">
+                      <h3 class="routine-title"><span>2</span>接着使用</h3>
+                      <div class="img-wrapper">
+                          <a href="#">
+                            <img src="{{ URL::asset('assets/images/pro3/p1.png') }}" class="img-fluid" alt="">
+                          </a>
+                          <div class="cart-info cart-wrap">
+                            <div class="cart-button">
+                                <button class="btn btn-outline mb-2">添加入购物车</button> 
+                                <a href="single-product.php" class="btn btn-outline">浏览</a> 
+                              </div>
+                          </div>
+                      </div>
+                      <div class="product-detail">
+                          <div class="product-name">
+                              <h3 class="tx-mont"><a href="single-product.php">WHITE CAVIAR ILLUMINATING PEARL INFUSION</a></h3>
+                              <h3><a href="single-product.php">纯皙紧致珍珠囊精华液套装</a></h3>
+                          </div>
+                          <div class="product-category">
+                              <a href="product-category.php">套装</a>
+                          </div>
+                          <div class="d-flex justify-content-between mt-3">
+                            <h4>¥ 6,600</h4>
+                            <a href="" class="add-to-wishlist"></a>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="product-box">
+                      <h3 class="routine-title"><span>3</span>最后使用</h3>
+                      <div class="img-wrapper">
+                          <a href="#">
+                            <img src="{{ URL::asset('assets/images/pro3/p1.png') }}" class="img-fluid" alt="">
+                          </a>
+                          <div class="cart-info cart-wrap">
+                            <div class="cart-button">
+                                <button class="btn btn-outline mb-2">添加入购物车</button> 
+                                <a href="single-product.php" class="btn btn-outline">浏览</a> 
+                              </div>
+                          </div>
+                      </div>
+                      <div class="product-detail">
+                          <div class="product-name">
+                              <h3 class="tx-mont"><a href="single-product.php">WHITE CAVIAR ILLUMINATING PEARL INFUSION</a></h3>
+                              <h3><a href="single-product.php">纯皙紧致珍珠囊精华液套装</a></h3>
+                          </div>
+                          <div class="product-category">
+                              <a href="product-category.php">套装</a>
+                          </div>
+                          <div class="d-flex justify-content-between mt-3">
+                            <h4>¥ 6,600</h4>
+                            <a href="" class="add-to-wishlist"></a>
+                          </div>
                       </div>
                     </div>
                   </div>
-                  <button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="">Previous</button>
-                  <button class="slick-next slick-arrow" aria-label="Next" type="button" style="">Next</button>
-              </div>
-              <div class="tab-pane fade" id="matching" role="tabpanel" aria-labelledby="matching-tab">matching tab</div>
-          </div>
+                </div>
+                <button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="">Previous</button>
+                <button class="slick-next slick-arrow" aria-label="Next" type="button" style="">Next</button>
+            </div>
+            <div class="tab-pane fade" id="matching" role="tabpanel" aria-labelledby="matching-tab">matching tab</div>
+        </div>
       </div>
 	</div>
 </div>

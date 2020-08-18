@@ -9,7 +9,7 @@
 			</div>
 			<div class="col-12 col-md-7 col-lg-6 section-t-space">
 				<div class="small-section contact-us-wrapper">
-					<h4 class="text-center text-white mb-3 lh-13">
+					<h4 class="text-center text-white mb-5 lh-13">
                 		我们随时为您服务。请将您的疑问发送给我们，并提供尽可能多的详细信息。
 					</h4>
 					<form class="needs-validation" method="post" novalidate>

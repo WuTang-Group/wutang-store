@@ -71,13 +71,15 @@
                 <div class="d-none d-sm-block">
                     <div class="navbar dropdown">
                         <a href="javascript:void(0)" class="nav-link dropdown-toggle no-arrow language-switcher" data-toggle="dropdown">
-                            CN
+                            @if (!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en') EN
+                            @else CN
+                            @endif
                         </a>
                        <div class="dropdown-menu show-div language">
                             <h6>语言</h6>
                             <ul>
-                                <li><a href="#">China - CN</a></li>
-                                <li><a href="#">United States - EN</a></li>
+                                <li><a href="javascript:void(0)" onclick="changeLocale('zh-cn')">China - CN</a></li>
+                                <li><a href="javascript:void(0)" onclick="changeLocale('en')">United States - EN</a></li>
                             </ul>
                         </div>
                     </div>
@@ -90,11 +92,21 @@
                 <div class="icon-nav">
                     <ul>
                         <li class="onhover-div my-account">
-                            <a href="javascript:void(0)" onclick="openNav('account')"></a>
+                            @if (empty($_COOKIE['token']))
+                                <a href="javascript:void(0)" onclick="openNav('account')"></a>
+                            @else
+                                <a href="/my-account"></a>
+                            @endif
                         </li>
                         <li class="onhover-div mini-cart">
                             <a href="javascript:void(0)" onclick="openNav('mini-cart')">
-                                <span class="count">1</span>
+                                <span class="count">
+                                    @if($minicart_collection && $minicart_collection->data[0] != null)
+                                        @php echo count($minicart_collection->data[0]->shop_cart_items) @endphp
+                                    @else
+                                        0
+                                    @endif
+                                </span>
                             </a>
                         </li>
                         <li class="onhover-div my-wishlist">

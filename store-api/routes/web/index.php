@@ -1,46 +1,39 @@
 <?php
 
-Route::get('/', function () { return view('home'); });
-
-Route::group(['middleware' => ['guest']], function () use ($router) {
-	Route::get('login', function () { return view('auth.login'); });
-	Route::get('register', function () { return view('auth.register'); });
-	Route::get('forgot-password', function () { return view('auth.forgot-password'); });
-	Route::get('reset-password', function () { return view('auth.reset-password'); });
-	Route::get('thank-you', function () { return view('auth.thank-you'); });
-});
-
-Route::group(['prefix' => 'my-account', 'middleware' => ['auth']], function () use ($router) {
-	Route::get('/', function () { return view('my-account.index'); });
-	Route::get('order/{order_number}', function () { return view('my-account.order-details'); });
-	Route::get('tracking', function () { return view('my-account.tracking'); });
-	Route::get('profile', function () { return view('my-account.profile'); });
-
-	/*Route::get('/', 'AccountController@index');
-	Route::get('order/{order_number}', 'AccountController@order');
-	Route::get('profile', 'AccountController@profile');*/
-
-
-	/*Route::get('checkout', 'CheckoutController@index');
-	Route::get('checkout/thank-you', 'CheckoutController@checkout');*/
-	Route::get('checkout', function () { return view('checkout'); });
-});
-
 Route::group(['middleware' => ['web']], function () use ($router) {
-	/*Route::get('products', 'ProductController@index');
-	Route::get('products/{slug}', 'ProductController@show');*/
-	Route::get('products', function () { return view(''); });
-	Route::get('product/{slug}', function () { return view(''); });
+	Route::get('/', 'Web\HomeController@index');
 
-	/*Route::get('product-category/{slug}', 'ProductCategoryController@index');
-	Route::get('product-category/{slug}/story', 'ProductCategoryController@show');*/
-	Route::get('product-category/{slug}', function () { return view(''); });
-	Route::get('product-category/{slug}/story', function () { return view(''); });
+	Route::group(['middleware' => ['guest.mode']], function () use ($router) {
+		Route::get('login', function () { return view('auth.login'); })->name('login');
+		Route::get('register', 'Web\AuthController@register');
+		Route::get('forgot-password', 'Web\AuthController@forgot');
+		//Route::get('reset-password', function () { return view('auth.reset-password'); });
+		//Route::get('thank-you', function () { return view('auth.thank-you'); });
+	});
 
-	/*Route::get('wishlist', 'ShoppingController@wishlist');
-	Route::get('cart', 'ShoppingController@cart');*/
-	Route::get('wishlist', function () { return view('wishlist'); });
-	Route::get('cart', function () { return view('cart'); });
+	Route::group(['middleware' => ['auth.mode']], function () use ($router) {
+		Route::group(['prefix' => 'my-account'], function () use ($router) {
+			Route::get('/', 'Web\AccountController@index')->name('my-account');
+			Route::get('order/{order_no}', 'Web\AccountController@show');
+			Route::get('tracking', function () { return view('my-account.tracking'); });
+			Route::get('profile', 'Web\AccountController@profile');
+		});
+
+		/*Route::get('checkout', 'CheckoutController@index');
+		Route::get('checkout/thank-you', 'CheckoutController@checkout');*/
+		Route::get('checkout', function () { return view('checkout'); })->name('checkout');
+	});
+
+	Route::get('products', 'Web\ProductController@index');
+	Route::get('product/{slug}', 'Web\ProductController@show');
+
+	Route::get('product-category', 'Web\ProductCategoryController@index');
+	Route::get('product-category/{slug}', 'Web\ProductCategoryController@show')->name('category');
+	Route::get('product-category/{slug}/story', 'Web\ProductCategoryController@story')->name('category.story');
+
+	Route::get('wishlist', 'Web\ShoppingController@wishlist');
+	Route::get('cart', 'Web\ShoppingController@cart');
+	Route::get('refresh_minicart', 'Web\ShoppingController@refresh_minicart');
 
 	Route::group(['prefix' => 'the-brand'], function () use ($router) {
 		Route::get('/', function () { return view('the-brand.index'); });
@@ -57,8 +50,8 @@ Route::group(['middleware' => ['web']], function () use ($router) {
 	});
 
 	Route::group(['prefix' => 'the-house'], function () use ($router) {
-		Route::get('/', 'TheHouseController@index');
-		Route::get('{slug}', 'TheHouseController@show');
+		Route::get('/', 'Web\TheHouseController@index');
+		Route::get('{slug}', 'Web\TheHouseController@show');
 	});
 
 	Route::get('e-boutique-services', function () { return view('others.e-boutique-services'); });

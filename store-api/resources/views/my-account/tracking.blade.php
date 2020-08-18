@@ -6,11 +6,7 @@
 		<div class="row justify-content-center">
 			<div class="col-12 d-md-flex align-items-center justify-content-between">
 				<h1 class="text-white title">我的账户</h1>
-				<div class="btn-group myacc-menu" role="group">
-				  	<a href="/my-account" class="btn btn-outline btn-sm">所有订单</a>
-				  	<a href="/my-account/tracking" class="btn btn-outline btn-sm active">跟踪订单</a>
-				  	<a href="/my-account/profile" class="btn btn-outline btn-sm">我的个人资料</a>
-				</div>
+                @include('my-account.partials.myacc-menu')
 			</div>
 			<div class="col-12 col-md-7 col-lg-6 col-xl-5 section-t-space">
 				<div class="small-section tracking-order-wrapper">

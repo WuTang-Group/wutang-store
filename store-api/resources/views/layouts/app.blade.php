@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="{{ URL::asset('assets/vendor/slick/slick.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('assets/vendor/slick/slick-theme.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('assets/vendor/animate.css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('assets/vendor/toastr/toastr.min.css') }}">
     @yield('header_vendor_style_css')
 
     <link rel="stylesheet" href="{{ URL::asset('assets/css/styles.css') }}">
@@ -39,7 +40,7 @@
 </head>
 <body class="{{ Request::is('/') ? 'home ' : null }}cn">
     <div id="app">
-        @include('layouts.partials.header')
+        @include('layouts.partials.header', ['minicart_collection' => $minicart_collection])
         <main class="main-content">
             @yield('content')
         </main>
@@ -50,12 +51,22 @@
             <nav>
                 <div class="sidebar-header d-flex justify-content-between">
                     <div class="nav nav-pills">
+                        @if (empty($_COOKIE['token']))
                         <a class="nav-item tx-dark-gray mr-4" id="nav-account-tab" data-toggle="tab" href="#nav-account" role="tab" aria-controls="nav-account" aria-selected="true">
+                        @else
+                        <a class="nav-item tx-dark-gray mr-4" href="/my-account">
+                        @endif    
                             <img src="{{ URL::asset('assets/images/icon/account.png') }}" class="img-fluid" alt="">
                         </a>
                         <a class="nav-item tx-dark-gray mini-cart position-relative" id="nav-mini-cart-tab" data-toggle="tab" href="#nav-mini-cart" role="tab" aria-controls="nav-mini-cart" aria-selected="true">
                             <img src="{{ URL::asset('assets/images/icon/shopping-bag.png') }}" class="img-fluid" alt="">
-                            <span class="count">1</span>
+                            <span class="count">
+                                @if($minicart_collection && $minicart_collection->data[0] != null)
+                                    @php echo count($minicart_collection->data[0]->shop_cart_items) @endphp
+                                @else
+                                    0
+                                @endif
+                            </span>
                         </a>
                     </div>
                     <a href="javascript:void(0)" onclick="closeNav()">
@@ -66,62 +77,30 @@
                 </div>
                 <div class="sidebar-body d-flex flex-column justify-content-center align-items-center">
                     <div class="tab-content" id="nav-tabContent">
+                        @if (empty($_COOKIE['token']))
                         <div class="tab-pane fade" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
-                            <form>
+                            <form class="needs-validation" method="post" novalidate>
                                 <div class="form-group">
                                     <label for="username" class="tx-dark-gray">用户名 *</label>
-                                    <input type="text" class="form-control border-dark" placeholder="电子邮件 / 手机号" id="username">
+                                    <input type="text" name="username" class="form-control border-dark" id="username" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="password" class="tx-dark-gray">密码 *</label>
-                                    <input type="password" class="form-control border-dark" id="password">
+                                    <input type="password" name="password" class="form-control border-dark" id="password" required>
                                 </div>
-                                <div class="form-group form-check d-flex justify-content-between">
-                                    <input type="checkbox" class="form-check-input" id="remember-me">
-                                    <label class="form-check-label" for="remember-me">记住我</label>
-                                    <a href="forgot-password.php" class="tx-dark-gray">忘记密码</a>
+                                <div class="form-group form-check d-flex justify-content-end">
+                                    <a href="/forgot-password" class="tx-dark-gray">忘记密码</a>
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <button type="submit" class="btn btn-solid">登陆</button>
+                                    <button type="submit" onclick="login()" class="btn btn-solid">登陆</button>
                                     <label class="m-auto">或</label>
-                                    <a href="register.php" class="btn btn-outline">注册</a>
+                                    <a href="/register" class="btn btn-outline">注册</a>
                                 </div>
                             </form>
                         </div>
+                        @endif
                         <div class="tab-pane fade" id="nav-mini-cart" role="tabpanel" aria-labelledby="nav-mini-cart-tab">
-                            <div class="mini-cart">
-                                <div class="cart-item">
-                                    <div class="d-flex position-relative">
-                                        <a href=""><img src="https://www.enkoproducts.com/wp-content/uploads/2018/11/v5-02.jpg" /></a>
-                                        <a href="" class="remove-product tx-dark-gray">删除</a>
-                                        <div class="product-description">
-                                            <p class="tx-mont">SKIN CAVIAR LUXE CREAM SHEER</p>
-                                            <p>鱼子精华琼贵轻盈乳霜</p>
-                                            50 ml / 1.7 oz
-                                            <div class="tx-uppercase mt-2 tx-dark-gray">数量: 1 <span>| 20 ml / 0.68 oz</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="product-price text-right align-self-end">¥ 4,150</div>
-                                </div>
-                                <div class="cart-item">
-                                    <div class="d-flex position-relative">
-                                        <a href=""><img src="https://www.enkoproducts.com/wp-content/uploads/2018/11/v5-02.jpg" /></a>
-                                        <a href="" class="remove-product tx-dark-gray">删除</a>
-                                        <div class="product-description">
-                                            <p class="tx-mont">SKIN CAVIAR LUXE CREAM SHEER</p>
-                                            <p>鱼子精华琼贵轻盈乳霜</p>
-                                            50 ml / 1.7 oz
-                                            <div class="tx-uppercase mt-2 tx-dark-gray">数量: 1 <span>| 20 ml / 0.68 oz</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="product-price text-right align-self-end">¥ 4,150</div>
-                                </div>
-                                <hr class="border-bottom">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <a href="cart.php" class="btn btn-solid d-block">前往购物车</a>
-                                    <a href="checkout.php" class="btn btn-outline d-block">结账</a>
-                                </div>
-                            </div>
+                            @include('partials.mini-cart', ['minicart_collection' => $minicart_collection])
                         </div>
                     </div>
                     <div class="text-center mt-5">
@@ -151,9 +130,17 @@
     <script src="{{ URL::asset('assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ URL::asset('assets/vendor/slick/slick.js') }}"></script>
     <script src="{{ URL::asset('assets/vendor/1000hz-bootstrap-validator/validator.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!--<script src="{{ URL::asset('assets/vendor/axios/axios.min.js') }}"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <!--<script src="{{ URL::asset('assets/vendor/js-cookie/js.cookie.min.js') }}"></script>-->
+    <script src="{{ URL::asset('assets/vendor/toastr/toastr.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplecartjs/3.0.5/simplecart.min.js"></script>
     @yield('footer_vendor_scripts')
 
+    <script src="{{ URL::asset('assets/js/cart.js') }}"></script>
     <script src="{{ URL::asset('assets/js/main.js') }}"></script>
+    <script src="{{ URL::asset('assets/js/axios.js') }}"></script>
     @yield('footer_scripts')
 </body>
 </html>

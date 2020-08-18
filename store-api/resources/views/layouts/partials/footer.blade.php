@@ -102,8 +102,8 @@
                 <div class="col-12 col-md-4 footer-language-selector align-self-center">
                 	<div class="language-selector-wrapper">
                     	<select class="text-uppercase">
-                    		<option>China - CN</option>
-                            <option>United States - EN</option>
+                            <option value="cn" {{ !empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'zh-cn' ? 'selected':null }}>China - CN</option>
+                            <option value="en" {{ !empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en' ? 'selected':null }}>United States - EN</option>
                     	</select>
                 	</div>
                 </div>

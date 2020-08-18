@@ -8,6 +8,7 @@ use App\Models\ProductCategory;
 use App\Models\ProductCategoryStory;
 use App\Services\Service;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ProductService extends Service
 {
@@ -61,5 +62,11 @@ class ProductService extends Service
     public function categoryStory($queries)
     {
         return ProductCategory::with('parent', 'productCategoryStories')->whereSlug($queries)->get();
+    }
+
+    // 根据商品ID列表获取商品详情列表
+    public function productQuery($queries)
+    {
+        return $this->product->whereIn('id', $queries['id_list'])->get();
     }
 }

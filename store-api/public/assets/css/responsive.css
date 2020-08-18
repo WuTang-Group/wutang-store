@@ -131,11 +131,17 @@
 
   .brand-slider .slider-contain > div {
     right: 17%; }
+
+  .cart .cart-item .product-price span {
+    display: block; }
 }
 
 @media (max-width: 768px) {
   .product-idea-slider-nav img {
     max-width: 300px; }
+  .the-house .col-12 .thumbnail {
+    flex: 0 0 100%;
+    width: 100%; }
 }
 
 @media (max-width: 767px) {
@@ -216,7 +222,8 @@
         padding-left: 120px;
         max-width: 100%;
         padding-right: 65px;
-        margin-bottom: 10px; }
+        margin-bottom: 10px;
+        width: auto; }
     .cart .cart-item .product-price.unit-price,
     .wishlist .wishlist-item .product-price.unit-price {
       padding-left: 120px;
@@ -459,9 +466,8 @@
     border-radius: 0; }
   .btn-group.myacc-menu .btn-outline {
     border-color: #ffffff; }
-  .btn-group.myacc-menu .btn-outline:nth-child(even) {
-    border-top: 0;
-    border-bottom: 0; }
+  .btn-group.myacc-menu .btn-outline:not(:first-child) {
+    border-top: 0; }
 
   .single-product #routine .nav.nav-tabs li{
     text-align: center;

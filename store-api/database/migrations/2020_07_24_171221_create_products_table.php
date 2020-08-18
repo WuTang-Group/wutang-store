@@ -15,7 +15,8 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('product_category_id')->index()->nullable()->comment('所属产品分类id');
+            $table->unsignedBigInteger('product_category_id')->nullable()->comment('所属产品分类id');
+            $table->foreign('product_category_id')->references('id')->on('product_categories');
             $table->string('product_name')->comment('商品名称');
             $table->string('product_name_en')->comment('商品英文名称');
             $table->string('thumbnail')->nullable()->comment('产品缩略图');

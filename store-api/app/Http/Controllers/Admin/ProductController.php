@@ -127,4 +127,16 @@ class ProductController extends Controller
         $result = $this->productService->destroy($productId);
         return $result ? response()->json(ResponseData::requestSuccess()) : response()->json(ResponseData::requestFails());
     }
+
+    /**
+     * 「ADMIN」Get product detail by product_slug
+     * 根据product_slug获取商品详情
+     * @param $product_slug
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function productQuery($product_slug)
+    {
+        $result = $this->productService->productQuery($product_slug);
+        return response()->json(ResponseData::requestSuccess($result));
+    }
 }

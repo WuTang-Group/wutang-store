@@ -20,7 +20,7 @@ class CreateShopCartItemsTable extends Migration
 //            $table->unsignedBigInteger('product_sku_id')->nullable()->comment('所属sku表id');
             $table->unsignedBigInteger('product_id')->nullable()->comment('所属商品表id');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->unsignedInteger('amount')->comment('数量');
+            $table->unsignedInteger('amount')->default(1)->comment('数量,默认为1');
             $table->timestamps();
         });
     }

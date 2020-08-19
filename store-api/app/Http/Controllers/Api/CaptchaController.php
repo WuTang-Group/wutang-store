@@ -7,6 +7,11 @@ use App\Http\Controllers\Controller;
 use Gregwar\Captcha\CaptchaBuilder;
 use Illuminate\Support\Str;
 
+/**
+ * @group [API] Captcha
+ * 验证码管理
+ * @package App\Http\Controllers\Api
+ */
 class CaptchaController extends Controller
 {
     /**

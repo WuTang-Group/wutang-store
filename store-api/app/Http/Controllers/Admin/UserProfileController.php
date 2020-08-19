@@ -10,6 +10,11 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Response;
 
+/**
+ * @group [ADMIN] User profile
+ * 用户资料
+ * @package App\Http\Controllers\Admin
+ */
 class UserProfileController extends Controller
 {
     private $service;
@@ -20,7 +25,7 @@ class UserProfileController extends Controller
     }
 
     /**
-     *「ADMIN」User profile list
+     * User profile list
      * 用户资料信息
      * @param UserProfileRequest $request
      * @return Application|ResponseFactory|Response
@@ -32,7 +37,7 @@ class UserProfileController extends Controller
     }
 
     /**
-     *「ADMIN」Update user profile
+     * Update user profile
      * 编辑用户资料
      * @queryParam profile_id required profile表id
      * @param $profile_id
@@ -52,7 +57,7 @@ class UserProfileController extends Controller
     }
 
     /**
-     *「ADMIN」Destroy user profile
+     * Destroy user profile
      * 删除用户资料
      * @queryParam profile_id required profile表id
      * @param $profile_id

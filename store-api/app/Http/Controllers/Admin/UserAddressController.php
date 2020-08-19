@@ -10,6 +10,11 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Response;
 
+/**
+ * @group [ADMIN] User address
+ * 用户地址管理
+ * @package App\Http\Controllers\Admin
+ */
 class UserAddressController extends Controller
 {
     private $service;
@@ -20,8 +25,8 @@ class UserAddressController extends Controller
     }
 
     /**
-     *「ADMIN」Query user address list
-     *  用户地址列表
+     * Query user address list
+     * 用户地址列表
      * @param UserAddressRequest $request
      * @return Application|ResponseFactory|Response
      */
@@ -32,7 +37,8 @@ class UserAddressController extends Controller
     }
 
     /**
-     *「ADMIN」Create user address
+     * Create user address
+     * 新增用户地址
      * @queryParam province required 省
      * @queryParam city required 市
      * @queryParam district required 区
@@ -59,7 +65,7 @@ class UserAddressController extends Controller
     }
 
     /**
-     *「ADMIN」Update user address
+     * Update user address
      * 编辑用户地址
      * @queryParam address_id required address表id
      * @queryParam province required 省
@@ -89,7 +95,7 @@ class UserAddressController extends Controller
     }
 
     /**
-     *「ADMIN」Destroy user address
+     * Destroy user address
      * 删除用户地址
      * @queryParam address_id required address表id
      * @param $address_id

@@ -12,6 +12,12 @@ use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+/**
+ * @group [API] Order
+ * 订单管理
+ * @authenticated
+ * @package App\Http\Controllers\Api
+ */
 class OrderController extends Controller
 {
     private $service;
@@ -33,7 +39,7 @@ class OrderController extends Controller
 
     /**
      * Get order detail
-     *  获取订单详情
+     * 获取订单详情
      * @queryParam no required 订单号
      * @param $no
      * @return Application|ResponseFactory|Response
@@ -46,7 +52,7 @@ class OrderController extends Controller
 
     /**
      * Request create order
-     *  订单创建发起
+     * 订单创建发起
      * @bodyParam address_id interger required 地址id
      * @bodyParam remark string optional 订单备注
      * @bodyParam items array required 商品项目

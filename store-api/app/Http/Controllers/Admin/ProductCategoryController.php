@@ -8,6 +8,11 @@ use App\Http\Requests\Admin\ProductCategoryRequest;
 use App\Services\Admin\ProductCategoryService;
 use Illuminate\Http\Request;
 
+/**
+ * @group [ADMIN] Product category
+ * 商品分类管理
+ * @package App\Http\Controllers\Admin
+ */
 class ProductCategoryController extends Controller
 {
     private $categoriesService;
@@ -18,7 +23,7 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     *「ADMIN」get product category list
+     * Get product category list
      * 获取产品分类列表
      * @queryParam page 页码
      * @queryParam page_limit 每页数量
@@ -33,7 +38,7 @@ class ProductCategoryController extends Controller
 
 
     /**
-     *「ADMIN」create product category
+     * Create product category
      * 新建产品分类
      * @queryParam title required 分类名称
      * @queryParam title_en 分类英文名称
@@ -56,7 +61,7 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     *「ADMIN」edit product category
+     * Edit product category
      * 编辑产品分类
      * @queryParam title 分类名称
      * @queryParam title_en 分类英文名称
@@ -79,7 +84,7 @@ class ProductCategoryController extends Controller
     }
 
     /**
-     *「ADMIN」delete product category
+     * Delete product category
      * 删除产品分类
      * @param $productCategoriesId
      * @return \Illuminate\Http\JsonResponse

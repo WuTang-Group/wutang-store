@@ -10,6 +10,12 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Response;
 
+/**
+ * @group [API] User profile
+ * 用户资料管理
+ * @authenticated
+ * @package App\Http\Controllers\Api
+ */
 class UserProfileController extends Controller
 {
     private $service;

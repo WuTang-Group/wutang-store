@@ -20,6 +20,11 @@ use Illuminate\{Contracts\Foundation\Application,
 };
 use Omnipay;
 
+/**
+ * @group [API] Payment
+ * 支付管理
+ * @package App\Http\Controllers\Api
+ */
 class PaymentController extends Controller
 {
     private $orderService;
@@ -112,7 +117,7 @@ class PaymentController extends Controller
 
     /**
      * Alipay return payment results
-     *  支付宝前端回调页面
+     * 支付宝前端回调页面
      * @param Request $request
      * @return Application|ResponseFactory|Response
      */

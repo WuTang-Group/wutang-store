@@ -8,6 +8,11 @@ use App\Http\Requests\Admin\OrderRequest;
 use App\Services\Admin\OrderService;
 use Illuminate\Http\Request;
 
+/**
+ * @group [ADMIN] Order
+ * 订单管理
+ * @package App\Http\Controllers\Admin
+ */
 class OrderController extends Controller
 {
     private $orderService;
@@ -18,7 +23,7 @@ class OrderController extends Controller
     }
 
     /**
-     *「ADMIN」Get order list
+     * Get order list
      * 获取订单列表
      * @queryParam page 页码
      * @queryParam page_limit 每页数量
@@ -31,7 +36,7 @@ class OrderController extends Controller
     }
 
     /**
-     *「ADMIN」Search order
+     * Search order
      * 搜索订单
      * @queryParam page 页码
      * @queryParam page_limit 每页数量

@@ -12,6 +12,12 @@ use Illuminate\ {
     Http\Response
 };
 
+/**
+ * @group [API] Shop cart
+ * 购物车管理
+ * @authenticated
+ * @package App\Http\Controllers\Api
+ */
 class ShopCartController extends Controller
 {
     private $service;

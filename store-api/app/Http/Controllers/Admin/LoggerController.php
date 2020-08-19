@@ -11,6 +11,11 @@ use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+/**
+ * @group [ADMIN] Logger
+ * 日志管理
+ * @package App\Http\Controllers\Admin
+ */
 class LoggerController extends Controller
 {
     private $service;
@@ -21,7 +26,7 @@ class LoggerController extends Controller
     }
 
     /**
-     * 「ADMIN」Get logs list
+     * Get logs list
      * 获取日志列表
      * @queryParam page optional 页码
      * @queryParam page_limit optional 每页显示数目
@@ -36,7 +41,7 @@ class LoggerController extends Controller
     }
 
     /**
-     * 「ADMIN」 destroy logs
+     * Destroy logs
      * 删除日志(支持删除多条数据)
      * @queryParam ids required ID值(array)
      * @param $collection

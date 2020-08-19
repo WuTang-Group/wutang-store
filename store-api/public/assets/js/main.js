@@ -1,6 +1,6 @@
 (function($) {
     "use strict";
-    
+
     /*=====================
      01.  Blurring Home Slider js
      ==========================*/
@@ -426,17 +426,17 @@
     Cart.initJQuery();
     $(document).on('click', '.btn-add-to-cart', function(e) {
         var id = $(this).data('id');
-        var qty = $(this).parent().find('input[name=quantity]').val() ? $(this).parent().find('input[name=quantity]').val() : 1;
+        //var qty = $(this).parent().find('input[name=quantity]').val() ? $(this).parent().find('input[name=quantity]').val() : 1;
         $(this).prop('disabled',true).addClass('loading');
         if (!token) { //检查用户登录token > 位于文档axios.js
-            var item = { id: id, quantity: qty }
-            Cart.addItem(item);
+            var item = { id: id }
+            var proceed = Cart.addItem(item);
             $(this).prop('disabled',false).removeClass('loading');
+            if(proceed != false) {
+                refresh_minicart();
+            }
         } else {
-            var formData = {
-                'product_id' : id,
-                'amount'     : qty,
-            };
+            var formData = { 'product_id' : id };
 
             axios.post(BASE_URL+'api/shop_carts', formData)
                 .then(function (response) {
@@ -534,17 +534,21 @@ function removeItem(id) {
 }
 
 function refresh_minicart() {
-    var $request = $.get(BASE_URL + 'refresh_minicart');
+    //var $request = $.get('http://localhost:8000/refresh_minicart');//BASE_URL + 'refresh_minicart');
     var $container = $('#nav-mini-cart');
     var $count = $('.mini-cart .count');
 
     $container.addClass('loading'); // add loading class (optional)
-    $request.done(function(data) {
-        $container.html(data.minicart);
-        $count.html(data.count);
-    });
 
-    $request.always(function() {
-        $container.removeClass('loading');
-    });
+    axios.get('http://localhost:8000/refresh_minicart')
+        .then(function (response) {
+            $container.html(response.data.minicart);
+            $count.html(response.data.count);
+            $container.removeClass('loading');
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
 }

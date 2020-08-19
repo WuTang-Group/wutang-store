@@ -64,6 +64,8 @@ class AppServiceProvider extends ServiceProvider
         // 获取购物车商品
         $token = isset($_COOKIE['token']) ? $_COOKIE['token']:null;
 
+        $minicart_collection = null;
+
         if($token) { //用户已登录
             $client = new Client(['base_uri' => env('API_URL')]);
             $request = $client->request('GET', 'shop_carts', ['headers' => [
@@ -71,13 +73,27 @@ class AppServiceProvider extends ServiceProvider
                 ]
             ]);
             $minicart_collection = json_decode($request->getBody());
-            if($minicart_collection->code != 20001) {
-                $minicart_collection =null;
+        } else if(isset($_COOKIE['_WTSC'])) {
+            $WTSC = json_decode($_COOKIE['_WTSC']);
+            for ($i = 0; $i < count($WTSC); $i++) {
+                $ids[]= 'id_list[]='.$WTSC[$i]->id;
             }
-        } else {
-            $minicart_collection =null;
+
+            $client = new Client(['base_uri' => env('API_URL')]);
+            $request = $client->request('GET', 'product_ids/?'.implode('&', $ids));
+
+            $minicart_collection = json_decode($request->getBody());
+
+            $shop_cart_items = (object) ['shop_cart_items' => $minicart_collection->data ];
+            $minicart_collection->data[0] = $shop_cart_items;
         }
+        
+        if(isset($minicart_collection->code) && $minicart_collection->code != 20001) {
+            $minicart_collection = null;
+        }
+        $count = isset($minicart_collection->data[0]) ? count($minicart_collection->data[0]->shop_cart_items):0;
 
         View::share('minicart_collection', $minicart_collection);
+        View::share('count', $count);
     }
 }

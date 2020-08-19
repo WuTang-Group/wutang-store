@@ -61,11 +61,7 @@
                         <a class="nav-item tx-dark-gray mini-cart position-relative" id="nav-mini-cart-tab" data-toggle="tab" href="#nav-mini-cart" role="tab" aria-controls="nav-mini-cart" aria-selected="true">
                             <img src="{{ URL::asset('assets/images/icon/shopping-bag.png') }}" class="img-fluid" alt="">
                             <span class="count">
-                                @if($minicart_collection && $minicart_collection->data[0] != null)
-                                    @php echo count($minicart_collection->data[0]->shop_cart_items) @endphp
-                                @else
-                                    0
-                                @endif
+                                {{ $count?: 0 }}
                             </span>
                         </a>
                     </div>

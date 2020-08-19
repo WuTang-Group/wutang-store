@@ -8,16 +8,23 @@ use App\Http\Requests\Api\ProductRequest;
 use App\Services\Api\ProductService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-
+/**
+ * @authenticated
+ * APIs for ProductController
+ * API-商品控制器
+ * @package App\Http\Controllers\Api
+ */
 class ProductController extends Controller
 {
-    private $productService;
-    public function __construct(ProductService $productService)
+    private $service;
+
+    public function __construct(ProductService $service)
     {
-        $this->productService = $productService;
+        $this->service = $service;
     }
 
     /**
@@ -29,7 +36,7 @@ class ProductController extends Controller
      */
     public function index($product_slug)
     {
-        $results = $this->productService->index($product_slug);
+        $results = $this->service->index($product_slug);
         return response(ResponseData::requestSuccess($results));
     }
 
@@ -38,8 +45,9 @@ class ProductController extends Controller
      * 获取商品分类列表
      * @return Application|ResponseFactory|Response
      */
-    public function categoryQueryList(){
-        $results = $this->productService->categoryQueryList();
+    public function categoryQueryList()
+    {
+        $results = $this->service->categoryQueryList();
         return response(ResponseData::requestSuccess($results));
     }
 
@@ -51,8 +59,9 @@ class ProductController extends Controller
      * @param Request $request
      * @return Application|ResponseFactory|Response
      */
-    public function productQueryList(Request $request){
-        $results = $this->productService->productQueryList($request);
+    public function productQueryList(Request $request)
+    {
+        $results = $this->service->productQueryList($request);
         return response(ResponseData::requestSuccess($results));
     }
 
@@ -65,8 +74,9 @@ class ProductController extends Controller
      * @param Request $request
      * @return Application|ResponseFactory|Response
      */
-    public function getCategoryProduct($category_slug, Request $request){
-        $results = $this->productService->getCategoryProduct($category_slug, $request);
+    public function getCategoryProduct($category_slug, Request $request)
+    {
+        $results = $this->service->getCategoryProduct($category_slug, $request);
         return response(ResponseData::requestSuccess($results));
     }
 
@@ -78,8 +88,9 @@ class ProductController extends Controller
      * @param Request $request
      * @return Application|ResponseFactory|Response
      */
-    public function newProduct(Request $request){
-        $results = $this->productService->newProduct($request);
+    public function newProduct(Request $request)
+    {
+        $results = $this->service->newProduct($request);
         return response(ResponseData::requestSuccess($results));
     }
 
@@ -88,11 +99,11 @@ class ProductController extends Controller
      * 获取产品分类故事
      * @queryParam category_slug required 分类slug
      * @param $product_slug
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function categoryStory($product_slug)
     {
-        $results = $this->productService->categoryStory($product_slug);
+        $results = $this->service->categoryStory($product_slug);
         return response()->json(ResponseData::requestSuccess($results));
     }
 
@@ -100,12 +111,41 @@ class ProductController extends Controller
      * Get product detail by product id list
      * 根据ID列表查询商品
      * @queryParam id_list required 商品id列表（数组）
-     * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @param ProductRequest $request
+     * @return JsonResponse
      */
     public function productQuery(ProductRequest $request)
     {
-        $results = $this->productService->productQuery($request->all());
+        $results = $this->service->productQuery($request->all());
         return response()->json(ResponseData::requestSuccess($results));
+    }
+
+    /**
+     *
+     * Request Add product to collection
+     * 请求将商品加入收藏
+     * @queryParam product_id integer required 商品id
+     * @param $product_id
+     * @param Request $request
+     * @return Application|ResponseFactory|Response
+     */
+    public function favor($product_id,Request $request)
+    {
+        $results = $this->service->favor($product_id,$request);
+        return response(ResponseData::requestSuccess($results));
+    }
+
+    /**
+     * Cancel product collection
+     * 取消商品收藏
+     * @queryParam product_id required 商品id
+     * @param $product_id
+     * @param Request $request
+     * @return Application|ResponseFactory|Response
+     */
+    public function disfavor($product_id,Request $request)
+    {
+        $results = $this->service->disfavor($product_id,$request);
+        return response(ResponseData::requestSuccess($results));
     }
 }

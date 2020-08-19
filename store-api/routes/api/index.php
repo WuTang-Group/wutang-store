@@ -126,8 +126,9 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         Route::post('orders', 'OrderController@requestCreate')->name('orders.requestCreate');
         Route::get('orders/pay_check', 'OrderController@payCheck')->name('orders.payCheck');
         /**
-         * 收藏/取消收藏 商品
+         * 心愿单
          */
+        Route::get('products/favorite','ProductController@favorList')->name('products.favorList');
         Route::post('products/{product_id}/favorite', 'ProductController@favor')->name('products.favorite');
         Route::delete('products/{product_id}/favorite', 'ProductController@disfavor')->name('products.disfavor');
     });

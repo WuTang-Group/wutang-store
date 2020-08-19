@@ -32,7 +32,7 @@ Route::middleware('throttle:' . config('api.rate_limits.sign'))
         // token无效或失效,针对处理该问题闭包路由
         Route::get('/unauthorized', function () {
             return response()->json(\App\Handlers\ResponseData::tokenExpired());
-        })->name('login');
+        })->name('unauth.login');
         // 用户登录
         Route::post('auth/login', 'AuthController@login')->name('auth.login');
         // 重置密码
@@ -68,7 +68,7 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
     /**
      * 需登录的路由组
      */
-    Route::middleware('auth:api')->group(function () {
+    Route::group(['middleware' => ['auth:api', 'verified']], function () {
         /**
          * Auth 类
          */
@@ -116,7 +116,7 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
          */
         Route::get('shop_carts', 'ShopCartController@queryList')->name('shop_carts.queryList');
         Route::post('shop_carts', 'ShopCartController@store')->name('shop_carts.store');
-        Route::put('shop_carts/{type}','ShopCartController@updateItemNumber')->name('shop_carts.updateItemNumber');
+        Route::put('shop_carts/{type}', 'ShopCartController@updateItemNumber')->name('shop_carts.updateItemNumber');
         Route::delete('shop_carts/{product_id}', 'ShopCartController@delete')->name('shop_carts.delete');
         /**
          * 订单
@@ -125,7 +125,11 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         Route::get('order_details/{no}', 'OrderController@getOrderDetail')->name('order_details.getOrderDetail');
         Route::post('orders', 'OrderController@requestCreate')->name('orders.requestCreate');
         Route::get('orders/pay_check', 'OrderController@payCheck')->name('orders.payCheck');
-
+        /**
+         * 收藏/取消收藏 商品
+         */
+        Route::post('products/{product_id}/favorite', 'ProductController@favor')->name('products.favorite');
+        Route::delete('products/{product_id}/favorite', 'ProductController@disfavor')->name('products.disfavor');
     });
 
 });

@@ -87,4 +87,10 @@ class ProductService extends Service
         }
         return $array;
     }
+
+    public function productQuery($product_slug)
+    {
+        Log::info($product_slug);
+        return $this->product->with('productCategory')->where('slug', $product_slug)->first();
+    }
 }

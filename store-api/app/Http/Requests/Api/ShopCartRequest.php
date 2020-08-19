@@ -4,7 +4,9 @@ namespace App\Http\Requests\Api;
 
 
 use App\Http\Requests\FormRequest;
+use App\Models\Order;
 use App\Models\Product;
+use App\Models\ShopCartItem;
 
 class ShopCartRequest extends FormRequest
 {
@@ -27,8 +29,17 @@ class ShopCartRequest extends FormRequest
                         if ($product->stock === 0) {
                             return $fail('该商品已售完');
                         }
-                    }],
-                    'amount' => 'required|integer'
+                        if (ShopCartItem::whereUserId($this->user('api')->id)->whereProductId($value)->first()) {
+                            return $fail('您购物车已有该商品');
+                        }
+                        // 判断用户是否买过该商品
+                        $orderItem = Order::whereHas('items', function ($query) use ($value) {
+                            $query->whereProductId($value);
+                        })->with('items')->whereUserId($this->user()->id)->get();
+                        if (!$orderItem->isEmpty()) {
+                            return $fail('您已购买过该商品');
+                        }
+                    }]
                 ];
             }
             case 'updateItemNumber':

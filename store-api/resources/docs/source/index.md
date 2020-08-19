@@ -31,7 +31,7 @@ Welcome to the generated API reference.
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/response_code?10001=dolores&10003=et&20001=eum&40001=accusamus&40003=et&40004=autem&40005=earum&50001=cumque" \
+    -G "http://localhost/api/response_code?10001=vero&10003=ducimus&20001=deserunt&40001=eius&40003=nobis&40004=autem&40005=eos&50001=id" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -42,14 +42,14 @@ const url = new URL(
 );
 
 let params = {
-    "10001": "dolores",
-    "10003": "et",
-    "20001": "eum",
-    "40001": "accusamus",
-    "40003": "et",
+    "10001": "vero",
+    "10003": "ducimus",
+    "20001": "deserunt",
+    "40001": "eius",
+    "40003": "nobis",
     "40004": "autem",
-    "40005": "earum",
-    "50001": "cumque",
+    "40005": "eos",
+    "50001": "id",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -95,7 +95,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/aligateway/pay?no=est&total_amount=et&subject=officiis" \
+    -G "http://localhost/api/aligateway/pay?no=dolore&total_amount=sunt&subject=voluptatibus" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -106,9 +106,9 @@ const url = new URL(
 );
 
 let params = {
-    "no": "est",
-    "total_amount": "et",
-    "subject": "officiis",
+    "no": "dolore",
+    "total_amount": "sunt",
+    "subject": "voluptatibus",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -281,7 +281,7 @@ curl -X POST \
     "http://localhost/api/auth/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"dolorum","username":"fugit","password":"quaerat","captcha_key":"ipsam","captcha_code":"quia","password_question_id":20,"password_answer":"fugit"}'
+    -d '{"name":"enim","username":"temporibus","password":"est","captcha_key":"beatae","captcha_code":"voluptas","password_question_id":10,"password_answer":"commodi"}'
 
 ```
 
@@ -296,13 +296,13 @@ let headers = {
 };
 
 let body = {
-    "name": "dolorum",
-    "username": "fugit",
-    "password": "quaerat",
-    "captcha_key": "ipsam",
-    "captcha_code": "quia",
-    "password_question_id": 20,
-    "password_answer": "fugit"
+    "name": "enim",
+    "username": "temporibus",
+    "password": "est",
+    "captcha_key": "beatae",
+    "captcha_code": "voluptas",
+    "password_question_id": 10,
+    "password_answer": "commodi"
 }
 
 fetch(url, {
@@ -421,7 +421,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/questions?username=modi" \
+    -G "http://localhost/api/questions?username=aut" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -432,7 +432,7 @@ const url = new URL(
 );
 
 let params = {
-    "username": "modi",
+    "username": "aut",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -456,7 +456,7 @@ fetch(url, {
 ```json
 {
     "data": {
-        "username": "modi"
+        "username": "aut"
     },
     "code": 10001,
     "msg": "用户不存在"
@@ -486,7 +486,7 @@ curl -X POST \
     "http://localhost/api/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"username":"omnis","password":"eius"}'
+    -d '{"username":"expedita","password":"facere"}'
 
 ```
 
@@ -501,8 +501,8 @@ let headers = {
 };
 
 let body = {
-    "username": "omnis",
-    "password": "eius"
+    "username": "expedita",
+    "password": "facere"
 }
 
 fetch(url, {
@@ -535,7 +535,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://localhost/api/password_reset?username=et&password_question_id=molestiae&password_answer=ut&password=ut&password_confirmation=quibusdam" \
+    "http://localhost/api/password_reset?username=error&password_question_id=cum&password_answer=quam&password=ex&password_confirmation=voluptas" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -546,11 +546,11 @@ const url = new URL(
 );
 
 let params = {
-    "username": "et",
-    "password_question_id": "molestiae",
-    "password_answer": "ut",
-    "password": "ut",
-    "password_confirmation": "quibusdam",
+    "username": "error",
+    "password_question_id": "cum",
+    "password_answer": "quam",
+    "password": "ex",
+    "password_confirmation": "voluptas",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -589,6 +589,7 @@ Parameter | Status | Description
 ## Get product category list
 获取商品分类列表
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
@@ -958,6 +959,7 @@ fetch(url, {
 ## Get product list
 获取商品列表
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
@@ -2020,11 +2022,12 @@ fetch(url, {
 ## get product of product category
 获取对应类别下的产品
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/product_category/1?category_slug=nemo" \
+    -G "http://localhost/api/product_category/1?category_slug=labore" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2035,7 +2038,7 @@ const url = new URL(
 );
 
 let params = {
-    "category_slug": "nemo",
+    "category_slug": "labore",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2079,11 +2082,12 @@ Parameter | Status | Description
 ## Query the product detail
 获取商品详情信息
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/product/1?slug=aut" \
+    -G "http://localhost/api/product/1?slug=error" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2094,7 +2098,7 @@ const url = new URL(
 );
 
 let params = {
-    "slug": "aut",
+    "slug": "error",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2138,11 +2142,12 @@ Parameter | Status | Description
 ## Get product detail by product id list
 根据ID列表查询商品
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/product_ids?id_list=consequatur" \
+    -G "http://localhost/api/product_ids?id_list=ipsum" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2153,7 +2158,7 @@ const url = new URL(
 );
 
 let params = {
-    "id_list": "consequatur",
+    "id_list": "ipsum",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2195,11 +2200,12 @@ Parameter | Status | Description
 ## Get product category story
 获取产品分类故事
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/category_story/1?category_slug=quia" \
+    -G "http://localhost/api/category_story/1?category_slug=enim" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2210,7 +2216,7 @@ const url = new URL(
 );
 
 let params = {
-    "category_slug": "quia",
+    "category_slug": "enim",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2254,11 +2260,12 @@ Parameter | Status | Description
 ## Get new product
 获取新品
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/product_new?page=consequatur&page_limit=beatae" \
+    -G "http://localhost/api/product_new?page=molestias&page_limit=autem" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2269,8 +2276,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "consequatur",
-    "page_limit": "beatae",
+    "page": "molestias",
+    "page_limit": "autem",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -3086,7 +3093,7 @@ curl -X POST \
     "http://localhost/api/auth/password_change" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"oldPassword":"aperiam","newPassword":"aliquid","newPassword_confirmation":"quia"}'
+    -d '{"oldPassword":"saepe","newPassword":"error","newPassword_confirmation":"sed"}'
 
 ```
 
@@ -3101,9 +3108,9 @@ let headers = {
 };
 
 let body = {
-    "oldPassword": "aperiam",
-    "newPassword": "aliquid",
-    "newPassword_confirmation": "quia"
+    "oldPassword": "saepe",
+    "newPassword": "error",
+    "newPassword_confirmation": "sed"
 }
 
 fetch(url, {
@@ -3137,7 +3144,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/alipay/pay?no=vel&total_amount=blanditiis&subject=ea" \
+    -G "http://localhost/api/alipay/pay?no=quidem&total_amount=numquam&subject=nostrum" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -3148,9 +3155,9 @@ const url = new URL(
 );
 
 let params = {
-    "no": "vel",
-    "total_amount": "blanditiis",
-    "subject": "ea",
+    "no": "quidem",
+    "total_amount": "numquam",
+    "subject": "nostrum",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -3283,7 +3290,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/unionpay/pay?no=doloribus&subject=tenetur&total_amount=pariatur" \
+    -G "http://localhost/api/unionpay/pay?no=recusandae&subject=in&total_amount=est" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -3294,9 +3301,9 @@ const url = new URL(
 );
 
 let params = {
-    "no": "doloribus",
-    "subject": "tenetur",
-    "total_amount": "pariatur",
+    "no": "recusandae",
+    "subject": "in",
+    "total_amount": "est",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -3595,7 +3602,7 @@ fetch(url, {
 
 ```bash
 curl -X PUT \
-    "http://localhost/api/user_profiles?profile_id=adipisci&phone=enim&real_name=omnis&sex=maxime&birthday=earum&age=vel&province=omnis&city=consequuntur&district=neque&address=id&zip=quia" \
+    "http://localhost/api/user_profiles?profile_id=possimus&phone=nulla&real_name=dolorem&sex=labore&birthday=quo&age=voluptas&province=laboriosam&city=et&district=quia&address=nulla&zip=dicta" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -3606,17 +3613,17 @@ const url = new URL(
 );
 
 let params = {
-    "profile_id": "adipisci",
-    "phone": "enim",
-    "real_name": "omnis",
-    "sex": "maxime",
-    "birthday": "earum",
-    "age": "vel",
-    "province": "omnis",
-    "city": "consequuntur",
-    "district": "neque",
-    "address": "id",
-    "zip": "quia",
+    "profile_id": "possimus",
+    "phone": "nulla",
+    "real_name": "dolorem",
+    "sex": "labore",
+    "birthday": "quo",
+    "age": "voluptas",
+    "province": "laboriosam",
+    "city": "et",
+    "district": "quia",
+    "address": "nulla",
+    "zip": "dicta",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -3714,7 +3721,7 @@ curl -X POST \
     "http://localhost/api/user_addresses" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"province":"hic","city":"laudantium","district":"non","address":"nemo","zip":"earum","contact_name":"repellat","contact_phone":"mollitia"}'
+    -d '{"province":"perferendis","city":"consectetur","district":"et","address":"tempora","zip":"reprehenderit","contact_name":"vitae","contact_phone":"ut"}'
 
 ```
 
@@ -3729,13 +3736,13 @@ let headers = {
 };
 
 let body = {
-    "province": "hic",
-    "city": "laudantium",
-    "district": "non",
-    "address": "nemo",
-    "zip": "earum",
-    "contact_name": "repellat",
-    "contact_phone": "mollitia"
+    "province": "perferendis",
+    "city": "consectetur",
+    "district": "et",
+    "address": "tempora",
+    "zip": "reprehenderit",
+    "contact_name": "vitae",
+    "contact_phone": "ut"
 }
 
 fetch(url, {
@@ -3773,7 +3780,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://localhost/api/user_addresses/1?province=non&city=ut&district=qui&address=et&zip=perferendis&contact_name=numquam&contact_phone=qui" \
+    "http://localhost/api/user_addresses/1?province=nulla&city=ut&district=ducimus&address=iste&zip=itaque&contact_name=nulla&contact_phone=numquam" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -3784,13 +3791,13 @@ const url = new URL(
 );
 
 let params = {
-    "province": "non",
+    "province": "nulla",
     "city": "ut",
-    "district": "qui",
-    "address": "et",
-    "zip": "perferendis",
-    "contact_name": "numquam",
-    "contact_phone": "qui",
+    "district": "ducimus",
+    "address": "iste",
+    "zip": "itaque",
+    "contact_name": "nulla",
+    "contact_phone": "numquam",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -3923,7 +3930,7 @@ curl -X POST \
     "http://localhost/api/shop_carts" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"product_id":"illo","amount":"soluta"}'
+    -d '{"product_id":"rerum"}'
 
 ```
 
@@ -3938,8 +3945,7 @@ let headers = {
 };
 
 let body = {
-    "product_id": "illo",
-    "amount": "soluta"
+    "product_id": "rerum"
 }
 
 fetch(url, {
@@ -3959,20 +3965,19 @@ fetch(url, {
 #### Body Parameters
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
-    `product_id` | required |  optional  | 商品slug
-        `amount` | required |  optional  | 数量
+    `product_id` | required |  optional  | 商品id
     
 <!-- END_90957246142cc2a14824b129ecd1ba3c -->
 
-<!-- START_8339f6e25cba6f16577dbb5c09cafe73 -->
-## Request delete the cart items
-删除购物车商品
+<!-- START_7b69db4c02ba3f3b2cca4aace8917d35 -->
+## According type to change cart item
+根据type改变购物车商品数量
 
 > Example request:
 
 ```bash
-curl -X DELETE \
-    "http://localhost/api/shop_carts/1?product_id=iusto" \
+curl -X PUT \
+    "http://localhost/api/shop_carts/1?type=facere&product_id=delectus&amount=rerum" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -3983,7 +3988,61 @@ const url = new URL(
 );
 
 let params = {
-    "product_id": "iusto",
+    "type": "facere",
+    "product_id": "delectus",
+    "amount": "rerum",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`PUT api/shop_carts/{type}`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `type` |  required  | 操作类型,可传参数为:add(点击'+'时)/reduce(点击'—'时)/fixed(需传固定数量时)
+    `product_id` |  optional  | rquired 商品ID
+    `amount` |  optional  | optional 可选的商品数量(type为fixed时需传该参数)
+
+<!-- END_7b69db4c02ba3f3b2cca4aace8917d35 -->
+
+<!-- START_8339f6e25cba6f16577dbb5c09cafe73 -->
+## Request delete the cart items
+删除购物车商品
+
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://localhost/api/shop_carts/1?product_id=rerum" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/shop_carts/1"
+);
+
+let params = {
+    "product_id": "rerum",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4068,7 +4127,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/order_details/1?no=placeat" \
+    -G "http://localhost/api/order_details/1?no=velit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -4079,7 +4138,7 @@ const url = new URL(
 );
 
 let params = {
-    "no": "placeat",
+    "no": "velit",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4128,7 +4187,7 @@ curl -X POST \
     "http://localhost/api/orders" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"address_id":"labore","remark":"fuga","items":[{"product_id":8,"amount":7}]}'
+    -d '{"address_id":"corporis","remark":"sed","items":[{"product_id":15,"amount":20}]}'
 
 ```
 
@@ -4143,12 +4202,12 @@ let headers = {
 };
 
 let body = {
-    "address_id": "labore",
-    "remark": "fuga",
+    "address_id": "corporis",
+    "remark": "sed",
     "items": [
         {
-            "product_id": 8,
-            "amount": 7
+            "product_id": 15,
+            "amount": 20
         }
     ]
 }
@@ -4186,7 +4245,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/orders/pay_check?no=eos" \
+    -G "http://localhost/api/orders/pay_check?no=ratione" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -4197,7 +4256,7 @@ const url = new URL(
 );
 
 let params = {
-    "no": "eos",
+    "no": "ratione",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4235,6 +4294,829 @@ Parameter | Status | Description
 
 <!-- END_9d8ded196d3036ace16c0ed016057385 -->
 
+<!-- START_b5ff729b1e89886a06880b326e99727c -->
+## Get wish list
+获取心愿单商品列表
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/products/favorite" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/products/favorite"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+
+### HTTP Request
+`GET api/products/favorite`
+
+
+<!-- END_b5ff729b1e89886a06880b326e99727c -->
+
+<!-- START_551ca68f1c27ed1f1511032fb4bdd95e -->
+## Request Add product to wish list
+请求将商品加入心愿单
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/products/1/favorite?product_id=sed" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/products/1/favorite"
+);
+
+let params = {
+    "product_id": "sed",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/products/{product_id}/favorite`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `product_id` |  optional  | integer required 商品id
+
+<!-- END_551ca68f1c27ed1f1511032fb4bdd95e -->
+
+<!-- START_45c7218d70a2598b7383a3b5df11339d -->
+## Remove product from wish list
+移除心愿单商品
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://localhost/api/products/1/favorite?product_id=dolores" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/products/1/favorite"
+);
+
+let params = {
+    "product_id": "dolores",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`DELETE api/products/{product_id}/favorite`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `product_id` |  required  | 商品id
+
+<!-- END_45c7218d70a2598b7383a3b5df11339d -->
+
+<!-- START_53be1e9e10a08458929a2e0ea70ddb86 -->
+## /
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+null
+```
+
+### HTTP Request
+`GET /`
+
+
+<!-- END_53be1e9e10a08458929a2e0ea70ddb86 -->
+
+<!-- START_ff38dfb1bd1bb7e1aa24b4e1792a9768 -->
+## register
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/register" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/register"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+null
+```
+
+### HTTP Request
+`GET register`
+
+
+<!-- END_ff38dfb1bd1bb7e1aa24b4e1792a9768 -->
+
+<!-- START_60efc9f5157c5ed604f4a3f83ee14d6b -->
+## forgot-password
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/forgot-password" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/forgot-password"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+null
+```
+
+### HTTP Request
+`GET forgot-password`
+
+
+<!-- END_60efc9f5157c5ed604f4a3f83ee14d6b -->
+
+<!-- START_1efc98c062d0b10dc1221f6dec995e85 -->
+## my-account
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/my-account" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/my-account"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (500):
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+### HTTP Request
+`GET my-account`
+
+
+<!-- END_1efc98c062d0b10dc1221f6dec995e85 -->
+
+<!-- START_be8be7707da04f85f110ee53698bebfe -->
+## my-account/order/{order_no}
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/my-account/order/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/my-account/order/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (500):
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+### HTTP Request
+`GET my-account/order/{order_no}`
+
+
+<!-- END_be8be7707da04f85f110ee53698bebfe -->
+
+<!-- START_9a52cc3b4b7494d9fa0404f2f49afdc4 -->
+## my-account/profile
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/my-account/profile" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/my-account/profile"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (500):
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+### HTTP Request
+`GET my-account/profile`
+
+
+<!-- END_9a52cc3b4b7494d9fa0404f2f49afdc4 -->
+
+<!-- START_fcdf2da1997bd4d8d126f782bc06524c -->
+## products
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/products" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/products"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`GET products`
+
+
+<!-- END_fcdf2da1997bd4d8d126f782bc06524c -->
+
+<!-- START_845cf59d0911b97da561c15f5aa57c85 -->
+## product/{slug}
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/product/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/product/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (404):
+
+```json
+{
+    "message": ""
+}
+```
+
+### HTTP Request
+`GET product/{slug}`
+
+
+<!-- END_845cf59d0911b97da561c15f5aa57c85 -->
+
+<!-- START_170f174cb152aea6f6a0f5fe640b6018 -->
+## product-category
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/product-category" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/product-category"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+null
+```
+
+### HTTP Request
+`GET product-category`
+
+
+<!-- END_170f174cb152aea6f6a0f5fe640b6018 -->
+
+<!-- START_0a90e692e0017860f0cffb00f4e580de -->
+## product-category/{slug}
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/product-category/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/product-category/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (404):
+
+```json
+{
+    "message": ""
+}
+```
+
+### HTTP Request
+`GET product-category/{slug}`
+
+
+<!-- END_0a90e692e0017860f0cffb00f4e580de -->
+
+<!-- START_d759e40f94b5d07cd47b21a5b52434f4 -->
+## product-category/{slug}/story
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/product-category/1/story" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/product-category/1/story"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (404):
+
+```json
+{
+    "message": ""
+}
+```
+
+### HTTP Request
+`GET product-category/{slug}/story`
+
+
+<!-- END_d759e40f94b5d07cd47b21a5b52434f4 -->
+
+<!-- START_d09fd6c596e2726fc1ffabb9b402633b -->
+## wishlist
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/wishlist" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/wishlist"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+null
+```
+
+### HTTP Request
+`GET wishlist`
+
+
+<!-- END_d09fd6c596e2726fc1ffabb9b402633b -->
+
+<!-- START_a05e2e3c3e649401633a5d492a0f78fb -->
+## cart
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/cart" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/cart"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (500):
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+### HTTP Request
+`GET cart`
+
+
+<!-- END_a05e2e3c3e649401633a5d492a0f78fb -->
+
+<!-- START_a2b98669f3032d3aec53dbf3b94df424 -->
+## refresh_minicart
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/refresh_minicart" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/refresh_minicart"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "minicart": "<div class=\"mini-cart\">\r\n    <\/div>",
+    "count": 0
+}
+```
+
+### HTTP Request
+`GET refresh_minicart`
+
+
+<!-- END_a2b98669f3032d3aec53dbf3b94df424 -->
+
+<!-- START_11273a09db3c4a2e814b2bdaca659110 -->
+## the-house
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/the-house" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/the-house"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`GET the-house`
+
+
+<!-- END_11273a09db3c4a2e814b2bdaca659110 -->
+
+<!-- START_fe40fa8b2b43e27d474f3afa126ccfbc -->
+## the-house/{slug}
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/the-house/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/the-house/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`GET the-house/{slug}`
+
+
+<!-- END_fe40fa8b2b43e27d474f3afa126ccfbc -->
+
 <!-- START_bd487ab94d8034c2d13644bb1772fdfa -->
 ## 「ADMIN」Query user list(Admin)
 查询用户数据列表
@@ -4243,7 +5125,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://localhost/admin/user?username=cumque&page=consequatur&page_limit=suscipit" \
+    -G "http://localhost/admin/user?username=cumque&page=vero&page_limit=consequatur" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -4255,8 +5137,8 @@ const url = new URL(
 
 let params = {
     "username": "cumque",
-    "page": "consequatur",
-    "page_limit": "suscipit",
+    "page": "vero",
+    "page_limit": "consequatur",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4304,7 +5186,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://localhost/admin/user/1?name=quae&email=harum&phone=ullam&avatar=molestias" \
+    "http://localhost/admin/user/1?name=qui&email=molestiae&phone=dolores&avatar=fugiat" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -4315,10 +5197,10 @@ const url = new URL(
 );
 
 let params = {
-    "name": "quae",
-    "email": "harum",
-    "phone": "ullam",
-    "avatar": "molestias",
+    "name": "qui",
+    "email": "molestiae",
+    "phone": "dolores",
+    "avatar": "fugiat",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4399,7 +5281,7 @@ fetch(url, {
 
 ```bash
 curl -X PUT \
-    "http://localhost/admin/user/reset_password/1?oldPassword=velit&newPassword=et&newPassword_confirmation=velit" \
+    "http://localhost/admin/user/reset_password/1?oldPassword=eaque&newPassword=libero&newPassword_confirmation=accusantium" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -4410,9 +5292,9 @@ const url = new URL(
 );
 
 let params = {
-    "oldPassword": "velit",
-    "newPassword": "et",
-    "newPassword_confirmation": "velit",
+    "oldPassword": "eaque",
+    "newPassword": "libero",
+    "newPassword_confirmation": "accusantium",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4453,7 +5335,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://localhost/admin/get_user?hash_id=voluptas" \
+    -G "http://localhost/admin/get_user?hash_id=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -4464,7 +5346,7 @@ const url = new URL(
 );
 
 let params = {
-    "hash_id": "voluptas",
+    "hash_id": "et",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4555,7 +5437,7 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://localhost/admin/user_addresses?province=tempora&city=dolorum&district=qui&address=quia&zip=veritatis&contact_name=et&contact_phone=doloremque" \
+    "http://localhost/admin/user_addresses?province=quae&city=porro&district=delectus&address=consequuntur&zip=eum&contact_name=ratione&contact_phone=recusandae" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -4566,13 +5448,13 @@ const url = new URL(
 );
 
 let params = {
-    "province": "tempora",
-    "city": "dolorum",
-    "district": "qui",
-    "address": "quia",
-    "zip": "veritatis",
-    "contact_name": "et",
-    "contact_phone": "doloremque",
+    "province": "quae",
+    "city": "porro",
+    "district": "delectus",
+    "address": "consequuntur",
+    "zip": "eum",
+    "contact_name": "ratione",
+    "contact_phone": "recusandae",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4617,7 +5499,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://localhost/admin/user_addresses/1?address_id=et&province=magni&city=est&district=rerum&address=laboriosam&zip=excepturi&contact_name=libero&contact_phone=et" \
+    "http://localhost/admin/user_addresses/1?address_id=et&province=perferendis&city=quam&district=eum&address=quibusdam&zip=aperiam&contact_name=dolorem&contact_phone=quia" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -4629,13 +5511,13 @@ const url = new URL(
 
 let params = {
     "address_id": "et",
-    "province": "magni",
-    "city": "est",
-    "district": "rerum",
-    "address": "laboriosam",
-    "zip": "excepturi",
-    "contact_name": "libero",
-    "contact_phone": "et",
+    "province": "perferendis",
+    "city": "quam",
+    "district": "eum",
+    "address": "quibusdam",
+    "zip": "aperiam",
+    "contact_name": "dolorem",
+    "contact_phone": "quia",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4681,7 +5563,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X DELETE \
-    "http://localhost/admin/user_addresses/1?address_id=eius" \
+    "http://localhost/admin/user_addresses/1?address_id=commodi" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -4692,7 +5574,7 @@ const url = new URL(
 );
 
 let params = {
-    "address_id": "eius",
+    "address_id": "commodi",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4777,7 +5659,7 @@ fetch(url, {
 
 ```bash
 curl -X PUT \
-    "http://localhost/admin/user_profiles/1?profile_id=voluptas" \
+    "http://localhost/admin/user_profiles/1?profile_id=repudiandae" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -4788,7 +5670,7 @@ const url = new URL(
 );
 
 let params = {
-    "profile_id": "voluptas",
+    "profile_id": "repudiandae",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4827,7 +5709,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X DELETE \
-    "http://localhost/admin/user_profiles/1?profile_id=consequatur" \
+    "http://localhost/admin/user_profiles/1?profile_id=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -4838,7 +5720,7 @@ const url = new URL(
 );
 
 let params = {
-    "profile_id": "consequatur",
+    "profile_id": "et",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4869,163 +5751,6 @@ Parameter | Status | Description
 
 <!-- END_3bff74743c9d0809b89e6ed687f7c6fe -->
 
-<!-- START_5859d901099a5405483c7e8dbbfe6594 -->
-## 「ADMIN」Get invitation code
-获取邀请码
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://localhost/admin/invitation/code" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/admin/invitation/code"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (500):
-
-```json
-{
-    "message": "Server Error"
-}
-```
-
-### HTTP Request
-`GET admin/invitation/code`
-
-
-<!-- END_5859d901099a5405483c7e8dbbfe6594 -->
-
-<!-- START_8e29f704519bab0648615af972a1987d -->
-## 「ADMIN」bind code
-绑定用户与邀请码
-
-> Example request:
-
-```bash
-curl -X POST \
-    "http://localhost/admin/invitation/code?phone=voluptatem&code=qui" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/admin/invitation/code"
-);
-
-let params = {
-    "phone": "voluptatem",
-    "code": "qui",
-};
-Object.keys(params)
-    .forEach(key => url.searchParams.append(key, params[key]));
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`POST admin/invitation/code`
-
-#### Query Parameters
-
-Parameter | Status | Description
---------- | ------- | ------- | -----------
-    `phone` |  required  | 手机号
-    `code` |  required  | 邀请码
-
-<!-- END_8e29f704519bab0648615af972a1987d -->
-
-<!-- START_1593abd93527151f8b06736da57eca07 -->
-## 「ADMIN」Get user phone
-获取用户的手机号
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://localhost/admin/invitation/phone?page=ad&page_limit=quia" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/admin/invitation/phone"
-);
-
-let params = {
-    "page": "ad",
-    "page_limit": "quia",
-};
-Object.keys(params)
-    .forEach(key => url.searchParams.append(key, params[key]));
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (500):
-
-```json
-{
-    "message": "Server Error"
-}
-```
-
-### HTTP Request
-`GET admin/invitation/phone`
-
-#### Query Parameters
-
-Parameter | Status | Description
---------- | ------- | ------- | -----------
-    `page` |  optional  | 页码
-    `page_limit` |  optional  | 页数
-
-<!-- END_1593abd93527151f8b06736da57eca07 -->
-
 <!-- START_c2c61ac73e177fc85d5f5487b23cf13e -->
 ## 「ADMIN」get product category list
 获取产品分类列表
@@ -5034,7 +5759,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://localhost/admin/product_categories?page=natus&page_limit=voluptatibus" \
+    -G "http://localhost/admin/product_categories?page=at&page_limit=ducimus" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -5045,8 +5770,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "natus",
-    "page_limit": "voluptatibus",
+    "page": "at",
+    "page_limit": "ducimus",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -5093,7 +5818,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/admin/product_categories?title=voluptas&title_en=vero&describe=distinctio&describe_en=voluptatum&banner=qui&description=ratione&description_en=non&img=autem&parent_id=sit" \
+    "http://localhost/admin/product_categories?title=aut&title_en=culpa&describe=ab&describe_en=et&banner=est&description=velit&description_en=deserunt&img=ab&parent_id=eum" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -5104,15 +5829,15 @@ const url = new URL(
 );
 
 let params = {
-    "title": "voluptas",
-    "title_en": "vero",
-    "describe": "distinctio",
-    "describe_en": "voluptatum",
-    "banner": "qui",
-    "description": "ratione",
-    "description_en": "non",
-    "img": "autem",
-    "parent_id": "sit",
+    "title": "aut",
+    "title_en": "culpa",
+    "describe": "ab",
+    "describe_en": "et",
+    "banner": "est",
+    "description": "velit",
+    "description_en": "deserunt",
+    "img": "ab",
+    "parent_id": "eum",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -5159,7 +5884,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/admin/product_categories/1?title=voluptas&title_en=et&describe=voluptatem&describe_en=quia&banner=enim&description=dolor&description_en=qui&img=cum&parent_id=consequatur" \
+    "http://localhost/admin/product_categories/1?title=asperiores&title_en=odio&describe=praesentium&describe_en=sint&banner=ipsum&description=dolorem&description_en=rerum&img=et&parent_id=sed" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -5170,15 +5895,15 @@ const url = new URL(
 );
 
 let params = {
-    "title": "voluptas",
-    "title_en": "et",
-    "describe": "voluptatem",
-    "describe_en": "quia",
-    "banner": "enim",
-    "description": "dolor",
-    "description_en": "qui",
-    "img": "cum",
-    "parent_id": "consequatur",
+    "title": "asperiores",
+    "title_en": "odio",
+    "describe": "praesentium",
+    "describe_en": "sint",
+    "banner": "ipsum",
+    "description": "dolorem",
+    "description_en": "rerum",
+    "img": "et",
+    "parent_id": "sed",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -5264,7 +5989,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://localhost/admin/category_stories?page=debitis&page_limit=similique" \
+    -G "http://localhost/admin/category_stories?page=et&page_limit=numquam" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -5275,8 +6000,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "debitis",
-    "page_limit": "similique",
+    "page": "et",
+    "page_limit": "numquam",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -5323,7 +6048,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/admin/category_stories?title=quas&title_en=cumque&description=amet&description_en=in&banner=tempore&product_category_id=ipsum" \
+    "http://localhost/admin/category_stories?title=nostrum&title_en=quis&description=unde&description_en=recusandae&banner=dolorem&product_category_id=voluptatibus" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -5334,12 +6059,12 @@ const url = new URL(
 );
 
 let params = {
-    "title": "quas",
-    "title_en": "cumque",
-    "description": "amet",
-    "description_en": "in",
-    "banner": "tempore",
-    "product_category_id": "ipsum",
+    "title": "nostrum",
+    "title_en": "quis",
+    "description": "unde",
+    "description_en": "recusandae",
+    "banner": "dolorem",
+    "product_category_id": "voluptatibus",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -5383,7 +6108,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/admin/category_stories/1?title=quis&title_en=et&description=corporis&description_en=atque&banner=sit&product_category_id=dignissimos" \
+    "http://localhost/admin/category_stories/1?title=et&title_en=libero&description=fugit&description_en=laborum&banner=ut&product_category_id=soluta" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -5394,12 +6119,12 @@ const url = new URL(
 );
 
 let params = {
-    "title": "quis",
-    "title_en": "et",
-    "description": "corporis",
-    "description_en": "atque",
-    "banner": "sit",
-    "product_category_id": "dignissimos",
+    "title": "et",
+    "title_en": "libero",
+    "description": "fugit",
+    "description_en": "laborum",
+    "banner": "ut",
+    "product_category_id": "soluta",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -5482,7 +6207,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://localhost/admin/product?page=ad&page_limit=molestiae" \
+    -G "http://localhost/admin/product?page=distinctio&page_limit=quia" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -5493,8 +6218,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "ad",
-    "page_limit": "molestiae",
+    "page": "distinctio",
+    "page_limit": "quia",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -5533,6 +6258,52 @@ Parameter | Status | Description
 
 <!-- END_9a7c60de622aa327ea2ab22f57fe4f40 -->
 
+<!-- START_a530ef35306752a82d1350229e5e4b13 -->
+## 「ADMIN」Get product detail by product_slug
+根据product_slug获取商品详情
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/admin/product/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/admin/product/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+
+### HTTP Request
+`GET admin/product/{product_slug}`
+
+
+<!-- END_a530ef35306752a82d1350229e5e4b13 -->
+
 <!-- START_2a50bdf6cd9fdfa165149d0dd0da7075 -->
 ## 「ADMIN」Create product
 新建商品
@@ -5541,7 +6312,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/admin/product?product_category_id=molestiae&product_name=debitis&product_name_en=ea&thumbnail=veniam&slug=officia&short_description=aut&short_description_en=veritatis&price=optio&sale_price=porro&stock=deserunt&seo_title=ab&seo_keyword=magnam&seo_description=sed&benefit=cupiditate&benefit_en=ratione&tech_description=vel&tech_description_en=blanditiis&description=sed&description_en=provident&usage=omnis&usage_en=perferendis&main_image=ut&main_image_2=est&benefit_image=et&product_video=et&status=consectetur&rating=voluptatibus&sold_count=dolorem&review_count=laboriosam" \
+    "http://localhost/admin/product?product_category_id=odio&product_name=ducimus&product_name_en=impedit&thumbnail=culpa&slug=deserunt&short_description=eos&short_description_en=perspiciatis&price=autem&sale_price=non&stock=officia&seo_title=est&seo_keyword=quia&seo_description=culpa&benefit=aspernatur&benefit_en=voluptas&tech_description=delectus&tech_description_en=officiis&description=nihil&description_en=pariatur&usage=quam&usage_en=qui&main_image=commodi&main_image_2=ullam&benefit_image=et&product_video=sapiente&status=qui&rating=et&sold_count=minus&review_count=est" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -5552,35 +6323,35 @@ const url = new URL(
 );
 
 let params = {
-    "product_category_id": "molestiae",
-    "product_name": "debitis",
-    "product_name_en": "ea",
-    "thumbnail": "veniam",
-    "slug": "officia",
-    "short_description": "aut",
-    "short_description_en": "veritatis",
-    "price": "optio",
-    "sale_price": "porro",
-    "stock": "deserunt",
-    "seo_title": "ab",
-    "seo_keyword": "magnam",
-    "seo_description": "sed",
-    "benefit": "cupiditate",
-    "benefit_en": "ratione",
-    "tech_description": "vel",
-    "tech_description_en": "blanditiis",
-    "description": "sed",
-    "description_en": "provident",
-    "usage": "omnis",
-    "usage_en": "perferendis",
-    "main_image": "ut",
-    "main_image_2": "est",
+    "product_category_id": "odio",
+    "product_name": "ducimus",
+    "product_name_en": "impedit",
+    "thumbnail": "culpa",
+    "slug": "deserunt",
+    "short_description": "eos",
+    "short_description_en": "perspiciatis",
+    "price": "autem",
+    "sale_price": "non",
+    "stock": "officia",
+    "seo_title": "est",
+    "seo_keyword": "quia",
+    "seo_description": "culpa",
+    "benefit": "aspernatur",
+    "benefit_en": "voluptas",
+    "tech_description": "delectus",
+    "tech_description_en": "officiis",
+    "description": "nihil",
+    "description_en": "pariatur",
+    "usage": "quam",
+    "usage_en": "qui",
+    "main_image": "commodi",
+    "main_image_2": "ullam",
     "benefit_image": "et",
-    "product_video": "et",
-    "status": "consectetur",
-    "rating": "voluptatibus",
-    "sold_count": "dolorem",
-    "review_count": "laboriosam",
+    "product_video": "sapiente",
+    "status": "qui",
+    "rating": "et",
+    "sold_count": "minus",
+    "review_count": "est",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -5647,7 +6418,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/admin/product/1?product_category_id=earum&product_name=dicta&product_name_en=et&thumbnail=nemo&slug=voluptate&short_description=explicabo&short_description_en=est&price=eius&sale_price=dolorem&stock=accusantium&seo_title=optio&seo_keyword=aut&seo_description=aut&benefit=atque&benefit_en=quia&tech_description=fugiat&tech_description_en=et&description=laboriosam&description_en=repellendus&usage=quibusdam&usage_en=est&main_image=voluptatum&main_image_2=facilis&benefit_image=velit&product_video=non&status=quis&rating=et&sold_count=voluptatem&review_count=autem" \
+    "http://localhost/admin/product/1?product_category_id=explicabo&product_name=quam&product_name_en=neque&thumbnail=occaecati&slug=maxime&short_description=consequatur&short_description_en=culpa&price=molestiae&sale_price=temporibus&stock=eum&seo_title=deserunt&seo_keyword=ipsam&seo_description=dolorem&benefit=repellat&benefit_en=quam&tech_description=accusamus&tech_description_en=aut&description=mollitia&description_en=nisi&usage=vel&usage_en=ullam&main_image=perferendis&main_image_2=quisquam&benefit_image=inventore&product_video=magnam&status=veritatis&rating=nulla&sold_count=possimus&review_count=praesentium" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -5658,35 +6429,35 @@ const url = new URL(
 );
 
 let params = {
-    "product_category_id": "earum",
-    "product_name": "dicta",
-    "product_name_en": "et",
-    "thumbnail": "nemo",
-    "slug": "voluptate",
-    "short_description": "explicabo",
-    "short_description_en": "est",
-    "price": "eius",
-    "sale_price": "dolorem",
-    "stock": "accusantium",
-    "seo_title": "optio",
-    "seo_keyword": "aut",
-    "seo_description": "aut",
-    "benefit": "atque",
-    "benefit_en": "quia",
-    "tech_description": "fugiat",
-    "tech_description_en": "et",
-    "description": "laboriosam",
-    "description_en": "repellendus",
-    "usage": "quibusdam",
-    "usage_en": "est",
-    "main_image": "voluptatum",
-    "main_image_2": "facilis",
-    "benefit_image": "velit",
-    "product_video": "non",
-    "status": "quis",
-    "rating": "et",
-    "sold_count": "voluptatem",
-    "review_count": "autem",
+    "product_category_id": "explicabo",
+    "product_name": "quam",
+    "product_name_en": "neque",
+    "thumbnail": "occaecati",
+    "slug": "maxime",
+    "short_description": "consequatur",
+    "short_description_en": "culpa",
+    "price": "molestiae",
+    "sale_price": "temporibus",
+    "stock": "eum",
+    "seo_title": "deserunt",
+    "seo_keyword": "ipsam",
+    "seo_description": "dolorem",
+    "benefit": "repellat",
+    "benefit_en": "quam",
+    "tech_description": "accusamus",
+    "tech_description_en": "aut",
+    "description": "mollitia",
+    "description_en": "nisi",
+    "usage": "vel",
+    "usage_en": "ullam",
+    "main_image": "perferendis",
+    "main_image_2": "quisquam",
+    "benefit_image": "inventore",
+    "product_video": "magnam",
+    "status": "veritatis",
+    "rating": "nulla",
+    "sold_count": "possimus",
+    "review_count": "praesentium",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -5838,7 +6609,7 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://localhost/admin/product_sku?title=facilis&description=corrupti&price=dolorem&stock=dolores&product_id=quidem" \
+    "http://localhost/admin/product_sku?title=aspernatur&description=quam&price=cum&stock=assumenda&product_id=quae" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -5849,11 +6620,11 @@ const url = new URL(
 );
 
 let params = {
-    "title": "facilis",
-    "description": "corrupti",
-    "price": "dolorem",
-    "stock": "dolores",
-    "product_id": "quidem",
+    "title": "aspernatur",
+    "description": "quam",
+    "price": "cum",
+    "stock": "assumenda",
+    "product_id": "quae",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -5896,7 +6667,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/admin/product_sku/1?title=libero&description=quia&price=autem&stock=natus&product_id=consequatur" \
+    "http://localhost/admin/product_sku/1?title=pariatur&description=consequatur&price=dolorem&stock=explicabo&product_id=quaerat" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -5907,11 +6678,11 @@ const url = new URL(
 );
 
 let params = {
-    "title": "libero",
-    "description": "quia",
-    "price": "autem",
-    "stock": "natus",
-    "product_id": "consequatur",
+    "title": "pariatur",
+    "description": "consequatur",
+    "price": "dolorem",
+    "stock": "explicabo",
+    "product_id": "quaerat",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -5993,7 +6764,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://localhost/admin/order?page=ut&page_limit=ut" \
+    -G "http://localhost/admin/order?page=assumenda&page_limit=vel" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -6004,8 +6775,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "ut",
-    "page_limit": "ut",
+    "page": "assumenda",
+    "page_limit": "vel",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -6052,7 +6823,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://localhost/admin/order?page=quia&page_limit=ipsum&username=omnis&order_no=ipsa&order_status=pariatur" \
+    "http://localhost/admin/order?page=blanditiis&page_limit=libero&username=explicabo&order_no=quisquam&order_status=consequatur" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -6063,11 +6834,11 @@ const url = new URL(
 );
 
 let params = {
-    "page": "quia",
-    "page_limit": "ipsum",
-    "username": "omnis",
-    "order_no": "ipsa",
-    "order_status": "pariatur",
+    "page": "blanditiis",
+    "page_limit": "libero",
+    "username": "explicabo",
+    "order_no": "quisquam",
+    "order_status": "consequatur",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -6110,7 +6881,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://localhost/admin/logs/1?page=quae&page_limit=ut" \
+    -G "http://localhost/admin/logs/1?page=tempore&page_limit=ipsa" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -6121,8 +6892,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "quae",
-    "page_limit": "ut",
+    "page": "tempore",
+    "page_limit": "ipsa",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -6169,7 +6940,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X DELETE \
-    "http://localhost/admin/logs/1?ids=id" \
+    "http://localhost/admin/logs/1?ids=iure" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -6180,7 +6951,7 @@ const url = new URL(
 );
 
 let params = {
-    "ids": "id",
+    "ids": "iure",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));

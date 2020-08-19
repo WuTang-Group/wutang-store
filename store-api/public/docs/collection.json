@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "493c2c48-96bb-4575-a154-8bef7ed4f719",
+        "_postman_id": "7e95255f-5724-49b6-923f-4c30ab838193",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -21,31 +21,31 @@
                             "query": [
                                 {
                                     "key": 10001,
-                                    "value": "dolores",
+                                    "value": "vero",
                                     "description": "\u53c2\u6570\u6709\u8bef",
                                     "disabled": false
                                 },
                                 {
                                     "key": 10003,
-                                    "value": "et",
+                                    "value": "ducimus",
                                     "description": "\u6570\u636e\u6709\u8bef",
                                     "disabled": false
                                 },
                                 {
                                     "key": 20001,
-                                    "value": "eum",
+                                    "value": "deserunt",
                                     "description": "\u64cd\u4f5c\u6210\u529f",
                                     "disabled": false
                                 },
                                 {
                                     "key": 40001,
-                                    "value": "accusamus",
+                                    "value": "eius",
                                     "description": "\u7981\u6b62\u8bbf\u95ee",
                                     "disabled": false
                                 },
                                 {
                                     "key": 40003,
-                                    "value": "et",
+                                    "value": "nobis",
                                     "description": "\u6743\u9650\u4e0d\u8db3",
                                     "disabled": false
                                 },
@@ -57,13 +57,13 @@
                                 },
                                 {
                                     "key": 40005,
-                                    "value": "earum",
+                                    "value": "eos",
                                     "description": "\u8bf7\u6c42\u8fc7\u671f",
                                     "disabled": false
                                 },
                                 {
                                     "key": 50001,
-                                    "value": "cumque",
+                                    "value": "id",
                                     "description": "\u64cd\u4f5c\u5931\u8d25",
                                     "disabled": false
                                 }
@@ -98,19 +98,19 @@
                             "query": [
                                 {
                                     "key": "no",
-                                    "value": "est",
+                                    "value": "dolore",
                                     "description": "\u8ba2\u5355\u53f7",
                                     "disabled": false
                                 },
                                 {
                                     "key": "total_amount",
-                                    "value": "et",
+                                    "value": "sunt",
                                     "description": "\u603b\u91d1\u989d",
                                     "disabled": false
                                 },
                                 {
                                     "key": "subject",
-                                    "value": "officiis",
+                                    "value": "voluptatibus",
                                     "description": "\u4ea4\u6613\u540d\u79f0",
                                     "disabled": false
                                 }
@@ -241,7 +241,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"dolorum\",\n    \"username\": \"fugit\",\n    \"password\": \"quaerat\",\n    \"captcha_key\": \"ipsam\",\n    \"captcha_code\": \"quia\",\n    \"password_question_id\": 20,\n    \"password_answer\": \"fugit\"\n}"
+                            "raw": "{\n    \"name\": \"enim\",\n    \"username\": \"temporibus\",\n    \"password\": \"est\",\n    \"captcha_key\": \"beatae\",\n    \"captcha_code\": \"voluptas\",\n    \"password_question_id\": 10,\n    \"password_answer\": \"commodi\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -285,7 +285,7 @@
                             "query": [
                                 {
                                     "key": "username",
-                                    "value": "modi",
+                                    "value": "aut",
                                     "description": "\u7528\u6237\u540d",
                                     "disabled": false
                                 }
@@ -332,7 +332,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"username\": \"omnis\",\n    \"password\": \"eius\"\n}"
+                            "raw": "{\n    \"username\": \"expedita\",\n    \"password\": \"facere\"\n}"
                         },
                         "description": "\u901a\u8fc7\u767b\u5f55\u4fe1\u606f\u83b7\u53d6JWT\u51ed\u8bc1",
                         "response": []
@@ -348,31 +348,31 @@
                             "query": [
                                 {
                                     "key": "username",
-                                    "value": "et",
+                                    "value": "error",
                                     "description": "\u7528\u6237\u540d",
                                     "disabled": false
                                 },
                                 {
                                     "key": "password_question_id",
-                                    "value": "molestiae",
+                                    "value": "cum",
                                     "description": "\u5bc6\u4fdd\u95ee\u9898ID",
                                     "disabled": false
                                 },
                                 {
                                     "key": "password_answer",
-                                    "value": "ut",
+                                    "value": "quam",
                                     "description": "\u5bc6\u4fdd\u95ee\u9898\u7684\u7b54\u6848",
                                     "disabled": false
                                 },
                                 {
                                     "key": "password",
-                                    "value": "ut",
+                                    "value": "ex",
                                     "description": "\u5bc6\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "password_confirmation",
-                                    "value": "quibusdam",
+                                    "value": "voluptas",
                                     "description": "\u4e8c\u6b21\u786e\u8ba4\u5bc6\u7801",
                                     "disabled": false
                                 }
@@ -463,7 +463,7 @@
                             "query": [
                                 {
                                     "key": "category_slug",
-                                    "value": "nemo",
+                                    "value": "labore",
                                     "description": "\u5206\u7c7bslug",
                                     "disabled": false
                                 }
@@ -498,7 +498,7 @@
                             "query": [
                                 {
                                     "key": "slug",
-                                    "value": "aut",
+                                    "value": "error",
                                     "description": "\u5546\u54c1slug",
                                     "disabled": false
                                 }
@@ -533,7 +533,7 @@
                             "query": [
                                 {
                                     "key": "id_list",
-                                    "value": "consequatur",
+                                    "value": "ipsum",
                                     "description": "\u5546\u54c1id\u5217\u8868\uff08\u6570\u7ec4\uff09",
                                     "disabled": false
                                 }
@@ -568,7 +568,7 @@
                             "query": [
                                 {
                                     "key": "category_slug",
-                                    "value": "quia",
+                                    "value": "enim",
                                     "description": "\u5206\u7c7bslug",
                                     "disabled": false
                                 }
@@ -603,13 +603,13 @@
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "consequatur",
+                                    "value": "molestias",
                                     "description": "\u9875\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page_limit",
-                                    "value": "beatae",
+                                    "value": "autem",
                                     "description": "\u6bcf\u9875\u6570\u91cf",
                                     "disabled": false
                                 }
@@ -656,7 +656,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"oldPassword\": \"aperiam\",\n    \"newPassword\": \"aliquid\",\n    \"newPassword_confirmation\": \"quia\"\n}"
+                            "raw": "{\n    \"oldPassword\": \"saepe\",\n    \"newPassword\": \"error\",\n    \"newPassword_confirmation\": \"sed\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -672,19 +672,19 @@
                             "query": [
                                 {
                                     "key": "no",
-                                    "value": "vel",
+                                    "value": "quidem",
                                     "description": "\u8ba2\u5355\u53f7",
                                     "disabled": false
                                 },
                                 {
                                     "key": "total_amount",
-                                    "value": "blanditiis",
+                                    "value": "numquam",
                                     "description": "\u603b\u91d1\u989d",
                                     "disabled": false
                                 },
                                 {
                                     "key": "subject",
-                                    "value": "ea",
+                                    "value": "nostrum",
                                     "description": "\u8ba2\u5355\u6807\u9898",
                                     "disabled": false
                                 }
@@ -775,19 +775,19 @@
                             "query": [
                                 {
                                     "key": "no",
-                                    "value": "doloribus",
+                                    "value": "recusandae",
                                     "description": "\u8ba2\u5355\u53f7",
                                     "disabled": false
                                 },
                                 {
                                     "key": "subject",
-                                    "value": "tenetur",
+                                    "value": "in",
                                     "description": "\u5546\u54c1\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "total_amount",
-                                    "value": "pariatur",
+                                    "value": "est",
                                     "description": "\u603b\u91d1\u989d",
                                     "disabled": false
                                 }
@@ -990,67 +990,67 @@
                             "query": [
                                 {
                                     "key": "profile_id",
-                                    "value": "adipisci",
+                                    "value": "possimus",
                                     "description": "profile\u8868id",
                                     "disabled": false
                                 },
                                 {
                                     "key": "phone",
-                                    "value": "enim",
+                                    "value": "nulla",
                                     "description": "\u8054\u7cfb\u65b9\u5f0f",
                                     "disabled": false
                                 },
                                 {
                                     "key": "real_name",
-                                    "value": "omnis",
+                                    "value": "dolorem",
                                     "description": "\u771f\u5b9e\u59d3\u540d",
                                     "disabled": false
                                 },
                                 {
                                     "key": "sex",
-                                    "value": "maxime",
+                                    "value": "labore",
                                     "description": "\u6027\u522b",
                                     "disabled": false
                                 },
                                 {
                                     "key": "birthday",
-                                    "value": "earum",
+                                    "value": "quo",
                                     "description": "\u751f\u65e5",
                                     "disabled": false
                                 },
                                 {
                                     "key": "age",
-                                    "value": "vel",
+                                    "value": "voluptas",
                                     "description": "\u5e74\u9f84",
                                     "disabled": false
                                 },
                                 {
                                     "key": "province",
-                                    "value": "omnis",
+                                    "value": "laboriosam",
                                     "description": "\u7701",
                                     "disabled": false
                                 },
                                 {
                                     "key": "city",
-                                    "value": "consequuntur",
+                                    "value": "et",
                                     "description": "\u5e02",
                                     "disabled": false
                                 },
                                 {
                                     "key": "district",
-                                    "value": "neque",
+                                    "value": "quia",
                                     "description": "\u533a\/\u53bf",
                                     "disabled": false
                                 },
                                 {
                                     "key": "address",
-                                    "value": "id",
+                                    "value": "nulla",
                                     "description": "\u8be6\u7ec6\u5730\u5740",
                                     "disabled": false
                                 },
                                 {
                                     "key": "zip",
-                                    "value": "quia",
+                                    "value": "dicta",
                                     "description": "\u90ae\u7f16",
                                     "disabled": false
                                 }
@@ -1125,7 +1125,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"province\": \"hic\",\n    \"city\": \"laudantium\",\n    \"district\": \"non\",\n    \"address\": \"nemo\",\n    \"zip\": \"earum\",\n    \"contact_name\": \"repellat\",\n    \"contact_phone\": \"mollitia\"\n}"
+                            "raw": "{\n    \"province\": \"perferendis\",\n    \"city\": \"consectetur\",\n    \"district\": \"et\",\n    \"address\": \"tempora\",\n    \"zip\": \"reprehenderit\",\n    \"contact_name\": \"vitae\",\n    \"contact_phone\": \"ut\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -1141,7 +1141,7 @@
                             "query": [
                                 {
                                     "key": "province",
-                                    "value": "non",
+                                    "value": "nulla",
                                     "description": "\u7701",
                                     "disabled": false
                                 },
@@ -1153,31 +1153,31 @@
                                 },
                                 {
                                     "key": "district",
-                                    "value": "qui",
+                                    "value": "ducimus",
                                     "description": "\u533a",
                                     "disabled": false
                                 },
                                 {
                                     "key": "address",
-                                    "value": "et",
+                                    "value": "iste",
                                     "description": "\u8be6\u7ec6\u5730\u5740",
                                     "disabled": false
                                 },
                                 {
                                     "key": "zip",
-                                    "value": "perferendis",
+                                    "value": "itaque",
                                     "description": "\u90ae\u7f16",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contact_name",
-                                    "value": "numquam",
+                                    "value": "nulla",
                                     "description": "\u8054\u7cfb\u4eba",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contact_phone",
-                                    "value": "qui",
+                                    "value": "numquam",
                                     "description": "\u624b\u673a\u53f7",
                                     "disabled": false
                                 }
@@ -1280,7 +1280,54 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"product_id\": \"illo\",\n    \"amount\": \"soluta\"\n}"
+                            "raw": "{\n    \"product_id\": \"rerum\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "According type to change cart item\n\u6839\u636etype\u6539\u53d8\u8d2d\u7269\u8f66\u5546\u54c1\u6570\u91cf",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/shop_carts\/:type",
+                            "query": [
+                                {
+                                    "key": "type",
+                                    "value": "facere",
+                                    "description": "\u64cd\u4f5c\u7c7b\u578b,\u53ef\u4f20\u53c2\u6570\u4e3a:add(\u70b9\u51fb'+'\u65f6)\/reduce(\u70b9\u51fb'\u2014'\u65f6)\/fixed(\u9700\u4f20\u56fa\u5b9a\u6570\u91cf\u65f6)",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "product_id",
+                                    "value": "delectus",
+                                    "description": "rquired \u5546\u54c1ID",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "amount",
+                                    "value": "rerum",
+                                    "description": "optional \u53ef\u9009\u7684\u5546\u54c1\u6570\u91cf(type\u4e3afixed\u65f6\u9700\u4f20\u8be5\u53c2\u6570)",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
                         },
                         "description": "",
                         "response": []
@@ -1296,7 +1343,7 @@
                             "query": [
                                 {
                                     "key": "product_id",
-                                    "value": "iusto",
+                                    "value": "rerum",
                                     "description": "\u5546\u54c1id",
                                     "disabled": false
                                 }
@@ -1359,7 +1406,7 @@
                             "query": [
                                 {
                                     "key": "no",
-                                    "value": "placeat",
+                                    "value": "velit",
                                     "description": "\u8ba2\u5355\u53f7",
                                     "disabled": false
                                 }
@@ -1406,7 +1453,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"address_id\": \"labore\",\n    \"remark\": \"fuga\",\n    \"items\": [\n        {\n            \"product_id\": 8,\n            \"amount\": 7\n        }\n    ]\n}"
+                            "raw": "{\n    \"address_id\": \"corporis\",\n    \"remark\": \"sed\",\n    \"items\": [\n        {\n            \"product_id\": 15,\n            \"amount\": 20\n        }\n    ]\n}"
                         },
                         "description": "",
                         "response": []
@@ -1422,11 +1469,557 @@
                             "query": [
                                 {
                                     "key": "no",
-                                    "value": "eos",
+                                    "value": "ratione",
                                     "description": "\u8ba2\u5355\u53f7",
                                     "disabled": false
                                 }
                             ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get wish list\n\u83b7\u53d6\u5fc3\u613f\u5355\u5546\u54c1\u5217\u8868",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/products\/favorite",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Request Add product to wish list\n\u8bf7\u6c42\u5c06\u5546\u54c1\u52a0\u5165\u5fc3\u613f\u5355",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/products\/:product_id\/favorite",
+                            "query": [
+                                {
+                                    "key": "product_id",
+                                    "value": "sed",
+                                    "description": "integer required \u5546\u54c1id",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Remove product from wish list\n\u79fb\u9664\u5fc3\u613f\u5355\u5546\u54c1",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/products\/:product_id\/favorite",
+                            "query": [
+                                {
+                                    "key": "product_id",
+                                    "value": "dolores",
+                                    "description": "\u5546\u54c1id",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "\/",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "\/",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "register",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "register",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "forgot-password",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "forgot-password",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "my-account",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "my-account",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "my-account\/order\/{order_no}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "my-account\/order\/:order_no",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "my-account\/profile",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "my-account\/profile",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "products",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "products",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "product\/{slug}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "product\/:slug",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "product-category",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "product-category",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "product-category\/{slug}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "product-category\/:slug",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "product-category\/{slug}\/story",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "product-category\/:slug\/story",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "wishlist",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "wishlist",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "cart",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "cart",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "refresh_minicart",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "refresh_minicart",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "the-house",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "the-house",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "the-house\/{slug}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "the-house\/:slug",
+                            "query": []
                         },
                         "method": "GET",
                         "header": [
@@ -1463,13 +2056,13 @@
                                 },
                                 {
                                     "key": "page",
-                                    "value": "consequatur",
+                                    "value": "vero",
                                     "description": "\u9875\u7801\uff0c\u9ed8\u8ba41",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page_limit",
-                                    "value": "suscipit",
+                                    "value": "consequatur",
                                     "description": "\u6bcf\u9875\u6570\u91cf\uff0c\u9ed8\u8ba420",
                                     "disabled": false
                                 }
@@ -1504,25 +2097,25 @@
                             "query": [
                                 {
                                     "key": "name",
-                                    "value": "quae",
+                                    "value": "qui",
                                     "description": "\u59d3\u540d",
                                     "disabled": false
                                 },
                                 {
                                     "key": "email",
-                                    "value": "harum",
+                                    "value": "molestiae",
                                     "description": "\u90ae\u7bb1",
                                     "disabled": false
                                 },
                                 {
                                     "key": "phone",
-                                    "value": "ullam",
+                                    "value": "dolores",
                                     "description": "\u624b\u673a\u53f7",
                                     "disabled": false
                                 },
                                 {
                                     "key": "avatar",
-                                    "value": "molestias",
+                                    "value": "fugiat",
                                     "description": "\u5934\u50cf",
                                     "disabled": false
                                 }
@@ -1585,19 +2178,19 @@
                             "query": [
                                 {
                                     "key": "oldPassword",
-                                    "value": "velit",
+                                    "value": "eaque",
                                     "description": "\u65e7\u5bc6\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "newPassword",
-                                    "value": "et",
+                                    "value": "libero",
                                     "description": "\u65b0\u5bc6\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "newPassword_confirmation",
-                                    "value": "velit",
+                                    "value": "accusantium",
                                     "description": "\u786e\u8ba4\u5bc6\u7801",
                                     "disabled": false
                                 }
@@ -1632,7 +2225,7 @@
                             "query": [
                                 {
                                     "key": "hash_id",
-                                    "value": "voluptas",
+                                    "value": "et",
                                     "description": "hash\u52a0\u5bc6\u7684ID",
                                     "disabled": false
                                 }
@@ -1695,43 +2288,43 @@
                             "query": [
                                 {
                                     "key": "province",
-                                    "value": "tempora",
+                                    "value": "quae",
                                     "description": "\u7701",
                                     "disabled": false
                                 },
                                 {
                                     "key": "city",
-                                    "value": "dolorum",
+                                    "value": "porro",
                                     "description": "\u5e02",
                                     "disabled": false
                                 },
                                 {
                                     "key": "district",
-                                    "value": "qui",
+                                    "value": "delectus",
                                     "description": "\u533a",
                                     "disabled": false
                                 },
                                 {
                                     "key": "address",
-                                    "value": "quia",
+                                    "value": "consequuntur",
                                     "description": "\u8be6\u7ec6\u5730\u5740",
                                     "disabled": false
                                 },
                                 {
                                     "key": "zip",
-                                    "value": "veritatis",
+                                    "value": "eum",
                                     "description": "\u90ae\u7f16",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contact_name",
-                                    "value": "et",
+                                    "value": "ratione",
                                     "description": "\u8054\u7cfb\u4eba",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contact_phone",
-                                    "value": "doloremque",
+                                    "value": "recusandae",
                                     "description": "\u624b\u673a\u53f7",
                                     "disabled": false
                                 }
@@ -1772,43 +2365,43 @@
                                 },
                                 {
                                     "key": "province",
-                                    "value": "magni",
+                                    "value": "perferendis",
                                     "description": "\u7701",
                                     "disabled": false
                                 },
                                 {
                                     "key": "city",
-                                    "value": "est",
+                                    "value": "quam",
                                     "description": "\u5e02",
                                     "disabled": false
                                 },
                                 {
                                     "key": "district",
-                                    "value": "rerum",
+                                    "value": "eum",
                                     "description": "\u533a",
                                     "disabled": false
                                 },
                                 {
                                     "key": "address",
-                                    "value": "laboriosam",
+                                    "value": "quibusdam",
                                     "description": "\u8be6\u7ec6\u5730\u5740",
                                     "disabled": false
                                 },
                                 {
                                     "key": "zip",
-                                    "value": "excepturi",
+                                    "value": "aperiam",
                                     "description": "\u90ae\u7f16",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contact_name",
-                                    "value": "libero",
+                                    "value": "dolorem",
                                     "description": "\u8054\u7cfb\u4eba",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contact_phone",
-                                    "value": "et",
+                                    "value": "quia",
                                     "description": "\u624b\u673a\u53f7",
                                     "disabled": false
                                 }
@@ -1843,7 +2436,7 @@
                             "query": [
                                 {
                                     "key": "address_id",
-                                    "value": "eius",
+                                    "value": "commodi",
                                     "description": "address\u8868id",
                                     "disabled": false
                                 }
@@ -1906,7 +2499,7 @@
                             "query": [
                                 {
                                     "key": "profile_id",
-                                    "value": "voluptas",
+                                    "value": "repudiandae",
                                     "description": "profile\u8868id",
                                     "disabled": false
                                 }
@@ -1941,123 +2534,13 @@
                             "query": [
                                 {
                                     "key": "profile_id",
-                                    "value": "consequatur",
+                                    "value": "et",
                                     "description": "profile\u8868id",
                                     "disabled": false
                                 }
                             ]
                         },
                         "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "\u300cADMIN\u300dGet invitation code\n\u83b7\u53d6\u9080\u8bf7\u7801",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "localhost",
-                            "path": "admin\/invitation\/code",
-                            "query": []
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "\u300cADMIN\u300dbind code\n\u7ed1\u5b9a\u7528\u6237\u4e0e\u9080\u8bf7\u7801",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "localhost",
-                            "path": "admin\/invitation\/code",
-                            "query": [
-                                {
-                                    "key": "phone",
-                                    "value": "voluptatem",
-                                    "description": "\u624b\u673a\u53f7",
-                                    "disabled": false
-                                },
-                                {
-                                    "key": "code",
-                                    "value": "qui",
-                                    "description": "\u9080\u8bf7\u7801",
-                                    "disabled": false
-                                }
-                            ]
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "\u300cADMIN\u300dGet user phone\n\u83b7\u53d6\u7528\u6237\u7684\u624b\u673a\u53f7",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "localhost",
-                            "path": "admin\/invitation\/phone",
-                            "query": [
-                                {
-                                    "key": "page",
-                                    "value": "ad",
-                                    "description": "\u9875\u7801",
-                                    "disabled": false
-                                },
-                                {
-                                    "key": "page_limit",
-                                    "value": "quia",
-                                    "description": "\u9875\u6570",
-                                    "disabled": false
-                                }
-                            ]
-                        },
-                        "method": "GET",
                         "header": [
                             {
                                 "key": "Content-Type",
@@ -2086,13 +2569,13 @@
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "natus",
+                                    "value": "at",
                                     "description": "\u9875\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page_limit",
-                                    "value": "voluptatibus",
+                                    "value": "ducimus",
                                     "description": "\u6bcf\u9875\u6570\u91cf",
                                     "disabled": false
                                 }
@@ -2127,55 +2610,55 @@
                             "query": [
                                 {
                                     "key": "title",
-                                    "value": "voluptas",
+                                    "value": "aut",
                                     "description": "\u5206\u7c7b\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "title_en",
-                                    "value": "vero",
+                                    "value": "culpa",
                                     "description": "\u5206\u7c7b\u82f1\u6587\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "describe",
-                                    "value": "distinctio",
+                                    "value": "ab",
                                     "description": "\u5206\u7c7b\u63cf\u8ff0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "describe_en",
-                                    "value": "voluptatum",
+                                    "value": "et",
                                     "description": "\u82f1\u6587\u5206\u7c7b\u63cf\u8ff0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "banner",
-                                    "value": "qui",
+                                    "value": "est",
                                     "description": "\u5206\u7c7bbanner\u56fe",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "ratione",
+                                    "value": "velit",
                                     "description": "\u5206\u7c7b\u7b80\u4ecb",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description_en",
-                                    "value": "non",
+                                    "value": "deserunt",
                                     "description": "\u5206\u7c7b\u82f1\u6587\u7b80\u4ecb",
                                     "disabled": false
                                 },
                                 {
                                     "key": "img",
-                                    "value": "autem",
+                                    "value": "ab",
                                     "description": "\u5206\u7c7b\u7b80\u4ecb\u56fe",
                                     "disabled": false
                                 },
                                 {
                                     "key": "parent_id",
-                                    "value": "sit",
+                                    "value": "eum",
                                     "description": "\u4e0a\u7ea7\u5206\u7c7bID",
                                     "disabled": false
                                 }
@@ -2210,55 +2693,55 @@
                             "query": [
                                 {
                                     "key": "title",
-                                    "value": "voluptas",
+                                    "value": "asperiores",
                                     "description": "\u5206\u7c7b\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "title_en",
-                                    "value": "et",
+                                    "value": "odio",
                                     "description": "\u5206\u7c7b\u82f1\u6587\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "describe",
-                                    "value": "voluptatem",
+                                    "value": "praesentium",
                                     "description": "\u5206\u7c7b\u63cf\u8ff0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "describe_en",
-                                    "value": "quia",
+                                    "value": "sint",
                                     "description": "\u82f1\u6587\u5206\u7c7b\u63cf\u8ff0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "banner",
-                                    "value": "enim",
+                                    "value": "ipsum",
                                     "description": "\u5206\u7c7bbanner\u56fe",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "dolor",
+                                    "value": "dolorem",
                                     "description": "\u5206\u7c7b\u7b80\u4ecb",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description_en",
-                                    "value": "qui",
+                                    "value": "rerum",
                                     "description": "\u5206\u7c7b\u82f1\u6587\u7b80\u4ecb",
                                     "disabled": false
                                 },
                                 {
                                     "key": "img",
-                                    "value": "cum",
+                                    "value": "et",
                                     "description": "\u5206\u7c7b\u7b80\u4ecb\u56fe",
                                     "disabled": false
                                 },
                                 {
                                     "key": "parent_id",
-                                    "value": "consequatur",
+                                    "value": "sed",
                                     "description": "\u4e0a\u7ea7\u5206\u7c7bID",
                                     "disabled": false
                                 }
@@ -2321,13 +2804,13 @@
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "debitis",
+                                    "value": "et",
                                     "description": "\u9875\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page_limit",
-                                    "value": "similique",
+                                    "value": "numquam",
                                     "description": "\u6ca1\u9875\u6570\u91cf",
                                     "disabled": false
                                 }
@@ -2362,37 +2845,37 @@
                             "query": [
                                 {
                                     "key": "title",
-                                    "value": "quas",
+                                    "value": "nostrum",
                                     "description": "\u5206\u7c7b\u6545\u4e8b\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "title_en",
-                                    "value": "cumque",
+                                    "value": "quis",
                                     "description": "\u82f1\u6587\u6545\u4e8b\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "amet",
+                                    "value": "unde",
                                     "description": "\u5206\u7c7b\u7b80\u4ecb",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description_en",
-                                    "value": "in",
+                                    "value": "recusandae",
                                     "description": "\u82f1\u6587\u5206\u7c7b\u7b80\u4ecb",
                                     "disabled": false
                                 },
                                 {
                                     "key": "banner",
-                                    "value": "tempore",
+                                    "value": "dolorem",
                                     "description": "\u6545\u4e8bbanner",
                                     "disabled": false
                                 },
                                 {
                                     "key": "product_category_id",
-                                    "value": "ipsum",
+                                    "value": "voluptatibus",
                                     "description": "\u5c5e\u4e8e\u4ea7\u54c1\u7c7bID",
                                     "disabled": false
                                 }
@@ -2427,37 +2910,37 @@
                             "query": [
                                 {
                                     "key": "title",
-                                    "value": "quis",
+                                    "value": "et",
                                     "description": "\u5206\u7c7b\u6545\u4e8b\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "title_en",
-                                    "value": "et",
+                                    "value": "libero",
                                     "description": "\u82f1\u6587\u6545\u4e8b\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "corporis",
+                                    "value": "fugit",
                                     "description": "\u5206\u7c7b\u7b80\u4ecb",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description_en",
-                                    "value": "atque",
+                                    "value": "laborum",
                                     "description": "\u82f1\u6587\u5206\u7c7b\u7b80\u4ecb",
                                     "disabled": false
                                 },
                                 {
                                     "key": "banner",
-                                    "value": "sit",
+                                    "value": "ut",
                                     "description": "\u6545\u4e8bbanner",
                                     "disabled": false
                                 },
                                 {
                                     "key": "product_category_id",
-                                    "value": "dignissimos",
+                                    "value": "soluta",
                                     "description": "\u5c5e\u4e8e\u4ea7\u54c1\u7c7bID",
                                     "disabled": false
                                 }
@@ -2520,17 +3003,45 @@
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "ad",
+                                    "value": "distinctio",
                                     "description": "\u9875\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page_limit",
-                                    "value": "molestiae",
+                                    "value": "quia",
                                     "description": "\u6bcf\u9875\u6570\u91cf",
                                     "disabled": false
                                 }
                             ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "\u300cADMIN\u300dGet product detail by product_slug\n\u6839\u636eproduct_slug\u83b7\u53d6\u5546\u54c1\u8be6\u60c5",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "admin\/product\/:product_slug",
+                            "query": []
                         },
                         "method": "GET",
                         "header": [
@@ -2561,139 +3072,139 @@
                             "query": [
                                 {
                                     "key": "product_category_id",
-                                    "value": "molestiae",
+                                    "value": "odio",
                                     "description": "\u6240\u5c5e\u4ea7\u54c1\u5206\u7c7bid",
                                     "disabled": false
                                 },
                                 {
                                     "key": "product_name",
-                                    "value": "debitis",
+                                    "value": "ducimus",
                                     "description": "\u5546\u54c1\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "product_name_en",
-                                    "value": "ea",
+                                    "value": "impedit",
                                     "description": "\u5546\u54c1\u82f1\u6587\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "thumbnail",
-                                    "value": "veniam",
+                                    "value": "culpa",
                                     "description": "\u4ea7\u54c1\u7f29\u7565\u56fe",
                                     "disabled": false
                                 },
                                 {
                                     "key": "slug",
-                                    "value": "officia",
+                                    "value": "deserunt",
                                     "description": "\u5bfc\u822a\u540d\u79f0:\u5373url",
                                     "disabled": false
                                 },
                                 {
                                     "key": "short_description",
-                                    "value": "aut",
+                                    "value": "eos",
                                     "description": "\u7b80\u77ed\u4ecb\u7ecd",
                                     "disabled": false
                                 },
                                 {
                                     "key": "short_description_en",
-                                    "value": "veritatis",
+                                    "value": "perspiciatis",
                                     "description": "\u82f1\u6587\u7b80\u77ed\u4ecb\u7ecd",
                                     "disabled": false
                                 },
                                 {
                                     "key": "price",
-                                    "value": "optio",
+                                    "value": "autem",
                                     "description": "\u4ef7\u683c",
                                     "disabled": false
                                 },
                                 {
                                     "key": "sale_price",
-                                    "value": "porro",
+                                    "value": "non",
                                     "description": "\u4f18\u60e0\u4ef7",
                                     "disabled": false
                                 },
                                 {
                                     "key": "stock",
-                                    "value": "deserunt",
+                                    "value": "officia",
                                     "description": "\u5e93\u5b58\u91cf",
                                     "disabled": false
                                 },
                                 {
                                     "key": "seo_title",
-                                    "value": "ab",
+                                    "value": "est",
                                     "description": "\u7f51\u9875title",
                                     "disabled": false
                                 },
                                 {
                                     "key": "seo_keyword",
-                                    "value": "magnam",
+                                    "value": "quia",
                                     "description": "\u7f51\u9875\u5173\u952e\u5b57",
                                     "disabled": false
                                 },
                                 {
                                     "key": "seo_description",
-                                    "value": "sed",
+                                    "value": "culpa",
                                     "description": "\u7f51\u9875\u63cf\u8ff0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "benefit",
-                                    "value": "cupiditate",
+                                    "value": "aspernatur",
                                     "description": "\u4ea7\u54c1\u529f\u6548",
                                     "disabled": false
                                 },
                                 {
                                     "key": "benefit_en",
-                                    "value": "ratione",
+                                    "value": "voluptas",
                                     "description": "\u82f1\u6587\u4ea7\u54c1\u529f\u6548",
                                     "disabled": false
                                 },
                                 {
                                     "key": "tech_description",
-                                    "value": "vel",
+                                    "value": "delectus",
                                     "description": "\u79d1\u6280\u4ecb\u7ecd",
                                     "disabled": false
                                 },
                                 {
                                     "key": "tech_description_en",
-                                    "value": "blanditiis",
+                                    "value": "officiis",
                                     "description": "\u82f1\u6587\u79d1\u6280\u4ecb\u7ecd",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "sed",
+                                    "value": "nihil",
                                     "description": "\u4ea7\u54c1\u7ec6\u8282",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description_en",
-                                    "value": "provident",
+                                    "value": "pariatur",
                                     "description": "\u82f1\u6587\u4ea7\u54c1\u7ec6\u8282",
                                     "disabled": false
                                 },
                                 {
                                     "key": "usage",
-                                    "value": "omnis",
+                                    "value": "quam",
                                     "description": "\u4f7f\u7528\u65b9\u6cd5",
                                     "disabled": false
                                 },
                                 {
                                     "key": "usage_en",
-                                    "value": "perferendis",
+                                    "value": "qui",
                                     "description": "\u82f1\u6587\u4f7f\u7528\u65b9\u6cd5",
                                     "disabled": false
                                 },
                                 {
                                     "key": "main_image",
-                                    "value": "ut",
+                                    "value": "commodi",
                                     "description": "\u9875\u9762\u4e3b\u56fe",
                                     "disabled": false
                                 },
                                 {
                                     "key": "main_image_2",
-                                    "value": "est",
+                                    "value": "ullam",
                                     "description": "\u9875\u9762\u4e3b\u56fe2:\u7528\u4e8e\u8f83\u4f4e\u5206\u8fa8\u7387\u8bbe\u5907",
                                     "disabled": false
                                 },
@@ -2705,31 +3216,31 @@
                                 },
                                 {
                                     "key": "product_video",
-                                    "value": "et",
+                                    "value": "sapiente",
                                     "description": "\u4ea7\u54c1\u76f8\u5173\u89c6\u9891",
                                     "disabled": false
                                 },
                                 {
                                     "key": "status",
-                                    "value": "consectetur",
+                                    "value": "qui",
                                     "description": "\u5546\u54c1\u72b6\u6001\uff1a1\u65b0\u54c1\uff0c2\u7545\u9500\uff0c3\u4fc3\u9500\uff0c-1\u4e0b\u67b6",
                                     "disabled": false
                                 },
                                 {
                                     "key": "rating",
-                                    "value": "voluptatibus",
+                                    "value": "et",
                                     "description": "\u5e73\u5747\u8bc4\u5206",
                                     "disabled": false
                                 },
                                 {
                                     "key": "sold_count",
-                                    "value": "dolorem",
+                                    "value": "minus",
                                     "description": "\u9500\u91cf",
                                     "disabled": false
                                 },
                                 {
                                     "key": "review_count",
-                                    "value": "laboriosam",
+                                    "value": "est",
                                     "description": "\u8bc4\u4ef7\u6570\u91cf",
                                     "disabled": false
                                 }
@@ -2764,175 +3275,175 @@
                             "query": [
                                 {
                                     "key": "product_category_id",
-                                    "value": "earum",
+                                    "value": "explicabo",
                                     "description": "\u6240\u5c5e\u4ea7\u54c1\u5206\u7c7bid",
                                     "disabled": false
                                 },
                                 {
                                     "key": "product_name",
-                                    "value": "dicta",
+                                    "value": "quam",
                                     "description": "\u5546\u54c1\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "product_name_en",
-                                    "value": "et",
+                                    "value": "neque",
                                     "description": "\u5546\u54c1\u82f1\u6587\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "thumbnail",
-                                    "value": "nemo",
+                                    "value": "occaecati",
                                     "description": "\u4ea7\u54c1\u7f29\u7565\u56fe",
                                     "disabled": false
                                 },
                                 {
                                     "key": "slug",
-                                    "value": "voluptate",
+                                    "value": "maxime",
                                     "description": "\u5bfc\u822a\u540d\u79f0:\u5373url",
                                     "disabled": false
                                 },
                                 {
                                     "key": "short_description",
-                                    "value": "explicabo",
+                                    "value": "consequatur",
                                     "description": "\u7b80\u77ed\u4ecb\u7ecd",
                                     "disabled": false
                                 },
                                 {
                                     "key": "short_description_en",
-                                    "value": "est",
+                                    "value": "culpa",
                                     "description": "\u82f1\u6587\u7b80\u77ed\u4ecb\u7ecd",
                                     "disabled": false
                                 },
                                 {
                                     "key": "price",
-                                    "value": "eius",
+                                    "value": "molestiae",
                                     "description": "\u4ef7\u683c",
                                     "disabled": false
                                 },
                                 {
                                     "key": "sale_price",
-                                    "value": "dolorem",
+                                    "value": "temporibus",
                                     "description": "\u4f18\u60e0\u4ef7",
                                     "disabled": false
                                 },
                                 {
                                     "key": "stock",
-                                    "value": "accusantium",
+                                    "value": "eum",
                                     "description": "\u5e93\u5b58\u91cf",
                                     "disabled": false
                                 },
                                 {
                                     "key": "seo_title",
-                                    "value": "optio",
+                                    "value": "deserunt",
                                     "description": "\u7f51\u9875title",
                                     "disabled": false
                                 },
                                 {
                                     "key": "seo_keyword",
-                                    "value": "aut",
+                                    "value": "ipsam",
                                     "description": "\u7f51\u9875\u5173\u952e\u5b57",
                                     "disabled": false
                                 },
                                 {
                                     "key": "seo_description",
-                                    "value": "aut",
+                                    "value": "dolorem",
                                     "description": "\u7f51\u9875\u63cf\u8ff0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "benefit",
-                                    "value": "atque",
+                                    "value": "repellat",
                                     "description": "\u4ea7\u54c1\u529f\u6548",
                                     "disabled": false
                                 },
                                 {
                                     "key": "benefit_en",
-                                    "value": "quia",
+                                    "value": "quam",
                                     "description": "\u82f1\u6587\u4ea7\u54c1\u529f\u6548",
                                     "disabled": false
                                 },
                                 {
                                     "key": "tech_description",
-                                    "value": "fugiat",
+                                    "value": "accusamus",
                                     "description": "\u79d1\u6280\u4ecb\u7ecd",
                                     "disabled": false
                                 },
                                 {
                                     "key": "tech_description_en",
-                                    "value": "et",
+                                    "value": "aut",
                                     "description": "\u82f1\u6587\u79d1\u6280\u4ecb\u7ecd",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "laboriosam",
+                                    "value": "mollitia",
                                     "description": "\u4ea7\u54c1\u7ec6\u8282",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description_en",
-                                    "value": "repellendus",
+                                    "value": "nisi",
                                     "description": "\u82f1\u6587\u4ea7\u54c1\u7ec6\u8282",
                                     "disabled": false
                                 },
                                 {
                                     "key": "usage",
-                                    "value": "quibusdam",
+                                    "value": "vel",
                                     "description": "\u4f7f\u7528\u65b9\u6cd5",
                                     "disabled": false
                                 },
                                 {
                                     "key": "usage_en",
-                                    "value": "est",
+                                    "value": "ullam",
                                     "description": "\u82f1\u6587\u4f7f\u7528\u65b9\u6cd5",
                                     "disabled": false
                                 },
                                 {
                                     "key": "main_image",
-                                    "value": "voluptatum",
+                                    "value": "perferendis",
                                     "description": "\u9875\u9762\u4e3b\u56fe",
                                     "disabled": false
                                 },
                                 {
                                     "key": "main_image_2",
-                                    "value": "facilis",
+                                    "value": "quisquam",
                                     "description": "\u9875\u9762\u4e3b\u56fe2:\u7528\u4e8e\u8f83\u4f4e\u5206\u8fa8\u7387\u8bbe\u5907",
                                     "disabled": false
                                 },
                                 {
                                     "key": "benefit_image",
-                                    "value": "velit",
+                                    "value": "inventore",
                                     "description": "\u529f\u6548\u80cc\u666f\u56fe",
                                     "disabled": false
                                 },
                                 {
                                     "key": "product_video",
-                                    "value": "non",
+                                    "value": "magnam",
                                     "description": "\u4ea7\u54c1\u76f8\u5173\u89c6\u9891",
                                     "disabled": false
                                 },
                                 {
                                     "key": "status",
-                                    "value": "quis",
+                                    "value": "veritatis",
                                     "description": "\u5546\u54c1\u72b6\u6001\uff1a1\u65b0\u54c1\uff0c2\u7545\u9500\uff0c3\u4fc3\u9500\uff0c-1\u4e0b\u67b6",
                                     "disabled": false
                                 },
                                 {
                                     "key": "rating",
-                                    "value": "et",
+                                    "value": "nulla",
                                     "description": "\u5e73\u5747\u8bc4\u5206",
                                     "disabled": false
                                 },
                                 {
                                     "key": "sold_count",
-                                    "value": "voluptatem",
+                                    "value": "possimus",
                                     "description": "\u9500\u91cf",
                                     "disabled": false
                                 },
                                 {
                                     "key": "review_count",
-                                    "value": "autem",
+                                    "value": "praesentium",
                                     "description": "\u8bc4\u4ef7\u6570\u91cf",
                                     "disabled": false
                                 }
@@ -3023,31 +3534,31 @@
                             "query": [
                                 {
                                     "key": "title",
-                                    "value": "facilis",
+                                    "value": "aspernatur",
                                     "description": "sku\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "corrupti",
+                                    "value": "quam",
                                     "description": "sku\u63cf\u8ff0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "price",
-                                    "value": "dolorem",
+                                    "value": "cum",
                                     "description": "\u4ef7\u683c",
                                     "disabled": false
                                 },
                                 {
                                     "key": "stock",
-                                    "value": "dolores",
+                                    "value": "assumenda",
                                     "description": "\u5e93\u5b58",
                                     "disabled": false
                                 },
                                 {
                                     "key": "product_id",
-                                    "value": "quidem",
+                                    "value": "quae",
                                     "description": "\u6240\u5c5e\u5546\u54c1id",
                                     "disabled": false
                                 }
@@ -3082,31 +3593,31 @@
                             "query": [
                                 {
                                     "key": "title",
-                                    "value": "libero",
+                                    "value": "pariatur",
                                     "description": "sku\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "quia",
+                                    "value": "consequatur",
                                     "description": "sku\u63cf\u8ff0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "price",
-                                    "value": "autem",
+                                    "value": "dolorem",
                                     "description": "\u4ef7\u683c",
                                     "disabled": false
                                 },
                                 {
                                     "key": "stock",
-                                    "value": "natus",
+                                    "value": "explicabo",
                                     "description": "\u5e93\u5b58",
                                     "disabled": false
                                 },
                                 {
                                     "key": "product_id",
-                                    "value": "consequatur",
+                                    "value": "quaerat",
                                     "description": "\u6240\u5c5e\u5546\u54c1id",
                                     "disabled": false
                                 }
@@ -3169,13 +3680,13 @@
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "ut",
+                                    "value": "assumenda",
                                     "description": "\u9875\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page_limit",
-                                    "value": "ut",
+                                    "value": "vel",
                                     "description": "\u6bcf\u9875\u6570\u91cf",
                                     "disabled": false
                                 }
@@ -3210,31 +3721,31 @@
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "quia",
+                                    "value": "blanditiis",
                                     "description": "\u9875\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page_limit",
-                                    "value": "ipsum",
+                                    "value": "libero",
                                     "description": "\u6bcf\u9875\u6570\u91cf",
                                     "disabled": false
                                 },
                                 {
                                     "key": "username",
-                                    "value": "omnis",
+                                    "value": "explicabo",
                                     "description": "\u7528\u6237\u540d",
                                     "disabled": false
                                 },
                                 {
                                     "key": "order_no",
-                                    "value": "ipsa",
+                                    "value": "quisquam",
                                     "description": "\u8ba2\u5355\u53f7",
                                     "disabled": false
                                 },
                                 {
                                     "key": "order_status",
-                                    "value": "pariatur",
+                                    "value": "consequatur",
                                     "description": "\u8ba2\u5355\u72b6\u6001",
                                     "disabled": false
                                 }
@@ -3269,13 +3780,13 @@
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "quae",
+                                    "value": "tempore",
                                     "description": "optional \u9875\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page_limit",
-                                    "value": "ut",
+                                    "value": "ipsa",
                                     "description": "optional \u6bcf\u9875\u663e\u793a\u6570\u76ee",
                                     "disabled": false
                                 }
@@ -3310,7 +3821,7 @@
                             "query": [
                                 {
                                     "key": "ids",
-                                    "value": "id",
+                                    "value": "iure",
                                     "description": "ID\u503c(array)",
                                     "disabled": false
                                 }

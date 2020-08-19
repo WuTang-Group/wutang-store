@@ -9,6 +9,7 @@ export default {
     'categoryList': '类目列表',
     product: '商品管理',
     'productList': '商品列表',
+    'createOrUpdate': '商品操作',
     PurchaseOrder: '订单管理',
     'PurchaseOrderList': '订单列表',
     Logistics: '物流管理',

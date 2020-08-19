@@ -11,6 +11,12 @@ use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+/**
+ * @group [API] User address
+ * 用户地址管理
+ * @authenticated
+ * @package App\Http\Controllers\Api
+ */
 class UserAddressController extends Controller
 {
     private $service;

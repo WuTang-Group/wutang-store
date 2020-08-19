@@ -13,9 +13,9 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 /**
+ * @group [API] Product
+ * 商品管理
  * @authenticated
- * APIs for ProductController
- * API-商品控制器
  * @package App\Http\Controllers\Api
  */
 class ProductController extends Controller

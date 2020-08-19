@@ -12,6 +12,11 @@ use App\Services\Api\AuthService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * @group [API] Auth
+ * 授权管理
+ * @package App\Http\Controllers\Api
+ */
 class AuthController extends Controller
 {
     /**
@@ -154,7 +159,7 @@ class AuthController extends Controller
     }
 
     /**
-     * get user password question
+     * Get user password question
      * 获取用户的密保问题
      * @queryParam username required 用户名
      * @param AuthRequest $request
@@ -167,7 +172,7 @@ class AuthController extends Controller
     }
 
     /**
-     * reset password
+     * Reset password
      * 重置密码(未登录)
      * @queryParam username required 用户名
      * @queryParam password_question_id required 密保问题ID
@@ -184,7 +189,7 @@ class AuthController extends Controller
     }
 
     /**
-     * change password
+     * Change password
      * 修改密码(已登录)
      * @bodyParam oldPassword string required 旧密码
      * @bodyParam newPassword string required 新密码

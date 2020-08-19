@@ -15,6 +15,11 @@ use Illuminate\ {
     Support\Str
 };
 
+/**
+ * @group [ADMIN] User
+ * 用户管理
+ * @package App\Http\Controllers\Admin
+ */
 class UserController extends Controller
 {
     private $service;
@@ -25,7 +30,7 @@ class UserController extends Controller
     }
 
     /**
-     *「ADMIN」Query user list(Admin)
+     * Query user list(Admin)
      * 查询用户数据列表
      * @queryParam username 用户名(选填)
      * @queryParam page 页码，默认1
@@ -56,7 +61,7 @@ class UserController extends Controller
     }
 
     /**
-     *「ADMIN」Edit user(Admin)
+     * Edit user(Admin)
      * 修改用户资料
      * @queryParam name 姓名
      * @queryParam email 邮箱
@@ -79,7 +84,7 @@ class UserController extends Controller
     }
 
     /**
-     *「ADMIN」delete User(Admin)
+     * Delete User(Admin)
      * 删除用户
      * @param $username
      * @return \Illuminate\Http\JsonResponse
@@ -91,7 +96,7 @@ class UserController extends Controller
     }
 
     /**
-     *「ADMIN」change password(Admin)
+     * Change password
      * 修改密码
      * @queryParam oldPassword required 旧密码
      * @queryParam newPassword required 新密码
@@ -125,7 +130,7 @@ class UserController extends Controller
     }
 
     /**
-     *「ADMIN」Get user info
+     * Get user info
      * 获取单个用户信息
      * @queryParam hash_id required hash加密的ID
      * @param UserRequest $request

@@ -8,6 +8,11 @@ use App\Http\Requests\Admin\ProductSkuRequest;
 use App\Services\Admin\ProductSkuService;
 use Illuminate\Http\Request;
 
+/**
+ * @group [ADMIN] Product skus
+ * 商品sku管理
+ * @package App\Http\Controllers\Admin
+ */
 class ProductSkuController extends Controller
 {
     private $productSkuService;
@@ -17,7 +22,7 @@ class ProductSkuController extends Controller
     }
 
     /**
-     *「ADMIN」Get product sku list
+     * Get product sku list
      * 获取商品SKU列表
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
@@ -29,7 +34,7 @@ class ProductSkuController extends Controller
     }
 
     /**
-     *「ADMIN」Create product sku
+     * Create product sku
      * 新增产品SKU
      * @queryParam title required sku名称
      * @queryParam description required sku描述
@@ -45,7 +50,7 @@ class ProductSkuController extends Controller
     }
 
     /**
-     *「ADMIN」Edit product sku
+     * Edit product sku
      * 编辑产品SKU
      * @queryParam title sku名称
      * @queryParam description sku描述
@@ -62,7 +67,7 @@ class ProductSkuController extends Controller
     }
 
     /**
-     *「ADMIN」Delete product sku
+     * Delete product sku
      * 删除商品sku
      * @param $productSkuId
      * @return \Illuminate\Http\JsonResponse

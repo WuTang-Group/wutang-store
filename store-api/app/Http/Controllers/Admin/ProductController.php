@@ -9,6 +9,11 @@ use App\Http\Requests\Admin\ProductRequest;
 use App\Services\Admin\ProductService;
 use Illuminate\Http\Request;
 
+/**
+ * @group [ADMIN] Product
+ * 商品管理
+ * @package App\Http\Controllers\Admin
+ */
 class ProductController extends Controller
 {
     private $productService;
@@ -19,7 +24,7 @@ class ProductController extends Controller
     }
 
     /**
-     *「ADMIN」Get product list
+     * Get product list
      * 获取产品列表
      * @queryParam page 页码
      * @queryParam page_limit 每页数量
@@ -33,7 +38,7 @@ class ProductController extends Controller
     }
 
     /**
-     *「ADMIN」Create product
+     * Create product
      * 新建商品
      * @queryParam product_category_id 所属产品分类id
      * @queryParam product_name required 商品名称
@@ -75,7 +80,7 @@ class ProductController extends Controller
     }
 
     /**
-     *「ADMIN」Edit product
+     * Edit product
      * 编辑商品
      * @queryParam product_category_id 所属产品分类id
      * @queryParam product_name 商品名称
@@ -117,7 +122,7 @@ class ProductController extends Controller
     }
 
     /**
-     *「ADMIN」Off the Product
+     * Off the Product
      * 下架产品
      * @param $productId
      * @return \Illuminate\Http\JsonResponse

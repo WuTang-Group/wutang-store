@@ -11,6 +11,11 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+/**
+ *  @group [ADMIN] Invitation
+ * 邀请码
+ * @package App\Http\Controllers\Admin
+ */
 class InvitationController extends Controller
 {
     /*private $invitationCode;*/
@@ -43,7 +48,7 @@ class InvitationController extends Controller
         }*/
 
     /**
-     *「ADMIN」Get user phone
+     * Get user phone
      * 获取用户的手机号
      * @queryParam page 页码
      * @queryParam page_limit 页数
@@ -68,7 +73,7 @@ class InvitationController extends Controller
         }*/
 
     /**
-     *「ADMIN」bind code
+     * bind code
      * 绑定用户与邀请码
      * @queryParam phone required 手机号
      * @queryParam code required 邀请码

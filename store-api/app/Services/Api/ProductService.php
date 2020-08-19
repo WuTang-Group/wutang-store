@@ -70,7 +70,13 @@ class ProductService extends Service
         return $this->product->whereIn('id', $queries['id_list'])->get();
     }
 
-    // 收藏商品
+    // 心愿单列表
+    public function favorList($params)
+    {
+        return $params->user()->favoriteProducts()->get();
+    }
+
+    // 加入心愿单
     public function favor($productId,$params)
     {
         $user = $params->user();
@@ -86,7 +92,7 @@ class ProductService extends Service
 
     }
 
-    // 取消加入收藏
+    // 移除心愿单
     public function disfavor($productId,$params)
     {
         $user = $params->user();

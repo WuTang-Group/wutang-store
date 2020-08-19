@@ -15,3 +15,11 @@ export function testUpload(data) {
     data
   })
 }
+
+export function store(query) {
+  return request({
+    url: 'admin/product_categories',
+    method: 'post',
+    params: query
+  })
+}

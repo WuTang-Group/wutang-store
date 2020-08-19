@@ -58,7 +58,7 @@ class CategoryStoryController extends Controller
     }
 
     /**
-     * edit product category story
+     * Edit product category story
      * 编辑产品分类故事
      * @queryParam title 分类故事名称
      * @queryParam title_en 英文故事名称

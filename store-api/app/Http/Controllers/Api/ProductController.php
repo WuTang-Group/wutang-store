@@ -121,9 +121,20 @@ class ProductController extends Controller
     }
 
     /**
-     *
-     * Request Add product to collection
-     * 请求将商品加入收藏
+     * Get wish list
+     * 获取心愿单商品列表
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function favorList(Request $request)
+    {
+        $results = $this->service->favorList($request);
+        return response()->json(ResponseData::requestSuccess($results));
+    }
+
+    /**
+     * Request Add product to wish list
+     * 请求将商品加入心愿单
      * @queryParam product_id integer required 商品id
      * @param $product_id
      * @param Request $request
@@ -136,8 +147,8 @@ class ProductController extends Controller
     }
 
     /**
-     * Cancel product collection
-     * 取消商品收藏
+     * Remove product from wish list
+     * 移除心愿单商品
      * @queryParam product_id required 商品id
      * @param $product_id
      * @param Request $request

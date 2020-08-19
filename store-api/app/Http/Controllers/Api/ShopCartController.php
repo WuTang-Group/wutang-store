@@ -9,7 +9,6 @@ use App\Services\Api\ShopCartService;
 use Illuminate\ {
     Contracts\Foundation\Application,
     Contracts\Routing\ResponseFactory,
-    Http\Request,
     Http\Response
 };
 
@@ -36,14 +35,13 @@ class ShopCartController extends Controller
     /**
      * Request store cart items
      * 保存/更新购物车商品
-     * @bodyParam product_id required 商品slug
-     * @bodyParam amount required 数量
+     * @bodyParam product_id required 商品id
      * @param ShopCartRequest $request
      * @return Application|ResponseFactory|Response
      */
     public function store(ShopCartRequest $request)
     {
-        $results = $this->service->store($request->only(['product_id','amount']));
+        $results = $this->service->store($request->only(['product_id']));
         return $results ? response(ResponseData::requestSuccess($results)) : response(ResponseData::requestFails($request->all()));
     }
 

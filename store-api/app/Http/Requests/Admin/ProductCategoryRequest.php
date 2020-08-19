@@ -21,10 +21,10 @@ class ProductCategoryRequest extends FormRequest
                     'title_en'=>'string',
                     'describe'=>'string',
                     'describe_en'=>'string',
-                    'banner'=>'image',
+//                    'banner'=>'image',
                     'description'=>'string',
                     'description_en'=>'string',
-                    'img'=>'image',
+//                    'img'=>'image',
                     'parent_id'=>'exists:product_categories,id'
                 ];
             }

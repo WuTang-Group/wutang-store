@@ -69,4 +69,28 @@ class ProductService extends Service
     {
         return $this->product->whereIn('id', $queries['id_list'])->get();
     }
+
+    // 收藏商品
+    public function favor($productId,$params)
+    {
+        $user = $params->user();
+        //attach将用户与商品关联
+        // 判断用户若与商品并没关联则进行关联
+        if ($user->favoriteProducts()->find($productId)) {
+            return [];
+        }
+
+        $user->favoriteProducts()->attach($productId);
+
+        return [];
+
+    }
+
+    // 取消加入收藏
+    public function disfavor($productId,$params)
+    {
+        $user = $params->user();
+        $user->favoriteProducts()->detach($productId);  // detach取消多对多关联
+        return [];
+    }
 }

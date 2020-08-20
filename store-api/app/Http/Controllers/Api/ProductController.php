@@ -119,44 +119,4 @@ class ProductController extends Controller
         $results = $this->service->productQuery($request->all());
         return response()->json(ResponseData::requestSuccess($results));
     }
-
-    /**
-     * Get wish list
-     * 获取心愿单商品列表
-     * @param Request $request
-     * @return JsonResponse
-     */
-    public function favorList(Request $request)
-    {
-        $results = $this->service->favorList($request);
-        return response()->json(ResponseData::requestSuccess($results));
-    }
-
-    /**
-     * Request Add product to wish list
-     * 请求将商品加入心愿单
-     * @queryParam product_id integer required 商品id
-     * @param $product_id
-     * @param Request $request
-     * @return Application|ResponseFactory|Response
-     */
-    public function favor($product_id,Request $request)
-    {
-        $results = $this->service->favor($product_id,$request);
-        return response(ResponseData::requestSuccess($results));
-    }
-
-    /**
-     * Remove product from wish list
-     * 移除心愿单商品
-     * @queryParam product_id required 商品id
-     * @param $product_id
-     * @param Request $request
-     * @return Application|ResponseFactory|Response
-     */
-    public function disfavor($product_id,Request $request)
-    {
-        $results = $this->service->disfavor($product_id,$request);
-        return response(ResponseData::requestSuccess($results));
-    }
 }

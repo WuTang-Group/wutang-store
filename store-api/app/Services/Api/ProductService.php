@@ -69,34 +69,4 @@ class ProductService extends Service
     {
         return $this->product->whereIn('id', $queries['id_list'])->get();
     }
-
-    // 心愿单列表
-    public function favorList($params)
-    {
-        return $params->user()->favoriteProducts()->get();
-    }
-
-    // 加入心愿单
-    public function favor($productId,$params)
-    {
-        $user = $params->user();
-        //attach将用户与商品关联
-        // 判断用户若与商品并没关联则进行关联
-        if ($user->favoriteProducts()->find($productId)) {
-            return [];
-        }
-
-        $user->favoriteProducts()->attach($productId);
-
-        return [];
-
-    }
-
-    // 移除心愿单
-    public function disfavor($productId,$params)
-    {
-        $user = $params->user();
-        $user->favoriteProducts()->detach($productId);  // detach取消多对多关联
-        return [];
-    }
 }

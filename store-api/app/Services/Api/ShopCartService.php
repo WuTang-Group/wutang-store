@@ -25,14 +25,13 @@ class ShopCartService extends Service
     public function store($queries)
     {
         try {
-//            $this->user()->shopCartItems()->updateOrCreate(['product_id' => $queries['product_id']], [
-//                'product_id' => $queries['product_id'],
-//                'amount' => isset($queries['amount']) ? $queries['amount'] : 1
-//            ]);
-            $this->user()->shopCartItems()->create([
-                'product_id' => $queries['product_id'],
-                'amount' => 1 // 默认值也是1，可省略
-            ]);
+            $items = $queries->product_list;
+            foreach ( $items as $value) {
+                $this->user()->shopCartItems()->create([
+                    'product_id' => $value['product_id'],
+                    'amount' => 1 // 默认值也是1，可省略
+                ]);
+            }
         } catch (\Exception $e) {
             Log::error('购物车操作失败', ['message' => $e->getMessage()]);
             return $e->getMessage();

@@ -9,6 +9,8 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Promise;
 use Illuminate\Support\Facades\Cookie;
 use App\Traits\HttpResponseTrait;
+use Illuminate\Support\Facades\Log;
+use Session;
 
 class AuthMode
 {
@@ -30,14 +32,15 @@ class AuthMode
     public function handle($request, Closure $next)
     {	
         $client = new Client(['base_uri' => env('API_URL')]);
-        $promise = $client->requestAsync('GET', 'auth/me', ['headers' => [
+        $req = $client->request('GET', 'auth/me', ['headers' => [
                 'Authorization' => 'Bearer '.$this->token
             ]
         ]);
-        $response = Promise\settle($promise)->wait();
-        $auth = json_decode($response[0]['value']->getBody()->getContents());
+        Session::put('intended_url', $request->url());
 
-        HttpResponseTrait::response('auth', $auth->code);
+        $response = json_decode($req->getBody());
+
+        HttpResponseTrait::response('auth', $response->code);
 
         return $next($request);
     }

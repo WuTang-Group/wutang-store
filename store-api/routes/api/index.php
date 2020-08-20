@@ -128,9 +128,9 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         /**
          * 心愿单
          */
-        Route::get('products/favorite','ProductController@favorList')->name('products.favorList');
-        Route::post('products/{product_id}/favorite', 'ProductController@favor')->name('products.favorite');
-        Route::delete('products/{product_id}/favorite', 'ProductController@disfavor')->name('products.disfavor');
+        Route::get('wish_list','WishListController@index')->name('wish_list.index');
+        Route::post('wish_list', 'WishListController@store')->name('wish_list.store');
+        Route::delete('wish_list', 'WishListController@delete')->name('wish_list.delete');
     });
 
 });

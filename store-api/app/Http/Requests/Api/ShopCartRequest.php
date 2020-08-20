@@ -19,10 +19,34 @@ class ShopCartRequest extends FormRequest
     public function rules()
     {
         switch ($this->route()->getActionMethod()) {
+//            case 'store':
+//            {
+//                return [
+//                    'product_id' => ['required', function ($attribute, $value, $fail) {
+//                        if (!$product = Product::find($value)) {
+//                            return $fail('该商品不存在');
+//                        }
+//                        if ($product->stock === 0) {
+//                            return $fail('该商品已售完');
+//                        }
+//                        if (ShopCartItem::whereUserId($this->user('api')->id)->whereProductId($value)->first()) {
+//                            return $fail('您购物车已有该商品');
+//                        }
+//                        // 判断用户是否买过该商品
+//                        $orderItem = Order::whereHas('items', function ($query) use ($value) {
+//                            $query->whereProductId($value);
+//                        })->with('items')->whereUserId($this->user()->id)->get();
+//                        if (!$orderItem->isEmpty()) {
+//                            return $fail('您已购买过该商品');
+//                        }
+//                    }]
+//                ];
+//            }
             case 'store':
             {
                 return [
-                    'product_id' => ['required', function ($attribute, $value, $fail) {
+                    'product_list' => 'required' | 'array',
+                    'product_list.*.product_id' => ['required', function ($attribute, $value, $fail) {
                         if (!$product = Product::find($value)) {
                             return $fail('该商品不存在');
                         }

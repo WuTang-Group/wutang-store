@@ -11,40 +11,21 @@
 				<div class="col-lg-8">
 					<div class="checkout">
 						<div class="accordion">
-			              	<h2 class="text-white title mb-0" data-toggle="collapse" data-target="#account" aria-expanded="true" aria-controls="account">登陆或注册</h2>
-			              	<div id="account" class="collapse show">
-	                            <div class="form-group">
-	                                <label class="tx-dark-gray">电子邮件/手机号 *</label>
-	                                <input type="text" class="form-control border-white bg-trans">
-	                            </div>
-	                            <div class="form-group">
-	                                <label class="tx-dark-gray">密码 *</label>
-	                                <input type="password" class="form-control border-white bg-trans">
-	                            </div>
-	                            <div class="form-group form-check d-flex justify-content-between">
-	                                <input type="checkbox" class="form-check-input" id="cremember-me">
-	                                <label class="form-check-label" for="cremember-me">记住我</label>
-	                                <a href="" class="tx-dark-gray">忘记密码</a>
-	                            </div>
-	                            <div class="d-flex align-items-center mt-4">
-	                                <button type="submit" class="btn btn-white">登陆</button>
-	                                <label class="m-auto">或</label>
-	                                <a href="register.php" class="btn btn-outline">注册</a>
-	                            </div>
-			              	</div>
-			              	<h2 class="text-white title mb-0 collapsed" data-toggle="collapse" data-target="#shipping" aria-expanded="true" aria-controls="collapseOne">寄送地址</h2>
-			              	<div id="shipping" class="collapse">
+			              	<h2 class="text-white title mb-0" data-toggle="collapse" data-target="#shipping" aria-expanded="true" aria-controls="collapseOne">寄送地址</h2>
+			              	<div id="shipping" class="collapse show">
 			              		<div class="form-check">
 								  	<input class="form-check-input address-checkbox" name="shipping-address" type="radio" value="default" id="default" checked required>
 								  	<label class="form-check-label" for="default">默认地址</label>
 								</div>
 			                    <div id="default-shipping" class="transition-dn active">
-		                            <ul>
-		                                <li>北京市朝阳区针织路23号楼</li>
-		                                <li>中国人寿金融中心12层</li>
-		                                <li>北京, 100026</li>
+				                    <ul>
+		                                <li>{{ $results['default_address']->data->address }}</li>
+		                                <li>{{ $results['default_address']->data->city }}</li>
+		                                <li>{{ $results['default_address']->data->province }}</li>
+		                                <li>{{ $results['default_address']->data->district }}, {{ $results['default_address']->data->zip }}</li>
 		                                <li>中国</li>
-		                                <li class="mt-2">012345746</li>
+		                                <li class="mt-2">{{ $results['default_address']->data->real_name }}</li>
+		                                <li>{{ $results['default_address']->data->phone }}</li>
 		                            </ul>
 			                    </div>
 								<div class="form-check mt-2">
@@ -112,22 +93,14 @@
 	                </div>
 				</div>
 				<div class="col-lg-4">
-					<div class="order-review pt-5">
+					<div class="order-review pt-5 scroll-element">
 		                <div class="order-subtotal">
 		                	<label class="tx-dark-gray">小计</label>
-		                	<p class="price">2,800</p>
-		                </div>
-		                <div class="shipping">
-		                	<label class="tx-dark-gray">邮费</label>
-		                	<p class="price">600</p>
-		                </div>
-		                <div class="fee">
-		                	<label class="tx-dark-gray">其他</label>
-		                	<p class="price">9,400</p>
+		                	<p class="price">{{ number_format($total) }}</p>
 		                </div>
 		                <div class="order-total mt-5">
 		                	<label>总计:</label>
-		                	<p class="price">9,400</p>
+		                	<p class="price">{{ number_format($total) }}</p>
 		                </div>
 		                <div>
 		                	<button type="submit" class="btn btn-outline w-100 mt-3">立即购买</button>
@@ -136,31 +109,22 @@
 		                	<p>请注意订单一经处理就不得更改或取消</p>
 		                </div>
 		                <div class="mt-5">
-		                	<label>您的订单 (2)</label>
+		                	<label>您的订单 ({{ $count }})</label>
+							@foreach($results['cart_items']->data[0]->shop_cart_items as $item)
 			                <div class="order-item">
 	                            <div class="d-flex position-relative">
-	                                <a href=""><img src="https://www.enkoproducts.com/wp-content/uploads/2018/11/v5-02.jpg" /></a>
+	                                <a href="/product/{{ $item->product->slug }}"><img src="{{ $item->product->thumbnail }}" /></a>
 	                                <div class="product-description">
-			                            <p class="tx-mont">SKIN CAVIAR LUXE CREAM SHEER</p>
-			                            <p>鱼子精华琼贵轻盈乳霜</p>
-			                            50 ml / 1.7 oz
-	                                    <div class="tx-uppercase mt-2 tx-dark-gray">数量: 1 <span>| 20 ml / 0.68 oz</span></div>
-	                            		<div class="product-price text-right align-self-end">¥ 4,150</div>
+			                            <p class="tx-mont">{{ $item->product->product_name_en }}</p>
+			                            <p>{{ $item->product->product_name }}</p>
+	                                    <div class="tx-uppercase mt-2 tx-dark-gray">数量: {{ $item->amount }}</div>
+	                            		<div class="product-price text-right align-self-end">
+	                            			@php echo $item->product->sale_price ? '<del>¥ '.number_format($item->product->price).'</del> ¥ '.number_format($item->product->sale_price):'¥ '.number_format($item->product->price) @endphp
+	                            		</div>
 	                                </div>
 	                            </div>
 	                        </div>
-	                        <div class="order-item">
-	                            <div class="d-flex position-relative">
-	                                <a href=""><img src="https://www.enkoproducts.com/wp-content/uploads/2018/11/v5-02.jpg" /></a>
-	                                <div class="product-description">
-			                            <p class="tx-mont">SKIN CAVIAR LUXE CREAM SHEER</p>
-			                            <p>鱼子精华琼贵轻盈乳霜</p>
-			                            50 ml / 1.7 oz
-	                                    <div class="tx-uppercase mt-2 tx-dark-gray">数量: 1 <span>| 20 ml / 0.68 oz</span></div>
-	                            		<div class="product-price text-right align-self-end">¥ 4,150</div>
-	                                </div>
-	                            </div>
-	                        </div>
+	                        @endforeach
 		                </div>
 					</div>
 				</div>

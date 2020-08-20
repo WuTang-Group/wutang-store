@@ -1,10 +1,10 @@
 <div class="mini-cart">
-    @if($minicart_collection && $minicart_collection->data[0]->shop_cart_items != null)
-        @foreach($minicart_collection->data[0]->shop_cart_items as $item)
+    @if($cart_collection && $cart_collection->data[0]->shop_cart_items != null)
+        @foreach($cart_collection->data[0]->shop_cart_items as $item)
         <div class="cart-item">
             <div class="d-flex position-relative">
                 <a href=""><img src="{{ isset($item->product->thumbnail) ? $item->product->thumbnail:$item->thumbnail }}" /></a>
-                <a href="javascript:void(0)" onclick="removeItem({{ isset($item->product->id) ? $item->product->id:$item->id }})" class="remove-product tx-dark-gray">删除</a>
+                <a href="javascript:void(0)" data-id="{{ isset($item->product->id) ? $item->product->id:$item->id }}" class="remove-product tx-dark-gray remove-item">删除</a>
                 <div class="product-description">
                     <p class="tx-mont">{{ isset($item->product->product_name_en) ? $item->product->product_name_en:$item->product_name_en }}</p>
                     <p>{{ isset($item->product->product_name) ? $item->product->product_name:$item->product_name }}</p>
@@ -13,9 +13,9 @@
             </div>
             <div class="product-price text-right align-self-end">
             @if(isset($item->product))
-                @php echo $item->product->sale_price ? '<del>¥ '.$item->product->price.'</del> ¥ '.$item->product->sale_price:'¥ '.$item->product->price @endphp
+                @php echo $item->product->sale_price ? '<del>¥ '.number_format($item->product->price).'</del> ¥ '.number_format($item->product->sale_price):'¥ '.number_format($item->product->price) @endphp
             @else
-                @php echo $item->sale_price ? '<del>¥ '.$item->price.'</del> ¥ '.$item->sale_price:'¥ '.$item->price @endphp
+                @php echo $item->sale_price ? '<del>¥ '.number_format($item->price).'</del> ¥ '.number_format($item->sale_price):'¥ '.number_format($item->price) @endphp
             @endif
             </div>
         </div>

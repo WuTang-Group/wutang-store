@@ -426,23 +426,21 @@
     Cart.initJQuery();
     $(document).on('click', '.btn-add-to-cart', function(e) {
         var id = $(this).data('id');
-        //var qty = $(this).parent().find('input[name=quantity]').val() ? $(this).parent().find('input[name=quantity]').val() : 1;
         $(this).prop('disabled',true).addClass('loading');
         if (!token) { //检查用户登录token > 位于文档axios.js
             var item = { id: id }
-            var proceed = Cart.addItem(item);
+            Cart.addItem(item);
             $(this).prop('disabled',false).removeClass('loading');
-            if(proceed != false) {
-                refresh_minicart();
-            }
+            refresh_cart();
+            toastr['success']('商品已加入您的购物车。');
         } else {
             var formData = { 'product_id' : id };
 
             axios.post(BASE_URL+'api/shop_carts', formData)
                 .then(function (response) {
                     if(response.data.code == 20001) {
-                        toastr['success'](response.data.msg);
-                        refresh_minicart();
+                        refresh_cart();
+                        toastr['success']('商品已加入您的购物车。');
                     } else {
                         toastr['error'](response.data.msg);
                     }
@@ -452,6 +450,30 @@
                     console.log(error);
                 });
             $(this).prop('disabled',false).removeClass('loading');
+        }
+    });
+
+    $(document).on('click', '.remove-item', function(e) {
+        var id = $(this).data('id');
+        if (!token) { //检查用户登录token > 位于文档axios.js
+            var item = { id: id }
+            Cart.removeItem(item);
+            refresh_cart();
+            toastr['success']('商品已从您的购物车删除。');
+        } else {
+            axios.delete(BASE_URL+'api/shop_carts/'+id)
+                .then(function (response) {
+                    if(response.data.code == 20001) {
+                        refresh_cart();
+                        toastr['success']('商品已从您的购物车删除。');
+                    } else {
+                        toastr['error'](response.data.msg);
+                    }
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
         }
     });
 
@@ -478,13 +500,18 @@ function login() {
             'username' : $this.find('input[name=username]').val(),
             'password' : $this.find('input[name=password]').val(),
         };
+        var url = $('#intended_url');
 
         axios.post(BASE_URL+'api/auth/login', formData)
             .then(function (response) {
                 if(response.data.code == 20001) {
-                    toastr['success'](response.data.msg);
+                    toastr['success']('登录成功。');
                     Cookies.set('token',response.data.data.access_token);
-                    location.reload();
+                    if(url[0]) {
+                        window.location.href = url.val();
+                    } else {
+                        location.reload();
+                    }
                 } else {
                     toastr['error'](response.data.msg);
                 }
@@ -499,7 +526,7 @@ function logout() {
     axios.delete(BASE_URL+'api/auth/logout')
         .then(function (response) {
             if(response.data.code == 20001) {
-                toastr['success'](response.data.msg);
+                toastr['success']('登出成功。');
                 Cookies.remove('token');
                 window.location.href = BASE_URL;
             } else {
@@ -517,34 +544,25 @@ function changeLocale(lang) {
     location.reload();
 }
 
-function removeItem(id) {
-    axios.delete(BASE_URL+'api/shop_carts/'+id)
-        .then(function (response) {
-            if(response.data.code == 20001) {
-                toastr['success'](response.data.msg);
-                refresh_minicart();
-            } else {
-                toastr['error'](response.data.msg);
-            }
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-}
-
-function refresh_minicart() {
-    //var $request = $.get('http://localhost:8000/refresh_minicart');//BASE_URL + 'refresh_minicart');
-    var $container = $('#nav-mini-cart');
+function refresh_cart() {
+    //var $request = $.get('http://localhost:8000/refresh_cart');//BASE_URL + 'refresh_cart');
+    var $cart = $('#cart');
+    var $minicart = $('#nav-mini-cart');
     var $count = $('.mini-cart .count');
 
-    $container.addClass('loading'); // add loading class (optional)
+    $minicart.addClass('loading'); // add loading class (optional)
+    if($cart[0]) { $cart.addClass('loading'); }// add loading class (optional)
 
-    axios.get('http://localhost:8000/refresh_minicart')
+    axios.get('http://localhost:8000/refresh_cart')
         .then(function (response) {
-            $container.html(response.data.minicart);
+            $minicart.html(response.data.minicart);
             $count.html(response.data.count);
-            $container.removeClass('loading');
+
+            if($cart[0]) { 
+                $cart.html(response.data.cart);
+                $cart.removeClass('loading'); 
+            }
+            $minicart.removeClass('loading');
             console.log(response);
         })
         .catch(function (error) {

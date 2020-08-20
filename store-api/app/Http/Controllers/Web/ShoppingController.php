@@ -20,6 +20,7 @@ class ShoppingController extends Controller
 
     public function cart(Request $request)
     {
+        $response = null;
         if($this->token) {
             $client = new Client(['base_uri' => env('API_URL')]);
             $request = $client->request('GET', 'shop_carts', ['headers' => [
@@ -29,17 +30,19 @@ class ShoppingController extends Controller
             $response = json_decode($request->getBody());
         } else if(isset($_COOKIE['_WTSC'])) {
             $WTSC = json_decode($_COOKIE['_WTSC']);
-            for ($i = 0; $i < count($WTSC); $i++) {
-                $ids[]= 'id_list[]='.$WTSC[$i]->id;
+            if(count($WTSC) > 0) {
+                for ($i = 0; $i < count($WTSC); $i++) {
+                    $ids[]= 'id_list[]='.$WTSC[$i]->id;
+                }
+
+                $client = new Client(['base_uri' => env('API_URL')]);
+                $request = $client->request('GET', 'product_ids/?'.implode('&', $ids));
+
+                $response = json_decode($request->getBody());
+
+                $shop_cart_items = (object) ['shop_cart_items' => $response->data ];
+                $response->data[0] = $shop_cart_items;
             }
-
-            $client = new Client(['base_uri' => env('API_URL')]);
-            $request = $client->request('GET', 'product_ids/?'.implode('&', $ids));
-
-            $response = json_decode($request->getBody());
-
-            $shop_cart_items = (object) ['shop_cart_items' => $response->data ];
-            $response->data[0] = $shop_cart_items;
         }
 
     	return View('cart', compact('response'));
@@ -50,7 +53,7 @@ class ShoppingController extends Controller
     	return View('wishlist');
     }
 
-    public function refresh_minicart(Request $request)
+    public function refresh_cart(Request $request)
     {
         $count = 0;
         if($this->token) { //用户已登录
@@ -59,29 +62,32 @@ class ShoppingController extends Controller
                     'Authorization' => 'Bearer '.$this->token
                 ]
             ]);
-            $minicart_collection = json_decode($req->getBody());
-        } else if(isset($_COOKIE['_WTSC'])) {
+            $cart_collection = json_decode($req->getBody());
+        } else if(!empty($_COOKIE['_WTSC'])) {
             $WTSC = json_decode($_COOKIE['_WTSC']);
-            for ($i = 0; $i < count($WTSC); $i++) {
-                $ids[]= 'id_list[]='.$WTSC[$i]->id;
+            if(count($WTSC) > 0) {
+                for ($i = 0; $i < count($WTSC); $i++) {
+                    $ids[]= 'id_list[]='.$WTSC[$i]->id;
+                }
+
+                $client = new Client(['base_uri' => env('API_URL')]);
+                $request = $client->request('GET', 'product_ids/?'.implode('&', $ids));
+
+                $cart_collection = json_decode($request->getBody());
+
+                $shop_cart_items = (object) ['shop_cart_items' => $cart_collection->data ];
+                $cart_collection->data[0] = $shop_cart_items;
             }
-
-            $client = new Client(['base_uri' => env('API_URL')]);
-            $request = $client->request('GET', 'product_ids/?'.implode('&', $ids));
-
-            $minicart_collection = json_decode($request->getBody());
-
-            $shop_cart_items = (object) ['shop_cart_items' => $minicart_collection->data ];
-            $minicart_collection->data[0] = $shop_cart_items;
         }
 
-        if($minicart_collection->code != 20001) {
-            $minicart_collection = null;
+        if($cart_collection->code != 20001) {
+            $cart_collection = null;
         }
-        $count = count($minicart_collection->data[0]->shop_cart_items);
+        $count = count($cart_collection->data[0]->shop_cart_items);
 
-        $minicart = view('partials.mini-cart', compact('minicart_collection'))->render();
+        $minicart = view('partials.mini-cart', compact('cart_collection'))->render();
+        $cart = view('partials.cart', compact('cart_collection'))->render();
 
-        return response()->json(compact('minicart','count'));
+        return response()->json(compact('minicart','cart','count'));
     }
 }

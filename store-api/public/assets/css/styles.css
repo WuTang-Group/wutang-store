@@ -1184,6 +1184,7 @@ footer {
     .cart .cart-item .product-price, 
     .cart .cart-item .product-description, 
     .cart .cart-item .product-form,
+    .cart .cart-item .product-quantity,
     .wishlist .wishlist-item .product-title, 
     .wishlist .wishlist-item .product-price, 
     .wishlist .wishlist-item .product-description, 
@@ -1228,7 +1229,8 @@ footer {
     border: 0;
     border-bottom: 1px solid #000;
     margin-right: 15px;
-    color: #000; }
+    color: #000;
+    border-radius: 0; }
   .cart-collaterals #coupon:focus {
     box-shadow: none; }
 
@@ -1306,7 +1308,7 @@ footer {
         .cart-collaterals .cart-subtotal p,
         .cart-collaterals .shipping p,
         .cart-collaterals .fee p,
-        .cart-collaterals .cart-total p
+        .cart-collaterals .cart-total p,
         .order-review .order-subtotal p,
         .order-review .shipping p,
         .order-review .fee p,
@@ -1837,7 +1839,8 @@ footer {
     margin-bottom: 30px; }
 .product-title,
 .product-price,
-.product-description {
+.product-description,
+.product-quantity {
   color: #fff; }
 .product-title {
     font-size: 25px; }

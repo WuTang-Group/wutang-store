@@ -101,11 +101,7 @@
                         <li class="onhover-div mini-cart">
                             <a href="javascript:void(0)" onclick="openNav('mini-cart')">
                                 <span class="count">
-                                    @if($minicart_collection && $minicart_collection->data[0] != null)
-                                        @php echo count($minicart_collection->data[0]->shop_cart_items) @endphp
-                                    @else
-                                        0
-                                    @endif
+                                    {{ $count?: 0 }}
                                 </span>
                             </a>
                         </li>

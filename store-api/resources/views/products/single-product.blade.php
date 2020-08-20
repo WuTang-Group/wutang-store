@@ -30,7 +30,7 @@
                     @endif
                   </div>
                   <div class="product-form">
-                      <form class="form-inline">
+                      <!-- <form class="form-inline">
                           <div class="input-group product-quantity">
                               <button type="button" class="btn minus-btn" data-type="minus" data-field="">
                                   <img src="{{ URL::asset('assets/images/icon/minus-w.png') }}" />
@@ -41,7 +41,8 @@
                               </button>
                           </div>
                           <button type="button" data-id="{{ $response->data->id }}" class="btn btn-outline d-flex align-items-center btn-add-to-cart"><i class="icon mr-3"></i>添加入购物车</button>
-                      </form>
+                      </form> -->
+                      <button type="button" data-id="{{ $response->data->id }}" class="btn btn-outline d-flex align-items-center btn-add-to-cart"><i class="icon mr-3"></i>添加入购物车</button>
                   </div>
                   <div class="product-wishlist">
                       <a href="#" class="d-flex align-items-center">
@@ -116,7 +117,7 @@
           @endif
         </div>
       </div>
-      <div id="routine" class="position-relative section-t-space section-b-space">
+      <!-- <div id="routine" class="position-relative section-t-space section-b-space">
         <div class="container">
           <div class="col-12 d-md-flex align-items-center justify-content-between">
             <h2 class="text-white title">护肤步骤</h2>
@@ -218,7 +219,7 @@
             </div>
             <div class="tab-pane fade" id="matching" role="tabpanel" aria-labelledby="matching-tab">matching tab</div>
         </div>
-      </div>
+      </div> -->
 	</div>
 </div>
 @include('partials.official-services')

@@ -13,42 +13,46 @@
 					@foreach($response->data[0]->shop_cart_items as $item)
 					<div class="cart-item d-md-flex align-items-center">
 	                    <div class="product-image">
-	                        <a href=""><img src="{{ $item->product->thumbnail }}" /></a>
+	                        <a href="/product/{{ isset($item->product->slug) ? $item->product->slug:$item->slug }}"><img src="{{ isset($item->product->thumbnail) ? $item->product->thumbnail:$item->thumbnail }}" /></a>
 	                    </div>
 	                    <div class="product-description">
-                            <p class="tx-mont">{{ $item->product->product_name_en }}</p>
-                            <p>{{ $item->product->product_name }}</p>
+                            <p class="tx-mont">{{ isset($item->product->product_name_en) ? $item->product->product_name_en:$item->product_name_en }}</p>
+                            <p>{{ isset($item->product->product_name) ? $item->product->product_name:$item->product_name }}</p>
 	                        <!-- <div class="tx-uppercase mt-2 tx-dark-gray">20 ml / 0.68 oz</div> -->
 	                    </div>
 	                    <div class="product-price unit-price text-center">
-	                    	@php 
-	                    		if($item->product->sale_price) {
-	                    			$price = $item->product->sale_price;
-	                    			$price_html = '<del>¥ '.number_format($item->product->price).'</del> <span>¥ '.number_format($item->product->sale_price).'</span>';
-	                    		} else {
-	                    			$price = $item->product->price;
-	                    			$price_html = '<span>¥ '.number_format($item->product->price).'<span>';
-	                    		} 
+	                    	@if(isset($item->product))
+		                    	@php 
+		                    		if($item->product->sale_price) {
+		                    			$price = $item->product->sale_price;
+		                    			$price_html = '<del>¥ '.number_format($item->product->price).'</del> <span>¥ '.number_format($item->product->sale_price).'</span>';
+		                    		} else {
+		                    			$price = $item->product->price;
+		                    			$price_html = '<span>¥ '.number_format($item->product->price).'<span>';
+		                    		} 
 
-	                    		$subtotal=+ $item->amount*$price;
-	                    	@endphp
+		                    		$subtotal=+ $item->amount*$price;
+		                    	@endphp
+	                    	@else
+		                    	@php 
+		                    		if($item->sale_price) {
+		                    			$price = $item->sale_price;
+		                    			$price_html = '<del>¥ '.number_format($item->price).'</del> <span>¥ '.number_format($item->sale_price).'</span>';
+		                    		} else {
+		                    			$price = $item->price;
+		                    			$price_html = '<span>¥ '.number_format($item->price).'<span>';
+		                    		} 
+
+		                    		$subtotal=+ $price;
+		                    	@endphp
+	                    	@endif
 	                    	@php echo $price_html @endphp
 	                    </div>
-		              	<div class="product-form text-center">
-			                <form class="form-inline">
-			                    <div class="input-group product-quantity">
-			                        <button type="button" class="btn minus-btn btn-sm" data-type="minus" data-field="">
-			                            <img src="{{ URL::asset('assets/images/icon/minus-w.png') }}" />
-			                        </button>
-			                        <input type="number" class="form-control form-control-sm bg-trans border-0 qty" placeholder="0" value="{{ $item->amount }}" onkeyup="this.value=this.value.replace(/[^\d]/,'')" min="1">
-			                        <button type="button" class="btn plus-btn btn-sm" data-type="plus" data-field="">
-			                            <img src="{{ URL::asset('assets/images/icon/plus-w.png') }}" />
-			                        </button>
-			                    </div>
-			                </form>
+		              	<div class="product-quantity d-inline-block text-center">
+			                <span class="tx-dark-gray">数量：</span>{{ isset($item->amount) ? $item->amount:1 }}
 		              	</div>
-	                    <div class="product-price amount text-center">¥ {{ number_format($item->amount*$price) }}</div>
-	                    <div class="remove-product text-center"><a href="javascript:void(0)" onclick="removeItem({{ $item->product->id }})" class="tx-dark-gray">删除</a></div>
+	                    <div class="product-price amount text-center">¥ {{ isset($item->amount) ? number_format($item->amount*$price):$price }}</div>
+	                    <div class="remove-product text-center"><a href="javascript:void(0)" onclick="removeItem({{ isset($item->product->id) ? $item->product->id:$item->id }})" class="tx-dark-gray">删除</a></div>
 	                </div>
 	                @endforeach
 	                <!-- <div class="cart-item d-md-flex align-items-center">

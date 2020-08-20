@@ -16,7 +16,8 @@ Cart.trigger = function(eventName, args) {
 };
 
 Cart.save = function() {
-  localStorage.setItem('cart-items', JSON.stringify(Cart.items));
+  Cookies.set('_WTSC',JSON.stringify(Cart.items));
+  //localStorage.setItem('cart-items', JSON.stringify(Cart.items));
   Cart.trigger('saved');
   return Cart;
 };
@@ -92,7 +93,7 @@ Cart.subTotal = function() {
 };
 
 Cart.init = function() {
-  var items = localStorage.getItem('cart-items');
+  var items = Cookies.get('_WTSC'); //localStorage.getItem('cart-items');
   if (items) {
     Cart.items = JSON.parse(items);
   } else {
@@ -106,7 +107,7 @@ Cart.initJQuery = function() {
 
   Cart.init();
 
-  Cart.templateCompiler = function(a,b){return function(c,d){return a.replace(/#{([^}]*)}/g,function(a,e){return Function("x","with(x)return "+e).call(c,d||b||{})})}};
+  /*Cart.templateCompiler = function(a,b){return function(c,d){return a.replace(/#{([^}]*)}/g,function(a,e){return Function("x","with(x)return "+e).call(c,d||b||{})})}};
 
   Cart.lineItemTemplate = "<tr>" +
     // "<td><img src='#{this.image}' alt='#{this.label}' /></td>" + 
@@ -165,7 +166,7 @@ Cart.initJQuery = function() {
   };
   update();
 
-  Cart.on('saved', update);
+  Cart.on('saved', update);*/
 
   return Cart;
 };

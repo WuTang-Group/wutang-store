@@ -57,7 +57,7 @@
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/admin/category_stories?page=reprehenderit&amp;page_limit=nemo" \
+    -G "http://store.wutang.com/admin/category_stories?page=autem&amp;page_limit=esse" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -65,8 +65,8 @@
 );
 
 let params = {
-    "page": "reprehenderit",
-    "page_limit": "nemo",
+    "page": "autem",
+    "page_limit": "esse",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -120,7 +120,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://store.wutang.com/admin/category_stories?title=ut&amp;title_en=atque&amp;description=voluptatem&amp;description_en=earum&amp;banner=est&amp;product_category_id=nostrum" \
+    "http://store.wutang.com/admin/category_stories?title=soluta&amp;title_en=esse&amp;description=iste&amp;description_en=ut&amp;banner=consequatur&amp;product_category_id=voluptas" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -128,12 +128,12 @@ fetch(url, {
 );
 
 let params = {
-    "title": "ut",
-    "title_en": "atque",
-    "description": "voluptatem",
-    "description_en": "earum",
-    "banner": "est",
-    "product_category_id": "nostrum",
+    "title": "soluta",
+    "title_en": "esse",
+    "description": "iste",
+    "description_en": "ut",
+    "banner": "consequatur",
+    "product_category_id": "voluptas",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -201,7 +201,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://store.wutang.com/admin/category_stories/1?title=vitae&amp;title_en=ut&amp;description=autem&amp;description_en=quas&amp;banner=aut&amp;product_category_id=sed" \
+    "http://store.wutang.com/admin/category_stories/1?title=sunt&amp;title_en=nulla&amp;description=facilis&amp;description_en=iure&amp;banner=ut&amp;product_category_id=id" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -209,12 +209,12 @@ fetch(url, {
 );
 
 let params = {
-    "title": "vitae",
-    "title_en": "ut",
-    "description": "autem",
-    "description_en": "quas",
-    "banner": "aut",
-    "product_category_id": "sed",
+    "title": "sunt",
+    "title_en": "nulla",
+    "description": "facilis",
+    "description_en": "iure",
+    "banner": "ut",
+    "product_category_id": "id",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -303,6 +303,35 @@ fetch(url, {
 <h3>HTTP Request</h3>
 <p><code>DELETE admin/category_stories/{CategoriesStoriesId}</code></p>
 <!-- END_c0113fc3a7aedb05d6590587aa7f1f42 -->
+<h1>[ADMIN] Invitation</h1>
+<p>邀请码</p>
+<!-- START_0b9c3ad4e124b71723b4155c6c9bd265 -->
+<h2>admin/testUpload</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://store.wutang.com/admin/testUpload" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://store.wutang.com/admin/testUpload"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST admin/testUpload</code></p>
+<!-- END_0b9c3ad4e124b71723b4155c6c9bd265 -->
 <h1>[ADMIN] Logger</h1>
 <p>日志管理</p>
 <!-- START_fdc2ff2366ce21167235c78796573398 -->
@@ -312,7 +341,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/admin/logs/1?page=et&amp;page_limit=omnis" \
+    -G "http://store.wutang.com/admin/logs/1?page=impedit&amp;page_limit=necessitatibus" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -320,8 +349,8 @@ fetch(url, {
 );
 
 let params = {
-    "page": "et",
-    "page_limit": "omnis",
+    "page": "impedit",
+    "page_limit": "necessitatibus",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -375,7 +404,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://store.wutang.com/admin/logs/1?ids=illo" \
+    "http://store.wutang.com/admin/logs/1?ids=quia" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -383,7 +412,7 @@ fetch(url, {
 );
 
 let params = {
-    "ids": "illo",
+    "ids": "quia",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -428,7 +457,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/admin/order?page=sed&amp;page_limit=aut" \
+    -G "http://store.wutang.com/admin/order?page=aperiam&amp;page_limit=mollitia" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -436,8 +465,8 @@ fetch(url, {
 );
 
 let params = {
-    "page": "sed",
-    "page_limit": "aut",
+    "page": "aperiam",
+    "page_limit": "mollitia",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -491,7 +520,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://store.wutang.com/admin/order?page=accusantium&amp;page_limit=accusantium&amp;username=rem&amp;order_no=quasi&amp;order_status=saepe" \
+    "http://store.wutang.com/admin/order?page=dolore&amp;page_limit=aut&amp;username=inventore&amp;order_no=voluptatem&amp;order_status=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -499,11 +528,11 @@ fetch(url, {
 );
 
 let params = {
-    "page": "accusantium",
-    "page_limit": "accusantium",
-    "username": "rem",
-    "order_no": "quasi",
-    "order_status": "saepe",
+    "page": "dolore",
+    "page_limit": "aut",
+    "username": "inventore",
+    "order_no": "voluptatem",
+    "order_status": "et",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -568,7 +597,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/admin/product?page=ut&amp;page_limit=aut" \
+    -G "http://store.wutang.com/admin/product?page=dicta&amp;page_limit=est" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -576,8 +605,8 @@ fetch(url, {
 );
 
 let params = {
-    "page": "ut",
-    "page_limit": "aut",
+    "page": "dicta",
+    "page_limit": "est",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -631,7 +660,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://store.wutang.com/admin/product?product_category_id=qui&amp;product_name=beatae&amp;product_name_en=sapiente&amp;thumbnail=modi&amp;slug=harum&amp;short_description=sint&amp;short_description_en=sint&amp;price=quisquam&amp;sale_price=dolores&amp;stock=nulla&amp;seo_title=et&amp;seo_keyword=rerum&amp;seo_description=minima&amp;benefit=totam&amp;benefit_en=aspernatur&amp;tech_description=enim&amp;tech_description_en=accusantium&amp;description=expedita&amp;description_en=aspernatur&amp;usage=sunt&amp;usage_en=ut&amp;main_image=illo&amp;main_image_2=expedita&amp;benefit_image=eum&amp;product_video=eos&amp;status=rerum&amp;rating=unde&amp;sold_count=minima&amp;review_count=debitis" \
+    "http://store.wutang.com/admin/product?product_category_id=molestiae&amp;product_name=velit&amp;product_name_en=atque&amp;thumbnail=distinctio&amp;slug=exercitationem&amp;short_description=tempora&amp;short_description_en=fuga&amp;price=blanditiis&amp;sale_price=neque&amp;stock=aut&amp;seo_title=dolores&amp;seo_keyword=quod&amp;seo_description=excepturi&amp;benefit=optio&amp;benefit_en=consequatur&amp;tech_description=qui&amp;tech_description_en=autem&amp;description=ex&amp;description_en=sit&amp;usage=possimus&amp;usage_en=ipsum&amp;main_image=explicabo&amp;main_image_2=possimus&amp;benefit_image=aliquam&amp;product_video=est&amp;status=quos&amp;rating=tenetur&amp;sold_count=aut&amp;review_count=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -639,35 +668,35 @@ fetch(url, {
 );
 
 let params = {
-    "product_category_id": "qui",
-    "product_name": "beatae",
-    "product_name_en": "sapiente",
-    "thumbnail": "modi",
-    "slug": "harum",
-    "short_description": "sint",
-    "short_description_en": "sint",
-    "price": "quisquam",
-    "sale_price": "dolores",
-    "stock": "nulla",
-    "seo_title": "et",
-    "seo_keyword": "rerum",
-    "seo_description": "minima",
-    "benefit": "totam",
-    "benefit_en": "aspernatur",
-    "tech_description": "enim",
-    "tech_description_en": "accusantium",
-    "description": "expedita",
-    "description_en": "aspernatur",
-    "usage": "sunt",
-    "usage_en": "ut",
-    "main_image": "illo",
-    "main_image_2": "expedita",
-    "benefit_image": "eum",
-    "product_video": "eos",
-    "status": "rerum",
-    "rating": "unde",
-    "sold_count": "minima",
-    "review_count": "debitis",
+    "product_category_id": "molestiae",
+    "product_name": "velit",
+    "product_name_en": "atque",
+    "thumbnail": "distinctio",
+    "slug": "exercitationem",
+    "short_description": "tempora",
+    "short_description_en": "fuga",
+    "price": "blanditiis",
+    "sale_price": "neque",
+    "stock": "aut",
+    "seo_title": "dolores",
+    "seo_keyword": "quod",
+    "seo_description": "excepturi",
+    "benefit": "optio",
+    "benefit_en": "consequatur",
+    "tech_description": "qui",
+    "tech_description_en": "autem",
+    "description": "ex",
+    "description_en": "sit",
+    "usage": "possimus",
+    "usage_en": "ipsum",
+    "main_image": "explicabo",
+    "main_image_2": "possimus",
+    "benefit_image": "aliquam",
+    "product_video": "est",
+    "status": "quos",
+    "rating": "tenetur",
+    "sold_count": "aut",
+    "review_count": "et",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -850,7 +879,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://store.wutang.com/admin/product/1?product_category_id=aut&amp;product_name=sunt&amp;product_name_en=voluptas&amp;thumbnail=officiis&amp;slug=consequatur&amp;short_description=maxime&amp;short_description_en=modi&amp;price=est&amp;sale_price=enim&amp;stock=enim&amp;seo_title=qui&amp;seo_keyword=adipisci&amp;seo_description=quos&amp;benefit=iste&amp;benefit_en=doloribus&amp;tech_description=consequatur&amp;tech_description_en=officiis&amp;description=debitis&amp;description_en=qui&amp;usage=quaerat&amp;usage_en=deleniti&amp;main_image=aut&amp;main_image_2=voluptatibus&amp;benefit_image=numquam&amp;product_video=distinctio&amp;status=illum&amp;rating=veniam&amp;sold_count=et&amp;review_count=totam" \
+    "http://store.wutang.com/admin/product/1?product_category_id=odio&amp;product_name=natus&amp;product_name_en=asperiores&amp;thumbnail=ea&amp;slug=eos&amp;short_description=voluptatem&amp;short_description_en=excepturi&amp;price=alias&amp;sale_price=doloremque&amp;stock=sequi&amp;seo_title=reprehenderit&amp;seo_keyword=explicabo&amp;seo_description=maiores&amp;benefit=sunt&amp;benefit_en=numquam&amp;tech_description=et&amp;tech_description_en=consequatur&amp;description=praesentium&amp;description_en=sunt&amp;usage=omnis&amp;usage_en=et&amp;main_image=eum&amp;main_image_2=autem&amp;benefit_image=suscipit&amp;product_video=placeat&amp;status=inventore&amp;rating=quod&amp;sold_count=voluptatem&amp;review_count=sit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -858,35 +887,35 @@ fetch(url, {
 );
 
 let params = {
-    "product_category_id": "aut",
-    "product_name": "sunt",
-    "product_name_en": "voluptas",
-    "thumbnail": "officiis",
-    "slug": "consequatur",
-    "short_description": "maxime",
-    "short_description_en": "modi",
-    "price": "est",
-    "sale_price": "enim",
-    "stock": "enim",
-    "seo_title": "qui",
-    "seo_keyword": "adipisci",
-    "seo_description": "quos",
-    "benefit": "iste",
-    "benefit_en": "doloribus",
-    "tech_description": "consequatur",
-    "tech_description_en": "officiis",
-    "description": "debitis",
-    "description_en": "qui",
-    "usage": "quaerat",
-    "usage_en": "deleniti",
-    "main_image": "aut",
-    "main_image_2": "voluptatibus",
-    "benefit_image": "numquam",
-    "product_video": "distinctio",
-    "status": "illum",
-    "rating": "veniam",
-    "sold_count": "et",
-    "review_count": "totam",
+    "product_category_id": "odio",
+    "product_name": "natus",
+    "product_name_en": "asperiores",
+    "thumbnail": "ea",
+    "slug": "eos",
+    "short_description": "voluptatem",
+    "short_description_en": "excepturi",
+    "price": "alias",
+    "sale_price": "doloremque",
+    "stock": "sequi",
+    "seo_title": "reprehenderit",
+    "seo_keyword": "explicabo",
+    "seo_description": "maiores",
+    "benefit": "sunt",
+    "benefit_en": "numquam",
+    "tech_description": "et",
+    "tech_description_en": "consequatur",
+    "description": "praesentium",
+    "description_en": "sunt",
+    "usage": "omnis",
+    "usage_en": "et",
+    "main_image": "eum",
+    "main_image_2": "autem",
+    "benefit_image": "suscipit",
+    "product_video": "placeat",
+    "status": "inventore",
+    "rating": "quod",
+    "sold_count": "voluptatem",
+    "review_count": "sit",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1099,7 +1128,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/admin/product_categories?page=voluptatem&amp;page_limit=commodi" \
+    -G "http://store.wutang.com/admin/product_categories?page=labore&amp;page_limit=autem" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -1107,8 +1136,8 @@ fetch(url, {
 );
 
 let params = {
-    "page": "voluptatem",
-    "page_limit": "commodi",
+    "page": "labore",
+    "page_limit": "autem",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1162,7 +1191,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://store.wutang.com/admin/product_categories?title=consequuntur&amp;title_en=enim&amp;describe=illo&amp;describe_en=totam&amp;banner=autem&amp;description=sequi&amp;description_en=ratione&amp;img=est&amp;parent_id=rerum" \
+    "http://store.wutang.com/admin/product_categories?title=autem&amp;title_en=officiis&amp;describe=maiores&amp;describe_en=qui&amp;banner=voluptate&amp;description=alias&amp;description_en=vitae&amp;img=vitae&amp;parent_id=minima" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -1170,15 +1199,15 @@ fetch(url, {
 );
 
 let params = {
-    "title": "consequuntur",
-    "title_en": "enim",
-    "describe": "illo",
-    "describe_en": "totam",
-    "banner": "autem",
-    "description": "sequi",
-    "description_en": "ratione",
-    "img": "est",
-    "parent_id": "rerum",
+    "title": "autem",
+    "title_en": "officiis",
+    "describe": "maiores",
+    "describe_en": "qui",
+    "banner": "voluptate",
+    "description": "alias",
+    "description_en": "vitae",
+    "img": "vitae",
+    "parent_id": "minima",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1261,7 +1290,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://store.wutang.com/admin/product_categories/1?title=nostrum&amp;title_en=impedit&amp;describe=tempore&amp;describe_en=quis&amp;banner=dolore&amp;description=reprehenderit&amp;description_en=quos&amp;img=sed&amp;parent_id=aperiam" \
+    "http://store.wutang.com/admin/product_categories/1?title=quasi&amp;title_en=et&amp;describe=sit&amp;describe_en=et&amp;banner=molestiae&amp;description=blanditiis&amp;description_en=natus&amp;img=sed&amp;parent_id=qui" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -1269,15 +1298,15 @@ fetch(url, {
 );
 
 let params = {
-    "title": "nostrum",
-    "title_en": "impedit",
-    "describe": "tempore",
-    "describe_en": "quis",
-    "banner": "dolore",
-    "description": "reprehenderit",
-    "description_en": "quos",
+    "title": "quasi",
+    "title_en": "et",
+    "describe": "sit",
+    "describe_en": "et",
+    "banner": "molestiae",
+    "description": "blanditiis",
+    "description_en": "natus",
     "img": "sed",
-    "parent_id": "aperiam",
+    "parent_id": "qui",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1424,7 +1453,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://store.wutang.com/admin/product_sku?title=voluptatem&amp;description=recusandae&amp;price=voluptatem&amp;stock=ipsam&amp;product_id=tenetur" \
+    "http://store.wutang.com/admin/product_sku?title=porro&amp;description=magni&amp;price=consequatur&amp;stock=ea&amp;product_id=eius" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -1432,11 +1461,11 @@ fetch(url, {
 );
 
 let params = {
-    "title": "voluptatem",
-    "description": "recusandae",
-    "price": "voluptatem",
-    "stock": "ipsam",
-    "product_id": "tenetur",
+    "title": "porro",
+    "description": "magni",
+    "price": "consequatur",
+    "stock": "ea",
+    "product_id": "eius",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1499,7 +1528,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://store.wutang.com/admin/product_sku/1?title=quia&amp;description=accusamus&amp;price=est&amp;stock=unde&amp;product_id=rerum" \
+    "http://store.wutang.com/admin/product_sku/1?title=tempora&amp;description=iusto&amp;price=sed&amp;stock=suscipit&amp;product_id=architecto" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -1507,11 +1536,11 @@ fetch(url, {
 );
 
 let params = {
-    "title": "quia",
-    "description": "accusamus",
-    "price": "est",
-    "stock": "unde",
-    "product_id": "rerum",
+    "title": "tempora",
+    "description": "iusto",
+    "price": "sed",
+    "stock": "suscipit",
+    "product_id": "architecto",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1604,7 +1633,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/admin/user?username=ea&amp;page=id&amp;page_limit=quod" \
+    -G "http://store.wutang.com/admin/user?username=accusamus&amp;page=nostrum&amp;page_limit=animi" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -1612,9 +1641,9 @@ fetch(url, {
 );
 
 let params = {
-    "username": "ea",
-    "page": "id",
-    "page_limit": "quod",
+    "username": "accusamus",
+    "page": "nostrum",
+    "page_limit": "animi",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1673,7 +1702,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "http://store.wutang.com/admin/user/1?name=numquam&amp;email=hic&amp;phone=veritatis&amp;avatar=ut" \
+    "http://store.wutang.com/admin/user/1?name=distinctio&amp;email=repellat&amp;phone=explicabo&amp;avatar=maiores" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -1681,10 +1710,10 @@ fetch(url, {
 );
 
 let params = {
-    "name": "numquam",
-    "email": "hic",
-    "phone": "veritatis",
-    "avatar": "ut",
+    "name": "distinctio",
+    "email": "repellat",
+    "phone": "explicabo",
+    "avatar": "maiores",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1770,7 +1799,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "http://store.wutang.com/admin/user/reset_password/1?oldPassword=ducimus&amp;newPassword=animi&amp;newPassword_confirmation=eos" \
+    "http://store.wutang.com/admin/user/reset_password/1?oldPassword=sapiente&amp;newPassword=sit&amp;newPassword_confirmation=repellendus" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -1778,9 +1807,9 @@ fetch(url, {
 );
 
 let params = {
-    "oldPassword": "ducimus",
-    "newPassword": "animi",
-    "newPassword_confirmation": "eos",
+    "oldPassword": "sapiente",
+    "newPassword": "sit",
+    "newPassword_confirmation": "repellendus",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1833,7 +1862,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/admin/get_user?hash_id=necessitatibus" \
+    -G "http://store.wutang.com/admin/get_user?hash_id=sunt" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -1841,7 +1870,7 @@ fetch(url, {
 );
 
 let params = {
-    "hash_id": "necessitatibus",
+    "hash_id": "sunt",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -1926,7 +1955,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://store.wutang.com/admin/user_addresses?province=maiores&amp;city=dolores&amp;district=est&amp;address=iste&amp;zip=et&amp;contact_name=minima&amp;contact_phone=sint" \
+    "http://store.wutang.com/admin/user_addresses?province=dolore&amp;city=ea&amp;district=ut&amp;address=minima&amp;zip=dolores&amp;contact_name=accusantium&amp;contact_phone=qui" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -1934,13 +1963,13 @@ fetch(url, {
 );
 
 let params = {
-    "province": "maiores",
-    "city": "dolores",
-    "district": "est",
-    "address": "iste",
-    "zip": "et",
-    "contact_name": "minima",
-    "contact_phone": "sint",
+    "province": "dolore",
+    "city": "ea",
+    "district": "ut",
+    "address": "minima",
+    "zip": "dolores",
+    "contact_name": "accusantium",
+    "contact_phone": "qui",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2013,7 +2042,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "http://store.wutang.com/admin/user_addresses/1?address_id=maiores&amp;province=quia&amp;city=ut&amp;district=laborum&amp;address=earum&amp;zip=sapiente&amp;contact_name=mollitia&amp;contact_phone=sit" \
+    "http://store.wutang.com/admin/user_addresses/1?address_id=et&amp;province=distinctio&amp;city=fuga&amp;district=alias&amp;address=laudantium&amp;zip=quibusdam&amp;contact_name=consequatur&amp;contact_phone=itaque" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -2021,14 +2050,14 @@ fetch(url, {
 );
 
 let params = {
-    "address_id": "maiores",
-    "province": "quia",
-    "city": "ut",
-    "district": "laborum",
-    "address": "earum",
-    "zip": "sapiente",
-    "contact_name": "mollitia",
-    "contact_phone": "sit",
+    "address_id": "et",
+    "province": "distinctio",
+    "city": "fuga",
+    "district": "alias",
+    "address": "laudantium",
+    "zip": "quibusdam",
+    "contact_name": "consequatur",
+    "contact_phone": "itaque",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2106,7 +2135,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://store.wutang.com/admin/user_addresses/1?address_id=a" \
+    "http://store.wutang.com/admin/user_addresses/1?address_id=harum" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -2114,7 +2143,7 @@ fetch(url, {
 );
 
 let params = {
-    "address_id": "a",
+    "address_id": "harum",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2193,7 +2222,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "http://store.wutang.com/admin/user_profiles/1?profile_id=laborum" \
+    "http://store.wutang.com/admin/user_profiles/1?profile_id=velit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -2201,7 +2230,7 @@ fetch(url, {
 );
 
 let params = {
-    "profile_id": "laborum",
+    "profile_id": "velit",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2244,7 +2273,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://store.wutang.com/admin/user_profiles/1?profile_id=voluptates" \
+    "http://store.wutang.com/admin/user_profiles/1?profile_id=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -2252,7 +2281,7 @@ fetch(url, {
 );
 
 let params = {
-    "profile_id": "voluptates",
+    "profile_id": "et",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2300,7 +2329,7 @@ fetch(url, {
     "http://store.wutang.com/api/auth/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"maiores","username":"ut","password":"alias","captcha_key":"est","captcha_code":"rem","password_question_id":8,"password_answer":"molestias"}'
+    -d '{"name":"dolor","username":"sed","password":"molestias","captcha_key":"et","captcha_code":"cupiditate","password_question_id":2,"password_answer":"incidunt"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://store.wutang.com/api/auth/register"
@@ -2312,13 +2341,13 @@ let headers = {
 };
 
 let body = {
-    "name": "maiores",
-    "username": "ut",
-    "password": "alias",
-    "captcha_key": "est",
-    "captcha_code": "rem",
-    "password_question_id": 8,
-    "password_answer": "molestias"
+    "name": "dolor",
+    "username": "sed",
+    "password": "molestias",
+    "captcha_key": "et",
+    "captcha_code": "cupiditate",
+    "password_question_id": 2,
+    "password_answer": "incidunt"
 }
 
 fetch(url, {
@@ -2462,7 +2491,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/questions?username=et" \
+    -G "http://store.wutang.com/api/questions?username=neque" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -2470,7 +2499,7 @@ fetch(url, {
 );
 
 let params = {
-    "username": "et",
+    "username": "neque",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2491,7 +2520,7 @@ fetch(url, {
 </blockquote>
 <pre><code class="language-json">{
     "data": {
-        "username": "et"
+        "username": "neque"
     },
     "code": 10001,
     "msg": "用户不存在"
@@ -2526,7 +2555,7 @@ fetch(url, {
     "http://store.wutang.com/api/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"username":"cupiditate","password":"officiis"}'
+    -d '{"username":"ut","password":"quidem"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://store.wutang.com/api/auth/login"
@@ -2538,8 +2567,8 @@ let headers = {
 };
 
 let body = {
-    "username": "cupiditate",
-    "password": "officiis"
+    "username": "ut",
+    "password": "quidem"
 }
 
 fetch(url, {
@@ -2584,7 +2613,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "http://store.wutang.com/api/password_reset?username=magni&amp;password_question_id=rerum&amp;password_answer=et&amp;password=ut&amp;password_confirmation=magnam" \
+    "http://store.wutang.com/api/password_reset?username=esse&amp;password_question_id=explicabo&amp;password_answer=veniam&amp;password=qui&amp;password_confirmation=quam" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -2592,11 +2621,11 @@ fetch(url, {
 );
 
 let params = {
-    "username": "magni",
-    "password_question_id": "rerum",
-    "password_answer": "et",
-    "password": "ut",
-    "password_confirmation": "magnam",
+    "username": "esse",
+    "password_question_id": "explicabo",
+    "password_answer": "veniam",
+    "password": "qui",
+    "password_confirmation": "quam",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2662,7 +2691,7 @@ fetch(url, {
     "http://store.wutang.com/api/auth/password_change" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"oldPassword":"qui","newPassword":"est","newPassword_confirmation":"repellat"}'
+    -d '{"oldPassword":"velit","newPassword":"blanditiis","newPassword_confirmation":"totam"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://store.wutang.com/api/auth/password_change"
@@ -2674,9 +2703,9 @@ let headers = {
 };
 
 let body = {
-    "oldPassword": "qui",
-    "newPassword": "est",
-    "newPassword_confirmation": "repellat"
+    "oldPassword": "velit",
+    "newPassword": "blanditiis",
+    "newPassword_confirmation": "totam"
 }
 
 fetch(url, {
@@ -2885,7 +2914,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/order_details/1?no=qui" \
+    -G "http://store.wutang.com/api/order_details/1?no=perferendis" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -2893,7 +2922,7 @@ fetch(url, {
 );
 
 let params = {
-    "no": "qui",
+    "no": "perferendis",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -2946,7 +2975,7 @@ fetch(url, {
     "http://store.wutang.com/api/orders" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"address_id":"sapiente","remark":"qui","items":[{"product_id":6,"amount":10}]}'
+    -d '{"address_id":"porro","remark":"quibusdam","items":[{"product_id":7,"amount":12}]}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://store.wutang.com/api/orders"
@@ -2958,12 +2987,12 @@ let headers = {
 };
 
 let body = {
-    "address_id": "sapiente",
-    "remark": "qui",
+    "address_id": "porro",
+    "remark": "quibusdam",
     "items": [
         {
-            "product_id": 6,
-            "amount": 10
+            "product_id": 7,
+            "amount": 12
         }
     ]
 }
@@ -3029,7 +3058,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/orders/pay_check?no=aut" \
+    -G "http://store.wutang.com/api/orders/pay_check?no=sit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -3037,7 +3066,7 @@ fetch(url, {
 );
 
 let params = {
-    "no": "aut",
+    "no": "sit",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -3088,7 +3117,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/aligateway/pay?no=saepe&amp;total_amount=quis&amp;subject=sint" \
+    -G "http://store.wutang.com/api/aligateway/pay?no=culpa&amp;total_amount=iusto&amp;subject=aperiam" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -3096,9 +3125,9 @@ fetch(url, {
 );
 
 let params = {
-    "no": "saepe",
-    "total_amount": "quis",
-    "subject": "sint",
+    "no": "culpa",
+    "total_amount": "iusto",
+    "subject": "aperiam",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -3217,7 +3246,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/alipay/pay?no=non&amp;total_amount=pariatur&amp;subject=doloribus" \
+    -G "http://store.wutang.com/api/alipay/pay?no=esse&amp;total_amount=ut&amp;subject=alias" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -3225,9 +3254,9 @@ fetch(url, {
 );
 
 let params = {
-    "no": "non",
-    "total_amount": "pariatur",
-    "subject": "doloribus",
+    "no": "esse",
+    "total_amount": "ut",
+    "subject": "alias",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -3348,7 +3377,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/unionpay/pay?no=voluptas&amp;subject=qui&amp;total_amount=omnis" \
+    -G "http://store.wutang.com/api/unionpay/pay?no=modi&amp;subject=quibusdam&amp;total_amount=dolor" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -3356,9 +3385,9 @@ fetch(url, {
 );
 
 let params = {
-    "no": "voluptas",
-    "subject": "qui",
-    "total_amount": "omnis",
+    "no": "modi",
+    "subject": "quibusdam",
+    "total_amount": "dolor",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -4885,7 +4914,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/product_category/1?category_slug=sed" \
+    -G "http://store.wutang.com/api/product_category/1?category_slug=delectus" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -4893,7 +4922,7 @@ fetch(url, {
 );
 
 let params = {
-    "category_slug": "sed",
+    "category_slug": "delectus",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -4945,7 +4974,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/product/1?slug=ut" \
+    -G "http://store.wutang.com/api/product/1?slug=occaecati" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -4953,7 +4982,7 @@ fetch(url, {
 );
 
 let params = {
-    "slug": "ut",
+    "slug": "occaecati",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -5005,7 +5034,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/product_ids?id_list=laborum" \
+    -G "http://store.wutang.com/api/product_ids?id_list=dolorum" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -5013,7 +5042,7 @@ fetch(url, {
 );
 
 let params = {
-    "id_list": "laborum",
+    "id_list": "dolorum",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -5063,7 +5092,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/category_story/1?category_slug=iusto" \
+    -G "http://store.wutang.com/api/category_story/1?category_slug=omnis" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -5071,7 +5100,7 @@ fetch(url, {
 );
 
 let params = {
-    "category_slug": "iusto",
+    "category_slug": "omnis",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -5123,7 +5152,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/product_new?page=cupiditate&amp;page_limit=quibusdam" \
+    -G "http://store.wutang.com/api/product_new?page=odio&amp;page_limit=aperiam" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -5131,8 +5160,8 @@ fetch(url, {
 );
 
 let params = {
-    "page": "cupiditate",
-    "page_limit": "quibusdam",
+    "page": "odio",
+    "page_limit": "aperiam",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -5993,7 +6022,7 @@ fetch(url, {
     "http://store.wutang.com/api/shop_carts" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"product_id":"in"}'
+    -d '{"product_list":[{"product_id":"magnam"}]}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://store.wutang.com/api/shop_carts"
@@ -6005,7 +6034,11 @@ let headers = {
 };
 
 let body = {
-    "product_id": "in"
+    "product_list": [
+        {
+            "product_id": "magnam"
+        }
+    ]
 }
 
 fetch(url, {
@@ -6029,7 +6062,13 @@ fetch(url, {
 </thead>
 <tbody>
 <tr>
-<td><code>product_id</code></td>
+<td><code>product_list</code></td>
+<td>array</td>
+<td>required</td>
+<td>商品列表</td>
+</tr>
+<tr>
+<td><code>product_list.*.product_id</code></td>
 <td>required</td>
 <td>optional</td>
 <td>商品id</td>
@@ -6045,7 +6084,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "http://store.wutang.com/api/shop_carts/1?type=et&amp;product_id=ullam&amp;amount=nihil" \
+    "http://store.wutang.com/api/shop_carts/1?type=aut&amp;product_id=aut&amp;amount=consequuntur" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -6053,9 +6092,9 @@ fetch(url, {
 );
 
 let params = {
-    "type": "et",
-    "product_id": "ullam",
-    "amount": "nihil",
+    "type": "aut",
+    "product_id": "aut",
+    "amount": "consequuntur",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -6109,7 +6148,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://store.wutang.com/api/shop_carts/1?product_id=fugit" \
+    "http://store.wutang.com/api/shop_carts/1?product_id=dolor" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -6117,7 +6156,7 @@ fetch(url, {
 );
 
 let params = {
-    "product_id": "fugit",
+    "product_id": "dolor",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -6201,7 +6240,7 @@ fetch(url, {
     "http://store.wutang.com/api/user_addresses" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"province":"eum","city":"accusantium","district":"et","address":"blanditiis","zip":"est","contact_name":"sint","contact_phone":"sunt"}'
+    -d '{"province":"quibusdam","city":"inventore","district":"aliquam","address":"omnis","zip":"iure","contact_name":"iure","contact_phone":"ut"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://store.wutang.com/api/user_addresses"
@@ -6213,13 +6252,13 @@ let headers = {
 };
 
 let body = {
-    "province": "eum",
-    "city": "accusantium",
-    "district": "et",
-    "address": "blanditiis",
-    "zip": "est",
-    "contact_name": "sint",
-    "contact_phone": "sunt"
+    "province": "quibusdam",
+    "city": "inventore",
+    "district": "aliquam",
+    "address": "omnis",
+    "zip": "iure",
+    "contact_name": "iure",
+    "contact_phone": "ut"
 }
 
 fetch(url, {
@@ -6295,7 +6334,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "http://store.wutang.com/api/user_addresses/1?province=voluptatem&amp;city=omnis&amp;district=quo&amp;address=eos&amp;zip=explicabo&amp;contact_name=odit&amp;contact_phone=architecto" \
+    "http://store.wutang.com/api/user_addresses/1?province=provident&amp;city=maxime&amp;district=labore&amp;address=quis&amp;zip=est&amp;contact_name=in&amp;contact_phone=voluptatem" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -6303,13 +6342,13 @@ fetch(url, {
 );
 
 let params = {
-    "province": "voluptatem",
-    "city": "omnis",
-    "district": "quo",
-    "address": "eos",
-    "zip": "explicabo",
-    "contact_name": "odit",
-    "contact_phone": "architecto",
+    "province": "provident",
+    "city": "maxime",
+    "district": "labore",
+    "address": "quis",
+    "zip": "est",
+    "contact_name": "in",
+    "contact_phone": "voluptatem",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -6449,7 +6488,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X PUT \
-    "http://store.wutang.com/api/user_profiles?profile_id=ratione&amp;phone=assumenda&amp;real_name=aspernatur&amp;sex=est&amp;birthday=aliquid&amp;age=dicta&amp;province=et&amp;city=autem&amp;district=voluptatum&amp;address=accusantium&amp;zip=dolore" \
+    "http://store.wutang.com/api/user_profiles?profile_id=eveniet&amp;phone=ipsum&amp;real_name=pariatur&amp;sex=occaecati&amp;birthday=at&amp;age=ad&amp;province=sint&amp;city=magnam&amp;district=ducimus&amp;address=inventore&amp;zip=magnam" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -6457,17 +6496,17 @@ fetch(url, {
 );
 
 let params = {
-    "profile_id": "ratione",
-    "phone": "assumenda",
-    "real_name": "aspernatur",
-    "sex": "est",
-    "birthday": "aliquid",
-    "age": "dicta",
-    "province": "et",
-    "city": "autem",
-    "district": "voluptatum",
-    "address": "accusantium",
-    "zip": "dolore",
+    "profile_id": "eveniet",
+    "phone": "ipsum",
+    "real_name": "pariatur",
+    "sex": "occaecati",
+    "birthday": "at",
+    "age": "ad",
+    "province": "sint",
+    "city": "magnam",
+    "district": "ducimus",
+    "address": "inventore",
+    "zip": "magnam",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -6598,7 +6637,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://store.wutang.com/api/wish_list?product_id=soluta" \
+    "http://store.wutang.com/api/wish_list?product_id=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -6606,7 +6645,7 @@ fetch(url, {
 );
 
 let params = {
-    "product_id": "soluta",
+    "product_id": "et",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -6702,7 +6741,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://store.wutang.com/api/response_code?10001=laboriosam&amp;10003=facilis&amp;20001=qui&amp;40001=molestiae&amp;40003=quod&amp;40004=laborum&amp;40005=ullam&amp;50001=sit" \
+    -G "http://store.wutang.com/api/response_code?10001=distinctio&amp;10003=quam&amp;20001=voluptas&amp;40001=reiciendis&amp;40003=ullam&amp;40004=sapiente&amp;40005=eveniet&amp;50001=totam" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -6710,14 +6749,14 @@ fetch(url, {
 );
 
 let params = {
-    "10001": "laboriosam",
-    "10003": "facilis",
-    "20001": "qui",
-    "40001": "molestiae",
-    "40003": "quod",
-    "40004": "laborum",
-    "40005": "ullam",
-    "50001": "sit",
+    "10001": "distinctio",
+    "10003": "quam",
+    "20001": "voluptas",
+    "40001": "reiciendis",
+    "40003": "ullam",
+    "40004": "sapiente",
+    "40005": "eveniet",
+    "50001": "totam",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));

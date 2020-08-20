@@ -41,13 +41,14 @@ class ShopCartController extends Controller
     /**
      * Request store cart items
      * 保存/更新购物车商品
-     * @bodyParam product_id required 商品id
+     * @bodyParam product_list array required 商品列表
+     * @bodyParam product_list.*.product_id required 商品id
      * @param ShopCartRequest $request
      * @return Application|ResponseFactory|Response
      */
     public function store(ShopCartRequest $request)
     {
-        $results = $this->service->store($request->only(['product_id']));
+        $results = $this->service->store($request);
         return $results ? response(ResponseData::requestSuccess($results)) : response(ResponseData::requestFails($request->all()));
     }
 

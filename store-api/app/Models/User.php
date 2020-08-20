@@ -105,10 +105,10 @@ class User extends Authenticatable implements JWTSubject
      * 多对多关联(参数分别为关联模型,中间表名)
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function favoriteProducts()
+    public function wishLists()
     {
-        return $this->belongsToMany(Product::class,'user_favorite_products')
+        return $this->belongsToMany(Product::class,'user_wish_lists')
                 ->withTimestamps()  // 中间表带时间戳
-                ->orderBy('user_favorite_products.created_at','desc');  // 根据中间表的创建时间倒序排序
+                ->orderBy('user_wish_lists.created_at','desc');  // 根据中间表的创建时间倒序排序
     }
 }

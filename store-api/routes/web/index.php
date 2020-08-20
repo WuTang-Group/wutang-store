@@ -21,7 +21,8 @@ Route::group(['middleware' => ['web']], function () use ($router) {
 
 		/*Route::get('checkout', 'CheckoutController@index');
 		Route::get('checkout/thank-you', 'CheckoutController@checkout');*/
-		Route::get('checkout', function () { return view('checkout'); })->name('checkout');
+		//Route::get('checkout', function () { return view('checkout'); })->name('checkout');
+		Route::get('checkout', 'Web\CheckoutController@index')->name('checkout');
 	});
 
 	Route::get('products', 'Web\ProductController@index');
@@ -32,8 +33,8 @@ Route::group(['middleware' => ['web']], function () use ($router) {
 	Route::get('product-category/{slug}/story', 'Web\ProductCategoryController@story')->name('category.story');
 
 	Route::get('wishlist', 'Web\ShoppingController@wishlist');
-	Route::get('cart', 'Web\ShoppingController@cart');
-	Route::get('refresh_minicart', 'Web\ShoppingController@refresh_minicart');
+	Route::get('cart', 'Web\ShoppingController@cart')->name('cart');
+	Route::get('refresh_cart', 'Web\ShoppingController@refresh_cart');
 
 	Route::group(['prefix' => 'the-brand'], function () use ($router) {
 		Route::get('/', function () { return view('the-brand.index'); });

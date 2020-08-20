@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 /**
- * @group [API] User wish lish
+ * @group [API] User wish list
  * 用户心愿单
  * @authenticated
  * @package App\Http\Controllers\Api

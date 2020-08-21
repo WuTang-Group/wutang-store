@@ -27,15 +27,20 @@ class CheckoutController extends Controller
 					                'Authorization' => 'Bearer '.$this->token
 					            ]
 					        ]),
-            'default_address' => $client->getAsync('user_profiles', ['headers' => [
+            /*'default_address' => $client->getAsync('user_profiles', ['headers' => [
 					                'Authorization' => 'Bearer '.$this->token
 					            ]
-					        ]),
+					        ]),*/
+            'user_addresses' => $client->getAsync('user_addresses', ['headers' => [
+                                    'Authorization' => 'Bearer '.$this->token
+                                ]
+                            ]),
         ];
         $responses = Promise\settle($promises)->wait();
         $results = array(
             'cart_items'   => json_decode($responses['cart_items']['value']->getBody()->getContents()),
-            'default_address' => json_decode($responses['default_address']['value']->getBody()->getContents())
+            //'default_address' => json_decode($responses['default_address']['value']->getBody()->getContents())
+            'user_addresses' => json_decode($responses['user_addresses']['value']->getBody()->getContents())
         );
         
         if(count($results['cart_items']->data[0]->shop_cart_items) <= 0) {
@@ -47,5 +52,24 @@ class CheckoutController extends Controller
         	$total+= $price;
     	}
     	return View('checkout', compact('results','count','total'));
+    }
+
+    public function refresh_addresses(Request $request)
+    {
+        $address_collection = null;
+        $client = new Client(['base_uri' => env('API_URL')]);
+        $req = $client->request('GET', 'user_addresses', ['headers' => [
+                'Authorization' => 'Bearer '.$this->token
+            ]
+        ]);
+        $address_collection = json_decode($req->getBody());
+        
+        if(isset($address_collection->code) && $address_collection->code != 20001) {
+            $address_collection = null;
+        }
+
+        $addresses = view('partials.shipping-addresses', compact('address_collection'))->render();
+
+        return response()->json(compact('addresses'));
     }
 }

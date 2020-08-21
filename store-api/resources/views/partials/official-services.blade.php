@@ -1,7 +1,7 @@
 <section id="services" class="dark-layout">
     <div class="container">
         <div class="mb-5">
-        	<h2 class="text-white title">官网服务</h2>
+        	<h2 class="text-white title">@lang('general.official-services')</h2>
         </div>
         <div class="row small-section">
             <div class="col-6 col-md-6 col-lg-3 service-block">

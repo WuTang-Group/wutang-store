@@ -73,22 +73,7 @@ class AppServiceProvider extends ServiceProvider
                 ]
             ]);
             $cart_collection = json_decode($request->getBody());
-        } else if(isset($_COOKIE['_WTSC'])) {
-            $WTSC = json_decode($_COOKIE['_WTSC']);
-            if(count($WTSC) > 0) {
-                for ($i = 0; $i < count($WTSC); $i++) {
-                    $ids[]= 'id_list[]='.$WTSC[$i]->id;
-                }
-
-                $client = new Client(['base_uri' => env('API_URL')]);
-                $request = $client->request('GET', 'product_ids/?'.implode('&', $ids));
-
-                $cart_collection = json_decode($request->getBody());
-
-                $shop_cart_items = (object) ['shop_cart_items' => $cart_collection->data ];
-                $cart_collection->data[0] = $shop_cart_items;
-            }
-        }
+        } 
         
         if(isset($cart_collection->code) && $cart_collection->code != 20001) {
             $cart_collection = null;

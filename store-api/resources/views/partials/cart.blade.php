@@ -41,10 +41,10 @@
 		    	@php echo $price_html @endphp
 		    </div>
 		  	<div class="product-quantity d-inline-block text-center">
-		        <span class="tx-dark-gray">数量：</span>{{ isset($item->amount) ? $item->amount:1 }}
+		        <span class="tx-dark-gray">@lang('general.quantity')：</span>{{ isset($item->amount) ? $item->amount:1 }}
 		  	</div>
 		    <div class="product-price amount text-center">¥ {{ isset($item->amount) ? number_format($item->amount*$price):number_format($price) }}</div>
-		    <div class="remove-product text-center"><a href="javascript:void(0)" data-id="{{ isset($item->product->id) ? $item->product->id:$item->id }}" class="tx-dark-gray remove-item">删除</a></div>
+		    <div class="remove-product text-center"><a href="javascript:void(0)" data-id="{{ isset($item->product->id) ? $item->product->id:$item->id }}" class="tx-dark-gray remove-item">@lang('general.remove')</a></div>
 		</div>
 		@endforeach
         <!-- <div class="cart-item d-md-flex align-items-center">
@@ -64,12 +64,12 @@
 <div class="col-lg-4">
 	<div class="cart-collaterals scroll-element">
 		<div class="mb-5">
-            <label>促销代码</label>
+            <label>@lang('general.coupon-code')</label>
             <form action="" method="post" id="coupon-form">
             	<div class="input-group">
                     <input type="text" class="form-control form-control-sm" name="coupon" id="coupon">
 		          	<span class="input-group-btn">
-                		<button type="submit" class="btn btn-solid">下一步</button>
+                		<button type="submit" class="btn btn-solid">@lang('general.next')</button>
 		          	</span> 
 		        </div>
                 <div class="form-group mb-0 mr-sm-3">
@@ -77,14 +77,14 @@
             </form>
         </div>
         <div class="cart-subtotal">
-        	<label class="tx-dark-gray">小计</label>
+        	<label class="tx-dark-gray">@lang('general.subtotal')</label>
         	<p class="price">{{ number_format($subtotal) }}</p>
         </div>
         <div class="cart-total">
-        	<label>总计:</label>
+        	<label>@lang('general.total'):</label>
         	<p class="price">{{ number_format($subtotal) }}</p>
         </div>
-        <div><a href="/checkout" class="btn btn-outline d-block mt-3">前往结账</a></div>
+        <div><a href="/checkout" class="btn btn-outline d-block mt-3">@lang('general.go-checkout')</a></div>
         <div class="information mt-5">
         	<label>贵宾服务</label>
         	<p>
@@ -96,16 +96,16 @@
         	<label>安全支付</label>
         	<p>安全的支付方式</p>
         </div>
-        <div><a href="/" class="btn btn-outline d-block mt-3 mb-5">继续购物</a></div>
+        <div><a href="/" class="btn btn-outline d-block mt-3 mb-5">@lang('general.continue-shopping')</a></div>
         <style>
         </style>
 	</div>
 </div>
 @else
 <div class="col-lg-12 text-white mt-5 text-center">
-	暂无商品
+	@lang('general.no-item')
 	<div class="mt-3">
-		<a href="/" class="btn btn-white pl-5 pr-5">继续购物</a>
+		<a href="/" class="btn btn-white pl-5 pr-5">@lang('general.continue-shopping')</a>
 	</div>
 </div>
 @endif

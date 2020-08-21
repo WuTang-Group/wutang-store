@@ -10,8 +10,8 @@
                 var pixs = $(document).scrollTop();
                 pixs = pixs / 100;
                 $(".home-slider .home-slide,.home-slider .slider-contain,.home-slider ul.slick-dots").css({"-webkit-filter": "blur("+pixs+"px)","filter": "blur("+pixs+"px)" });
-            }else {
-                $(".home-slider .home-slide,.home-slider .slider-contain,.home-slider ul.slick-dots").css({"-webkit-filter": "","filter": "" });
+            }else { 
+                $(".home-slider .home-slide,.home-slider .slider-contain,.home-slider ul.slick-dots").css({"-webkit-filter": "","filter": "" }); 
             }
         });
     }
@@ -36,16 +36,16 @@
         var sticky = $('header.header'),
             scroll = $(window).scrollTop();
         if ($(window).width() > 575) {
-            if (scroll >= 100) {
+            if (scroll >= 100) { 
                 sticky.addClass('header-scrolled');
-            } else {
+            } else { 
                 sticky.removeClass('header-scrolled');
             }
         } else {
             sticky.removeClass('header-scrolled');
         }
     });
-
+    
     $(document).ready(function() {
         $(document).on('click','a.anchor',function(e) {
             if(e.target.hash && $(e.target).attr('data-toggle') != 'tab') {
@@ -74,14 +74,14 @@
             $(this).toggleClass('open');
         }
     });
-
+    
     $(window).scroll(function () {
         if ($(this).scrollTop() >= 500) {
             $('#back-to-top').fadeIn();
         } else {
             $('#back-to-top').fadeOut();
         }
-    });
+    }); 
     $('#back-to-top').click(function(){
         $("html, body").animate({ scrollTop: 0 }, 600);
         return false;
@@ -119,11 +119,11 @@
 
     $('.home-slider, .brand-slider, .general-slider, .product-idea-slider').on('init', function(e, slick) {
         var $firstAnimatingElements = $('div.home-slide:first-child,div.brand-slide:first-child,div.general-slide:first-child').find('[data-animation]');
-        doAnimations($firstAnimatingElements);
+        doAnimations($firstAnimatingElements);    
     });
     $('.home-slider, .brand-slider, .general-slider, .product-idea-slider').on('beforeChange', function(e, slick, currentSlide, nextSlide) {
         var $animatingElements = $('div.slick-slide[data-slick-index="' + nextSlide + '"]').find('[data-animation]');
-        doAnimations($animatingElements);
+        doAnimations($animatingElements);    
     });
     $('.home-slider, .general-slider').slick({
         arrows: false,
@@ -139,7 +139,7 @@
 
     $(window).scroll(function() {
         if($(window).scrollTop() > 0) {
-            var parallaxDistance = ($(window).scrollTop()/2),
+            var parallaxDistance = ($(window).scrollTop()/2), 
                 parallaxCSS = "translate3d(0, "+ parallaxDistance +"px , 0)";
             $('.home-slide').css('transform', parallaxCSS);
         } else {
@@ -280,7 +280,7 @@
     if($('.story-nav .slick-slide').length <= 2){
         $('.story-nav').slick('slickSetOption', 'centerMode', false);
     }
-
+    
     $(".story-content-slick, .story-nav").on('afterChange', function(e, slick, currentSlide){
         $('.story-index span').text(currentSlide+1);
     });
@@ -299,7 +299,7 @@
         var val = parseInt($input.val());
         if (val > 1) {
             $input.val( val-1 ).change();
-        }
+        } 
         return false;
     });
 
@@ -326,8 +326,6 @@
         var shown = $(this).next().hasClass('show');
         if(parent && !shown) {
             $(this).parent().find('h2').addClass('collapsed');
-            //$(this).parent().find('div').removeClass('show').addClass('collapse');
-            /*$(this).parent().find('h2').next().removeClass('show').addClass('collapsed');*/
         }
         $(this).toggleClass('collapsed');
         $(this).next().collapse('toggle')
@@ -428,19 +426,18 @@
         var id = $(this).data('id');
         $(this).prop('disabled',true).addClass('loading');
         if (!token) { //检查用户登录token > 位于文档axios.js
-            var item = { id: id }
-            Cart.addItem(item);
-            $(this).prop('disabled',false).removeClass('loading');
-            refresh_cart();
-            toastr['success']('商品已加入您的购物车。');
+            $('#mySidenav').addClass('open-side');
+            $('#mySidenav #nav-account-tab').tab('show');
+            $('body').addClass('overflow-hidden');
         } else {
-            var formData = { 'product_id' : id };
+            var pid = [{ 'product_id' : id }];
+            var formData = { 'product_list': pid };
 
             axios.post(BASE_URL+'api/shop_carts', formData)
                 .then(function (response) {
                     if(response.data.code == 20001) {
                         refresh_cart();
-                        toastr['success']('商品已加入您的购物车。');
+                        toastr['success']( lang.item_added );
                     } else {
                         toastr['error'](response.data.msg);
                     }
@@ -456,20 +453,18 @@
     $(document).on('click', '.remove-item', function(e) {
         var id = $(this).data('id');
         if (!token) { //检查用户登录token > 位于文档axios.js
-            var item = { id: id }
-            Cart.removeItem(item);
-            refresh_cart();
-            toastr['success']('商品已从您的购物车删除。');
+            $('#mySidenav').addClass('open-side');
+            $('#mySidenav #nav-account-tab').tab('show');
+            $('body').addClass('overflow-hidden');
         } else {
             axios.delete(BASE_URL+'api/shop_carts/'+id)
                 .then(function (response) {
                     if(response.data.code == 20001) {
                         refresh_cart();
-                        toastr['success']('商品已从您的购物车删除。');
+                        toastr['success']( lang.item_removed );
                     } else {
                         toastr['error'](response.data.msg);
                     }
-                    console.log(response);
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -501,11 +496,11 @@ function login() {
             'password' : $this.find('input[name=password]').val(),
         };
         var url = $('#intended_url');
-
+        
         axios.post(BASE_URL+'api/auth/login', formData)
             .then(function (response) {
                 if(response.data.code == 20001) {
-                    toastr['success']('登录成功。');
+                    toastr['success']( lang.logged_in );
                     Cookies.set('token',response.data.data.access_token);
                     if(url[0]) {
                         window.location.href = url.val();
@@ -515,7 +510,6 @@ function login() {
                 } else {
                     toastr['error'](response.data.msg);
                 }
-                console.log(response);
             })
             .catch(function (error) {
                 console.log(error);
@@ -526,13 +520,12 @@ function logout() {
     axios.delete(BASE_URL+'api/auth/logout')
         .then(function (response) {
             if(response.data.code == 20001) {
-                toastr['success']('登出成功。');
+                toastr['success']( lang.logged_out );
                 Cookies.remove('token');
                 window.location.href = BASE_URL;
             } else {
                 toastr['error'](response.data.msg);
             }
-            console.log(response);
         })
         .catch(function (error) {
             console.log(error);
@@ -553,17 +546,16 @@ function refresh_cart() {
     $minicart.addClass('loading'); // add loading class (optional)
     if($cart[0]) { $cart.addClass('loading'); }// add loading class (optional)
 
-    axios.get(BASE_URL + 'refresh_cart')
+    axios.get('http://localhost:8000/refresh_cart')
         .then(function (response) {
             $minicart.html(response.data.minicart);
             $count.html(response.data.count);
 
-            if($cart[0]) {
+            if($cart[0]) { 
                 $cart.html(response.data.cart);
-                $cart.removeClass('loading');
+                $cart.removeClass('loading'); 
             }
             $minicart.removeClass('loading');
-            console.log(response);
         })
         .catch(function (error) {
             console.log(error);

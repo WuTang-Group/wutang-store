@@ -3,7 +3,7 @@
         <div class="container">
             <section class="small-section">
                 <div class="mb-4">
-                	<h2 class="text-white title">联系我们</h2>
+                	<h2 class="text-white title">@lang('general.contact-us')</h2>
                 </div>
                 <div class="row">
                     <div class="col-md-6 mb-3">
@@ -13,14 +13,14 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label class="tx-dark-gray mb-0">订阅我们，得知最新消息</label>
+                        <label class="tx-dark-gray mb-0">@lang('general.subscribe')</label>
                         <div class="subscribe">
                             <form action="" class="form-inline subscribe-form needs-validation" method="post" name="subscribe-form">
                                 <div class="form-group mb-0 mr-sm-3">
                                     <input type="text" class="form-control" name="EMAIL" id="mce-EMAIL"
-                                        placeholder="*电子邮件" required="required">
+                                        placeholder="*@lang('general.email')" required="required">
                                 </div>
-                                <button type="submit" class="btn btn-outline" id="mc-submit">下一步</button>
+                                <button type="submit" class="btn btn-outline" id="mc-submit">@lang('general.next')</button>
                             </form>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                 <div class="col">
                     <div class="sub-title">
                         <div class="footer-title">
-                            <h4>关于</h4>
+                            <h4>@lang('general.about-us')</h4>
                         </div>
                         <div class="footer-contant">
                             <ul>
@@ -48,13 +48,13 @@
                 <div class="col">
                     <div class="sub-title">
                         <div class="footer-title">
-                            <h4>支持</h4>
+                            <h4>@lang('general.support')</h4>
                         </div>
                         <div class="footer-contant">
                             <ul>
-                                <li><a href="/customer-service">客服</a></li>
-                                <li><a href="/terms-and-conditions#pay-for-shipping">安全支付</a></li>
-                                <li><a href="/shipping">配送</a></li>
+                                <li><a href="/customer-service">@lang('general.customer-service')</a></li>
+                                <li><a href="/terms-and-conditions#pay-for-shipping">@lang('general.secure-payment')</a></li>
+                                <li><a href="/shipping">@lang('general.shipping-and-return')</a></li>
                             </ul>
                         </div>
                     </div>
@@ -62,11 +62,11 @@
                 <div class="col">
                     <div class="sub-title">
                         <div class="footer-title">
-                            <h4>产品介绍</h4>
+                            <h4>@lang('general.company-brand')</h4>
                         </div>
                         <div class="footer-contant">
                             <ul>
-                                <li><a href="/the-brand">公司品牌介绍</a></li>
+                                <li><a href="/the-brand">@lang('general.brand-introduction')</a></li>
                             </ul>
                         </div>
                     </div>
@@ -74,13 +74,13 @@
                 <div class="col">
                     <div class="sub-title">
                         <div class="footer-title">
-                            <h4>法律</h4>
+                            <h4>@lang('general.legal')</h4>
                         </div>
                         <div class="footer-contant">
                             <ul>
-                                <li><a href="/privacy-policy">隐私政策</a></li>
-                                <li><a href="/terms-and-conditions">条款与条件</a></li>
-                                <li><a href="/privacy-policy#cookie">Cookie政策</a></li>
+                                <li><a href="/privacy-policy">@lang('general.privacy-policy')</a></li>
+                                <li><a href="/terms-and-conditions">@lang('general.terms-and-conditions')</a></li>
+                                <li><a href="/privacy-policy#cookie">@lang('general.cookie-policy')</a></li>
                             </ul>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                 <div class="col-12 col-md-4 footer-language-selector align-self-center">
                 	<div class="language-selector-wrapper">
                     	<select class="text-uppercase">
-                            <option value="cn" {{ !empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'zh-cn' ? 'selected':null }}>China - CN</option>
+                            <option value="cn" {{ !empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'cn' ? 'selected':null }}>China - CN</option>
                             <option value="en" {{ !empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en' ? 'selected':null }}>United States - EN</option>
                     	</select>
                 	</div>
@@ -112,7 +112,7 @@
                         <a href="/"><img src="{{ URL::asset('assets/images/queen-logo-footer.png') }}" class="img-fluid" alt=""></a>
                     </div>
                     <div class="copyright-text">
-						<div class="footer-contant">2020 QUEEN SPADES - 版权所有</div> 
+						<div class="footer-contant">2020 QUEEN SPADES - @lang('general.copyrights')</div> 
 					</div>
                     <div class="company-reg-number tx-dark-gray">
 						<div class="footer-contant">ICP备案号：沪ICP备12345678号</div> 

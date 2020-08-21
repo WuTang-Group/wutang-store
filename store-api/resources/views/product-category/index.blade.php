@@ -15,14 +15,14 @@
 						</div>
 						<h2 class="tx-mont">{{ $category->title_en }}</h2>
 						<h2>{{ $category->title }}</h2>
-                    	<div class="mt-4"><a href="/product-category/{{ $category->slug }}" class="btn btn-white">探索</a></div>
+                    	<div class="mt-4"><a href="/product-category/{{ $category->slug }}" class="btn btn-white">@lang('general.explore')</a></div>
 					</div>
                     @endforeach
 				</div>
 			</div>
 
           	<div class="col-12 mb-5">
-            	<h2 class="text-white title">创新产品</h2>
+            	<h2 class="text-white title">@lang('general.new-arrival-2')</h2>
           	</div>
             @include('partials.product',['products' => $products->data->data])
 		</div>

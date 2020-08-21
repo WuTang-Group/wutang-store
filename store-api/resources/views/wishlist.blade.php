@@ -5,7 +5,7 @@
 	<div class="container section-t-space">
 		<div class="row justify-content-center">
 			<div class="col-12">
-				<h1 class="text-white title">愿望清单</h1>
+				<h1 class="text-white title">@lang('general.my-wishlist')</h1>
 			</div>
 			<div class="col-12">
 				<div class="wishlist">
@@ -21,9 +21,9 @@
 	                    </div>
 	                    <div class="product-price unit-price text-center">¥ 4,150</div>
 	                    <div class="product-form text-center">
-	                    	<button class="btn btn-outline">添加入购物车</button> 
+	                    	<button class="btn btn-outline">@lang('general.add-to-cart')</button> 
 	                    </div>
-	                    <div class="remove-product text-center"><a href="" class="tx-dark-gray">删除</a></div>
+	                    <div class="remove-product text-center"><a href="" class="tx-dark-gray">@lang('general.remove')</a></div>
 	                </div>
 					<div class="wishlist-item d-md-flex align-items-center">
 	                    <div class="product-image">
@@ -37,9 +37,9 @@
 	                    </div>
 	                    <div class="product-price unit-price text-center">¥ 4,150</div>
 	                    <div class="product-form text-center">
-	                    	<button class="btn btn-outline">添加入购物车</button> 
+	                    	<button class="btn btn-outline">@lang('general.add-to-cart')</button> 
 	                    </div>
-	                    <div class="remove-product text-center"><a href="" class="tx-dark-gray">删除</a></div>
+	                    <div class="remove-product text-center"><a href="" class="tx-dark-gray">@lang('general.remove')</a></div>
 	                </div>
                 </div>
 			</div>

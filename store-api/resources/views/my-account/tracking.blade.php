@@ -5,7 +5,7 @@
 	<div class="container section-t-space">
 		<div class="row justify-content-center">
 			<div class="col-12 d-md-flex align-items-center justify-content-between">
-				<h1 class="text-white title">我的账户</h1>
+				<h1 class="text-white title">@lang('general.my-account.dashboard')</h1>
                 @include('my-account.partials.myacc-menu')
 			</div>
 			<div class="col-12 col-md-7 col-lg-6 col-xl-5 section-t-space">
@@ -22,7 +22,7 @@
 						     </div>
 	                    </div>
 	                    <div class="text-center">
-	                        <button type="submit" class="btn btn-white">跟踪</button>
+	                        <button type="submit" class="btn btn-white">@lang('general.track')</button>
 	                    </div>
 					</form>
 				</div>

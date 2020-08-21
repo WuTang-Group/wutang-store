@@ -5,85 +5,85 @@
 	<div class="container section-t-space">
 		<div class="row justify-content-center">
 			<div class="col-12 d-md-flex align-items-center justify-content-between">
-				<h1 class="text-white title">我的账户</h1>
+				<h1 class="text-white title">@lang('general.my-account.dashboard')</h1>
                 @include('my-account.partials.myacc-menu')
 			</div>
 			<div class="col-12 col-lg-9 section-t-space">
 				<div class="small-section profile-wrapper">
-					<h4 class="text-white mb-5">我的信息</h4>
+					<h4 class="text-white mb-5">@lang('general.my-account.my-profile')</h4>
 					<form class="needs-validation" method="post" novalidate>
 						<div class="form-row">
 		                    <div class="form-group col-md-6">
-		                        <label for="real_name" class="tx-dark-gray">姓名</label>
+		                        <label for="real_name" class="tx-dark-gray">@lang('general.my-account.name')</label>
 		                        <input type="text" name="real_name" class="form-control border-white bg-trans" id="real_name" value="{{ $response->data->real_name?:'' }}" required>
 							<div class="invalid-feedback"></div>
 		                    </div>
 		                    <div class="form-group col-md-6">
-		                        <label for="phone" class="tx-dark-gray">手机号 *</label>
+		                        <label for="phone" class="tx-dark-gray">@lang('general.my-account.contact-number') *</label>
 		                        <input type="text" name="phone" class="form-control border-white bg-trans" id="phone" value="{{ $response->data->phone?:'' }}" required>
 							<div class="invalid-feedback"></div>
 		                    </div>
 	                    </div>
 						<div class="form-row">
 		                    <div class="col-md-12">
-		                        <label class="tx-dark-gray">生日日期 *</label>
+		                        <label class="tx-dark-gray">@lang('general.my-account.date-of-birth') *</label>
 		                    </div>
 		                    <div class="form-group col-md-4">
 		                        <select name="year" class="form-control border-white bg-trans" id="year">
-		                        	<option>年</option>
+		                        	<option>@lang('general.my-account.year')</option>
 		                        </select>
 								<div class="invalid-feedback"></div>
 		                    </div>
 		                    <div class="form-group col-md-4">
 		                        <select name="month" class="form-control border-white bg-trans" id="month">
-		                        	<option>月</option>
-								    <option value="1">1月</option>
-								    <option value="2">2月</option>
-								    <option value="3">3月</option>
-								    <option value="4">4月</option>
-								    <option value="5">5月</option>
-								    <option value="6">6月</option>
-								    <option value="7">7月</option>
-								    <option value="8">8月</option>
-								    <option value="9">9月</option>
-								    <option value="10">10月</option>
-								    <option value="11">11月</option>
-								    <option value="12">12月</option>
+		                        	<option>@lang('general.my-account.month')</option>
+								    <option value="1">@lang('general.my-account.month-name.jan')</option>
+								    <option value="2">@lang('general.my-account.month-name.feb')</option>
+								    <option value="3">@lang('general.my-account.month-name.march')</option>
+								    <option value="4">@lang('general.my-account.month-name.april')</option>
+								    <option value="5">@lang('general.my-account.month-name.may')</option>
+								    <option value="6">@lang('general.my-account.month-name.june')</option>
+								    <option value="7">@lang('general.my-account.month-name.july')</option>
+								    <option value="8">@lang('general.my-account.month-name.august')</option>
+								    <option value="9">@lang('general.my-account.month-name.sept')</option>
+								    <option value="10">@lang('general.my-account.month-name.oct')</option>
+								    <option value="11">@lang('general.my-account.month-name.nov')</option>
+								    <option value="12">@lang('general.my-account.month-name.dec')</option>
 		                        </select>
 								<div class="invalid-feedback"></div>
 		                    </div>
 		                    <div class="form-group col-md-4">
 		                        <select name="day" class="form-control border-white bg-trans" id="day">
-		                        	<option>日</option>
+		                        	<option>@lang('general.my-account.day')</option>
 		                        </select>
 								<div class="invalid-feedback"></div>
 		                    </div>
 	                    </div>
-						<div class="form-row">
+						<div class="form-row" data-toggle="distpicker">
 		                    <div class="form-group col-md-4">
-		                        <label for="province" class="tx-dark-gray">省 *</label>
-		                        <input type="text" name="province" class="form-control border-white bg-trans" id="province" value="{{ $response->data->province?:'' }}" required>
+		                        <label for="province" class="tx-dark-gray">@lang('general.my-account.province') *</label>
+		                        <select data-province="" name="province" class="form-control border-dark" id="province" required></select>
 								<div class="invalid-feedback"></div>
 		                    </div>
 		                    <div class="form-group col-md-4">
-		                        <label for="city" class="tx-dark-gray">城市 *</label>
-		                        <input type="text" name="city" class="form-control border-white bg-trans" id="city" value="{{ $response->data->city?:'' }}" required>
+		                        <label for="city" class="tx-dark-gray">@lang('general.my-account.city') *</label>
+	        					<select data-city="" name="city" class="form-control border-dark" id="city" required></select>
 								<div class="invalid-feedback"></div>
 		                    </div>
 		                    <div class="form-group col-md-4">
-		                        <label for="district" class="tx-dark-gray">区 *</label>
-		                        <input type="text" name="district" class="form-control border-white bg-trans" id="district" value="{{ $response->data->district?:'' }}" required>
+		                        <label for="district" class="tx-dark-gray">@lang('general.my-account.district') *</label>
+		                        <select data-district="" name="district" class="form-control border-dark" id="district" required></select>
 								<div class="invalid-feedback"></div>
 		                    </div>
 		                </div>
 						<div class="form-row">
 		                    <div class="form-group col-md-8">
-		                        <label for="address" class="tx-dark-gray">地址 *</label>
+		                        <label for="address" class="tx-dark-gray">@lang('general.my-account.address') *</label>
 		                        <input type="text" name="address" class="form-control border-white bg-trans" id="address" value="{{ $response->data->address?:'' }}" required>
 								<div class="invalid-feedback"></div>
 		                    </div>
 		                    <div class="form-group col-md-4">
-		                        <label for="zip" class="tx-dark-gray">邮政编码 *</label>
+		                        <label for="zip" class="tx-dark-gray">@lang('general.my-account.zipcode') *</label>
 		                        <input type="text" name="zip" class="form-control border-white bg-trans" id="zip" value="{{ $response->data->zip?:'' }}" required>
 								<div class="invalid-feedback"></div>
 		                    </div>
@@ -93,31 +93,31 @@
 	                        <input type="text" class="form-control border-white bg-trans" id="country">
 	                    </div> -->
 	                    <div class="text-right">
-	                        <button type="submit" onclick="updateProfile()" class="btn btn-white">保存</button>
+	                        <button type="submit" onclick="updateProfile()" class="btn btn-white">@lang('general.save')</button>
 	                    </div>
 					</form>
 					<div class="small-section">
 					<hr class="border-white">
 					</div>
-					<h4 class="text-white mb-5">修改密码</h4>
+					<h4 class="text-white mb-5">@lang('general.my-account.change-password')</h4>
 					<form class="needs-validation" method="post" novalidate>
 	                    <div class="form-group">
-	                        <label for="old_password" class="tx-dark-gray">当前密码 *</label>
+	                        <label for="old_password" class="tx-dark-gray">@lang('general.my-account.current-password') *</label>
 	                        <input type="password" name="oldPassword" class="form-control border-white bg-trans" id="old_password" required>
 							<div class="invalid-feedback"></div>
 	                    </div>
 	                    <div class="form-group">
-	                        <label for="password" class="tx-dark-gray">新的密码 *</label>
+	                        <label for="password" class="tx-dark-gray">@lang('general.new-password') *</label>
 	                        <input type="password" name="newPassword" class="form-control border-white bg-trans" id="password" required>
 							<div class="invalid-feedback"></div>
 	                    </div>
 	                    <div class="form-group">
-	                        <label for="confirm_password" class="tx-dark-gray">确认密码 *</label>
+	                        <label for="confirm_password" class="tx-dark-gray">@lang('general.confirm-password') *</label>
 	                        <input type="password" name="newPassword_confirmation" class="form-control border-white bg-trans" id="confirm_password" required>
 							<div class="invalid-feedback"></div>
 	                    </div>
 	                    <div class="text-right">
-	                        <button type="submit" onclick="changePassword()" class="btn btn-white">保存</button>
+	                        <button type="submit" onclick="changePassword()" class="btn btn-white">@lang('general.save')</button>
 	                    </div>
 					</form>
 				</div>

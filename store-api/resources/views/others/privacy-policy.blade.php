@@ -6,7 +6,7 @@
     <ul>
       <li><a href="#privacy-policy" class="anchor">隐私政策</a></li>
       <li><a href="#website" class="anchor">网站信息</a></li>
-      <li><a href="#cookie" class="anchor">Cookies政策</a></li>
+      <li><a href="#cookie" class="anchor">Cookie政策</a></li>
     </ul>
   </div>
 </div>

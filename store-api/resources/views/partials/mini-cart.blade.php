@@ -4,11 +4,11 @@
         <div class="cart-item">
             <div class="d-flex position-relative">
                 <a href=""><img src="{{ isset($item->product->thumbnail) ? $item->product->thumbnail:$item->thumbnail }}" /></a>
-                <a href="javascript:void(0)" data-id="{{ isset($item->product->id) ? $item->product->id:$item->id }}" class="remove-product tx-dark-gray remove-item">删除</a>
+                <a href="javascript:void(0)" data-id="{{ isset($item->product->id) ? $item->product->id:$item->id }}" class="remove-product tx-dark-gray remove-item">@lang('general.remove')</a>
                 <div class="product-description">
                     <p class="tx-mont">{{ isset($item->product->product_name_en) ? $item->product->product_name_en:$item->product_name_en }}</p>
                     <p>{{ isset($item->product->product_name) ? $item->product->product_name:$item->product_name }}</p>
-                    <div class="tx-uppercase mt-2 tx-dark-gray">数量: {{ isset($item->amount) ? $item->amount:1 }}</div>
+                    <div class="tx-uppercase mt-2 tx-dark-gray">@lang('general.quantity'): {{ isset($item->amount) ? $item->amount:1 }}</div>
                 </div>
             </div>
             <div class="product-price text-right align-self-end">
@@ -22,8 +22,8 @@
         @endforeach
         <hr class="border-bottom">
         <div class="d-flex justify-content-between align-items-center">
-            <a href="/cart" class="btn btn-solid d-block">前往购物车</a>
-            <a href="/checkout" class="btn btn-outline d-block">结账</a>
+            <a href="/cart" class="btn btn-solid d-block">@lang('general.go-cart')</a>
+            <a href="/checkout" class="btn btn-outline d-block">@lang('general.checkout')</a>
         </div>
     @endif
 </div>

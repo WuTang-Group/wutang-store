@@ -4,7 +4,7 @@
 <div class="dark-layout e-boutique-services">
 	<div id="services" class="section-t-space section-b-space position-relative" style="background: url({{ URL::asset('assets/images/banner/sp-bg1.jpg') }}) no-repeat center center / cover;">
         <div class="services-title">
-            <h1>官网服务</h1>
+            <h1>@lang('general.official-services')</h1>
         </div>
 	</div>
 	<div class="container pt-5 pb-5">

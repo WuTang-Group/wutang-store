@@ -42,7 +42,7 @@ class ShopCartController extends Controller
      * Request store cart items
      * 保存/更新购物车商品
      * @bodyParam product_list array required 商品列表
-     * @bodyParam product_list.*.product_id required 商品id
+     * @bodyParam product_list.*.product_id integer required 商品id
      * @param ShopCartRequest $request
      * @return Application|ResponseFactory|Response
      */

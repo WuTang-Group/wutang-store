@@ -29,8 +29,8 @@ return [
         'product' => '802',
         'key' => 'RrEUIbQ0C3JZdy9XBgZQ09ZPW22U7dNQ',
         'bank_code' => '',
-        'notify_url' => 'http://store.wutang.com/api/aligateway/notify',
-        'return_url' => 'http://store.wutang.com/api/aligateway/return',
+        'notify_url' => env('API_URL').'aligateway/notify',
+        'return_url' => env('API_URL').'aligateway/return',
         'extends' => '',
     ]
 ];

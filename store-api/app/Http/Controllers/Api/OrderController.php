@@ -55,9 +55,6 @@ class OrderController extends Controller
      * 订单创建发起
      * @bodyParam address_id interger required 地址id
      * @bodyParam remark string optional 订单备注
-     * @bodyParam items array required 商品项目
-     * @bodyParam items.*.product_id integer required 商品id
-     * @bodyParam items.*.amount integer required 购买数量
      * @param OrderRequest $request
      * @return Application|ResponseFactory|Response
      */

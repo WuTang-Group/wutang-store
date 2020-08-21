@@ -7,3 +7,10 @@ export function getList(query) {
     params: query
   })
 }
+
+export function productDetail(product_slug) {
+  return request({
+    url: 'admin/product/' + product_slug,
+    method: 'get'
+  })
+}

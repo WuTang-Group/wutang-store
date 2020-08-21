@@ -94,7 +94,7 @@ class AlipayGateway
             $results = $client->post($url, ['form_params' => $post_data, 'timeout' => $time_out]);
         } catch (\Exception $e) {
             \Log::error($e->getMessage());
-            return false;
+            return $e->getMessage();
         }
             return json_decode($results->getBody(),true);
     }

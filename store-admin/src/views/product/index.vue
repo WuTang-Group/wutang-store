@@ -8,7 +8,7 @@
         class="filter-item"
         @keyup.enter.native="handleFilter"
       />
-      <el-button v-waves class="filter-item" type="primary" style="margin-left: 20px;" icon="el-icon-search" @click="handleFilter">
+      <el-button class="filter-item" type="primary" style="margin-left: 20px;" icon="el-icon-search" @click="handleFilter">
         {{ $t('table.search') }}
       </el-button>
     </el-card>
@@ -24,7 +24,13 @@
         :header-cell-style="{background:'#ebeef5'}"
       >
         <el-table-column header-align="center" prop="id" align="center" label="ID" width="60" />
-        <el-table-column header-align="center" label="商品名称" prop="product_name" align="center" width="80" />
+        <el-table-column header-align="center" label="商品名称" prop="product_name" align="center" width="80">
+          <template slot-scope="scope">
+            <router-link :to="{ name: 'productViewOrUpdate', params: {'status': 'view', 'product_slug': scope.row.slug} }">
+              {{ scope.row.product_name }}
+            </router-link>
+          </template>
+        </el-table-column>
         <el-table-column header-align="center" label="商品名称(英文)" prop="product_name_en" align="center" width="80" />
         <el-table-column header-align="center" label="所属分类" prop="product_category.title" align="center" width="80" />
         <el-table-column header-align="center" label="产品缩略图" align="center" width="125">
@@ -36,9 +42,9 @@
         <el-table-column header-align="center" label="优惠价格" prop="sale_price" align="center" width="80" />
         <el-table-column header-align="center" label="库存" prop="stock" align="center" width="80" />
         <el-table-column header-align="center" label="规格" prop="spec" align="center" width="80" />
-        <el-table-column header-align="center" label="评分" prop="rating" align="center" width="80" />
-        <el-table-column header-align="center" label="销量" prop="sold_count" align="center" width="80" />
-        <el-table-column header-align="center" label="评价数量" prop="review_count" align="center" width="80" />
+        <!--        <el-table-column header-align="center" label="评分" prop="rating" align="center" width="80" />-->
+        <!--        <el-table-column header-align="center" label="销量" prop="sold_count" align="center" width="80" />-->
+        <!--        <el-table-column header-align="center" label="评价数量" prop="review_count" align="center" width="80" />-->
         <el-table-column header-align="center" label="状态" prop="status" :formatter="formatStatus" align="center" width="80" />
         <el-table-column header-align="center" label="创建时间" prop="created_at" align="center" />
         <el-table-column header-align="center" label="更新时间" prop="updated_at" align="center" />
@@ -46,13 +52,21 @@
           header-align="center"
           align="center"
           label="操作"
+          prop="product_id"
         >
-          <el-tooltip class="item" effect="dark" content="编辑" placement="top">
-            <el-button type="primary" icon="el-icon-edit" circle />
-          </el-tooltip>
-          <el-tooltip class="item" effect="dark" content="删除" placement="top">
-            <el-button type="danger" icon="el-icon-delete" circle />
-          </el-tooltip>
+          <template slot-scope="scope">
+            <!--            <el-tooltip class="item" effect="dark" content="查看" placement="top">-->
+            <!--              <el-button type="success" icon="el-icon-view" circle @click="handleOperation('view',row )" />-->
+            <!--            </el-tooltip>-->
+            <el-tooltip class="item" effect="dark" content="编辑" placement="top">
+              <router-link :to="{ name: 'productViewOrUpdate', params: {'status': 'edit', 'product_slug': scope.row.slug} }">
+                <el-button type="primary" icon="el-icon-edit" circle />
+              </router-link>
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="删除" placement="top">
+              <el-button type="danger" icon="el-icon-delete" circle />
+            </el-tooltip>
+          </template>
         </el-table-column>
       </el-table>
       <pagination
@@ -90,7 +104,12 @@ export default {
       listLoading: true,
       tableKey: 0,
       previewImgDialogVisible: false,
-      previewImg: ''
+      previewImg: '',
+      status: '', // 商品操作标志
+      viewOrUpdateData: {
+        status: '',
+        product_slug: ''
+      }
     }
   },
   created() {
@@ -107,12 +126,14 @@ export default {
       getList(this.listQuery).then(response => {
         this.list = response.data.data
         this.total = response.data.total
-        console.log(this.list)
         this.listLoading = false
       })
     },
     formatStatus(row, column) {
       return row.status === 1 ? '新品' : row.status === 2 ? '畅销' : row.status === 3 ? '促销' : row.status === -1 ? '下架' : '其他'
+    },
+    handleFilter() {
+      console.log('123')
     }
   }
 }

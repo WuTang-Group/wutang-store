@@ -136,6 +136,8 @@ return [
     'line-total' => '共计',
     'subtotal' => '小计',
     'total' => '总计',
+    'total-amount' => '付款金额',
+    'waiting-for-payment' => '正在等待付款',
 
     'subject' => '主题',
     'order-and-return' => '订单与退货',

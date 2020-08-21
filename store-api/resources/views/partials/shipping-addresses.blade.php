@@ -1,7 +1,7 @@
 @if($address_collection && $address_collection->data != null)
 	@foreach($address_collection->data as $key => $address)
 	<div class="form-check mb-1">
-	  	<input class="form-check-input address-checkbox" name="address_id" type="radio" id="addr-{{ $address->id }}" value="{{ $address->id }}" {{ $key == 0 ? 'required':'' }}>
+	  	<input class="form-check-input address-checkbox" name="address_id" type="radio" id="addr-{{ $address->id }}" value="{{ $address->id }}" {{ $key == 0 ? 'checked required':'' }}>
 	  	<label class="form-check-label" for="addr-{{ $address->id }}">
 	  		<span>{{ $address->address }}</span>,
 	        <span>{{ $address->city }}</span>,

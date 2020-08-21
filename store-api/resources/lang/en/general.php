@@ -136,6 +136,8 @@ return [
     'line-total' => 'Line Total',
     'subtotal' => 'Subtotal',
     'total' => 'Total',
+    'total-amount' => 'Total Amount',
+    'waiting-for-payment' => 'Waiting For Payment',
     
     'subject' => 'Subject',
     'order-and-return' => 'Order & Return',

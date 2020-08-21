@@ -546,7 +546,7 @@ function refresh_cart() {
     $minicart.addClass('loading'); // add loading class (optional)
     if($cart[0]) { $cart.addClass('loading'); }// add loading class (optional)
 
-    axios.get('http://localhost:8000/refresh_cart')
+    axios.get(BASE_URL+'refresh_cart')
         .then(function (response) {
             $minicart.html(response.data.minicart);
             $count.html(response.data.count);

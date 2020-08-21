@@ -62,17 +62,17 @@
 						<div class="form-row" data-toggle="distpicker">
 		                    <div class="form-group col-md-4">
 		                        <label for="province" class="tx-dark-gray">@lang('general.my-account.province') *</label>
-		                        <select data-province="" name="province" class="form-control border-dark" id="province" required></select>
+		                        <select data-province="{!! $response->data->province?:'' !!}" name="province" class="form-control border-white bg-trans" id="province" required></select>
 								<div class="invalid-feedback"></div>
 		                    </div>
 		                    <div class="form-group col-md-4">
 		                        <label for="city" class="tx-dark-gray">@lang('general.my-account.city') *</label>
-	        					<select data-city="" name="city" class="form-control border-dark" id="city" required></select>
+	        					<select data-city="{!! $response->data->city?:'' !!}" name="city" class="form-control border-white bg-trans" id="city" required></select>
 								<div class="invalid-feedback"></div>
 		                    </div>
 		                    <div class="form-group col-md-4">
 		                        <label for="district" class="tx-dark-gray">@lang('general.my-account.district') *</label>
-		                        <select data-district="" name="district" class="form-control border-dark" id="district" required></select>
+		                        <select data-district="{!! $response->data->district?:'' !!}" name="district" class="form-control border-white bg-trans" id="district" required></select>
 								<div class="invalid-feedback"></div>
 		                    </div>
 		                </div>

@@ -6,8 +6,8 @@
         </a>
         <div class="cart-info cart-wrap">
             <div class="cart-button">
-                <button type="submit" data-id="{{ $product->id }}" class="btn btn-outline btn-add-to-cart mb-2">添加入购物车</button> 
-                <a href="/product/{{ $product->slug }}" class="btn btn-outline">浏览</a> 
+                <button type="submit" data-id="{{ $product->id }}" class="btn btn-outline btn-add-to-cart mb-2">@lang('general.add-to-cart')</button> 
+                <a href="/product/{{ $product->slug }}" class="btn btn-outline">@lang('general.view')</a> 
             </div>
         </div>
     </div>

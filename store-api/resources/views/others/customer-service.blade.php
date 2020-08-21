@@ -8,7 +8,7 @@
 				<div class="small-section customer-service-wrapper">
 					<div class="customer-service-title text-center">
 						<p class="mb-0">欢迎来到黑桃皇后</p>
-						<h1>客户服务</h1>
+						<h1>@lang('general.customer-service')</h1>
 					</div>
 					<div class="customer-service-content mt-5">
 						<p>如需咨询或帮助，请联系在线客服，或拨打客服电话。</p>
@@ -31,15 +31,15 @@
 		<div class="row justify-content-center small-section customer-service-action">
 			<div class="col-12 col-sm-4 col-md-3 col-lg-2">
 				<img src="assets/images/icon/contact.png" class="img-fluid" alt="">
-				<a href="contact-us.php">联系我们</a>
+				<a href="contact-us.php">@lang('general.contact-us')</a>
 			</div>
 			<div class="col-12 col-sm-4 col-md-3 col-lg-2">
 				<img src="assets/images/icon/hotline.png" class="img-fluid" alt="">
-				<a href="#">客服热线</a>
+				<a href="#">@lang('general.customer-hotline')</a>
 			</div>
 			<div class="col-12 col-sm-4 col-md-3 col-lg-2">
 				<img src="assets/images/icon/tracking.png" class="img-fluid" alt="">
-				<a href="tracking.php">追踪订单</a>
+				<a href="tracking.php">@lang('general.order-tracking')</a>
 			</div>
 		</div>
 	</div>

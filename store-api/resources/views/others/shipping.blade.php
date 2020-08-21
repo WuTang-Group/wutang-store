@@ -4,7 +4,7 @@
 <div class="section-nav darken-layout">
   <div class="container">
     <ul>
-      <li><a href="#tracking" class="anchor">跟踪订单</a></li>
+      <li><a href="#tracking" class="anchor">追踪订单</a></li>
       <li><a href="#pay-for-shipping" class="anchor">支付配送</a></li>
       <li><a href="#inspection" class="anchor">商品验货与签收</a></li>
       <li><a href="#after-sales" class="anchor">售后服务</a></li>
@@ -28,7 +28,7 @@
                 </div>
               </div>
               <div class="text-center">
-                <button type="submit" class="btn btn-white">跟踪</button>
+                <button type="submit" class="btn btn-white">追踪</button>
               </div>
             </form>
           </div>

@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="{{ URL::asset('assets/css/responsive.css') }}">
     @yield('header_style_css')
 </head>
-<body class="{{ Request::is('/') ? 'home ' : null }}cn">
+<body class="{{ Request::is('/') ? 'home ' : null }} {{ !empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en' ? 'en':'cn' }}">
     <div id="app">
         @include('layouts.partials.header', ['count' => $count])
         <main class="main-content">
@@ -77,20 +77,20 @@
                         <div class="tab-pane fade" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
                             <form class="needs-validation" method="post" novalidate>
                                 <div class="form-group">
-                                    <label for="username" class="tx-dark-gray">用户名 *</label>
+                                    <label for="username" class="tx-dark-gray">@lang('general.username') *</label>
                                     <input type="text" name="username" class="form-control border-dark" id="username" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="password" class="tx-dark-gray">密码 *</label>
+                                    <label for="password" class="tx-dark-gray">@lang('general.password') *</label>
                                     <input type="password" name="password" class="form-control border-dark" id="password" required>
                                 </div>
                                 <div class="form-group form-check d-flex justify-content-end">
-                                    <a href="/forgot-password" class="tx-dark-gray">忘记密码</a>
+                                    <a href="/forgot-password" class="tx-dark-gray">@lang('general.forgot-password')</a>
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <button type="submit" onclick="login()" class="btn btn-solid">登陆</button>
-                                    <label class="m-auto">或</label>
-                                    <a href="/register" class="btn btn-outline">注册</a>
+                                    <button type="submit" onclick="login()" class="btn btn-solid">@lang('general.login')</button>
+                                    <label class="m-auto">@lang('general.or')</label>
+                                    <a href="/register" class="btn btn-outline">@lang('general.register')</a>
                                 </div>
                             </form>
                         </div>
@@ -135,9 +135,14 @@
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
     <!--<script src="{{ URL::asset('assets/vendor/js-cookie/js.cookie.min.js') }}"></script>-->
     <script src="{{ URL::asset('assets/vendor/toastr/toastr.min.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplecartjs/3.0.5/simplecart.min.js"></script>
-    @yield('footer_vendor_scripts')
 
+    @yield('footer_vendor_scripts')
+    @if(!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en') 
+    <script src="{{ URL::asset('assets/js/lang/en.js') }}"></script>
+    @else
+    <script src="{{ URL::asset('assets/js/lang/cn.js') }}"></script>
+    @endif
+    <script src="{{ URL::asset('assets/js/distpicker.js') }}"></script>
     <script src="{{ URL::asset('assets/js/cart.js') }}"></script>
     <script src="{{ URL::asset('assets/js/main.js') }}"></script>
     <script src="{{ URL::asset('assets/js/axios.js') }}"></script>

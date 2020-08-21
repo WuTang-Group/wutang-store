@@ -2392,3 +2392,10 @@ footer {
   background-color: #fb8c00; }
 .toast-progress {
   color: #fff; }
+
+
+/*=====================
+    23. English Lang Adjustment CSS start
+==========================*/
+.en .btn {
+  font-size: 14px; }

@@ -24,6 +24,7 @@ class CreateUserAddressesTable extends Migration
             $table->unsignedInteger('zip')->comment('邮编');
             $table->string('contact_name')->comment('联系人');
             $table->string('contact_phone')->comment('联系电话');
+            $table->integer('is_default')->default(0)->comment('是否为默认地址,1为是，0为不是');
             $table->dateTime('last_used_at')->nullable()->comment('最后使用时间');
             $table->timestamps();
         });

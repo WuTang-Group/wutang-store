@@ -7,7 +7,7 @@ use GatewayWorker\Lib\Gateway;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class SendOrderStatusNotification
+class SendOrderStatusNotification implements ShouldQueue
 {
     /**
      * 事件被推送到的队列名称。

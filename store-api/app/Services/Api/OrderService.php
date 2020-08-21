@@ -62,7 +62,8 @@ class OrderService extends Service
                 $order->save();
 
                 $totalAmount = 0;
-                $items = $queries->items;
+                // 查找当前用户购物车数据
+                $items = $this->user()->shopCartItems()->get();;
                 // 遍历用户提交的 商品/若为sku则改即可
                 foreach ($items as $data) {
                     $product = Product::find($data['product_id']);

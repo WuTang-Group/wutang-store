@@ -40,6 +40,7 @@ Route::middleware('auth:api')->group(function () {
      * product categories
      */
     Route::get('product_categories', 'ProductCategoryController@queryList')->name('product_categories.queryList');
+    Route::get('product_categories/{category_slug}', 'ProductCategoryController@categoryQuery')->name('category_stories.categoryQuery');
     Route::post('product_categories', 'ProductCategoryController@store')->name('product_categories.store');
     Route::post('product_categories/{productCategoriesId}', 'ProductCategoryController@edit')->name('product_categories.edit');
     Route::delete('product_categories/{productCategoriesId}', 'ProductCategoryController@destroy')->name('product_categories.destroy');
@@ -56,6 +57,7 @@ Route::middleware('auth:api')->group(function () {
      * product
      */
     Route::get('product', 'ProductController@queryList')->name('product.queryList');
+    Route::get('product/{product_slug}', 'ProductController@productQuery')->name('product.productQuery');
     Route::post('product', 'ProductController@store')->name('product.store');
     Route::post('product/{productId}', 'ProductController@edit')->name('product.edit');
     Route::delete('product/{productId}', 'ProductController@destroy')->name('product.destroy');
@@ -77,5 +79,6 @@ Route::middleware('auth:api')->group(function () {
      */
     Route::get('logs/{collection}','LoggerController@queryList')->name('logs.queryList');
     Route::delete('logs/{collection}','LoggerController@destroy')->name('logs.destroy');
+    Route::post('testUpload','InvitationController@test');
 
 });

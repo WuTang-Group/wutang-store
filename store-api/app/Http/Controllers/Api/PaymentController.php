@@ -168,7 +168,6 @@ class PaymentController extends Controller
      * 发起支付宝网关支付请求(前端)
      * @queryParam no required 订单号
      * @queryParam total_amount required 总金额
-     * @queryParam subject required 交易名称
      * @param PaymentRequest $request
      * @return string
      */

@@ -30,7 +30,13 @@
         :header-cell-style="{background:'#ebeef5'}"
       >
         <el-table-column header-align="center" prop="id" align="center" label="ID" width="60" />
-        <el-table-column header-align="center" label="类目名称" prop="title" align="center" width="80" />
+        <el-table-column header-align="center" label="类目名称" prop="title" align="center" width="80">
+          <template slot-scope="scope">
+            <router-link :to="{ name: 'categoryViewOrUpdate', params: {'status': 'view', 'category_slug': scope.row.slug} }">
+              {{ scope.row.title }}
+            </router-link>
+          </template>
+        </el-table-column>
         <el-table-column header-align="center" label="类目名称(英文)" prop="title_en" align="center" width="80" />
         <el-table-column header-align="center" label="分类描述" show-overflow-tooltip prop="describe" width="200" />
         <el-table-column header-align="center" label="分类描述(英文)" show-overflow-tooltip prop="describe_en" width="200" />
@@ -128,6 +134,7 @@ export default {
         this.list = response.data.data
         this.total = response.data.total
         this.listLoading = false
+        console.log(this.list)
       })
     },
     handleCreate() {

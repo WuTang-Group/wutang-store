@@ -21,7 +21,7 @@
               <div class="product-right">
                   <h2 class="product-title tx-mont lh-12 mb-2 font-weight-normal">{{ $response->data->product_name_en }}</h2>
                   <h1 class="product-title">{{ $response->data->product_name }}</h1>
-                  <h3 class="product-price">@php echo $response->data->sale_price ? '<del>¥ '.$response->data->price.'</del> ¥ <span>'.$response->data->sale_price.'</span>':'¥ <span>'.$response->data->price.'<span>' @endphp</h3>
+                  <h3 class="product-price">@php echo $response->data->sale_price ? '<del>¥ '.number_format($response->data->price).'</del> ¥ <span>'.number_format($response->data->sale_price).'</span>':'¥ <span>'.number_format($response->data->price).'<span>' @endphp</h3>
                   <div class="product-description">
                     @if (!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en')
                       {{ $response->data->short_description_en }}

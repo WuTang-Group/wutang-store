@@ -239,7 +239,8 @@
     .cart .cart-item .product-price.amount {  
         display: inline-block;
         float: right;
-        padding: 5px 0; }
+        padding: 5px 0;
+        text-align: right !important; }
     .cart .cart-item .remove-product,
     .wishlist .wishlist-item .remove-product {  
       position: absolute;
@@ -355,6 +356,9 @@
   .product-idea-slider .slider-contain h2,
   .general-slider .slider-contain h2 {
     font-size: 25px; }
+
+  .cart .cart-item .product-quantity {
+    padding: 0; }
 
   .slider-pagination-right ul.slick-dots,
   .slider-pagination-left ul.slick-dots {

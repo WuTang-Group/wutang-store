@@ -40,7 +40,7 @@
 </head>
 <body class="{{ Request::is('/') ? 'home ' : null }}cn">
     <div id="app">
-        @include('layouts.partials.header', ['minicart_collection' => $minicart_collection])
+        @include('layouts.partials.header', ['count' => $count])
         <main class="main-content">
             @yield('content')
         </main>
@@ -96,7 +96,7 @@
                         </div>
                         @endif
                         <div class="tab-pane fade" id="nav-mini-cart" role="tabpanel" aria-labelledby="nav-mini-cart-tab">
-                            @include('partials.mini-cart', ['minicart_collection' => $minicart_collection])
+                            @include('partials.mini-cart', ['cart_collection' => $cart_collection])
                         </div>
                     </div>
                     <div class="text-center mt-5">
@@ -118,6 +118,10 @@
             </nav>
         </div>
         <!-- Widgets -->
+        @if(Session::get('intended_url'))
+            <input id="intended_url" type="hidden" value="{{ Session::get('intended_url') }}" />
+            @php Session::forget('intended_url') @endphp
+        @endif
         <a id="back-to-top" href="#"><i class="fa fa-angle-up fa-2x" aria-hidden="true"></i></a>
     </div>
     @yield('before_footer_scripts')

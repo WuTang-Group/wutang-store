@@ -26,7 +26,7 @@
                         <a href="/product-category/{{ $product->product_category->slug }}">{{ $product->product_category->title }}</a>
                     </div>
                     <div class="d-flex justify-content-between mt-3">
-                    	<h4>@php echo $product->sale_price ? '<del>¥ '.$product->price.'</del> ¥ '.$product->sale_price:'¥ '.$product->price @endphp</h4>
+                    	<h4>@php echo $product->sale_price ? '<del>¥ '.number_format($product->price).'</del> ¥ '.number_format($product->sale_price):'¥ '.number_format($product->price) @endphp</h4>
                     	<a href="" class="add-to-wishlist"></a>
                     </div>
                 </div>

@@ -99,14 +99,18 @@
                             @endif
                         </li>
                         <li class="onhover-div mini-cart">
+                            @if(Request::is('checkout'))
+                            <a href="/cart">
+                            @else
                             <a href="javascript:void(0)" onclick="openNav('mini-cart')">
+                            @endif
                                 <span class="count">
                                     {{ $count?: 0 }}
                                 </span>
                             </a>
                         </li>
                         <li class="onhover-div my-wishlist">
-                            <a href="wishlist.php"></a>
+                            <a href="/wishlist"></a>
                         </li>
                     </ul>
                 </div>

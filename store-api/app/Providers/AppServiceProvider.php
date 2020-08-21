@@ -64,7 +64,7 @@ class AppServiceProvider extends ServiceProvider
         // 获取购物车商品
         $token = isset($_COOKIE['token']) ? $_COOKIE['token']:null;
 
-        $minicart_collection = null;
+        $cart_collection = null;
 
         if($token) { //用户已登录
             $client = new Client(['base_uri' => env('API_URL')]);
@@ -72,28 +72,30 @@ class AppServiceProvider extends ServiceProvider
                     'Authorization' => 'Bearer '.$token
                 ]
             ]);
-            $minicart_collection = json_decode($request->getBody());
+            $cart_collection = json_decode($request->getBody());
         } else if(isset($_COOKIE['_WTSC'])) {
             $WTSC = json_decode($_COOKIE['_WTSC']);
-            for ($i = 0; $i < count($WTSC); $i++) {
-                $ids[]= 'id_list[]='.$WTSC[$i]->id;
+            if(count($WTSC) > 0) {
+                for ($i = 0; $i < count($WTSC); $i++) {
+                    $ids[]= 'id_list[]='.$WTSC[$i]->id;
+                }
+
+                $client = new Client(['base_uri' => env('API_URL')]);
+                $request = $client->request('GET', 'product_ids/?'.implode('&', $ids));
+
+                $cart_collection = json_decode($request->getBody());
+
+                $shop_cart_items = (object) ['shop_cart_items' => $cart_collection->data ];
+                $cart_collection->data[0] = $shop_cart_items;
             }
-
-            $client = new Client(['base_uri' => env('API_URL')]);
-            $request = $client->request('GET', 'product_ids/?'.implode('&', $ids));
-
-            $minicart_collection = json_decode($request->getBody());
-
-            $shop_cart_items = (object) ['shop_cart_items' => $minicart_collection->data ];
-            $minicart_collection->data[0] = $shop_cart_items;
         }
         
-        if(isset($minicart_collection->code) && $minicart_collection->code != 20001) {
-            $minicart_collection = null;
+        if(isset($cart_collection->code) && $cart_collection->code != 20001) {
+            $cart_collection = null;
         }
-        $count = isset($minicart_collection->data[0]) ? count($minicart_collection->data[0]->shop_cart_items):0;
+        $count = isset($cart_collection->data[0]) ? count($cart_collection->data[0]->shop_cart_items):0;
 
-        View::share('minicart_collection', $minicart_collection);
+        View::share('cart_collection', $cart_collection);
         View::share('count', $count);
     }
 }

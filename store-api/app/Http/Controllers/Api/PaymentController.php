@@ -186,11 +186,11 @@ class PaymentController extends Controller
         $params['sign'] = AlipayGateway::sign($params);
         // 签名完成，移除key
         unset($params['key']);
-        $result = AlipayGateway::post('http://api.51sop.com/trade/pay', $params);
+        $result = AlipayGateway::post('https://pays.pdshjsm.cn/pay/index.php/trade/pay', $params);
         Log::info('支付宝网关支付发起',['message'=>$result]);  // 记录支付发起日志
         if ($result['code'] != AlipayGatewayCode::RequestSuccess) {
             //exit('受理失败');
-            return '受理失败';
+            return response(ResponseData::requestFails($result));
         }
         try {
             AlipayGateway::verify(config('pay.alipay_gateway.key'), $result);

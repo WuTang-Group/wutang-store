@@ -85,4 +85,11 @@ class ProductCategoryService extends Service
         }
         return $array;
     }
+
+    public function categoryQuery($category_slug)
+    {
+        return $this->productCategory->with(['productCategoryStories', 'parent' => function($query){
+            $query->select('id', 'title');
+        }])->where('slug', $category_slug)->first();
+    }
 }

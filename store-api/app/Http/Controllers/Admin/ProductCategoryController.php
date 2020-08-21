@@ -94,4 +94,16 @@ class ProductCategoryController extends Controller
         $result = $this->categoriesService->destroy($productCategoriesId);
         return $result ? response()->json(ResponseData::requestSuccess()) : response()->json(ResponseData::requestFails());
     }
+
+    /**
+     * Get category detail by category_slug
+     * 根据类目slug查询类目详情
+     * @param $category_slug
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function categoryQuery($category_slug)
+    {
+        $result = $this->categoriesService->categoryQuery($category_slug);
+        return response()->json(ResponseData::requestSuccess($result));
+    }
 }

@@ -5,6 +5,8 @@ namespace App\Models;
 
 class UserAddress extends Model
 {
+    const IsDefault = 1;
+
     protected $fillable = [
         'province',
         'city',
@@ -30,5 +32,11 @@ class UserAddress extends Model
     public function getFullAddressAttribute()
     {
         return "{$this->province}{$this->city}{$this->district}{$this->address}";
+    }
+
+    // 返回默认地址
+    public function scopeDefaultAddress($query)
+    {
+        return $this->whereIsDefault(static::IsDefault);
     }
 }

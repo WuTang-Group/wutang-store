@@ -198,7 +198,8 @@ class PaymentController extends Controller
             Log::error('支付宝网关发起失败', ['message' => $e->getMessage()]);
             return '验签失败';
         }
-        return redirect($result['pay_url']);
+        //return redirect($result['pay_url']);
+        return response(ResponseData::requestSuccess(['pay_url' =>$result['pay_url']]));
     }
 
     /**

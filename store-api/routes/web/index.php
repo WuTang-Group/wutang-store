@@ -15,7 +15,7 @@ Route::group(['middleware' => ['web']], function () use ($router) {
 		Route::group(['prefix' => 'my-account'], function () use ($router) {
 			Route::get('/', 'Web\AccountController@index')->name('my-account');
 			Route::get('order/{order_no}', 'Web\AccountController@show');
-			Route::get('tracking', function () { return view('my-account.tracking'); });
+			/*Route::get('tracking', function () { return view('my-account.tracking'); });*/
 			Route::get('profile', 'Web\AccountController@profile');
 		});
 

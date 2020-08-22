@@ -37,10 +37,10 @@
 				<img src="assets/images/icon/hotline.png" class="img-fluid" alt="">
 				<a href="#">@lang('general.customer-hotline')</a>
 			</div>
-			<div class="col-12 col-sm-4 col-md-3 col-lg-2">
+			<!-- <div class="col-12 col-sm-4 col-md-3 col-lg-2">
 				<img src="assets/images/icon/tracking.png" class="img-fluid" alt="">
 				<a href="tracking.php">@lang('general.order-tracking')</a>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </div>

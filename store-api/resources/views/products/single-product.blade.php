@@ -105,7 +105,7 @@
           </div>
         </div>
       </div>
-      <div id="application" class="section-t-space">
+      <div id="application" class="section-t-space position-relative">
         <div class="d-none d-md-block">
           <ul id="accordion">
             <li data-required="true" data-selected="true" data-title="@lang('general.usage')">

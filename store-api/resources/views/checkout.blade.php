@@ -5,7 +5,7 @@
 	<div class="container section-t-space">
 		<form class="needs-validation" method="post" novalidate>
 			<div class="row justify-content-center">
-				<div class="col-12 mb-4"> 
+				<div class="col-12 mb-4">
 					<h1 class="text-white title">@lang('general.checkout')</h1>
 				</div>
 				<div class="col-lg-8">
@@ -167,7 +167,9 @@
 			    		axios.get(BASE_URL+'api/aligateway/pay?no='+ order_no + '&total_amount=' + amount)
 						  	.then(function (response) {
 						    	if(response.data.code == 20001) {
-	    							ws.send('{"mode":"chats","order_id":'+ order_no +'}');
+                                    window.open(response.data.data.pay_url);  // 跳转至新建标签页进行支付
+                                    // 无需向服务端传参数,只需监听服务端消息即可
+	    							// ws.send('{"mode":"chats","order_id":'+ order_no +'}');
 						    	} else {
 			    					toastr['error'](response.data.msg);
 	    							window.location.href = BASE_URL + 'my-account/order/' + order_no;
@@ -243,8 +245,15 @@
             //console.log(e);
             const data = JSON.parse(e.data);
             console.log(data);
-            if(data.order != null) {
+            // if(data.order != null) {
+            //     window.location.href = BASE_URL + 'my-account/order/' + data.order.no;
+            // }
+            // 提示信息并跳转
+            if(data.order.status == 1) {
+                toastr['success']('支付成功');
                 window.location.href = BASE_URL + 'my-account/order/' + data.order.no;
+            }else{
+                toastr['error']('支付失败');
             }
         };
         // 通讯关闭时触发

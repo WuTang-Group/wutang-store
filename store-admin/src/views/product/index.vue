@@ -26,7 +26,7 @@
         <el-table-column header-align="center" prop="id" align="center" label="ID" width="60" />
         <el-table-column header-align="center" label="商品名称" prop="product_name" align="center" width="80">
           <template slot-scope="scope">
-            <router-link :to="{ name: 'productViewOrUpdate', params: {'status': 'view', 'product_slug': scope.row.slug} }">
+            <router-link :to="{ name: 'ProductViewOrUpdate', params: {'status': 'view', 'product_slug': scope.row.slug} }">
               {{ scope.row.product_name }}
             </router-link>
           </template>
@@ -59,7 +59,7 @@
             <!--              <el-button type="success" icon="el-icon-view" circle @click="handleOperation('view',row )" />-->
             <!--            </el-tooltip>-->
             <el-tooltip class="item" effect="dark" content="编辑" placement="top">
-              <router-link :to="{ name: 'productViewOrUpdate', params: {'status': 'edit', 'product_slug': scope.row.slug} }">
+              <router-link :to="{ name: 'ProductViewOrUpdate', params: {'status': 'edit', 'product_slug': scope.row.slug} }">
                 <el-button type="primary" icon="el-icon-edit" circle />
               </router-link>
             </el-tooltip>

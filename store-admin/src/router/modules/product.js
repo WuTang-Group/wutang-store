@@ -21,7 +21,7 @@ const productRouter = {
       path: 'view-or-update',
       component: () => import('@/views/product/components/ViewOrUpdate'),
       hidden: true,
-      name: 'productViewOrUpdate',
+      name: 'ProductViewOrUpdate',
       meta: { title: 'productViewOrUpdate', noCache: false }
     }
   ]

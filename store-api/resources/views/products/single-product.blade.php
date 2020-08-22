@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('header_vendor_style_css')
+  <link rel="stylesheet" href="{{ URL::asset('assets/vendor/jquery-accordion/jquery.accordion.css') }}">
+@endsection
 @section('content')
 <div class="section-nav">
   <div class="container">
@@ -104,17 +106,65 @@
         </div>
       </div>
       <div id="application" class="section-t-space">
-        <div class="container">
-          @if (!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en')
-            {{ $response->data->usage_en }}
-          @else 
-            {{ $response->data->usage }}
-          @endif
-          @if (!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en')
-            {{ $response->data->tech_description_en }}
-          @else 
-            {{ $response->data->tech_description }}
-          @endif
+        <div class="d-none d-md-block">
+          <ul id="accordion">
+            <li data-required="true" data-selected="true" data-title="@lang('general.usage')">
+              <div style="background: url(assets/images/banner/sp-bg2.jpg) no-repeat center center / cover;">
+                <div class="container">
+                  @if (!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en')
+                    {{ $response->data->usage_en }}
+                  @else 
+                    {{ $response->data->usage }}
+                  @endif
+                </div>
+                <style>
+                  #application #accordion iframe,
+                  #application #accordion video {
+                    position: absolute;
+                    top: 0;
+                    width: calc(100vw - 190px);
+                  }
+                </style>
+                <!-- <video width="100%" height="100%" controls>
+                    <source src="https://www.youtube.com/embed/jlDWshzAC0o" type="video/mp4">
+                </video> -->
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/jlDWshzAC0o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+            </li>
+            <li data-required="true" data-title="@lang('general.technology')">
+              <div style="background: url(assets/images/banner/sp-bg1.jpg) no-repeat center center / cover;">
+                <div class="container">
+                  @if (!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en')
+                    {{ $response->data->tech_description_en }}
+                  @else 
+                    {{ $response->data->tech_description }}
+                  @endif
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="container general-accordion-wrapper">
+          <div class="accordion mt-3 d-md-none">
+            <h2 class="text-white title mb-0">@lang('general.usage')</h2>
+            <div class="collapse show">
+              <div>
+                @if (!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en')
+                  {{ $response->data->usage_en }}
+                @else 
+                  {{ $response->data->usage }}
+                @endif
+              </div>
+            </div>
+            <h2 class="text-white title collapsed mb-0">@lang('general.technology')</h2>
+            <div class="collapse">
+                @if (!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en')
+                  {{ $response->data->tech_description_en }}
+                @else 
+                  {{ $response->data->tech_description }}
+                @endif
+            </div>
+          </div>
         </div>
       </div>
       <!-- <div id="routine" class="position-relative section-t-space section-b-space">
@@ -223,4 +273,7 @@
 	</div>
 </div>
 @include('partials.official-services')
+@endsection
+@section('footer_vendor_scripts')
+  <script src="{{ URL::asset('assets/vendor/jquery-accordion/jquery.accordion.js') }}"></script>
 @endsection

@@ -42,19 +42,19 @@
         <el-row :gutter="10">
           <el-col :span="12">
             <el-form-item label="分类描述">
-              <el-input v-model="form.describe" disabled>
-                <el-button v-if="!describeVisible" slot="append" icon="el-icon-edit-outline" @click="handleDescribe" />
-                <el-button v-if="describeVisible" slot="append" icon="el-icon-arrow-up" @click="handleDescribe" />
-              </el-input>
+              <el-input v-show="false" v-model="form.describe" disabled />
+              <el-button icon="el-icon-edit-outline" @click="handleDescribes(1)" />
+              <el-button icon="el-icon-arrow-up" @click="showOne = !showOne" />
+              <span v-show="showOne" v-html="form.describe" />
             </el-form-item>
             <tinymce v-if="describeVisible" v-model="form.describe" :height="50" />
           </el-col>
           <el-col :span="12">
             <el-form-item label="分类描述(英文)">
-              <el-input v-model="form.describe_en" disabled>
-                <el-button v-if="!describeEnVisible" slot="append" icon="el-icon-edit-outline" @click="handleDescribeEn" />
-                <el-button v-else slot="append" icon="el-icon-arrow-up" @click="handleDescribeEn" />
-              </el-input>
+              <el-input v-show="false" v-model="form.describe_en" disabled />
+              <el-button icon="el-icon-edit-outline" @click="handleDescribes(2)" />
+              <el-button icon="el-icon-arrow-up" @click="showTwo = !showTwo" />
+              <span v-show="showTwo" v-html="form.describe_en" />
             </el-form-item>
             <tinymce v-if="describeEnVisible" v-model="form.describe_en" :height="50" />
           </el-col>
@@ -63,21 +63,25 @@
         <el-row :gutter="10">
           <el-col :span="12">
             <el-form-item label="分类简介">
-              <el-input v-model="form.description" disabled>
-                <el-button v-if="!descriptionVisible" slot="append" icon="el-icon-edit-outline" @click="handleDescription" />
-                <el-button v-if="descriptionVisible" slot="append" icon="el-icon-arrow-up" @click="handleDescription" />
-              </el-input>
+              <el-input v-show="false" v-model="form.description" disabled />
+              <el-button icon="el-icon-edit-outline" @click="handleDescribes(3)" />
+              <el-button icon="el-icon-arrow-up" @click="showThree =!showThree" />
+              <span v-show="showThree" v-html="form.description" />
             </el-form-item>
             <tinymce v-if="descriptionVisible" v-model="form.description" :height="50" />
           </el-col>
           <el-col :span="12">
             <el-form-item label="分类简介(英文)">
-              <el-input v-model="form.description_en" disabled>
-                <el-button v-if="!descriptionEnVisible" slot="append" icon="el-icon-edit-outline" @click="handleDescriptionEn" />
-                <el-button v-if="descriptionEnVisible" slot="append" icon="el-icon-arrow-up" @click="handleDescriptionEn" />
-              </el-input>
+              <el-input v-show="false" v-model="form.description_en" disabled />
+              <el-button icon="el-icon-edit-outline" @click="handleDescribes(4)" />
+              <el-button icon="el-icon-arrow-up" @click="showFour =!showFour" />
+              <span v-show="showFour" v-html="form.description_en" />
             </el-form-item>
-            <tinymce v-if="descriptionEnVisible" v-model="form.description_en" :height="50" />
+            <tinymce
+              v-if="descriptionEnVisible"
+              v-model="form.description_en"
+              :height="50"
+            />
           </el-col>
         </el-row>
         <el-row :gutter="10">
@@ -101,34 +105,42 @@
               <el-button type="primary" @click="updatetValue">测试上传</el-button>
             </el-form-item>
           </el-col>
-          <!--          <el-col :span="12">-->
-          <!--            <el-form-item label="分类简介图">-->
-          <!--              <el-upload-->
-          <!--                ref="uploadImg"-->
-          <!--                :class="{hide:hideUpload}"-->
-          <!--                name="img"-->
-          <!--                action="#"-->
-          <!--                list-type="picture-card"-->
-          <!--                :auto-upload="false"-->
-          <!--                :limit="limitCount"-->
-          <!--                :file-list="imgList"-->
-          <!--                :on-change="handleBannerChange"-->
-          <!--                :on-remove="handleBannerRemove"-->
-          <!--              >-->
-          <!--                <el-button size="small" type="primary">点击上传</el-button>-->
-          <!--                <div slot="tip" class="el-upload__tip">只能上传一张jpg/png文件，且不超过500kb</div>-->
-          <!--              </el-upload>-->
-          <!--            </el-form-item>-->
-          <!--          </el-col>-->
+          <el-col :span="12">
+            <el-form-item label="分类简介图">
+              <el-upload
+                ref="uploadImg"
+                :class="{hide:hideUpload}"
+                name="img"
+                action="#"
+                list-type="picture-card"
+                :auto-upload="false"
+                :limit="limitCount"
+                :file-list="imgList"
+                :on-change="handleBannerChange1"
+                :on-remove="handleBannerRemove"
+              >
+                <el-button size="small" type="primary">点击上传</el-button>
+                <div slot="tip" class="el-upload__tip">只能上传一张jpg/png文件，且不超过500kb</div>
+              </el-upload>
+            </el-form-item>
+          </el-col>
         </el-row>
       </el-form>
     </el-card>
+    <!-- TinyMce 实例公用弹框 -->
+    <el-dialog title="提示" :visible.sync="showDialog" width="50%" :before-close="handleClose">
+      <tinymce v-model="tinyTxt" :height="150" />
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="showDialog = false">取 消</el-button>
+        <el-button type="primary" @click="comfirmSaveTiny">确 定</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
 <script>
 import Tinymce from '@/components/Tinymce'
-import { getList, store } from '@/api/category'
+import { getList, storeForm } from '@/api/category'
 
 export default {
   name: 'CreateOrUpdate',
@@ -137,16 +149,23 @@ export default {
   },
   data() {
     return {
+      showDialog: false,
+      tinyTxt: '',
+      flag: '',
+      showOne: true,
+      showTwo: true,
+      showThree: true,
+      showFour: true,
       form: {
-        title: '',
-        title_en: '',
+        title: '', //
+        title_en: '', //
         slug: '',
         describe: '',
         describe_en: '',
         description: '',
         description_en: '',
         banner: '',
-        parent_id: '',
+        parent_id: '', //
         img: ''
       },
       parentCategory: null,
@@ -160,24 +179,27 @@ export default {
       descriptionEnVisible: false
     }
   },
-  watch: {
-  },
+  watch: {},
   created() {
     this.getCategoryList()
   },
   methods: {
     updatetValue() {
       console.log(this.form)
-      store(this.form).then(response => {
+      const postForm = new FormData()
+      postForm.append('description', this.form.description) //
+      postForm.append('banner', this.form.banner) //
+      postForm.append('img', this.form.img) //
+      // 添加所有参数
+      storeForm(postForm).then((response) => {
         console.log(response)
-      }
-      )
+      })
     },
     getCategoryList() {
       const param = {
         page_limit: 40
       }
-      getList(param).then(response => {
+      getList(param).then((response) => {
         console.log(response.data)
         this.parentCategory = response.data.data
       })
@@ -186,31 +208,81 @@ export default {
       this.hideUpload = fileList.length >= this.limitCount
       // const form = new FormData()
       // form.append('name', file)
-      this.bannerList = fileList
-      this.form.banner = file
+      // this.bannerList = fileList;
+      this.form.banner = file.raw
+    },
+    handleBannerChange1(file, fileList) {
+      this.form.img = file.raw
     },
     handleBannerRemove(file, fileList) {
       this.hideUpload = fileList.length >= this.limitCount
     },
-    handleDescribe() {
-      this.describeVisible = !this.describeVisible
+    handleDescribes(flag) {
+      this.flag = flag
+      this.tinyTxt = ''
+      this.showDialog = true
     },
-    handleDescribeEn() {
-      this.describeEnVisible = !this.describeEnVisible
+    handleDescribe(flag) {},
+    handleDescribeEn(flag) {
+      // this.showDialog = true;
     },
-    handleDescription() {
-      this.descriptionVisible = !this.descriptionVisible
+    handleDescription(flag) {
+      // this.showDialog = true;
     },
-    handleDescriptionEn() {
-      this.descriptionEnVisible = !this.descriptionEnVisible
+    handleDescriptionEn(flag) {
+      // this.showDialog = true;
+    },
+
+    // 确认保存当前富文本
+    comfirmSaveTiny() {
+      // console.log(this.flag);
+      // if (this.flag == 1) {
+      //     this.form.describe = this.tinyTxt;
+      //     this.showDialog = false;
+      // }
+      switch (this.flag) {
+        case 1:
+          this.form.describe = this.tinyTxt
+          this.showDialog = false
+          this.tinyTxt = ''
+          break
+        case 2:
+          this.form.describe_en = this.tinyTxt
+          this.showDialog = false
+          this.tinyTxt = ''
+          break
+        case 3:
+          this.form.description = this.tinyTxt
+          this.showDialog = false
+          this.tinyTxt = ''
+          break
+        case 4:
+          this.form.description_en = this.tinyTxt
+          this.showDialog = false
+          this.tinyTxt = ''
+          break
+        default:
+          break
+      }
+      this.$message({
+        message: 'test',
+        type: 'success'
+      })
+    },
+    handleClose(done) {
+      this.$confirm('确认关闭？')
+        .then((_) => {
+          done()
+        })
+        .catch((_) => {})
     }
   }
 }
 </script>
 
 <style lang="scss">
-  /*上传图片完成后隐藏按钮*/
-  .hide .el-upload--picture-card {
+/*上传图片完成后隐藏按钮*/
+.hide .el-upload--picture-card {
     display: none;
-  }
+}
 </style>

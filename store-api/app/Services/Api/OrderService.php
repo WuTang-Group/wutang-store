@@ -51,7 +51,7 @@ class OrderService extends Service
                 // 创建一个订单
                 $order = new Order([
                     'no' => OrderHandler::createOnlyId(),
-                    'address_id' => $queries->address_id,
+                    'user_address_id' => $queries->address_id,
                     'remark' => $queries->remark ?? NULL,
                     'total_amount' => 0,
                 ]);
@@ -70,7 +70,7 @@ class OrderService extends Service
                     // 创建一个 OrderItem 并直接与当前订单关联
                     $item = $order->items()->make([
                         'amount' => $data['amount'],
-                        'price' => $product->price,
+                        'price' => $product->sale_price ? $product->sale_price : $product->price,
                     ]);
                     // $item->product()->associate($product->product_id);
                     $item->product_id = $product->id;

@@ -34,30 +34,30 @@
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-3">
                                     <div class="title">
-                                        <h4>尊享服务</h4>
+                                        <h4>@lang('general.services')</h4>
                                     </div>
                                     <div class="content">
                                         <ul>
-                                            <li><a href="/e-boutique-services">官网服务</a></li>
+                                            <li><a href="/e-boutique-services">@lang('general.e-boutique-services')</a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 col-lg-3">
                                     <div class="title">
-                                        <h4>The House</h4>
+                                        <h4>@lang('general.the-house')</h4>
                                     </div>
                                     <div class="content">
                                         <ul>
-                                            <li><a href="/product-idea">产品理念</a></li>
-                                            <li><a href="/the-brand">品牌介绍</a></li>
-                                            <li><a href="/the-house">精彩内容</a></li>
+                                            <li><a href="/product-idea">@lang('general.product-idea')</a></li>
+                                            <li><a href="/the-brand">@lang('general.brand-introduction')</a></li>
+                                            <li><a href="/the-house">@lang('general.blog-post')</a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-12 offset-lg-9 col-lg-3">
                                     <form>
                                         <div class="input-group">
-                                            <input type="text" class="form-control search-input" placeholder="搜索" aria-label="搜索" aria-describedby="basic-addon">
+                                            <input type="text" class="form-control search-input" placeholder="@lang('general.search')" aria-label="@lang('general.search')" aria-describedby="basic-addon">
                                             <div class="input-group-append">
                                                 <button class="btn" type="submit"><img src="{{ URL::asset('assets/images/icon/search.png') }}" /></button>
                                             </div>
@@ -76,9 +76,9 @@
                             @endif
                         </a>
                        <div class="dropdown-menu show-div language">
-                            <h6>语言</h6>
+                            <h6>@lang('general.language')</h6>
                             <ul>
-                                <li><a href="javascript:void(0)" onclick="changeLocale('zh-cn')">China - CN</a></li>
+                                <li><a href="javascript:void(0)" onclick="changeLocale('cn')">China - CN</a></li>
                                 <li><a href="javascript:void(0)" onclick="changeLocale('en')">United States - EN</a></li>
                             </ul>
                         </div>

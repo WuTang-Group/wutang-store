@@ -1,7 +1,7 @@
 <section id="products" class="dark-layout position-relative section-t-space section-b-space custom-slick">
     <div class="container">
         <div class="mb-5">
-        	<h2 class="text-white title">新品</h2>
+        	<h2 class="text-white title">@lang('general.new-arrival')</h2>
         </div>
         <div class="product-slider">
             @foreach($products as $product)
@@ -12,8 +12,8 @@
                     </a>
                     <div class="cart-info cart-wrap">
                     	<div class="cart-button">
-                        	<button type="button" data-id="{{ $product->id }}" class="btn btn-outline btn-add-to-cart mb-2">添加入购物车</button> 
-                       		<a href="/product/{{ $product->slug }}" class="btn btn-outline">浏览</a> 
+                        	<button type="button" data-id="{{ $product->id }}" class="btn btn-outline btn-add-to-cart mb-2">@lang('general.add-to-cart')</button> 
+                       		<a href="/product/{{ $product->slug }}" class="btn btn-outline">@lang('general.view')</a> 
                         </div>
                     </div>
                 </div>

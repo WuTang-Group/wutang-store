@@ -5,35 +5,35 @@
 	<div class="container section-t-space section-b-space">
 		<div class="row justify-content-center">
 			<div class="col-12">
-				<h1 class="text-dark title">注册 @lang('auth.failed')</h1>
+				<h1 class="text-dark title">@lang('general.register')</h1>
 			</div>
 			<div class="col-12 col-lg-9">
 				<div class="small-section signup-form-wrapper">
 					<form class="needs-validation" method="post" novalidate>
 	                    <div class="form-group">
-	                        <label for="name" class="tx-dark-gray">姓名 *</label>
+	                        <label for="name" class="tx-dark-gray">@lang('general.name') *</label>
 	                        <input type="text" name="name" class="form-control border-dark" id="name" required>
 							<div class="invalid-feedback"></div>
 	                    </div>
 	                    <div class="form-group">
-	                        <label for="username" class="tx-dark-gray">用户名 *</label>
+	                        <label for="username" class="tx-dark-gray">@lang('general.username') *</label>
 	                        <input type="text" name="username" class="form-control border-dark" id="username" required>
 							<div class="invalid-feedback"></div>
 	                    </div>
 	                    <div class="form-group">
-	                        <label for="password" class="tx-dark-gray">密码 *</label>
+	                        <label for="password" class="tx-dark-gray">@lang('general.password') *</label>
 	                        <input type="password" name="password" class="form-control border-dark" id="password" required>
 							<div class="invalid-feedback"></div>
 	                    </div>
 	                    <div class="form-group">
-	                        <label for="confirm_password" class="tx-dark-gray">确认密码 *</label>
+	                        <label for="confirm_password" class="tx-dark-gray">@lang('general.confirm-password') *</label>
 	                        <input type="password" name="password_confirmation" class="form-control border-dark" id="confirm_password" required>
 							<div class="invalid-feedback"></div>
 	                    </div>
 	                    <div class="form-group">
-	                        <label for="password_question_id" class="tx-dark-gray">密保问题 *</label>
+	                        <label for="password_question_id" class="tx-dark-gray">@lang('general.security-question') *</label>
 	                        <select name="password_question_id" class="form-control border-dark" id="password_question_id" required>
-	                            <option value="">请选择</option>
+	                            <option value="">@lang('general.please-select')</option>
 	                            @foreach ($results['question_list']->data as $q) 
 	                                <option value="{{ $q->id }}">{{ $q->question }}</option>
 	                            @endforeach
@@ -41,12 +41,12 @@
 							<div class="invalid-feedback"></div>
 	                    </div>
 	                    <div class="form-group">
-	                        <label for="password_answer" class="tx-dark-gray">密保问题答案 *</label>
+	                        <label for="password_answer" class="tx-dark-gray">@lang('general.security-answer') *</label>
 	                        <input type="text" name="password_answer" class="form-control border-dark" id="password_answer" required>
 							<div class="invalid-feedback"></div>
 	                    </div>
 	                    <div class="form-group">
-	                        <label for="captcha_code" class="tx-dark-gray">验证码 *</label>
+	                        <label for="captcha_code" class="tx-dark-gray">@lang('general.verification-code') *</label>
 	                        <div class="input-group">
 	                    		<input type="text" name="captcha_code" class="form-control border-dark" required>
 							  	<div class="input-group-append border border-dark">
@@ -56,13 +56,13 @@
 						</div>
 	                    <div class="form-group form-check">
 	                        <input type="checkbox" class="form-check-input" id="agreement" required>
-	                        <label class="form-check-label" for="agreement">本人已经阅读、理解并同意我的个人信息按照<a href="" target="_blank">隐私政策</a>的规定被收集、使用和披露，包括海外传输，并且我同意我对本网站的使用将遵守<a href="" target="_blank">条款和条件</a>
+	                        <label class="form-check-label" for="agreement">@lang('general.agreement', ['privacy-link' => '/privacy-policy', 'terms-link' => '/terms-and-conditions'])</a>
 							</label>
 							<div class="invalid-feedback"></div>
 	                    </div>
 	                    <div>
 	                    	<input type="hidden" name="captcha_key" value="{{ $results['captcha']->data->captcha_key }}" class="captcha-key" required>
-	                        <button type="submit" onclick="submitForm()" class="btn btn-solid">创建账户</button>
+	                        <button type="submit" onclick="submitForm()" class="btn btn-solid">@lang('general.create-account')</button>
 	                    </div>
 					</form>
 				</div>
@@ -97,7 +97,6 @@
 			    		refresh();
     					toastr['error'](response.data.msg);
 			    	}
-			    	console.log(response);
 			  	})
 			  	.catch(function (error) {
 			    	console.log(error);
@@ -113,7 +112,6 @@
 		    	} else {
 					toastr['error'](response.data.msg);
 		    	}
-		    	console.log(response);
 		  	})
 		  	.catch(function (error) {
 		    	console.log(error);

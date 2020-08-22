@@ -30,7 +30,7 @@ Cart.empty =  function() {
 
 Cart.indexOfItem = function(id) {
   for (var i = 0; i<Cart.items.length; i++) {
-    if (Cart.items[i].id===id) return i;
+    if (Cart.items[i].product_id===id) return i;
   }
   return null;
 };
@@ -46,11 +46,11 @@ Cart.removeEmptyLines = function() {
 
 Cart.addItem = function(item) {
   if (!item.quantity) item.quantity = 1;
-  var index = Cart.indexOfItem(item.id);
+  var index = Cart.indexOfItem(item.product_id);
   if (index === null) {
     Cart.items.push(item);
   } else {
-    toastr['error']('您购物车已有该商品');
+    toastr['error']( lang.item_exist );
     return Cart;
   }
   Cart.removeEmptyLines();
@@ -60,11 +60,12 @@ Cart.addItem = function(item) {
     Cart.trigger('removed', {item: item});
   }
   Cart.save();
+  toastr['success']( lang.item_added );
   return Cart;
 };
 
 Cart.removeItem = function(item) {
-  var index = Cart.indexOfItem(item.id);
+  var index = Cart.indexOfItem(item.product_id);
   if(index !== null) {
     Cart.items.splice(index,1);
   }

@@ -5,29 +5,29 @@
 	<div class="container section-t-space">
 		<div class="row justify-content-center">
 			<div class="col-12 d-md-flex align-items-center justify-content-between">
-				<h1 class="text-white title">订单号 #{{ $response->data->no }}</h1>
+				<h1 class="text-white title">@lang('general.my-account.order') #{{ $response->data->no }}</h1>
 			</div>
 			<div class="col-12 col-lg-9 section-t-space">
                 <div class="small-section pb-0 order-status-wrapper text-center">
                     <div>
                         <span class="status {{ $response->data->status == 1 ? 'completed':null }}"></span>
                         <img src="{{ URL::asset('assets/images/icon/placed-order.png') }}" />
-                        <label>已付款</label>
+                        <label>@lang('general.my-account.order-status.paid')</label>
                     </div>
                     <div>
                         <span class="status {{ $response->data->status == 1 && ($response->data->ship_status == -1 || $response->data->ship_status == 1 || $response->data->ship_status == 0) ? 'completed':null }}"></span>
                         <img src="{{ URL::asset('assets/images/icon/pending.png') }}" />
-                        <label>待发货</label>
+                        <label>@lang('general.my-account.order-status.pending')</label>
                     </div>
                     <div>
                         <span class="status {{ $response->data->status == 1 && ($response->data->ship_status == 1 || $response->data->ship_status == 0) ? 'completed':null }}"></span>
                         <img src="{{ URL::asset('assets/images/icon/dispatch.png') }}" />
-                        <label>运输中</label>
+                        <label>@lang('general.my-account.order-status.shipped')</label>
                     </div>
                     <div>
                         <span class="status {{ $response->data->status == 1 && ($response->data->ship_status == 0) ? 'completed':null }}"></span>
                         <img src="{{ URL::asset('assets/images/icon/received.png') }}" />
-                        <label>已签收</label>
+                        <label>@lang('general.my-account.order-status.delivered')</label>
                     </div>
                 </div>
 				<div class="small-section order-detail-wrapper">
@@ -35,13 +35,13 @@
                     <div class="order-detail">
                         <div class="row order-item">
                             <div class="col-8 col-sm-7 order_title">
-                                <h4 class="tx-uppercase">产品</h4>
+                                <h4 class="tx-uppercase">@lang('general.item')</h4>
                             </div>
                             <div class="d-none d-sm-block col-sm-2 order_title text-center">
-                                <h4 class="tx-uppercase">数量</h4>
+                                <h4 class="tx-uppercase">@lang('general.quantity')</h4>
                             </div>
                             <div class="col-4 col-sm-3 order_title text-right">
-                                <h4 class="tx-uppercase">共计</h4>
+                                <h4 class="tx-uppercase">@lang('general.line-total')</h4>
                             </div>
                         </div>
                         @foreach($response->data->items as $item)
@@ -49,7 +49,7 @@
                             <div class="col-8 col-sm-7 description">
                                 <p class="tx-mont">{{ $item->product->product_name_en }}</p>
                                 <p>{{ $item->product->product_name }}</p>
-                                <div class="d-block d-sm-none"><span class="tx-uppercase d-inline-block mb-0">数量</span>: {{ $item->amount }}</div>
+                                <div class="d-block d-sm-none"><span class="tx-uppercase d-inline-block mb-0">@lang('general.quantity')</span>: {{ $item->amount }}</div>
 							</div>
                             <div class="d-none d-sm-block col-sm-2 quantity text-center">{{ $item->amount }}</div>
                             <div class="col-4 col-sm-3 amount text-right">¥ {{ number_format($item->amount*$item->price,2) }}</div>
@@ -58,10 +58,10 @@
                         <hr class="seperator border-top">
                         <div class="total-sec">
                             <ul>
-                                <li>小计 <span><i>¥ {{ $response->data->total_amount }}</i></span></li>
+                                <li>@lang('general.subtotal') <span><i>¥ {{ number_format($response->data->total_amount) }}</i></span></li>
                                 <!-- <li>运输费用 <span class="tx-dark-gray">免费</span></li>
                                 <li>会员折扣 <span class="tx-dark-gray">- ¥ 100</span></li> -->
-                                <li>总计 <span><i>¥ {{ $response->data->total_amount }}</i></span></li>
+                                <li>@lang('general.total') <span><i>¥ {{ number_format($response->data->total_amount) }}</i></span></li>
                             </ul>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                             </ul>
                         </div> -->
                         <div class="col-sm-6">
-                            <h4 class="mb-3">送货地址</h4>
+                            <h4 class="mb-3">@lang('general.my-account.shipping-address')</h4>
                             <ul>
                                 <li>{{ $response->data->address->address }}</li>
                                 <li>{{ $response->data->address->city }}</li>
@@ -90,7 +90,7 @@
                         </div>
                     </div>
                     <div class="small-section text-right">
-                        <a href="/my-account" class="btn btn-white">返回</a>
+                        <a href="/my-account" class="btn btn-white">@lang('general.back')</a>
                     </div>
 				</div>
 			</div>

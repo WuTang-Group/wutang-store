@@ -59,7 +59,7 @@
             <!--              <el-button type="success" icon="el-icon-view" circle @click="handleOperation('view',row )" />-->
             <!--            </el-tooltip>-->
             <el-tooltip class="item" effect="dark" content="编辑" placement="top">
-              <router-link :to="{ name: 'productViewOrUpdate', params: {'status': 'edit', 'product_slug': scope.row.slug} }">
+              <router-link :to="{ name: 'ProductViewOrUpdate', params: {'status': 'edit', 'product_slug': scope.row.slug} }">
                 <el-button type="primary" icon="el-icon-edit" circle />
               </router-link>
             </el-tooltip>

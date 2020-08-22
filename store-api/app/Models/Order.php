@@ -54,6 +54,12 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
+    // 已付款
+    public function scopePaid($query)
+    {
+        return $query->whereStatus(OrderStatusCode::StatusPlaced);
+    }
+
 //    public function getStatusAttribute()
 //    {
 //        switch ($this->attributes['status'])

@@ -52,6 +52,7 @@ return [
     'coupon-code' => '促销代码',
     'checkout' => '结账',
     'go-checkout' => '前往结账',
+    'pay' => '付款',
     'pay-now' => '立即购买',
     'your-order' => '您的订单',
     'default-address' => '默认地址',
@@ -147,8 +148,9 @@ return [
     'comment' => '评论或问题',
     'contact-us-agreement' => '点击“提交”，即表示您同意我们的<a href=":privacy-link" target="_blank">隐私政策</a>。',
 
-
     'product' => '产品',
     'story' => '故事',
-    'other' => '其他'
+    'other' => '其他',
+    'usage' => '使用方法',
+    'technology' => '科技'
 ];

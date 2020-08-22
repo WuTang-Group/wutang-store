@@ -63,7 +63,7 @@
 </div>
 <div class="col-lg-4">
 	<div class="cart-collaterals scroll-element">
-		<div class="mb-5">
+		<!-- <div class="mb-5">
             <label>@lang('general.coupon-code')</label>
             <form action="" method="post" id="coupon-form">
             	<div class="input-group">
@@ -75,7 +75,7 @@
                 <div class="form-group mb-0 mr-sm-3">
                 </div>
             </form>
-        </div>
+        </div> -->
         <div class="cart-subtotal">
         	<label class="tx-dark-gray">@lang('general.subtotal')</label>
         	<p class="price">{{ number_format($subtotal) }}</p>

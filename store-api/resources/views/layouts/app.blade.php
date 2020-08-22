@@ -96,7 +96,9 @@
                         </div>
                         @endif
                         <div class="tab-pane fade" id="nav-mini-cart" role="tabpanel" aria-labelledby="nav-mini-cart-tab">
-                            @include('partials.mini-cart', ['cart_collection' => $cart_collection])
+                            <div id="mcart" class="mini-cart">
+                                @include('partials.mini-cart', ['cart_collection' => $cart_collection])
+                            </div>
                         </div>
                     </div>
                     <div class="text-center mt-5">
@@ -143,7 +145,7 @@
     <script src="{{ URL::asset('assets/js/lang/cn.js') }}"></script>
     @endif
     <script src="{{ URL::asset('assets/js/distpicker.js') }}"></script>
-    <script src="{{ URL::asset('assets/js/cart.js') }}"></script>
+    <!--<script src="{{ URL::asset('assets/js/cart.js') }}"></script>-->
     <script src="{{ URL::asset('assets/js/main.js') }}"></script>
     <script src="{{ URL::asset('assets/js/axios.js') }}"></script>
     @yield('footer_scripts')

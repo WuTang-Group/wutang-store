@@ -540,11 +540,11 @@ function changeLocale(lang) {
 function refresh_cart() {
     //var $request = $.get('http://localhost:8000/refresh_cart');//BASE_URL + 'refresh_cart');
     var $cart = $('#cart');
-    var $minicart = $('#nav-mini-cart');
+    var $minicart = $('#mcart');
     var $count = $('.mini-cart .count');
 
-    $minicart.addClass('loading'); // add loading class (optional)
-    if($cart[0]) { $cart.addClass('loading'); }// add loading class (optional)
+    $minicart.addClass('bg-loading'); // add loading class (optional)
+    if($cart[0]) { $cart.addClass('bg-loading'); }// add loading class (optional)
 
     axios.get(BASE_URL+'refresh_cart')
         .then(function (response) {
@@ -553,9 +553,9 @@ function refresh_cart() {
 
             if($cart[0]) { 
                 $cart.html(response.data.cart);
-                $cart.removeClass('loading'); 
+                $cart.removeClass('bg-loading'); 
             }
-            $minicart.removeClass('loading');
+            $minicart.removeClass('bg-loading');
         })
         .catch(function (error) {
             console.log(error);

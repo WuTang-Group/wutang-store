@@ -59,6 +59,9 @@
                             <div class="col-3 col-md-3 font-weight-bold">¥ {{ number_format($order->total_amount) }}</div>
                             <div class="col-4 col-md-2 text-right">
                         		<a href="my-account/order/{{ $order->no }}" class="btn btn-white btn-xs">@lang('general.my-account.view')</a>
+                                @if($order->status == 0 || $order->status == -1)
+                                <button type="button" onclick="payNow({{ $order->no }})" class="btn btn-white btn-xs">@lang('general.pay')</a>
+                                @endif
                         	</div>
                         </div>
                         @endforeach
@@ -79,4 +82,8 @@
 		</div>
 	</div>
 </div>
+@endsection
+
+@section('footer_scripts')
+<script type="text/javascript" src="{{ URL::asset('assets/js/payment.js') }}"></script>
 @endsection

@@ -179,9 +179,9 @@
 	            'phone'     : $('input[name=phone]').val(),
 	            'birthday'  : $this.find('select[name=year]').val() + '-' + $this.find('select[name=month]').val() + '-' + $this.find('select[name=day]').val(),
 	            'address'   : $('input[name=address]').val(),
-	            'district'  : $('input[name=district]').val(),
-	            'zip'       : $('input[name=zip]').val(),
-	            'province'  : $('input[name=province]').val(),
+	            'district'  : $('select[name=district]').val(),
+	            'zip'       : $('select[name=zip]').val(),
+	            'province'  : $('select[name=province]').val(),
 	            'city'      : $('input[name=city]').val(),
 	        };
 	        

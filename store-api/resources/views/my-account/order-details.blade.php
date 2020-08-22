@@ -91,10 +91,16 @@
                     </div>
                     <div class="small-section text-right">
                         <a href="/my-account" class="btn btn-white">@lang('general.back')</a>
+                        @if($response->data->status == 0 || $response->data->status == -1)
+                        <button type="button" onclick="payNow({{ $order->no }})" class="btn btn-white">@lang('general.pay')</a>
+                        @endif
                     </div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+@endsection
+@section('footer_scripts')
+<script type="text/javascript" src="{{ URL::asset('assets/js/payment.js') }}"></script>
 @endsection

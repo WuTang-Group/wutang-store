@@ -52,6 +52,7 @@ return [
     'coupon-code' => 'Coupon',
     'checkout' => 'Checkout',
     'go-checkout' => 'Checkout',
+    'pay' => 'Pay Now',
     'pay-now' => 'Pay Now',
     'your-order' => 'Your Order',
     'default-address' => 'Default Address',
@@ -149,5 +150,7 @@ return [
 
     'product' => 'Product',
     'story' => 'Story',
-    'other' => 'Other'
+    'other' => 'Other',
+    'usage' => '使用方法',
+    'technology' => '科技'
 ];

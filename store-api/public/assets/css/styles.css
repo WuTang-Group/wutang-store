@@ -338,6 +338,29 @@ body:not(.home) .main-content {
     top: 80px;
     position: sticky; }
 
+.bg-loading:before {
+  content: "";
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  vertical-align: text-bottom;
+  border: .2em solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  -webkit-animation: spinner-border .75s linear infinite;
+  animation: spinner-border .75s linear infinite; }
+
+.bg-loading:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: rgba(255,255,255,0.3); }
+
 /*=====================
     1.1.Button CSS start
 ==========================*/
@@ -1089,7 +1112,8 @@ footer {
   .sidebar-body .mini-cart {
     width: 350px;
     font-size: 14px;
-    margin-top: 30px; }
+    margin-top: 30px;
+    position: relative; }
 
     .sidebar-body .mini-cart .cart-item:not(:first-child) {
         margin-top: 20px; }
@@ -1166,7 +1190,8 @@ footer {
 .cart-collaterals,
 .checkout, 
 .order-review {
-  margin-top: 30px; }
+  position: relative;
+  /*margin-top: 30px;*/ }
 .cart,
 .wishlist {
   padding: 20px 0; }
@@ -1371,6 +1396,10 @@ footer {
 }
 .checkout .accordion #payment-method .form-check img {
   max-height: 30px; }
+
+.checkout .accordion .form-check-input:disabled~.form-check-label, 
+.checkout .accordion .form-check-input[disabled]~.form-check-label {
+  color: #fff; }
 
 /*=====================
     7.Order CSS start

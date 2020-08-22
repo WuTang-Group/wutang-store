@@ -5,7 +5,7 @@
 	<div class="container section-t-space">
 		<form class="needs-validation" method="post" novalidate>
 			<div class="row justify-content-center">
-				<div class="col-12">
+				<div class="col-12 mb-4"> 
 					<h1 class="text-white title">@lang('general.checkout')</h1>
 				</div>
 				<div class="col-lg-8">
@@ -81,23 +81,6 @@
 				</div>
 			</div>
 		</form>
-		<div id="payment-result" class="d-none">
-			<div class="row justify-content-center">
-				<div class="col-12 col-md-9">
-					<div class="small-section text-center">
-				    	<div class="row">
-				    		<div class="col-12 col-md-6">
-				    			<h4 class="text-white">@lang('general.my-account.order')：<span id="order-number"></span></h4>
-				    		</div>
-				    		<div class="col-12 col-md-6">
-				    			<h4 class="text-white">@lang('general.total-amount')：¥ <span id="total-amount"></span></h4>
-				    		</div>
-				    	</div>
-	                    <div class="mt-4"><button type="button" class="btn btn-outline loading" disabled>@lang('general.waiting-for-payment')</button></div>
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
 </div>
 @endsection
@@ -162,49 +145,32 @@
 @endsection
 @section('footer_scripts')
 <script type="text/javascript">
-	ws = new WebSocket("ws://120.79.173.163:10086");
-	// 客户端与服务端建立连接时触发
-	ws.onopen = function(e) {
-	    console.log(e);
-	};
-	// 客户端接收服务端数据时触发
-	ws.onmessage = function(e) {
-	    //console.log(e);
-	    const data = JSON.parse(e.data);
-	    console.log(data);
-	    window.location.href = BASE_URL + 'my-account/order/' + data.order.no;
-	};
-	// 通讯关闭时触发
-	// ws.close = function() {
-	//
-	// }
-
-</script>
-<script type="text/javascript">
 	function submitForm(){
 		$('form').unbind('submit').submit(function(event) {
 			event.preventDefault();
+			processing();
 			$this = $(this);
 			if (!pass) { return false; } //Check form validity
 	        var formData = {
 	            'address_id'  : $('input[name=address_id]:checked').val(),
 	        };
-
+	        $this.find('input').prop('disabled', true);
 			axios.post(BASE_URL+'api/orders', formData)
 			  	.then(function (response) {
 			    	if(response.data.code == 20001) {
+      					$this.find('button').prop('disabled',true);
+      					$this.find('button[type=submit]').focus().addClass('loading').text( @json(__('general.waiting-for-payment')) );
+
 			    		var order_no = response.data.data.no;
 			    		var amount = response.data.data.total_amount;
-			    		$this.addClass('d-none');
-			    		$('#payment-result').removeClass('d-none');
-			    		$('#order-number').text(order_no);
-			    		$('#total-amount').text(amount);
+
 			    		axios.get(BASE_URL+'api/aligateway/pay?no='+ order_no + '&total_amount=' + amount)
 						  	.then(function (response) {
 						    	if(response.data.code == 20001) {
-	    							//ws.send('{"mode":"chats","order_id":'+ order_no +'}');
+	    							ws.send('{"mode":"chats","order_id":'+ order_no +'}');
 						    	} else {
 			    					toastr['error'](response.data.msg);
+	    							window.location.href = BASE_URL + 'my-account/order/' + order_no;
 						    	}
 						    	console.log(response);
 						  	})
@@ -214,7 +180,6 @@
 			    	} else {
     					toastr['error'](response.data.msg);
 			    	}
-			    	console.log(response);
 			  	})
 			  	.catch(function (error) {
 			    	console.log(error);
@@ -230,9 +195,9 @@
 	            'contact_name'  : $('input[name=contact_name]').val(),
 	            'contact_phone' : $('input[name=contact_phone]').val(),
 	            'address'   	: $('input[name=address]').val(),
-	            'district'  	: $('input[name=district]').val(),
-	            'zip'       	: $('input[name=zip]').val(),
-	            'province'  	: $('input[name=province]').val(),
+	            'district'  	: $('select[name=district]').val(),
+	            'zip'       	: $('select[name=zip]').val(),
+	            'province'  	: $('select[name=province]').val(),
 	            'city'      	: $('input[name=city]').val(),
 	        };
 			axios.post(BASE_URL+'api/user_addresses', formData)
@@ -245,7 +210,6 @@
 			    	} else {
     					toastr['error'](response.data.msg);
 			    	}
-			    	console.log(response);
 			  	})
 			  	.catch(function (error) {
 			    	console.log(error);
@@ -266,6 +230,28 @@
 	            console.log(error);
 	        });
 	}
+
+
+    function processing() {
+        ws = new WebSocket("ws://120.79.173.163:10086");
+        // 客户端与服务端建立连接时触发
+        ws.onopen = function(e) {
+            console.log(e);
+        };
+        // 客户端接收服务端数据时触发
+        ws.onmessage = function(e) {
+            //console.log(e);
+            const data = JSON.parse(e.data);
+            console.log(data);
+            if(data.order != null) {
+                window.location.href = BASE_URL + 'my-account/order/' + data.order.no;
+            }
+        };
+        // 通讯关闭时触发
+        ws.close = function() {
+            window.location.href = BASE_URL + 'my-account/order/' + data.order.no;
+        }
+    }
 
 </script>
 @endsection

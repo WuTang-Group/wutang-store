@@ -24,6 +24,14 @@ export function store(query) {
   })
 }
 
+export function storeForm(form) {
+  return request({
+    url: 'admin/product_categories',
+    method: 'post',
+    data: form
+  })
+}
+
 export function categoryDetail(category_slug) {
   return request({
     url: 'admin/product_categories/' + category_slug,

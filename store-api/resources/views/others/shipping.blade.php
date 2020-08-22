@@ -4,7 +4,7 @@
 <div class="section-nav darken-layout">
   <div class="container">
     <ul>
-      <li><a href="#tracking" class="anchor">追踪订单</a></li>
+      <!-- <li><a href="#tracking" class="anchor">追踪订单</a></li> -->
       <li><a href="#pay-for-shipping" class="anchor">支付配送</a></li>
       <li><a href="#inspection" class="anchor">商品验货与签收</a></li>
       <li><a href="#after-sales" class="anchor">售后服务</a></li>
@@ -15,7 +15,7 @@
 	<div class="section-t-space position-relative">
       <div class="container">
         <div class="row customer-care-wrapper justify-content-center">
-          <div class="col-12 col-md-7 col-lg-6 col-xl-5" id="tracking">
+          <!-- <div class="col-12 col-md-7 col-lg-6 col-xl-5" id="tracking">
             <h4 class="text-center text-white mb-3 lh-13">
               要跟踪您的订单，请在下面的框中输入<br>
               您的订单ID，然后按“跟踪”按钮
@@ -31,7 +31,7 @@
                 <button type="submit" class="btn btn-white">追踪</button>
               </div>
             </form>
-          </div>
+          </div> -->
           <div class="col-12 col-md-9 col-lg-8" id="pay-for-shipping">
             <h2 class="text-white title">支付配送</h2>
             <div class="accordion">

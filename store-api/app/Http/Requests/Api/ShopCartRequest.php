@@ -36,7 +36,7 @@ class ShopCartRequest extends FormRequest
                         // 判断用户是否买过该商品
                         $orderItem = Order::whereHas('items', function ($query) use ($value) {
                             $query->whereProductId($value);
-                        })->with('items')->whereUserId($this->user()->id)->get();
+                        })->with('items')->whereUserId($this->user()->id)->paid()->get();
                         if (!$orderItem->isEmpty()) {
                             return $fail('您已购买过该商品'.$value);
                         }

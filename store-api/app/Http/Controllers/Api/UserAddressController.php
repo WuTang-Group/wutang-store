@@ -40,13 +40,13 @@ class UserAddressController extends Controller
     /**
      * Create user address
      * 新增用户收货地址
-     * @bodyParam province required 省
-     * @bodyParam city required 市
-     * @bodyParam district required 区
-     * @bodyParam address required 详细地址
-     * @bodyParam zip required 邮编
-     * @bodyParam contact_name required 联系人
-     * @bodyParam contact_phone required 手机号
+     * @bodyParam province string required 省
+     * @bodyParam city string required 市
+     * @bodyParam district string required 区
+     * @bodyParam address string required 详细地址
+     * @bodyParam zip integer required 邮编
+     * @bodyParam contact_name string required 联系人
+     * @bodyParam contact_phone integer required 手机号
      * @param UserAddressRequest $request
      * @return Application|ResponseFactory|Response
      */

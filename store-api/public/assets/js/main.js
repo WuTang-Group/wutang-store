@@ -421,7 +421,7 @@
         }
     });
 
-    Cart.initJQuery();
+    //Cart.initJQuery();
     $(document).on('click', '.btn-add-to-cart', function(e) {
         var id = $(this).data('id');
         $(this).prop('disabled',true).addClass('loading');

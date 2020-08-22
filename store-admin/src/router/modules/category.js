@@ -20,7 +20,7 @@ const categoryRouter = {
     {
       path: 'create-or-update',
       hidden: true,
-      component: () => import('@/views/category/components/CreateCategory'),
+      component: () => import('@/views/category/components/CreateOrUpdate'),
       name: 'CreateOrUpdate',
       meta: { title: 'categoryCreate' }
     },

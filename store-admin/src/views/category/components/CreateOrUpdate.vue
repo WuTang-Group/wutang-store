@@ -6,25 +6,17 @@
       </div>
       <el-form ref="form" :model="form" label-width="80px">
         <el-row :gutter="10">
-          <el-col :span="12">
+          <el-col :span="8">
             <el-form-item label="类目名称">
               <el-input v-model="form.title" />
             </el-form-item>
           </el-col>
-          <el-col :span="12">
+          <el-col :span="8">
             <el-form-item label="类目名称(英文)">
               <el-input v-model="form.title_en" />
             </el-form-item>
           </el-col>
-        </el-row>
-        <el-divider />
-        <el-row :gutter="10">
-          <el-col :span="12">
-            <el-form-item label="分类slug">
-              <el-input v-model="form.slug" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
+          <el-col :span="8">
             <el-form-item label="上级分类">
               <el-select v-model="form.parent_id" placeholder="请选择">
                 <el-option
@@ -38,7 +30,6 @@
           </el-col>
         </el-row>
         <el-divider />
-
         <el-row :gutter="10">
           <el-col :span="12">
             <el-form-item label="分类描述">
@@ -108,16 +99,16 @@
           <el-col :span="12">
             <el-form-item label="分类简介图">
               <el-upload
-                ref="uploadImg"
+                ref="uploadImg1"
                 :class="{hide:hideUpload}"
                 name="img"
                 action="#"
                 list-type="picture-card"
                 :auto-upload="false"
-                :limit="limitCount"
+                :limit="limitCount1"
                 :file-list="imgList"
                 :on-change="handleBannerChange1"
-                :on-remove="handleBannerRemove"
+                :on-remove="handleBannerRemove1"
               >
                 <el-button size="small" type="primary">点击上传</el-button>
                 <div slot="tip" class="el-upload__tip">只能上传一张jpg/png文件，且不超过500kb</div>
@@ -171,6 +162,7 @@ export default {
       parentCategory: null,
       hideUpload: false,
       limitCount: 1,
+      limitCount1: 1,
       bannerList: [],
       imgList: [],
       describeVisible: false,
@@ -188,8 +180,14 @@ export default {
       console.log(this.form)
       const postForm = new FormData()
       postForm.append('description', this.form.description) //
+      postForm.append('description_en', this.form.description_en) //
       postForm.append('banner', this.form.banner) //
       postForm.append('img', this.form.img) //
+      postForm.append('title', this.form.title) //
+      postForm.append('title_en', this.form.title_en) //
+      postForm.append('describe', this.form.describe) //
+      postForm.append('describe_en', this.form.describe_en) //
+      postForm.append('parent_id', this.form.parent_id) //
       // 添加所有参数
       storeForm(postForm).then((response) => {
         console.log(response)
@@ -216,6 +214,9 @@ export default {
     },
     handleBannerRemove(file, fileList) {
       this.hideUpload = fileList.length >= this.limitCount
+    },
+    handleBannerRemove1(file, fileList) {
+      this.hideUpload = fileList.length >= this.limitCount1
     },
     handleDescribes(flag) {
       this.flag = flag
@@ -282,7 +283,7 @@ export default {
 
 <style lang="scss">
 /*上传图片完成后隐藏按钮*/
-.hide .el-upload--picture-card {
-    display: none;
-}
+/*.hide .el-upload--picture-card {*/
+/*    display: none;*/
+/*}*/
 </style>

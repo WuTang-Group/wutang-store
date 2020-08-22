@@ -12,7 +12,6 @@
         {{ $t('table.search') }}
       </el-button>
     </el-card>
-
     <el-card class="box-card box-card-centent" style="margin-top: 20px;">
       <div slot="header" class="clearfix">
         <router-link :to="{name:'CreateOrUpdate'}">

@@ -25,12 +25,12 @@ return [
     ],
     // 支付网关
     'alipay_gateway' => [
-        'merch_id' => '100101',
-        'product' => '802',
-        'key' => 'RrEUIbQ0C3JZdy9XBgZQ09ZPW22U7dNQ',
+        'merch_id' => env('ALI_GATEWAY_MECH_ID'),
+        'product' => env('ALI_GATEWAY_PRODUCT'),
+        'key' => env('ALI_GATEWAY_KEY'),
         'bank_code' => '',
-        'notify_url' => env('API_URL').'aligateway/notify',
-        'return_url' => env('API_URL').'aligateway/return',
+        'notify_url' => env('ALI_GATEWAY_NOTIFY_URL'),
+        'return_url' => env('ALI_GATEWAY_RETURN_URL'),
         'extends' => '',
     ]
 ];

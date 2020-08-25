@@ -2,22 +2,22 @@
   <div class="app-container">
     <el-card class="box-card">
       <div slot="header" class="clearfix">
-        <span>卡片名称</span>
+        <span>类目</span>
       </div>
-      <el-form ref="form" :model="form" label-width="80px">
+      <el-form ref="form" :model="form" label-position="top">
         <el-row :gutter="10">
           <el-col :span="8">
-            <el-form-item label="类目名称">
+            <el-form-item label="类目名称" prop="title">
               <el-input v-model="form.title" />
             </el-form-item>
           </el-col>
           <el-col :span="8">
-            <el-form-item label="类目名称(英文)">
+            <el-form-item label="类目名称(英文)" prop="title_en">
               <el-input v-model="form.title_en" />
             </el-form-item>
           </el-col>
           <el-col :span="8">
-            <el-form-item label="上级分类">
+            <el-form-item label="上级类目" prop="parent_id">
               <el-select v-model="form.parent_id" placeholder="请选择">
                 <el-option
                   v-for="item in parentCategory"
@@ -30,57 +30,69 @@
           </el-col>
         </el-row>
         <el-divider />
-        <el-row :gutter="10">
+        <el-row :gutter="40">
           <el-col :span="12">
-            <el-form-item label="分类描述">
-              <el-input v-show="false" v-model="form.describe" disabled />
-              <el-button icon="el-icon-edit-outline" @click="handleDescribes(1)" />
-              <el-button icon="el-icon-arrow-up" @click="showOne = !showOne" />
-              <span v-show="showOne" v-html="form.describe" />
+            <el-form-item prop="describe" style="margin-bottom: 40px">
+              <el-button type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes(1)" />
+              <el-collapse v-model="activeNames">
+                <el-collapse-item name="describe">
+                  <template slot="title">
+                    <span class="categoryDetailText">类目描述</span>
+                  </template>
+                  <span v-html="form.describe" />
+                </el-collapse-item>
+              </el-collapse>
             </el-form-item>
-            <tinymce v-if="describeVisible" v-model="form.describe" :height="50" />
           </el-col>
           <el-col :span="12">
-            <el-form-item label="分类描述(英文)">
-              <el-input v-show="false" v-model="form.describe_en" disabled />
-              <el-button icon="el-icon-edit-outline" @click="handleDescribes(2)" />
-              <el-button icon="el-icon-arrow-up" @click="showTwo = !showTwo" />
-              <span v-show="showTwo" v-html="form.describe_en" />
+            <el-form-item prop="describe_en">
+              <el-button type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes(2)" />
+              <el-collapse v-model="activeNames">
+                <el-collapse-item name="describe_en">
+                  <template slot="title">
+                    <span class="categoryDetailText">类目描述(英文)</span>
+                  </template>
+                  <span v-html="form.describe_en" />
+                </el-collapse-item>
+              </el-collapse>
             </el-form-item>
-            <tinymce v-if="describeEnVisible" v-model="form.describe_en" :height="50" />
+          </el-col>
+        </el-row>
+        <el-row :gutter="40">
+          <el-col :span="12">
+            <el-form-item prop="description">
+              <el-button type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes(3)" />
+              <el-collapse v-model="activeNames">
+                <el-collapse-item name="description">
+                  <template slot="title">
+                    <span class="categoryDetailText">分类简介</span>
+                  </template>
+                  <span v-html="form.description" />
+                </el-collapse-item>
+              </el-collapse>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item prop="description_en">
+              <el-button type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes(4)" />
+              <el-collapse v-model="activeNames">
+                <el-collapse-item name="description_en">
+                  <template slot="title">
+                    <span class="categoryDetailText">分类简介(英文)</span>
+                  </template>
+                  <span v-html="form.description_en" />
+                </el-collapse-item>
+              </el-collapse>
+            </el-form-item>
           </el-col>
         </el-row>
         <el-divider />
         <el-row :gutter="10">
           <el-col :span="12">
-            <el-form-item label="分类简介">
-              <el-input v-show="false" v-model="form.description" disabled />
-              <el-button icon="el-icon-edit-outline" @click="handleDescribes(3)" />
-              <el-button icon="el-icon-arrow-up" @click="showThree =!showThree" />
-              <span v-show="showThree" v-html="form.description" />
-            </el-form-item>
-            <tinymce v-if="descriptionVisible" v-model="form.description" :height="50" />
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="分类简介(英文)">
-              <el-input v-show="false" v-model="form.description_en" disabled />
-              <el-button icon="el-icon-edit-outline" @click="handleDescribes(4)" />
-              <el-button icon="el-icon-arrow-up" @click="showFour =!showFour" />
-              <span v-show="showFour" v-html="form.description_en" />
-            </el-form-item>
-            <tinymce
-              v-if="descriptionEnVisible"
-              v-model="form.description_en"
-              :height="50"
-            />
-          </el-col>
-        </el-row>
-        <el-row :gutter="10">
-          <el-col :span="12">
             <el-form-item label="banner图">
               <el-upload
                 ref="uploadBanner"
-                :class="{hide:hideUpload}"
+                :class="{hideBanner:hideUploadBanner}"
                 name="banner"
                 action="#"
                 list-type="picture-card"
@@ -90,17 +102,16 @@
                 :on-change="handleBannerChange"
                 :on-remove="handleBannerRemove"
               >
-                <el-button size="small" type="primary">点击上传</el-button>
+                <el-button size="small" plain type="primary">点击上传</el-button>
                 <div slot="tip" class="el-upload__tip">只能上传一张jpg/png文件，且不超过500kb</div>
               </el-upload>
-              <el-button type="primary" @click="updatetValue">测试上传</el-button>
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item label="分类简介图">
+            <el-form-item label="分类简介图" prop="img">
               <el-upload
                 ref="uploadImg1"
-                :class="{hide:hideUpload}"
+                :class="{hideImg:hideUploadImg}"
                 name="img"
                 action="#"
                 list-type="picture-card"
@@ -110,16 +121,17 @@
                 :on-change="handleBannerChange1"
                 :on-remove="handleBannerRemove1"
               >
-                <el-button size="small" type="primary">点击上传</el-button>
+                <el-button size="small" plain type="primary">点击上传</el-button>
                 <div slot="tip" class="el-upload__tip">只能上传一张jpg/png文件，且不超过500kb</div>
               </el-upload>
             </el-form-item>
           </el-col>
         </el-row>
+        <el-button type="primary" style="display:block;margin:20px auto;" @click="updateValue()">提交</el-button>
       </el-form>
     </el-card>
     <!-- TinyMce 实例公用弹框 -->
-    <el-dialog title="提示" :visible.sync="showDialog" width="50%" :before-close="handleClose">
+    <el-dialog title="富文本编辑" :visible.sync="showDialog" width="50%" :before-close="handleClose">
       <tinymce v-model="tinyTxt" :height="150" />
       <span slot="footer" class="dialog-footer">
         <el-button @click="showDialog = false">取 消</el-button>
@@ -134,7 +146,7 @@ import Tinymce from '@/components/Tinymce'
 import { getList, storeForm } from '@/api/category'
 
 export default {
-  name: 'CreateOrUpdate',
+  name: 'CreateCategory',
   components: {
     Tinymce
   },
@@ -143,10 +155,6 @@ export default {
       showDialog: false,
       tinyTxt: '',
       flag: '',
-      showOne: true,
-      showTwo: true,
-      showThree: true,
-      showFour: true,
       form: {
         title: '', //
         title_en: '', //
@@ -160,15 +168,13 @@ export default {
         img: ''
       },
       parentCategory: null,
-      hideUpload: false,
+      hideUploadBanner: false,
+      hideUploadImg: false,
       limitCount: 1,
       limitCount1: 1,
       bannerList: [],
       imgList: [],
-      describeVisible: false,
-      describeEnVisible: false,
-      descriptionVisible: false,
-      descriptionEnVisible: false
+      activeNames: ['describe', 'describe_en', 'description', 'description_en']
     }
   },
   watch: {},
@@ -176,71 +182,73 @@ export default {
     this.getCategoryList()
   },
   methods: {
-    updatetValue() {
-      console.log(this.form)
+    updateValue() {
       const postForm = new FormData()
-      postForm.append('description', this.form.description) //
-      postForm.append('description_en', this.form.description_en) //
-      postForm.append('banner', this.form.banner) //
-      postForm.append('img', this.form.img) //
-      postForm.append('title', this.form.title) //
-      postForm.append('title_en', this.form.title_en) //
-      postForm.append('describe', this.form.describe) //
-      postForm.append('describe_en', this.form.describe_en) //
-      postForm.append('parent_id', this.form.parent_id) //
-      // 添加所有参数
+      postForm.append('description', this.form.description)
+      postForm.append('description_en', this.form.description_en)
+      postForm.append('banner', this.form.banner)
+      postForm.append('img', this.form.img)
+      postForm.append('title', this.form.title)
+      postForm.append('title_en', this.form.title_en)
+      postForm.append('describe', this.form.describe)
+      postForm.append('describe_en', this.form.describe_en)
+      postForm.append('parent_id', this.form.parent_id)
+      // 添加所有参数ssss
       storeForm(postForm).then((response) => {
-        console.log(response)
+        if (response.code === 20001) {
+          this.$message({
+            message: '类目创建成功！',
+            type: 'success'
+          })
+          this.initFormData()
+        } else {
+          this.$message({
+            message: '类目创建失败，请检查输入参数！',
+            type: 'error'
+          })
+        }
       })
     },
+    // 创建类目成功后初始化数据
+    initFormData() {
+      this.$refs['form'].resetFields()
+      this.bannerList = []
+      this.imgList = []
+      this.hideUploadImg = false
+      this.hideUploadBanner = false
+    },
+    // 获取父类列表
     getCategoryList() {
       const param = {
         page_limit: 40
       }
       getList(param).then((response) => {
-        console.log(response.data)
         this.parentCategory = response.data.data
       })
     },
     handleBannerChange(file, fileList) {
-      this.hideUpload = fileList.length >= this.limitCount
-      // const form = new FormData()
-      // form.append('name', file)
-      // this.bannerList = fileList;
+      this.hideUploadBanner = fileList.length >= this.limitCount
       this.form.banner = file.raw
     },
     handleBannerChange1(file, fileList) {
+      this.hideUploadImg = fileList.length >= this.limitCount1
+
       this.form.img = file.raw
     },
     handleBannerRemove(file, fileList) {
-      this.hideUpload = fileList.length >= this.limitCount
+      this.hideUploadBanner = fileList.length >= this.limitCount
     },
     handleBannerRemove1(file, fileList) {
-      this.hideUpload = fileList.length >= this.limitCount1
+      this.hideUploadImg = fileList.length >= this.limitCount1
     },
+    // 调起富文本dialog
     handleDescribes(flag) {
       this.flag = flag
       this.tinyTxt = ''
       this.showDialog = true
     },
-    handleDescribe(flag) {},
-    handleDescribeEn(flag) {
-      // this.showDialog = true;
-    },
-    handleDescription(flag) {
-      // this.showDialog = true;
-    },
-    handleDescriptionEn(flag) {
-      // this.showDialog = true;
-    },
-
     // 确认保存当前富文本
     comfirmSaveTiny() {
-      // console.log(this.flag);
-      // if (this.flag == 1) {
-      //     this.form.describe = this.tinyTxt;
-      //     this.showDialog = false;
-      // }
       switch (this.flag) {
         case 1:
           this.form.describe = this.tinyTxt
@@ -266,10 +274,11 @@ export default {
           break
       }
       this.$message({
-        message: 'test',
+        message: '编辑完成',
         type: 'success'
       })
     },
+    // dialog 关闭提醒
     handleClose(done) {
       this.$confirm('确认关闭？')
         .then((_) => {
@@ -283,7 +292,20 @@ export default {
 
 <style lang="scss">
 /*上传图片完成后隐藏按钮*/
-/*.hide .el-upload--picture-card {*/
-/*    display: none;*/
-/*}*/
+.hideBanner .el-upload--picture-card {
+    display: none;
+}
+.hideImg .el-upload--picture-card {
+  display: none;
+}
+
+.categoryDetailText {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0 12px 0 0;
+  color: #606266;
+  font-size: 14px;
+  box-sizing: border-box;
+  font-weight: 700;
+}
 </style>

@@ -18,29 +18,16 @@ class ProductCategoryRequest extends FormRequest
             {
                 return [
                     'title'=>'required|string',
-                    'title_en'=>'string',
-                    'describe'=>'string',
-                    'describe_en'=>'string',
-//                    'banner'=>'image',
-                    'description'=>'string',
-                    'description_en'=>'string',
-//                    'img'=>'image',
-                    'parent_id'=>'exists:product_categories,id'
+                    'banner'=>'image',
+                    'img'=>'image',
                 ];
             }
 
             case 'edit':
             {
                 return [
-                    'title'=>'string',
-                    'title_en'=>'string',
-                    'describe'=>'string',
-                    'describe_en'=>'string',
                     'banner'=>'image',
-                    'description'=>'string',
-                    'description_en'=>'string',
                     'img'=>'image',
-                    'parent_id'=>'exists:product_categories,id'
                 ];
             }
         }
@@ -50,7 +37,7 @@ class ProductCategoryRequest extends FormRequest
     public function messages()
     {
         return [
-           'parent_id.exists'=>'商品类不存在'
+           'parent_id.exists'=>'类目不存在'
         ];
     }
 }

@@ -30,4 +30,17 @@ class UserAddressRequest extends FormRequest
             }
         }
     }
+
+    public function messages()
+    {
+        return [
+            'province.required' => '省必填',
+            'city.required' => '市必填',
+            'district.required' => '区必填',
+            'address.required' => '地址必填',
+            'zip.required' => '邮编必填',
+            'contact_name.required' => '联系人必填',
+            'contact_phone.required' => '联系方式必填'
+        ];
+    }
 }

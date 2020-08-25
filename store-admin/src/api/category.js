@@ -38,3 +38,18 @@ export function categoryDetail(category_slug) {
     method: 'get'
   })
 }
+
+export function categoryEdit(query, category_slug) {
+  return request({
+    url: 'admin/product_categories/' + category_slug,
+    method: 'post',
+    data: query
+  })
+}
+
+export function categoryDelete(category_slug) {
+  return request({
+    url: 'admin/product_categories/' + category_slug,
+    method: 'delete'
+  })
+}

@@ -14,8 +14,8 @@
     </el-card>
     <el-card class="box-card box-card-centent" style="margin-top: 20px;">
       <div slot="header" class="clearfix">
-        <router-link :to="{name:'CreateOrUpdate'}">
-          <el-button v-waves @click="handleCreate()">添加</el-button>
+        <router-link :to="{name:'CreateCategory'}">
+          <el-button v-waves>添加</el-button>
         </router-link>
       </div>
       <el-table
@@ -28,24 +28,46 @@
         style="width: 100%;"
         :header-cell-style="{background:'#ebeef5'}"
       >
-        <el-table-column header-align="center" prop="id" align="center" label="ID" width="60" />
-        <el-table-column header-align="center" label="类目名称" prop="title" align="center" width="80">
+        <el-table-column type="index" header-align="center" align="center" label="序号" width="60" />
+        <el-table-column header-align="center" label="类目名称" align="center" width="80">
           <template slot-scope="scope">
-            <router-link :to="{ name: 'categoryViewOrUpdate', params: {'status': 'view', 'category_slug': scope.row.slug} }">
-              {{ scope.row.title }}
-            </router-link>
+            <span :class="{active: false}" @mouseover="handleMouseEnter()" @mouseleave="handleMouseMove()">
+              <router-link :to="{ name: 'CategoryViewOrUpdate', params: {'status': 'view', 'category_slug': scope.row.slug} }">
+                {{ scope.row.title }}
+              </router-link>
+            </span>
           </template>
         </el-table-column>
-        <el-table-column header-align="center" label="类目名称(英文)" prop="title_en" align="center" width="80" />
-        <el-table-column header-align="center" label="分类描述" show-overflow-tooltip prop="describe" width="200" />
-        <el-table-column header-align="center" label="分类描述(英文)" show-overflow-tooltip prop="describe_en" width="200" />
+        <el-table-column header-align="center" label="类目名称(英文)" prop="title_en" align="center" width="80">
+          <template slot-scope="scope">
+            <p v-html="scope.row.title_en" />
+          </template>
+        </el-table-column>
+        <el-table-column header-align="center" label="分类描述" show-overflow-tooltip prop="describe" width="200">
+          <template slot-scope="scope">
+            <p v-html="scope.row.describe" />
+          </template>
+        </el-table-column>
+        <el-table-column header-align="center" label="分类描述(英文)" show-overflow-tooltip prop="describe_en" width="200">
+          <template slot-scope="scope">
+            <p v-html="scope.row.describe_en" />
+          </template>
+        </el-table-column>
         <el-table-column header-align="center" label="分类Banner">
           <template slot-scope="{row}">
             <el-image style="width: 100px;height: 100px;" :src="row.banner" fit="scale-down" @click="previewImgAction(row.banner)" />
           </template>
         </el-table-column>
-        <el-table-column header-align="center" label="分类简介" show-overflow-tooltip prop="description" />
-        <el-table-column header-align="center" label="分类简介(英文)" show-overflow-tooltip prop="description_en" />
+        <el-table-column header-align="center" label="分类简介" show-overflow-tooltip prop="description">
+          <template slot-scope="scope">
+            <p v-html="scope.row.description" />
+          </template>
+        </el-table-column>
+        <el-table-column header-align="center" label="分类简介(英文)" show-overflow-tooltip prop="description_en">
+          <template slot-scope="scope">
+            <p v-html="scope.row.description_en" />
+          </template>
+        </el-table-column>
         <el-table-column header-align="center" label="分类简介图">
           <template slot-scope="{row}">
             <el-image style="width: 100px;height: 100px;" :src="row.img" fit="scale-down" @click="previewImgAction(row.img)" />
@@ -59,12 +81,16 @@
           align="center"
           label="操作"
         >
-          <el-tooltip class="item" effect="dark" content="编辑" placement="top">
-            <el-button type="primary" icon="el-icon-edit" circle />
-          </el-tooltip>
-          <el-tooltip class="item" effect="dark" content="删除" placement="top">
-            <el-button type="danger" icon="el-icon-delete" circle />
-          </el-tooltip>
+          <template slot-scope="scope">
+            <el-tooltip class="item" effect="dark" content="编辑" placement="top">
+              <router-link :to="{ name: 'CategoryViewOrUpdate', params: {'status': 'edit', 'category_slug': scope.row.slug} }">
+                <el-button type="primary" icon="el-icon-edit" circle />
+              </router-link>
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="删除" placement="top">
+              <el-button type="danger" icon="el-icon-delete" circle @click="deleteConfirm(scope.row.slug)" />
+            </el-tooltip>
+          </template>
         </el-table-column>
       </el-table>
 
@@ -87,7 +113,7 @@
 </template>
 
 <script>
-import { getList } from '@/api/category'
+import { getList, categoryDelete } from '@/api/category'
 import waves from '@/directive/waves' // waves directive
 // import { parseTime } from '@/utils'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination
@@ -104,7 +130,7 @@ export default {
       listLoading: true,
       listQuery: {
         page: 1,
-        page_limit: 20
+        page_limit: 10
       },
       previewImg: '',
       previewImgDialogVisible: false,
@@ -114,7 +140,8 @@ export default {
         importance: 1,
         remark: '',
         timestamp: new Date()
-      }
+      },
+      isActive: false // 控制title class的绑定
     }
   },
   created() {
@@ -133,11 +160,7 @@ export default {
         this.list = response.data.data
         this.total = response.data.total
         this.listLoading = false
-        console.log(this.list)
       })
-    },
-    handleCreate() {
-      console.log(123)
     },
     resetTemp() {
       this.temp = {
@@ -149,6 +172,45 @@ export default {
         status: 'published',
         type: ''
       }
+    },
+    // 删除确认
+    deleteConfirm(category_slug) {
+      this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        // 请求后台删除
+        categoryDelete(category_slug).then(response => {
+          if (response.code === 20001) {
+            this.$message({
+              message: '删除成功!',
+              type: 'success'
+            })
+            // 刷新数据
+            this.getList()
+          } else {
+            this.$message({
+              message: '删除失败！',
+              type: 'error'
+            })
+          }
+        })
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消删除'
+        })
+      })
+    },
+    handleFilter() {
+      console.log('test')
+    },
+    handleMouseEnter() {
+      this.isActive = true
+    },
+    handleMouseMove() {
+      this.isActive = false
     }
   }
 }
@@ -156,5 +218,8 @@ export default {
 <style scoped lang="scss">
   .box-card-centent {
     margin-top: 20px;
+  }
+  .active {
+    color: #1890ff;
   }
 </style>

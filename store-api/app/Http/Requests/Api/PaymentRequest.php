@@ -27,4 +27,12 @@ class PaymentRequest extends FormRequest
             }
         }
     }
+
+    public function messages()
+    {
+        return [
+            'no.required' => '订单号必填',
+            'total_amount.required' => '总金额必填'
+        ];
+    }
 }

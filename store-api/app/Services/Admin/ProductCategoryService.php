@@ -31,6 +31,13 @@ class ProductCategoryService extends Service
     public function store($queries)
     {
         $requestData = $this->saveOss($queries);
+        if(Arr::has($queries, 'parent_id'))
+        {
+            if($this->productCategory->find($queries['parent_id'])->doesntExist())
+            {
+                return false;
+            }
+        }
         try {
             $productCategories = $this->productCategory->create($requestData);
         } catch (\Exception $e) {
@@ -41,13 +48,19 @@ class ProductCategoryService extends Service
     }
 
     // 编辑产品分类
-    public function edit($queries, $productCategoriesId)
+    public function edit($queries, $category_slug)
     {
 
         $requestData = $this->saveOss($queries);
-
+        if(Arr::has($queries, 'parent_id'))
+        {
+            if($this->productCategory->find($queries['parent_id'])->doesntExist())
+            {
+                return false;
+            }
+        }
         try {
-            $productCategories = $this->productCategory->find($productCategoriesId)->update($requestData);
+            $productCategories = $this->productCategory->where('slug', $category_slug)->update($requestData);
         } catch (\Exception $e) {
             Log::error('编辑产品分类失败', ['message' => $e->getMessage()]);
             return false;
@@ -55,11 +68,11 @@ class ProductCategoryService extends Service
         return $productCategories;
     }
 
-    public function destroy($productCategoriesId)
+    public function destroy($category_slug)
     {
         // 删除分类
         try {
-            $productCategories = $this->productCategory->where('id', $productCategoriesId)->delete();
+            $productCategories = $this->productCategory->where('slug', $category_slug)->delete();
         } catch (\Exception $e) {
             Log::error('删除产品分类失败', ['message' => $e->getMessage()]);
             return false;

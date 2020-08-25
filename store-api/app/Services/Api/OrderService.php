@@ -68,15 +68,16 @@ class OrderService extends Service
                 foreach ($items as $data) {
                     $product = Product::find($data['product_id']);
                     // 创建一个 OrderItem 并直接与当前订单关联
+                    $price = $product->sale_price ? $product->sale_price : $product->price;
                     $item = $order->items()->make([
                         'amount' => $data['amount'],
-                        'price' => $product->sale_price ? $product->sale_price : $product->price,
+                        'price' => $price,
                     ]);
                     // $item->product()->associate($product->product_id);
                     $item->product_id = $product->id;
                     // $item->productSku()->associate($sku);
                     $item->save();
-                    $totalAmount += $product->price * $data['amount'];
+                    $totalAmount += $price * $data['amount'];
                     if ($product->decreaseStock($data['amount']) <= 0) {
                         throw new InvalidRequestException('该商品库存不足');
                     }

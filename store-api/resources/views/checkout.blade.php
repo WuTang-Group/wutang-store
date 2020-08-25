@@ -198,9 +198,9 @@
 	            'contact_phone' : $('input[name=contact_phone]').val(),
 	            'address'   	: $('input[name=address]').val(),
 	            'district'  	: $('select[name=district]').val(),
-	            'zip'       	: $('select[name=zip]').val(),
+	            'zip'       	: $('input[name=zip]').val(),
 	            'province'  	: $('select[name=province]').val(),
-	            'city'      	: $('input[name=city]').val(),
+	            'city'      	: $('select[name=city]').val(),
 	        };
 			axios.post(BASE_URL+'api/user_addresses', formData)
 			  	.then(function (response) {
@@ -232,35 +232,5 @@
 	            console.log(error);
 	        });
 	}
-
-
-    function processing() {
-        ws = new WebSocket("ws://120.79.173.163:10086");
-        // 客户端与服务端建立连接时触发
-        ws.onopen = function(e) {
-            console.log(e);
-        };
-        // 客户端接收服务端数据时触发
-        ws.onmessage = function(e) {
-            //console.log(e);
-            const data = JSON.parse(e.data);
-            console.log(data);
-            // if(data.order != null) {
-            //     window.location.href = BASE_URL + 'my-account/order/' + data.order.no;
-            // }
-            // 提示信息并跳转
-            if(data.order.status == 1) {
-                toastr['success']('支付成功');
-                window.location.href = BASE_URL + 'my-account/order/' + data.order.no;
-            }else{
-                toastr['error']('支付失败');
-            }
-        };
-        // 通讯关闭时触发
-        ws.close = function() {
-            window.location.href = BASE_URL + 'my-account/order/' + data.order.no;
-        }
-    }
-
 </script>
 @endsection

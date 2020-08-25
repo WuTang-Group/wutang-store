@@ -15,20 +15,20 @@ const categoryRouter = {
       path: 'list',
       component: () => import('@/views/category/index'),
       name: 'CategoryList',
-      meta: { title: 'categoryList' }
+      meta: { title: 'categoryList', noCache: true }
     },
     {
-      path: 'create-or-update',
+      path: 'create-category',
       hidden: true,
-      component: () => import('@/views/category/components/CreateOrUpdate'),
-      name: 'CreateOrUpdate',
+      component: () => import('@/views/category/components/CreateCategory'),
+      name: 'CreateCategory',
       meta: { title: 'categoryCreate' }
     },
     {
       path: 'view-or-update',
       hidden: true,
       component: () => import('@/views/category/components/ViewOrUpdate'),
-      name: 'categoryViewOrUpdate',
+      name: 'CategoryViewOrUpdate',
       meta: { title: 'categoryViewOrUpdate' }
     }
   ]

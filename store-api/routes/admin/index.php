@@ -42,8 +42,8 @@ Route::middleware('auth:api')->group(function () {
     Route::get('product_categories', 'ProductCategoryController@queryList')->name('product_categories.queryList');
     Route::get('product_categories/{category_slug}', 'ProductCategoryController@categoryQuery')->name('category_stories.categoryQuery');
     Route::post('product_categories', 'ProductCategoryController@store')->name('product_categories.store');
-    Route::post('product_categories/{productCategoriesId}', 'ProductCategoryController@edit')->name('product_categories.edit');
-    Route::delete('product_categories/{productCategoriesId}', 'ProductCategoryController@destroy')->name('product_categories.destroy');
+    Route::post('product_categories/{category_slug}', 'ProductCategoryController@edit')->name('product_categories.edit');
+    Route::delete('product_categories/{category_slug}', 'ProductCategoryController@destroy')->name('product_categories.destroy');
 
     /**
      * product categories story

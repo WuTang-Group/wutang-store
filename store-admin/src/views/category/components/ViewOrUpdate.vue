@@ -1,173 +1,189 @@
 <template>
   <div class="app-container">
-    <el-form ref="categoryDetail" :model="categoryDetail" :inline="true" label-position="right" label-width="100px">
-      <el-card class="box-card-header" shadow="hover" style="margin-bottom: 10px">
-        <el-row>
-          <el-col :span="7">
-            <el-form-item label="类目名称">
-              <el-input v-model="categoryDetail.title" :disabled="formDisable" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="7">
-            <el-form-item label="类目英文名称">
-              <el-input v-model="categoryDetail.title_en" :disabled="formDisable" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="7">
-            <el-form-item label="上级类目">
-              <el-input v-model="categoryDetail.parent.title" :disabled="formDisable" />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="7">
-            <el-form-item label="商品所属分类">
-              <el-input v-model="categoryDetail.title" :disabled="formDisable" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="7">
-            <el-form-item label="状态">
-              <el-input v-model="categoryDetail.title" :disabled="formDisable" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="7">
-            <el-form-item label="商品规格">
-              <el-input v-model="categoryDetail.title" :disabled="formDisable" />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="7">
-            <el-form-item label="价格">
-              <el-input v-model="categoryDetail.title" :disabled="formDisable" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="7">
-            <el-form-item label="优惠价格">
-              <el-input v-model="categoryDetail.title" :disabled="formDisable" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="7">
-            <el-form-item label="库存量">
-              <el-input v-model="categoryDetail.title" :disabled="formDisable" />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="7">
-            <el-form-item label="销量">
-              <el-input v-model="categoryDetail.title" :disabled="formDisable" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="7">
-            <el-form-item label="平均评分">
-              <el-input v-model="categoryDetail.title" :disabled="formDisable" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="7">
-            <el-form-item label="评价数量">
-              <el-input v-model="categoryDetail.title" :disabled="formDisable" />
-            </el-form-item>
-          </el-col>
-        </el-row>
-
-        <el-row>
-          <el-col :span="7">
-            <el-form-item label="网页title (SEO)">
-              <el-input v-model="categoryDetail.title" :disabled="formDisable" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="7">
-            <el-form-item label="网页关键字 (SEO)">
-              <el-input v-model="categoryDetail.title" :disabled="formDisable" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="7">
-            <el-form-item label="网页描述(SEO)">
-              <el-input v-model="categoryDetail.title" :disabled="formDisable" />
-            </el-form-item>
-          </el-col>
-        </el-row>
-
-      </el-card>
+    <el-form ref="categoryDetail" :model="categoryDetail" :inline="true" label-position="right">
+      <!--      类目信息-->
       <el-card class="box-card-description" shadow="hover" style="margin-bottom: 10px">
-        <el-row>
+        <div slot="header" class="clearfix">
+          <span>类目信息</span>
+        </div>
+        <el-row :gutter="10">
           <el-col :span="12">
-            <el-form-item label="简短介绍">
-              <el-input v-model="categoryDetail.title" type="textarea" :autosize="true" label-position="right" :disabled="formDisable" style="width: 400px" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="英文简短介绍">
-              <el-input v-model="categoryDetail.title" type="textarea" :autosize="true" label-position="right" :disabled="formDisable" style="width: 400px" />
-            </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="12">
-            <el-form-item label="产品功效">
-              <el-input v-model="categoryDetail.title" type="textarea" label-position="right" :autosize="true" :disabled="formDisable" style="width: 400px" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="英文产品功效">
-              <el-input v-model="categoryDetail.title" type="textarea" label-position="right" :autosize="true" :disabled="formDisable" style="width: 400px" />
+            <el-form-item label="上级类目">
+              <el-input v-if="formDisable" v-model="categoryDetail.parent.title" :disabled="formDisable" style="width: 400px" />
+              <el-select v-else v-model="categoryDetail.parent_id" placeholder="请选择" style="width: 400px">
+                <el-option
+                  v-for="item in parentCategory"
+                  :key="item.id"
+                  :label="item.title"
+                  :value="item.id"
+                />
+              </el-select>
             </el-form-item>
           </el-col>
         </el-row>
-        <el-row>
+        <el-row :gutter="10">
           <el-col :span="12">
-            <el-form-item label="科技介绍">
-              <el-input v-model="categoryDetail.title" type="textarea" label-position="right" :autosize="true" :disabled="formDisable" style="width: 400px" />
+            <el-form-item label="类目名称">
+              <el-input v-model="categoryDetail.title" :disabled="formDisable" style="width: 400px" />
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item label="英文科技介绍">
-              <el-input v-model="categoryDetail.title" type="textarea" label-position="right" :autosize="true" :disabled="formDisable" style="width: 400px" />
+            <el-form-item label="类目英文名称">
+              <el-input v-model="categoryDetail.title_en" :disabled="formDisable" style="width: 370px" />
             </el-form-item>
           </el-col>
         </el-row>
-        <el-row>
+        <el-row :gutter="10">
           <el-col :span="12">
-            <el-form-item label="产品细节">
-              <el-input v-model="categoryDetail.title" type="textarea" label-position="right" :autosize="true" :disabled="formDisable" style="width: 400px" />
+            <div style="width: 470px;margin-bottom: 25px">
+              <el-button v-if="!formDisable" type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('describe')" />
+              <el-collapse v-model="activeNames">
+                <el-collapse-item name="describe">
+                  <template slot="title">
+                    <span class="categoryDetailText">类目描述</span>
+                  </template>
+                  <span v-html="categoryDetail.describe" />
+                </el-collapse-item>
+              </el-collapse>
+            </div>
+          </el-col>
+          <el-col :span="12">
+            <div style="width: 470px">
+              <el-button v-if="!formDisable" type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('describe_en')" />
+              <el-collapse v-model="activeNames">
+                <el-collapse-item name="describe_en">
+                  <template slot="title">
+                    <span class="categoryDetailText">类目描述(英文)</span>
+                  </template>
+                  <span v-html="categoryDetail.describe_en" />
+                </el-collapse-item>
+              </el-collapse>
+            </div>
+          </el-col>
+        </el-row>
+        <el-row :gutter="10">
+          <el-col :span="12">
+            <div style="width: 470px;margin-bottom: 25px">
+              <el-button v-if="!formDisable" type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('description')" />
+              <el-collapse v-model="activeNames">
+                <el-collapse-item name="description">
+                  <template slot="title">
+                    <span class="categoryDetailText">类目简介</span>
+                  </template>
+                  <span v-html="categoryDetail.description" />
+                </el-collapse-item>
+              </el-collapse>
+            </div>
+          </el-col>
+          <el-col :span="12">
+            <div style="width: 470px">
+              <el-button v-if="!formDisable" type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('description_en')" />
+              <el-collapse v-model="activeNames">
+                <el-collapse-item name="description_en">
+                  <template slot="title">
+                    <span class="categoryDetailText">类目简介(英文)</span>
+                  </template>
+                  <span v-html="categoryDetail.description_en" />
+                </el-collapse-item>
+              </el-collapse>
+            </div>
+          </el-col>
+        </el-row>
+        <el-row :gutter="10">
+          <el-col :span="12">
+            <el-form-item label="类目banner图">
+              <el-image v-if="formDisable" style="width: 120px;height: 120px;" :src="categoryDetail.banner" fit="scale-down" @click="previewImgAction(categoryDetail.banner)" />
+              <el-upload
+                v-else
+                ref="uploadBanner"
+                :class="{hideBanner:hideUploadBanner}"
+                name="banner"
+                action="#"
+                list-type="picture-card"
+                :auto-upload="false"
+                :limit="limitCountBanner"
+                :file-list="bannerList"
+                :on-change="handleBannerChange"
+                :on-remove="handleBannerRemove"
+              >
+                <el-button size="small" type="primary">点击上传</el-button>
+                <div slot="tip" class="el-upload__tip">只能上传一张jpg/png文件，且不超过500kb</div>
+              </el-upload>
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item label="英文产品细节">
-              <el-input v-model="categoryDetail.title" type="textarea" label-position="right" :autosize="true" :disabled="formDisable" style="width: 400px" />
+            <el-form-item label="类目简介图">
+              <el-image v-if="formDisable" style="width: 120px;height: 120px;" :src="categoryDetail.img" fit="scale-down" @click="previewImgAction(categoryDetail.img)" />
+              <el-upload
+                v-else
+                ref="uploadBanner"
+                :class="{hideBanner:hideUploadImg}"
+                name="img"
+                action="#"
+                list-type="picture-card"
+                :auto-upload="false"
+                :limit="limitCountImg"
+                :file-list="imgList"
+                :on-change="handleImgChange"
+                :on-remove="handleImgRemove"
+              >
+                <el-button size="small" type="primary">点击上传</el-button>
+                <div slot="tip" class="el-upload__tip">只能上传一张jpg/png文件，且不超过500kb</div>
+              </el-upload>
             </el-form-item>
           </el-col>
         </el-row>
       </el-card>
-      <el-card class="box-card-image" shadow="hover">
-        <el-row>
-          <el-col :span="7">
-            <el-form-item label="页面主图1">
-              <el-image style="width: 120px;height: 120px;" :src="categoryDetail.img" fit="scale-down" @click="previewImgAction(productDetail.main_image)" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="7">
-            <el-form-item label="页面主图2">
-              <el-image style="width: 120px;height: 120px;" :src="categoryDetail.img" fit="scale-down" @click="previewImgAction(productDetail.main_image_2)" />
-            </el-form-item>
-          </el-col>
-          <el-col :span="7">
-            <el-form-item label="功效背景图">
-              <el-image style="width: 120px;height: 120px;" :src="categoryDetail.img" fit="scale-down" @click="previewImgAction(productDetail.benefit_image)" />
-            </el-form-item>
-          </el-col>
-        </el-row>
+      <!--      类目故事-->
+      <!--      <el-card class="box-card">-->
+      <!--        <div slot="header" class="clearfix">-->
+      <!--          <span>类目故事信息</span>-->
+      <!--        </div>-->
+      <!--        <el-row>-->
+      <!--          <el-col :span="12">-->
+      <!--            <el-form-item label="类目故事名称">-->
+      <!--              <el-input v-model="categoryDetail.product_category_stories.title" disabled style="width: 400px" />-->
+      <!--            </el-form-item>-->
+      <!--          </el-col>-->
+      <!--          <el-col :span="12">-->
+      <!--            <el-form-item label="类目故事名称(英文)">-->
+      <!--              <el-input v-model="categoryDetail.product_category_stories.title_en" disabled style="width: 400px" />-->
+      <!--            </el-form-item>-->
+      <!--          </el-col>-->
+      <!--        </el-row>-->
+      <!--        <el-row>-->
+      <!--          <el-col :span="12">-->
+      <!--            <el-form-item label="类目故事简介描述">-->
+      <!--              <el-input v-model="categoryDetail.product_category_stories.description" type="textarea" :autosize="true" label-position="right" disabled style="width: 400px" />-->
+      <!--            </el-form-item>-->
+      <!--          </el-col>-->
+      <!--          <el-col :span="12">-->
+      <!--            <el-form-item label="类目故事简介描述(英文)">-->
+      <!--              <el-input v-model="categoryDetail.product_category_stories.description_en" type="textarea" :autosize="true" label-position="right" disabled style="width: 400px" />-->
+      <!--            </el-form-item>-->
+      <!--          </el-col>-->
+      <!--        </el-row>-->
+      <!--        <el-row>-->
+      <!--          <el-col :span="12">-->
+      <!--            <el-form-item label="类目故事banner图">-->
+      <!--              <el-image style="width: 120px;height: 120px;" :src="categoryDetail.product_category_stories.banner" fit="scale-down" @click="previewImgAction(categoryDetail.product_category_stories.banner)" />-->
+      <!--            </el-form-item>-->
+      <!--          </el-col>-->
+      <!--        </el-row>-->
+      <!--      </el-card>-->
+      <el-card v-if="!formDisable" class="box-card-image" shadow="hover">
         <el-row style="margin-bottom: 50px">
           <el-col :span="2" :offset="8">
-            <el-button type="success" @click="submitProduct">提交</el-button>
+            <el-button type="success" @click="submitCategory(categoryDetail)">提交</el-button>
           </el-col>
           <el-col :span="2">
             <el-button type="info" plain @click="closePageButton">返回</el-button>
           </el-col>
         </el-row>
       </el-card>
+
     </el-form>
+    <!--    图片预览弹框-->
     <el-dialog
       title="图片预览"
       :visible.sync="previewImgDialogVisible"
@@ -175,15 +191,31 @@
     >
       <el-image :src="previewImg" style="width: 100%;" />
     </el-dialog>
+
+    <!-- TinyMce 实例公用弹框 -->
+    <el-dialog title="富文本编辑" :visible.sync="showDialog" width="50%" :before-close="handleClose">
+      <tinymce v-model="tinyTxt" :height="150" />
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="showDialog = false">取 消</el-button>
+        <el-button type="primary" @click="comfirmSaveTiny">确 定</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
 <script>
-import { categoryDetail } from '@/api/category'
+import Tinymce from '@/components/Tinymce'
+import { categoryDetail, getList, categoryEdit } from '@/api/category'
 export default {
   name: 'CategoryViewOrUpdate',
+  components: {
+    Tinymce
+  },
   data() {
     return {
+      showDialog: false,
+      tinyTxt: '',
+      flag: '',
       formDisable: false,
       category_slug: '',
       previewImgDialogVisible: false,
@@ -204,7 +236,7 @@ export default {
         updated_at: '',
         product_category_stories:
           {
-            id: 32,
+            id: '',
             product_category_id: '',
             title: '',
             title_en: '',
@@ -218,7 +250,17 @@ export default {
           id: '',
           title: ''
         }
-      }
+      },
+      parentCategory: null,
+      activeNameDescribe: 'describe',
+      // 图片上传
+      hideUploadBanner: false,
+      limitCountBanner: 1,
+      bannerList: [],
+      hideUploadImg: false,
+      limitCountImg: 1,
+      imgList: [],
+      activeNames: ['describe', 'describe_en', 'description', 'description_en']
     }
   },
   created() {
@@ -232,36 +274,153 @@ export default {
       this.previewImgDialogVisible = true
     },
     getCategoryData() {
-      console.log(this.$route)
       this.category_slug = this.$route.params.category_slug
       this.status = this.$route.params.status
       if (this.status === 'view') {
         this.formDisable = true
+      } else {
+        this.getCategoryList()
       }
     },
-    getCategoryDetail() {
-      categoryDetail(this.category_slug).then(response => {
-        this.categoryDetail = response.data
-        this.categoryDetail.product_category_stories = response.data.product_category_stories[0]
-        console.log(this.categoryDetail)
+    // 获取父类列表
+    getCategoryList() {
+      const param = {
+        page_limit: 40
+      }
+      getList(param).then((response) => {
+        this.parentCategory = response.data.data
       })
     },
-    submitProduct() {
-      console.log(this.productDetail)
-    },
-    inputEvents(e) {
-      console.log(e)
+    getCategoryDetail() {
+      // 类目故事详细数据
+      categoryDetail(this.category_slug).then(response => {
+        this.categoryDetail = response.data
+        if (response.data.product_category_stories[0]) {
+          this.categoryDetail.product_category_stories = response.data.product_category_stories[0]
+        }
+        // 图片上传初始图片
+        this.bannerList.push({ 'url': this.categoryDetail.banner })
+        this.imgList.push({ 'url': this.categoryDetail.img })
+        this.hideUploadImg = true
+        this.hideUploadBanner = true
+      })
     },
     // 关闭页面
     closePageButton() {
       this.$store.dispatch('tagsView/delView', this.$route)
       this.$router.go(-1)
+    },
+    // 提交数据
+    submitCategory() {
+      const postForm = new FormData()
+      // 更换了图片则保存
+      if (typeof this.categoryDetail.img === 'object') {
+        postForm.append('img', this.categoryDetail.img)
+      }
+      if (typeof this.categoryDetail.banner === 'object') {
+        postForm.append('banner', this.categoryDetail.banner)
+      }
+      postForm.append('description', this.categoryDetail.description)
+      postForm.append('description_en', this.categoryDetail.description_en)
+      postForm.append('title', this.categoryDetail.title)
+      postForm.append('title_en', this.categoryDetail.title_en)
+      postForm.append('describe', this.categoryDetail.describe)
+      postForm.append('describe_en', this.categoryDetail.describe_en)
+      postForm.append('parent_id', this.categoryDetail.parent_id)
+      categoryEdit(postForm, this.categoryDetail.slug).then(response => {
+        if (response.code === 20001) {
+          this.$message({
+            message: '更新成功！',
+            type: 'success'
+          })
+        } else {
+          this.$message({
+            message: '更新失败!',
+            type: 'error'
+          })
+        }
+      })
+    },
+    // 调起富文本dialog
+    handleDescribes(flag) {
+      this.flag = flag
+      this.tinyTxt = ''
+      this.showDialog = true
+    },
+    // 确认保存当前富文本
+    comfirmSaveTiny() {
+      switch (this.flag) {
+        case 'describe':
+          this.categoryDetail.describe = this.tinyTxt
+          this.showDialog = false
+          this.tinyTxt = ''
+          break
+        case 'describe_en':
+          this.categoryDetail.describe_en = this.tinyTxt
+          this.showDialog = false
+          this.tinyTxt = ''
+          break
+        case 'description':
+          this.categoryDetail.description = this.tinyTxt
+          this.showDialog = false
+          this.tinyTxt = ''
+          break
+        case 'description_en':
+          this.categoryDetail.description_en = this.tinyTxt
+          this.showDialog = false
+          this.tinyTxt = ''
+          break
+        default:
+          break
+      }
+      this.$message({
+        message: '编辑完成',
+        type: 'success'
+      })
+    },
+    // dialog 关闭提醒
+    handleClose(done) {
+      this.$confirm('确认关闭？')
+        .then((_) => {
+          done()
+        })
+        .catch((_) => {})
+    },
+    // 图片上传
+    handleBannerChange(file, fileList) {
+      this.hideUploadBanner = fileList.length >= this.limitCountBanner
+      this.categoryDetail.banner = file.raw
+    },
+    handleBannerRemove(file, fileList) {
+      this.hideUploadBanner = fileList.length >= this.limitCountBanner
+    },
+    handleImgChange(file, fileList) {
+      this.hideUploadImg = fileList.length >= this.limitCountImg
+      this.categoryDetail.img = file.raw
+    },
+    handleImgRemove(file, fileList) {
+      this.hideUploadImg = fileList.length >= this.limitCountImg
     }
   }
 
 }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+  /*上传图片完成后隐藏按钮*/
+  .hideBanner .el-upload--picture-card {
+    display: none;
+  }
+  .hideImg .el-upload--picture-card {
+    display: none;
+  }
+  .categoryDetailText {
+    text-align: right;
+    vertical-align: middle;
+    padding: 0 12px 0 0;
+    color: #606266;
+    font-size: 14px;
+    box-sizing: border-box;
+    font-weight: 700;
+  }
 </style>

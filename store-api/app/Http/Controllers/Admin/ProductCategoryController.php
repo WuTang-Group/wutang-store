@@ -55,7 +55,6 @@ class ProductCategoryController extends Controller
     public function store(ProductCategoryRequest $request)
     {
         $queries = $request->only(['title', 'title_en', 'describe', 'describe_en', 'banner', 'description', 'description_en', 'img', 'parent_id']);
-
         $result = $this->categoriesService->store(array_filter($queries));
         return $result ? response()->json(ResponseData::requestSuccess($result)) : response()->json(ResponseData::requestFails());
     }
@@ -73,25 +72,25 @@ class ProductCategoryController extends Controller
      * @queryParam img 分类简介图
      * @queryParam parent_id 上级分类ID
      * @param ProductCategoryRequest $request
-     * @param $productCategoriesId
+     * @param $category_slug
      * @return \Illuminate\Http\JsonResponse
      */
-    public function edit(ProductCategoryRequest $request, $productCategoriesId)
+    public function edit(ProductCategoryRequest $request, $category_slug)
     {
         $queries = $request->only(['title', 'title_en', 'describe', 'describe_en', 'banner', 'description', 'description_en', 'img', 'parent_id']);
-        $result = $this->categoriesService->edit($queries, $productCategoriesId);
+        $result = $this->categoriesService->edit($queries, $category_slug);
         return $result ? response()->json(ResponseData::requestSuccess()) : response()->json(ResponseData::requestFails());
     }
 
     /**
      * Delete product category
      * 删除产品分类
-     * @param $productCategoriesId
+     * @param $category_slug
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy($productCategoriesId)
+    public function destroy($category_slug)
     {
-        $result = $this->categoriesService->destroy($productCategoriesId);
+        $result = $this->categoriesService->destroy($category_slug);
         return $result ? response()->json(ResponseData::requestSuccess()) : response()->json(ResponseData::requestFails());
     }
 

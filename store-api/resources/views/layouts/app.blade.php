@@ -148,6 +148,10 @@
     <!--<script src="{{ URL::asset('assets/js/cart.js') }}"></script>-->
     <script src="{{ URL::asset('assets/js/main.js') }}"></script>
     <script src="{{ URL::asset('assets/js/axios.js') }}"></script>
+    @if(Request::is('checkout','my-account','my-account/order/*')) 
+    <script src="{{ URL::asset('assets/js/payment.js') }}"></script>
+    @endif
+    
     @yield('footer_scripts')
 </body>
 </html>

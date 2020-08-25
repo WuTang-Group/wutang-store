@@ -6,4 +6,6 @@ lang = {
     item_exist : '您购物车已有该商品。',
     item_removed : '商品已从您的购物车删除。',
     please_select : '请选择',
+    payment_success : '支付成功',
+    payment_failed : '支付失败',
 };

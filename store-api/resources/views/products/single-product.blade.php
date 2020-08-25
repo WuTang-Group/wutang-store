@@ -105,7 +105,7 @@
           </div>
         </div>
       </div>
-      <div id="application" class="section-t-space position-relative">
+      <div id="application" class="position-relative">
         <div class="d-none d-md-block">
           <ul id="accordion">
             <li data-required="true" data-selected="true" data-title="@lang('general.usage')">
@@ -276,4 +276,9 @@
 @endsection
 @section('footer_vendor_scripts')
   <script src="{{ URL::asset('assets/vendor/jquery-accordion/jquery.accordion.js') }}"></script>
+  <script type="text/javascript">  
+    $(document).ready(function() {
+      $('#application #accordion').accordionjs();
+    });
+  </script>
 @endsection

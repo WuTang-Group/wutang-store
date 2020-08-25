@@ -6,4 +6,6 @@ lang = {
     item_exist : 'Item has already existing in your cart.',
     item_removed : 'Item has been removed from cart.',
     please_select : 'Please Select',
+    payment_success : 'Payment Successfully!',
+    payment_failed : 'Payment Failed!',
 };

@@ -15,7 +15,7 @@ $factory->define(Product::class, function (Faker $faker) {
         'short_description' => $faker->sentence(5, true),
         'short_description_en' => $faker->paragraph(3, true),
         'price' => $faker->randomNumber(4),
-        'sale_price' => $faker->randomNumber(4),
+        'sale_price' => '1.00',
         'stock' => $faker->randomNumber(3),
         'seo_title' => $faker->words(3, true),
         'seo_keyword' => $faker->word(),

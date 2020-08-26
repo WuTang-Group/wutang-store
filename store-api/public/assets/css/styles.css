@@ -46,7 +46,7 @@
 /* 12. Single Product CSS  */
 /* 13. Section Navigation Menu CSS  */
 /* 14. Custom Slick Nav CSS  */
-/* 15. Product Category CSS 
+/* 15. Product Category CSS
    15.1. Product Category (Display Product) CSS
    15.2. Product Category (Story) CSS */
 /* 16. Customer Service CSS  */
@@ -66,9 +66,9 @@ body {
   background: #fff;
   font-size: 14px;
   overflow-x: hidden; }
-  body.cn { 
+  body.cn {
     font-family: 'JXiHei', serif; }
-  body.en { 
+  body.en {
     font-family: 'Mont ExtraLight', serif; }
 
 h1 {
@@ -167,21 +167,21 @@ section,
       font-size: 14px;
       padding: 13.5px 25px;
       height: inherit; }
-  .form-control.is-invalid, 
+  .form-control.is-invalid,
   .was-validated .form-control:invalid {
-    border-color: #dc3545 !important; } 
+    border-color: #dc3545 !important; }
   .dark-layout .form-control {
     color: #fff; }
 
 .form-check-inline {
   padding-left: 1.25rem; }
-  .form-check-input.is-valid~.form-check-label, 
+  .form-check-input.is-valid~.form-check-label,
   .was-validated .form-check-input:valid~.form-check-label {
     color: unset; }
 
 input[type="radio"] {
   display: none; }
-  input[type="radio"] + label:after, 
+  input[type="radio"] + label:after,
   input[type="radio"] + label:before {
       content: "";
       position: absolute;
@@ -243,9 +243,9 @@ input[type="radio"] {
 .dark-layout .bg-trans:focus {
   background-color: transparent; }
 
-.tx-jh { 
+.tx-jh {
   font-family: 'JXiHei', serif !important; }
-.tx-mont { 
+.tx-mont {
   font-family: 'Mont ExtraLight', serif !important; }
 .tx-dark-gray {
   color: #938d8c !important; }
@@ -313,7 +313,7 @@ body:not(.home) .main-content {
   padding-top: 73px; }
 
 .ol-list-style,
-.ul-list-style { 
+.ul-list-style {
   counter-reset: list;
   padding-left: 20px; }
 .ol-list-style > li {
@@ -382,7 +382,7 @@ button.loading {
     position: absolute;
     right: 20px;
     top: 10px; }
-    
+
 .btn {
   line-height: 20px;
   text-transform: uppercase;
@@ -427,7 +427,7 @@ button.loading {
       -webkit-transition: 0.5s all ease;
       transition: 0.5s all ease;
       right: 0;
-      opacity: 1; } 
+      opacity: 1; }
 
 .white-layout .btn-solid {
   border: 1px solid var(--theme-deafult);
@@ -563,7 +563,7 @@ button.btn.btn-solid:active, button.btn.btn-outline:active,
   border: none; }
 .btn-solid.btn-sm
 .btn-outline.btn-sm,
-.btn-white.btn-sm, {
+.btn-white.btn-sm{
   padding: 6px 16px;
   font-size: 12px; }
 .btn-solid.btn-xs,
@@ -574,7 +574,7 @@ button.btn.btn-solid:active, button.btn.btn-outline:active,
 
 .btn-group .btn,
 .nav.nav-group li .btn{
-  font-weight: normal; 
+  font-weight: normal;
   letter-spacing: 1.5px;
   font-size: 14px;
   padding-left: 30px;
@@ -637,8 +637,8 @@ h2.title-lg {
 header {
   background-color: #fff;
   border-bottom: 1px solid #dddddd;
-  position: absolute; 
-  width: 100%; 
+  position: absolute;
+  width: 100%;
   background:transparent;
   z-index: 1030; }
 
@@ -794,7 +794,7 @@ header {
           font-size: 16px; }
       .main-menu .megamenu .content li a {
           color: #949494; }
-      .main-menu .megamenu .content li a:hover, 
+      .main-menu .megamenu .content li a:hover,
       .main-menu .megamenu .content li a:focus,
       .main-menu .megamenu .content li a:active {
           color: #000; }
@@ -954,7 +954,7 @@ footer {
           align-items: center;
   height: 100%; }
   .footer .subscribe-form .form-group {
-    margin-bottom: 0; 
+    margin-bottom: 0;
     margin-right: 10px;}
   .footer .subscribe-form input {
     background: transparent;
@@ -1044,7 +1044,7 @@ footer {
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease; }
   .sidenav .sidebar-header {
-    padding: 20px; 
+    padding: 20px;
     font-size: 18px;
     color: #222222;
     font-weight: 700;
@@ -1188,7 +1188,7 @@ footer {
 .cart,
 .wishlist,
 .cart-collaterals,
-.checkout, 
+.checkout,
 .order-review {
   position: relative;
   /*margin-top: 30px;*/ }
@@ -1205,14 +1205,14 @@ footer {
     .cart .cart-item img,
     .wishlist .wishlist-item img {
         max-width: 100px }
-    .cart .cart-item .product-title, 
-    .cart .cart-item .product-price, 
-    .cart .cart-item .product-description, 
+    .cart .cart-item .product-title,
+    .cart .cart-item .product-price,
+    .cart .cart-item .product-description,
     .cart .cart-item .product-form,
     .cart .cart-item .product-quantity,
-    .wishlist .wishlist-item .product-title, 
-    .wishlist .wishlist-item .product-price, 
-    .wishlist .wishlist-item .product-description, 
+    .wishlist .wishlist-item .product-title,
+    .wishlist .wishlist-item .product-price,
+    .wishlist .wishlist-item .product-description,
     .wishlist .wishlist-item .product-form {
       margin-bottom: 0;
       padding: 0 20px;
@@ -1244,7 +1244,7 @@ footer {
     .wishlist .wishlist-item .product-form .product-quantity button {
       padding: 5px; }
     .cart .cart-item .gift {
-      padding: 0 15px; } 
+      padding: 0 15px; }
 
 .cart-collaterals,
 .order-review {
@@ -1277,9 +1277,9 @@ footer {
     .cart-collaterals .btn-outline:before,
     .order-review .btn-outline:before {
       background-color: var(--theme-deafult); }
-    .cart-collaterals .btn-outline:hover, 
+    .cart-collaterals .btn-outline:hover,
     .cart-collaterals .btn-outline:focus,
-    .order-review .btn-outline:hover, 
+    .order-review .btn-outline:hover,
     .order-review .btn-outline:focus {
       color: #fff !important; }
 
@@ -1324,7 +1324,7 @@ footer {
           min-width: 50px; }
         .cart-collaterals p,
         .order-review p {
-          color: #000; } 
+          color: #000; }
         .cart-collaterals .cart-total label,
         .cart-collaterals .cart-total p,
         .order-review .order-total label,
@@ -1387,7 +1387,7 @@ footer {
 .checkout .accordion #shipping #new-shipping.active {
   padding: 10px 18px; }
 .checkout .accordion #shipping li {
-  color: #938d8c; 
+  color: #938d8c;
   display: block; }
 
 .checkout .accordion #payment-method .form-check.form-check-inline {
@@ -1397,7 +1397,7 @@ footer {
 .checkout .accordion #payment-method .form-check img {
   max-height: 30px; }
 
-.checkout .accordion .form-check-input:disabled~.form-check-label, 
+.checkout .accordion .form-check-input:disabled~.form-check-label,
 .checkout .accordion .form-check-input[disabled]~.form-check-label {
   color: #fff; }
 
@@ -1473,8 +1473,8 @@ footer {
   margin-bottom: 20px; }
   .order-detail .order-item img {
     height: 130px; }
-  .order-detail .order-item .description, 
-  .order-detail .order-item .quantity, 
+  .order-detail .order-item .description,
+  .order-detail .order-item .quantity,
   .order-detail .order-item .amount {
     color: #938d8c; }
   .order-detail .order-item .description p {
@@ -1519,7 +1519,7 @@ footer {
 .darken-layout .pagination .page-item a:hover,
 .darken-layout .pagination .page-item a:focus,
 .dark-layout .pagination .page-item.active a,
-.darken-layout .pagination .page-item.active a { 
+.darken-layout .pagination .page-item.active a {
   color: #fff;
 }
 .dark-layout .pagination .page-item.disabled a,
@@ -1719,7 +1719,7 @@ footer {
     -webkit-transform:scaleY(0);
     transform:scaleY(0);
     -webkit-transform-origin:0 0;
-    transform-origin:0 0 } 
+    transform-origin:0 0 }
   100% {
     -webkit-transform:scaleY(1);
     transform:scaleY(1);
@@ -1844,12 +1844,12 @@ footer {
           display: block;
           width: 20px;
           height: 18px; }
-  
+
   .product-box .product-info {
     padding: 0;
     text-align: center;
     position: relative; }
-    
+
   .product-box .img-wrapper:hover .cart-info {
     opacity: 1;
     -webkit-transition: all 0.5s ease;
@@ -1949,9 +1949,9 @@ footer {
     background: transparent;
     border-bottom: 1px solid #fff; }
 
-.single-product #routine .routine-content { 
+.single-product #routine .routine-content {
   margin-top: 100px; }
-  .single-product #routine .routine-content h3.routine-title { 
+  .single-product #routine .routine-content h3.routine-title {
     color: #fff;
     text-align: center;
     font-size: 20px; }
@@ -1959,7 +1959,7 @@ footer {
       border: 1px solid #fff;
       padding: 8px 13px;
       border-radius: 50%;
-      margin-right: 10px; } 
+      margin-right: 10px; }
 
 /*=====================
     13.Section Navigation Menu CSS start
@@ -1994,12 +1994,12 @@ footer {
 .darken-layout.section-nav li a,
 .darken-layout.section-nav li a:hover,
 .darken-layout.section-nav li.active a {
-    color: #fff; } 
+    color: #fff; }
 
 /*=====================
     14.Custom Slick Nav CSS start
 ==========================*/
-.custom-slick .slick-prev, 
+.custom-slick .slick-prev,
 .custom-slick .slick-next {
   padding: 10px 15px;
   background: #fff;
@@ -2013,7 +2013,7 @@ footer {
     left: 0; }
   .custom-slick .slick-next {
     right: 0; }
-  .custom-slick .slick-prev:before, 
+  .custom-slick .slick-prev:before,
   .custom-slick .slick-next:before {
     font-size: 0;
     color: #000;
@@ -2300,7 +2300,7 @@ footer {
   position: absolute;
   top: 62%;
   transform: translate(0%, -100%); }
-  .brand-slider-action img {    
+  .brand-slider-action img {
     max-width: 60px;
     display: block;
     margin-bottom: 80px; }
@@ -2322,7 +2322,7 @@ footer {
 .customer-care-wrapper > div,
 .general-accordion-wrapper > div {
   margin-bottom: 70px; }
-  
+
 .terms-and-conditions-wrapper .title,
 .privacy-policy-wrapper .title,
 .customer-care-wrapper .title,

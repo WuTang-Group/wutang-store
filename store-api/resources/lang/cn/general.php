@@ -54,6 +54,7 @@ return [
     'go-checkout' => '前往结账',
     'pay' => '付款',
     'pay-now' => '立即购买',
+    'proceed-to-payment' => '立即付款',
     'your-order' => '您的订单',
     'default-address' => '默认地址',
     'new-address' => '新建地址',

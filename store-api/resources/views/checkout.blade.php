@@ -54,7 +54,7 @@
 		                	<p class="price">{{ number_format($total) }}</p>
 		                </div>
 		                <div>
-		                	<button type="submit" onclick="submitForm()" class="btn btn-outline w-100 mt-3">@lang('general.buy-now')</button>
+		                	<button type="submit" onclick="submitForm()" class="btn btn-outline w-100 mt-3">@lang('general.proceed-to-payment')</button>
 		                </div>
 		                <div class="information mt-2">
 		                	<p>请注意订单一经处理就不得更改或取消</p>

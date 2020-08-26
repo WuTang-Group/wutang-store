@@ -54,6 +54,7 @@ return [
     'go-checkout' => 'Checkout',
     'pay' => 'Pay Now',
     'pay-now' => 'Pay Now',
+    'proceed-to-payment' => 'Proceed to Payment',
     'your-order' => 'Your Order',
     'default-address' => 'Default Address',
     'new-address' => 'New Address',

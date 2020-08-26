@@ -60,7 +60,7 @@
                             <div class="col-4 col-md-2 text-right">
                         		<a href="my-account/order/{{ $order->no }}" class="btn btn-white btn-xs">@lang('general.my-account.view')</a>
                                 @if($order->status == 0 || $order->status == -1)
-                                <button type="button" onclick="payNow({{ $order->no }})" class="btn btn-white btn-xs">@lang('general.pay')</a>
+                                <button type="button" onclick="payNow('{{ $order->no }}')" class="btn btn-white btn-xs">@lang('general.pay')</a>
                                 @endif
                         	</div>
                         </div>

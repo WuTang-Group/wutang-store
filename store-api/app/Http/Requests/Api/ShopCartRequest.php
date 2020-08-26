@@ -40,6 +40,13 @@ class ShopCartRequest extends FormRequest
                         if (!$orderItem->isEmpty()) {
                             return $fail('您已购买过该商品'.$value);
                         }
+                        // 判断用户订单中是否存在未付款商品
+                        $orderItem = Order::whereHas('items', function ($query) use ($value) {
+                            $query->whereProductId($value);
+                        })->with('items')->whereUserId($this->user()->id)->unPaid()->get();
+                        if (!$orderItem->isEmpty()) {
+                            return $fail('您的订单中已有该商品'.$value);
+                        }
                     }]
                 ];
             }

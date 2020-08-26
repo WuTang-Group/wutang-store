@@ -35,6 +35,6 @@ class SendOrderStatusNotification implements ShouldQueue
     {
         //\Log::info($event->order);
         Gateway::$registerAddress = '127.0.0.1:12360';
-        Gateway::sendToAll(json_encode($event->order));
+        Gateway::sendToAll(json_encode(['mode' => 'server_message','data' =>$event->order]));
     }
 }

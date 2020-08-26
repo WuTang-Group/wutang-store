@@ -92,7 +92,8 @@ class OrderService extends Service
 
                 return $order;
             });
-            event(new OrderStatusUpdated($orderRequest));
+            // 取消下单队列通知，因为此时订单尚未完成，无需队列通知
+            // event(new OrderStatusUpdated($orderRequest));
         } catch (\Exception $e) {
             Log::error('订单下单失败',['message'=>$e->getMessage()]);
             return false;

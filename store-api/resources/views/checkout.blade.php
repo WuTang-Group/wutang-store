@@ -157,8 +157,8 @@
 			axios.post(BASE_URL+'api/orders', formData)
 			  	.then(function (response) {
 			    	if(response.data.code == 20001) {
-      					$this.find('button').prop('disabled',true);
-      					$this.find('button[type=submit]').focus().addClass('loading').text( @json(__('general.waiting-for-payment')) );
+      					$this.find('button').removeAttr("type").attr("type", "button").prop('disabled',true);
+      					$this.find('button').removeAttr("onclick").focus().addClass('loading').text( @json(__('general.waiting-for-payment')) );
 
 			    		var order_no = response.data.data.no;
 			    		var amount = response.data.data.total_amount;

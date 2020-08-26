@@ -128,7 +128,7 @@ class OrderService extends Service
                     break;
                 case AlipayGatewayCode::PaySuccess:
                     {
-                        $this->order->whereNo($queries['order_id'])->update([
+                        $order = $this->order->whereNo($queries['order_id'])->update([
                             'status' => OrderStatusCode::StatusPlaced,
                             'payment_method' => 'alipay_gateway',
                             'payment_no' => $queries['out_order_no'],
@@ -143,16 +143,18 @@ class OrderService extends Service
                                 'pay_time' => $queries['pay_time']  // 支付时间
                             ])
                         ]);
+                        Log::info('支付宝网关支付成功',['message' => $order]);
                     }
                     break;
                 case AlipayGatewayCode::PayFaild:
                     {
-                        $this->order->whereNo($queries['order_id'])->update([
+                        $order = $this->order->whereNo($queries['order_id'])->update([
                             'status' => OrderStatusCode::StatusReceived,
                             'payment_method' => 'alipay_gateway',
                             'payment_no' => $queries['out_order_no'],
                             'paid_at' => now()->toDateTimeString(),
                         ]);
+                        Log::info('支付宝网关支付失败',['message' => $order]);
                     }
                     break;
                 default:

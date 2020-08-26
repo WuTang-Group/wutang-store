@@ -55,15 +55,15 @@ function processing() {
                 }else{
                     toastr['error']( lang.payment_failed );
                 }
+                window.location.href = BASE_URL + 'my-account/order/' + data.data.order.no;
                 break;
             default: // heart
                 console.log(data);
                 break;
         }
-        window.location.href = BASE_URL + 'my-account/order/' + data.order.no;
     };
     // 通讯关闭时触发
     ws.close = function() {
-        window.location.href = BASE_URL + 'my-account/order/' + data.order.no;
+        window.location.href = BASE_URL + 'my-account/order/' + data.data.order.no;
     }
 }

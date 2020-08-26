@@ -59,6 +59,11 @@ class Order extends Model
     {
         return $query->whereStatus(OrderStatusCode::StatusPlaced);
     }
+    // 未付款
+    public function scopeUnPaid($query)
+    {
+        return $query->whereStatus(OrderStatusCode::StatusDeliverd);
+    }
 
 //    public function getStatusAttribute()
 //    {

@@ -40,7 +40,7 @@ class AuthService extends Service
                 // 默认分配注册用户customer角色
                 $user->assignRole(Roles::Customer);
                 // 用户注册成功自动在profile表新建占位数据行
-                Profile::create(['user_id' => $user->id]);
+                $user->profile()->create(['birthday' => now()]);
             });
         } catch (\Exception $e) {
             Log::error('用户注册失败', ['message' => $e->getMessage()]);

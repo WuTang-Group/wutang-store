@@ -71,6 +71,6 @@ class WorkermanEvents
     public static function onClose($client_id)
     {
         //Gateway::sendToAll($client_id."logout");
-        Log::info('close connection:' . $client_id);
+        //Log::info('close connection:' . $client_id);
     }
 }

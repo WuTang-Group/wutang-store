@@ -10,9 +10,9 @@ toastr.options = {
   "preventDuplicates": false,
   "onclick": null,
   "showDuration": "300",
-  "hideDuration": "100000",
-  "timeOut": "500000",
-  "extendedTimeOut": "100000",
+  "hideDuration": "1000",
+  "timeOut": "3000",
+  "extendedTimeOut": "1000",
   "showEasing": "swing",
   "hideEasing": "linear",
   "showMethod": "fadeIn",
@@ -29,7 +29,7 @@ axios.interceptors.request.use(request => {
     $btn = window.$this.find('button[type="submit"]');
     $btn.prop('disabled',true).addClass('loading');
   }
-  return request 
+  return request
 }, function (error) {
   return Promise.reject(error)
 })
@@ -38,7 +38,7 @@ axios.interceptors.response.use(request => {
     if($btn != null) {
       $btn.prop('disabled',false).removeClass('loading');
     }
-    return request 
+    return request
   }, function (err) {
     if (!err.response) {
       toastr['error']('Network error: Please check your internet connection or wait until servers are back online');

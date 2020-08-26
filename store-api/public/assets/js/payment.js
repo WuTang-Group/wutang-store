@@ -55,7 +55,7 @@ function processing() {
                 }else{
                     toastr['error']( lang.payment_failed );
                 }
-                window.location.href = BASE_URL + 'my-account/order/' + data.data.order.no;
+                window.location.href = BASE_URL + 'my-account/order/' + data.data.no;
                 break;
             default: // heart
                 console.log(data);
@@ -64,6 +64,6 @@ function processing() {
     };
     // 通讯关闭时触发
     ws.close = function() {
-        window.location.href = BASE_URL + 'my-account/order/' + data.data.order.no;
+        window.location.href = BASE_URL + 'my-account/order/' + data.data.no;
     }
 }

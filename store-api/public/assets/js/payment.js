@@ -1,4 +1,5 @@
 function payNow(order_no){
+    console.log(order_no);
     $this = $(this);
     axios.get(BASE_URL+'api/order_details/'+order_no)
         .then(function (response) {

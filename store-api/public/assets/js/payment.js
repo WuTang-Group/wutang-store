@@ -13,7 +13,8 @@ function payNow(order_no){
                 axios.get(BASE_URL+'api/aligateway/pay?no='+ order_no + '&total_amount=' + amount)
                     .then(function (response) {
                         if(response.data.code == 20001) {
-                            window.open(response.data.data.pay_url);  // 跳转至新建标签页进行支付
+                            //window.open(response.data.data.pay_url);  // 跳转至新建标签页进行支付
+                            window.location.href = response.data.data.pay_url;
                         } else {
                             toastr['error'](response.data.msg);
                             window.location.href = BASE_URL + 'my-account/order/' + order_no;
@@ -47,10 +48,17 @@ function processing() {
         //     window.location.href = BASE_URL + 'my-account/order/' + data.order.no;
         // }
         // 提示信息并跳转
-        if(data.order.status == 1) {
-            toastr['success']( lang.payment_success );
-        }else{
-            toastr['error']( lang.payment_failed );
+        switch (data.mode) {
+            case 'server_message':
+                if(data.data.status == 1) {
+                    toastr['success']( lang.payment_success );
+                }else{
+                    toastr['error']( lang.payment_failed );
+                }
+                break;
+            default: // heart
+                console.log(data);
+                break;
         }
         window.location.href = BASE_URL + 'my-account/order/' + data.order.no;
     };

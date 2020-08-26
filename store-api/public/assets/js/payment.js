@@ -1,5 +1,4 @@
 function payNow(order_no){
-    processing();
     $this = $(this);
     axios.get(BASE_URL+'api/order_details/'+order_no)
         .then(function (response) {
@@ -7,17 +6,17 @@ function payNow(order_no){
                 $this.prop('disabled',true);
                 $this.focus().addClass('loading');
 
-                var order_no = response.data.no;
-                var amount = response.data.total_amount;
+                var order_no = response.data.data.no;
+                var amount = response.data.data.total_amount;
 
+                processing(); //获取订单号后才打开监听功能
                 axios.get(BASE_URL+'api/aligateway/pay?no='+ order_no + '&total_amount=' + amount)
                     .then(function (response) {
                         if(response.data.code == 20001) {
-                            //window.open(response.data.data.pay_url);  // 跳转至新建标签页进行支付
-                            window.location.href = response.data.data.pay_url;
+                            window.open(response.data.data.pay_url);  // 跳转至新建标签页进行支付
                         } else {
                             toastr['error'](response.data.msg);
-                            window.location.href = BASE_URL + 'my-account/order/' + order_no;
+                            //window.location.href = BASE_URL + 'my-account/order/' + order_no; //关闭此代码因为在监听功能已有页面转跳功能
                         }
                         console.log(response);
                     })

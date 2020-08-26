@@ -148,7 +148,6 @@
 	function submitForm(){
 		$('form').unbind('submit').submit(function(event) {
 			event.preventDefault();
-			processing();
 			$this = $(this);
 			if (!pass) { return false; } //Check form validity
 	        var formData = {
@@ -164,15 +163,14 @@
 			    		var order_no = response.data.data.no;
 			    		var amount = response.data.data.total_amount;
 
+						processing(); //获取订单号后才打开监听功能
 			    		axios.get(BASE_URL+'api/aligateway/pay?no='+ order_no + '&total_amount=' + amount)
 						  	.then(function (response) {
 						    	if(response.data.code == 20001) {
                                     window.open(response.data.data.pay_url);  // 跳转至新建标签页进行支付
-                                    // 无需向服务端传参数,只需监听服务端消息即可
-	    							// ws.send('{"mode":"chats","order_id":'+ order_no +'}');
 						    	} else {
 			    					toastr['error'](response.data.msg);
-	    							window.location.href = BASE_URL + 'my-account/order/' + order_no;
+	    							//window.location.href = BASE_URL + 'my-account/order/' + order_no; //关闭此代码因为在监听功能已有页面转跳功能
 						    	}
 						    	console.log(response);
 						  	})

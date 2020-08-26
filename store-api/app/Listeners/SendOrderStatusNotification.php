@@ -28,8 +28,9 @@ class SendOrderStatusNotification implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param  object  $event
+     * @param OrderStatusUpdated $event
      * @return void
+     * @throws \Exception
      */
     public function handle(OrderStatusUpdated $event)
     {

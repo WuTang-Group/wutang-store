@@ -30,6 +30,26 @@ const categoryRouter = {
       component: () => import('@/views/category/components/ViewOrUpdate'),
       name: 'CategoryViewOrUpdate',
       meta: { title: 'categoryViewOrUpdate' }
+    },
+    {
+      path: 'category-story-list',
+      component: () => import('@/views/categoryStory/index'),
+      name: 'CategoryStoryList',
+      meta: { title: 'categoryStoryList', noCache: true }
+    },
+    {
+      path: 'create-category-story',
+      hidden: true,
+      component: () => import('@/views/categoryStory/components/CreateCategoryStory'),
+      name: 'CreateCategoryStory',
+      meta: { title: 'categoryStoryCreate' }
+    },
+    {
+      path: 'view-update-story',
+      hidden: true,
+      component: () => import('@/views/categoryStory/components/ViewOrUpdate'),
+      name: 'ViewUpdateStory',
+      meta: { title: 'viewUpdateStory' }
     }
   ]
 }

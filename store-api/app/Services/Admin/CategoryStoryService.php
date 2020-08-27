@@ -21,13 +21,15 @@ class CategoryStoryService extends Service
     {
         $requestData = page_limit($queries);
         // 查询分类故事列表
-        return $this->categoryStory->paginate($requestData['page_limit']);
+        return $this->categoryStory->with(['productCategory' => function($query){
+            $query->select('id', 'title');
+        }])->paginate($requestData['page_limit']);
     }
 
     public function store($queries)
     {
         // 新增分类故事列表
-        if (isset($queries['banner'])) {
+        if (is_object($queries['banner'])) {
             try {
                 $ossRes = OssHandler::save($queries['banner'], AliyunOssDir::ProductCategoryStory);  // 图片存储到OSS
                 $ossRes ? $queries['banner'] = $ossRes['data'] : null;
@@ -49,18 +51,17 @@ class CategoryStoryService extends Service
     public function edit($queries, $categoriesStoriesId)
     {
         // 编辑分类故事
-        if (isset($queries['banner'])) {
+        if (is_object($queries['banner'])) {
             try {
                 $ossRes = OssHandler::save($queries['banner'], AliyunOssDir::ProductCategoryStory);  // 图片存储到OSS
                 $ossRes ? $queries['banner'] = $ossRes['data'] : null;
-                $this->categoryStory->whereId($categoriesStoriesId)->update($queries);
             } catch (\Exception $e) {
                 Log::error('分类故事banner操作失败',['message'=>$e->getMessage()]);
                 return false;
             }
         }
         try {
-            $res = $this->categoryStory->whereId($categoriesStoriesId)->update($queries);
+            $res = $this->categoryStory->where('id', $categoriesStoriesId)->update($queries);
         } catch (\Exception $e) {
             Log::error('分类故事编辑失败',['message'=>$e->getMessage()]);
             return false;
@@ -81,4 +82,13 @@ class CategoryStoryService extends Service
         return $categoryStories;
 
     }
+
+    public function storyDetail($categoriesStoriesId)
+    {
+        Log::info($categoriesStoriesId);
+        return $this->categoryStory->with(['productCategory' => function($query){
+            $query->select('id', 'title');
+        }])->where('id',$categoriesStoriesId)->first();
+    }
+
 }

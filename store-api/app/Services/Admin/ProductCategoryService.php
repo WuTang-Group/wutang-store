@@ -50,7 +50,6 @@ class ProductCategoryService extends Service
     // 编辑产品分类
     public function edit($queries, $category_slug)
     {
-
         $requestData = $this->saveOss($queries);
         if(Arr::has($queries, 'parent_id'))
         {
@@ -88,12 +87,14 @@ class ProductCategoryService extends Service
         });
         foreach ($filtered as $key => $value) {
             // 图片存储到OSS，本地保存OSS地址
-            try {
-                $ossRes = OssHandler::save($array[$key], AliyunOssDir::ProductCategory);  // 图片存储到OSS
-                $ossRes ? $array[$key] = $ossRes['data'] : null;
-            } catch (\Exception $e) {
-                Log::error('OSS文件上传失败', ['message' => $e->getMessage()]);
-                $array[$key] = null;
+            if (is_object($array[$key])){
+                try {
+                    $ossRes = OssHandler::save($array[$key], AliyunOssDir::ProductCategory);  // 图片存储到OSS
+                    $ossRes ? $array[$key] = $ossRes['data'] : null;
+                } catch (\Exception $e) {
+                    Log::error('OSS文件上传失败', ['message' => $e->getMessage()]);
+                    $array[$key] = null;
+                }
             }
         }
         return $array;

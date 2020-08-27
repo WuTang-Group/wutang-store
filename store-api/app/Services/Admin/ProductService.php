@@ -42,12 +42,11 @@ class ProductService extends Service
         return $products;
     }
 
-    public function edit($queries, $productId)
+    public function edit($queries, $product_slug)
     {
-        // 编辑商品
         $requestData = $this->saveOss($queries);
         try {
-            $products = $this->product->whereId($productId)->update($requestData);
+            $products = $this->product->whereSlug($product_slug)->update($requestData);
         } catch (\Exception $e) {
             Log::error('编辑商品失败', ['message' => $e->getMessage()]);
             return false;
@@ -55,13 +54,25 @@ class ProductService extends Service
         return $products;
     }
 
-    public function destroy($productId)
+    public function destroy($product_slug)
     {
         // 下架商品
         try {
-            $products = $this->product->whereId($productId)->update(['status' => ProductStatusCode::StatusOff]);
+            $products = $this->product->whereSlug($product_slug)->update(['status' => ProductStatusCode::StatusOff]);
         } catch (\Exception $e) {
             Log::error('下架商品失败', ['message' => $e->getMessage()]);
+            return false;
+        }
+        return $products;
+    }
+
+    public function deleteProduct($product_slug)
+    {
+        // 删除商品
+        try {
+            $products = $this->product->whereSlug($product_slug)->delete();
+        } catch (\Exception $e) {
+            Log::error('删除商品失败', ['message' => $e->getMessage()]);
             return false;
         }
         return $products;
@@ -77,12 +88,14 @@ class ProductService extends Service
         });
         foreach ($filtered as $key => $value) {
             // 图片存储到OSS，本地保存OSS地址
-            try {
-                $ossRes = OssHandler::save($array[$key], AliyunOssDir::Product);  // 图片存储到OSS
-                $ossRes ? $array[$key] = $ossRes['data'] : null;
-            } catch (\Exception $e) {
-                Log::error($e->getMessage());
-                $array[$key] = null;
+            if (is_object($array[$key])) {
+                try {
+                    $ossRes = OssHandler::save($array[$key], AliyunOssDir::Product);  // 图片存储到OSS
+                    $ossRes ? $array[$key] = $ossRes['data'] : null;
+                } catch (\Exception $e) {
+                    Log::error($e->getMessage());
+                    $array[$key] = null;
+                }
             }
         }
         return $array;

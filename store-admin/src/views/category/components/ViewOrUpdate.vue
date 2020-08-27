@@ -40,7 +40,7 @@
               <el-collapse v-model="activeNames">
                 <el-collapse-item name="describe">
                   <template slot="title">
-                    <span class="categoryDetailText">类目描述</span>
+                    <span class="productDetailText">类目描述</span>
                   </template>
                   <span v-html="categoryDetail.describe" />
                 </el-collapse-item>
@@ -53,7 +53,7 @@
               <el-collapse v-model="activeNames">
                 <el-collapse-item name="describe_en">
                   <template slot="title">
-                    <span class="categoryDetailText">类目描述(英文)</span>
+                    <span class="productDetailText">类目描述(英文)</span>
                   </template>
                   <span v-html="categoryDetail.describe_en" />
                 </el-collapse-item>
@@ -68,7 +68,7 @@
               <el-collapse v-model="activeNames">
                 <el-collapse-item name="description">
                   <template slot="title">
-                    <span class="categoryDetailText">类目简介</span>
+                    <span class="productDetailText">类目简介</span>
                   </template>
                   <span v-html="categoryDetail.description" />
                 </el-collapse-item>
@@ -81,7 +81,7 @@
               <el-collapse v-model="activeNames">
                 <el-collapse-item name="description_en">
                   <template slot="title">
-                    <span class="categoryDetailText">类目简介(英文)</span>
+                    <span class="productDetailText">类目简介(英文)</span>
                   </template>
                   <span v-html="categoryDetail.description_en" />
                 </el-collapse-item>
@@ -134,43 +134,6 @@
           </el-col>
         </el-row>
       </el-card>
-      <!--      类目故事-->
-      <!--      <el-card class="box-card">-->
-      <!--        <div slot="header" class="clearfix">-->
-      <!--          <span>类目故事信息</span>-->
-      <!--        </div>-->
-      <!--        <el-row>-->
-      <!--          <el-col :span="12">-->
-      <!--            <el-form-item label="类目故事名称">-->
-      <!--              <el-input v-model="categoryDetail.product_category_stories.title" disabled style="width: 400px" />-->
-      <!--            </el-form-item>-->
-      <!--          </el-col>-->
-      <!--          <el-col :span="12">-->
-      <!--            <el-form-item label="类目故事名称(英文)">-->
-      <!--              <el-input v-model="categoryDetail.product_category_stories.title_en" disabled style="width: 400px" />-->
-      <!--            </el-form-item>-->
-      <!--          </el-col>-->
-      <!--        </el-row>-->
-      <!--        <el-row>-->
-      <!--          <el-col :span="12">-->
-      <!--            <el-form-item label="类目故事简介描述">-->
-      <!--              <el-input v-model="categoryDetail.product_category_stories.description" type="textarea" :autosize="true" label-position="right" disabled style="width: 400px" />-->
-      <!--            </el-form-item>-->
-      <!--          </el-col>-->
-      <!--          <el-col :span="12">-->
-      <!--            <el-form-item label="类目故事简介描述(英文)">-->
-      <!--              <el-input v-model="categoryDetail.product_category_stories.description_en" type="textarea" :autosize="true" label-position="right" disabled style="width: 400px" />-->
-      <!--            </el-form-item>-->
-      <!--          </el-col>-->
-      <!--        </el-row>-->
-      <!--        <el-row>-->
-      <!--          <el-col :span="12">-->
-      <!--            <el-form-item label="类目故事banner图">-->
-      <!--              <el-image style="width: 120px;height: 120px;" :src="categoryDetail.product_category_stories.banner" fit="scale-down" @click="previewImgAction(categoryDetail.product_category_stories.banner)" />-->
-      <!--            </el-form-item>-->
-      <!--          </el-col>-->
-      <!--        </el-row>-->
-      <!--      </el-card>-->
       <el-card v-if="!formDisable" class="box-card-image" shadow="hover">
         <el-row style="margin-bottom: 50px">
           <el-col :span="2" :offset="8">
@@ -314,12 +277,8 @@ export default {
     submitCategory() {
       const postForm = new FormData()
       // 更换了图片则保存
-      if (typeof this.categoryDetail.img === 'object') {
-        postForm.append('img', this.categoryDetail.img)
-      }
-      if (typeof this.categoryDetail.banner === 'object') {
-        postForm.append('banner', this.categoryDetail.banner)
-      }
+      postForm.append('img', this.categoryDetail.img)
+      postForm.append('banner', this.categoryDetail.banner)
       postForm.append('description', this.categoryDetail.description)
       postForm.append('description_en', this.categoryDetail.description_en)
       postForm.append('title', this.categoryDetail.title)
@@ -393,6 +352,7 @@ export default {
     },
     handleBannerRemove(file, fileList) {
       this.hideUploadBanner = fileList.length >= this.limitCountBanner
+      this.categoryDetail.banner = null
     },
     handleImgChange(file, fileList) {
       this.hideUploadImg = fileList.length >= this.limitCountImg
@@ -400,6 +360,7 @@ export default {
     },
     handleImgRemove(file, fileList) {
       this.hideUploadImg = fileList.length >= this.limitCountImg
+      this.categoryDetail.img = null
     }
   }
 
@@ -414,7 +375,7 @@ export default {
   .hideImg .el-upload--picture-card {
     display: none;
   }
-  .categoryDetailText {
+  .productDetailText {
     text-align: right;
     vertical-align: middle;
     padding: 0 12px 0 0;

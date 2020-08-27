@@ -13,6 +13,11 @@
       </el-button>
     </el-card>
     <el-card class="box-card box-card-centent" style="margin-top: 20px;">
+      <div slot="header" class="clearfix">
+        <router-link :to="{name:'CreateProduct'}">
+          <el-button v-waves>添加</el-button>
+        </router-link>
+      </div>
       <el-table
         :key="tableKey"
         v-loading="listLoading"
@@ -23,7 +28,7 @@
         style="width: 100%;"
         :header-cell-style="{background:'#ebeef5'}"
       >
-        <el-table-column header-align="center" prop="id" align="center" label="ID" width="60" />
+        <el-table-column type="index" header-align="center" align="center" label="序号" width="60" />
         <el-table-column header-align="center" label="商品名称" prop="product_name" align="center" width="80">
           <template slot-scope="scope">
             <router-link :to="{ name: 'ProductViewOrUpdate', params: {'status': 'view', 'product_slug': scope.row.slug} }">
@@ -42,9 +47,6 @@
         <el-table-column header-align="center" label="优惠价格" prop="sale_price" align="center" width="80" />
         <el-table-column header-align="center" label="库存" prop="stock" align="center" width="80" />
         <el-table-column header-align="center" label="规格" prop="spec" align="center" width="80" />
-        <!--        <el-table-column header-align="center" label="评分" prop="rating" align="center" width="80" />-->
-        <!--        <el-table-column header-align="center" label="销量" prop="sold_count" align="center" width="80" />-->
-        <!--        <el-table-column header-align="center" label="评价数量" prop="review_count" align="center" width="80" />-->
         <el-table-column header-align="center" label="状态" prop="status" :formatter="formatStatus" align="center" width="80" />
         <el-table-column header-align="center" label="创建时间" prop="created_at" align="center" />
         <el-table-column header-align="center" label="更新时间" prop="updated_at" align="center" />
@@ -55,16 +57,13 @@
           prop="product_id"
         >
           <template slot-scope="scope">
-            <!--            <el-tooltip class="item" effect="dark" content="查看" placement="top">-->
-            <!--              <el-button type="success" icon="el-icon-view" circle @click="handleOperation('view',row )" />-->
-            <!--            </el-tooltip>-->
             <el-tooltip class="item" effect="dark" content="编辑" placement="top">
               <router-link :to="{ name: 'ProductViewOrUpdate', params: {'status': 'edit', 'product_slug': scope.row.slug} }">
                 <el-button type="primary" icon="el-icon-edit" circle />
               </router-link>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="删除" placement="top">
-              <el-button type="danger" icon="el-icon-delete" circle />
+              <el-button type="danger" icon="el-icon-delete" circle @click="deleteConfirm(scope.row.slug)" />
             </el-tooltip>
           </template>
         </el-table-column>
@@ -90,9 +89,12 @@
 <script>
 import { getList } from '@/api/product'
 import Pagination from '@/components/Pagination'
+import waves from '@/directive/waves'
+import { productDelete } from '@/api/product'
 export default {
   name: 'ProductList',
   components: { Pagination },
+  directives: { waves },
   data() {
     return {
       list: null,
@@ -127,6 +129,7 @@ export default {
         this.list = response.data.data
         this.total = response.data.total
         this.listLoading = false
+        console.log(this.list)
       })
     },
     formatStatus(row, column) {
@@ -134,6 +137,36 @@ export default {
     },
     handleFilter() {
       console.log('123')
+    },
+    // 删除确认
+    deleteConfirm(product_slug) {
+      this.$confirm('此操作将永久删除该商品, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        // 请求后台删除
+        productDelete(product_slug).then(response => {
+          if (response.code === 20001) {
+            this.$message({
+              message: '删除成功!',
+              type: 'success'
+            })
+            // 刷新数据
+            this.getList()
+          } else {
+            this.$message({
+              message: '删除失败！',
+              type: 'error'
+            })
+          }
+        })
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消删除'
+        })
+      })
     }
   }
 }

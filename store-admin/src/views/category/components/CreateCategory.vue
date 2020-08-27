@@ -1,24 +1,21 @@
 <template>
   <div class="app-container">
-    <el-card class="box-card">
-      <div slot="header" class="clearfix">
-        <span>类目</span>
-      </div>
-      <el-form ref="form" :model="form" label-position="top">
+    <el-card class="box-card" style="padding: 0 30px">
+      <el-form ref="form" :model="form" label-position="left">
         <el-row :gutter="10">
           <el-col :span="8">
             <el-form-item label="类目名称" prop="title">
-              <el-input v-model="form.title" />
+              <el-input v-model="form.title" style="width: 250px" />
             </el-form-item>
           </el-col>
           <el-col :span="8">
             <el-form-item label="类目名称(英文)" prop="title_en">
-              <el-input v-model="form.title_en" />
+              <el-input v-model="form.title_en" style="width: 250px" />
             </el-form-item>
           </el-col>
           <el-col :span="8">
             <el-form-item label="上级类目" prop="parent_id">
-              <el-select v-model="form.parent_id" placeholder="请选择">
+              <el-select v-model="form.parent_id" placeholder="请选择" style="width: 250px">
                 <el-option
                   v-for="item in parentCategory"
                   :key="item.id"
@@ -37,7 +34,7 @@
               <el-collapse v-model="activeNames">
                 <el-collapse-item name="describe">
                   <template slot="title">
-                    <span class="categoryDetailText">类目描述</span>
+                    <span class="productDetailText">类目描述</span>
                   </template>
                   <span v-html="form.describe" />
                 </el-collapse-item>
@@ -50,7 +47,7 @@
               <el-collapse v-model="activeNames">
                 <el-collapse-item name="describe_en">
                   <template slot="title">
-                    <span class="categoryDetailText">类目描述(英文)</span>
+                    <span class="productDetailText">类目描述(英文)</span>
                   </template>
                   <span v-html="form.describe_en" />
                 </el-collapse-item>
@@ -65,7 +62,7 @@
               <el-collapse v-model="activeNames">
                 <el-collapse-item name="description">
                   <template slot="title">
-                    <span class="categoryDetailText">分类简介</span>
+                    <span class="productDetailText">类目简介</span>
                   </template>
                   <span v-html="form.description" />
                 </el-collapse-item>
@@ -78,7 +75,7 @@
               <el-collapse v-model="activeNames">
                 <el-collapse-item name="description_en">
                   <template slot="title">
-                    <span class="categoryDetailText">分类简介(英文)</span>
+                    <span class="productDetailText">类目简介(英文)</span>
                   </template>
                   <span v-html="form.description_en" />
                 </el-collapse-item>
@@ -122,12 +119,18 @@
                 :on-remove="handleBannerRemove1"
               >
                 <el-button size="small" plain type="primary">点击上传</el-button>
-                <div slot="tip" class="el-upload__tip">只能上传一张jpg/png文件，且不超过500kb</div>
               </el-upload>
             </el-form-item>
           </el-col>
         </el-row>
-        <el-button type="primary" style="display:block;margin:20px auto;" @click="updateValue()">提交</el-button>
+        <el-row style="margin-bottom: 50px">
+          <el-col :span="2" :offset="8">
+            <el-button type="success" @click="updateValue()">提交</el-button>
+          </el-col>
+          <el-col :span="2">
+            <el-button type="info" plain @click="closePageButton">返回</el-button>
+          </el-col>
+        </el-row>
       </el-form>
     </el-card>
     <!-- TinyMce 实例公用弹框 -->
@@ -183,6 +186,13 @@ export default {
   },
   methods: {
     updateValue() {
+      if (!this.form.describe) {
+        this.$message({
+          message: '类目描述不可为空！',
+          type: 'warning'
+        })
+        return false
+      }
       const postForm = new FormData()
       postForm.append('description', this.form.description)
       postForm.append('description_en', this.form.description_en)
@@ -193,7 +203,7 @@ export default {
       postForm.append('describe', this.form.describe)
       postForm.append('describe_en', this.form.describe_en)
       postForm.append('parent_id', this.form.parent_id)
-      // 添加所有参数ssss
+      // 添加所有参数
       storeForm(postForm).then((response) => {
         if (response.code === 20001) {
           this.$message({
@@ -232,14 +242,15 @@ export default {
     },
     handleBannerChange1(file, fileList) {
       this.hideUploadImg = fileList.length >= this.limitCount1
-
       this.form.img = file.raw
     },
     handleBannerRemove(file, fileList) {
       this.hideUploadBanner = fileList.length >= this.limitCount
+      this.form.banner = null
     },
     handleBannerRemove1(file, fileList) {
       this.hideUploadImg = fileList.length >= this.limitCount1
+      this.form.img = null
     },
     // 调起富文本dialog
     handleDescribes(flag) {
@@ -285,6 +296,11 @@ export default {
           done()
         })
         .catch((_) => {})
+    },
+    // 关闭页面
+    closePageButton() {
+      this.$store.dispatch('tagsView/delView', this.$route)
+      this.$router.go(-1)
     }
   }
 }
@@ -299,7 +315,7 @@ export default {
   display: none;
 }
 
-.categoryDetailText {
+.productDetailText {
   text-align: right;
   vertical-align: middle;
   padding: 0 12px 0 0;

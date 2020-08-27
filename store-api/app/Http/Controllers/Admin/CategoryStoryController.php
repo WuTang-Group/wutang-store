@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CategoryStoryRequest;
 use App\Services\Admin\CategoryStoryService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 /**
  * @group [ADMIN] Category story
@@ -73,9 +74,8 @@ class CategoryStoryController extends Controller
     public function edit($categoriesStoriesId, CategoryStoryRequest $categoryStoriesRequest)
     {
         $queries = $categoryStoriesRequest->only(['title', 'title_en', 'description', 'description_en', 'banner', 'product_category_id']);
-        $result = $this->categoryStoriesService->edit(array_filter($queries), $categoriesStoriesId);
-
-        return $result ? response()->json(ResponseData::requestSuccess()) : ResponseData::requestFails($queries);
+        $result = $this->categoryStoriesService->edit($queries, $categoriesStoriesId);
+        return $result ? response()->json(ResponseData::requestSuccess()) : response()->json(ResponseData::requestFails($queries));
     }
 
     /**
@@ -88,6 +88,11 @@ class CategoryStoryController extends Controller
     {
         $result = $this->categoryStoriesService->destroy($categoriesStoriesId);
         return $result ? response()->json(ResponseData::requestSuccess($result)) : ResponseData::requestFails();
+    }
+
+    public function storyDetail($categoriesStoriesId) {
+        $result = $this->categoryStoriesService->storyDetail($categoriesStoriesId);
+        return response()->json(ResponseData::requestSuccess($result));
     }
 
 

@@ -26,8 +26,6 @@ class ProductCategoryRequest extends FormRequest
             case 'edit':
             {
                 return [
-                    'banner'=>'image',
-                    'img'=>'image',
                 ];
             }
         }

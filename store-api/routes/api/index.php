@@ -50,11 +50,17 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         Route::get('aligateway/return', 'PaymentController@alipayGatewayReturn')->name('aligateway.alipayGatewayReturn');
         Route::post('aligateway/notify', 'PaymentController@alipayGatewayNotify')->name('aligateway.alipayGatewayNotify');
         /**
-         * 支付宝支付路由组
+         * 支付宝电脑网页支付路由组(未启用)
          */
         Route::get('alipay/pay', 'PaymentController@payByAlipay')->name('alipay.payByAlipay');
         Route::get('alipay/return', 'PaymentController@alipayReturn')->name('alipay.alipayReturn');
         Route::post('alipay/notify', 'PaymentController@alipayNotify')->name('alipay.alipayNotify');
+        /**
+         * 支付宝即时到账支付路由组
+         */
+        Route::get('ali_express/pay', 'PaymentController@payByAlipayExpress')->name('ali_express.payByAlipayExpress');
+        Route::get('ali_express/return', 'PaymentController@alipayExpressReturn')->name('ali_express.alipayExpressReturn');
+        Route::post('ali_express/notify', 'PaymentController@alipayExpressNotify')->name('ali_express.alipayExpressNotify');
         /**
          * 银联支付路由
          */

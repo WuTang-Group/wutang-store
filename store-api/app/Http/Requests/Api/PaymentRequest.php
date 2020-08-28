@@ -19,6 +19,7 @@ class PaymentRequest extends FormRequest
             case 'payByAlipay':
             case 'payByUnionpay' :
             case 'payByAlipayGateway':
+            case 'payByAlipayExpress':
             {
                 return [
                     'no' => 'required',

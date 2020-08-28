@@ -124,7 +124,7 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         Route::get('orders', 'OrderController@queryList')->name('orders.queryList');
         Route::get('order_details/{no}', 'OrderController@getOrderDetail')->name('order_details.getOrderDetail');
         Route::post('orders', 'OrderController@requestCreate')->name('orders.requestCreate');
-        Route::get('orders/pay_check', 'OrderController@payCheck')->name('orders.payCheck');
+        Route::post('orders/retry','OrderController@retryCreate')->name('orders.retryCreate');
         /**
          * 心愿单
          */

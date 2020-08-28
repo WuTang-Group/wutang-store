@@ -26,7 +26,8 @@ export default {
     'ModifyInfo': '修改密码',
     logManage: '日志管理',
     'SystemLog': '系统日志',
-    'LoginLog': '登录日志'
+    'LoginLog': '登录日志',
+    'payLog': '支付日志'
   },
   navbar: {
     dashboard: '首页',

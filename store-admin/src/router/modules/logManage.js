@@ -22,6 +22,12 @@ const logManage = {
       component: () => import('@/views/log-manage/components/LoginLog'),
       name: 'LoginLog',
       meta: { title: 'LoginLog' }
+    },
+    {
+      path: 'pay-log',
+      component: () => import('@/views/log-manage/components/PayLog'),
+      name: 'PayLog',
+      meta: { title: 'payLog' }
     }
   ]
 }

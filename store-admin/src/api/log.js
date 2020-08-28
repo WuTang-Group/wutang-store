@@ -15,3 +15,11 @@ export function getLoginLog(query) {
     params: query
   })
 }
+
+export function getPayLog(query) {
+  return request({
+    url: 'admin/logs/pay_logs',
+    method: 'get',
+    params: query
+  })
+}

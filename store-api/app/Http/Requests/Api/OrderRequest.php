@@ -47,12 +47,21 @@ class OrderRequest extends FormRequest
 //                    'items.*.amount' => ['required', 'integer', 'min:1'],
                 ];
             }
-            case 'payCheck':
+            case 'retryCreate':
             {
                 return [
                     'no' => 'required|exists:orders'
                 ];
             }
         }
+    }
+
+    public function messages()
+    {
+        return [
+            'address_id.required' => '用户地址必填',
+            'no.required' => '订单号必填',
+            'no.exists' => '订单号不存在'
+        ];
     }
 }

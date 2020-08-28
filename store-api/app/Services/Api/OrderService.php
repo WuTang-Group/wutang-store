@@ -111,7 +111,7 @@ class OrderService extends Service
             switch ($queries['status']) {
                 case UnionPayCode::Success:
                     {
-                        $this->order->whereNo($queries['orderId'])->update([
+                        $this->order->whereNo($queries['order_no'])->update([
                             'status' => OrderStatusCode::StatusPlaced,
                             'payment_method' => 'unionpay',
                             'payment_no' => $queries['queryId'],
@@ -121,7 +121,7 @@ class OrderService extends Service
                     break;
                 case AlipayCode::TRADE_SUCCESS:
                     {
-                        $this->order->whereNo($queries['no'])->update([
+                        $this->order->whereNo($queries['order_no'])->update([
                             'status' => OrderStatusCode::StatusPlaced,
                             'payment_method' => 'alipay',
                             'payment_no' => $queries['payment_no'],
@@ -131,7 +131,7 @@ class OrderService extends Service
                     break;
                 case AlipayGatewayCode::PaySuccess:
                     {
-                        $order = $this->order->whereNo($queries['order_id'])->update([
+                        $order = $this->order->whereNo($queries['order_no'])->update([
                             'status' => OrderStatusCode::StatusPlaced,
                             'payment_method' => 'alipay_gateway',
                             'payment_no' => $queries['out_order_no'],
@@ -139,7 +139,7 @@ class OrderService extends Service
                             'extra' => json_encode([
                                 'merch_id' => $queries['merch_id'],  // 商户号
                                 'out_order_no' => $queries['out_order_no'],  // 流水号
-                                'order_id' => $queries['order_id'],  // 订单号
+                                'order_id' => $queries['order_no'],  // 订单号
                                 'fee' => $queries['fee'],  // 费率
                                 'amount' => $queries['amount'],  // 交易金额
                                 'status' => $queries['status'],  // 交易状态
@@ -151,7 +151,7 @@ class OrderService extends Service
                     break;
                 case AlipayGatewayCode::PayFaild:
                     {
-                        $order = $this->order->whereNo($queries['order_id'])->update([
+                        $order = $this->order->whereNo($queries['order_no'])->update([
                             'status' => OrderStatusCode::StatusReceived,
                             'payment_method' => 'alipay_gateway',
                             'payment_no' => $queries['out_order_no'],
@@ -162,13 +162,13 @@ class OrderService extends Service
                     break;
                 default:
                 {
-                    $this->order->whereNo($queries['order_id'])->update([
+                    $this->order->whereNo($queries['order_no'])->update([
                         'status' => OrderStatusCode::StatusReceived,
                         'payment_method' => NULL,
                     ]);
                 }
             }
-            $order = $this->order->whereNo($queries['order_id'])->first();
+            $order = $this->order->whereNo($queries['order_no'])->first();
             event(new OrderStatusUpdated($order));
         } catch (\Exception $e) {
             Log::error('订单状态改变失败', ['message' => $e->getMessage()]);

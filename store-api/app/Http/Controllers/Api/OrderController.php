@@ -65,19 +65,15 @@ class OrderController extends Controller
     }
 
     /**
-     * Check the order status
-     * 查询订单状态
-     * @queryParam no required 订单号
+     * Cancel order & Retry create order
+     * 取消订单后尝试重新下单
+     * @bodyParam no integer required 需要取消的订单号
      * @param OrderRequest $request
      * @return Application|ResponseFactory|Response
      */
-    public function payCheck(OrderRequest $request)
+    public function retryCreate(OrderRequest $request)
     {
-//        $manager = app(BroadcastManager::class);
-//        $driver = $manager->connection();
-//        // 第一个参数是频道名，第二个参数是事件名，第三个参数是广播内容
-//        $driver->broadcast(['channel_1', 'channel_2'], 'login', ['message' => 'hello world']);
-        $results = $this->service->payCheck($request);
-        return response(ResponseData::requestSuccess($results));
+        $results = $this->service->retryCreate($request->only('no'));
+        return $results ? response(ResponseData::requestSuccess($results)) : response(ResponseData::requestFails($request->all()));
     }
 }

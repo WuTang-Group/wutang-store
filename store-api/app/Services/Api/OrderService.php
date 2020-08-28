@@ -8,6 +8,7 @@ use App\Enums\LoggerCollection;
 use App\Enums\OrderStatusCode;
 use App\Enums\UnionPayCode;
 use App\Events\OrderStatusUpdated;
+use App\Exceptions\InvalidRequestException;
 use App\Handlers\OrderHandler;
 use App\Models\Order;
 use App\Models\Product;
@@ -15,7 +16,6 @@ use App\Models\UserAddress;
 use App\Services\Service;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Omnipay\Common\Exception\InvalidRequestException;
 
 class OrderService extends Service
 {
@@ -27,6 +27,7 @@ class OrderService extends Service
         config(['logging.channels.mongodb.collection' => LoggerCollection::OrderLog]);
     }
 
+    // 获取订单列表
     public function queryList()
     {
 //        return $this->order->query()->with(['items.product', 'items.productSku'])
@@ -34,6 +35,7 @@ class OrderService extends Service
         return $this->order->load(['items.product'])->whereUserId($this->user()->id)->get();
     }
 
+    // 获取订单详情
     public function getOrderDetail($queries)
     {
         return $this->order->query()->with(['items.product', 'address'])->whereNo($queries)->whereUserId($this->user()->id)->first();
@@ -95,7 +97,7 @@ class OrderService extends Service
             // 取消下单队列通知，因为此时订单尚未完成，无需队列通知
             // event(new OrderStatusUpdated($orderRequest));
         } catch (\Exception $e) {
-            Log::error('订单下单失败',['message'=>$e->getMessage()]);
+            Log::error('订单下单失败', ['message' => $e->getMessage()]);
             return false;
         }
         return $orderRequest;
@@ -109,7 +111,7 @@ class OrderService extends Service
             switch ($queries['status']) {
                 case UnionPayCode::Success:
                     {
-                        $this->order->whereNo($queries['orderId'])->update([
+                        $this->order->whereNo($queries['order_no'])->update([
                             'status' => OrderStatusCode::StatusPlaced,
                             'payment_method' => 'unionpay',
                             'payment_no' => $queries['queryId'],
@@ -119,7 +121,7 @@ class OrderService extends Service
                     break;
                 case AlipayCode::TRADE_SUCCESS:
                     {
-                        $this->order->whereNo($queries['no'])->update([
+                        $this->order->whereNo($queries['order_no'])->update([
                             'status' => OrderStatusCode::StatusPlaced,
                             'payment_method' => 'alipay',
                             'payment_no' => $queries['payment_no'],
@@ -129,7 +131,7 @@ class OrderService extends Service
                     break;
                 case AlipayGatewayCode::PaySuccess:
                     {
-                        $order = $this->order->whereNo($queries['order_id'])->update([
+                        $order = $this->order->whereNo($queries['order_no'])->update([
                             'status' => OrderStatusCode::StatusPlaced,
                             'payment_method' => 'alipay_gateway',
                             'payment_no' => $queries['out_order_no'],
@@ -137,47 +139,110 @@ class OrderService extends Service
                             'extra' => json_encode([
                                 'merch_id' => $queries['merch_id'],  // 商户号
                                 'out_order_no' => $queries['out_order_no'],  // 流水号
-                                'order_id' => $queries['order_id'],  // 订单号
+                                'order_id' => $queries['order_no'],  // 订单号
                                 'fee' => $queries['fee'],  // 费率
                                 'amount' => $queries['amount'],  // 交易金额
                                 'status' => $queries['status'],  // 交易状态
                                 'pay_time' => $queries['pay_time']  // 支付时间
                             ])
                         ]);
-                        Log::info('支付宝网关支付成功',['message' => $order]);
+                        Log::info('支付宝网关支付成功', ['message' => $order]);
                     }
                     break;
                 case AlipayGatewayCode::PayFaild:
                     {
-                        $order = $this->order->whereNo($queries['order_id'])->update([
+                        $order = $this->order->whereNo($queries['order_no'])->update([
                             'status' => OrderStatusCode::StatusReceived,
                             'payment_method' => 'alipay_gateway',
                             'payment_no' => $queries['out_order_no'],
                             'paid_at' => now()->toDateTimeString(),
                         ]);
-                        Log::info('支付宝网关支付失败',['message' => $order]);
+                        Log::info('支付宝网关支付失败', ['message' => $order]);
                     }
                     break;
                 default:
                 {
-                    $this->order->whereNo($queries['order_id'])->update([
+                    $this->order->whereNo($queries['order_no'])->update([
                         'status' => OrderStatusCode::StatusReceived,
                         'payment_method' => NULL,
                     ]);
                 }
             }
-            $order = $this->order->whereNo($queries['order_id'])->first();
+            $order = $this->order->whereNo($queries['order_no'])->first();
             event(new OrderStatusUpdated($order));
         } catch (\Exception $e) {
-            Log::error('订单状态改变失败',['message'=>$e->getMessage()]);
+            Log::error('订单状态改变失败', ['message' => $e->getMessage()]);
             return false;
         }
         return $queries;
     }
 
-    public function payCheck($queries)
+    // 请求取消订单
+    public function requestCancel($params)
     {
-        $requestData = $queries->all();
-        return $this->order->whereUserId($this->user()->id)->whereNo($requestData['no'])->first();
+        $order = $this->order->whereNo($params['no'])->first();
+        try {
+            $order->status = OrderStatusCode::StatusCanceled;
+            $order->save();
+        } catch (\Exception $e) {
+            Log::error('尝试取消订单失败', ['message' => $e->getMessage()]);
+            return false;
+        }
+        return $order;
+    }
+
+    // 尝试取消订单后重新下单
+    public function retryCreate($params)
+    {
+        // 取消订单->从取消的订单获取历史数据
+        $cancelledOrder = $this->requestCancel($params);
+        $user = $this->user();
+        try {
+            $orderRequest = DB::transaction(function () use ($user, $params, $cancelledOrder) {
+                $address = UserAddress::find($cancelledOrder->user_address_id);
+                // 更新此地址 最后使用时间
+                $address->update(['last_used_at' => now()]);
+                // 创建一个新订单
+                $order = new Order([
+                    'no' => OrderHandler::createOnlyId(),
+                    'user_address_id' => $cancelledOrder->user_address_id,
+                    'remark' => $cancelledOrder->remark ?? NULL,
+                    'total_amount' => 0,
+                ]);
+                $order->user_id = $user->id;
+                // 写入数据库
+                $order->save();
+
+                $totalAmount = 0;
+                // 查找历史订单items数据
+                $historyItems = $cancelledOrder->items()->get();
+                // 遍历items数据
+                foreach ($historyItems as $data) {
+                    $product = Product::find($data['product_id']);
+                    // 创建一个 OrderItem 并直接与当前订单关联
+                    $price = $product->sale_price ? $product->sale_price : $product->price;
+                    $item = $order->items()->make([
+                        'amount' => $data['amount'],
+                        'price' => $price,
+                    ]);
+                    $item->product_id = $product->id;
+                    $item->save();
+                    $totalAmount += $price * $data['amount'];
+                    if ($product->decreaseStock($data['amount']) <= 0) {
+                        throw new InvalidRequestException('该商品库存不足');
+                    }
+                }
+
+                // 更新订单总金额
+                $order->update(['total_amount' => $totalAmount]);
+                return $order;
+            });
+            // 取消下单队列通知，因为此时订单尚未完成，无需队列通知
+            // event(new OrderStatusUpdated($orderRequest));
+        } catch (\Exception $e) {
+            Log::error('重新下单失败', ['message' => $e->getMessage()]);
+            return false;
+        }
+        return $orderRequest;
     }
 }

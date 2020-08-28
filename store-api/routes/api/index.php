@@ -6,10 +6,6 @@
 // 状态码说明
 Route::get('response_code', 'ResponseCodeController@index')->name('response_code.index');
 
-Route::get('aligateway/pay', 'PaymentController@payByAlipayGateway')->name('aligateway.payByAlipayGateway');
-Route::get('aligateway/return', 'PaymentController@alipayGatewayReturn')->name('aligateway.alipayGatewayReturn');
-Route::post('aligateway/notify', 'PaymentController@alipayGatewayNotify')->name('aligateway.alipayGatewayNotify');
-
 /**
  * loose(较宽松)节流路由组
  */
@@ -48,6 +44,33 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
      */
     Route::group(['middleware' => 'guest'], function () {
         /**
+         * 支付宝网关支付
+         */
+        Route::get('aligateway/pay', 'PaymentController@payByAlipayGateway')->name('aligateway.payByAlipayGateway');
+        Route::get('aligateway/return', 'PaymentController@alipayGatewayReturn')->name('aligateway.alipayGatewayReturn');
+        Route::post('aligateway/notify', 'PaymentController@alipayGatewayNotify')->name('aligateway.alipayGatewayNotify');
+        /**
+         * 支付宝电脑网页支付路由组(未启用)
+         */
+        Route::get('alipay/pay', 'PaymentController@payByAlipay')->name('alipay.payByAlipay');
+        Route::get('alipay/return', 'PaymentController@alipayReturn')->name('alipay.alipayReturn');
+        Route::post('alipay/notify', 'PaymentController@alipayNotify')->name('alipay.alipayNotify');
+        /**
+         * 支付宝即时到账支付路由组
+         */
+        Route::get('ali_express/pay', 'PaymentController@payByAlipayExpress')->name('ali_express.payByAlipayExpress');
+        Route::get('ali_express/return', 'PaymentController@alipayExpressReturn')->name('ali_express.alipayExpressReturn');
+        Route::post('ali_express/notify', 'PaymentController@alipayExpressNotify')->name('ali_express.alipayExpressNotify');
+        /**
+         * 银联支付路由
+         */
+        // 发起支付
+        Route::get('unionpay/pay', 'PaymentController@payByUnionpay')->name('unionpay.payByUnionpay');
+        // 支付后回调url
+        Route::post('unionpay/return', 'PaymentController@unionpayReturn')->name('unionpay.unionpayReturn');
+        // 支付后通知url
+        Route::post('unionpay/notify', 'PaymentController@unionpayNotify')->name('unionpay.unionpayNotify');
+        /**
          * Product
          */
         // 获取产品类别
@@ -70,35 +93,16 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
      */
     Route::group(['middleware' => ['auth:api', 'verified']], function () {
         /**
-         * Auth 类
-         */
-        Route::post('auth/password_change', 'AuthController@changePassword')->name('auth.changePassword');
-        /**
-         * 支付支付路由组
-         */
-        Route::get('alipay/pay', 'PaymentController@payByAlipay')->name('alipay.payByAlipay');
-        Route::get('alipay/return', 'PaymentController@alipayReturn')->name('alipay.alipayReturn');
-        Route::post('alipay/notify', 'PaymentController@alipayNotify')->name('alipay.alipayNotify');
-
-        /**
-         * 银联支付路由
-         */
-        // 发起支付
-        Route::get('unionpay/pay', 'PaymentController@payByUnionpay')->name('unionpay.payByUnionpay');
-        // 支付后回调url
-        Route::post('unionpay/return', 'PaymentController@unionpayReturn')->name('unionpay.unionpayReturn');
-        // 支付后通知url
-        Route::post('unionpay/notify', 'PaymentController@unionpayNotify')->name('unionpay.unionpayNotify');
-
-        /**
          * auth route
          */
+        // 获取登录用户信息
+        Route::get('auth/me', 'AuthController@me')->name('auth.me');
         // 退出登录
         Route::delete('auth/logout', 'AuthController@logout')->name('auth.logout');
         // 刷新token
         Route::put('auth/refresh', 'AuthController@refresh')->name('auth.refresh');
-        // 获取登录用户信息
-        Route::get('auth/me', 'AuthController@me')->name('auth.me');
+        // 更改密码
+        Route::post('auth/password_change', 'AuthController@changePassword')->name('auth.changePassword');
         /**
          * User profile
          */
@@ -124,7 +128,7 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         Route::get('orders', 'OrderController@queryList')->name('orders.queryList');
         Route::get('order_details/{no}', 'OrderController@getOrderDetail')->name('order_details.getOrderDetail');
         Route::post('orders', 'OrderController@requestCreate')->name('orders.requestCreate');
-        Route::get('orders/pay_check', 'OrderController@payCheck')->name('orders.payCheck');
+        Route::post('orders/retry','OrderController@retryCreate')->name('orders.retryCreate');
         /**
          * 心愿单
          */

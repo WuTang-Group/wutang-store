@@ -28,8 +28,8 @@ return [
                 'notifyUrl' => env('UNIONPAY_NOTIFY_URL'),
             ]
         ],
-        // 支付宝
-        'alipay' =>[
+        // 支付宝-电脑网站
+        'Alipay_AopPage' =>[
             'driver' => 'Alipay_AopPage',
             'options' => [
                 'signType' => env('ALIPAY_SIGN_TYPE'),
@@ -38,6 +38,17 @@ return [
                 'alipayPublicKey' => env('ALIPAY_PUBLIC_KEY'),
                 'returnUrl' => env('ALIPAY_RETURN_URL'),
                 'notifyUrl' => env('ALIPAY_NOTIFY_URL'),
+            ]
+        ],
+        // 支付宝-即时到账
+        'Alipay_LegacyExpress' => [
+            'driver' => 'Alipay_LegacyExpress',
+            'options' => [
+                'partner' => env('ALI_EXPRESS_PID'),  // 合作伙伴pid
+                'key' => env('ALI_EXPRESS_KEY'),  // md5密钥
+                'sellerEmail' => env('ALI_EXPRESS_SELLER_EMAIL'),  // 商户邮箱
+                'returnUrl' => env('ALI_EXPRESS_RETURN_URL'),  // 回调地址
+                'notifyUrl' => env('ALI_EXPRESS_NOTIFY_URL')  // 异步通知地址
             ]
         ],
     ]

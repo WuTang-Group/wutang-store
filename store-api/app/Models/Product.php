@@ -12,7 +12,6 @@ class Product extends Model
         'product_name',
         'product_name_en',
         'thumbnail',
-        'slug',
         'short_description',
         'short_description_en',
         'price',
@@ -35,6 +34,7 @@ class Product extends Model
         'product_video',
         'status',
         'rating',
+        'spec',
         'sold_count',
         'review_count'
     ];

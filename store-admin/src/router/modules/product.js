@@ -15,7 +15,14 @@ const productRouter = {
       path: 'list',
       component: () => import('@/views/product/index'),
       name: 'productList',
-      meta: { title: 'productList' }
+      meta: { title: 'productList', noCache: true }
+    },
+    {
+      path: 'create',
+      component: () => import('@/views/product/components/CreateProduct'),
+      hidden: true,
+      name: 'CreateProduct',
+      meta: { title: 'createProduct', noCache: false }
     },
     {
       path: 'view-or-update',

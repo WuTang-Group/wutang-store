@@ -69,14 +69,13 @@ class ProductController extends Controller
      * @queryParam rating required 平均评分
      * @queryParam sold_count required 销量
      * @queryParam review_count required 评价数量
-     * @param ProductRequest $productRequest
+     * @param ProductRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(ProductRequest $productRequest)
+    public function store(ProductRequest $request)
     {
-        $result = $this->productService->store(array_filter($productRequest->all()));
+        $result = $this->productService->store(array_filter($request->all()));
         return $result ? response()->json(ResponseData::requestSuccess($result)) : response()->json(ResponseData::requestFails());
-
     }
 
     /**
@@ -111,25 +110,56 @@ class ProductController extends Controller
      * @queryParam rating required 平均评分
      * @queryParam sold_count 销量
      * @queryParam review_count 评价数量
-     * @param $productId
-     * @param ProductRequest $productRequest
+     * @param $product_slug
+     * @param ProductRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function edit($productId, ProductRequest $productRequest)
+    public function edit($product_slug, ProductRequest $request)
     {
-        $result = $this->productService->edit(array_filter($productRequest->all()), $productId);
+        $queries = $request->only([
+            'product_category_id',
+            'product_name',
+            'product_name_en',
+            'thumbnail',
+            'short_description',
+            'short_description_en',
+            'price',
+            'sale_price',
+            'stock',
+            'seo_title',
+            'seo_keyword',
+            'seo_description',
+            'benefit',
+            'benefit_en',
+            'tech_description',
+            'tech_description_en',
+            'description',
+            'description_en',
+            'usage',
+            'usage_en',
+            'main_image',
+            'main_image_2',
+            'benefit_image',
+            'product_video',
+            'status',
+            'rating',
+            'spec',
+            'sold_count',
+            'review_count'
+        ]);
+        $result = $this->productService->edit($queries, $product_slug);
         return $result ? response()->json(ResponseData::requestSuccess()) : response()->json(ResponseData::requestFails($productRequest->all()));
     }
 
     /**
      * Off the Product
      * 下架产品
-     * @param $productId
+     * @param $product_slug
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy($productId)
+    public function destroy($product_slug)
     {
-        $result = $this->productService->destroy($productId);
+        $result = $this->productService->destroy($product_slug);
         return $result ? response()->json(ResponseData::requestSuccess()) : response()->json(ResponseData::requestFails());
     }
 
@@ -143,5 +173,17 @@ class ProductController extends Controller
     {
         $result = $this->productService->productQuery($product_slug);
         return response()->json(ResponseData::requestSuccess($result));
+    }
+
+    /**
+     * Delete the Product
+     * 删除产品
+     * @param $product_slug
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function deleteProduct($product_slug)
+    {
+        $result = $this->productService->deleteProduct($product_slug);
+        return $result ? response()->json(ResponseData::requestSuccess()) : response()->json(ResponseData::requestFails());
     }
 }

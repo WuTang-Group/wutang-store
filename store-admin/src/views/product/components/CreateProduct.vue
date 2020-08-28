@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <el-card class="box-card-header" shadow="hover" style="margin-bottom: 10px">
-      <el-form ref="formRules" :model="form" :rules="formRules" :inline="true" :disabled="formDisable" label-position="right" label-width="120px">
+      <el-form ref="formRules" :model="form" :rules="formRules" :inline="true" label-position="right" label-width="120px">
         <el-row>
           <el-col :span="7">
             <el-form-item label="商品名称" prop="product_name">
@@ -103,7 +103,7 @@
         <el-row :gutter="40">
           <el-col :span="12">
             <el-form-item prop="short_description" style="margin-bottom: 40px">
-              <el-button v-if="!formDisable" type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('short_description')" />
+              <el-button type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('short_description')" />
               <el-collapse v-model="activeNames">
                 <el-collapse-item name="short_description">
                   <template slot="title">
@@ -116,7 +116,7 @@
           </el-col>
           <el-col :span="12">
             <el-form-item prop="short_description_en">
-              <el-button v-if="!formDisable" type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('short_description_en')" />
+              <el-button type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('short_description_en')" />
               <el-collapse v-model="activeNames">
                 <el-collapse-item name="short_description_en">
                   <template slot="title">
@@ -131,7 +131,7 @@
         <el-row :gutter="40">
           <el-col :span="12">
             <el-form-item prop="benefit">
-              <el-button v-if="!formDisable" type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('benefit')" />
+              <el-button type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('benefit')" />
               <el-collapse v-model="activeNames">
                 <el-collapse-item name="benefit">
                   <template slot="title">
@@ -144,7 +144,7 @@
           </el-col>
           <el-col :span="12">
             <el-form-item prop="benefit_en">
-              <el-button v-if="!formDisable" type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('benefit_en')" />
+              <el-button type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('benefit_en')" />
               <el-collapse v-model="activeNames">
                 <el-collapse-item name="benefit_en">
                   <template slot="title">
@@ -159,7 +159,7 @@
         <el-row :gutter="40">
           <el-col :span="12">
             <el-form-item prop="tech_description">
-              <el-button v-if="!formDisable" type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('tech_description')" />
+              <el-button type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('tech_description')" />
               <el-collapse v-model="activeNames">
                 <el-collapse-item name="tech_description">
                   <template slot="title">
@@ -172,7 +172,7 @@
           </el-col>
           <el-col :span="12">
             <el-form-item prop="tech_description_en">
-              <el-button v-if="!formDisable" type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('tech_description_en')" />
+              <el-button type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('tech_description_en')" />
               <el-collapse v-model="activeNames">
                 <el-collapse-item name="tech_description_en">
                   <template slot="title">
@@ -187,7 +187,7 @@
         <el-row :gutter="40">
           <el-col :span="12">
             <el-form-item prop="description">
-              <el-button v-if="!formDisable" type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('description')" />
+              <el-button type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('description')" />
               <el-collapse v-model="activeNames">
                 <el-collapse-item name="description">
                   <template slot="title">
@@ -200,7 +200,7 @@
           </el-col>
           <el-col :span="12">
             <el-form-item prop="description_en">
-              <el-button v-if="!formDisable" type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('description_en')" />
+              <el-button type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('description_en')" />
               <el-collapse v-model="activeNames">
                 <el-collapse-item name="description_en">
                   <template slot="title">
@@ -215,7 +215,7 @@
         <el-row :gutter="40">
           <el-col :span="12">
             <el-form-item prop="usage">
-              <el-button v-if="!formDisable" type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('usage')" />
+              <el-button type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('usage')" />
               <el-collapse v-model="activeNames">
                 <el-collapse-item name="usage">
                   <template slot="title">
@@ -228,7 +228,7 @@
           </el-col>
           <el-col :span="12">
             <el-form-item prop="usage_en">
-              <el-button v-if="!formDisable" type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('usage_en')" />
+              <el-button type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('usage_en')" />
               <el-collapse v-model="activeNames">
                 <el-collapse-item name="usage_en">
                   <template slot="title">
@@ -247,9 +247,7 @@
         <el-row>
           <el-col :span="6">
             <el-form-item label="商品缩略图">
-              <el-image v-if="formDisable" style="width: 120px;height: 120px;" :src="form.thumbnail" fit="scale-down" @click="previewImgAction(form.thumbnail)" />
               <el-upload
-                v-else
                 ref="uploadThumbnail"
                 :class="{hideThumbnail:hideUploadThumbnail}"
                 name="Thumbnail"
@@ -268,9 +266,7 @@
           </el-col>
           <el-col :span="6">
             <el-form-item label="页面主图1">
-              <el-image v-if="formDisable" style="width: 120px;height: 120px;" :src="form.main_image" fit="scale-down" @click="previewImgAction(form.main_image)" />
               <el-upload
-                v-else
                 ref="uploadMainImage"
                 :class="{hideMainImage:hideUploadMainImage}"
                 name="main_image"
@@ -287,10 +283,8 @@
             </el-form-item>
           </el-col>
           <el-col :span="6">
-            <el-form-item label="页面主图2">
-              <el-image v-if="formDisable" style="width: 120px;height: 120px;" :src="form.main_image_2" fit="scale-down" @click="previewImgAction(form.main_image_2)" />
+            <el-form-item label="页面主图2(低分辨率)">
               <el-upload
-                v-else
                 ref="uploadMainImage2"
                 :class="{hideMainImage2:hideUploadMainImage2}"
                 name="main_image2"
@@ -308,9 +302,7 @@
           </el-col>
           <el-col :span="6">
             <el-form-item label="功效背景图">
-              <el-image v-if="formDisable" style="width: 120px;height: 120px;" :src="form.benefit_image" fit="scale-down" @click="previewImgAction(form.benefit_image)" />
               <el-upload
-                v-else
                 ref="uploadBenefitImage"
                 :class="{hideBenefitImage:hideUploadBenefitImage}"
                 name="benefit_image"
@@ -327,7 +319,7 @@
             </el-form-item>
           </el-col>
         </el-row>
-        <el-row v-if="!formDisable" style="margin-bottom: 50px">
+        <el-row style="margin-bottom: 50px">
           <el-form-item>
             <el-col :span="2" :offset="8">
               <el-button type="success" @click="submitProduct('formRules')">提交</el-button>
@@ -339,14 +331,7 @@
         </el-row>
       </el-form>
     </el-card>
-    <!--    图片预览弹框-->
-    <el-dialog
-      title="图片预览"
-      :visible.sync="previewImgDialogVisible"
-      width="50%"
-    >
-      <el-image :src="previewImg" style="width: 100%;" />
-    </el-dialog>
+
     <!-- TinyMce 实例公用弹框 -->
     <el-dialog title="富文本编辑" :visible.sync="showDialog" width="50%" :before-close="handleClose">
       <tinymce v-model="tinyTxt" :height="150" />
@@ -359,11 +344,11 @@
 </template>
 
 <script>
-import { productDetail, productUpdate } from '@/api/product'
+import { productStore } from '@/api/product'
 import Tinymce from '@/components/Tinymce'
 import { getList } from '@/api/category'
 export default {
-  name: 'ProductViewOrUpdate',
+  name: 'CreateProduct',
   components: {
     Tinymce
   },
@@ -379,9 +364,9 @@ export default {
         spec: '',
         price: '',
         sale_price: '',
-        sold_count: '',
-        rating: '',
-        review_count: '',
+        sold_count: 0,
+        rating: 5,
+        review_count: 0,
         seo_title: '',
         seo_keyword: '',
         seo_description: '',
@@ -527,19 +512,9 @@ export default {
     }
   },
   created() {
-    this.getProductData()
-    this.getProductDetail()
     this.getCategoryList()
   },
   methods: {
-    // 获取初始化数据
-    getProductData() {
-      this.product_slug = this.$route.params.product_slug
-      this.status = this.$route.params.status
-      if (this.status === 'view') {
-        this.formDisable = true
-      }
-    },
     // 获取类目列表
     getCategoryList() {
       const param = {
@@ -549,29 +524,14 @@ export default {
         this.product_category = response.data.data
       })
     },
-    // 获取商品详情数据
-    getProductDetail() {
-      productDetail(this.product_slug).then(response => {
-        this.form = response.data
-        // 图片上传初始图片
-        this.ThumbnailList.push({ 'url': this.form.thumbnail })
-        this.mainImageList.push({ 'url': this.form.main_image })
-        this.mainImage2List.push({ 'url': this.form.main_image_2 })
-        this.BenefitImageList.push({ 'url': this.form.benefit_image })
-        this.hideUploadThumbnail = true
-        this.hideUploadMainImage = true
-        this.hideUploadMainImage2 = true
-        this.hideUploadBenefitImage = true
-      })
-    },
     // 提交表单
     submitProduct(formName) {
       if (formName) {
         // 表单验证
-        console.log(this.form)
         this.$refs[formName].validate((valid) => {
           // 表单验证通过
           if (valid) {
+            // 文本和图片必填判断
             if (!this.form.short_description) {
               this.$message({
                 message: '简短介绍不可为空！',
@@ -598,22 +558,23 @@ export default {
         })
       }
     },
-    // 请求后端接口更新商品
+    // 请求后端接口创建商品
     submitRequestProduct() {
+      console.log(this.form)
       const postForm = new FormData()
-      // 添加数据到formdata对象中
       for (const val in this.form) {
         postForm.append(val, this.form[val])
       }
-      productUpdate(this.product_slug, postForm).then((response) => {
+      productStore(postForm).then((response) => {
         if (response.code === 20001) {
           this.$message({
-            message: '商品更新成功！',
+            message: '商品创建成功！',
             type: 'success'
           })
+          this.initFormData()
         } else {
           this.$message({
-            message: '商品更新失败，请检查参数！',
+            message: '商品创建失败，请检查参数！',
             type: 'error'
           })
         }
@@ -631,11 +592,6 @@ export default {
       this.hideUploadMainImage = false
       this.hideUploadMainImage2 = false
       this.hideUploadBenefitImage = false
-    },
-    // 点击预览图片
-    previewImgAction(url) {
-      this.previewImg = url
-      this.previewImgDialogVisible = true
     },
     // 调起富文本dialog
     handleDescribes(flag) {

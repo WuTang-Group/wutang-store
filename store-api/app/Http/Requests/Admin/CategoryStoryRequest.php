@@ -14,11 +14,6 @@ class CategoryStoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=>'required|string',
-            'title_en'=>'string',
-            'description'=>'string',
-            'description_en'=>'string',
-            'banner'=>'image',
             'product_category_id'=>'exists:product_categories,id',
         ];
     }
@@ -26,7 +21,7 @@ class CategoryStoryRequest extends FormRequest
     public function messages()
     {
         return [
-            'product_category_id.exists'=>'该商品分类不存在！'
+            'product_category_id.exists'=>'该商品类目不存在！'
         ];
     }
 }

@@ -49,6 +49,7 @@ Route::middleware('auth:api')->group(function () {
      * product categories story
      */
     Route::get('category_stories', 'CategoryStoryController@queryList')->name('category_stories.queryList');
+    Route::get('category_stories/{CategoriesStoriesId}', 'CategoryStoryController@storyDetail')->name('category_stories.storyDetail');
     Route::post('category_stories', 'CategoryStoryController@store')->name('category_stories.store');
     Route::post('category_stories/{CategoriesStoriesId}', 'CategoryStoryController@edit')->name('category_stories.edit');
     Route::delete('category_stories/{CategoriesStoriesId}', 'CategoryStoryController@destroy')->name('category_stories.destroy');
@@ -59,8 +60,8 @@ Route::middleware('auth:api')->group(function () {
     Route::get('product', 'ProductController@queryList')->name('product.queryList');
     Route::get('product/{product_slug}', 'ProductController@productQuery')->name('product.productQuery');
     Route::post('product', 'ProductController@store')->name('product.store');
-    Route::post('product/{productId}', 'ProductController@edit')->name('product.edit');
-    Route::delete('product/{productId}', 'ProductController@destroy')->name('product.destroy');
+    Route::post('product/{product_slug}', 'ProductController@edit')->name('product.edit');
+    Route::delete('product/{product_slug}', 'ProductController@deleteProduct')->name('product.deleteProduct');
     /**
      * product SKU
      */

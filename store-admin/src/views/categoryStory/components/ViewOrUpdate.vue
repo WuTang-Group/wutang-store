@@ -1,18 +1,15 @@
 <template>
   <div class="app-container">
-    <el-form ref="categoryDetail" :model="categoryDetail" :inline="true" label-position="right">
+    <el-form ref="categoryDetail" :model="categoryStoryDetail" :inline="true" label-position="right">
       <!--      类目信息-->
       <el-card class="box-card-description" shadow="hover" style="margin-bottom: 10px">
-        <div slot="header" class="clearfix">
-          <span>类目信息</span>
-        </div>
         <el-row :gutter="10">
           <el-col :span="12">
-            <el-form-item label="上级类目">
-              <el-input v-if="formDisable" v-model="categoryDetail.parent.title" :disabled="formDisable" style="width: 400px" />
-              <el-select v-else v-model="categoryDetail.parent_id" placeholder="请选择" style="width: 400px">
+            <el-form-item label="所属类目">
+              <el-input v-if="formDisable" v-model="categoryStoryDetail.product_category.title" :disabled="formDisable" style="width: 400px" />
+              <el-select v-else v-model="categoryStoryDetail.product_category_id" placeholder="请选择" style="width: 400px">
                 <el-option
-                  v-for="item in parentCategory"
+                  v-for="item in CategoryList"
                   :key="item.id"
                   :label="item.title"
                   :value="item.id"
@@ -23,42 +20,14 @@
         </el-row>
         <el-row :gutter="10">
           <el-col :span="12">
-            <el-form-item label="类目名称">
-              <el-input v-model="categoryDetail.title" :disabled="formDisable" style="width: 400px" />
+            <el-form-item label="故事名称">
+              <el-input v-model="categoryStoryDetail.title" :disabled="formDisable" style="width: 400px" />
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item label="类目英文名称">
-              <el-input v-model="categoryDetail.title_en" :disabled="formDisable" style="width: 370px" />
+            <el-form-item label="故事名称(英文)">
+              <el-input v-model="categoryStoryDetail.title_en" :disabled="formDisable" style="width: 370px" />
             </el-form-item>
-          </el-col>
-        </el-row>
-        <el-row :gutter="10">
-          <el-col :span="12">
-            <div style="width: 470px;margin-bottom: 25px">
-              <el-button v-if="!formDisable" type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('describe')" />
-              <el-collapse v-model="activeNames">
-                <el-collapse-item name="describe">
-                  <template slot="title">
-                    <span class="productDetailText">类目描述</span>
-                  </template>
-                  <span v-html="categoryDetail.describe" />
-                </el-collapse-item>
-              </el-collapse>
-            </div>
-          </el-col>
-          <el-col :span="12">
-            <div style="width: 470px">
-              <el-button v-if="!formDisable" type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('describe_en')" />
-              <el-collapse v-model="activeNames">
-                <el-collapse-item name="describe_en">
-                  <template slot="title">
-                    <span class="productDetailText">类目描述(英文)</span>
-                  </template>
-                  <span v-html="categoryDetail.describe_en" />
-                </el-collapse-item>
-              </el-collapse>
-            </div>
           </el-col>
         </el-row>
         <el-row :gutter="10">
@@ -68,9 +37,9 @@
               <el-collapse v-model="activeNames">
                 <el-collapse-item name="description">
                   <template slot="title">
-                    <span class="productDetailText">类目简介</span>
+                    <span class="productDetailText">故事简介</span>
                   </template>
-                  <span v-html="categoryDetail.description" />
+                  <span v-html="categoryStoryDetail.description" />
                 </el-collapse-item>
               </el-collapse>
             </div>
@@ -81,9 +50,9 @@
               <el-collapse v-model="activeNames">
                 <el-collapse-item name="description_en">
                   <template slot="title">
-                    <span class="productDetailText">类目简介(英文)</span>
+                    <span class="productDetailText">故事简介(英文)</span>
                   </template>
-                  <span v-html="categoryDetail.description_en" />
+                  <span v-html="categoryStoryDetail.description_en" />
                 </el-collapse-item>
               </el-collapse>
             </div>
@@ -91,8 +60,8 @@
         </el-row>
         <el-row :gutter="10">
           <el-col :span="12">
-            <el-form-item label="类目banner图">
-              <el-image v-if="formDisable" style="width: 120px;height: 120px;" :src="categoryDetail.banner" fit="scale-down" @click="previewImgAction(categoryDetail.banner)" />
+            <el-form-item label="故事banner图">
+              <el-image v-if="formDisable" style="width: 120px;height: 120px;" :src="categoryStoryDetail.banner" fit="scale-down" @click="previewImgAction(categoryStoryDetail.banner)" />
               <el-upload
                 v-else
                 ref="uploadBanner"
@@ -111,33 +80,12 @@
               </el-upload>
             </el-form-item>
           </el-col>
-          <el-col :span="12">
-            <el-form-item label="类目简介图">
-              <el-image v-if="formDisable" style="width: 120px;height: 120px;" :src="categoryDetail.img" fit="scale-down" @click="previewImgAction(categoryDetail.img)" />
-              <el-upload
-                v-else
-                ref="uploadBanner"
-                :class="{hideBanner:hideUploadImg}"
-                name="img"
-                action="#"
-                list-type="picture-card"
-                :auto-upload="false"
-                :limit="limitCountImg"
-                :file-list="imgList"
-                :on-change="handleImgChange"
-                :on-remove="handleImgRemove"
-              >
-                <el-button size="small" type="primary">点击上传</el-button>
-                <div slot="tip" class="el-upload__tip">只能上传一张jpg/png文件，且不超过500kb</div>
-              </el-upload>
-            </el-form-item>
-          </el-col>
         </el-row>
       </el-card>
       <el-card v-if="!formDisable" class="box-card-image" shadow="hover">
         <el-row style="margin-bottom: 50px">
           <el-col :span="2" :offset="8">
-            <el-button type="success" @click="submitCategory(categoryDetail)">提交</el-button>
+            <el-button type="success" @click="submitCategory(categoryStoryDetail)">提交</el-button>
           </el-col>
           <el-col :span="2">
             <el-button type="info" plain @click="closePageButton">返回</el-button>
@@ -168,9 +116,10 @@
 
 <script>
 import Tinymce from '@/components/Tinymce'
-import { categoryDetail, getList, categoryEdit } from '@/api/category'
+import { getList } from '@/api/category'
+import { storyDetail, storyEdit } from '@/api/categoryStory'
 export default {
-  name: 'CategoryViewOrUpdate',
+  name: 'ViewUpdateStory',
   components: {
     Tinymce
   },
@@ -180,42 +129,26 @@ export default {
       tinyTxt: '',
       flag: '',
       formDisable: false,
-      category_slug: '',
+      story_id: '',
       previewImgDialogVisible: false,
       previewImg: '',
-      categoryDetail: {
+      categoryStoryDetail: {
         id: '',
-        slug: '',
         title: '',
         title_en: '',
-        describe: '',
-        describe_en: '',
         banner: '',
         description: '',
         description_en: '',
-        img: '',
-        parent_id: '',
+        product_category_id: '',
         created_at: '',
         updated_at: '',
-        product_category_stories:
+        product_category:
           {
             id: '',
-            product_category_id: '',
-            title: '',
-            title_en: '',
-            description: '',
-            description_en: '',
-            banner: '',
-            created_at: '',
-            updated_at: ''
-          },
-        parent: {
-          id: '',
-          title: ''
-        }
+            title: ''
+          }
       },
-      parentCategory: null,
-      activeNameDescribe: 'describe',
+      CategoryList: null,
       // 图片上传
       hideUploadBanner: false,
       limitCountBanner: 1,
@@ -223,12 +156,12 @@ export default {
       hideUploadImg: false,
       limitCountImg: 1,
       imgList: [],
-      activeNames: ['describe', 'describe_en', 'description', 'description_en']
+      activeNames: ['description', 'description_en']
     }
   },
   created() {
-    this.getCategoryData()
-    this.getCategoryDetail()
+    this.getStoryData()
+    this.getStoryDetail()
   },
   methods: {
     // 点击预览图片
@@ -236,8 +169,8 @@ export default {
       this.previewImg = url
       this.previewImgDialogVisible = true
     },
-    getCategoryData() {
-      this.category_slug = this.$route.params.category_slug
+    getStoryData() {
+      this.story_id = this.$route.params.story_id
       this.status = this.$route.params.status
       if (this.status === 'view') {
         this.formDisable = true
@@ -251,20 +184,15 @@ export default {
         page_limit: 40
       }
       getList(param).then((response) => {
-        this.parentCategory = response.data.data
+        this.CategoryList = response.data.data
       })
     },
-    getCategoryDetail() {
+    getStoryDetail() {
       // 类目故事详细数据
-      categoryDetail(this.category_slug).then(response => {
-        this.categoryDetail = response.data
-        if (response.data.product_category_stories[0]) {
-          this.categoryDetail.product_category_stories = response.data.product_category_stories[0]
-        }
+      storyDetail(this.story_id).then(response => {
+        this.categoryStoryDetail = response.data
         // 图片上传初始图片
-        this.bannerList.push({ 'url': this.categoryDetail.banner })
-        this.imgList.push({ 'url': this.categoryDetail.img })
-        this.hideUploadImg = true
+        this.bannerList.push({ 'url': this.categoryStoryDetail.banner })
         this.hideUploadBanner = true
       })
     },
@@ -275,18 +203,15 @@ export default {
     },
     // 提交数据
     submitCategory() {
+      console.log(this.categoryStoryDetail)
       const postForm = new FormData()
-      // 更换了图片则保存
-      postForm.append('img', this.categoryDetail.img)
-      postForm.append('banner', this.categoryDetail.banner)
-      postForm.append('description', this.categoryDetail.description)
-      postForm.append('description_en', this.categoryDetail.description_en)
-      postForm.append('title', this.categoryDetail.title)
-      postForm.append('title_en', this.categoryDetail.title_en)
-      postForm.append('describe', this.categoryDetail.describe)
-      postForm.append('describe_en', this.categoryDetail.describe_en)
-      postForm.append('parent_id', this.categoryDetail.parent_id)
-      categoryEdit(postForm, this.categoryDetail.slug).then(response => {
+      postForm.append('banner', this.categoryStoryDetail.banner)
+      postForm.append('description', this.categoryStoryDetail.description)
+      postForm.append('description_en', this.categoryStoryDetail.description_en)
+      postForm.append('title', this.categoryStoryDetail.title)
+      postForm.append('title_en', this.categoryStoryDetail.title_en)
+      postForm.append('product_category_id', this.categoryStoryDetail.product_category_id)
+      storyEdit(postForm, this.categoryStoryDetail.id).then(response => {
         if (response.code === 20001) {
           this.$message({
             message: '更新成功！',
@@ -309,23 +234,13 @@ export default {
     // 确认保存当前富文本
     comfirmSaveTiny() {
       switch (this.flag) {
-        case 'describe':
-          this.categoryDetail.describe = this.tinyTxt
-          this.showDialog = false
-          this.tinyTxt = ''
-          break
-        case 'describe_en':
-          this.categoryDetail.describe_en = this.tinyTxt
-          this.showDialog = false
-          this.tinyTxt = ''
-          break
         case 'description':
-          this.categoryDetail.description = this.tinyTxt
+          this.categoryStoryDetail.description = this.tinyTxt
           this.showDialog = false
           this.tinyTxt = ''
           break
         case 'description_en':
-          this.categoryDetail.description_en = this.tinyTxt
+          this.categoryStoryDetail.description_en = this.tinyTxt
           this.showDialog = false
           this.tinyTxt = ''
           break
@@ -348,19 +263,11 @@ export default {
     // 图片上传
     handleBannerChange(file, fileList) {
       this.hideUploadBanner = fileList.length >= this.limitCountBanner
-      this.categoryDetail.banner = file.raw
+      this.categoryStoryDetail.banner = file.raw
     },
     handleBannerRemove(file, fileList) {
       this.hideUploadBanner = fileList.length >= this.limitCountBanner
-      this.categoryDetail.banner = null
-    },
-    handleImgChange(file, fileList) {
-      this.hideUploadImg = fileList.length >= this.limitCountImg
-      this.categoryDetail.img = file.raw
-    },
-    handleImgRemove(file, fileList) {
-      this.hideUploadImg = fileList.length >= this.limitCountImg
-      this.categoryDetail.img = null
+      this.categoryStoryDetail.banner = null
     }
   }
 

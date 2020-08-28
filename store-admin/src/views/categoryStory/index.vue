@@ -3,18 +3,18 @@
     <el-card class="box-card filter-container">
       <el-input
         v-model="listQuery.title"
-        placeholder="输入商品名称"
+        placeholder="输入分类名称"
         style="width: 200px;"
         class="filter-item"
         @keyup.enter.native="handleFilter"
       />
-      <el-button class="filter-item" type="primary" style="margin-left: 20px;" icon="el-icon-search" @click="handleFilter">
+      <el-button v-waves class="filter-item" type="primary" style="margin-left: 20px;" icon="el-icon-search" @click="handleFilter">
         {{ $t('table.search') }}
       </el-button>
     </el-card>
     <el-card class="box-card box-card-centent" style="margin-top: 20px;">
       <div slot="header" class="clearfix">
-        <router-link :to="{name:'CreateProduct'}">
+        <router-link :to="{name:'CreateCategoryStory'}">
           <el-button v-waves>添加</el-button>
         </router-link>
       </div>
@@ -29,45 +29,56 @@
         :header-cell-style="{background:'#ebeef5'}"
       >
         <el-table-column type="index" header-align="center" align="center" label="序号" width="60" />
-        <el-table-column header-align="center" label="商品名称" prop="product_name" align="center" width="80">
+        <el-table-column header-align="center" label="故事名称" align="center" width="80">
           <template slot-scope="scope">
-            <router-link :to="{ name: 'ProductViewOrUpdate', params: {'status': 'view', 'product_slug': scope.row.slug} }">
-              {{ scope.row.product_name }}
-            </router-link>
+            <span :class="{active: false}" @mouseover="handleMouseEnter()" @mouseleave="handleMouseMove()">
+              <router-link :to="{ name: 'ViewUpdateStory', params: {'status': 'view', 'story_id': scope.row.id} }">
+                {{ scope.row.title }}
+              </router-link>
+            </span>
           </template>
         </el-table-column>
-        <el-table-column header-align="center" label="商品名称(英文)" prop="product_name_en" align="center" width="80" />
-        <el-table-column header-align="center" label="所属分类" prop="product_category.title" align="center" width="80" />
-        <el-table-column header-align="center" label="产品缩略图" align="center" width="125">
+        <el-table-column header-align="center" label="故事名称(英文)" prop="title_en" align="center" width="80">
+          <template slot-scope="scope">
+            <p v-html="scope.row.title_en" />
+          </template>
+        </el-table-column>
+        <el-table-column header-align="center" label="类目简介" show-overflow-tooltip prop="description">
+          <template slot-scope="scope">
+            <p v-html="scope.row.description" />
+          </template>
+        </el-table-column>
+        <el-table-column header-align="center" label="类目简介(英文)" show-overflow-tooltip prop="description_en">
+          <template slot-scope="scope">
+            <p v-html="scope.row.description_en" />
+          </template>
+        </el-table-column>
+        <el-table-column header-align="center" label="类目简介图">
           <template slot-scope="{row}">
-            <el-image style="width: 100px;height: 100px;" :src="row.thumbnail" fit="scale-down" @click="previewImgAction(row.thumbnail)" />
+            <el-image style="width: 100px;height: 100px;" :src="row.banner" fit="scale-down" @click="previewImgAction(row.banner)" />
           </template>
         </el-table-column>
-        <el-table-column header-align="center" label="价格" prop="price" align="center" width="80" />
-        <el-table-column header-align="center" label="优惠价格" prop="sale_price" align="center" width="80" />
-        <el-table-column header-align="center" label="库存" prop="stock" align="center" width="80" />
-        <el-table-column header-align="center" label="规格" prop="spec" align="center" width="80" />
-        <el-table-column header-align="center" label="状态" prop="status" :formatter="formatStatus" align="center" width="80" />
+        <el-table-column header-align="center" label="所属类目" prop="product_category.title" align="center" />
         <el-table-column header-align="center" label="创建时间" prop="created_at" align="center" />
         <el-table-column header-align="center" label="更新时间" prop="updated_at" align="center" />
         <el-table-column
           header-align="center"
           align="center"
           label="操作"
-          prop="product_id"
         >
           <template slot-scope="scope">
             <el-tooltip class="item" effect="dark" content="编辑" placement="top">
-              <router-link :to="{ name: 'ProductViewOrUpdate', params: {'status': 'edit', 'product_slug': scope.row.slug} }">
+              <router-link :to="{ name: 'ViewUpdateStory', params: {'status': 'edit', 'story_id': scope.row.id} }">
                 <el-button type="primary" icon="el-icon-edit" circle />
               </router-link>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="删除" placement="top">
-              <el-button type="danger" icon="el-icon-delete" circle @click="deleteConfirm(scope.row.slug)" />
+              <el-button type="danger" icon="el-icon-delete" circle @click="deleteConfirm(scope.row.id)" />
             </el-tooltip>
           </template>
         </el-table-column>
       </el-table>
+
       <pagination
         v-show="total>0"
         :total="total"
@@ -87,31 +98,34 @@
 </template>
 
 <script>
-import { getList } from '@/api/product'
-import Pagination from '@/components/Pagination'
-import waves from '@/directive/waves'
-import { productDelete } from '@/api/product'
+import { getList, deleteStory } from '@/api/categoryStory'
+import waves from '@/directive/waves' // waves directive
+import Pagination from '@/components/Pagination' // secondary package based on el-pagination
+
 export default {
-  name: 'ProductList',
+  name: 'CategoryStoryList',
   components: { Pagination },
   directives: { waves },
   data() {
     return {
+      tableKey: 0,
       list: null,
       total: 0,
-      listQuery: {
-        'page': 1,
-        'page_limit': 10
-      },
       listLoading: true,
-      tableKey: 0,
-      previewImgDialogVisible: false,
+      listQuery: {
+        page: 1,
+        page_limit: 10
+      },
       previewImg: '',
-      status: '', // 商品操作标志
-      viewOrUpdateData: {
-        status: '',
-        product_slug: ''
-      }
+      previewImgDialogVisible: false,
+      showReviewer: false,
+      temp: {
+        id: undefined,
+        importance: 1,
+        remark: '',
+        timestamp: new Date()
+      },
+      isActive: false // 控制title class的绑定
     }
   },
   created() {
@@ -123,6 +137,7 @@ export default {
       this.previewImg = url
       this.previewImgDialogVisible = true
     },
+    // 获取数据列表
     getList() {
       this.listLoading = true
       getList(this.listQuery).then(response => {
@@ -132,21 +147,26 @@ export default {
         console.log(this.list)
       })
     },
-    formatStatus(row, column) {
-      return row.status === 1 ? '新品' : row.status === 2 ? '畅销' : row.status === 3 ? '促销' : row.status === -1 ? '下架' : '其他'
-    },
-    handleFilter() {
-      console.log('123')
+    resetTemp() {
+      this.temp = {
+        id: undefined,
+        importance: 1,
+        remark: '',
+        timestamp: new Date(),
+        title: '',
+        status: 'published',
+        type: ''
+      }
     },
     // 删除确认
-    deleteConfirm(product_slug) {
-      this.$confirm('此操作将永久删除该商品, 是否继续?', '提示', {
+    deleteConfirm(category_stories_id) {
+      this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
         // 请求后台删除
-        productDelete(product_slug).then(response => {
+        deleteStory(category_stories_id).then(response => {
           if (response.code === 20001) {
             this.$message({
               message: '删除成功!',
@@ -167,11 +187,24 @@ export default {
           message: '已取消删除'
         })
       })
+    },
+    handleFilter() {
+      console.log('test')
+    },
+    handleMouseEnter() {
+      this.isActive = true
+    },
+    handleMouseMove() {
+      this.isActive = false
     }
   }
 }
 </script>
-
-<style scoped>
-
+<style scoped lang="scss">
+  .box-card-centent {
+    margin-top: 20px;
+  }
+  .active {
+    color: #1890ff;
+  }
 </style>

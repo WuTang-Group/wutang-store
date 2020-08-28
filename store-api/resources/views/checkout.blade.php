@@ -150,6 +150,7 @@
 			event.preventDefault();
 			$this = $(this);
 			if (!pass) { return false; } //Check form validity
+			var method = $('input[name=method]:checked').val();
 	        var formData = {
 	            'address_id'  : $('input[name=address_id]:checked').val(),
 	        };
@@ -164,6 +165,10 @@
 			    		var amount = response.data.data.total_amount;
 
 						processing(); //获取订单号后才打开监听功能
+
+						/*if(method == 'alipay') { //检查用户选择的付款方式
+
+						}*/
 			    		axios.get(BASE_URL+'api/aligateway/pay?no='+ order_no + '&total_amount=' + amount)
 						  	.then(function (response) {
 						    	if(response.data.code == 20001) {
@@ -172,7 +177,6 @@
 			    					toastr['error'](response.data.msg);
 	    							//window.location.href = BASE_URL + 'my-account/order/' + order_no; //关闭此代码因为在监听功能已有页面转跳功能
 						    	}
-						    	console.log(response);
 						  	})
 						  	.catch(function (error) {
 						    	console.log(error);

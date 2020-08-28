@@ -1,7 +1,14 @@
 function payNow(order_no){
-    console.log(order_no);
     $this = $(this);
-    axios.get(BASE_URL+'api/order_details/'+order_no)
+    var formData = {
+        'no' : order_no,
+    };
+    var method = $this.closest('input-group').find('select[name=method]').val();
+    if (!method) { 
+        toastr['error']( lang.please_select_payment_method );
+        return false; 
+    }
+    axios.post(BASE_URL+'api/orders/retry', formData)
         .then(function (response) {
             if(response.data.code == 20001) {
                 $this.prop('disabled',true);
@@ -11,6 +18,10 @@ function payNow(order_no){
                 var amount = response.data.data.total_amount;
 
                 processing(); //获取订单号后才打开监听功能
+
+                /*if(method == 'alipay') { //检查用户选择的付款方式
+
+                }*/
                 axios.get(BASE_URL+'api/aligateway/pay?no='+ order_no + '&total_amount=' + amount)
                     .then(function (response) {
                         if(response.data.code == 20001) {

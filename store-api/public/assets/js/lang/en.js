@@ -8,4 +8,5 @@ lang = {
     please_select : 'Please Select',
     payment_success : 'Payment Successfully!',
     payment_failed : 'Payment Failed!',
+    please_select_payment_method : 'Please select payment method.',
 };

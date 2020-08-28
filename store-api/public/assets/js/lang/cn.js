@@ -8,4 +8,5 @@ lang = {
     please_select : '请选择',
     payment_success : '支付成功',
     payment_failed : '支付失败',
+    please_select_payment_method : '请选择支付管道。',
 };

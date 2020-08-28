@@ -44,6 +44,8 @@
                                     $status = __('general.my-account.order-status.pending-payment');
                                 else if($order->status == -1)
                                     $status = __('general.my-account.order-status.payment-failed');
+                                else if($order->status == -2)
+                                    $status = __('general.my-account.order-status.cancelled');
                                 else
                                     $status = '';
                             @endphp
@@ -60,7 +62,17 @@
                             <div class="col-4 col-md-2 text-right">
                         		<a href="my-account/order/{{ $order->no }}" class="btn btn-white btn-xs">@lang('general.my-account.view')</a>
                                 @if($order->status == 0 || $order->status == -1)
-                                <button type="button" onclick="payNow('{{ $order->no }}')" class="btn btn-white btn-xs">@lang('general.pay')</a>
+                                <div class="input-group mt-1">
+                                    <select class="custom-select" name="method">
+                                        <option>@lang('general.please-select')</option>
+                                        <option value="alipay">Alipay</option>
+                                        <!-- <option value="union-pay">UnionPay</option>
+                                        <option value="wechat-pay">WechatPay</option> -->
+                                    </select>
+                                    <div class="input-group-append">
+                                        <button type="button" onclick="payNow('{{ $order->no }}')" class="btn btn-white btn-xs">@lang('general.pay')</button>
+                                    </div>
+                                </div>
                                 @endif
                         	</div>
                         </div>

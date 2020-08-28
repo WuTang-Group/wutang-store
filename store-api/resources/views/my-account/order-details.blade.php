@@ -92,7 +92,17 @@
                     <div class="small-section text-right">
                         <a href="/my-account" class="btn btn-white">@lang('general.back')</a>
                         @if($response->data->status == 0 || $response->data->status == -1)
-                        <button type="button" onclick="payNow('{{ $response->data->no }}')" class="btn btn-white">@lang('general.pay')</a>
+                        <div class="input-group mt-1">
+                            <select class="custom-select" name="method">
+                                <option>@lang('general.please-select')</option>
+                                <option value="alipay">Alipay</option>
+                                <!-- <option value="union-pay">UnionPay</option>
+                                <option value="wechat-pay">WechatPay</option> -->
+                            </select>
+                            <div class="input-group-append">
+                                <button type="button" onclick="payNow('{{ $response->data->no }}')" class="btn btn-white btn-xs">@lang('general.pay')</button>
+                            </div>
+                        </div>
                         @endif
                     </div>
 				</div>

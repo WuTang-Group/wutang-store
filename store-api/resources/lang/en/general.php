@@ -101,6 +101,7 @@ return [
             'paid' => 'Paid',
             'payment-failed' => 'Payment Failed',
             'pending-payment' => 'Pending Payment',
+            'cancelled' => 'Cancelled',
         ],
         'action' => 'Action',
         'view' => 'View',

@@ -101,6 +101,7 @@ return [
             'paid' => '已付款',
             'payment-failed' => '付款失败',
             'pending-payment' => '未付款',
+            'cancelled' => '已取消',
         ],
         'action' => '操作',
         'view' => '查询',

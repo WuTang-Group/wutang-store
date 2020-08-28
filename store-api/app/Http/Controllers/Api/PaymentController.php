@@ -39,7 +39,6 @@ class PaymentController extends Controller
      * Unionpay request payment
      * 银联支付发起请求
      * @queryParam no required 订单号
-     * @queryParam subject required 商品名称
      * @queryParam total_amount required 总金额
      * @param PaymentRequest $request
      */
@@ -100,7 +99,6 @@ class PaymentController extends Controller
      * 支付宝发起支付
      * @queryParam no required 订单号
      * @queryParam total_amount required 总金额
-     * @queryParam subject required 订单标题
      * @param PaymentRequest $request
      * @return mixed
      */
@@ -111,7 +109,7 @@ class PaymentController extends Controller
         return app('alipay')->web([
             'out_trade_no' => $requestData['no'], // 订单编号，需保证在商户端不重复
             'total_amount' => $requestData['total_amount'], // 订单金额，单位元，支持小数点后两位
-            'subject' => $requestData['product_name'], // 订单标题
+            'subject' => $requestData['product_name'] ?? 'Queen Spades# '.$requestData['no'], // 订单标题
         ]);
     }
 
@@ -127,7 +125,7 @@ class PaymentController extends Controller
         try {
             app('alipay')->verify();
         } catch (Exception $e) {
-            Log::error($e->getMessage());
+            Log::error('支付宝支付失败',['message' => $e->getMessage()]);
             return response(ResponseData::requestFails($request->all(), '数据不正确'));
         }
 
@@ -232,19 +230,6 @@ class PaymentController extends Controller
     public function alipayGatewayNotify(Request $request)
     {
         $requestData = $request->all();
-//        $requestData['code'] = 'success';
-//        $requestData['status'] = AlipayGatewayCode::PayFaild;
-//        $requestData['payment_no'] = '20200813737569374660';
-//        $requestData['merch_id'] = '100101';
-//        $requestData['out_order_no'] = time();
-//        $requestData['order_id'] = '20200813737569374660';
-//        $requestData['fee'] = '0.5';
-//        $requestData['amount'] = '110025.00';
-//        $requestData['pay_time'] = now();
-//         if($requestData['code'] != AlipayGatewayCode::RequestSuccess){
-//            return '受理失败';
-//        }
-//        $this->orderService->changeStatus($requestData);
         try {
             AlipayGateway::verify(config('pay.alipay_gateway.key'), $requestData);
             $this->orderService->changeStatus($requestData);

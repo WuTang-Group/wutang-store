@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Enums\{AlipayCode, AlipayGatewayCode, LoggerCollection, UnionPayCode};
 use App\Handlers\ResponseData;
 use App\Payments\AlipayGateway;
+use App\Payments\AlipayLegacyExpress;
 use App\Http\ {
     Controllers\Controller, Requests\Api\PaymentRequest
 };
@@ -15,6 +16,7 @@ use Illuminate\{Contracts\Foundation\Application,
     Http\RedirectResponse,
     Http\Request,
     Http\Response,
+    Support\Arr,
     Support\Facades\Log
 };
 
@@ -229,6 +231,10 @@ class PaymentController extends Controller
             // 调整订单号名称
             $requestData['order_no'] = $requestData['order_id'];
             $this->orderService->changeStatus($requestData);
+            Log::info('支付宝网关-支付成功', ['message' => [
+                'order_no' => $requestData['no'],
+                'pay_time' => $requestData['extra']['pay_time']
+            ]]);
         } catch (\Exception $e) {
             Log::error('支付宝网关通知失败', ['message' => $e->getMessage()]);
             return '验签失败';
@@ -236,59 +242,110 @@ class PaymentController extends Controller
         return 'success';
     }
 
-    // 发起支付宝即时到账支付
+    /**
+     * Alipay legacy express pay request
+     * 支付宝即时到账-发起支付
+     * @queryParam no required 订单号
+     * @queryParam total_amount required 总金额
+     * @param PaymentRequest $request
+     * @return Application|ResponseFactory|Response
+     */
     public function payByAlipayExpress(PaymentRequest $request)
     {
         $requestData = $request->all();
-        $requestData['subject'] = 'Queen-Spades' . $requestData['no'];
-        $requestData['total_fee'] = $requestData['total_amount'];
-        $requestData['out_trade_no'] = $requestData['no'];
-        $gateway = \Omnipay::gateway('Alipay_LegacyExpress');
+        //*************************保留代码，防止Ominipay出问题时调用原生方法******
+        // 配置参数
+        // $config = config('pay.alipay_legacy_express');
+        // 构造要请求的参数数组
+        $parameter = [
+           "out_trade_no" => $requestData['no'],
+            "subject" => $requestData['subject'] ?? 'Queen-Spades'.$requestData['no'],
+            "total_fee" => $requestData['total_amount']
+        ];
+        // $array = Arr::collapse([$parameter, $config]);
+        // 建立请求
+        // $alipaySubmit = (new AlipayLegacyExpress($config))->buildRequestForm($array, 'get', '确认');
+        // Log::info('支付宝即时到账-支付发起', ['message' => $parameter]);
+        // return $alipaySubmit;
+        //***********************************************************************
         try {
-            $response = $gateway->purchase($requestData)->send();
+            $gateway = \Omnipay::gateway('Alipay_LegacyExpress'); // 发起支付调用Ominipay的网关
+            $response = $gateway->purchase($parameter)->send();
+            Log::info('支付宝即时到账-支付发起', ['message' => $parameter]);
+            return response(ResponseData::requestSuccess($response->getRedirectUrl()));
         } catch (\Exception $e) {
-            Log::error('支付宝-即时到账支付发起失败', ['message' => $e->getMessage()]);
-            return response(ResponseData::requestFails($requestData, '支付宝-即时到账支付发起失败'));
+            Log::error('支付宝即时到账-支付发起失败', ['message' => $e->getMessage()]);
+            return response(ResponseData::requestFails($parameter, '支付发起失败'));
         }
-        return response(ResponseData::requestSuccess(['pay_url' => $response->getRedirectUrl()]));
-
     }
 
-    // 支付宝即时到账-前端回调
+    /**
+     * Alipay legacy express pay return
+     * 支付宝即时到账-前端回调
+     * 说明:由于Ominipay验签有问题，此处使用我封装过的支付宝的sdk进行验签
+     * @param Request $request
+     * @return bool|RedirectResponse|string
+     */
     public function alipayExpressReturn(Request $request)
     {
-        $gateway = \Omnipay::gateway('Alipay_LegacyExpress');
+        $requestData = $request->all();
+        // 配置参数
+        $config = config('pay.alipay_legacy_express');
+        $alipayNotify = new AlipayLegacyExpress\AlipayNotify($config);
+        $verifyResult = $alipayNotify->verifyReturn();
+        // 验签
+        if (!$verifyResult) {
+            return '验签失败';
+        }
         try {
-            $response = $gateway->completePurchase(['request_params' => $_REQUEST])->send();
-            Log::info('支付宝即时到账-前端回调',['message' => $response]);
-            //$response = $requestReturn->setParams($request->all())->send();
-            // 成功失败都跳回个人订单页
-            if ($response->isPaid()) {
+            if ($requestData['trade_status'] == AlipayCode::TRADE_SUCCESS || $requestData['trade_status'] == AlipayCode::TRADE_FINISHED) {
                 return redirect()->route('my-account');
+                //return '付款成功';
             } else {
                 return redirect()->route('my-account');
+                //return '付款失败';
             }
         } catch (\Exception $e) {
             Log::error('支付宝即时到账-前端回调失败', ['message' => $e->getMessage()]);
-            return '回调失败';
+            return false;
         }
+
     }
 
-    // 支付宝即时到账-服务端异步通知回调
+    /**
+     * Alipay legacy express pay notify
+     * 支付宝即时到账-服务端异步通知
+     * @param Request $request
+     * @return bool|string
+     */
     public function alipayExpressNotify(Request $request)
     {
-        $gateway = \Omnipay::gateway('Alipay_LegacyExpress');
+        $requestData = $request->all();
+        // 配置参数
+        $config = config('pay.alipay_legacy_express');
+        $alipayNotify = new AlipayLegacyExpress\AlipayNotify($config);
+        $verifyResult = $alipayNotify->verifyNotify();
+        // 验签
+        if (!$verifyResult) {
+            return '验签失败';
+        }
         try {
-            $requestReturn = $gateway->completePurchase();
-            $response = $requestReturn->setParams($request->all())->send();
-            Log::info('异步通知',['message'=>$response]);
-            if ($response->isPaid()) {
-                $this->orderService->changeStatus($request->all());
-                return 'success';
+            if ($requestData['trade_status'] == AlipayCode::TRADE_SUCCESS || $requestData['trade_status'] == AlipayCode::TRADE_FINISHED) {
+                $requestData['status'] = AlipayCode::TRADE_SUCCESS;
+                $this->orderService->changeStatus($requestData);
+                Log::info('支付宝即时到账-交易成功', ['message' => [
+                    'order_no' => $requestData['out_trade_no'],
+                    'pay_time' => $requestData['notify_time']
+                ]]);
+                return 'success'; // 固定返回success
+            } else {
+                $requestData['status'] = AlipayCode::TRADE_CLOSED;
+                $this->orderService->changeStatus($requestData);
+                Log::info('支付宝即时到账-交易失败', ['message' => 'Error']);
             }
         } catch (\Exception $e) {
             Log::error('支付宝即时到账-异步通知失败', ['message' => $e->getMessage()]);
-            return '通知失败';
+            return false;
         }
     }
 }

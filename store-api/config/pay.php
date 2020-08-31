@@ -32,5 +32,21 @@ return [
         'notify_url' => env('ALI_GATEWAY_NOTIFY_URL'),
         'return_url' => env('ALI_GATEWAY_RETURN_URL'),
         'extends' => '',
-    ]
+    ],
+    // 支付宝即时到账
+    'alipay_legacy_express' => [
+        'service' => 'create_direct_pay_by_user', // 产品类型
+        'partner' => env('ALI_EXPRESS_PID'),  // 合作伙伴pid
+        'key' => env('ALI_EXPRESS_KEY'),  // md5密钥
+        'sign_type' => strtoupper('MD5'),
+        'seller_email' => env('ALI_EXPRESS_SELLER_EMAIL'),  // 商户邮箱
+        'payment_type' => '1',
+        'return_url' => env('ALI_EXPRESS_RETURN_URL'),  // 回调地址
+        'notify_url' => env('ALI_EXPRESS_NOTIFY_URL'),  // 异步通知地址
+        'anti_phishing_key' => '', // 防钓鱼时间戳
+        'exter_invoke_ip' => '', //客户端ip地址
+        'input_charset' => strtolower('utf-8'),
+        'transport' => 'http',
+        'cacert' => resource_path('pay/alipay/cacert.pem')  // cacert.pem文件位置
+    ],
 ];

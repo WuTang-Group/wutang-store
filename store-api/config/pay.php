@@ -47,6 +47,6 @@ return [
         'exter_invoke_ip' => '', //客户端ip地址
         'input_charset' => strtolower('utf-8'),
         'transport' => 'http',
-        'cacert' => getcwd().'\\cacert.pem'  // cacert.pem文件位置,目前为当前文件夹位置
+        'cacert' => resource_path('pay/alipay/cacert.pem')  // cacert.pem文件位置
     ],
 ];

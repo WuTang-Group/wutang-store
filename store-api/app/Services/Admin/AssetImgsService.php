@@ -35,15 +35,32 @@ class AssetImgsService extends Service
         return $requestData;
     }
 
+    public function destroy($assetImgId)
+    {
+        try{
+            $assetImgObject = $this->assetImgs->whereId($assetImgId)->first();
+            if ($assetImgObject){
+                OssHandler::delete($assetImgObject['img']);   //删除oss地址
+                $assetImgObject->delete();  // 删除表中记录
+            }else {
+                return false;
+            }
+        }catch (\Exception $e){
+            Log::error('删除失败', ['message' => $e->getMessage()]);
+            return false;
+        }
+        return true;
+    }
+
     public static function saveOss($array)
     {
         // 存储到OSS，本地保存OSS地址
         if (is_object($array['img'])) {
             try {
-                $ossRes = OssHandler::save($array['img'], AliyunOssDir::Product);  // 图片存储到OSS
+                $ossRes = OssHandler::save($array['img'], AliyunOssDir::AssetImg);  // 图片存储到OSS
                 $ossRes ? $array['img'] = $ossRes['data'] : null;
             } catch (\Exception $e) {
-                Log::error($e->getMessage());
+                Log::error('添加OSS失败', ['message' => $e->getMessage()]);
                 $array['img'] = null;
             }
         }

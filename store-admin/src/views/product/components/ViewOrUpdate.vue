@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <el-card class="box-card-header" shadow="hover" style="margin-bottom: 10px">
+    <el-card v-loading="loading" class="box-card-header" shadow="hover" style="margin-bottom: 10px">
       <el-form ref="formRules" :model="form" :rules="formRules" :inline="true" :disabled="formDisable" label-position="right" label-width="120px">
         <el-row>
           <el-col :span="7">
@@ -327,6 +327,28 @@
             </el-form-item>
           </el-col>
         </el-row>
+        <el-row :gutter="10">
+          <el-col :span="6">
+            <el-form-item label="商品视频">
+              <el-button v-if="formDisable" icon="el-icon-video-camera" style="font-size: 50px" />
+              <el-upload
+                v-else
+                ref="uploadBProductVideo"
+                :class="{hideProductVideo:hideUploadProductVideo}"
+                name="product_video"
+                action="#"
+                :auto-upload="false"
+                :limit="limitCountProductVideo"
+                :file-list="ProductVideoList"
+                :on-change="handleProductVideoChange"
+                :on-remove="handleProductVideoRemove"
+              >
+                <el-button size="small" plain type="primary">点击上传</el-button>
+                <div slot="tip" class="el-upload__tip">只能上传一个视频，且不超过50M</div>
+              </el-upload>
+            </el-form-item>
+          </el-col>
+        </el-row>
         <el-row v-if="!formDisable" style="margin-bottom: 50px">
           <el-form-item>
             <el-col :span="2" :offset="8">
@@ -371,6 +393,7 @@ export default {
     return {
       formDisable: false,
       product_slug: '',
+      loading: false,
       form: {
         product_name: '',
         product_name_en: '',
@@ -398,7 +421,7 @@ export default {
         benefit_image: '',
         thumbnail: '',
         product_category_id: '',
-        // product_video: '',  TODO 视频暂未添加
+        product_video: '',
         usage: '',
         usage_en: ''
       },
@@ -442,6 +465,10 @@ export default {
       hideUploadBenefitImage: false,
       limitCountBenefitImage: 1,
       BenefitImageList: [],
+      // 商品视频
+      hideUploadProductVideo: false,
+      limitCountProductVideo: 1,
+      ProductVideoList: [],
       product_status: [
         { 'flag': 1, 'msg': '新品' },
         { 'flag': 2, 'msg': '畅销' },
@@ -551,17 +578,31 @@ export default {
     },
     // 获取商品详情数据
     getProductDetail() {
+      this.loading = true
       productDetail(this.product_slug).then(response => {
         this.form = response.data
         // 图片上传初始图片
-        this.ThumbnailList.push({ 'url': this.form.thumbnail })
-        this.mainImageList.push({ 'url': this.form.main_image })
-        this.mainImage2List.push({ 'url': this.form.main_image_2 })
-        this.BenefitImageList.push({ 'url': this.form.benefit_image })
-        this.hideUploadThumbnail = true
-        this.hideUploadMainImage = true
-        this.hideUploadMainImage2 = true
-        this.hideUploadBenefitImage = true
+        if (this.form.product_video) {
+          this.ProductVideoList.push({ 'url': this.form.product_video })
+          this.hideUploadProductVideo = true
+        }
+        if (this.form.thumbnail) {
+          this.ThumbnailList.push({ 'url': this.form.thumbnail })
+          this.hideUploadThumbnail = true
+        }
+        if (this.form.main_image) {
+          this.mainImageList.push({ 'url': this.form.main_image })
+          this.hideUploadMainImage = true
+        }
+        if (this.form.main_image_2) {
+          this.mainImage2List.push({ 'url': this.form.main_image_2 })
+          this.hideUploadMainImage2 = true
+        }
+        if (this.form.main_image_2) {
+          this.BenefitImageList.push({ 'url': this.form.benefit_image })
+          this.hideUploadBenefitImage = true
+        }
+        this.loading = false
       })
     },
     // 提交表单
@@ -601,6 +642,7 @@ export default {
     // 请求后端接口更新商品
     submitRequestProduct() {
       const postForm = new FormData()
+      console.log(this.form)
       // 添加数据到formdata对象中
       for (const val in this.form) {
         postForm.append(val, this.form[val])
@@ -618,19 +660,6 @@ export default {
           })
         }
       })
-    },
-    // 创建商品成功后初始化数据
-    initFormData() {
-      this.$refs['formRules'].resetFields()
-      this.$refs['formDesc'].resetFields()
-      this.ThumbnailList = []
-      this.mainImageList = []
-      this.mainImage2List = []
-      this.BenefitImageList = []
-      this.hideUploadThumbnail = false
-      this.hideUploadMainImage = false
-      this.hideUploadMainImage2 = false
-      this.hideUploadBenefitImage = false
     },
     // 点击预览图片
     previewImgAction(url) {
@@ -749,6 +778,29 @@ export default {
       this.hideUploadBenefitImage = fileList.length >= this.limitCountBenefitImage
       this.form.benefit_image = null
     },
+    // 产品视频
+    handleProductVideoChange(file, fileList) {
+      this.hideUploadProductVideo = fileList.length >= this.limitCountProductVideo
+      this.form.product_video = file.raw
+    },
+    handleProductVideoRemove(file, fileList) {
+      this.hideUploadProductVideo = fileList.length >= this.limitCountProductVideo
+      this.form.product_video = null
+    },
+    // // 图片上传验证
+    // beforeAvatarUpload(file) {
+    //   console.log(file)
+    //   const isJPG = file.raw.type === 'video/mp4'
+    //   const isLt2M = file.raw.size / 1024 / 1024 < 50
+    //   if (!isJPG) {
+    //     this.$message.error('上传视频格式只能是 mp4 格式!')
+    //     return false
+    //   } else if (!isLt2M) {
+    //     this.$message.error('上传视频大小不能超过 50MB!')
+    //     return false
+    //   }
+    //   return true
+    // },
     // 关闭页面
     closePageButton() {
       this.$store.dispatch('tagsView/delView', this.$route)
@@ -769,6 +821,9 @@ export default {
     display: none;
   }
   .hideBenefitImage .el-upload--picture-card {
+    display: none;
+  }
+  .hideProductVideo .el-upload--picture-card {
     display: none;
   }
   .productDetailText {

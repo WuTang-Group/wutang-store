@@ -242,7 +242,11 @@
         </el-row>
       </el-form>
     </el-card>
-    <el-card class="box-card-image" shadow="hover" style="padding: 0 30px">
+    <el-card
+      class="box-card-image"
+      shadow="hover"
+      style="padding: 0 30px"
+    >
       <el-form ref="form" :model="form" label-position="top">
         <el-row>
           <el-col :span="6">
@@ -319,10 +323,35 @@
             </el-form-item>
           </el-col>
         </el-row>
+        <el-row :gutter="10">
+          <el-col :span="6">
+            <el-form-item label="商品视频">
+              <el-upload
+                ref="uploadBProductVideo"
+                :class="{hideProductVideo:hideUploadProductVideo}"
+                name="product_video"
+                action="#"
+                list-type="picture"
+                :auto-upload="false"
+                :limit="limitCountProductVideo"
+                :file-list="ProductVideoList"
+                :on-change="handleProductVideoChange"
+                :on-remove="handleProductVideoRemove"
+              >
+                <el-button v-if="!hideUploadProductVideo" size="small" plain type="primary">点击上传</el-button>
+              </el-upload>
+            </el-form-item>
+          </el-col>
+        </el-row>
         <el-row style="margin-bottom: 50px">
           <el-form-item>
             <el-col :span="2" :offset="8">
-              <el-button type="success" @click="submitProduct('formRules')">提交</el-button>
+              <el-button
+                v-loading="loading"
+                element-loading-background="rgba(255,255,255,0.6)"
+                type="success"
+                @click="submitProduct('formRules')"
+              >提交</el-button>
             </el-col>
             <el-col :span="2">
               <el-button type="info" plain @click="closePageButton">返回</el-button>
@@ -356,6 +385,7 @@ export default {
     return {
       formDisable: false,
       product_slug: '',
+      loading: false,
       form: {
         product_name: '',
         product_name_en: '',
@@ -383,7 +413,7 @@ export default {
         benefit_image: '',
         thumbnail: '',
         product_category_id: '',
-        // product_video: '',  TODO 视频暂未添加
+        product_video: '',
         usage: '',
         usage_en: ''
       },
@@ -427,6 +457,10 @@ export default {
       hideUploadBenefitImage: false,
       limitCountBenefitImage: 1,
       BenefitImageList: [],
+      // 商品视频
+      hideUploadProductVideo: false,
+      limitCountProductVideo: 1,
+      ProductVideoList: [],
       product_status: [
         { 'flag': 1, 'msg': '新品' },
         { 'flag': 2, 'msg': '畅销' },
@@ -560,11 +594,11 @@ export default {
     },
     // 请求后端接口创建商品
     submitRequestProduct() {
-      console.log(this.form)
       const postForm = new FormData()
       for (const val in this.form) {
         postForm.append(val, this.form[val])
       }
+      this.loading = true
       productStore(postForm).then((response) => {
         if (response.code === 20001) {
           this.$message({
@@ -578,6 +612,7 @@ export default {
             type: 'error'
           })
         }
+        this.loading = false
       })
     },
     // 创建商品成功后初始化数据
@@ -588,10 +623,12 @@ export default {
       this.mainImageList = []
       this.mainImage2List = []
       this.BenefitImageList = []
+      this.ProductVideoList = []
       this.hideUploadThumbnail = false
       this.hideUploadMainImage = false
       this.hideUploadMainImage2 = false
       this.hideUploadBenefitImage = false
+      this.hideUploadProductVideo = false
     },
     // 调起富文本dialog
     handleDescribes(flag) {
@@ -705,6 +742,15 @@ export default {
       this.hideUploadBenefitImage = fileList.length >= this.limitCountBenefitImage
       this.form.benefit_image = null
     },
+    // 产品视频
+    handleProductVideoChange(file, fileList) {
+      this.hideUploadProductVideo = fileList.length >= this.limitCountProductVideo
+      this.form.product_video = file.raw
+    },
+    handleProductVideoRemove(file, fileList) {
+      this.hideUploadProductVideo = fileList.length >= this.limitCountProductVideo
+      this.form.product_videl = null
+    },
     // 关闭页面
     closePageButton() {
       this.$store.dispatch('tagsView/delView', this.$route)
@@ -725,6 +771,9 @@ export default {
     display: none;
   }
   .hideBenefitImage .el-upload--picture-card {
+    display: none;
+  }
+  .hideProductVideo .el-upload--picture-card {
     display: none;
   }
   .productDetailText {

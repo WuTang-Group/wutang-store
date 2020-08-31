@@ -14,6 +14,7 @@ import productRouter from '@/router/modules/product'
 import logisticsRouter from '@/router/modules/logistics'
 import paymentRouter from '@/router/modules/payment'
 import logManage from '@/router/modules/logManage'
+import assetImgRouter from '@/router/modules/assetImg'
 
 // https://webpack.js.org/guides/dependency-management/#requirecontext
 // const modulesFiles = require.context('./modules', true, /\.js$/)
@@ -123,6 +124,7 @@ export const asyncRoutes = [
   purchaseOrder,
   logisticsRouter,
   paymentRouter,
+  assetImgRouter,
   {
     path: '/user-center',
     component: Layout,

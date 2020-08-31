@@ -1,8 +1,8 @@
 {
     "variables": [],
     "info": {
-        "name": "WuTangStore API",
-        "_postman_id": "f9380cd8-0c31-4610-85b9-b79fcac1e935",
+        "name": "Laravel API",
+        "_postman_id": "e2e38780-fba2-49cb-b266-5204c678b512",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -16,18 +16,18 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/category_stories",
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "sit",
+                                    "value": "ratione",
                                     "description": "\u9875\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page_limit",
-                                    "value": "quas",
+                                    "value": "similique",
                                     "description": "\u6ca1\u9875\u6570\u91cf",
                                     "disabled": false
                                 }
@@ -57,7 +57,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/category_stories\/:CategoriesStoriesId",
                             "query": []
                         },
@@ -85,42 +85,42 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/category_stories",
                             "query": [
                                 {
                                     "key": "title",
-                                    "value": "doloremque",
+                                    "value": "maiores",
                                     "description": "\u5206\u7c7b\u6545\u4e8b\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "title_en",
-                                    "value": "dicta",
+                                    "value": "totam",
                                     "description": "\u82f1\u6587\u6545\u4e8b\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "nam",
+                                    "value": "reiciendis",
                                     "description": "\u5206\u7c7b\u7b80\u4ecb",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description_en",
-                                    "value": "saepe",
+                                    "value": "quaerat",
                                     "description": "\u82f1\u6587\u5206\u7c7b\u7b80\u4ecb",
                                     "disabled": false
                                 },
                                 {
                                     "key": "banner",
-                                    "value": "doloremque",
+                                    "value": "ipsam",
                                     "description": "\u6545\u4e8bbanner",
                                     "disabled": false
                                 },
                                 {
                                     "key": "product_category_id",
-                                    "value": "ipsam",
+                                    "value": "libero",
                                     "description": "\u5c5e\u4e8e\u4ea7\u54c1\u7c7bID",
                                     "disabled": false
                                 }
@@ -150,42 +150,42 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/category_stories\/:CategoriesStoriesId",
                             "query": [
                                 {
                                     "key": "title",
-                                    "value": "ea",
+                                    "value": "sunt",
                                     "description": "\u5206\u7c7b\u6545\u4e8b\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "title_en",
-                                    "value": "amet",
+                                    "value": "iure",
                                     "description": "\u82f1\u6587\u6545\u4e8b\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "animi",
+                                    "value": "expedita",
                                     "description": "\u5206\u7c7b\u7b80\u4ecb",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description_en",
-                                    "value": "omnis",
+                                    "value": "eligendi",
                                     "description": "\u82f1\u6587\u5206\u7c7b\u7b80\u4ecb",
                                     "disabled": false
                                 },
                                 {
                                     "key": "banner",
-                                    "value": "voluptatem",
+                                    "value": "est",
                                     "description": "\u6545\u4e8bbanner",
                                     "disabled": false
                                 },
                                 {
                                     "key": "product_category_id",
-                                    "value": "consequatur",
+                                    "value": "sunt",
                                     "description": "\u5c5e\u4e8e\u4ea7\u54c1\u7c7bID",
                                     "disabled": false
                                 }
@@ -215,7 +215,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/category_stories\/:CategoriesStoriesId",
                             "query": []
                         },
@@ -249,7 +249,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/testUpload",
                             "query": []
                         },
@@ -283,18 +283,18 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/logs\/:collection",
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "dolorum",
+                                    "value": "voluptas",
                                     "description": "optional \u9875\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page_limit",
-                                    "value": "recusandae",
+                                    "value": "a",
                                     "description": "optional \u6bcf\u9875\u663e\u793a\u6570\u76ee",
                                     "disabled": false
                                 }
@@ -324,12 +324,12 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/logs\/:collection",
                             "query": [
                                 {
                                     "key": "ids",
-                                    "value": "autem",
+                                    "value": "sed",
                                     "description": "ID\u503c(array)",
                                     "disabled": false
                                 }
@@ -365,18 +365,18 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/order",
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "et",
+                                    "value": "doloribus",
                                     "description": "\u9875\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page_limit",
-                                    "value": "quis",
+                                    "value": "molestiae",
                                     "description": "\u6bcf\u9875\u6570\u91cf",
                                     "disabled": false
                                 }
@@ -406,36 +406,36 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/order",
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "iste",
+                                    "value": "dolor",
                                     "description": "\u9875\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page_limit",
-                                    "value": "adipisci",
+                                    "value": "inventore",
                                     "description": "\u6bcf\u9875\u6570\u91cf",
                                     "disabled": false
                                 },
                                 {
                                     "key": "username",
-                                    "value": "ducimus",
+                                    "value": "vero",
                                     "description": "\u7528\u6237\u540d",
                                     "disabled": false
                                 },
                                 {
                                     "key": "order_no",
-                                    "value": "laborum",
+                                    "value": "modi",
                                     "description": "\u8ba2\u5355\u53f7",
                                     "disabled": false
                                 },
                                 {
                                     "key": "order_status",
-                                    "value": "quia",
+                                    "value": "modi",
                                     "description": "\u8ba2\u5355\u72b6\u6001",
                                     "disabled": false
                                 }
@@ -471,18 +471,18 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/product",
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "voluptatibus",
+                                    "value": "ea",
                                     "description": "\u9875\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page_limit",
-                                    "value": "ut",
+                                    "value": "hic",
                                     "description": "\u6bcf\u9875\u6570\u91cf",
                                     "disabled": false
                                 }
@@ -512,7 +512,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/product\/:product_slug",
                             "query": []
                         },
@@ -540,180 +540,180 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/product",
                             "query": [
                                 {
                                     "key": "product_category_id",
-                                    "value": "eum",
+                                    "value": "voluptas",
                                     "description": "\u6240\u5c5e\u4ea7\u54c1\u5206\u7c7bid",
                                     "disabled": false
                                 },
                                 {
                                     "key": "product_name",
-                                    "value": "autem",
+                                    "value": "et",
                                     "description": "\u5546\u54c1\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "product_name_en",
-                                    "value": "officia",
+                                    "value": "quia",
                                     "description": "\u5546\u54c1\u82f1\u6587\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "thumbnail",
-                                    "value": "rerum",
+                                    "value": "et",
                                     "description": "\u4ea7\u54c1\u7f29\u7565\u56fe",
                                     "disabled": false
                                 },
                                 {
                                     "key": "slug",
-                                    "value": "neque",
+                                    "value": "assumenda",
                                     "description": "\u5bfc\u822a\u540d\u79f0:\u5373url",
                                     "disabled": false
                                 },
                                 {
                                     "key": "short_description",
-                                    "value": "repellendus",
+                                    "value": "impedit",
                                     "description": "\u7b80\u77ed\u4ecb\u7ecd",
                                     "disabled": false
                                 },
                                 {
                                     "key": "short_description_en",
-                                    "value": "tempora",
+                                    "value": "autem",
                                     "description": "\u82f1\u6587\u7b80\u77ed\u4ecb\u7ecd",
                                     "disabled": false
                                 },
                                 {
                                     "key": "price",
-                                    "value": "saepe",
+                                    "value": "aut",
                                     "description": "\u4ef7\u683c",
                                     "disabled": false
                                 },
                                 {
                                     "key": "sale_price",
-                                    "value": "voluptatem",
+                                    "value": "omnis",
                                     "description": "\u4f18\u60e0\u4ef7",
                                     "disabled": false
                                 },
                                 {
                                     "key": "stock",
-                                    "value": "veritatis",
+                                    "value": "aliquid",
                                     "description": "\u5e93\u5b58\u91cf",
                                     "disabled": false
                                 },
                                 {
                                     "key": "seo_title",
-                                    "value": "inventore",
+                                    "value": "necessitatibus",
                                     "description": "\u7f51\u9875title",
                                     "disabled": false
                                 },
                                 {
                                     "key": "seo_keyword",
-                                    "value": "voluptatem",
+                                    "value": "iusto",
                                     "description": "\u7f51\u9875\u5173\u952e\u5b57",
                                     "disabled": false
                                 },
                                 {
                                     "key": "seo_description",
-                                    "value": "sunt",
+                                    "value": "qui",
                                     "description": "\u7f51\u9875\u63cf\u8ff0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "benefit",
-                                    "value": "tempora",
+                                    "value": "ullam",
                                     "description": "\u4ea7\u54c1\u529f\u6548",
                                     "disabled": false
                                 },
                                 {
                                     "key": "benefit_en",
-                                    "value": "dolores",
+                                    "value": "non",
                                     "description": "\u82f1\u6587\u4ea7\u54c1\u529f\u6548",
                                     "disabled": false
                                 },
                                 {
                                     "key": "tech_description",
-                                    "value": "ut",
+                                    "value": "aut",
                                     "description": "\u79d1\u6280\u4ecb\u7ecd",
                                     "disabled": false
                                 },
                                 {
                                     "key": "tech_description_en",
-                                    "value": "esse",
+                                    "value": "illum",
                                     "description": "\u82f1\u6587\u79d1\u6280\u4ecb\u7ecd",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "voluptas",
+                                    "value": "molestias",
                                     "description": "\u4ea7\u54c1\u7ec6\u8282",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description_en",
-                                    "value": "consectetur",
+                                    "value": "qui",
                                     "description": "\u82f1\u6587\u4ea7\u54c1\u7ec6\u8282",
                                     "disabled": false
                                 },
                                 {
                                     "key": "usage",
-                                    "value": "animi",
+                                    "value": "nobis",
                                     "description": "\u4f7f\u7528\u65b9\u6cd5",
                                     "disabled": false
                                 },
                                 {
                                     "key": "usage_en",
-                                    "value": "et",
+                                    "value": "autem",
                                     "description": "\u82f1\u6587\u4f7f\u7528\u65b9\u6cd5",
                                     "disabled": false
                                 },
                                 {
                                     "key": "main_image",
-                                    "value": "illo",
+                                    "value": "assumenda",
                                     "description": "\u9875\u9762\u4e3b\u56fe",
                                     "disabled": false
                                 },
                                 {
                                     "key": "main_image_2",
-                                    "value": "iure",
+                                    "value": "non",
                                     "description": "\u9875\u9762\u4e3b\u56fe2:\u7528\u4e8e\u8f83\u4f4e\u5206\u8fa8\u7387\u8bbe\u5907",
                                     "disabled": false
                                 },
                                 {
                                     "key": "benefit_image",
-                                    "value": "laudantium",
+                                    "value": "nostrum",
                                     "description": "\u529f\u6548\u80cc\u666f\u56fe",
                                     "disabled": false
                                 },
                                 {
                                     "key": "product_video",
-                                    "value": "nam",
+                                    "value": "laudantium",
                                     "description": "\u4ea7\u54c1\u76f8\u5173\u89c6\u9891",
                                     "disabled": false
                                 },
                                 {
                                     "key": "status",
-                                    "value": "voluptas",
+                                    "value": "quia",
                                     "description": "\u5546\u54c1\u72b6\u6001\uff1a1\u65b0\u54c1\uff0c2\u7545\u9500\uff0c3\u4fc3\u9500\uff0c-1\u4e0b\u67b6",
                                     "disabled": false
                                 },
                                 {
                                     "key": "rating",
-                                    "value": "ratione",
+                                    "value": "veniam",
                                     "description": "\u5e73\u5747\u8bc4\u5206",
                                     "disabled": false
                                 },
                                 {
                                     "key": "sold_count",
-                                    "value": "sint",
+                                    "value": "ratione",
                                     "description": "\u9500\u91cf",
                                     "disabled": false
                                 },
                                 {
                                     "key": "review_count",
-                                    "value": "voluptatum",
+                                    "value": "et",
                                     "description": "\u8bc4\u4ef7\u6570\u91cf",
                                     "disabled": false
                                 }
@@ -743,180 +743,180 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/product\/:product_slug",
                             "query": [
                                 {
                                     "key": "product_category_id",
-                                    "value": "atque",
+                                    "value": "aliquid",
                                     "description": "\u6240\u5c5e\u4ea7\u54c1\u5206\u7c7bid",
                                     "disabled": false
                                 },
                                 {
                                     "key": "product_name",
-                                    "value": "corporis",
+                                    "value": "harum",
                                     "description": "\u5546\u54c1\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "product_name_en",
-                                    "value": "sint",
+                                    "value": "et",
                                     "description": "\u5546\u54c1\u82f1\u6587\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "thumbnail",
-                                    "value": "vel",
+                                    "value": "ut",
                                     "description": "\u4ea7\u54c1\u7f29\u7565\u56fe",
                                     "disabled": false
                                 },
                                 {
                                     "key": "slug",
-                                    "value": "fugiat",
+                                    "value": "sit",
                                     "description": "\u5bfc\u822a\u540d\u79f0:\u5373url",
                                     "disabled": false
                                 },
                                 {
                                     "key": "short_description",
-                                    "value": "consequatur",
+                                    "value": "nulla",
                                     "description": "\u7b80\u77ed\u4ecb\u7ecd",
                                     "disabled": false
                                 },
                                 {
                                     "key": "short_description_en",
-                                    "value": "perspiciatis",
+                                    "value": "doloremque",
                                     "description": "\u82f1\u6587\u7b80\u77ed\u4ecb\u7ecd",
                                     "disabled": false
                                 },
                                 {
                                     "key": "price",
-                                    "value": "enim",
+                                    "value": "accusamus",
                                     "description": "\u4ef7\u683c",
                                     "disabled": false
                                 },
                                 {
                                     "key": "sale_price",
-                                    "value": "pariatur",
+                                    "value": "rerum",
                                     "description": "\u4f18\u60e0\u4ef7",
                                     "disabled": false
                                 },
                                 {
                                     "key": "stock",
-                                    "value": "velit",
+                                    "value": "veritatis",
                                     "description": "\u5e93\u5b58\u91cf",
                                     "disabled": false
                                 },
                                 {
                                     "key": "seo_title",
-                                    "value": "enim",
+                                    "value": "incidunt",
                                     "description": "\u7f51\u9875title",
                                     "disabled": false
                                 },
                                 {
                                     "key": "seo_keyword",
-                                    "value": "culpa",
+                                    "value": "occaecati",
                                     "description": "\u7f51\u9875\u5173\u952e\u5b57",
                                     "disabled": false
                                 },
                                 {
                                     "key": "seo_description",
-                                    "value": "exercitationem",
+                                    "value": "dolores",
                                     "description": "\u7f51\u9875\u63cf\u8ff0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "benefit",
-                                    "value": "explicabo",
+                                    "value": "incidunt",
                                     "description": "\u4ea7\u54c1\u529f\u6548",
                                     "disabled": false
                                 },
                                 {
                                     "key": "benefit_en",
-                                    "value": "occaecati",
+                                    "value": "magnam",
                                     "description": "\u82f1\u6587\u4ea7\u54c1\u529f\u6548",
                                     "disabled": false
                                 },
                                 {
                                     "key": "tech_description",
-                                    "value": "quo",
+                                    "value": "quam",
                                     "description": "\u79d1\u6280\u4ecb\u7ecd",
                                     "disabled": false
                                 },
                                 {
                                     "key": "tech_description_en",
-                                    "value": "quis",
+                                    "value": "dolore",
                                     "description": "\u82f1\u6587\u79d1\u6280\u4ecb\u7ecd",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "maxime",
+                                    "value": "eaque",
                                     "description": "\u4ea7\u54c1\u7ec6\u8282",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description_en",
-                                    "value": "quia",
+                                    "value": "mollitia",
                                     "description": "\u82f1\u6587\u4ea7\u54c1\u7ec6\u8282",
                                     "disabled": false
                                 },
                                 {
                                     "key": "usage",
-                                    "value": "beatae",
+                                    "value": "et",
                                     "description": "\u4f7f\u7528\u65b9\u6cd5",
                                     "disabled": false
                                 },
                                 {
                                     "key": "usage_en",
-                                    "value": "fugit",
+                                    "value": "id",
                                     "description": "\u82f1\u6587\u4f7f\u7528\u65b9\u6cd5",
                                     "disabled": false
                                 },
                                 {
                                     "key": "main_image",
-                                    "value": "aut",
+                                    "value": "ad",
                                     "description": "\u9875\u9762\u4e3b\u56fe",
                                     "disabled": false
                                 },
                                 {
                                     "key": "main_image_2",
-                                    "value": "quas",
+                                    "value": "assumenda",
                                     "description": "\u9875\u9762\u4e3b\u56fe2:\u7528\u4e8e\u8f83\u4f4e\u5206\u8fa8\u7387\u8bbe\u5907",
                                     "disabled": false
                                 },
                                 {
                                     "key": "benefit_image",
-                                    "value": "similique",
+                                    "value": "occaecati",
                                     "description": "\u529f\u6548\u80cc\u666f\u56fe",
                                     "disabled": false
                                 },
                                 {
                                     "key": "product_video",
-                                    "value": "consequatur",
+                                    "value": "in",
                                     "description": "\u4ea7\u54c1\u76f8\u5173\u89c6\u9891",
                                     "disabled": false
                                 },
                                 {
                                     "key": "status",
-                                    "value": "esse",
+                                    "value": "fuga",
                                     "description": "\u5546\u54c1\u72b6\u6001\uff1a1\u65b0\u54c1\uff0c2\u7545\u9500\uff0c3\u4fc3\u9500\uff0c-1\u4e0b\u67b6",
                                     "disabled": false
                                 },
                                 {
                                     "key": "rating",
-                                    "value": "reiciendis",
+                                    "value": "ipsa",
                                     "description": "\u5e73\u5747\u8bc4\u5206",
                                     "disabled": false
                                 },
                                 {
                                     "key": "sold_count",
-                                    "value": "modi",
+                                    "value": "aliquid",
                                     "description": "\u9500\u91cf",
                                     "disabled": false
                                 },
                                 {
                                     "key": "review_count",
-                                    "value": "hic",
+                                    "value": "labore",
                                     "description": "\u8bc4\u4ef7\u6570\u91cf",
                                     "disabled": false
                                 }
@@ -946,7 +946,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/product\/:product_slug",
                             "query": []
                         },
@@ -980,18 +980,18 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/product_categories",
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "esse",
+                                    "value": "saepe",
                                     "description": "\u9875\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page_limit",
-                                    "value": "voluptate",
+                                    "value": "asperiores",
                                     "description": "\u6bcf\u9875\u6570\u91cf",
                                     "disabled": false
                                 }
@@ -1021,7 +1021,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/product_categories\/:category_slug",
                             "query": []
                         },
@@ -1049,60 +1049,60 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/product_categories",
                             "query": [
                                 {
                                     "key": "title",
-                                    "value": "fugit",
+                                    "value": "quas",
                                     "description": "\u5206\u7c7b\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "title_en",
-                                    "value": "quis",
+                                    "value": "veritatis",
                                     "description": "\u5206\u7c7b\u82f1\u6587\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "describe",
-                                    "value": "soluta",
+                                    "value": "nihil",
                                     "description": "\u5206\u7c7b\u63cf\u8ff0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "describe_en",
-                                    "value": "ut",
+                                    "value": "et",
                                     "description": "\u82f1\u6587\u5206\u7c7b\u63cf\u8ff0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "banner",
-                                    "value": "alias",
+                                    "value": "ratione",
                                     "description": "\u5206\u7c7bbanner\u56fe",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "rerum",
+                                    "value": "repellendus",
                                     "description": "\u5206\u7c7b\u7b80\u4ecb",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description_en",
-                                    "value": "voluptates",
+                                    "value": "facere",
                                     "description": "\u5206\u7c7b\u82f1\u6587\u7b80\u4ecb",
                                     "disabled": false
                                 },
                                 {
                                     "key": "img",
-                                    "value": "natus",
+                                    "value": "cumque",
                                     "description": "\u5206\u7c7b\u7b80\u4ecb\u56fe",
                                     "disabled": false
                                 },
                                 {
                                     "key": "parent_id",
-                                    "value": "dolores",
+                                    "value": "porro",
                                     "description": "\u4e0a\u7ea7\u5206\u7c7bID",
                                     "disabled": false
                                 }
@@ -1132,60 +1132,60 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/product_categories\/:category_slug",
                             "query": [
                                 {
                                     "key": "title",
-                                    "value": "aperiam",
+                                    "value": "et",
                                     "description": "\u5206\u7c7b\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "title_en",
-                                    "value": "sit",
+                                    "value": "illo",
                                     "description": "\u5206\u7c7b\u82f1\u6587\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "describe",
-                                    "value": "provident",
+                                    "value": "iste",
                                     "description": "\u5206\u7c7b\u63cf\u8ff0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "describe_en",
-                                    "value": "aut",
+                                    "value": "id",
                                     "description": "\u82f1\u6587\u5206\u7c7b\u63cf\u8ff0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "banner",
-                                    "value": "quia",
+                                    "value": "sunt",
                                     "description": "\u5206\u7c7bbanner\u56fe",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "ullam",
+                                    "value": "autem",
                                     "description": "\u5206\u7c7b\u7b80\u4ecb",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description_en",
-                                    "value": "sed",
+                                    "value": "qui",
                                     "description": "\u5206\u7c7b\u82f1\u6587\u7b80\u4ecb",
                                     "disabled": false
                                 },
                                 {
                                     "key": "img",
-                                    "value": "quis",
+                                    "value": "illum",
                                     "description": "\u5206\u7c7b\u7b80\u4ecb\u56fe",
                                     "disabled": false
                                 },
                                 {
                                     "key": "parent_id",
-                                    "value": "perferendis",
+                                    "value": "explicabo",
                                     "description": "\u4e0a\u7ea7\u5206\u7c7bID",
                                     "disabled": false
                                 }
@@ -1215,7 +1215,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/product_categories\/:category_slug",
                             "query": []
                         },
@@ -1249,7 +1249,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/product_sku",
                             "query": []
                         },
@@ -1277,36 +1277,36 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/product_sku",
                             "query": [
                                 {
                                     "key": "title",
-                                    "value": "dolorem",
+                                    "value": "reprehenderit",
                                     "description": "sku\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "in",
+                                    "value": "molestias",
                                     "description": "sku\u63cf\u8ff0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "price",
-                                    "value": "sapiente",
+                                    "value": "dolor",
                                     "description": "\u4ef7\u683c",
                                     "disabled": false
                                 },
                                 {
                                     "key": "stock",
-                                    "value": "nostrum",
+                                    "value": "nesciunt",
                                     "description": "\u5e93\u5b58",
                                     "disabled": false
                                 },
                                 {
                                     "key": "product_id",
-                                    "value": "corrupti",
+                                    "value": "vel",
                                     "description": "\u6240\u5c5e\u5546\u54c1id",
                                     "disabled": false
                                 }
@@ -1336,36 +1336,36 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/product_sku\/:productSkuId",
                             "query": [
                                 {
                                     "key": "title",
-                                    "value": "consequatur",
+                                    "value": "esse",
                                     "description": "sku\u540d\u79f0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "description",
-                                    "value": "unde",
+                                    "value": "sequi",
                                     "description": "sku\u63cf\u8ff0",
                                     "disabled": false
                                 },
                                 {
                                     "key": "price",
-                                    "value": "ab",
+                                    "value": "quo",
                                     "description": "\u4ef7\u683c",
                                     "disabled": false
                                 },
                                 {
                                     "key": "stock",
-                                    "value": "qui",
+                                    "value": "quasi",
                                     "description": "\u5e93\u5b58",
                                     "disabled": false
                                 },
                                 {
                                     "key": "product_id",
-                                    "value": "facere",
+                                    "value": "hic",
                                     "description": "\u6240\u5c5e\u5546\u54c1id",
                                     "disabled": false
                                 }
@@ -1395,7 +1395,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/product_sku\/:productSkuId",
                             "query": []
                         },
@@ -1429,24 +1429,24 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/user",
                             "query": [
                                 {
                                     "key": "username",
-                                    "value": "architecto",
+                                    "value": "et",
                                     "description": "\u7528\u6237\u540d(\u9009\u586b)",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page",
-                                    "value": "officiis",
+                                    "value": "tempora",
                                     "description": "\u9875\u7801\uff0c\u9ed8\u8ba41",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page_limit",
-                                    "value": "voluptas",
+                                    "value": "eum",
                                     "description": "\u6bcf\u9875\u6570\u91cf\uff0c\u9ed8\u8ba420",
                                     "disabled": false
                                 }
@@ -1476,30 +1476,30 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/user\/:username",
                             "query": [
                                 {
                                     "key": "name",
-                                    "value": "iusto",
+                                    "value": "voluptatem",
                                     "description": "\u59d3\u540d",
                                     "disabled": false
                                 },
                                 {
                                     "key": "email",
-                                    "value": "nobis",
+                                    "value": "ut",
                                     "description": "\u90ae\u7bb1",
                                     "disabled": false
                                 },
                                 {
                                     "key": "phone",
-                                    "value": "temporibus",
+                                    "value": "mollitia",
                                     "description": "\u624b\u673a\u53f7",
                                     "disabled": false
                                 },
                                 {
                                     "key": "avatar",
-                                    "value": "aut",
+                                    "value": "harum",
                                     "description": "\u5934\u50cf",
                                     "disabled": false
                                 }
@@ -1529,7 +1529,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/user\/:username",
                             "query": []
                         },
@@ -1557,24 +1557,24 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/user\/reset_password\/:username",
                             "query": [
                                 {
                                     "key": "oldPassword",
-                                    "value": "porro",
+                                    "value": "labore",
                                     "description": "\u65e7\u5bc6\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "newPassword",
-                                    "value": "soluta",
+                                    "value": "et",
                                     "description": "\u65b0\u5bc6\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "newPassword_confirmation",
-                                    "value": "ea",
+                                    "value": "qui",
                                     "description": "\u786e\u8ba4\u5bc6\u7801",
                                     "disabled": false
                                 }
@@ -1604,12 +1604,12 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/get_user",
                             "query": [
                                 {
                                     "key": "hash_id",
-                                    "value": "ut",
+                                    "value": "sit",
                                     "description": "hash\u52a0\u5bc6\u7684ID",
                                     "disabled": false
                                 }
@@ -1645,7 +1645,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/user_addresses",
                             "query": []
                         },
@@ -1673,48 +1673,48 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/user_addresses",
                             "query": [
                                 {
                                     "key": "province",
-                                    "value": "consequatur",
+                                    "value": "eum",
                                     "description": "\u7701",
                                     "disabled": false
                                 },
                                 {
                                     "key": "city",
-                                    "value": "itaque",
+                                    "value": "rerum",
                                     "description": "\u5e02",
                                     "disabled": false
                                 },
                                 {
                                     "key": "district",
-                                    "value": "praesentium",
+                                    "value": "suscipit",
                                     "description": "\u533a",
                                     "disabled": false
                                 },
                                 {
                                     "key": "address",
-                                    "value": "est",
+                                    "value": "distinctio",
                                     "description": "\u8be6\u7ec6\u5730\u5740",
                                     "disabled": false
                                 },
                                 {
                                     "key": "zip",
-                                    "value": "iusto",
+                                    "value": "magni",
                                     "description": "\u90ae\u7f16",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contact_name",
-                                    "value": "voluptate",
+                                    "value": "rerum",
                                     "description": "\u8054\u7cfb\u4eba",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contact_phone",
-                                    "value": "rem",
+                                    "value": "aut",
                                     "description": "\u624b\u673a\u53f7",
                                     "disabled": false
                                 }
@@ -1744,24 +1744,24 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/user_addresses\/:address_id",
                             "query": [
                                 {
                                     "key": "address_id",
-                                    "value": "ducimus",
+                                    "value": "voluptates",
                                     "description": "address\u8868id",
                                     "disabled": false
                                 },
                                 {
                                     "key": "province",
-                                    "value": "repellat",
+                                    "value": "maxime",
                                     "description": "\u7701",
                                     "disabled": false
                                 },
                                 {
                                     "key": "city",
-                                    "value": "eaque",
+                                    "value": "debitis",
                                     "description": "\u5e02",
                                     "disabled": false
                                 },
@@ -1773,13 +1773,13 @@
                                 },
                                 {
                                     "key": "address",
-                                    "value": "et",
+                                    "value": "eum",
                                     "description": "\u8be6\u7ec6\u5730\u5740",
                                     "disabled": false
                                 },
                                 {
                                     "key": "zip",
-                                    "value": "ipsum",
+                                    "value": "voluptatum",
                                     "description": "\u90ae\u7f16",
                                     "disabled": false
                                 },
@@ -1791,7 +1791,7 @@
                                 },
                                 {
                                     "key": "contact_phone",
-                                    "value": "ullam",
+                                    "value": "voluptas",
                                     "description": "\u624b\u673a\u53f7",
                                     "disabled": false
                                 }
@@ -1821,12 +1821,12 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/user_addresses\/:address_id",
                             "query": [
                                 {
                                     "key": "address_id",
-                                    "value": "consequuntur",
+                                    "value": "qui",
                                     "description": "address\u8868id",
                                     "disabled": false
                                 }
@@ -1862,7 +1862,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/user_profiles",
                             "query": []
                         },
@@ -1890,12 +1890,12 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/user_profiles\/:profile_id",
                             "query": [
                                 {
                                     "key": "profile_id",
-                                    "value": "nostrum",
+                                    "value": "doloremque",
                                     "description": "profile\u8868id",
                                     "disabled": false
                                 }
@@ -1925,12 +1925,12 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "admin\/user_profiles\/:profile",
                             "query": [
                                 {
                                     "key": "profile_id",
-                                    "value": "molestiae",
+                                    "value": "quo",
                                     "description": "profile\u8868id",
                                     "disabled": false
                                 }
@@ -1966,7 +1966,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/auth\/register",
                             "query": []
                         },
@@ -1983,7 +1983,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"name\": \"cumque\",\n    \"username\": \"facere\",\n    \"password\": \"voluptates\",\n    \"captcha_key\": \"numquam\",\n    \"captcha_code\": \"voluptatibus\",\n    \"password_question_id\": 8,\n    \"password_answer\": \"sunt\"\n}"
+                            "raw": "{\n    \"name\": \"quaerat\",\n    \"username\": \"dolorem\",\n    \"password\": \"magni\",\n    \"captcha_key\": \"veritatis\",\n    \"captcha_code\": \"autem\",\n    \"password_question_id\": 16,\n    \"password_answer\": \"rerum\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -1994,7 +1994,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/question_list",
                             "query": []
                         },
@@ -2022,12 +2022,12 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/questions",
                             "query": [
                                 {
                                     "key": "username",
-                                    "value": "quis",
+                                    "value": "omnis",
                                     "description": "\u7528\u6237\u540d",
                                     "disabled": false
                                 }
@@ -2057,7 +2057,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/auth\/login",
                             "query": []
                         },
@@ -2074,7 +2074,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"username\": \"illo\",\n    \"password\": \"nesciunt\"\n}"
+                            "raw": "{\n    \"username\": \"qui\",\n    \"password\": \"magni\"\n}"
                         },
                         "description": "\u901a\u8fc7\u767b\u5f55\u4fe1\u606f\u83b7\u53d6JWT\u51ed\u8bc1",
                         "response": []
@@ -2085,36 +2085,36 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/password_reset",
                             "query": [
                                 {
                                     "key": "username",
-                                    "value": "officiis",
+                                    "value": "numquam",
                                     "description": "\u7528\u6237\u540d",
                                     "disabled": false
                                 },
                                 {
                                     "key": "password_question_id",
-                                    "value": "velit",
+                                    "value": "ipsum",
                                     "description": "\u5bc6\u4fdd\u95ee\u9898ID",
                                     "disabled": false
                                 },
                                 {
                                     "key": "password_answer",
-                                    "value": "sed",
+                                    "value": "iste",
                                     "description": "\u5bc6\u4fdd\u95ee\u9898\u7684\u7b54\u6848",
                                     "disabled": false
                                 },
                                 {
                                     "key": "password",
-                                    "value": "iusto",
+                                    "value": "laudantium",
                                     "description": "\u5bc6\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "password_confirmation",
-                                    "value": "autem",
+                                    "value": "in",
                                     "description": "\u4e8c\u6b21\u786e\u8ba4\u5bc6\u7801",
                                     "disabled": false
                                 }
@@ -2144,7 +2144,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/auth\/me",
                             "query": []
                         },
@@ -2172,7 +2172,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/auth\/logout",
                             "query": []
                         },
@@ -2200,7 +2200,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/auth\/refresh",
                             "query": []
                         },
@@ -2228,7 +2228,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/auth\/password_change",
                             "query": []
                         },
@@ -2245,7 +2245,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"oldPassword\": \"laboriosam\",\n    \"newPassword\": \"quia\",\n    \"newPassword_confirmation\": \"qui\"\n}"
+                            "raw": "{\n    \"oldPassword\": \"molestiae\",\n    \"newPassword\": \"quis\",\n    \"newPassword_confirmation\": \"est\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -2262,7 +2262,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/captchas",
                             "query": []
                         },
@@ -2296,7 +2296,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/orders",
                             "query": []
                         },
@@ -2324,12 +2324,12 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/order_details\/:no",
                             "query": [
                                 {
                                     "key": "no",
-                                    "value": "delectus",
+                                    "value": "qui",
                                     "description": "\u8ba2\u5355\u53f7",
                                     "disabled": false
                                 }
@@ -2359,7 +2359,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/orders",
                             "query": []
                         },
@@ -2376,7 +2376,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"address_id\": \"cumque\",\n    \"remark\": \"unde\"\n}"
+                            "raw": "{\n    \"address_id\": \"animi\",\n    \"remark\": \"dolorem\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -2387,7 +2387,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/orders\/retry",
                             "query": []
                         },
@@ -2404,7 +2404,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"no\": 8\n}"
+                            "raw": "{\n    \"no\": 3\n}"
                         },
                         "description": "",
                         "response": []
@@ -2417,22 +2417,22 @@
             "description": "\u652f\u4ed8\u7ba1\u7406",
             "item": [
                 {
-                    "name": "Request to alipay gateway pay\n\u53d1\u8d77\u652f\u4ed8\u5b9d\u7f51\u5173\u652f\u4ed8\u8bf7\u6c42(\u524d\u7aef)",
+                    "name": "Alipay gateway pay request\n\u53d1\u8d77\u652f\u4ed8\u5b9d\u7f51\u5173\u652f\u4ed8\u8bf7\u6c42(\u524d\u7aef)",
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/aligateway\/pay",
                             "query": [
                                 {
                                     "key": "no",
-                                    "value": "molestiae",
+                                    "value": "numquam",
                                     "description": "\u8ba2\u5355\u53f7",
                                     "disabled": false
                                 },
                                 {
                                     "key": "total_amount",
-                                    "value": "quo",
+                                    "value": "asperiores",
                                     "description": "\u603b\u91d1\u989d",
                                     "disabled": false
                                 }
@@ -2458,11 +2458,11 @@
                     }
                 },
                 {
-                    "name": "Alipay gateway return\n\u652f\u4ed8\u5b9d\u7f51\u5173\u652f\u4ed8\u540e\u7684\u540c\u6b65\u8df3\u8f6c(\u524d\u7aef)",
+                    "name": "Alipay gateway return\n\u652f\u4ed8\u5b9d\u7f51\u5173\u652f\u4ed8-\u540c\u6b65\u8df3\u8f6c(\u524d\u7aef)",
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/aligateway\/return",
                             "query": []
                         },
@@ -2486,11 +2486,11 @@
                     }
                 },
                 {
-                    "name": "Alipay gateway notify\n\u652f\u4ed8\u5b9d\u7f51\u5173\u652f\u4ed8\u540e\u7684\u5f02\u6b65\u901a\u77e5(\u670d\u52a1\u7aef)",
+                    "name": "Alipay gateway notify\n\u652f\u4ed8\u5b9d\u7f51\u5173\u652f\u4ed8-\u5f02\u6b65\u901a\u77e5(\u670d\u52a1\u7aef)",
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/aligateway\/notify",
                             "query": []
                         },
@@ -2514,22 +2514,22 @@
                     }
                 },
                 {
-                    "name": "Alipay request payment\n\u652f\u4ed8\u5b9d\u53d1\u8d77\u652f\u4ed8",
+                    "name": "Alipay web request payment\n\u652f\u4ed8\u5b9d\u7f51\u9875\u652f\u4ed8-\u53d1\u8d77\u652f\u4ed8",
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/alipay\/pay",
                             "query": [
                                 {
                                     "key": "no",
-                                    "value": "expedita",
+                                    "value": "beatae",
                                     "description": "\u8ba2\u5355\u53f7",
                                     "disabled": false
                                 },
                                 {
                                     "key": "total_amount",
-                                    "value": "quasi",
+                                    "value": "et",
                                     "description": "\u603b\u91d1\u989d",
                                     "disabled": false
                                 }
@@ -2555,11 +2555,11 @@
                     }
                 },
                 {
-                    "name": "Alipay return payment results\n\u652f\u4ed8\u5b9d\u524d\u7aef\u56de\u8c03\u9875\u9762",
+                    "name": "Alipay web return payment results\n\u652f\u4ed8\u5b9d\u7f51\u9875\u652f\u4ed8-\u524d\u7aef\u56de\u8c03\u9875\u9762",
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/alipay\/return",
                             "query": []
                         },
@@ -2583,12 +2583,109 @@
                     }
                 },
                 {
-                    "name": "Alipay notify payment results\n\u652f\u4ed8\u5b9d\u670d\u52a1\u5668\u7aef\u56de\u8c03",
+                    "name": "Alipay web notify payment results\n\u652f\u4ed8\u5b9d\u7f51\u9875\u652f\u4ed8-\u670d\u52a1\u5668\u7aef\u56de\u8c03",
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/alipay\/notify",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Alipay legacy express pay request\n\u652f\u4ed8\u5b9d\u5373\u65f6\u5230\u8d26-\u53d1\u8d77\u652f\u4ed8",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/ali_express\/pay",
+                            "query": [
+                                {
+                                    "key": "no",
+                                    "value": "veniam",
+                                    "description": "\u8ba2\u5355\u53f7",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "total_amount",
+                                    "value": "ullam",
+                                    "description": "\u603b\u91d1\u989d",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Alipay legacy express pay return\n\u652f\u4ed8\u5b9d\u5373\u65f6\u5230\u8d26-\u524d\u7aef\u56de\u8c03\n\u8bf4\u660e:\u7531\u4e8eOminipay\u9a8c\u7b7e\u6709\u95ee\u9898\uff0c\u6b64\u5904\u4f7f\u7528\u6211\u5c01\u88c5\u8fc7\u7684\u652f\u4ed8\u5b9d\u7684sdk\u8fdb\u884c\u9a8c\u7b7e",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/ali_express\/return",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Alipay legacy express pay notify\n\u652f\u4ed8\u5b9d\u5373\u65f6\u5230\u8d26-\u670d\u52a1\u7aef\u5f02\u6b65\u901a\u77e5",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/ali_express\/notify",
                             "query": []
                         },
                         "method": "POST",
@@ -2615,18 +2712,18 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/unionpay\/pay",
                             "query": [
                                 {
                                     "key": "no",
-                                    "value": "voluptatem",
+                                    "value": "voluptas",
                                     "description": "\u8ba2\u5355\u53f7",
                                     "disabled": false
                                 },
                                 {
                                     "key": "total_amount",
-                                    "value": "soluta",
+                                    "value": "molestiae",
                                     "description": "\u603b\u91d1\u989d",
                                     "disabled": false
                                 }
@@ -2656,7 +2753,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/unionpay\/return",
                             "query": []
                         },
@@ -2684,7 +2781,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/unionpay\/notify",
                             "query": []
                         },
@@ -2718,7 +2815,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/product_category",
                             "query": []
                         },
@@ -2746,7 +2843,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/product",
                             "query": []
                         },
@@ -2774,12 +2871,12 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/product_category\/:category_slug",
                             "query": [
                                 {
                                     "key": "category_slug",
-                                    "value": "est",
+                                    "value": "eos",
                                     "description": "\u5206\u7c7bslug",
                                     "disabled": false
                                 }
@@ -2809,12 +2906,12 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/product\/:product_slug",
                             "query": [
                                 {
                                     "key": "slug",
-                                    "value": "consequatur",
+                                    "value": "odit",
                                     "description": "\u5546\u54c1slug",
                                     "disabled": false
                                 }
@@ -2844,12 +2941,12 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/product_ids",
                             "query": [
                                 {
                                     "key": "id_list",
-                                    "value": "quas",
+                                    "value": "rerum",
                                     "description": "\u5546\u54c1id\u5217\u8868\uff08\u6570\u7ec4\uff09",
                                     "disabled": false
                                 }
@@ -2879,12 +2976,12 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/category_story\/:category_slug",
                             "query": [
                                 {
                                     "key": "category_slug",
-                                    "value": "omnis",
+                                    "value": "quia",
                                     "description": "\u5206\u7c7bslug",
                                     "disabled": false
                                 }
@@ -2914,18 +3011,18 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/product_new",
                             "query": [
                                 {
                                     "key": "page",
-                                    "value": "voluptates",
+                                    "value": "accusamus",
                                     "description": "\u9875\u7801",
                                     "disabled": false
                                 },
                                 {
                                     "key": "page_limit",
-                                    "value": "itaque",
+                                    "value": "rerum",
                                     "description": "\u6bcf\u9875\u6570\u91cf",
                                     "disabled": false
                                 }
@@ -2961,7 +3058,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/shop_carts",
                             "query": []
                         },
@@ -2989,7 +3086,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/shop_carts",
                             "query": []
                         },
@@ -3006,7 +3103,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"product_list\": [\n        {\n            \"product_id\": 13\n        }\n    ]\n}"
+                            "raw": "{\n    \"product_list\": [\n        {\n            \"product_id\": 18\n        }\n    ]\n}"
                         },
                         "description": "",
                         "response": []
@@ -3017,24 +3114,24 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/shop_carts\/:type",
                             "query": [
                                 {
                                     "key": "type",
-                                    "value": "quis",
+                                    "value": "earum",
                                     "description": "\u64cd\u4f5c\u7c7b\u578b,\u53ef\u4f20\u53c2\u6570\u4e3a:add(\u70b9\u51fb'+'\u65f6)\/reduce(\u70b9\u51fb'\u2014'\u65f6)\/fixed(\u9700\u4f20\u56fa\u5b9a\u6570\u91cf\u65f6)",
                                     "disabled": false
                                 },
                                 {
                                     "key": "product_id",
-                                    "value": "occaecati",
+                                    "value": "aut",
                                     "description": "rquired \u5546\u54c1ID",
                                     "disabled": false
                                 },
                                 {
                                     "key": "amount",
-                                    "value": "aliquam",
+                                    "value": "qui",
                                     "description": "optional \u53ef\u9009\u7684\u5546\u54c1\u6570\u91cf(type\u4e3afixed\u65f6\u9700\u4f20\u8be5\u53c2\u6570)",
                                     "disabled": false
                                 }
@@ -3064,12 +3161,12 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/shop_carts\/:product_id",
                             "query": [
                                 {
                                     "key": "product_id",
-                                    "value": "aut",
+                                    "value": "voluptas",
                                     "description": "\u5546\u54c1id",
                                     "disabled": false
                                 }
@@ -3105,7 +3202,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/user_addresses",
                             "query": []
                         },
@@ -3133,7 +3230,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/user_addresses",
                             "query": []
                         },
@@ -3150,7 +3247,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"province\": \"ut\",\n    \"city\": \"ea\",\n    \"district\": \"explicabo\",\n    \"address\": \"tempore\",\n    \"zip\": 9,\n    \"contact_name\": \"voluptatem\",\n    \"contact_phone\": 10\n}"
+                            "raw": "{\n    \"province\": \"non\",\n    \"city\": \"voluptatibus\",\n    \"district\": \"necessitatibus\",\n    \"address\": \"nemo\",\n    \"zip\": 7,\n    \"contact_name\": \"eius\",\n    \"contact_phone\": 6\n}"
                         },
                         "description": "",
                         "response": []
@@ -3161,48 +3258,48 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/user_addresses\/:address_id",
                             "query": [
                                 {
                                     "key": "province",
-                                    "value": "perferendis",
+                                    "value": "odio",
                                     "description": "\u7701",
                                     "disabled": false
                                 },
                                 {
                                     "key": "city",
-                                    "value": "fugiat",
+                                    "value": "nihil",
                                     "description": "\u5e02",
                                     "disabled": false
                                 },
                                 {
                                     "key": "district",
-                                    "value": "et",
+                                    "value": "iure",
                                     "description": "\u533a",
                                     "disabled": false
                                 },
                                 {
                                     "key": "address",
-                                    "value": "saepe",
+                                    "value": "illum",
                                     "description": "\u8be6\u7ec6\u5730\u5740",
                                     "disabled": false
                                 },
                                 {
                                     "key": "zip",
-                                    "value": "consequatur",
+                                    "value": "doloremque",
                                     "description": "\u90ae\u7f16",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contact_name",
-                                    "value": "officia",
+                                    "value": "ratione",
                                     "description": "\u8054\u7cfb\u4eba",
                                     "disabled": false
                                 },
                                 {
                                     "key": "contact_phone",
-                                    "value": "esse",
+                                    "value": "ex",
                                     "description": "\u624b\u673a\u53f7",
                                     "disabled": false
                                 }
@@ -3232,7 +3329,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/user_addresses\/:address_id",
                             "query": []
                         },
@@ -3266,7 +3363,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/user_profiles",
                             "query": []
                         },
@@ -3294,72 +3391,72 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/user_profiles",
                             "query": [
                                 {
                                     "key": "profile_id",
-                                    "value": "repudiandae",
+                                    "value": "repellat",
                                     "description": "profile\u8868id",
                                     "disabled": false
                                 },
                                 {
                                     "key": "phone",
-                                    "value": "ad",
+                                    "value": "non",
                                     "description": "\u8054\u7cfb\u65b9\u5f0f",
                                     "disabled": false
                                 },
                                 {
                                     "key": "real_name",
-                                    "value": "est",
+                                    "value": "voluptates",
                                     "description": "\u771f\u5b9e\u59d3\u540d",
                                     "disabled": false
                                 },
                                 {
                                     "key": "sex",
-                                    "value": "consequatur",
+                                    "value": "omnis",
                                     "description": "\u6027\u522b",
                                     "disabled": false
                                 },
                                 {
                                     "key": "birthday",
-                                    "value": "possimus",
+                                    "value": "accusantium",
                                     "description": "\u751f\u65e5",
                                     "disabled": false
                                 },
                                 {
                                     "key": "age",
-                                    "value": "temporibus",
+                                    "value": "blanditiis",
                                     "description": "\u5e74\u9f84",
                                     "disabled": false
                                 },
                                 {
                                     "key": "province",
-                                    "value": "commodi",
+                                    "value": "eos",
                                     "description": "\u7701",
                                     "disabled": false
                                 },
                                 {
                                     "key": "city",
-                                    "value": "qui",
+                                    "value": "impedit",
                                     "description": "\u5e02",
                                     "disabled": false
                                 },
                                 {
                                     "key": "district",
-                                    "value": "deserunt",
+                                    "value": "voluptatem",
                                     "description": "\u533a\/\u53bf",
                                     "disabled": false
                                 },
                                 {
                                     "key": "address",
-                                    "value": "veniam",
+                                    "value": "earum",
                                     "description": "\u8be6\u7ec6\u5730\u5740",
                                     "disabled": false
                                 },
                                 {
                                     "key": "zip",
-                                    "value": "quia",
+                                    "value": "ea",
                                     "description": "\u90ae\u7f16",
                                     "disabled": false
                                 }
@@ -3395,7 +3492,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/wish_list",
                             "query": []
                         },
@@ -3423,12 +3520,12 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/wish_list",
                             "query": [
                                 {
                                     "key": "product_id",
-                                    "value": "cumque",
+                                    "value": "dignissimos",
                                     "description": "integer required \u5546\u54c1id",
                                     "disabled": false
                                 }
@@ -3458,12 +3555,12 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/wish_list",
                             "query": [
                                 {
                                     "key": "product_id",
-                                    "value": "voluptas",
+                                    "value": "ipsam",
                                     "description": "\u5546\u54c1id",
                                     "disabled": false
                                 }
@@ -3499,54 +3596,54 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "api\/response_code",
                             "query": [
                                 {
                                     "key": 10001,
-                                    "value": "hic",
+                                    "value": "eaque",
                                     "description": "\u53c2\u6570\u6709\u8bef",
                                     "disabled": false
                                 },
                                 {
                                     "key": 10003,
-                                    "value": "ratione",
+                                    "value": "voluptatem",
                                     "description": "\u6570\u636e\u6709\u8bef",
                                     "disabled": false
                                 },
                                 {
                                     "key": 20001,
-                                    "value": "magnam",
+                                    "value": "architecto",
                                     "description": "\u64cd\u4f5c\u6210\u529f",
                                     "disabled": false
                                 },
                                 {
                                     "key": 40001,
-                                    "value": "corporis",
+                                    "value": "temporibus",
                                     "description": "\u7981\u6b62\u8bbf\u95ee",
                                     "disabled": false
                                 },
                                 {
                                     "key": 40003,
-                                    "value": "et",
+                                    "value": "aliquam",
                                     "description": "\u6743\u9650\u4e0d\u8db3",
                                     "disabled": false
                                 },
                                 {
                                     "key": 40004,
-                                    "value": "nostrum",
+                                    "value": "deleniti",
                                     "description": "\u67e5\u8be2\u4e3a\u7a7a",
                                     "disabled": false
                                 },
                                 {
                                     "key": 40005,
-                                    "value": "omnis",
+                                    "value": "a",
                                     "description": "\u8bf7\u6c42\u8fc7\u671f",
                                     "disabled": false
                                 },
                                 {
                                     "key": 50001,
-                                    "value": "voluptas",
+                                    "value": "voluptatibus",
                                     "description": "\u64cd\u4f5c\u5931\u8d25",
                                     "disabled": false
                                 }
@@ -3576,7 +3673,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "\/",
                             "query": []
                         },
@@ -3604,7 +3701,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "register",
                             "query": []
                         },
@@ -3632,7 +3729,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "forgot-password",
                             "query": []
                         },
@@ -3660,7 +3757,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "my-account",
                             "query": []
                         },
@@ -3688,7 +3785,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "my-account\/order\/:order_no",
                             "query": []
                         },
@@ -3716,7 +3813,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "my-account\/profile",
                             "query": []
                         },
@@ -3744,7 +3841,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "cart",
                             "query": []
                         },
@@ -3772,7 +3869,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "refresh_cart",
                             "query": []
                         },
@@ -3800,7 +3897,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "checkout",
                             "query": []
                         },
@@ -3828,7 +3925,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "refresh_addresses",
                             "query": []
                         },
@@ -3856,7 +3953,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "products",
                             "query": []
                         },
@@ -3884,7 +3981,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "product\/:slug",
                             "query": []
                         },
@@ -3912,7 +4009,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "product-category",
                             "query": []
                         },
@@ -3940,7 +4037,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "product-category\/:slug",
                             "query": []
                         },
@@ -3968,7 +4065,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "product-category\/:slug\/story",
                             "query": []
                         },
@@ -3996,7 +4093,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "wishlist",
                             "query": []
                         },
@@ -4024,7 +4121,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "the-house",
                             "query": []
                         },
@@ -4052,11 +4149,121 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "store.wutang.com",
+                            "host": "localhost",
                             "path": "the-house\/:slug",
                             "query": []
                         },
                         "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get assetImgs list\n\u83b7\u53d6\u9996\u9875\u9759\u6001\u8d44\u6e90\u5217\u8868",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "admin\/asset_img",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "tempora",
+                                    "description": "\u9875\u7801",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page_limit",
+                                    "value": "rerum",
+                                    "description": "\u6bcf\u9875\u6570\u91cf",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "save asset img\n\u4fdd\u5b58\u9996\u9875\u9759\u6001\u8d44\u6e90",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "admin\/asset_img",
+                            "query": [
+                                {
+                                    "key": "img",
+                                    "value": "laboriosam",
+                                    "description": "\u56fe\u7247\u5730\u5740",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "img_location",
+                                    "value": "temporibus",
+                                    "description": "\u56fe\u7247\u4f4d\u7f6e",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Delete img\n\u5220\u9664\u56fe\u7247\u8d44\u6e90",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "admin\/asset_img\/:assetImgId",
+                            "query": []
+                        },
+                        "method": "DELETE",
                         "header": [
                             {
                                 "key": "Content-Type",

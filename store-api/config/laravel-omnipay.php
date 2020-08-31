@@ -49,7 +49,7 @@ return [
                 'sellerEmail' => env('ALI_EXPRESS_SELLER_EMAIL'),  // 商户邮箱
                 'returnUrl' => env('ALI_EXPRESS_RETURN_URL'),  // 回调地址
                 'notifyUrl' => env('ALI_EXPRESS_NOTIFY_URL'),  // 异步通知地址
-                'cacert' => '/Users/gabbymrh/Desktop/cacert.pem' // cacert.pem文件位置
+                //'cacert' => resource_path('pay/alipay/cacert.pem') // cacert.pem文件位置
             ]
         ],
     ]

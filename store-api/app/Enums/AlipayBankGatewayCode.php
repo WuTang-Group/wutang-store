@@ -5,7 +5,7 @@ namespace App\Enums;
 use BenSampo\Enum\Enum;
 
 
-final class AlipayGatewayCode extends Enum
+final class AlipayBankGatewayCode extends Enum
 {
     // 平台受理
     const RequestSuccess = 'success';  // 受理成功

@@ -21,6 +21,11 @@ use Illuminate\{Contracts\Foundation\Application,
     Support\Facades\Log
 };
 
+/**
+ * @group [Payment] Payment
+ * 支付管理
+ * @package App\Http\Controllers\Payment
+ */
 class PaymentController extends Controller
 {
 

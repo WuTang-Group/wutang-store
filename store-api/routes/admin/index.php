@@ -78,8 +78,14 @@ Route::middleware('auth:api')->group(function () {
     /**
      * Logs
      */
-    Route::get('logs/{collection}','LoggerController@queryList')->name('logs.queryList');
-    Route::delete('logs/{collection}','LoggerController@destroy')->name('logs.destroy');
-    Route::post('testUpload','InvitationController@test');
+    Route::get('logs/{collection}', 'LoggerController@queryList')->name('logs.queryList');
+    Route::delete('logs/{collection}', 'LoggerController@destroy')->name('logs.destroy');
+    Route::post('testUpload', 'InvitationController@test');
+    /*
+     * img resource
+    */
+    Route::get('asset_img', 'AssetImgsController@queryList')->name('asset_img.queryList');
+    Route::post('asset_img', 'AssetImgsController@store')->name('asset_img.store');
+    Route::delete('asset_img/{assetImgId}', 'AssetImgsController@destroy')->name('asset_img.destroy');
 
 });

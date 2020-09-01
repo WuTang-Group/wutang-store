@@ -145,10 +145,11 @@ class ProductController extends Controller
             'rating',
             'spec',
             'sold_count',
-            'review_count'
+            'review_count',
+            'product_video'
         ]);
         $result = $this->productService->edit($queries, $product_slug);
-        return $result ? response()->json(ResponseData::requestSuccess()) : response()->json(ResponseData::requestFails($productRequest->all()));
+        return $result ? response()->json(ResponseData::requestSuccess()) : response()->json(ResponseData::requestFails($request->all()));
     }
 
     /**

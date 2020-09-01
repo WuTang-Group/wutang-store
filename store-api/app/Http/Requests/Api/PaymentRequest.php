@@ -3,7 +3,10 @@
 namespace App\Http\Requests\Api;
 
 
+use App\Enums\OrderStatusCode;
 use App\Http\Requests\FormRequest;
+use App\Models\Order;
+use Illuminate\Support\Facades\Cache;
 
 class PaymentRequest extends FormRequest
 {
@@ -22,8 +25,15 @@ class PaymentRequest extends FormRequest
             case 'payByAlipayExpress':
             {
                 return [
-                    'no' => 'required',
-                    'total_amount' => 'required'
+                    'no' => ['required','exists:order'],
+                    'total_amount' => 'required',
+                    'payment_key' => ['required',function($attribute, $value, $fail) {
+                        if(!Cache::get($value)){
+                            // 取消订单
+                            Order::whereNo($value)->update(['status' => OrderStatusCode::StatusCanceled]);
+                            return $fail('支付已超时');
+                        }
+                    }]
                 ];
             }
         }
@@ -33,7 +43,8 @@ class PaymentRequest extends FormRequest
     {
         return [
             'no.required' => '订单号必填',
-            'total_amount.required' => '总金额必填'
+            'total_amount.required' => '总金额必填',
+            'payment_key.required' => '支付key必填'
         ];
     }
 }

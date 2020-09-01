@@ -10,6 +10,7 @@ use App\Enums\UnionPayCode;
 use App\Events\OrderStatusUpdated;
 use App\Exceptions\InvalidRequestException;
 use App\Handlers\OrderHandler;
+use App\Http\Controllers\Api\CacheController;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\UserAddress;
@@ -46,6 +47,7 @@ class OrderService extends Service
     {
         $user = $this->user();
         try {
+            // 通过事务机制创建订单
             $orderRequest = DB::transaction(function () use ($user, $queries) {
                 $address = UserAddress::find($queries->address_id);
                 // 更新此地址 最后使用时间
@@ -94,13 +96,21 @@ class OrderService extends Service
 
                 return $order;
             });
+            // 缓存订单支付倒计时
+            $cacheResult = CacheController::orderPayment($orderRequest->no);
+            if(!$cacheResult){
+                return false;
+            }
+            return [
+                'order' => $orderRequest,
+                'cache_data' =>$cacheResult
+            ];
             // 取消下单队列通知，因为此时订单尚未完成，无需队列通知
             // event(new OrderStatusUpdated($orderRequest));
         } catch (\Exception $e) {
             Log::error('订单下单失败', ['message' => $e->getMessage()]);
             return false;
         }
-        return $orderRequest;
     }
 
     // 改变订单状态

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Enums\CacheKeyPrefix;
 use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
 use Gregwar\Captcha\CaptchaBuilder;
@@ -22,10 +23,10 @@ class CaptchaController extends Controller
      */
     public function store(CaptchaBuilder $captchaBuilder)
     {
-        $key = 'captcha-'.Str::random(15);
+        $key = CacheKeyPrefix::CaptchaCache.Str::random(15);
         $captcha = $captchaBuilder->build();
         $expiredAt = now()->addMinutes(15);  //15分钟有效期
-        \Cache::put($key, ['code'=>strtolower($captcha->getPhrase()),$expiredAt]);
+        \Cache::put($key, ['code'=>strtolower($captcha->getPhrase())],$expiredAt);
 
         $result = [
             'captcha_key' => $key,

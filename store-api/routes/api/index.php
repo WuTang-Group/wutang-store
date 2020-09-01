@@ -44,23 +44,23 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
      */
     Route::group(['middleware' => 'guest'], function () {
         /**
-         * 支付宝网关支付
+         * 支付宝-银行网关支付(第三方转发)
          */
-        Route::get('aligateway/pay', 'PaymentController@payByAlipayGateway')->name('aligateway.payByAlipayGateway');
-        Route::get('aligateway/return', 'PaymentController@alipayGatewayReturn')->name('aligateway.alipayGatewayReturn');
-        Route::post('aligateway/notify', 'PaymentController@alipayGatewayNotify')->name('aligateway.alipayGatewayNotify');
+        Route::get('alipay/bank_gateway/pay', 'PaymentController@payByAlipayBankGateway')->name('alipay.bank_gateway.payByAlipayBankGateway');
+        Route::get('alipay/bank_gateway/return', 'PaymentController@alipayBankGatewayReturn')->name('alipay.bank_gateway.alipayBankGatewayReturn');
+        Route::post('alipay/bank_gateway/notify', 'PaymentController@alipayBankGatewayNotify')->name('alipay.bank_gateway.alipayBankGatewayNotify');
         /**
-         * 支付宝电脑网页支付路由组(未启用)
+         * 支付宝-电脑网页支付
          */
-        Route::get('alipay/pay', 'PaymentController@payByAlipay')->name('alipay.payByAlipay');
-        Route::get('alipay/return', 'PaymentController@alipayReturn')->name('alipay.alipayReturn');
-        Route::post('alipay/notify', 'PaymentController@alipayNotify')->name('alipay.alipayNotify');
+        Route::get('alipay/aop_page/pay', 'PaymentController@payByAlipayAopPage')->name('alipay.aop_page.payByAlipayAopPage');
+        Route::get('alipay/aop_page/return', 'PaymentController@alipayAopPageReturn')->name('alipay.aop_page.alipayAopPageReturn');
+        Route::post('alipay/aop_page/notify', 'PaymentController@alipayAopPageNotify')->name('alipay.aop_page.alipayAopPageNotify');
         /**
-         * 支付宝即时到账支付路由组
+         * 支付宝-即时到账支付
          */
-        Route::get('ali_express/pay', 'PaymentController@payByAlipayExpress')->name('ali_express.payByAlipayExpress');
-        Route::get('ali_express/return', 'PaymentController@alipayExpressReturn')->name('ali_express.alipayExpressReturn');
-        Route::post('ali_express/notify', 'PaymentController@alipayExpressNotify')->name('ali_express.alipayExpressNotify');
+        Route::get('alipay/legacy_express/pay', 'PaymentController@payByAlipayLegacyExpress')->name('alipay.legacy_express.payByAlipayLegacyExpress');
+        Route::get('alipay/legacy_express/return', 'PaymentController@alipayLegacyExpressReturn')->name('alipay.legacy_express.alipayLegacyExpressReturn');
+        Route::post('alipay/legacy_express/notify', 'PaymentController@alipayLegacyExpressNotify')->name('alipay.legacy_express.alipayLegacyExpressNotify');
         /**
          * 银联支付路由
          */

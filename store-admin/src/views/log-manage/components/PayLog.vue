@@ -10,9 +10,10 @@
         :header-cell-style="{background:'#ebeef5'}"
         style="width: 100%"
       >
-        <el-table-column header-align="center" align="center" label="序号" type="index" />
+        <el-table-column header-align="center" align="center" label="序号" type="index" width="80" />
         <!-- <el-table-column header-align="center" align="center" prop="_id.$oid" label="ID" width="220" />-->
         <el-table-column header-align="center" show-overflow-tooltip prop="message" label="提示信息" width="250" />
+        <el-table-column header-align="center" show-overflow-tooltip prop="context.message.order_no" label="订单号" width="250" />
         <!--        <el-table-column header-align="center" show-overflow-tooltip prop="context.exception.file" label="具体文件" width="250" />-->
         <el-table-column header-align="center" show-overflow-tooltip prop="extra.url" label="请求URI" width="250" />
         <el-table-column header-align="center" prop="extra.ip" label="IP地址" width="120" />

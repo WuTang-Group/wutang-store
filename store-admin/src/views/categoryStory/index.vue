@@ -29,7 +29,7 @@
         :header-cell-style="{background:'#ebeef5'}"
       >
         <el-table-column type="index" header-align="center" align="center" label="序号" width="60" />
-        <el-table-column header-align="center" label="故事名称" align="center" width="80">
+        <el-table-column header-align="center" label="故事名称" align="center">
           <template slot-scope="scope">
             <span :class="{active: false}" @mouseover="handleMouseEnter()" @mouseleave="handleMouseMove()">
               <router-link :to="{ name: 'ViewUpdateStory', params: {'status': 'view', 'story_id': scope.row.id} }">
@@ -38,7 +38,7 @@
             </span>
           </template>
         </el-table-column>
-        <el-table-column header-align="center" label="故事名称(英文)" prop="title_en" align="center" width="80">
+        <el-table-column header-align="center" label="故事名称(英文)" prop="title_en" align="center">
           <template slot-scope="scope">
             <p v-html="scope.row.title_en" />
           </template>

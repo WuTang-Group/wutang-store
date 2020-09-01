@@ -1,21 +1,21 @@
 <template>
   <div class="app-container">
     <el-card v-loading="loading" class="box-card-header" shadow="hover" style="margin-bottom: 10px">
-      <el-form ref="formRules" :model="form" :rules="formRules" :inline="true" :disabled="formDisable" label-position="right" label-width="120px">
+      <el-form ref="formRules" :model="form" :rules="formRules" :inline="true" label-position="right" label-width="120px">
         <el-row>
           <el-col :span="7">
             <el-form-item label="商品名称" prop="product_name">
-              <el-input v-model="form.product_name" />
+              <el-input v-model="form.product_name" :readonly="formDisable" />
             </el-form-item>
           </el-col>
           <el-col :span="7">
             <el-form-item label="商品英文名称" prop="product_name_en">
-              <el-input v-model="form.product_name_en" />
+              <el-input v-model="form.product_name_en" :readonly="formDisable" />
             </el-form-item>
           </el-col>
           <el-col :span="7">
             <el-form-item label="商品所属类目" prop="product_category_id">
-              <el-select v-model="form.product_category_id" placeholder="请选择" style="width: 190px">
+              <el-select v-model="form.product_category_id" placeholder="请选择" :disabled="formDisable" style="width: 190px">
                 <el-option
                   v-for="item in product_category"
                   :key="item.id"
@@ -29,12 +29,12 @@
         <el-row>
           <el-col :span="7">
             <el-form-item label="库存量" prop="stock">
-              <el-input v-model="form.stock" />
+              <el-input v-model="form.stock" :readonly="formDisable" />
             </el-form-item>
           </el-col>
           <el-col :span="7">
             <el-form-item label="状态" prop="status">
-              <el-select v-model="form.status" placeholder="请选择" style="width: 190px">
+              <el-select v-model="form.status" placeholder="请选择" :disabled="formDisable" style="width: 190px">
                 <el-option
                   v-for="item in product_status"
                   :key="item.flag"
@@ -46,53 +46,53 @@
           </el-col>
           <el-col :span="7">
             <el-form-item label="商品规格" prop="spec">
-              <el-input v-model="form.spec" />
+              <el-input v-model="form.spec" :readonly="formDisable" />
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="7">
             <el-form-item label="价格" prop="price">
-              <el-input v-model="form.price" />
+              <el-input v-model="form.price" :readonly="formDisable" />
             </el-form-item>
           </el-col>
           <el-col :span="7">
             <el-form-item label="优惠价格" prop="sale_price">
-              <el-input v-model="form.sale_price" />
+              <el-input v-model="form.sale_price" :readonly="formDisable" />
             </el-form-item>
           </el-col>
           <el-col :span="7">
             <el-form-item label="销量" prop="sold_count">
-              <el-input v-model="form.sold_count" />
+              <el-input v-model="form.sold_count" :readonly="formDisable" />
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="7">
             <el-form-item label="平均评分" prop="rating">
-              <el-input v-model="form.rating" />
+              <el-input v-model="form.rating" :readonly="formDisable" />
             </el-form-item>
           </el-col>
           <el-col :span="7">
             <el-form-item label="评价数量" prop="review_count">
-              <el-input v-model="form.review_count" />
+              <el-input v-model="form.review_count" :readonly="formDisable" />
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="7">
             <el-form-item label="网页title (SEO)" prop="seo_title">
-              <el-input v-model="form.seo_title" />
+              <el-input v-model="form.seo_title" :readonly="formDisable" />
             </el-form-item>
           </el-col>
           <el-col :span="7">
             <el-form-item label="网页关键字 (SEO)" prop="seo_keyword">
-              <el-input v-model="form.seo_keyword" />
+              <el-input v-model="form.seo_keyword" :readonly="formDisable" />
             </el-form-item>
           </el-col>
           <el-col :span="7">
             <el-form-item label="网页描述(SEO)" prop="seo_description">
-              <el-input v-model="form.seo_description" />
+              <el-input v-model="form.seo_description" :readonly="formDisable" />
             </el-form-item>
           </el-col>
         </el-row>
@@ -582,7 +582,7 @@ export default {
       productDetail(this.product_slug).then(response => {
         this.form = response.data
         // 图片上传初始图片
-        if (this.form.product_video) {
+        if (this.form.product_video && this.form.product_video !== 'null') {
           this.ProductVideoList.push({ 'url': this.form.product_video })
           this.hideUploadProductVideo = true
         }
@@ -609,7 +609,6 @@ export default {
     submitProduct(formName) {
       if (formName) {
         // 表单验证
-        console.log(this.form)
         this.$refs[formName].validate((valid) => {
           // 表单验证通过
           if (valid) {
@@ -642,7 +641,6 @@ export default {
     // 请求后端接口更新商品
     submitRequestProduct() {
       const postForm = new FormData()
-      console.log(this.form)
       // 添加数据到formdata对象中
       for (const val in this.form) {
         postForm.append(val, this.form[val])
@@ -787,20 +785,6 @@ export default {
       this.hideUploadProductVideo = fileList.length >= this.limitCountProductVideo
       this.form.product_video = null
     },
-    // // 图片上传验证
-    // beforeAvatarUpload(file) {
-    //   console.log(file)
-    //   const isJPG = file.raw.type === 'video/mp4'
-    //   const isLt2M = file.raw.size / 1024 / 1024 < 50
-    //   if (!isJPG) {
-    //     this.$message.error('上传视频格式只能是 mp4 格式!')
-    //     return false
-    //   } else if (!isLt2M) {
-    //     this.$message.error('上传视频大小不能超过 50MB!')
-    //     return false
-    //   }
-    //   return true
-    // },
     // 关闭页面
     closePageButton() {
       this.$store.dispatch('tagsView/delView', this.$route)

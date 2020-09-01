@@ -9,7 +9,7 @@
         <el-row :gutter="10">
           <el-col :span="12">
             <el-form-item label="上级类目">
-              <el-input v-if="formDisable" v-model="categoryDetail.parent.title" :disabled="formDisable" style="width: 400px" />
+              <el-input v-if="formDisable" v-model="categoryDetail.parent.title" :readonly="formDisable" style="width: 400px" />
               <el-select v-else v-model="categoryDetail.parent_id" placeholder="请选择" style="width: 400px">
                 <el-option
                   v-for="item in parentCategory"
@@ -24,12 +24,12 @@
         <el-row :gutter="10">
           <el-col :span="12">
             <el-form-item label="类目名称">
-              <el-input v-model="categoryDetail.title" :disabled="formDisable" style="width: 400px" />
+              <el-input v-model="categoryDetail.title" :readonly="formDisable" style="width: 400px" />
             </el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item label="类目英文名称">
-              <el-input v-model="categoryDetail.title_en" :disabled="formDisable" style="width: 370px" />
+              <el-input v-model="categoryDetail.title_en" :readonly="formDisable" style="width: 370px" />
             </el-form-item>
           </el-col>
         </el-row>

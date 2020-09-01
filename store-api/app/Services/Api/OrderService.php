@@ -3,7 +3,7 @@
 namespace App\Services\Api;
 
 use App\Enums\AlipayCode;
-use App\Enums\AlipayGatewayCode;
+use App\Enums\AlipayBankGatewayCode;
 use App\Enums\LoggerCollection;
 use App\Enums\OrderStatusCode;
 use App\Enums\UnionPayCode;
@@ -139,7 +139,7 @@ class OrderService extends Service
                         ]);
                     }
                     break;
-                case AlipayGatewayCode::PaySuccess:
+                case AlipayBankGatewayCode::PaySuccess:
                     {
                         $order = $this->order->whereNo($queries['order_no'])->update([
                             'status' => OrderStatusCode::StatusPlaced,
@@ -159,7 +159,7 @@ class OrderService extends Service
                         Log::info('支付宝网关支付成功', ['message' => $order]);
                     }
                     break;
-                case AlipayGatewayCode::PayFaild:
+                case AlipayBankGatewayCode::PayFaild:
                     {
                         $order = $this->order->whereNo($queries['order_no'])->update([
                             'status' => OrderStatusCode::StatusReceived,

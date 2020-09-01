@@ -11,8 +11,7 @@ use App\Http\ {
 };
 use App\Services\Api\OrderService;
 use Exception;
-use Illuminate\{
-    Contracts\Foundation\Application,
+use Illuminate\{Contracts\Foundation\Application,
     Contracts\Routing\ResponseFactory,
     Http\RedirectResponse,
     Http\Request,
@@ -42,6 +41,7 @@ class PaymentController extends Controller
      * 银联支付-发起支付
      * @queryParam no required 订单号
      * @queryParam total_amount required 总金额
+     * @queryParam payment_key required 支付key
      * @param PaymentRequest $request
      * @return Application|ResponseFactory|Response
      */
@@ -61,7 +61,7 @@ class PaymentController extends Controller
         try {
             $response = $gateway->purchase($order)->send();
             //$response->redirect(); // 跳转支付
-            return response(ResponseData::requestSuccess(['pay' => $response->getRedirectUrl()]));
+            return response(ResponseData::requestSuccess(['pay_url' => $response->getRedirectUrl()]));
         } catch (\Exception $e) {
             Log::error('支付宝网关-支付发起失败', ['message' => [
                 'msg' => $e->getMessage(),
@@ -132,6 +132,7 @@ class PaymentController extends Controller
      * 支付宝网页支付-发起支付
      * @queryParam no required 订单号
      * @queryParam total_amount required 总金额
+     * @queryParam payment_key required 支付key
      * @param PaymentRequest $request
      * @return mixed
      */
@@ -222,6 +223,7 @@ class PaymentController extends Controller
      * 发起支付宝网关支付请求(前端)
      * @queryParam no required 订单号
      * @queryParam total_amount required 总金额
+     * @queryParam payment_key required 支付key
      * @param PaymentRequest $request
      * @return string
      */
@@ -315,6 +317,7 @@ class PaymentController extends Controller
      * 支付宝即时到账-发起支付
      * @queryParam no required 订单号
      * @queryParam total_amount required 总金额
+     * @queryParam payment_key required 支付key
      * @param PaymentRequest $request
      * @return Application|ResponseFactory|Response
      */

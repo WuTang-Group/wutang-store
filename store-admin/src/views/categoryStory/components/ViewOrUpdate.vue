@@ -6,7 +6,7 @@
         <el-row :gutter="10">
           <el-col :span="12">
             <el-form-item label="所属类目">
-              <el-input v-if="formDisable" v-model="categoryStoryDetail.product_category.title" :disabled="formDisable" style="width: 400px" />
+              <el-input v-if="formDisable" v-model="categoryStoryDetail.product_category.title" :readonly="formDisable" style="width: 400px" />
               <el-select v-else v-model="categoryStoryDetail.product_category_id" placeholder="请选择" style="width: 400px">
                 <el-option
                   v-for="item in CategoryList"
@@ -21,12 +21,12 @@
         <el-row :gutter="10">
           <el-col :span="12">
             <el-form-item label="故事名称">
-              <el-input v-model="categoryStoryDetail.title" :disabled="formDisable" style="width: 400px" />
+              <el-input v-model="categoryStoryDetail.title" :readonly="formDisable" style="width: 400px" />
             </el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item label="故事名称(英文)">
-              <el-input v-model="categoryStoryDetail.title_en" :disabled="formDisable" style="width: 370px" />
+              <el-input v-model="categoryStoryDetail.title_en" :readonly="formDisable" style="width: 370px" />
             </el-form-item>
           </el-col>
         </el-row>

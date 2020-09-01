@@ -3,7 +3,7 @@
     <el-card class="box-card filter-container">
       <el-input
         v-model="listQuery.title"
-        placeholder="输入分类名称"
+        placeholder="输入类目名称"
         style="width: 200px;"
         class="filter-item"
         @keyup.enter.native="handleFilter"
@@ -29,7 +29,7 @@
         :header-cell-style="{background:'#ebeef5'}"
       >
         <el-table-column type="index" header-align="center" align="center" label="序号" width="60" />
-        <el-table-column header-align="center" label="类目名称" align="center" width="80">
+        <el-table-column header-align="center" label="类目名称" align="center">
           <template slot-scope="scope">
             <span :class="{active: false}" @mouseover="handleMouseEnter()" @mouseleave="handleMouseMove()">
               <router-link :to="{ name: 'CategoryViewOrUpdate', params: {'status': 'view', 'category_slug': scope.row.slug} }">
@@ -38,44 +38,44 @@
             </span>
           </template>
         </el-table-column>
-        <el-table-column header-align="center" label="类目名称(英文)" prop="title_en" align="center" width="80">
+        <el-table-column header-align="center" label="类目名称(英文)" prop="title_en" align="center">
           <template slot-scope="scope">
             <p v-html="scope.row.title_en" />
           </template>
         </el-table-column>
-        <el-table-column header-align="center" label="分类描述" show-overflow-tooltip prop="describe" width="200">
+        <el-table-column header-align="center" label="类目描述" show-overflow-tooltip prop="describe">
           <template slot-scope="scope">
             <p v-html="scope.row.describe" />
           </template>
         </el-table-column>
-        <el-table-column header-align="center" label="分类描述(英文)" show-overflow-tooltip prop="describe_en" width="200">
+        <el-table-column header-align="center" label="类目描述(英文)" show-overflow-tooltip prop="describe_en">
           <template slot-scope="scope">
             <p v-html="scope.row.describe_en" />
           </template>
         </el-table-column>
-        <el-table-column header-align="center" label="分类Banner">
+        <el-table-column header-align="center" label="类目Banner" align="center">
           <template slot-scope="{row}">
             <el-image style="width: 100px;height: 100px;" :src="row.banner" fit="scale-down" @click="previewImgAction(row.banner)" />
           </template>
         </el-table-column>
-        <el-table-column header-align="center" label="分类简介" show-overflow-tooltip prop="description">
+        <el-table-column header-align="center" label="类目简介" show-overflow-tooltip prop="description">
           <template slot-scope="scope">
             <p v-html="scope.row.description" />
           </template>
         </el-table-column>
-        <el-table-column header-align="center" label="分类简介(英文)" show-overflow-tooltip prop="description_en">
+        <el-table-column header-align="center" label="类目简介(英文)" show-overflow-tooltip prop="description_en">
           <template slot-scope="scope">
             <p v-html="scope.row.description_en" />
           </template>
         </el-table-column>
-        <el-table-column header-align="center" label="分类简介图">
+        <el-table-column header-align="center" label="类目简介图" align="center">
           <template slot-scope="{row}">
             <el-image style="width: 100px;height: 100px;" :src="row.img" fit="scale-down" @click="previewImgAction(row.img)" />
           </template>
         </el-table-column>
-        <el-table-column header-align="center" label="所属分类ID" prop="parent_id" align="center" />
-        <el-table-column header-align="center" label="创建时间" prop="created_at" align="center" />
-        <el-table-column header-align="center" label="更新时间" prop="updated_at" align="center" />
+        <el-table-column header-align="center" label="上级类目" prop="parent.title" align="center" />
+        <!--        <el-table-column header-align="center" label="创建时间" prop="created_at" align="center" />-->
+        <!--        <el-table-column header-align="center" label="更新时间" prop="updated_at" align="center" />-->
         <el-table-column
           header-align="center"
           align="center"
@@ -160,6 +160,7 @@ export default {
         this.list = response.data.data
         this.total = response.data.total
         this.listLoading = false
+        console.log(this.list)
       })
     },
     resetTemp() {

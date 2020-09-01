@@ -29,25 +29,25 @@
         :header-cell-style="{background:'#ebeef5'}"
       >
         <el-table-column type="index" header-align="center" align="center" label="序号" width="60" />
-        <el-table-column header-align="center" label="商品名称" prop="product_name" align="center" width="80">
+        <el-table-column header-align="center" label="商品名称" prop="product_name" align="center">
           <template slot-scope="scope">
             <router-link :to="{ name: 'ProductViewOrUpdate', params: {'status': 'view', 'product_slug': scope.row.slug} }">
               {{ scope.row.product_name }}
             </router-link>
           </template>
         </el-table-column>
-        <el-table-column header-align="center" label="商品名称(英文)" prop="product_name_en" align="center" width="80" />
-        <el-table-column header-align="center" label="所属分类" prop="product_category.title" align="center" width="80" />
+        <el-table-column header-align="center" label="商品名称(英文)" prop="product_name_en" align="center" />
+        <el-table-column header-align="center" label="所属分类" prop="product_category.title" align="center" />
         <el-table-column header-align="center" label="产品缩略图" align="center" width="125">
           <template slot-scope="{row}">
             <el-image style="width: 100px;height: 100px;" :src="row.thumbnail" fit="scale-down" @click="previewImgAction(row.thumbnail)" />
           </template>
         </el-table-column>
-        <el-table-column header-align="center" label="价格" prop="price" align="center" width="80" />
-        <el-table-column header-align="center" label="优惠价格" prop="sale_price" align="center" width="80" />
-        <el-table-column header-align="center" label="库存" prop="stock" align="center" width="80" />
-        <el-table-column header-align="center" label="规格" prop="spec" align="center" width="80" />
-        <el-table-column header-align="center" label="状态" prop="status" :formatter="formatStatus" align="center" width="80" />
+        <el-table-column header-align="center" label="价格" prop="price" align="center" />
+        <el-table-column header-align="center" label="优惠价格" prop="sale_price" align="center" />
+        <el-table-column header-align="center" label="库存" prop="stock" align="center" />
+        <el-table-column header-align="center" label="规格" prop="spec" align="center" />
+        <el-table-column header-align="center" label="状态" prop="status" :formatter="formatStatus" align="center" />
         <el-table-column header-align="center" label="创建时间" prop="created_at" align="center" />
         <el-table-column header-align="center" label="更新时间" prop="updated_at" align="center" />
         <el-table-column

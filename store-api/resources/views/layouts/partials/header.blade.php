@@ -13,9 +13,9 @@
                                     </div>
                                     <div class="content">
                                         <ul>
-                                            <li><a href="#">产品系列概述</a></li>
-                                            <li><a href="product-category.php">套装A</a></li>
-                                            <li><a href="product-category.php">套装B</a></li>
+                                            <li><a href="http://120.79.173.163:9100/product-category">产品系列概述</a></li>
+                                            <li><a href="http://120.79.173.163:9100/product-category/sed-ea">套装A</a></li>
+                                            <li><a href="http://120.79.173.163:9100/product-category/sed-ea">套装B</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -25,10 +25,10 @@
                                     </div>
                                     <div class="content">
                                         <ul>
-                                            <li><a href="#">面膜及磨砂膏</a></li>
-                                            <li><a href="#">特殊护理</a></li>
-                                            <li><a href="#">紫外线防护</a></li>
-                                            <li><a href="#">身体和手部护理</a></li>
+                                            <li><a href="http://120.79.173.163:9100/product/numquam-vel">面膜及磨砂膏</a></li>
+                                            <li><a href="http://120.79.173.163:9100/product/numquam-vel">特殊护理</a></li>
+                                            <li><a href="http://120.79.173.163:9100/product/numquam-vel">紫外线防护</a></li>
+                                            <li><a href="http://120.79.173.163:9100/product/numquam-vel">身体和手部护理</a></li>
                                         </ul>
                                     </div>
                                 </div>

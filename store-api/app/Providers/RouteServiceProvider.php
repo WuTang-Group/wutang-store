@@ -49,7 +49,8 @@ class RouteServiceProvider extends ServiceProvider
         // 引入自定义admin路由
         $this->mapAdminRoutes();
 
-        //
+        // 引入payment路由组
+        $this->mapPaymentRoutes();
     }
 
     /**
@@ -88,6 +89,15 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::prefix('admin')
             ->namespace($this->namespace)
-            ->group(base_path('routes/admin.php'));
+            ->group(base_path('routes/admin/index.php'));
+    }
+
+    /**
+     * 自定义Payment路由map
+     */
+    protected function mapPaymentRoutes()
+    {
+        Route::namespace($this->namespace)
+            ->group(base_path('routes/payment/index.php'));
     }
 }

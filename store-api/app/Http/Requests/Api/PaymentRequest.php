@@ -19,10 +19,10 @@ class PaymentRequest extends FormRequest
     public function rules()
     {
         switch ($this->route()->getActionMethod()) {
-            case 'payByAlipay':
-            case 'payByUnionpay' :
-            case 'payByAlipayGateway':
-            case 'payByAlipayExpress':
+            case 'payByAlipayBankGateway':
+            case 'payByAlipayAopPage' :
+            case 'payByAlipayLegacyExpress':
+            case 'payByUnionpay':
             {
                 return [
                     'no' => ['required','exists:order'],

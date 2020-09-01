@@ -2,7 +2,7 @@
 
 namespace App\Jobs;
 
-use App\Payments\AlipayGateway;
+use App\Payments\AlipayBankGateway;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;

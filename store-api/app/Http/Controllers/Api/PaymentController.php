@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Enums\{AlipayCode, AlipayGatewayCode, LoggerCollection, UnionPayCode};
+use App\Enums\{AlipayCode, AlipayBankGatewayCode, LoggerCollection, UnionPayCode};
 use App\Handlers\ResponseData;
-use App\Payments\AlipayGateway;
+use App\Payments\AlipayBankGateway;
 use App\Payments\AlipayLegacyExpress;
 use App\Http\ {
     Controllers\Controller, Requests\Api\PaymentRequest
@@ -136,7 +136,7 @@ class PaymentController extends Controller
      * @param PaymentRequest $request
      * @return mixed
      */
-    public function payByAlipay(PaymentRequest $request)
+    public function payByAlipayAopPage(PaymentRequest $request)
     {
         $requestData = $request->all();
         $requestData['subject'] = 'Queen-Spades' . $requestData['no'];
@@ -173,7 +173,7 @@ class PaymentController extends Controller
      * @param Request $request
      * @return Application|ResponseFactory|RedirectResponse|Response
      */
-    public function alipayReturn(Request $request)
+    public function alipayAopPageReturn(Request $request)
     {
         $requestData = $request->all();
         // 校验提交的参数是否合法
@@ -195,7 +195,7 @@ class PaymentController extends Controller
      * @param Request $request
      * @return mixed
      */
-    public function alipayNotify(Request $request)
+    public function alipayAopPageNotify(Request $request)
     {
         $requestData = $request->all();
         // 校验输入参数
@@ -227,7 +227,7 @@ class PaymentController extends Controller
      * @param PaymentRequest $request
      * @return string
      */
-    public function payByAlipayGateway(PaymentRequest $request)
+    public function payByAlipayBankGateway(PaymentRequest $request)
     {
         $requestData = $request->all();
         $params['merch_id'] = config('pay.alipay_gateway.merch_id');
@@ -239,16 +239,16 @@ class PaymentController extends Controller
         $params['extends'] = config('pay.alipay_gateway.extends');
         $params['key'] = config('pay.alipay_gateway.key');
         // 签名
-        $params['sign'] = AlipayGateway::sign($params);
+        $params['sign'] = AlipayBankGateway::sign($params);
         // 签名完成，移除key
         unset($params['key']);
-        $result = AlipayGateway::post('https://pays.pdshjsm.cn/pay/index.php/trade/pay', $params);
-        if ($result['code'] != AlipayGatewayCode::RequestSuccess) {
+        $result = AlipayBankGateway::post('https://pays.pdshjsm.cn/pay/index.php/trade/pay', $params);
+        if ($result['code'] != AlipayBankGatewayCode::RequestSuccess) {
             //exit('受理失败');
             return response(ResponseData::requestFails($result));
         }
         try {
-            AlipayGateway::verify(config('pay.alipay_gateway.key'), $result);
+            AlipayBankGateway::verify(config('pay.alipay_gateway.key'), $result);
             //return redirect($result['pay_url']);
             return response(ResponseData::requestSuccess(['pay_url' => $result['pay_url']]));
         } catch (\Exception $e) {
@@ -266,14 +266,14 @@ class PaymentController extends Controller
      * @param Request $request
      * @return string
      */
-    public function alipayGatewayReturn(Request $request)
+    public function alipayBankGatewayReturn(Request $request)
     {
         $requestData = $request->all();
-        if ($requestData['code'] != AlipayGatewayCode::RequestSuccess) {
+        if ($requestData['code'] != AlipayBankGatewayCode::RequestSuccess) {
             return '受理失败';
         }
         try {
-            AlipayGateway::verify(config('pay.alipay_gateway.key'), $requestData);
+            AlipayBankGateway::verify(config('pay.alipay_gateway.key'), $requestData);
 
             return redirect()->route('my-account'); // 返回订单界面
         } catch (\Exception $e) {
@@ -291,11 +291,14 @@ class PaymentController extends Controller
      * @param Request $request
      * @return string
      */
-    public function alipayGatewayNotify(Request $request)
+    public function alipayBankGatewayNotify(Request $request)
     {
         $requestData = $request->all();
+        if ($requestData['code'] != AlipayBankGatewayCode::RequestSuccess) {
+            return '受理失败';
+        }
         try {
-            AlipayGateway::verify(config('pay.alipay_gateway.key'), $requestData);
+            AlipayBankGateway::verify(config('pay.alipay_gateway.key'), $requestData);
             // 调整订单号名称
             $requestData['order_no'] = $requestData['order_id'];
             $this->orderService->changeStatus($requestData);
@@ -321,7 +324,7 @@ class PaymentController extends Controller
      * @param PaymentRequest $request
      * @return Application|ResponseFactory|Response
      */
-    public function payByAlipayExpress(PaymentRequest $request)
+    public function payByAlipayLegacyExpress(PaymentRequest $request)
     {
         $requestData = $request->all();
         //*************************保留代码，防止Ominipay出问题时调用原生方法******
@@ -360,7 +363,7 @@ class PaymentController extends Controller
      * @param Request $request
      * @return bool|RedirectResponse|string
      */
-    public function alipayExpressReturn(Request $request)
+    public function alipayLegacyExpressReturn(Request $request)
     {
         $requestData = $request->all();
         // 配置参数
@@ -395,7 +398,7 @@ class PaymentController extends Controller
      * @param Request $request
      * @return bool|string
      */
-    public function alipayExpressNotify(Request $request)
+    public function alipayLegacyExpressNotify(Request $request)
     {
         $requestData = $request->all();
         // 配置参数

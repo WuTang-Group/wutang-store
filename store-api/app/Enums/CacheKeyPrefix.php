@@ -20,11 +20,11 @@ final class CacheKeyPrefix extends Enum
     /**
      * 数据表缓存类
      */
-    const UserCache = 'QUEEN:USERS:';  // 用户数据
-    const OrderCache = 'QUEEN:ORDERS:';  // 订单数据
-    const ProductCache = 'QUEEN:PRODUCTS:';  // 商品数据
+    const UserCache = 'QS:USERS:';  // 用户数据
+    const OrderCache = 'QS:ORDERS:';  // 订单数据
+    const ProductCache = 'QS:PRODUCTS:';  // 商品数据
     /**
      * 其他缓存类
      */
-    const CaptchaCache = 'QUEEN:CAPTCHA:';  // 验证码
+    const CaptchaCache = 'QS:CAPTCHA:';  // 验证码
 }

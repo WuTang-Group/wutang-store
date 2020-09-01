@@ -9,9 +9,9 @@ class PaymentMerchant extends Model
     ];
 
     // 一对多关联 AlipayBankGateway
-    public function alipayGatewaies()
+    public function alipayGateways()
     {
-        return $this->hasMany(AlipayGateway::class);
+        return $this->hasMany(AlipayBankGateway::class);
     }
 
     // 一对多关联 AlipayLegacyExpress
@@ -20,8 +20,14 @@ class PaymentMerchant extends Model
         return $this->hasMany(AlipayLegacyExpress::class);
     }
 
+    // 一对多管理 AlipayAopPage
+    public function alipayAopPages()
+    {
+        return $this->hasMany(AlipayAopPage::class);
+    }
+
     // 一对多关联 Unionpay
-    public function unionpaies()
+    public function unionpays()
     {
         return $this->hasMany(Unionpay::class);
     }

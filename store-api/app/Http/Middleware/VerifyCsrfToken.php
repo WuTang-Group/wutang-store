@@ -19,9 +19,10 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
+        'api/alipay/bank_gateway/notify',
+        'api/alipay/aop_page/notify',
+        'api/alipay/legacy_express/notify',
         'api/unionpay/return',
-        'api/unionpay/notify',
-        'api/alipay/notify',
-        'api/ali_express/notify'
+        'api/unionpay/notify'
     ];
 }

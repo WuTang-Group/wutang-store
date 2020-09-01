@@ -15,11 +15,11 @@ class CreateAlipayLegacyExpressesTable extends Migration
     {
         Schema::create('alipay_legacy_expresses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('payment_merchant_id')->nullable()->comment('从属关联payment_merchants表id');
-            $table->foreign('payment_merchant_id')->references('id')->on('payment_merchants')->onUpdate('cascade');
             $table->string('pid')->comment('商户id');
             $table->string('key')->comment('商户密钥');
             $table->string('seller_email')->comment('卖家支付宝账号');
+            $table->string('return_url')->comment('前端回调URL');
+            $table->string('notify_url')->comment('异步回调URL');
             $table->integer('status')->default(1)->comment('激活状态:1激活，-1未激活');
             $table->timestamps();
         });

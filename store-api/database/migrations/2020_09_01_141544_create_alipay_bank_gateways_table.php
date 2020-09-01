@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAlipayGatewaysTable extends Migration
+class CreateAlipayBankGatewaysTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAlipayGatewaysTable extends Migration
      */
     public function up()
     {
-        Schema::create('alipay_gateways', function (Blueprint $table) {
+        Schema::create('alipay_bank_gateways', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('payment_merchant_id')->nullable()->comment('从属关联payment_merchants表id');
             $table->foreign('payment_merchant_id')->references('id')->on('payment_merchants')->onUpdate('cascade');
@@ -32,6 +32,6 @@ class CreateAlipayGatewaysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alipay_gateways');
+        Schema::dropIfExists('alipay_bank_gateways');
     }
 }

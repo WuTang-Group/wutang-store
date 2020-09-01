@@ -6,7 +6,7 @@ namespace App\Payments;
 
 use GuzzleHttp\Client;
 
-class AlipayGateway
+class AlipayBankGateway
 {
     /**
      * 将参数签名

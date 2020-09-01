@@ -11,12 +11,14 @@ use App\Http\ {
 };
 use App\Services\Api\OrderService;
 use Exception;
-use Illuminate\{Contracts\Foundation\Application,
+use Illuminate\{
+    Contracts\Foundation\Application,
     Contracts\Routing\ResponseFactory,
     Http\RedirectResponse,
     Http\Request,
     Http\Response,
     Support\Arr,
+    Support\Facades\App,
     Support\Facades\Log
 };
 
@@ -148,7 +150,10 @@ class PaymentController extends Controller
 //        ]);
         try {
             $gateway = \Omnipay::gateway('Alipay_AopPage');
-            $gateway->setEnvironment('sandbox');  // 正式环境需要设置为production
+            if (App::environment(['local', 'staging', 'debug'])) {
+                $gateway->setEnvironment('sandbox');  // 正式环境需要设置为production
+            }
+            //$gateway->setEnvironment('production');
             $response = $gateway->purchase()->setBizContent($requestData)->send();
 
             return response(ResponseData::requestSuccess(['pay_url' => $response->getRedirectUrl()]));

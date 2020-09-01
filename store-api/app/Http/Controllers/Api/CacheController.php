@@ -15,12 +15,12 @@ class CacheController extends Controller
         config(['logging.channels.mongodb.collection' => LoggerCollection::OrderLog]);
     }
 
-    public static function orderPayment($params)
+    public static function orderPayment($params, $minute = 15)
     {
         try {
             // 缓存15分钟过期
-            $key = CacheKeyPrefix::OrderCache . ':NO:' . $params['no'];
-            $expiredAt = now()->addMinutes(15);
+            $key = CacheKeyPrefix::OrderCache . 'NO:' . $params['no'];
+            $expiredAt = now()->addMinutes($minute);
             Cache::put($key, ['no' => $params['no']], $expiredAt);
             return [
                 'payment_key' => $key,

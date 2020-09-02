@@ -8,7 +8,7 @@
     <ul>
       <li><a href="#benefit" class="anchor">功效</a></li>
       <li><a href="#application" class="anchor">使用方法</a></li>
-      <li><a href="#routine" class="anchor">护肤步骤</a></li>
+      <!-- <li><a href="#routine" class="anchor">护肤步骤</a></li> -->
       <li class="last"><a href="/product-category/{{ $response->data->product_category->slug }}">产品系列</a></li>
     </ul>
   </div>
@@ -16,7 +16,10 @@
 <div class="dark-layout single-product">
   		<div id="product" class="section-t-space section-b-space" style="background: url({{ $response->data->main_image }}) no-repeat center center / cover;">
         <div class="d-block d-lg-none product-image">
-          <img src="{{ $response->data->main_image_2 }}" class="img-fluid" />
+          <img src="{{ $response->data->main_image_2 }}" class="img-fluid w-100" />
+        </div>
+        <div>
+          <a href="#benefit" class="scroll-down anchor">@lang('general.scroll-down')</a>
         </div>
         <div class="container">
           <div class="col-12 col-lg-5 col-xl-4 offset-lg-7 offset-xl-8">
@@ -44,10 +47,10 @@
                           </div>
                           <button type="button" data-id="{{ $response->data->id }}" class="btn btn-outline d-flex align-items-center btn-add-to-cart"><i class="icon mr-3"></i>添加入购物车</button>
                       </form> -->
-                      <button type="button" data-id="{{ $response->data->id }}" class="btn btn-outline d-flex align-items-center btn-add-to-cart"><i class="icon mr-3"></i>添加入购物车</button>
+                      <button type="button" data-id="{{ $response->data->id }}" class="btn btn-outline align-items-center btn-add-to-cart ico"><i class="icon mr-3"></i>添加入购物车</button>
                   </div>
                   <div class="product-wishlist">
-                      <a href="#" class="d-flex align-items-center">
+                      <a href="#" class="align-items-center">
                           <img src="{{ URL::asset('assets/images/icon/wishlist-w.png') }}" />
                           <span class="text-white">加入愿望清单</span>
                       </a>
@@ -60,8 +63,8 @@
         <div class="container">
           <div class="col-md-6 col-lg-5 col-xl-4 general-accordion-wrapper">
             <div class="accordion">
-              <h2 class="text-white title collapsed mb-0">功效</h2>
-              <div id="benefits" class="collapse">
+              <h2 class="text-white title mb-0">功效</h2>
+              <div id="benefits" class="collapse show">
                 <div>
                   @if (!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en')
                    {{ $response->data->benefit_en }}
@@ -80,7 +83,7 @@
                   @endif
                 </div>
               </div>
-              <h2 class="text-white title mb-0">线上服务</h2>
+              <!-- <h2 class="text-white title mb-0">线上服务</h2>
               <div id="services" class="collapse show">
                 <div class="row">
                     <div class="col-6 col-sm-3 services-block">
@@ -100,7 +103,7 @@
                       <h4>客户服务</h4>
                     </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -109,60 +112,75 @@
         <div class="d-none d-md-block">
           <ul id="accordion">
             <li data-required="true" data-selected="true" data-title="@lang('general.usage')">
-              <div style="background: url(assets/images/banner/sp-bg2.jpg) no-repeat center center / cover;">
+              <div class="bg-cover position-relative" style="background-image: url({{ URL::asset('assets/images/banner/sp-bg2.jpg') }})">
                 <div class="container">
-                  @if (!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en')
-                    {{ $response->data->usage_en }}
-                  @else 
-                    {{ $response->data->usage }}
-                  @endif
+                  <div class="col-md-6 col-lg-5 col-xl-4">
+                    <h2 class="text-white title mt-4 mb-4">@lang('general.usage')</h2>
+                    @if (!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en')
+                      {{ $response->data->usage_en }}
+                    @else 
+                      {{ $response->data->usage }}
+                    @endif
+                  </div>
+                </div>
+                <div class="video-player">
+                  <a class="popup-video" href="http://www.youtube.com/watch?v=0O2aH4XLbto"><img src="{{ URL::asset('assets/images/icon/video-play.jpg') }}" class="play" /></a>
                 </div>
                 <style>
-                  #application #accordion iframe,
-                  #application #accordion video {
-                    position: absolute;
-                    top: 0;
-                    width: calc(100vw - 190px);
-                  }
+                .video-player {
+                  padding: 0 !important; }
+                .video-player a {
+                  position: absolute;
+                  left: 50%;
+                  top: 50%;
+                  transform: translate(-50%, -50%); }
+                .video-player .play {
+                  max-width: 120px; }
                 </style>
-                <!-- <video width="100%" height="100%" controls>
-                    <source src="https://www.youtube.com/embed/jlDWshzAC0o" type="video/mp4">
-                </video> -->
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/jlDWshzAC0o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
             </li>
             <li data-required="true" data-title="@lang('general.technology')">
-              <div style="background: url(assets/images/banner/sp-bg1.jpg) no-repeat center center / cover;">
+              <div class="bg-cover position-relative" style="background-image: url({{ URL::asset('assets/images/banner/sp-bg1.jpg') }})">
                 <div class="container">
-                  @if (!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en')
-                    {{ $response->data->tech_description_en }}
-                  @else 
-                    {{ $response->data->tech_description }}
-                  @endif
+                  <div class="col-md-6 col-lg-5 col-xl-4">
+                    <h2 class="text-white title mt-4 mb-4">@lang('general.technology')</h2>
+                    @if (!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en')
+                      {{ $response->data->tech_description_en }}
+                    @else 
+                      {{ $response->data->tech_description }}
+                    @endif
+                  </div>
                 </div>
               </div>
             </li>
           </ul>
         </div>
-        <div class="container general-accordion-wrapper">
-          <div class="accordion mt-3 d-md-none">
+        <div class="container section-t-space section-b-space general-accordion-wrapper d-md-none">
+          <div class="accordion mt-3">
             <h2 class="text-white title mb-0">@lang('general.usage')</h2>
             <div class="collapse show">
-              <div>
+              <div class="mb-3">
                 @if (!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en')
                   {{ $response->data->usage_en }}
                 @else 
                   {{ $response->data->usage }}
                 @endif
               </div>
+              <div class="video-player position-relative">
+                <img src="{{ URL::asset('assets/images/banner/sp-bg2.jpg') }}" class="img-fluid" />
+                <a class="popup-video" href="http://www.youtube.com/watch?v=0O2aH4XLbto"><img src="{{ URL::asset('assets/images/icon/video-play.jpg') }}" class="play" /></a>
+              </div>
             </div>
-            <h2 class="text-white title collapsed mb-0">@lang('general.technology')</h2>
-            <div class="collapse">
+            <h2 class="text-white title mb-0">@lang('general.technology')</h2>
+            <div class="collapse show">
+              <div class="mb-3">
                 @if (!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en')
                   {{ $response->data->tech_description_en }}
                 @else 
                   {{ $response->data->tech_description }}
                 @endif
+              </div>
+              <img src="{{ URL::asset('assets/images/banner/sp-bg1.jpg') }}" class="img-fluid" />
             </div>
           </div>
         </div>

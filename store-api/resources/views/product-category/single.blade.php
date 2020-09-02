@@ -19,7 +19,7 @@
             </p>
         </div>
         <div>
-            <a href="#products" class="slider-scroll-down anchor">@lang('general.scroll-down')</a>
+            <a href="#products" class="scroll-down anchor">@lang('general.scroll-down')</a>
         </div>
 	</div>
 	<div class="container section-t-space">
@@ -54,7 +54,7 @@
             @endforeach
 		</div>
 	</div>
-    <div class="container section-t-space">
+    <div class="container section-t-space section-b-space">
         <div class="row justify-content-center align-items-center category-description">
             <div class="col-12 col-md-6 col-lg-5">
                 <h2 class="tx-mont">{{ $response->data[0]->title_en }}</h2>
@@ -69,6 +69,63 @@
             </div>
             <div class="col-12 col-md-6 col-lg-5">
                 <img src="{{ $response->data[0]->img }}" class="img-fluid" />
+            </div>
+        </div>
+    </div>
+    <div id="other-category" class="other-category bg-cover" style="background-image: url( {{ URL::asset('assets/images/exploring-default.jpg') }} )">
+        <div class="section-t-space section-b-space h-100">
+            <div class="other-category-title text-center mb-5">
+                <h2 class="text-white title">继续探索</h2>
+            </div>
+            <div class="d-none d-lg-block h-100">
+                <div class="container hero-category h-100">
+                    <a href="" class="content">
+                        <h3 class="title tx-mont">SKIN CAVIAR</h3>
+                        <h3 class="title">鱼子精华系列</h3>
+                    </a>
+                    <div class="hero-img" style="background-image: url({{ URL::asset('assets/images/other-category-1.jpg') }})"></div>
+                    <a href="" class="content">
+                        <h3 class="title tx-mont">WHITE CAVIAR</h3>
+                        <h3 class="title">纯皙紧致系列</h3>
+                    </a>
+                    <div class="hero-img" style="background-image: url({{ URL::asset('assets/images/other-category-2.jpg') }})"></div>
+                    <a href="" class="content">
+                        <h3 class="title tx-mont">RADIANCE</h3>
+                        <h3 class="title">晶莹亮采系列</h3>
+                    </a>
+                    <div class="hero-img" style="background-image: url({{ URL::asset('assets/images/other-category-3.jpg') }})"></div>
+                </div>
+            </div>
+            <div class="container d-lg-none">
+                <div class="other-category-slider">
+                    <div class="card">
+                        <a href="">
+                            <div class="bg-cover" style="background-image: url({{ URL::asset('assets/images/other-category-1.jpg') }})"></div>
+                            <div class="card-body">
+                                <h3 class="card-title tx-mont">SKIN CAVIAR</h3>
+                                <h3 class="card-title">鱼子精华系列</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="">
+                            <div class="bg-cover" style="background-image: url({{ URL::asset('assets/images/other-category-2.jpg') }})"></div>
+                            <div class="card-body">
+                                <h3 class="card-title tx-mont">WHITE CAVIAR</h3>
+                                <h3 class="card-title">纯皙紧致系列</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="">
+                            <div class="bg-cover" style="background-image: url({{ URL::asset('assets/images/other-category-3.jpg') }})"></div>
+                            <div class="card-body">
+                                <h3 class="card-title tx-mont">RADIANCE</h3>
+                                <h3 class="card-title">晶莹亮采系列</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

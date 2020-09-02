@@ -1,34 +1,20 @@
 <footer class="footer">
     <section id="contact-us" class="dark-layout section-b-space">
         <div class="container">
-            <section class="small-section">
-                <div class="mb-4">
-                	<h2 class="text-white title">@lang('general.contact-us')</h2>
+            <div class="mb-4">
+            	<h2 class="text-white title">@lang('general.anything-can-help-you')</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="d-block tx-light-gray">@lang('general.please-contact-us-via')</label>
                 </div>
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <div class="contact">
-                            <label class="d-block tx-dark-gray">+1 (378) 400-1234</label>
-                            <label class="d-block"><a href="mailto:contact@queenspades.com" class="tx-dark-gray">contact@queenspades.com</a></label>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="tx-dark-gray mb-0">@lang('general.subscribe')</label>
-                        <div class="subscribe">
-                            <form action="" class="form-inline subscribe-form needs-validation" method="post" name="subscribe-form">
-                                <div class="form-group mb-0 mr-sm-3">
-                                    <input type="text" class="form-control" name="EMAIL" id="mce-EMAIL"
-                                        placeholder="*@lang('general.email')" required="required">
-                                </div>
-                                <button type="submit" class="btn btn-outline" id="mc-submit">@lang('general.next')</button>
-                            </form>
-                        </div>
-                    </div>
+                <div class="col-md-6">
+                    <label class="d-block"><img src="{{ URL::asset('assets/images/icon/email.png') }}" class="img-fluid" alt=""><a href="/contact-us" class="ml-3 tx-light-gray">@lang('general.contact-us')</a></label>
                 </div>
-            </section>
+            </div>
         </div>
     </section>
-    <section class="darken-layout section-b-space">
+    <section class="light-layout section-b-space">
         <div class="container">
             <div class="row footer-theme">
                 <div class="col">
@@ -88,7 +74,7 @@
             </div>
         </div>
     </section>
-    <section class="darken-layout sub-footer section-b-space pt-0">
+    <section class="light-layout sub-footer section-b-space pt-0">
         <div class="container">
             <div class="row">
                 <!-- <div class="col-12 col-md-4 footer-social d-flex justify-content-md-end align-items-center">

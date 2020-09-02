@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="section-nav darken-layout">
+<div class="section-nav dark-layout">
   <div class="container">
     <ul>
       <li><a href="#privacy-policy" class="anchor">隐私政策</a></li>

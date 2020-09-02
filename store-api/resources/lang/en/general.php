@@ -20,6 +20,8 @@ return [
     'create-account' => 'Create Account',
 
     'contact-us' => 'Contact Us',
+    'anything-can-help-you' => 'Anything can help you?',
+    'please-contact-us-via' => 'Please contact us via email.',
     'subscribe' => 'Subscribe and get the latest news.',
 
     'about-us' => 'About',

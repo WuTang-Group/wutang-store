@@ -2,8 +2,8 @@
 
 @section('content')
 @include('partials.section-nav-1')
-<div class="darken-layout the-house">
-  <img src="assets/images/2.png" class="img-fluid" />
+<div class="black-layout the-house single">
+  <div class="bg-cover" style="background-image: url({{ URL::asset('assets/images/thumbnail.jpg') }});"></div>
 	<div class="section-t-space section-b-space position-relative">
       <div class="container">
         <div class="row">

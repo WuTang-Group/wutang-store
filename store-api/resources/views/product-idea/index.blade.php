@@ -2,7 +2,7 @@
 
 @section('content')
 @include('partials.section-nav-1')
-<div class="darken-layout product-idea">
+<div class="black-layout product-idea">
     <section class="p-0 height-100 position-relative">
       <div class="product-idea-slider slider-pagination-left">
           <div class="product-idea-slide">

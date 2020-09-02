@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="section-nav darken-layout">
+<div class="section-nav dark-layout">
   <div class="container">
     <ul>
       <li><a href="#official-website-service" class="anchor">销售条款</a></li>

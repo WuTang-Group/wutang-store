@@ -2,9 +2,9 @@
 
 @section('content')
 @include('partials.section-nav-1')
-<div class="darken-layout brand">
+<div class="black-layout brand">
   	<section class="p-0 height-100 position-relative">
-      <div class="brand-slider darken-layout slider-pagination-right">
+      <div class="brand-slider black-layout slider-pagination-right">
           <div class="brand-slide">
               <div class="container">
                   <div class="row">

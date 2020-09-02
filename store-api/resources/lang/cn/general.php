@@ -20,6 +20,8 @@ return [
     'create-account' => '创建账户',
 
     'contact-us' => '联系我们',
+    'anything-can-help-you' => '有什么可以帮您？',
+    'please-contact-us-via' => '请通过电邮联系我们。',
     'subscribe' => '订阅我们，得知最新消息',
 
     'about-us' => '关于',

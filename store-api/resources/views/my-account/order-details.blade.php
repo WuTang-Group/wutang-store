@@ -89,18 +89,20 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="small-section text-right">
+                    <div class="small-section text-right d-flex justify-content-end">
                         <a href="/my-account" class="btn btn-white">@lang('general.back')</a>
                         @if($response->data->status == 0 || $response->data->status == -1)
-                        <div class="input-group mt-1">
-                            <select class="custom-select" name="method">
-                                <option>@lang('general.please-select')</option>
-                                <option value="alipay">Alipay</option>
-                                <!-- <option value="union-pay">UnionPay</option>
-                                <option value="wechat-pay">WechatPay</option> -->
-                            </select>
-                            <div class="input-group-append">
-                                <button type="button" onclick="payNow('{{ $response->data->no }}')" class="btn btn-white btn-xs">@lang('general.pay')</button>
+                        <div class="d-block ml-2">
+                            <div class="input-group">
+                                <select class="custom-select" name="method">
+                                    <option>@lang('general.please-select')</option>
+                                    <option value="alipay">Alipay</option>
+                                    <!-- <option value="union-pay">UnionPay</option>
+                                    <option value="wechat-pay">WechatPay</option> -->
+                                </select>
+                                <div class="input-group-append">
+                                    <button type="button" onclick="payNow('{{ $response->data->no }}')" class="btn btn-white">@lang('general.pay')</button>
+                                </div>
                             </div>
                         </div>
                         @endif

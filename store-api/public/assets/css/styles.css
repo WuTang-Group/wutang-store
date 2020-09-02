@@ -51,12 +51,15 @@
    15.2. Product Category (Story) CSS */
 /* 16. Customer Service CSS  */
 /* 17. Product Idea CSS  */
-/* 18. The House CSS  */
+/* 18. The House - Home CSS
+   18.1 The House CSS  */
 /* 19. E-Boutique Services CSS  */
 /* 20. Brand CSS  */
 /* 21. Terms, Privacy Policy CSS  */
 /* 22. Back to Top CSS  */
 /* 23. Toastr CSS */
+/* 24. New Arrival - Home CSS */
+/* 25. Magnific Popup  CSS */
 
 /*=====================
     1.General CSS start
@@ -222,10 +225,14 @@ input[type="radio"] {
 .border-white {
   border-top: 1px solid #fff; }
 
-.darken-layout {
+.black-layout {
   background-color: #000; }
 .dark-layout {
+  background-color: #2e3335; }
+.darken-layout {
   background-color: #161616; }
+.gray-layout {
+  background-color: #232729; }
 .light-layout {
   background-color: #f9f9f9; }
 .white-layout {
@@ -240,7 +247,10 @@ input[type="radio"] {
 .bg-img {
   display: none; }
 
-.dark-layout .bg-trans:focus {
+.dark-layout .bg-trans:focus,
+.darken-layout .bg-trans:focus,
+.black-layout .bg-trans:focus,
+.gray-layout .bg-trans:focus {
   background-color: transparent; }
 
 .tx-jh {
@@ -249,6 +259,8 @@ input[type="radio"] {
   font-family: 'Mont ExtraLight', serif !important; }
 .tx-dark-gray {
   color: #938d8c !important; }
+.tx-light-gray {
+  color: #b5b5b5 !important; }
 
 .lh-12 {
   line-height: 1.2; }
@@ -287,6 +299,13 @@ input[type="radio"] {
      -o-transform: scale(1.1);
     transform: scale(1.1); }
 
+.bg-cover {
+  background-size: cover;
+  background-position: center center;
+  display: block; }
+.bg-parallax {
+  background-attachment: fixed; }
+
 .mxw-50 {
   max-width: 50px; }
 
@@ -310,7 +329,7 @@ input[type="radio"] {
   display:none; }
 
 body:not(.home) .main-content {
-  padding-top: 73px; }
+  padding-top: 88px; }
 
 .ol-list-style,
 .ul-list-style {
@@ -361,6 +380,10 @@ body:not(.home) .main-content {
   top: 0;
   background: rgba(255,255,255,0.3); }
 
+.card {
+  border-radius: 0;
+  border: none;
+  background: transparent; }
 /*=====================
     1.1.Button CSS start
 ==========================*/
@@ -440,17 +463,25 @@ button.loading {
       color: #000 !important; }
 
 .dark-layout .btn-solid,
-.darken-layout .btn-solid {
+.darken-layout .btn-solid,
+.black-layout .btn-solid,
+.gray-layout .btn-solid {
   border: 1px solid #000;
   color: #000; }
   .dark-layout .btn-solid:before,
-  .darken-layout .btn-solid:before {
+  .darken-layout .btn-solid:before,
+  .black-layout .btn-solid:before,
+  .gray-layout .btn-solid:before {
     background-color: #000; }
   .dark-layout .btn-solid:hover, .dark-layout .btn-solid:focus,
-  .darken-layout .btn-solid:hover, .darken-layout .btn-solid:focus {
+  .darken-layout .btn-solid:hover, .darken-layout .btn-solid:focus,
+  .black-layout .btn-solid:hover, .black-layout .btn-solid:focus,
+  .gray-layout .btn-solid:hover, .gray-layout .btn-solid:focus {
     color: #fff !important; }
     .dark-layout .btn-solid:hover i, .dark-layout .btn-solid:focus i,
-    .darken-layout .btn-solid:hover i, .darken-layout .btn-solid:focus i {
+    .darken-layout .btn-solid:hover i, .darken-layout .btn-solid:focus i,
+    .black-layout .btn-solid:hover i, .black-layout .btn-solid:focus i,
+    .gray-layout .btn-solid:hover i, .gray-layout .btn-solid:focus i {
       color: #fff !important; }
 
 .btn-outline {
@@ -495,17 +526,25 @@ button.loading {
       color: #fff !important; }
 
 .dark-layout .btn-outline,
-.darken-layout .btn-outline {
+.darken-layout .btn-outline,
+.black-layout .btn-outline,
+.gray-layout .btn-outline {
   border: 1px solid #fff;
   color: #fff; }
   .dark-layout .btn-outline:before,
-  .darken-layout .btn-outline:before {
+  .darken-layout .btn-outline:before,
+  .black-layout .btn-outline:before,
+  .gray-layout .btn-outline:before {
     background-color: #fff; }
   .dark-layout .btn-outline:hover, .dark-layout .btn-outline:focus,
-  .darken-layout .btn-outline:hover, .darken-layout .btn-outline:focus {
+  .darken-layout .btn-outline:hover, .darken-layout .btn-outline:focus,
+  .black-layout .btn-outline:hover, .black-layout .btn-outline:focus,
+  .gray-layout .btn-outline:hover, .gray-layout .btn-outline:focus {
     color: #000 !important; }
     .dark-layout .btn-outline:hover i, .dark-layout .btn-outline:focus i,
-    .darken-layout .btn-outline:hover i, .darken-layout .btn-outline:focus i {
+    .darken-layout .btn-outline:hover i, .darken-layout .btn-outline:focus i,
+    .black-layout .btn-outline:hover i, .black-layout .btn-outline:focus i,
+    .gray-layout .btn-outline:hover i, .gray-layout .btn-outline:focus i {
       color: #000 !important; }
 
 button.btn.btn-solid:active, button.btn.btn-outline:active,
@@ -514,7 +553,9 @@ button.btn.btn-solid:active, button.btn.btn-outline:active,
   color: #fff;
   background: var(--theme-deafult); }
 .dark-layout button.btn.btn-solid:active, .dark-layout button.btn.btn-outline:active,
-.darken-layout button.btn.btn-solid:active, .darken-layout button.btn.btn-outline:active {
+.darken-layout button.btn.btn-solid:active, .darken-layout button.btn.btn-outline:active,
+.black-layout button.btn.btn-solid:active, .black-layout button.btn.btn-outline:active,
+.gray-layout button.btn.btn-solid:active, .gray-layout button.btn.btn-outline:active {
   background-image: linear-gradient(30deg, #fff 50%, transparent 50%);
   color: #000;
   background: #fff; }
@@ -587,7 +628,10 @@ button.btn.btn-solid:active, button.btn.btn-outline:active,
 .white-layout .btn-group .btn.active {
   background-color: #000;
   color: #fff; }
-.dark-layout .btn-group .btn.active {
+.dark-layout .btn-group .btn.active,
+.darken-layout .btn-group .btn.active,
+.black-layout .btn-group .btn.active,
+.gray-layout .btn-group .btn.active {
   background-color: #fff;
   color: #000; }
 
@@ -637,10 +681,9 @@ h2.title-lg {
 header {
   background-color: #fff;
   border-bottom: 1px solid #dddddd;
-  position: absolute;
+  position: fixed;
   width: 100%;
-  background:transparent;
-  z-index: 1030; }
+  z-index: 9999; }
 
 .language-switcher {
   font-weight: 700;
@@ -649,8 +692,8 @@ header {
 
 .onhover-div {
   position: relative;
-  padding-top: 18px;
-  padding-bottom: 18px; }
+  padding-top: 25px;
+  padding-bottom: 25px; }
   .onhover-div img,
   .onhover-div i {
     cursor: pointer; }
@@ -725,7 +768,7 @@ header {
             align-items: center; }
     .main-menu .menu-left .navbar {
       display: inline-block;
-      padding: 18px 5px 18px 0; }
+      padding: 25px 5px 25px 0; }
     .main-menu .menu-left .sub.navbar {
       padding: 25px 45px 25px 0; }
       .main-menu .menu-left .navbar i {
@@ -780,28 +823,55 @@ header {
         border: none;
         border-radius: 0;
         top: auto;
-        margin-top: 15px; }
+        margin-top: 15px;
+        background-color: #2e3335;
+        color: #fff;
+        padding-top: 0; }
+      .main-menu .megamenu a {
+          color: #fff; }
+      .main-menu .megamenu a:hover,
+      .main-menu .megamenu a:focus,
+      .main-menu .megamenu a:active {
+          color: #D0D3D4; }
+      .main-menu .has-megamenu .megamenu .megamenu-content {
+        height: calc(100vh - 0px);
+        overflow-y: auto;
+        padding-top: 50px;
+        padding-bottom: 50px; }
+      .main-menu .has-megamenu .megamenu .container {
+        min-height: 100%;
+        -ms-flex-align: start;
+        align-items: start; } 
       .main-menu .megamenu .col-12 {
-          margin-bottom: 30px; }
+          margin-bottom: 40px; }
       .main-menu .megamenu .title h4 {
           font-size: 18px;
-          margin-bottom: 25px; }
+          padding-bottom: 25px;
+          margin-bottom: 25px;
+          position: relative; }
+        .main-menu .megamenu .title h4:after {
+          content: "";
+          border-top: 1px solid #969696;
+          display: block;
+          width: 45px;
+          bottom: 0;
+          position: absolute; }
       .main-menu .megamenu .content li {
           position: relative;
           display: inherit;
           padding-top: 5px;
           text-transform: capitalize;
-          font-size: 16px; }
-      .main-menu .megamenu .content li a {
-          color: #949494; }
-      .main-menu .megamenu .content li a:hover,
-      .main-menu .megamenu .content li a:focus,
-      .main-menu .megamenu .content li a:active {
-          color: #000; }
-      .main-menu .megamenu .search-input {
+          font-size: 14px;
+          padding-bottom: 10px; }
+      .main-menu .megamenu hr {
+        border-color: #969696;
+        width: 100%;
+        margin-top: 50px;
+        margin-bottom: 50px; }
+      /*.main-menu .megamenu .search-input {
         border: 0;
         border-bottom: 1px solid #000;
-        border-radius: 0; }
+        border-radius: 0; }*/
 
 /*=====================
     2.1.Header Background Image CSS start
@@ -873,6 +943,22 @@ header {
 .header-scrolled .main-menu .menu-right li.onhover-div.my-wishlist a:after {
   background: url(../images/icon/wishlist.png);
   background-size: cover; }
+
+.header-scrolled {
+  background: #fff !important;
+  width: 100%;
+  z-index: 9999;
+  top: 0;
+  -webkit-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s; }
+  .header-scrolled .main-menu .menu-left .navbar,
+  .header-scrolled .main-menu .brand-logo,
+  .header-scrolled .main-menu .menu-right .icon-nav li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease; }
 
 .home header {
   background: transparent;
@@ -967,32 +1053,38 @@ footer {
 .footer-theme .footer-logo {
   margin-bottom: 18px; }
 .footer-theme .sub-title h4 {
-  color: #222222;
-  margin-bottom: 25px;
+  padding-bottom: 25px;
   text-transform: uppercase;
-  font-size: 18px; }
+  font-size: 18px;
+  position: relative; }
+  .footer-theme .sub-title h4:after {
+    content: "";
+    border-top: 1px solid #969696;
+    display: block;
+    width: 45px;
+    bottom: 0;
+    position: absolute; }
 .footer-theme .sub-title li {
   position: relative;
   display: inherit;
   padding-top: 13px;
   text-transform: capitalize;
-  font-size: 16px;
-  color: #777777; }
+  font-size: 16px; }
   .footer-theme .sub-title li a {
     position: relative;
-    color: #777777; }
+    color: #000; }
     .footer-theme .sub-title li a:before {
       position: absolute;
       top: 20px;
       content: "";
-      height: 2px;
+      height: 1px;
       width: 0;
       background-color: var(--theme-deafult);
       -webkit-transition: 0.5s ease;
       transition: 0.5s ease; }
   .footer-theme .sub-title li:hover a:before {
     width: 100%;
-    height: 2px;
+    height: 1px;
     -webkit-transition: 0.5s ease;
     transition: 0.5s ease; }
 
@@ -1004,9 +1096,6 @@ footer {
 
 .footer .footer-language-selector select {
   letter-spacing: 1.5px;
-  background-color: #000;
-  border: 1px solid #fff;
-  color: #fff;
   font-size: 12px;
   padding: 6px 25px 6px 15px;
   -webkit-appearance: none;
@@ -1017,7 +1106,6 @@ footer {
   min-width: 200px; }
   .footer .footer-language-selector .language-selector-wrapper:after {
     content: '+';
-    color: #fff;
     right: 11px;
     top: 4px;
     padding: 0 0 2px;
@@ -1026,7 +1114,6 @@ footer {
     left: 180px; }
 
 .footer .copyright-text {
-  color: #fff;
   margin: 25px 0 0px;
   letter-spacing: 1px; }
 
@@ -1040,7 +1127,6 @@ footer {
   z-index: 9999;
   top: 0;
   right: -450px;
-  background-color: #fff;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease; }
   .sidenav .sidebar-header {
@@ -1178,8 +1264,8 @@ footer {
     margin-bottom: 0;
     line-height: 1.4;
     font-size: 16px; }
-  .service-block + .service-block {
-    border-left: 2px solid #938d8c; }
+  /*.service-block + .service-block {
+    border-left: 2px solid #938d8c; }*/
 
 /*=====================
     6.Cart, Wishlist, Checkout, Order Review CSS start
@@ -1691,7 +1777,62 @@ footer {
   vertical-align: middle;
   margin: 0 10px 0 15px;
   background: #fff; }
-.slider-scroll-down {
+
+/*=====================
+    10.1. Static Banner CSS start
+==========================*/
+.full-page-banner {
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  display: block; }
+
+.full-page-banner .banner-contain  {
+  width: 100%;
+  height: 75vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .full-page-banner .banner-contain h2,
+  .full-page-banner .banner-contain h2 span {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 28px;
+    line-height: 1.4 }
+  .full-page-banner .banner-contain .btn-solid,
+  .full-page-banner .banner-contain .btn-outlin {
+    margin-top: 20px; }
+
+.full-page-banner .p-left .banner-contain {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start; }
+
+.full-page-banner .p-right .banner-contain {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end; }
+
+.full-page-banner .p-center .banner-contain {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+.full-page-banner.text-white .banner-contain h1,
+.full-page-banner.text-white .banner-contain h4 {
+  color: #fff; }
+
+.full-page-banner .banner-contain img {
+  max-width: 300px;}
+
+.height-100 .full-page-banner .banner-contain {
+  height: calc(99vh + 80px); }
+
+.scroll-down {
   position: absolute;
   bottom: 20px;
   margin-left: auto;
@@ -1700,9 +1841,9 @@ footer {
   right: 0;
   text-align: center;
   color: #fff; }
-.slider-scroll-down:hover,
-.slider-scroll-down:focus,
-.slider-scroll-down:active {
+.scroll-down:hover,
+.scroll-down:focus,
+.scroll-down:active {
   color: #fff; }
 @keyframes edgtf-animate-scroll-down {
   0% {
@@ -1901,12 +2042,17 @@ footer {
       margin: 0; }
 .product-form .btn {
     border-width:1px; }
+  .product-form .btn.ico {
+    padding-left: 60px; }
   .product-form .btn .icon {
       background-image : url(../images/icon/shopping-bag-w.png);
       background-size: cover;
       display: inline-block;
-      height: 24px;
-      width: 19px; }
+      height: 20px;
+      width: 15px;
+      position: absolute;
+      left: 30px;
+      top: 9px; }
   .product-form .btn:hover .icon,
   .product-form .btn:focus .icon,
   .product-form .btn:visited .icon {
@@ -1993,7 +2139,10 @@ footer {
 
 .darken-layout.section-nav li a,
 .darken-layout.section-nav li a:hover,
-.darken-layout.section-nav li.active a {
+.darken-layout.section-nav li.active a,
+.dark-layout.section-nav li a,
+.dark-layout.section-nav li a:hover,
+.dark-layout.section-nav li.active a {
     color: #fff; }
 
 /*=====================
@@ -2033,7 +2182,67 @@ footer {
 /*=====================
     15. Product Category CSS start
 ==========================*/
-.product-category-wrapper .product-category-col {
+#other-category .hero-category {
+    text-align: center; }
+  #other-category .hero-category .hero-img {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-position: 50% 50%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity .5s ease-in-out; }
+  #other-category .hero-category .title {
+      color: #fff;
+      font-size: 20px; }
+  #other-category .hero-category .content {
+      flex-grow: 1;
+      left: 10px;
+      right: 10px;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end; }
+    #other-category .hero-category .content h3 {
+      -webkit-transition: .3s ease-in-out;
+      transition: .3s ease-in-out; }
+      #other-category .hero-category .content:hover > h3 {
+        cursor: pointer;
+        transform: scale(1.05); }
+      #other-category .hero-category .content:hover + div {
+        opacity: 1 }
+
+#other-category .other-category-slider-nav {
+    margin-bottom: 10px;
+    display: inline-block; }
+#other-category .other-category-slider > a {
+    width: 100%;
+    overflow: hidden;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    outline: none; }
+#other-category .other-category-slider h3,
+#other-category .other-category-slider a {
+    color: #fff; }
+#other-category .other-category-slider .card {
+    color: #fff;
+    text-align: center;
+    padding: 10px; }
+#other-category .other-category-slider .card .title {
+    font-size: 14px;
+    margin-bottom: 10px; }
+#other-category .other-category-slider .card .card-title {
+    font-size: 20px; } 
+#other-category .other-category-slider .card a {
+    font-size: 18px; }
+
+/*.product-category-wrapper .product-category-col {
   text-align: center;
   margin-bottom: 30px; }
   .product-category-wrapper .product-category-col .img-wrapper {
@@ -2043,7 +2252,7 @@ footer {
       font-weight: normal;
       font-size: 22px; }
   .product-category-wrapper .product-category-col h2:first-child {
-    margin-bottom: 15px; }
+    margin-bottom: 15px; }*/
 
 /*=====================
     15.1 Product Category (Display Product) CSS start
@@ -2198,9 +2407,50 @@ footer {
     margin-left: 20px; }
 
 /*=====================
-    18. The House CSS start
+    18. The House - Home CSS start
 ==========================*/
-.the-house .col-12:not(:first-child) {
+#the-house .the-house-slider-nav {
+    margin-bottom: 10px;
+    display: inline-block; }
+  /*#the-house .the-house-slider-nav,
+  #the-house .the-house-slider-nav .slick-track {
+    max-width: 400px !important; }*/
+
+  #the-house .the-house-slider-nav .slick-slide {
+    min-width: 100px !important; }
+    #the-house .the-house-slider-nav li {
+        padding: 0 20px; }
+    #the-house .the-house-slider-nav li:hover {
+        cursor: pointer; }
+#the-house .the-house-slider > a {
+    width: 100%;
+    overflow: hidden;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    outline: none; }
+#the-house .the-house-slider h3,
+#the-house .the-house-slider a {
+    color: #fff; }
+#the-house .card .bg-cover {
+    min-height: 400px; }
+#the-house .the-house-slider .card {
+    color: #fff;
+    text-align: center;
+    padding: 20px; }
+#the-house .the-house-slider .card .title {
+    font-size: 14px;
+    margin-bottom: 10px; }
+#the-house .the-house-slider .card .card-title {
+    font-size: 20px; } 
+#the-house .the-house-slider .card a {
+    font-size: 18px; }
+
+/*=====================
+    18.1 The House CSS start
+==========================*/
+/*.the-house .col-12:not(:first-child) {
   padding-top: 70px; }
   .the-house .col-12:not(:first-child):after {
     content: "";
@@ -2224,8 +2474,117 @@ footer {
   height: 220px;
   margin-right: 50px; }
   .the-house .col-12 .thumbnail img {
-    display: none; }
+    display: none; }*/
+.the-house.bg-cover {
+  min-height: 100%; }
+.the-house-content-wrapper {
+  position: relative;
+  text-align: center; }
+  .the-house-content-wrapper img {
+    -webkit-transition: .6s;
+    transition: .6s; }
+  .the-house-content-wrapper .content {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    -webkit-transition: .6s;
+    transition: .6s;
+    text-align: center; }
+  .the-house-content-wrapper .content h3 {
+    font-size: 32px; 
+    position: relative;
+    color: #fff;
+    padding-bottom: 10px; }
+  .the-house-content-wrapper .content h3:after {
+    content: "";
+    border-top: 1px solid #fff;
+    width: 45px;
+    margin: 0 auto;
+    margin-top: 10px; }
+  .the-house-content-wrapper .content p {
+    font-size: 18px;
+    margin-bottom: 15px; }
 
+.the-house-flip-mobile {
+  position: absolute;
+  left: 0;
+  padding:0 40px; }
+  .the-house-flip-mobile .col-4 {
+    perspective: 62.5rem;
+    padding: 0; }
+    .the-house-flip-mobile .col-4 img {
+      -webkit-transition: .6s;
+      transition: .6s;
+      transform: rotateY(-30deg) scale(.9); }
+    .the-house-flip-mobile .col-4.flipped img {
+      transform: rotateY(0) scale(1); }
+
+.the-house-flip-slider .slick-prev:before, 
+.the-house-flip-slider .slick-next:before {
+  display: inline-block;
+  width: 20px;
+  height: 35px;
+  background-size: contain;
+  opacity: 1;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.the-house-flip-slider .slick-prev {
+  left: 10px; }
+.the-house-flip-slider .slick-next {
+  right: 10px; }
+.the-house-flip-slider .slick-dots li button:before {
+  color: #fff;
+  font-size: 16px;
+  line-height: 16px;
+  opacity: 1; }
+  .the-house-flip-slider .slick-dots li.slick-active button:before {
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 10px; }
+
+.the-house.list .card {
+  margin-bottom: 30px; }
+  .the-house.list .card a {
+    width: 100%;
+    overflow: hidden;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    background-color: #242729;
+    outline: none; }
+  .the-house.list .card img {
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    width: 100%;
+    transition: transform 1.2s cubic-bezier(.19,1,.22,1); }
+  .the-house.list .card .card-title {
+    color: #fff;
+    position: relative;
+    line-height: 18px;
+    height: 36px;
+    font-size: 15px;
+    padding-bottom: 45px;
+    margin-bottom: 15px; }
+    .the-house.list .card .card-title:after {
+      content: "";
+      border-top: 1px solid #969696;
+      display: block;
+      width: 45px;    
+      position: absolute;
+      bottom: 0; }
+  .the-house.list .card .card-text {
+    font-size: 12px; }
+  .the-house.list .card a:hover img {
+    transform: scale(1.05); }
+  .the-house.list .card a:hover .card-body {
+    background: #292c2e; }
+
+.the-house.single .bg-cover {
+  height: 440px; }
+  
 /*=====================
     19. E-Boutique Services CSS start
 ==========================*/
@@ -2254,12 +2613,14 @@ footer {
     color: #fff; }
 
 .e-boutique-services .services-content {
-  text-align: center; }
-  .e-boutique-services .services-content > div.d-flex {
+  text-align: center;
+  display: flex;
+  min-height: 600px; }
+  /*.e-boutique-services .services-content > div.d-flex {
     -ms-flex-align: center;
     align-items: center;
     -ms-flex-align: stretch;
-    align-items: stretch; }
+    align-items: stretch; }*/
   .e-boutique-services .services-content .inner {
     padding: 50px; }
     .e-boutique-services .services-content .inner .index {
@@ -2428,3 +2789,52 @@ footer {
 ==========================*/
 .en .btn {
   font-size: 14px; }
+
+
+/*=====================
+    24. New Arrival - Home CSS start
+==========================*/
+.pc-card-wrapper .card {
+    position: relative; }
+.pc-card-wrapper .card .inner {
+    overflow: hidden; }
+.pc-card-wrapper .card .bg-cover {
+    min-height: 350px;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out; }
+.pc-card-wrapper .card:hover .bg-cover {
+    transform: scale(1.05); }
+.pc-card-wrapper .card .card-body {
+    text-align: center; }
+    .pc-card-wrapper .card .card-body h3 {
+        color :#fff;
+        font-size: 18px; }
+
+/*=====================
+    25. Magnific Popup  CSS start
+==========================*/
+.mfp-fade.mfp-bg {
+  opacity: 0;
+  -webkit-transition: all 0.15s ease-out; 
+  -moz-transition: all 0.15s ease-out; 
+  transition: all 0.15s ease-out;
+}
+.mfp-fade.mfp-bg.mfp-ready {
+  opacity: 0.8;
+}
+.mfp-fade.mfp-bg.mfp-removing {
+  opacity: 0;
+}
+
+.mfp-fade.mfp-wrap .mfp-content {
+  opacity: 0;
+  -webkit-transition: all 0.15s ease-out; 
+  -moz-transition: all 0.15s ease-out; 
+  transition: all 0.15s ease-out;
+}
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+  opacity: 1;
+}
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+  opacity: 0;
+}

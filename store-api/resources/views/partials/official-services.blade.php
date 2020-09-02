@@ -1,9 +1,9 @@
-<section id="services" class="dark-layout">
+<section id="services" class="gray-layout section-b-space">
     <div class="container">
         <div class="mb-5">
         	<h2 class="text-white title">@lang('general.official-services')</h2>
         </div>
-        <div class="row small-section">
+        <div class="row">
             <div class="col-6 col-md-6 col-lg-3 service-block">
                 <div class="media">
 				  	<img src="{{ URL::asset('assets/images/icon/free-shipping.png') }}" alt="">

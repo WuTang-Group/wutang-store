@@ -32,13 +32,14 @@
     <link rel="stylesheet" href="{{ URL::asset('assets/vendor/slick/slick-theme.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('assets/vendor/animate.css/animate.min.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('assets/vendor/toastr/toastr.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('assets/vendor/magnific-popup/magnific-popup.min.css') }}">
     @yield('header_vendor_style_css')
 
     <link rel="stylesheet" href="{{ URL::asset('assets/css/styles.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('assets/css/responsive.css') }}">
     @yield('header_style_css')
 </head>
-<body class="{{ Request::is('/') ? 'home ' : null }} {{ !empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en' ? 'en':'cn' }}">
+<body class="{{ Request::is('/') ? 'home ' : null }}{{ !empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en' ? 'en':'cn' }}">
     <div id="app">
         @include('layouts.partials.header', ['count' => $count])
         <main class="main-content">
@@ -46,7 +47,7 @@
         </main>
         @include('layouts.partials.footer')
         <!-- Sidebar -->
-        <div id="mySidenav" class="sidenav">
+        <div id="mySidenav" class="light-layout sidenav">
             <a href="javascript:void(0)" class="sidebar-overlay" onclick="closeNav()"></a>
             <nav>
                 <div class="sidebar-header d-flex justify-content-between">
@@ -137,6 +138,7 @@
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
     <!--<script src="{{ URL::asset('assets/vendor/js-cookie/js.cookie.min.js') }}"></script>-->
     <script src="{{ URL::asset('assets/vendor/toastr/toastr.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/vendor/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
 
     @yield('footer_vendor_scripts')
     @if(!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en') 

@@ -2,7 +2,7 @@
 
 @section('content')
 @include('partials.section-nav-1')
-<div class="darken-layout brand">
+<div class="black-layout brand">
   <img src="{{ URL::asset('assets/images/start-from-your-inner-skin-bg.png') }}" class="img-fluid" />
 	<div class="section-t-space section-b-space position-relative">
       <div class="container">

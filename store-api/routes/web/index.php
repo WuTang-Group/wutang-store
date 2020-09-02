@@ -53,12 +53,15 @@ Route::group(['middleware' => ['web']], function () use ($router) {
 
 	Route::group(['prefix' => 'the-house'], function () use ($router) {
 		Route::get('/', 'Web\TheHouseController@index');
-		Route::get('{slug}', 'Web\TheHouseController@show');
+		Route::get('/category', 'Web\TheHouseController@category');
+		Route::get('/single', 'Web\TheHouseController@show');
+		//Route::get('/category/{slug}', 'Web\TheHouseController@category');
+		//Route::get('/{slug}', 'Web\TheHouseController@show');
 	});
 
 	Route::get('e-boutique-services', function () { return view('others.e-boutique-services'); });
 	Route::get('contact-us', function () { return view('others.contact-us'); });
-	Route::get('customer-services', function () { return view('others.customer-services'); });
+	Route::get('customer-service', function () { return view('others.customer-service'); });
 	Route::get('shipping', function () { return view('others.shipping'); });
 	Route::get('privacy-policy', function () { return view('others.privacy-policy'); });
 	Route::get('terms-and-conditions', function () { return view('others.terms-and-conditions'); });

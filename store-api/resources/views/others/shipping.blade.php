@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="section-nav darken-layout">
+<div class="section-nav dark-layout">
   <div class="container">
     <ul>
       <!-- <li><a href="#tracking" class="anchor">追踪订单</a></li> -->

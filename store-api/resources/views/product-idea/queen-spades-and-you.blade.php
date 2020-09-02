@@ -2,7 +2,7 @@
 
 @section('content')
 @include('partials.section-nav-1')
-<div class="darken-layout product-idea">
+<div class="black-layout product-idea">
 	<div class="section-t-space section-b-space position-relative">
       <div class="container">
         <div class="row">

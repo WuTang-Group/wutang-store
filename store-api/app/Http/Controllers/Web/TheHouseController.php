@@ -17,11 +17,23 @@ class TheHouseController extends Controller
 
     public function index(Request $request)
     {
-
+        return View('the-house.index');
     }
 
-    public function show(Request $request, $slug)
+    //public function category(Request $request, $slug)
+    public function category(Request $request)
     {
+        return View('the-house.the-house');
+    }
 
+    /*public function show(Request $request, $slug)
+    {
+        return View('the-house.the-house');
+    }*/
+
+    //public function show(Request $request, $slug)
+    public function show(Request $request)
+    {
+        return View('the-house.single-the-house');
     }
 }

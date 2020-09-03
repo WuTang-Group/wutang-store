@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\OrderRequest;
 use App\Services\Admin\OrderService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 /**
  * @group [ADMIN] Order
@@ -52,6 +53,35 @@ class OrderController extends Controller
         $result = $this->orderService->searchOrder($queries);
 
         return $result?response()->json(ResponseData::requestSuccess($result)):response()->json(ResponseData::requestFails($request->all()));
+    }
+
+    /**
+     * Edit order
+     * 编辑订单
+     * @bodyParam  refund_status string 退款状态
+     * @bodyParam  ship_status string 物流状态
+     * @bodyParam  status string 订单状态
+     * @param $orderId
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function edit($orderId, Request $request)
+    {
+        $requestData = $request->only('refund_status', 'ship_status', 'status');
+        $result = $this->orderService->edit($orderId, $requestData);
+        return $result? response()->json(ResponseData::requestSuccess()): response()->json(ResponseData::paramError());
+    }
+
+    /**
+     * Get order detail
+     * 获取订单详情信息
+     * @param $orderNo
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function detail($orderNo)
+    {
+        $result = $this->orderService->detail($orderNo);
+        return response()->json(ResponseData::requestSuccess($result));
     }
 }
 

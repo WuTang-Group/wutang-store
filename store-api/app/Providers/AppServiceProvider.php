@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\AlipayLegacyExpress;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Observers\AlipayLegacyExpressObserver;
 use App\Observers\ProductCategoryObserver;
 use App\Observers\ProductObserver;
 use Illuminate\Support\Facades\Schema;
@@ -60,6 +62,8 @@ class AppServiceProvider extends ServiceProvider
         Product::observe(ProductObserver::class);
         // 注册产品分类观察者
         ProductCategory::observe(ProductCategoryObserver::class);
+        // 注册 AlipayLegacyExpress 观察者
+        AlipayLegacyExpress::observe(AlipayLegacyExpressObserver::class);
 
         // 获取购物车商品
         $token = isset($_COOKIE['token']) ? $_COOKIE['token']:null;
@@ -73,8 +77,8 @@ class AppServiceProvider extends ServiceProvider
                 ]
             ]);
             $cart_collection = json_decode($request->getBody());
-        } 
-        
+        }
+
         if(isset($cart_collection->code) && $cart_collection->code != 20001) {
             $cart_collection = null;
         }

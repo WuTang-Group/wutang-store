@@ -25,13 +25,6 @@ class AlipayLegacyExpressRequest extends FormRequest
                     'items.*.seller_email' => 'required|email'
                 ];
             }
-            case 'delete':
-            {
-                return [
-                    'items' => 'required|array',
-                    'items.*.id'=> 'required|integer',
-                ];
-            }
         }
     }
 
@@ -45,10 +38,7 @@ class AlipayLegacyExpressRequest extends FormRequest
             'items.*.key.required' => 'items内key必填',
             'items.*.key.string' => 'items内key必须为字符串',
             'items.*.seller_email.required' => 'items内seller_email必填',
-            'items.*.seller_email.email' => 'items内seller_email必须为邮箱',
-
-            'items.*.id.required' => 'id必填',
-            'items.*.id.integer' => 'id需为整形'
+            'items.*.seller_email.email' => 'items内seller_email必须为邮箱'
         ];
     }
 }

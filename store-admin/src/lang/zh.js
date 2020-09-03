@@ -19,6 +19,7 @@ export default {
     'productViewOrUpdate': '查看/编辑',
     PurchaseOrder: '订单管理',
     'PurchaseOrderList': '订单列表',
+    'purchaseOrderViewOrUpdate': '查看/编辑',
     Logistics: '物流管理',
     'LogisticsList': '物流列表',
     Payment: '支付管理',

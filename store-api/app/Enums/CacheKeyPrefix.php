@@ -27,4 +27,8 @@ final class CacheKeyPrefix extends Enum
      * 其他缓存类
      */
     const CaptchaCache = 'QS:CAPTCHA:';  // 验证码
+    /**
+     * Payment merchant相关
+     */
+    const AlipayLegacyExpress = 'QS:ALIPAYLEGACYEXPRESSES:';  // alipay_legacy_expresses 表
 }

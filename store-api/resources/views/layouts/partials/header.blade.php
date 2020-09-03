@@ -49,9 +49,10 @@
                                         </div>
                                         <div class="content">
                                             <ul>
+                                                <li><a href="/the-house">概述</a></li>
                                                 <li><a href="/product-idea">@lang('general.product-idea')</a></li>
                                                 <li><a href="/the-brand">@lang('general.brand-introduction')</a></li>
-                                                <li><a href="/the-house">@lang('general.blog-post')</a></li>
+                                                <li><a href="/the-house/category">@lang('general.blog-post')</a></li>
                                             </ul>
                                         </div>
                                     </div>

@@ -9,12 +9,12 @@
                     <div class="col">
                         <div class="banner-contain justify-content-between">
                             <div>
-                                <h2 class="tx-mont" data-animation="fadeInLeft" data-delay="1s">SKIN CAVIAR <br>ESSENCE-IN-FOUNDATION</h2>
-                                <h2 data-animation="fadeInRight" data-delay="1s">鱼子精华气垫粉底</h2>
-                                <a href="single-product.php" class="btn btn-outline" data-animation="fadeInLeft" data-delay="1s">即刻选购</a>
+                                <h2 class="tx-mont animated fadeInLeft">SKIN CAVIAR <br>ESSENCE-IN-FOUNDATION</h2>
+                                <h2 class="animated fadeInRight">鱼子精华气垫粉底</h2>
+                                <a href="single-product.php" class="btn btn-outline animated fadeInLeft">即刻选购</a>
                             </div>
                             <div class="d-none d-md-inline-block">
-                                <a href="single-product.php"><img src="{{ URL::asset('assets/images/banner/banner-s.png') }}" data-animation="flipInX" data-delay="1s" /></a>
+                                <a href="single-product.php"><img src="{{ URL::asset('assets/images/banner/banner-s.png') }}" class="animated flipInX" /></a>
                             </div>
                         </div>
                     </div>

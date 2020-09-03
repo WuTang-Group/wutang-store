@@ -7,3 +7,18 @@ export function getList($query) {
     params: $query
   })
 }
+
+export function orderUpdate(data) {
+  return request({
+    url: 'admin/order/' + data.id,
+    method: 'post',
+    data
+  })
+}
+
+export function orderDetail(orderNo) {
+  return request({
+    url: 'admin/order/' + orderNo,
+    method: 'get'
+  })
+}

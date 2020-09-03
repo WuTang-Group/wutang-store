@@ -29,10 +29,10 @@
         :header-cell-style="{background:'#ebeef5'}"
       >
         <el-table-column type="index" header-align="center" align="center" label="序号" width="60" />
-        <el-table-column header-align="center" label="商品名称" prop="product_name" align="center">
+        <el-table-column header-align="center" label="商品名称" prop="product_name" align="center" width="180px">
           <template slot-scope="scope">
             <router-link :to="{ name: 'ProductViewOrUpdate', params: {'status': 'view', 'product_slug': scope.row.slug} }">
-              {{ scope.row.product_name }}
+              <el-button type="primary" plain>{{ scope.row.product_name }}</el-button>
             </router-link>
           </template>
         </el-table-column>

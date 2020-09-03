@@ -29,11 +29,11 @@
         :header-cell-style="{background:'#ebeef5'}"
       >
         <el-table-column type="index" header-align="center" align="center" label="序号" width="60" />
-        <el-table-column header-align="center" label="故事名称" align="center">
+        <el-table-column header-align="center" label="故事名称" align="center" width="200px">
           <template slot-scope="scope">
             <span :class="{active: false}" @mouseover="handleMouseEnter()" @mouseleave="handleMouseMove()">
               <router-link :to="{ name: 'ViewUpdateStory', params: {'status': 'view', 'story_id': scope.row.id} }">
-                {{ scope.row.title }}
+                <el-button type="primary" plain>{{ scope.row.title }}</el-button>
               </router-link>
             </span>
           </template>

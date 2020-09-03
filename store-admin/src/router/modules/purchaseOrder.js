@@ -16,6 +16,13 @@ const orderRouter = {
       component: () => import('@/views/purchaseOrder/index'),
       name: 'PurchaseOrderList',
       meta: { title: 'PurchaseOrderList' }
+    },
+    {
+      path: 'view-or-update',
+      hidden: true,
+      component: () => import('@/views/purchaseOrder/components/ViewOrUpdate'),
+      name: 'ViewOrUpdate',
+      meta: { title: 'purchaseOrderViewOrUpdate' }
     }
   ]
 }

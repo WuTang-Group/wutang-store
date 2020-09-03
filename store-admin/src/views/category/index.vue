@@ -33,7 +33,7 @@
           <template slot-scope="scope">
             <span :class="{active: false}" @mouseover="handleMouseEnter()" @mouseleave="handleMouseMove()">
               <router-link :to="{ name: 'CategoryViewOrUpdate', params: {'status': 'view', 'category_slug': scope.row.slug} }">
-                {{ scope.row.title }}
+                <el-button type="primary" plain>{{ scope.row.title }}</el-button>
               </router-link>
             </span>
           </template>

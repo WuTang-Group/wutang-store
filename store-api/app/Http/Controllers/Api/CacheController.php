@@ -15,6 +15,7 @@ class CacheController extends Controller
         config(['logging.channels.mongodb.collection' => LoggerCollection::OrderLog]);
     }
 
+    // 缓存订单支付数据
     public static function orderPayment($params, $minute = 15)
     {
         try {

@@ -91,6 +91,10 @@ Route::group(['namespace' => 'Admin'], function () {
         Route::get('asset_img', 'AssetImgsController@queryList')->name('asset_img.queryList');
         Route::post('asset_img', 'AssetImgsController@store')->name('asset_img.store');
         Route::delete('asset_img/{assetImgId}', 'AssetImgsController@destroy')->name('asset_img.destroy');
+        /**
+         * Payment
+         */
+        require_once base_path('routes/admin/payment.php');
 
     });
 });

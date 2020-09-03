@@ -11,6 +11,11 @@ use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+/**
+ *  @group [ADMIN-Payment] AlipayLegacyExpress manage
+ * 支付宝即时到账管理类
+ * @package App\Http\Controllers\Admin\Payment
+ */
 class AlipayLegacyExpressController extends Controller
 {
     private $service;
@@ -67,14 +72,13 @@ class AlipayLegacyExpressController extends Controller
     /**
      * Request delete alipay legacy express data
      * 请求删除支付宝即时支付数据
-     * @queryParam items required array名称
-     * @querParam items.*.id required 数组内id
-     * @param AlipayLegacyExpressRequest $request
+     * @queryParam id required id值
+     * @param $id
      * @return Application|ResponseFactory|Response
      */
-    public function delete(AlipayLegacyExpressRequest $request)
+    public function delete($id)
     {
-        $result = $this->service->delete($request);
+        $result = $this->service->delete($id);
         return $result ? response(ResponseData::requestSuccess($result)) : response(ResponseData::requestFails($request->all()));
     }
 }

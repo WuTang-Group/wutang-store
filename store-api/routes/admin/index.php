@@ -78,7 +78,9 @@ Route::group(['namespace' => 'Admin'], function () {
          * order
          */
         Route::get('order', 'OrderController@queryList')->name('order.queryList');
+        Route::get('order/{orderNo}', 'OrderController@detail')->name('order.detail');
         Route::post('order', 'OrderController@searchOrder')->name('order.searchOrder');
+        Route::post('order/{orderId}', 'OrderController@edit')->name('order.edit');
         /**
          * Logs
          */

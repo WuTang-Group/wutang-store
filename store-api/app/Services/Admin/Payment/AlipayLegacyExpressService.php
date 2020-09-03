@@ -45,12 +45,29 @@ class AlipayLegacyExpressService extends Service
         }
     }
 
-    // 编辑数据
+    // 编辑数据-过滤status值
     public function update($id, $params)
     {
-        $requestData = $params->all();
+        $requestData = $params->except(['status']);
         try {
             return $this->alipayLegacyExpress->whereId($id)->update($requestData);
+        } catch (\Exception $e) {
+            Log::error('模型更新失败', ['message' => $e->getMessage()]);
+            return false;
+        }
+    }
+
+    // 更新状态
+    public function updateStatus($id, $params)
+    {
+        $status = $params->only(['status']);
+        try {
+            if ($status == 1) {
+                $this->alipayLegacyExpress->update(['status' => -1]);  // 设置其他状态为-1
+                $this->alipayLegacyExpress->whereId($id)->update(['status' => 1]);  // 更改指定id为1
+            }
+            $this->alipayLegacyExpress->whereId($id)->update(['status' => $status]);  // 默认更改为传递状态
+            return true;
         } catch (\Exception $e) {
             Log::error('模型更新失败', ['message' => $e->getMessage()]);
             return false;

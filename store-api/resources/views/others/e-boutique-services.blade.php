@@ -2,12 +2,15 @@
 
 @section('content')
 <div class="gray-layout e-boutique-services">
-	<div id="services" class="section-t-space section-b-space position-relative" style="background: url({{ URL::asset('assets/images/banner/sp-bg1.jpg') }}) no-repeat center center / cover;">
+	<div id="services" class="section-t-space section-b-space position-relative" style="background: url({{ URL::asset('assets/images/e-service-bg.jpg') }}) no-repeat center center / cover;">
         <div class="services-title">
             <h1>@lang('general.official-services')</h1>
         </div>
+        <div>
+            <a href="#e-services" class="scroll-down anchor">@lang('general.scroll-down')</a>
+        </div>
 	</div>
-	<div class="container pt-5 pb-5">
+	<div id="e-services" class="container pt-5 pb-5">
 		<div class="row justify-content-center">
             <div class="col-6 col-sm-4 col-lg-2 services-block">
                 <a href="#free-shipping" class="anchor">
@@ -49,9 +52,9 @@
 	</div>
     <div class="dark-layout">
         <div id="free-shipping" class="services-content">
-            <div class="col-12 col-md-6 p-0 d-none d-md-inline-block bg-cover" style="background-image: url({{ URL::asset('assets/images/pro3/video_1.jpg') }});"></div>
+            <div class="col-12 col-md-6 p-0 d-none d-md-inline-block bg-cover" style="background-image: url({{ URL::asset('assets/images/e-service.jpg') }});"></div>
             <div class="col-12 col-md-6 p-0 align-self-center">
-                <img src="{{ URL::asset('assets/images/pro3/video_1.jpg') }}" class="img-fluid d-block d-md-none" />
+                <img src="{{ URL::asset('assets/images/e-service.jpg') }}" class="img-fluid d-block d-md-none" />
                 <div class="inner">
                     <span class="index tx-mont">01</span>
                     <h1>臻品免邮配送</h1>
@@ -65,7 +68,7 @@
         </div>
         <div id="packaging" class="services-content">
             <div class="col-12 col-md-6 p-0 align-self-center">
-                <img src="{{ URL::asset('assets/images/pro3/video_1.jpg') }}" class="img-fluid d-block d-md-none" />
+                <img src="{{ URL::asset('assets/images/e-service.jpg') }}" class="img-fluid d-block d-md-none" />
                 <div class="inner">
                     <span class="index tx-mont">02</span>
                     <h1>精致礼盒包装</h1>
@@ -76,12 +79,12 @@
                     <a href="" class="btn btn-white">@lang('general.shop-now')</a>
                 </div>
             </div>
-            <div class="col-12 col-md-6 p-0 d-none d-md-inline-block bg-cover" style="background-image: url({{ URL::asset('assets/images/pro3/video_1.jpg') }})"></div>
+            <div class="col-12 col-md-6 p-0 d-none d-md-inline-block bg-cover" style="background-image: url({{ URL::asset('assets/images/e-service.jpg') }})"></div>
         </div>
         <div id="safe-payment" class="services-content">
-            <div class="col-12 col-md-6 p-0 d-none d-md-inline-block bg-cover" style="background-image: url({{ URL::asset('assets/images/pro3/video_1.jpg') }})"></div>
+            <div class="col-12 col-md-6 p-0 d-none d-md-inline-block bg-cover" style="background-image: url({{ URL::asset('assets/images/e-service.jpg') }})"></div>
             <div class="col-12 col-md-6 p-0 align-self-center">
-                <img src="{{ URL::asset('assets/images/pro3/video_1.jpg') }}" class="img-fluid d-block d-md-none" />
+                <img src="{{ URL::asset('assets/images/e-service.jpg') }}" class="img-fluid d-block d-md-none" />
                 <div class="inner">
                     <span class="index tx-mont">03</span>
                     <h1>无忧安全支付</h1>
@@ -95,7 +98,7 @@
         </div>
         <div id="my-account" class="services-content">
             <div class="col-12 col-md-6 p-0 align-self-center">
-                <img src="{{ URL::asset('assets/images/pro3/video_1.jpg') }}" class="img-fluid d-block d-md-none" />
+                <img src="{{ URL::asset('assets/images/e-service.jpg') }}" class="img-fluid d-block d-md-none" />
                 <div class="inner">
                     <span class="index tx-mont">04</span>
                     <h1>个人账户</h1>
@@ -108,12 +111,12 @@
                     <a href="" class="btn btn-white">@lang('general.register')</a>
                 </div>
             </div>
-            <div class="col-12 col-md-6 p-0 d-none d-md-inline-block bg-cover" style="background-image: url({{ URL::asset('assets/images/pro3/video_1.jpg') }})"></div>
+            <div class="col-12 col-md-6 p-0 d-none d-md-inline-block bg-cover" style="background-image: url({{ URL::asset('assets/images/e-service.jpg') }})"></div>
         </div>
         <!-- <div id="order-tracking" class="services-content">
-            <div class="col-12 col-md-6 p-0 d-none d-md-inline-block bg-cover" style="background-image: url({{ URL::asset('assets/images/pro3/video_1.jpg') }})"></div>
+            <div class="col-12 col-md-6 p-0 d-none d-md-inline-block bg-cover" style="background-image: url({{ URL::asset('assets/images/e-service.jpg') }})"></div>
             <div class="col-12 col-md-6 p-0 align-self-center">
-                <img src="{{ URL::asset('assets/images/pro3/video_1.jpg') }}" class="img-fluid d-block d-md-none" />
+                <img src="{{ URL::asset('assets/images/e-service.jpg') }}" class="img-fluid d-block d-md-none" />
                 <div class="inner">
                     <span class="index tx-mont">05</span>
                     <h1>订单追踪</h1>
@@ -127,9 +130,9 @@
             </div>
         </div> -->
         <div id="customer-service" class="services-content">
-            <div class="col-12 col-md-6 p-0 d-none d-md-inline-block bg-cover" style="background-image: url({{ URL::asset('assets/images/pro3/video_1.jpg') }})"></div>
+            <div class="col-12 col-md-6 p-0 d-none d-md-inline-block bg-cover" style="background-image: url({{ URL::asset('assets/images/e-service.jpg') }})"></div>
             <div class="col-12 col-md-6 p-0 align-self-center">
-                <img src="{{ URL::asset('assets/images/pro3/video_1.jpg') }}" class="img-fluid d-block d-md-none" />
+                <img src="{{ URL::asset('assets/images/e-service.jpg') }}" class="img-fluid d-block d-md-none" />
                 <div class="inner">
                     <span class="index tx-mont">05</span>
                     <h1>客户服务</h1>

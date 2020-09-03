@@ -63,6 +63,8 @@
     right: 0;
     margin: 0; }*/
 
+  .single-product div#product .product-right.is_fixed {
+    max-width: 360px; }
   .single-product #routine .slick-prev, 
   .single-product #routine .slick-next {
     display: none; }

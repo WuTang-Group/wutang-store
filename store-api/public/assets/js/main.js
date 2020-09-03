@@ -47,20 +47,20 @@
     $(document).ready(function() {
         $(document).on('click','a[href^="#"]',function(e) {
             var location = this.hash;
-            setTimeout(function() {
-                $('html, body').scrollTop(0).show();
-                $('html, body').animate({
-                    scrollTop: $(location).offset().top - 80
-                }, 2000)
-            }, 0);
+            if(location.length) {
+                setTimeout(function() {
+                    $('html, body').animate({
+                        scrollTop: $(location).offset().top - 80
+                    }, 1500, 'easeInOutExpo')
+                }, 0);
+            }
             return false;
         });
         if(window.location.hash != '') {
             setTimeout(function() {
-                $('html, body').scrollTop(0).show();
                 $('html, body').animate({
                     scrollTop: $(window.location.hash).offset().top - 80
-                }, 2000)
+                }, 1500, 'easeInOutExpo')
             }, 0);
             return false;
         }
@@ -74,6 +74,7 @@
 
             fixedContentPos: false
         });
+        scroll_form();
         flip();
     });
 
@@ -86,6 +87,7 @@
         });
     }
     $(window).resize(function(){
+        scroll_form();
         if ($(window).width() > 991) {
             flip();
         }
@@ -106,6 +108,7 @@
         } else {
             $('#back-to-top').fadeOut();
         }
+        scroll_form();
     }); 
     $('#back-to-top').click(function(){
         $("html, body").animate({ scrollTop: 0 }, 600);
@@ -550,6 +553,39 @@
             });
         }
     });
+
+    /*=====================
+     14. Single Product js
+     ==========================*/
+    //$(window).scroll(function () {
+    function scroll_form() {
+        if ($(window).width() > 991) {
+            if($('#benefit')[0]) {
+                var orig = $("#product-action").offset().top,
+                    pos = $("#benefit").offset().top - 120;
+                if ($(window).scrollTop() > pos) {
+                    $(".single-product .product-right").removeClass('is_fixed');
+                    $(".single-product .product-right").css({
+                        position: 'absolute',
+                        top: pos
+                    });
+                } else {
+                    $(".single-product .product-right").addClass('is_fixed');
+                    $(".single-product .product-right").css({
+                        position: 'fixed',
+                        top: orig,
+                        zIndex: 1
+                    });
+                }
+            }
+        } else {
+            $(".single-product .product-right").removeClass('is_fixed');
+            $(".single-product .product-right").css({
+                position: 'initial',
+                top: ''
+            });
+        }
+    }
 
     //Cart.initJQuery();
     $(document).on('click', '.btn-add-to-cart', function(e) {

@@ -139,7 +139,7 @@
     <!--<script src="{{ URL::asset('assets/vendor/js-cookie/js.cookie.min.js') }}"></script>-->
     <script src="{{ URL::asset('assets/vendor/toastr/toastr.min.js') }}"></script>
     <script src="{{ URL::asset('assets/vendor/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
-
+    <script src="{{ URL::asset('assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     @yield('footer_vendor_scripts')
     @if(!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en') 
     <script src="{{ URL::asset('assets/js/lang/en.js') }}"></script>

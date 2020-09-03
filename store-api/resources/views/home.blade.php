@@ -23,7 +23,7 @@
         </div>
     </div>
     <div>
-        <a href="#products" class="scroll-down anchor">@lang('general.scroll-down')</a>
+        <a href="#new-arrival" class="scroll-down anchor">@lang('general.scroll-down')</a>
     </div>
 </section>
 <section id="new-arrival" class="dark-layout pc-card-wrapper abs">

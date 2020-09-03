@@ -95,7 +95,7 @@
                 </div>
                 <div class="col-12 col-md-4 footer-logo-copyright">
                     <div class="footer-logo">
-                        <a href="/"><img src="{{ URL::asset('assets/images/queen-logo-footer.png') }}" class="img-fluid" alt=""></a>
+                        <a href="/"><img src="{{ URL::asset('assets/images/queen-logo-b-footer.png') }}" class="img-fluid" alt=""></a>
                     </div>
                     <div class="copyright-text">
 						<div class="footer-contant">2020 QUEEN SPADES - @lang('general.copyrights')</div> 

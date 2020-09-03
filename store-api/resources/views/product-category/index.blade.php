@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="dark-layout">
-	<div class="container section-t-space">
+	<div class="container section-t-space section-b-space">
 		<div class="row">
 			<div class="col-12 col-md-12 section-t-space section-b-space">
 				<div class="row pc-card-wrapper">

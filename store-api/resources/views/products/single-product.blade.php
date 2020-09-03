@@ -21,7 +21,7 @@
         <div>
           <a href="#benefit" class="scroll-down anchor">@lang('general.scroll-down')</a>
         </div>
-        <div class="container">
+        <div id="product-action" class="container">
           <div class="col-12 col-lg-5 col-xl-4 offset-lg-7 offset-xl-8">
               <div class="product-right">
                   <h2 class="product-title tx-mont lh-12 mb-2 font-weight-normal">{{ $response->data->product_name_en }}</h2>

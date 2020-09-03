@@ -174,7 +174,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider::class
+        Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider::class,
+        // 自定集合分页
+        App\Providers\CollectionMacroServiceProvider::class
 
     ],
 

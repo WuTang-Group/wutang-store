@@ -2558,8 +2558,9 @@ footer {
     background-size: cover;
     background-position: 50%;
     background-repeat: no-repeat;
-    width: 100%;
-    transition: transform 1.2s cubic-bezier(.19,1,.22,1); }
+    max-width: 100%;
+    transition: transform 1.2s cubic-bezier(.19,1,.22,1);
+    max-height: 200px; }
   .the-house.list .card .card-title {
     color: #fff;
     position: relative;

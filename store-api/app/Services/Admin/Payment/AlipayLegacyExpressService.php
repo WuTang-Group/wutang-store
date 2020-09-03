@@ -57,15 +57,11 @@ class AlipayLegacyExpressService extends Service
         }
     }
 
-    // 删除数据-可批量
-    public function delete($params)
+    // 删除数据
+    public function delete($id)
     {
-        $requestData = $params->all();
         try {
-            foreach ($requestData['items'] as $value) {
-                $result[] = $value['id'];
-            }
-            return $this->alipayLegacyExpress->destroy($result);
+            return $this->alipayLegacyExpress->destroy($id);
         } catch (\Exception $e) {
             Log::error('模型删除失败', ['message' => $e->getMessage()]);
             return false;

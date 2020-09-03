@@ -77,4 +77,21 @@ class OrderService extends Service
         // 根据搜索条件查询订单
         return $this->order->where($searchParam)->paginate($queries['page_limit']);
     }
+
+    public function edit($orderId, $query)
+    {
+        try{
+            $this->order->whereId($orderId)->update($query);
+        }catch(\Exception $e){
+            Log::error('订单更新失败', ['message' => $e->getMessage()]);
+            return false;
+        }
+        return true;
+    }
+
+    // 根据订单号获取订单详情
+    public function detail($orderNo)
+    {
+        return $this->order->with('items.product')->where('no', $orderNo)->first();
+    }
 }

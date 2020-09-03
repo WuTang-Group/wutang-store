@@ -108,6 +108,11 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         Route::get('wish_list','WishListController@index')->name('wish_list.index');
         Route::post('wish_list', 'WishListController@store')->name('wish_list.store');
         Route::delete('wish_list', 'WishListController@delete')->name('wish_list.delete');
+        /**
+         * img resource
+         */
+        Route::get('assetImg', 'AssetImgController@list')->name('assetImg.list');
+        Route::get('assetImg/{img_location}', 'AssetImgController@getImg')->name('assetImg.getImg');
     });
 
 });

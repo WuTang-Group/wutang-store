@@ -5,6 +5,7 @@ namespace App\Services\Admin\Payment;
 use App\Enums\CacheKeyPrefix;
 use App\Models\AlipayLegacyExpress;
 use App\Services\Service;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 
@@ -81,7 +82,8 @@ class AlipayLegacyExpressService extends Service
     public function delete($id)
     {
         try {
-            return $this->alipayLegacyExpress->destroy($id);
+            $this->alipayLegacyExpress->destroy($id);
+            return true;
         } catch (\Exception $e) {
             Log::error('模型删除失败', ['message' => $e->getMessage()]);
             return false;

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin\Payment;
 
-use App\Enums\CacheKeyPrefix;
 use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Payment\AlipayLegacyExpressRequest;
@@ -11,11 +10,9 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Cache;
 
 /**
- *  @group [ADMIN-Payment] AlipayLegacyExpress manage
+ * @group [ADMIN-Payment] AlipayLegacyExpress manage
  * 支付宝即时到账管理类
  * @package App\Http\Controllers\Admin\Payment
  */
@@ -68,7 +65,7 @@ class AlipayLegacyExpressController extends Controller
      */
     public function update($id, AlipayLegacyExpressRequest $request)
     {
-        $result = $this->service->update($id,$request);
+        $result = $this->service->update($id, $request);
         return $result ? response(ResponseData::requestSuccess($result)) : response(ResponseData::requestFails($request->all()));
     }
 
@@ -82,7 +79,7 @@ class AlipayLegacyExpressController extends Controller
      */
     public function updateStatus($id, AlipayLegacyExpressRequest $request)
     {
-        $result = $this->service->updateStatus($id,$request);
+        $result = $this->service->updateStatus($id, $request);
         return $result ? response(ResponseData::requestSuccess($result)) : response(ResponseData::requestFails($request->all()));
     }
 

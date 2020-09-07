@@ -20,10 +20,4 @@ interface BaseCacheInterface
      */
     public function update($params);
 
-    /**
-     * 删除缓存
-     * @param $params
-     * @return mixed
-     */
-    public function delete($params);
 }

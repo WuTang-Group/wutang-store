@@ -34,6 +34,9 @@ class AlipayLegacyExpressService extends Service
         $requestData = $params->all();
         try {
             foreach ($requestData['items'] as $value) {
+                if ($value['status'] == 1) {
+                    $this->alipayLegacyExpress->update(['status' => -1]);  // 设置其他状态为-1
+                }
                 $value['return_url'] = route('alipay.legacy_express.alipayLegacyExpressReturn');
                 $value['notify_url'] = route('alipay.legacy_express.alipayLegacyExpressNotify');
                 $result[] = $this->alipayLegacyExpress->create($value);

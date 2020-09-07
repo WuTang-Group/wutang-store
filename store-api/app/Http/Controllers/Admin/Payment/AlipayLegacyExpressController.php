@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Payment;
 
+use App\Enums\CacheKeyPrefix;
 use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Payment\AlipayLegacyExpressRequest;
@@ -10,6 +11,8 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Cache;
 
 /**
  *  @group [ADMIN-Payment] AlipayLegacyExpress manage
@@ -93,6 +96,6 @@ class AlipayLegacyExpressController extends Controller
     public function delete($id)
     {
         $result = $this->service->delete($id);
-        return $result ? response(ResponseData::requestSuccess($result)) : response(ResponseData::requestFails($request->all()));
+        return $result ? response(ResponseData::requestSuccess($result)) : response(ResponseData::requestFails());
     }
 }

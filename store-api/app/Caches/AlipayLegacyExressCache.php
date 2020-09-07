@@ -37,15 +37,18 @@ class AlipayLegacyExressCache implements BaseCacheInterface
     {
         $key = CacheKeyPrefix::AlipayLegacyExpressAll;
         $cacheData = Cache::get($key);
-        foreach ($cacheData as $key => $value) {
-            if ($value['id'] == $model->id) {
-                Arr::forget($cacheData, $key);
-            }
-        }
+        // 格式化移除对应id数据
+        $filterData = $cacheData->reject(function($value,$key) use ($model){
+            return $value->id == $model->id;
+        });
         // 先删除缓存再重新缓存
         Cache::forget($key);
         $newKey = CacheKeyPrefix::AlipayLegacyExpressAll;
-        Cache::forever($newKey,$cacheData);
+        // 组装到数组
+        foreach ($filterData as $value){
+            $data[] = $value;
+        }
+        Cache::forever($newKey,collect($data));  // 由于是数组，需要再次组装为集合存入缓存
     }
 
 }

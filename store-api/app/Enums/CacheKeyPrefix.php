@@ -31,4 +31,5 @@ final class CacheKeyPrefix extends Enum
      * Payment merchant相关
      */
     const AlipayLegacyExpress = 'QS:ALIPAYLEGACYEXPRESSES:';  // alipay_legacy_expresses 表
+    const AlipayLegacyExpressAll = self::AlipayLegacyExpress . 'ALL';  // alipay_legacy_expresses模型全部数据
 }

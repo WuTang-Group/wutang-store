@@ -20,7 +20,7 @@ class CreateAlipayLegacyExpressesTable extends Migration
             $table->string('seller_email')->comment('卖家支付宝账号');
             $table->string('return_url')->comment('前端回调URL');
             $table->string('notify_url')->comment('异步回调URL');
-            $table->integer('status')->default(1)->comment('激活状态:1激活，-1未激活');
+            $table->integer('status')->default(-1)->comment('激活状态:1激活，-1未激活');
             $table->timestamps();
         });
     }

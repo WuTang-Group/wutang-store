@@ -44,11 +44,9 @@ class AlipayLegacyExressCache implements BaseCacheInterface
         // 先删除缓存再重新缓存
         Cache::forget($key);
         $newKey = CacheKeyPrefix::AlipayLegacyExpressAll;
-        // 组装到数组
-        foreach ($filterData as $value){
-            $data[] = $value;
-        }
-        Cache::forever($newKey,collect($data));  // 由于是数组，需要再次组装为集合存入缓存
+        // 将集合数据值拼装回集合数据
+        $formatData = collect($filterData->values());
+        Cache::forever($newKey,$formatData);
     }
 
 }

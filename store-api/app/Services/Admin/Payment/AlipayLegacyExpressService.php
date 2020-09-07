@@ -21,7 +21,7 @@ class AlipayLegacyExpressService extends Service
     public function index($params)
     {
         $requestData = page_limit($params->all());
-        $key = CacheKeyPrefix::AlipayLegacyExpress . 'ALL';
+        $key = CacheKeyPrefix::AlipayLegacyExpressAll;
         $result = Cache::get($key, function () {
             return $this->alipayLegacyExpress->get();
         });

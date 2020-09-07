@@ -22,7 +22,7 @@ class AlipayLegacyExressCache implements BaseCacheInterface
     // 缓存所有数据
     public function create($model)
     {
-        $key = CacheKeyPrefix::AlipayLegacyExpress . 'ALL';
+        $key = CacheKeyPrefix::AlipayLegacyExpressAll;
         // 删除原缓存
         if (Cache::has($key)) {
             Cache::forget($key);
@@ -35,14 +35,17 @@ class AlipayLegacyExressCache implements BaseCacheInterface
     // 更新缓存数据
     public function update($model)
     {
-        $key = CacheKeyPrefix::AlipayLegacyExpress . 'ALL';
-        $data = Cache::get($key);
-        foreach ($data as $key => $value) {
+        $key = CacheKeyPrefix::AlipayLegacyExpressAll;
+        $cacheData = Cache::get($key);
+        foreach ($cacheData as $key => $value) {
             if ($value['id'] == $model->id) {
-                Arr::pull($data, $key);
+                Arr::forget($data, $key);
             }
         }
-        Cache::forever($key, $data);
+        // 先删除缓存再重新缓存
+        Cache::forget($key);
+        $newKey = CacheKeyPrefix::AlipayLegacyExpressAll;
+        Cache::forever($newKey,$cacheData);
     }
 
 }

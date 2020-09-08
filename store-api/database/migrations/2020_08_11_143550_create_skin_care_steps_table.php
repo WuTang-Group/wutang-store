@@ -15,6 +15,8 @@ class CreateSkinCareStepsTable extends Migration
     {
         Schema::create('skin_care_steps', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('product_id')->nullable()->comment('所关联从属商品ID');
+            $table->foreign('product_id')->references('id')->on('products');
             $table->unsignedBigInteger('step_first')->index()->nullable()->comment('步骤1关联产品');
             $table->unsignedBigInteger('step_second')->index()->nullable()->comment('步骤2关联产品');
             $table->unsignedBigInteger('step_third')->index()->nullable()->comment('步骤3关联产品');

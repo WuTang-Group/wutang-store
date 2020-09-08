@@ -44,7 +44,7 @@ class AlipayLegacyExpressObserver
      */
     public function deleted(AlipayLegacyExpress $alipayLegacyExpress)
     {
-        $this->cache->update($alipayLegacyExpress);
+        $this->cache->delete($alipayLegacyExpress);
     }
 
     /**

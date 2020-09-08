@@ -52,9 +52,13 @@ class AlipayLegacyExpressService extends Service
     // 编辑数据-过滤status值
     public function update($id, $params)
     {
-        $requestData = $params->except(['status']);
         try {
-            return $this->alipayLegacyExpress->whereId($id)->update($requestData);
+            $express = $this->alipayLegacyExpress->find($id);
+            $express->pid = $params->pid;
+            $express->key = $params->key;
+            $express->seller_email = $params->seller_email;
+            $express->save();
+            return $express;
         } catch (\Exception $e) {
             Log::error('模型更新失败', ['message' => $e->getMessage()]);
             return false;
@@ -64,14 +68,23 @@ class AlipayLegacyExpressService extends Service
     // 更新状态
     public function updateStatus($id, $params)
     {
-        $status = $params->only(['status']);
+        $status = $params->status;
         try {
             if ($status == 1) {
-                $this->alipayLegacyExpress->update(['status' => -1]);  // 设置其他状态为-1
-                $this->alipayLegacyExpress->whereId($id)->update(['status' => 1]);  // 更改指定id为1
+                //$this->alipayLegacyExpress->whereNotNull('id')->update(['status' => -1]);  // 设置其他状态为-1
+                // 由于update不会触发模型事件，此处使用save方式进行触发
+                $expresses = $this->alipayLegacyExpress->whereNotNull('id')->get();
+                foreach ($expresses as $express) {
+                    $express->status = -1;
+                    $express->save();
+                }
+                // $this->alipayLegacyExpress->whereId($id)->update(['status' => 1]);  // 更改指定id为1
             }
-            $this->alipayLegacyExpress->whereId($id)->update(['status' => $status]);  // 默认更改为传递状态
-            return true;
+            //return $this->alipayLegacyExpress->whereId($id)->update(['status' => $status]);  // 默认更改为传递状态
+            $currentExpress = $this->alipayLegacyExpress->find($id);
+            $currentExpress->status = $status;
+            $currentExpress->save();
+            return $currentExpress;
         } catch (\Exception $e) {
             Log::error('模型更新失败', ['message' => $e->getMessage()]);
             return false;

@@ -74,10 +74,10 @@ class AlipayLegacyExpressController extends Controller
      * 请求更新支付宝即时到账 支付状态
      * @queryParam id required id值
      * @param $id
-     * @param AlipayLegacyExpressRequest $request
+     * @param Request $request
      * @return Application|ResponseFactory|Response
      */
-    public function updateStatus($id, AlipayLegacyExpressRequest $request)
+    public function updateStatus($id, Request $request)
     {
         $result = $this->service->updateStatus($id, $request);
         return $result ? response(ResponseData::requestSuccess($result)) : response(ResponseData::requestFails($request->all()));

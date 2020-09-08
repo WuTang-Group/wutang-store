@@ -9,6 +9,7 @@ use App\Enums\CacheKeyPrefix;
 use App\Models\AlipayLegacyExpress;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 
 class AlipayLegacyExressCache implements BaseCacheInterface
 {
@@ -37,21 +38,19 @@ class AlipayLegacyExressCache implements BaseCacheInterface
     {
         $key = CacheKeyPrefix::AlipayLegacyExpressAll;
         $cacheData = Cache::get($key);
+
         // 取出缓存数据，并对对应id的数据值进行更新
-//        $filterData = $cacheData->reject(function($value,$key) use ($model){
-//            return $value->id == $model->id;
-//        });
-        $filterData = $cacheData->each(function ($item) use ($model) {
-            if ($item->id == $model->id) {
-                $item = $model;
-                return false;
+        foreach ($cacheData as $key=>$value) {
+            if($value['id'] == $model->id) {
+                $cacheData[$key] = $model;
             }
-        });
+        }
+
         // 先删除缓存再重新缓存
         Cache::forget($key);
         $newKey = CacheKeyPrefix::AlipayLegacyExpressAll;
         // 将集合数据值拼装回集合数据
-        $formatData = collect($filterData->values());
+        $formatData = collect($cacheData);
         Cache::forever($newKey, $formatData);
     }
 

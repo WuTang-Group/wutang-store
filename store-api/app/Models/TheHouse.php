@@ -7,4 +7,9 @@ class TheHouse extends Model
     protected $fillable = [
         'the_house_category_id', 'banner', 'title', 'sub_title', 'describe'
     ];
+
+    public function theHouseContents()
+    {
+        return $this->hasMany(TheHouseContent::class);
+    }
 }

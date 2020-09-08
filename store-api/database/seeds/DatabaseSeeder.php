@@ -25,6 +25,9 @@ class DatabaseSeeder extends Seeder
         $this->call(OrdersTableSeeder::class);
         $this->call(OrderItemTableSeeder::class);
         $this->call(UserWishListTableSeeder::class);
+        $this->call(TheHouseCategoriesTableSeeder::class);
+        $this->call(TheHousesTableSeeder::class);
+        $this->call(TheHouseContentsTableSeeder::class);
 
         Model::reguard();
     }

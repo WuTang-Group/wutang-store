@@ -25,6 +25,10 @@ class AlipayLegacyExpressRequest extends FormRequest
                     'items.*.seller_email' => 'required|email'
                 ];
             }
+            default:
+            {
+                return [];
+            }
         }
     }
 

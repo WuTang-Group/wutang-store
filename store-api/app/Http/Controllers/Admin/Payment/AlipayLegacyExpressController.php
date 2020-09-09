@@ -65,7 +65,8 @@ class AlipayLegacyExpressController extends Controller
      */
     public function update($id, AlipayLegacyExpressRequest $request)
     {
-        $result = $this->service->update($id, $request);
+        $requestData = $request->only(['pid', 'key', 'seller_email']);
+        $result = $this->service->update($id, $requestData);
         return $result ? response(ResponseData::requestSuccess($result)) : response(ResponseData::requestFails($request->all()));
     }
 

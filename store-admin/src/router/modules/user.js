@@ -38,6 +38,15 @@ const userRouter = {
       component: () => import('@/views/user/edit'),
       name: 'EditAccount',
       meta: { title: '编辑用户', icon: 'documentation' }
+    },
+    {
+      path: '',
+      component: () => import('@/views/user/menberCode'),
+      name: 'MemberCode',
+      meta: {
+        title: 'MemberCode',
+        icon: ''
+      }
     }
   ]
 }

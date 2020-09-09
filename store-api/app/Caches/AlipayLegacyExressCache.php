@@ -40,8 +40,9 @@ class AlipayLegacyExressCache implements BaseCacheInterface
         $cacheData = Cache::get($key);
 
         // 取出缓存数据，并对对应id的数据值进行更新
-        foreach ($cacheData as $key=>$value) {
-            if($value['id'] == $model->id) {
+        foreach ($cacheData as $key => $value) {
+            if ($value['id'] == $model->id) {
+                $model->status = (int)$model->status;
                 $cacheData[$key] = $model;
             }
         }

@@ -29,10 +29,10 @@
         :header-cell-style="{background:'#ebeef5'}"
       >
         <el-table-column type="index" header-align="center" align="center" label="序号" width="60" />
-        <el-table-column header-align="center" label="商品名称" prop="product_name" align="center" width="180px">
+        <el-table-column header-align="center" label="商品名称" prop="product_name" align="center" width="130px">
           <template slot-scope="scope">
             <router-link :to="{ name: 'ProductViewOrUpdate', params: {'status': 'view', 'product_slug': scope.row.slug} }">
-              <el-button type="primary" plain>{{ scope.row.product_name }}</el-button>
+              <el-tag>{{ scope.row.product_name }}</el-tag>
             </router-link>
           </template>
         </el-table-column>
@@ -55,11 +55,12 @@
           align="center"
           label="操作"
           prop="product_id"
+          min-width="100px"
         >
           <template slot-scope="scope">
             <el-tooltip class="item" effect="dark" content="编辑" placement="top">
               <router-link :to="{ name: 'ProductViewOrUpdate', params: {'status': 'edit', 'product_slug': scope.row.slug} }">
-                <el-button type="primary" icon="el-icon-edit" circle />
+                <el-button type="primary" icon="el-icon-edit" circle style="margin-right: 5px" />
               </router-link>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="删除" placement="top">

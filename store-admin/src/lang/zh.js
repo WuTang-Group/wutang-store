@@ -23,6 +23,8 @@ export default {
     Logistics: '物流管理',
     'LogisticsList': '物流列表',
     Payment: '支付管理',
+    'LegacyExpressList': '支付宝即时到账',
+    'createLegacyExpress': '添加即时到账配置',
     UserCenter: '个人中心',
     'ModifyInfo': '修改密码',
     logManage: '日志管理',

@@ -33,7 +33,7 @@
           <template slot-scope="scope">
             <span :class="{active: false}" @mouseover="handleMouseEnter()" @mouseleave="handleMouseMove()">
               <router-link :to="{ name: 'ViewUpdateStory', params: {'status': 'view', 'story_id': scope.row.id} }">
-                <el-button type="primary" plain>{{ scope.row.title }}</el-button>
+                <el-tag>{{ scope.row.title }}</el-tag>
               </router-link>
             </span>
           </template>
@@ -69,7 +69,7 @@
           <template slot-scope="scope">
             <el-tooltip class="item" effect="dark" content="编辑" placement="top">
               <router-link :to="{ name: 'ViewUpdateStory', params: {'status': 'edit', 'story_id': scope.row.id} }">
-                <el-button type="primary" icon="el-icon-edit" circle />
+                <el-button type="primary" icon="el-icon-edit" circle style="margin-right: 5px" />
               </router-link>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="删除" placement="top">

@@ -28,39 +28,35 @@
             <span>{{ scope.row.id }}</span>
           </template> -->
         </el-table-column>
-        <el-table-column align="center" label="用户名" min-width="180">
+        <el-table-column align="center" label="用户名">
           <template slot-scope="scope">
             <span>{{ scope.row.username }}</span>
           </template>
         </el-table-column>
-        <el-table-column align="center" label="头像" min-width="120">
+        <el-table-column align="center" label="头像">
           <template slot-scope="scope">
             <img class="user-avatar" :src="scope.row.avatar" alt="avatar">
           </template>
         </el-table-column>
-        <el-table-column align="center" show-overflow-tooltip label="姓名" min-width="120">
+        <el-table-column align="center" show-overflow-tooltip label="姓名">
           <template slot-scope="scope">
             <span>{{ scope.row.name }}</span>
           </template>
         </el-table-column>
-        <el-table-column align="center" show-overflow-tooltip label="邮箱" min-width="240">
+        <el-table-column align="center" show-overflow-tooltip label="邮箱">
           <template slot-scope="scope">
             <span>{{ scope.row.email }}</span>
           </template>
         </el-table-column>
-        <el-table-column align="center" show-overflow-tooltip label="电话" min-width="200">
+        <el-table-column align="center" show-overflow-tooltip label="电话">
           <template slot-scope="scope">
             <span>{{ scope.row.phone }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" align="center" class-name="small-padding" fixed="right" width="300">
+        <el-table-column label="操作" align="center" class-name="small-padding">
           <template slot-scope="{row, $index}">
-            <el-button size="mini" type="success" @click="editUserButton(row)">
-              编辑
-            </el-button>
-            <el-button size="mini" type="danger" @click="deleteUserButton(row, $index)">
-              删除
-            </el-button>
+            <el-button size="small" type="primary" icon="el-icon-edit" circle @click="editUserButton(row)" />
+            <el-button size="small" type="danger" icon="el-icon-delete" circle @click="deleteUserButton(row, $index)" />
           </template>
         </el-table-column>
       </el-table>

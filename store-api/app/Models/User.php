@@ -112,4 +112,24 @@ class User extends Authenticatable implements JWTSubject
                 ->withTimestamps()  // 中间表带时间戳
                 ->orderBy('user_wish_lists.created_at','desc');  // 根据中间表的创建时间倒序排序
     }
+
+    /**
+     * 一对一关联会员码模型(一个用户只有一个会员码)
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function memberCode()
+    {
+        return $this->hasOne(MemberCode::class);
+    }
+
+    /**
+     * 多对多关联部门表(多个用户拥有多个部门变更数据，中间表为部门表更表)
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function departmentChanges()
+    {
+        return $this->belongsToMany(Department::class,'department_changes')
+                ->withTimestamps()
+                ->orderBy('department_changes.created_at','desc');
+    }
 }

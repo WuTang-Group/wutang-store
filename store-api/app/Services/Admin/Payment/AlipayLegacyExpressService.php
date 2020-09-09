@@ -57,11 +57,21 @@ class AlipayLegacyExpressService extends Service
     // 编辑数据-过滤status值
     public function update($id, $params)
     {
+        // 判断key是否被修改
+        try {
+            // 如果解密成功则未修改，删除此值，无需更新
+            decrypt($params['key']);
+            $params = Arr::except($params, ['key']);
+        } catch(\Exception $e) {
+            Log::error('解密失败，修改后的key未加密');
+        }
         try {
             $express = $this->alipayLegacyExpress->find($id);
-            $express->pid = $params->pid;
-            $express->key = $params->key;
-            $express->seller_email = $params->seller_email;
+            $express->pid = $params['pid'];
+            $express->seller_email = $params['seller_email'];
+            if (Arr::exists($params, 'key')) {
+                $express->key = $params['key'];
+            }
             $express->save();
             return $express;
         } catch (\Exception $e) {

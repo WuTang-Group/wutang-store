@@ -102,13 +102,14 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination
-        v-show="total>0"
-        :total="total"
-        :page.sync="listQuery.page"
-        :limit.sync="listQuery.page_limit"
-        @pagination="getList"
-      />
+      <!--      TODO 分页获取不到上一页下一页地址，待修复此问题-->
+      <!--      <el-pagination-->
+      <!--        v-show="total>0"-->
+      <!--        :total="total"-->
+      <!--        :page.sync="listQuery.page"-->
+      <!--        :limit.sync="listQuery.page_limit"-->
+      <!--        @pagination="getList"-->
+      <!--      />-->
     </el-card>
   </div>
 </template>

@@ -69,7 +69,7 @@ export default {
         key: '',
         return_url: '',
         notify_url: '',
-        status: 1
+        status: -1
       },
       formArray: [],
       alipayRules: {
@@ -131,3 +131,4 @@ export default {
 <style scoped>
 
 </style>
+

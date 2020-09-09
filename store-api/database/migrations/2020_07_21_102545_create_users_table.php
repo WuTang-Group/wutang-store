@@ -22,7 +22,6 @@ class CreateUsersTable extends Migration
             $table->unsignedBigInteger('password_question_id')->nullable()->comment('关联密保问题id');
             $table->foreign('password_question_id')->references('id')->on('password_questions');
             $table->string('name')->comment('名称');
-            $table->string('member_code')->nullable()->comment('会员码');
             $table->string('username')->unique()->comment('用户名:即用户账号');
             $table->string('email')->nullable()->unique()->comment('邮箱');
             $table->timestamp('email_verified_at')->nullable()->comment('邮箱验证时间');

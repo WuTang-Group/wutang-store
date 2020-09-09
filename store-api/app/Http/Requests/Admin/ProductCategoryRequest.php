@@ -17,9 +17,8 @@ class ProductCategoryRequest extends FormRequest
             case 'store':
             {
                 return [
-                    'title'=>'required|string',
-                    'banner'=>'image',
-                    'img'=>'image',
+                    'name'=>'required|string',
+                    'describe'=>'required'
                 ];
             }
 

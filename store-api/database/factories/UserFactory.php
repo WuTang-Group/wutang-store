@@ -19,6 +19,8 @@ use Illuminate\Support\Str;
 
 $factory->define(User::class, function (Faker $faker) {
     return [
+        'department_id' => $faker->numberBetween(1,30),
+        'member_code_id' => $faker->numberBetween(1,30),
         'name' => $faker->name,
         'username' => Str::random(15),
         'email' => $faker->unique()->safeEmail,

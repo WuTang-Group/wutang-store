@@ -33,14 +33,34 @@
           <template slot-scope="scope">
             <span :class="{active: false}" @mouseover="handleMouseEnter()" @mouseleave="handleMouseMove()">
               <router-link :to="{ name: 'CategoryViewOrUpdate', params: {'status': 'view', 'category_slug': scope.row.slug} }">
-                <el-tag>scope.row.name</el-tag>
+                <el-tag>{{ scope.row.name }}</el-tag>
               </router-link>
             </span>
           </template>
         </el-table-column>
-        <el-table-column header-align="center" label="类目名称(英文)" prop="title_en" align="center">
+        <el-table-column header-align="center" label="类目缩略图" align="center">
+          <template slot-scope="{row}">
+            <el-image style="width: 100px;height: 100px;" :src="row.thumbnail" fit="scale-down" @click="previewImgAction(row.thumbnail)" />
+          </template>
+        </el-table-column>
+        <el-table-column header-align="center" label="类目介绍标题" show-overflow-tooltip prop="title">
+          <template slot-scope="scope">
+            <p v-html="scope.row.title" />
+          </template>
+        </el-table-column>
+        <el-table-column header-align="center" label="类目介绍标题(英文)" show-overflow-tooltip prop="title_en">
           <template slot-scope="scope">
             <p v-html="scope.row.title_en" />
+          </template>
+        </el-table-column>
+        <el-table-column header-align="center" label="类目副标题" show-overflow-tooltip prop="sub_title">
+          <template slot-scope="scope">
+            <p v-html="scope.row.sub_title" />
+          </template>
+        </el-table-column>
+        <el-table-column header-align="center" label="类目Banner" align="center">
+          <template slot-scope="{row}">
+            <el-image style="width: 100px;height: 100px;" :src="row.banner" fit="scale-down" @click="previewImgAction(row.banner)" />
           </template>
         </el-table-column>
         <el-table-column header-align="center" label="类目描述" show-overflow-tooltip prop="describe">
@@ -53,27 +73,12 @@
             <p v-html="scope.row.describe_en" />
           </template>
         </el-table-column>
-        <el-table-column header-align="center" label="类目Banner" align="center">
+        <el-table-column header-align="center" label="类目描述图" align="center">
           <template slot-scope="{row}">
-            <el-image style="width: 100px;height: 100px;" :src="row.banner" fit="scale-down" @click="previewImgAction(row.banner)" />
+            <el-image style="width: 100px;height: 100px;" :src="row.describe_img" fit="scale-down" @click="previewImgAction(row.describe_img)" />
           </template>
         </el-table-column>
-        <el-table-column header-align="center" label="类目简介" show-overflow-tooltip prop="description">
-          <template slot-scope="scope">
-            <p v-html="scope.row.description" />
-          </template>
-        </el-table-column>
-        <el-table-column header-align="center" label="类目简介(英文)" show-overflow-tooltip prop="description_en">
-          <template slot-scope="scope">
-            <p v-html="scope.row.description_en" />
-          </template>
-        </el-table-column>
-        <el-table-column header-align="center" label="类目简介图" align="center">
-          <template slot-scope="{row}">
-            <el-image style="width: 100px;height: 100px;" :src="row.img" fit="scale-down" @click="previewImgAction(row.img)" />
-          </template>
-        </el-table-column>
-        <el-table-column header-align="center" label="上级类目" prop="parent.title" align="center" />
+        <el-table-column header-align="center" label="上级类目" prop="parent.name" align="center" />
         <!--        <el-table-column header-align="center" label="创建时间" prop="created_at" align="center" />-->
         <!--        <el-table-column header-align="center" label="更新时间" prop="updated_at" align="center" />-->
         <el-table-column
@@ -150,6 +155,7 @@ export default {
   methods: {
     // 点击预览图片
     previewImgAction(url) {
+      console.log(url)
       this.previewImg = url
       this.previewImgDialogVisible = true
     },

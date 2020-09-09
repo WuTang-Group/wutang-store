@@ -9,28 +9,64 @@
         <el-row :gutter="10">
           <el-col :span="12">
             <el-form-item label="上级类目">
-              <el-input v-if="formDisable" v-model="categoryDetail.parent.title" :readonly="formDisable" style="width: 400px" />
+              <el-input v-if="formDisable" v-model="categoryDetail.parent.name" :readonly="formDisable" style="width: 400px" />
               <el-select v-else v-model="categoryDetail.parent_id" placeholder="请选择" style="width: 400px">
                 <el-option
                   v-for="item in parentCategory"
                   :key="item.id"
-                  :label="item.title"
+                  :label="item.name"
                   :value="item.id"
                 />
               </el-select>
             </el-form-item>
           </el-col>
+          <el-col :span="12">
+            <el-form-item label="类目名称">
+              <el-input v-model="categoryDetail.name" :readonly="formDisable" style="width: 400px" />
+            </el-form-item>
+          </el-col>
         </el-row>
         <el-row :gutter="10">
           <el-col :span="12">
-            <el-form-item label="类目名称">
-              <el-input v-model="categoryDetail.title" :readonly="formDisable" style="width: 400px" />
-            </el-form-item>
+            <div style="width: 470px;margin-bottom: 25px">
+              <el-button v-if="!formDisable" type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('title')" />
+              <el-collapse v-model="activeNames">
+                <el-collapse-item name="title">
+                  <template slot="title">
+                    <span class="productDetailText">类目介绍标题</span>
+                  </template>
+                  <span v-html="categoryDetail.title" />
+                </el-collapse-item>
+              </el-collapse>
+            </div>
           </el-col>
           <el-col :span="12">
-            <el-form-item label="类目英文名称">
-              <el-input v-model="categoryDetail.title_en" :readonly="formDisable" style="width: 370px" />
-            </el-form-item>
+            <div style="width: 470px">
+              <el-button v-if="!formDisable" type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('title_en')" />
+              <el-collapse v-model="activeNames">
+                <el-collapse-item name="title_en">
+                  <template slot="title">
+                    <span class="productDetailText">类目介绍标题(英文)</span>
+                  </template>
+                  <span v-html="categoryDetail.title_en" />
+                </el-collapse-item>
+              </el-collapse>
+            </div>
+          </el-col>
+        </el-row>
+        <el-row :gutter="10">
+          <el-col :span="12">
+            <div style="width: 470px;margin-bottom: 25px">
+              <el-button v-if="!formDisable" type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('sub_title')" />
+              <el-collapse v-model="activeNames">
+                <el-collapse-item name="sub_title">
+                  <template slot="title">
+                    <span class="productDetailText">类目副标题</span>
+                  </template>
+                  <span v-html="categoryDetail.sub_title" />
+                </el-collapse-item>
+              </el-collapse>
+            </div>
           </el-col>
         </el-row>
         <el-row :gutter="10">
@@ -62,35 +98,7 @@
           </el-col>
         </el-row>
         <el-row :gutter="10">
-          <el-col :span="12">
-            <div style="width: 470px;margin-bottom: 25px">
-              <el-button v-if="!formDisable" type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('description')" />
-              <el-collapse v-model="activeNames">
-                <el-collapse-item name="description">
-                  <template slot="title">
-                    <span class="productDetailText">类目简介</span>
-                  </template>
-                  <span v-html="categoryDetail.description" />
-                </el-collapse-item>
-              </el-collapse>
-            </div>
-          </el-col>
-          <el-col :span="12">
-            <div style="width: 470px">
-              <el-button v-if="!formDisable" type="primary" plain icon="el-icon-edit-outline" style="float: right" @click="handleDescribes('description_en')" />
-              <el-collapse v-model="activeNames">
-                <el-collapse-item name="description_en">
-                  <template slot="title">
-                    <span class="productDetailText">类目简介(英文)</span>
-                  </template>
-                  <span v-html="categoryDetail.description_en" />
-                </el-collapse-item>
-              </el-collapse>
-            </div>
-          </el-col>
-        </el-row>
-        <el-row :gutter="10">
-          <el-col :span="12">
+          <el-col :span="8">
             <el-form-item label="类目banner图">
               <el-image v-if="formDisable" style="width: 120px;height: 120px;" :src="categoryDetail.banner" fit="scale-down" @click="previewImgAction(categoryDetail.banner)" />
               <el-upload
@@ -111,21 +119,42 @@
               </el-upload>
             </el-form-item>
           </el-col>
-          <el-col :span="12">
-            <el-form-item label="类目简介图">
-              <el-image v-if="formDisable" style="width: 120px;height: 120px;" :src="categoryDetail.img" fit="scale-down" @click="previewImgAction(categoryDetail.img)" />
+          <el-col :span="8">
+            <el-form-item label="类目缩略图">
+              <el-image v-if="formDisable" style="width: 120px;height: 120px;" :src="categoryDetail.thumbnail" fit="scale-down" @click="previewImgAction(categoryDetail.thumbnail)" />
               <el-upload
                 v-else
-                ref="uploadBanner"
-                :class="{hideBanner:hideUploadImg}"
+                ref="uploadThumbnail"
+                :class="{hideThumbnail:hideUploadThumbnail}"
                 name="img"
                 action="#"
                 list-type="picture-card"
                 :auto-upload="false"
-                :limit="limitCountImg"
-                :file-list="imgList"
-                :on-change="handleImgChange"
-                :on-remove="handleImgRemove"
+                :limit="limitCountThumbnail"
+                :file-list="thumbnailList"
+                :on-change="handleThumbnailChange"
+                :on-remove="handleThumbnailRemove"
+              >
+                <el-button size="small" type="primary">点击上传</el-button>
+                <div slot="tip" class="el-upload__tip">只能上传一张jpg/png文件，且不超过500kb</div>
+              </el-upload>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <el-form-item label="类目描述图">
+              <el-image v-if="formDisable" style="width: 120px;height: 120px;" :src="categoryDetail.describe_img" fit="scale-down" @click="previewImgAction(categoryDetail.describe_img)" />
+              <el-upload
+                v-else
+                ref="uploadDescribeImg"
+                :class="{hideDescribeImg:hideUploadDescribeImg}"
+                name="img"
+                action="#"
+                list-type="picture-card"
+                :auto-upload="false"
+                :limit="limitCountDescribeImg"
+                :file-list="describeImgList"
+                :on-change="handleDescribeImgChange"
+                :on-remove="handleDescribeImgRemove"
               >
                 <el-button size="small" type="primary">点击上传</el-button>
                 <div slot="tip" class="el-upload__tip">只能上传一张jpg/png文件，且不超过500kb</div>
@@ -186,14 +215,15 @@ export default {
       categoryDetail: {
         id: '',
         slug: '',
+        name: '',
         title: '',
         title_en: '',
+        sub_title: '',
         describe: '',
         describe_en: '',
+        thumbnail: '',
         banner: '',
-        description: '',
-        description_en: '',
-        img: '',
+        describe_img: '',
         parent_id: '',
         created_at: '',
         updated_at: '',
@@ -211,19 +241,21 @@ export default {
           },
         parent: {
           id: '',
-          title: ''
+          name: ''
         }
       },
       parentCategory: null,
-      activeNameDescribe: 'describe',
       // 图片上传
       hideUploadBanner: false,
       limitCountBanner: 1,
       bannerList: [],
-      hideUploadImg: false,
-      limitCountImg: 1,
-      imgList: [],
-      activeNames: ['describe', 'describe_en', 'description', 'description_en']
+      hideUploadThumbnail: false,
+      limitCountThumbnail: 1,
+      thumbnailList: [],
+      hideUploadDescribeImg: false,
+      limitCountDescribeImg: 1,
+      describeImgList: [],
+      activeNames: ['title', 'title_en', 'sub_title', 'describe', 'describe_en']
     }
   },
   created() {
@@ -263,9 +295,11 @@ export default {
         }
         // 图片上传初始图片
         this.bannerList.push({ 'url': this.categoryDetail.banner })
-        this.imgList.push({ 'url': this.categoryDetail.img })
-        this.hideUploadImg = true
+        this.thumbnailList.push({ 'url': this.categoryDetail.thumbnail })
+        this.describeImgList.push({ 'url': this.categoryDetail.describe_img })
         this.hideUploadBanner = true
+        this.hideUploadThumbnail = true
+        this.hideUploadDescribeImg = true
       })
     },
     // 关闭页面
@@ -277,14 +311,15 @@ export default {
     submitCategory() {
       const postForm = new FormData()
       // 更换了图片则保存
-      postForm.append('img', this.categoryDetail.img)
-      postForm.append('banner', this.categoryDetail.banner)
-      postForm.append('description', this.categoryDetail.description)
-      postForm.append('description_en', this.categoryDetail.description_en)
+      postForm.append('name', this.categoryDetail.name)
       postForm.append('title', this.categoryDetail.title)
       postForm.append('title_en', this.categoryDetail.title_en)
+      postForm.append('sub_title', this.categoryDetail.sub_title)
       postForm.append('describe', this.categoryDetail.describe)
       postForm.append('describe_en', this.categoryDetail.describe_en)
+      postForm.append('thumbnail', this.categoryDetail.thumbnail)
+      postForm.append('banner', this.categoryDetail.banner)
+      postForm.append('describe_img', this.categoryDetail.describe_img)
       postForm.append('parent_id', this.categoryDetail.parent_id)
       categoryEdit(postForm, this.categoryDetail.slug).then(response => {
         if (response.code === 20001) {
@@ -309,6 +344,21 @@ export default {
     // 确认保存当前富文本
     comfirmSaveTiny() {
       switch (this.flag) {
+        case 'title':
+          this.categoryDetail.title = this.tinyTxt
+          this.showDialog = false
+          this.tinyTxt = ''
+          break
+        case 'title_en':
+          this.categoryDetail.title_en = this.tinyTxt
+          this.showDialog = false
+          this.tinyTxt = ''
+          break
+        case 'sub_title':
+          this.categoryDetail.sub_title = this.tinyTxt
+          this.showDialog = false
+          this.tinyTxt = ''
+          break
         case 'describe':
           this.categoryDetail.describe = this.tinyTxt
           this.showDialog = false
@@ -316,16 +366,6 @@ export default {
           break
         case 'describe_en':
           this.categoryDetail.describe_en = this.tinyTxt
-          this.showDialog = false
-          this.tinyTxt = ''
-          break
-        case 'description':
-          this.categoryDetail.description = this.tinyTxt
-          this.showDialog = false
-          this.tinyTxt = ''
-          break
-        case 'description_en':
-          this.categoryDetail.description_en = this.tinyTxt
           this.showDialog = false
           this.tinyTxt = ''
           break
@@ -354,13 +394,21 @@ export default {
       this.hideUploadBanner = fileList.length >= this.limitCountBanner
       this.categoryDetail.banner = null
     },
-    handleImgChange(file, fileList) {
-      this.hideUploadImg = fileList.length >= this.limitCountImg
-      this.categoryDetail.img = file.raw
+    handleThumbnailChange(file, fileList) {
+      this.hideUploadThumbnail = fileList.length >= this.limitCountThumbnail
+      this.categoryDetail.thumbnail = file.raw
     },
-    handleImgRemove(file, fileList) {
-      this.hideUploadImg = fileList.length >= this.limitCountImg
-      this.categoryDetail.img = null
+    handleThumbnailRemove(file, fileList) {
+      this.hideUploadThumbnail = fileList.length >= this.limitCountThumbnail
+      this.categoryDetail.thumbnail = null
+    },
+    handleDescribeImgChange(file, fileList) {
+      this.hideUploadDescribeImg = fileList.length >= this.limitCountDescribeImg
+      this.categoryDetail.describe_img = file.raw
+    },
+    handleDescribeImgRemove(file, fileList) {
+      this.hideUploadDescribeImg = fileList.length >= this.limitCountDescribeImg
+      this.categoryDetail.describe_img = null
     }
   }
 
@@ -372,7 +420,10 @@ export default {
   .hideBanner .el-upload--picture-card {
     display: none;
   }
-  .hideImg .el-upload--picture-card {
+  .hideThumbnail .el-upload--picture-card {
+    display: none;
+  }
+  .hideDescribeImg .el-upload--picture-card {
     display: none;
   }
   .productDetailText {

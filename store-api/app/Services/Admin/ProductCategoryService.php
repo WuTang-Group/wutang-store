@@ -25,8 +25,8 @@ class ProductCategoryService extends Service
         // 查询所有商品分类
         $requestData = page_limit($queries->all());
         $result = $this->productCategory->with(['parent'=> function($query){
-            return $query->select('id', 'title');
-        }])->paginate($requestData['page_limit']);
+            return $query->select('id', 'name');
+        }])->latest()->paginate($requestData['page_limit']);
         return $result;
     }
 
@@ -41,6 +41,7 @@ class ProductCategoryService extends Service
                 return false;
             }
         }
+        Log::info($requestData);
         try {
             $productCategories = $this->productCategory->create($requestData);
         } catch (\Exception $e) {
@@ -86,7 +87,7 @@ class ProductCategoryService extends Service
     public static function saveOss($array)
     {
         $filtered = Arr::where($array, function ($value, $key) {
-            return Str::contains($key, ['banner', 'img']) && $key;
+            return Str::contains($key, ['thumbnail', 'banner', 'describe_img']) && $key;
         });
         foreach ($filtered as $key => $value) {
             // 图片存储到OSS，本地保存OSS地址
@@ -106,7 +107,7 @@ class ProductCategoryService extends Service
     public function categoryQuery($category_slug)
     {
         return $this->productCategory->with(['productCategoryStories', 'parent' => function($query){
-            $query->select('id', 'title');
+            $query->select('id', 'name');
         }])->where('slug', $category_slug)->first();
     }
 }

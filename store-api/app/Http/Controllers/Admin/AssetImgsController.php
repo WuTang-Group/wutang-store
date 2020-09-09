@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AssetImgsRequest;
 use App\Services\Admin\AssetImgsService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class AssetImgsController extends Controller
 {
@@ -40,8 +39,6 @@ class AssetImgsController extends Controller
      */
     public function store(AssetImgsRequest $request)
     {
-        Log::info('=====================');
-        Log::info($request->all());
         $result = $this->assetImgsService->store(array_filter($request->all()));
         return $result? response()->json(ResponseData::requestSuccess($request)): response()->json(ResponseData::requestFails($request->all()));
     }

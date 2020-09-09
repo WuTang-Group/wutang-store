@@ -18,6 +18,7 @@ class CreateMemberCodesTable extends Migration
             $table->string('code')->comment('会员码');
             $table->string('user_name')->nullable()->comment('会员码所属用户的姓名');
             $table->integer('parent_id')->default(0)->comment('会员码上级,0为最高级');
+            $table->integer('level')->nullable()->comment('分级级别');
             $table->integer('status')->default(1)->comment('状态:1启用,-1未启用');
             $table->text('remark')->nullable()->comment('其他说明');
             $table->timestamps();

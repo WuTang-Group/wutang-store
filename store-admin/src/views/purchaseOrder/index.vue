@@ -24,10 +24,10 @@
         :header-cell-style="{background:'#ebeef5'}"
       >
         <el-table-column header-align="center" align="center" prop="id" label="ID" width="60" />
-        <el-table-column header-align="center" align="center" label="订单号" width="240px">
+        <el-table-column header-align="center" align="center" label="订单号" width="180px">
           <template slot-scope="scope">
             <router-link :to="{ name: 'ViewOrUpdate', params: { 'no': scope.row.no, 'username': scope.row.user.username }}">
-              <el-button type="primary" plain>{{ scope.row.no }}</el-button>
+              <el-tag>{{ scope.row.no }}</el-tag>
             </router-link>
           </template>
         </el-table-column>
@@ -104,35 +104,31 @@
           </template>
         </el-table-column>>
         <el-table-column header-align="center" align="center" prop="paid_at" label="支付时间" />
-        <el-table-column align="center" label="操作" width="120">
+        <el-table-column align="center" label="操作">
           <template slot-scope="{row}">
             <el-button
               v-if="row.editStatus"
               type="success"
-              size="small"
+              circle
+              icon="el-icon-check"
               @click="confirmEdit(row)"
-            >
-              确认
-            </el-button>
+            />
             <el-button
               v-if="row.editStatus"
               class="cancel-btn"
-              size="small"
-              type="warning"
+              type="info"
               style="margin:5px 0 0 0 "
+              circle
+              icon="el-icon-circle-close"
               @click="cancelEdit(row)"
-            >
-              关闭
-            </el-button>
+            />
             <el-button
               v-else
               type="primary"
-              size="small"
               icon="el-icon-edit"
+              circle
               @click="row.editStatus=!row.editStatus"
-            >
-              编辑
-            </el-button>
+            />
           </template>
         </el-table-column>
       </el-table>

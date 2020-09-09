@@ -19,7 +19,6 @@ class CreateDepartmentChangesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('department_id')->nullable()->comment('当前关联部门id');
             $table->foreign('department_id')->references('id')->on('departments');
-            $table->unsignedBigInteger('history_department')->nullable()->comment('历史部门id');
             $table->string('remark')->nullable()->comment('备注');
             $table->timestamps();
         });

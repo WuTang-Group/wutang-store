@@ -40,21 +40,22 @@ class ProductCategoryController extends Controller
     /**
      * Create product category
      * 新建产品分类
-     * @queryParam title required 分类名称
-     * @queryParam title_en 分类英文名称
-     * @queryParam describe 分类描述
-     * @queryParam describe_en 英文分类描述
+     * @queryParam name required 分类名称
+     * @queryParam thumbnail 分类缩略图
      * @queryParam banner 分类banner图
-     * @queryParam description 分类简介
-     * @queryParam description_en 分类英文简介
-     * @queryParam img 分类简介图
+     * @queryParam title 分类介绍标题
+     * @queryParam title_en 分类介绍英文标题
+     * @queryParam sub_title 分类副标题
+     * @queryParam describe required 分类描述
+     * @queryParam describe_en 分类英文描述
+     * @queryParam describe_img 分类描述图
      * @queryParam parent_id 上级分类ID
      * @param ProductCategoryRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function store(ProductCategoryRequest $request)
     {
-        $queries = $request->only(['title', 'title_en', 'describe', 'describe_en', 'banner', 'description', 'description_en', 'img', 'parent_id']);
+        $queries = $request->only(['name', 'thumbnail', 'banner', 'title', 'title_en', 'sub_title', 'describe', 'describe_en', 'describe_img', 'parent_id']);
         $result = $this->categoriesService->store(array_filter($queries));
         return $result ? response()->json(ResponseData::requestSuccess($result)) : response()->json(ResponseData::requestFails());
     }
@@ -62,14 +63,15 @@ class ProductCategoryController extends Controller
     /**
      * Edit product category
      * 编辑产品分类
-     * @queryParam title 分类名称
-     * @queryParam title_en 分类英文名称
-     * @queryParam describe 分类描述
-     * @queryParam describe_en 英文分类描述
+     * @queryParam name 分类名称
+     * @queryParam thumbnail 分类缩略图
      * @queryParam banner 分类banner图
-     * @queryParam description 分类简介
-     * @queryParam description_en 分类英文简介
-     * @queryParam img 分类简介图
+     * @queryParam title 分类介绍标题
+     * @queryParam title_en 分类介绍英文标题
+     * @queryParam sub_title 分类副标题
+     * @queryParam describe 分类描述
+     * @queryParam describe_en 分类英文描述
+     * @queryParam describe_img 分类描述图
      * @queryParam parent_id 上级分类ID
      * @param ProductCategoryRequest $request
      * @param $category_slug
@@ -77,7 +79,7 @@ class ProductCategoryController extends Controller
      */
     public function edit(ProductCategoryRequest $request, $category_slug)
     {
-        $queries = $request->only(['title', 'title_en', 'describe', 'describe_en', 'banner', 'description', 'description_en', 'img', 'parent_id']);
+        $queries = $request->only(['name', 'thumbnail', 'banner', 'title', 'title_en', 'sub_title', 'describe', 'describe_en', 'describe_img', 'parent_id']);
         $result = $this->categoriesService->edit($queries, $category_slug);
         return $result ? response()->json(ResponseData::requestSuccess()) : response()->json(ResponseData::requestFails());
     }

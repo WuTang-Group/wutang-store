@@ -55,7 +55,9 @@ class ProductService extends Service
     public function newProduct($queries)
     {
         $requestData = page_limit($queries->all());
-        return $this->product->with(['productCategory'])->whereStatus(ProductStatusCode::StatusNew)->paginate($requestData['page_limit']);
+//        return $this->product->with(['productCategory'])->whereStatus(ProductStatusCode::StatusNew)->paginate($requestData['page_limit']);
+        // 获取最新添加的两个新品
+        return $this->product->with(['productCategory'])->whereStatus(ProductStatusCode::StatusNew)->latest()->take(2)->get();
     }
 
     // 获取产品分类故事

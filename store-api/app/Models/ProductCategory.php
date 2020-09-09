@@ -8,14 +8,15 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class ProductCategory extends Model
 {
     protected $fillable = [
+        'name',
         'title',
         'title_en',
+        'sub_title',
         'describe',
         'describe_en',
+        'thumbnail',
         'banner',
-        'description',
-        'description_en',
-        'img',
+        'describe_img',
         'parent_id'
     ];
 

@@ -33,7 +33,8 @@ export default {
     'payLog': '支付日志',
     AssetImg: '图片资源管理',
     'assetImgList': '图片资源列表',
-    'createAssetImg': '新增图片资源'
+    'createAssetImg': '新增图片资源',
+    MemberCode: '会员码'
   },
   navbar: {
     dashboard: '首页',

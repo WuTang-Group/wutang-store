@@ -32,7 +32,7 @@ class OrderController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function queryList(Request $request){
-        $result =  $this->orderService->queryList($request);
+        $result =  $this->orderService->queryList(array_filter($request->all()));
         return response()->json(ResponseData::requestSuccess($result));
     }
 

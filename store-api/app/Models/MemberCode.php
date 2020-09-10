@@ -5,7 +5,7 @@ namespace App\Models;
 class MemberCode extends Model
 {
     protected $fillable = [
-        'code', 'user_name', 'parent_id', 'status', 'remark','level'
+        'code', 'user_id', 'parent_id', 'status', 'remark','level'
     ];
 
     /**

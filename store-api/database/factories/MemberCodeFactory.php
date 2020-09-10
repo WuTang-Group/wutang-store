@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 $factory->define(\App\Models\MemberCode::class, function (Faker $faker) {
     return [
         'code' => \Illuminate\Support\Str::random(),
-        'user_name' => $faker->name,
+        'user_id' => $faker->numberBetween(1,30),
         'parent_id' => $faker->numberBetween(0,29),
         'status' => 1,
         'remark' => $faker->text,

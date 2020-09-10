@@ -1,16 +1,79 @@
 <template>
   <div class="app-container">
     <el-card class="box-card filter-container">
-      <el-input
-        v-model="listQuery.no"
-        placeholder="输入订单编号"
-        style="width: 200px;"
-        class="filter-item"
-        @keyup.enter.native="handleFilter"
-      />
-      <el-button v-waves class="filter-item" type="primary" style="margin-left: 20px;" icon="el-icon-search" @click="handleFilter">
-        {{ $t('table.search') }}
-      </el-button>
+      <el-form ref="listQuery" :model="listQuery">
+        <el-row>
+          <el-col :span="6">
+            <el-form-item label="用户名">
+              <el-input
+                v-model="listQuery.username"
+                placeholder="输入用户名"
+                style="width: 200px;"
+                class="filter-item"
+              />
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="订单编号">
+              <el-input
+                v-model="listQuery.no"
+                placeholder="输入订单编号"
+                style="width: 200px;"
+                class="filter-item"
+              />
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="支付交易号">
+              <el-input
+                v-model="listQuery.payment_no"
+                placeholder="输入支付交易号"
+                style="width: 200px;"
+                class="filter-item"
+              />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="6">
+            <el-form-item label="收货人">
+              <el-input
+                v-model="listQuery.contact_name"
+                placeholder="输入收货人"
+                style="width: 200px;"
+                class="filter-item"
+              />
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="联系电话">
+              <el-input
+                v-model="listQuery.contact_phone"
+                placeholder="输入收货人联系电话"
+                style="width: 200px;"
+                class="filter-item"
+              />
+            </el-form-item>
+          </el-col>
+          <el-col :span="10">
+            <el-form-item label="订单创建时间">
+              <el-date-picker
+                v-model="listQuery.created_at"
+                type="datetimerange"
+                :picker-options="pickerOptions"
+                range-separator="至"
+                start-placeholder="开始日期"
+                end-placeholder="结束日期"
+                align="right"
+                @change="pickerDateValue"
+              />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-button v-waves class="filter-item" type="primary" style="margin-left: 20px;" icon="el-icon-search" @click="handleFilter">
+          {{ $t('table.search') }}
+        </el-button>
+      </el-form>
     </el-card>
     <el-card class="box-card box-cart-centent" style="margin-top: 20px;">
       <el-table
@@ -32,7 +95,7 @@
           </template>
         </el-table-column>
         <el-table-column header-align="center" align="center" prop="total_amount" label="总金额" />
-        <el-table-column header-align="center" align="center" prop="user.username" label="用户" />
+        <el-table-column header-align="center" align="center" prop="user.username" label="用户" width="100px" />
         <el-table-column
           header-align="center"
           align="center"
@@ -80,7 +143,7 @@
           </template>
         </el-table-column>
         <el-table-column header-align="center" align="center" prop="refund_no" label="退款单号" />
-        <el-table-column header-align="center" align="center" prop="reviewed" label="是否评价" />
+        <el-table-column header-align="center" align="center" prop="reviewed" :formatter="formatterReviewed" label="是否评价" />
         <el-table-column
           header-align="center"
           align="center"
@@ -100,11 +163,15 @@
                 />
               </el-select>
             </template>
-            <span v-else>{{ row.ship_status | filterOrderStatus }}</span>
+            <span v-else>{{ row.ship_status | filterShipStatus }}</span>
           </template>
         </el-table-column>>
-        <el-table-column header-align="center" align="center" prop="paid_at" label="支付时间" />
-        <el-table-column align="center" label="操作">
+        <el-table-column header-align="center" align="center" prop="address.contact_name" label="收货人" />
+        <el-table-column header-align="center" align="center" prop="address.contact_phone" label="联系电话" width="110px" />
+        <el-table-column header-align="center" align="center" prop="address" :formatter="formatterAddress" label="收货地址" width="150px" />
+        <el-table-column header-align="center" align="center" prop="paid_at" label="支付时间" width="100px" />
+        <el-table-column header-align="center" align="center" prop="created_at" label="订单创建时间" width="100px" />
+        <el-table-column align="center" fixed="right" label="操作">
           <template slot-scope="{row}">
             <el-button
               v-if="row.editStatus"
@@ -161,6 +228,16 @@ export default {
         case -1:
           return '付款失败'
       }
+    },
+    filterShipStatus(value) {
+      switch (value) {
+        case 0:
+          return '已签收'
+        case 1:
+          return '已发货'
+        case -1:
+          return '未发货'
+      }
     }
   },
   data() {
@@ -170,8 +247,12 @@ export default {
           status: '',
           ship_status: '',
           refund_status: '',
+          created_at: '',
           user: {
             username: ''
+          },
+          address: {
+            province: ''
           }
         }
       ],
@@ -179,7 +260,41 @@ export default {
       tableKey: 0,
       listQuery: {
         'page': 1,
-        'page_limit': 10
+        'page_limit': 10,
+        'no': '',
+        'payment_no': '',
+        'username': '',
+        'contact_name': '',
+        'contact_phone': '',
+        'start_time': '',
+        'end_time': ''
+      },
+      pickerOptions: {
+        shortcuts: [{
+          text: '最近一周',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
+            picker.$emit('pick', [start, end])
+          }
+        }, {
+          text: '最近一个月',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
+            picker.$emit('pick', [start, end])
+          }
+        }, {
+          text: '最近三个月',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
+            picker.$emit('pick', [start, end])
+          }
+        }]
       },
       listLoading: true,
       orderStatusList: [
@@ -241,14 +356,17 @@ export default {
           this.$set(v, 'editStatus', false)
           return v
         })
+        console.log(this.list)
       })
     },
+    // 付款方式
     formatPaymentMethod(row, column) {
       if (row.payment_method === 'null') {
         return ''
       }
       return row.payment_method
     },
+    // 订单状态
     formatOrderStatus(row) {
       switch (row.status) {
         case 0:
@@ -259,6 +377,7 @@ export default {
           return '付款失败'
       }
     },
+    // 是否签收
     formatShipStatus(row) {
       switch (row.ship_status) {
         case 0:
@@ -269,6 +388,7 @@ export default {
           return '未发货'
       }
     },
+    // 是否退款
     formatRefundStatus(row) {
       switch (row.refund_status) {
         case 1:
@@ -277,8 +397,18 @@ export default {
           return '已退款'
       }
     },
+    // 完整地址处理
+    formatterAddress(row) {
+      const addressInfo = row.address
+      return addressInfo.province + addressInfo.city + addressInfo.district + addressInfo.address
+    },
+    // 是否评价
+    formatterReviewed(row) {
+      return row.reviewed ? '已评价' : '未评价'
+    },
     handleFilter() {
-      console.log('search test')
+      console.log(this.listQuery)
+      this.getList()
     },
     confirmEdit(row) {
       orderUpdate(row).then((response) => {
@@ -297,6 +427,15 @@ export default {
       })
       row.editStatus = false
     },
+    pickerDateValue(val) {
+      if (val) {
+        this.listQuery.start_time = val[0]
+        this.listQuery.end_time = val[1]
+      } else {
+        this.listQuery.start_time = null
+        this.listQuery.end_time = null
+      }
+    },
     cancelEdit(row) {
       row.editStatus = false
       this.$message({
@@ -304,9 +443,6 @@ export default {
         type: 'warning'
       })
       this.getList()
-    },
-    handleMouse() {
-      console.log('qwertyuiop')
     }
   }
 }

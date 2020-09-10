@@ -84,6 +84,15 @@ class User extends Authenticatable implements JWTSubject
     }
 
     /**
+     * 一对多关联订单模型
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    /**
      * 返回状态为1（激活）用户
      * @param $query
      * @return mixed

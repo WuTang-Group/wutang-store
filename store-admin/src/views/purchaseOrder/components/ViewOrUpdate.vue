@@ -85,6 +85,23 @@
             </el-form-item>
           </el-col>
         </el-row>
+        <el-row :gutter="10">
+          <el-col :span="7">
+            <el-form-item label="收件人">
+              <el-input v-model="orderDetail.address.contact_name" :readonly="formDisable" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="7">
+            <el-form-item label="联系电话">
+              <el-input v-model="orderDetail.address.contact_phone" :readonly="formDisable" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="7">
+            <el-form-item label="收货地址">
+              <el-input v-model="addressAttribute" :readonly="formDisable" />
+            </el-form-item>
+          </el-col>
+        </el-row>
       </el-form>
     </el-card>
     <el-card class="box-card" shadow="hover">
@@ -139,6 +156,12 @@ export default {
       previewImgDialogVisible: false
     }
   },
+  computed: {
+    addressAttribute() {
+      const addressInfo = this.orderDetail.address
+      return addressInfo.province + addressInfo.city + addressInfo.district + addressInfo.address
+    }
+  },
   created() {
     this.getRequest()
     this.getOrderDetail()
@@ -147,9 +170,6 @@ export default {
     getRequest() {
       this.orderNo = this.$route.params.no
       this.username = this.$route.params.username
-    },
-    inputOn(row) {
-      console.log(row)
     },
     getOrderDetail() {
       orderDetail(this.orderNo).then((response) => {

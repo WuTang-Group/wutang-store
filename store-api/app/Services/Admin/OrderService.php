@@ -62,7 +62,7 @@ class OrderService extends Service
         $queries = page_limit($queries);
         return $this->order->with(['user' => function ($query) {
             $query->select('id', 'username');
-        }])->paginate($queries['page_limit']);
+        }, 'address'])->paginate($queries['page_limit']);
     }
 
     // 搜索订单

@@ -10,7 +10,7 @@ class ProductCategoryObserver
     public function saving(ProductCategory $category)
     {
         // XSS 过滤
-        $category->describe = clean($category->describe, 'product_short_description');
+        $category->describe = clean($category->describe, 'short_description');
 
         if (!$category->slug) {
             $category->slug = app(SlugTranslateHandler::class)->translate($category->describe);

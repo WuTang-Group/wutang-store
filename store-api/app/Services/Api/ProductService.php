@@ -51,13 +51,12 @@ class ProductService extends Service
         return $this->productCategory->with('parent', 'children', 'products')->whereSlug($category_slug)->get();
     }
 
-    // 获取新品
-    public function newProduct($queries)
+    // 获取不同状态的产品
+    public function getStatusProduct($status,$params)
     {
-        $requestData = page_limit($queries->all());
-//        return $this->product->with(['productCategory'])->whereStatus(ProductStatusCode::StatusNew)->paginate($requestData['page_limit']);
-        // 获取最新添加的两个新品
-        return $this->product->with(['productCategory'])->whereStatus(ProductStatusCode::StatusNew)->latest()->take(2)->get();
+        $requestData = page_limit($params->all());
+        // 根据不同状态获取不同状态下的产品随机输出
+        return $this->product->with(['productCategory'])->type($status)->inRandomOrder()->paginate($requestData['page_limit']);
     }
 
     // 获取产品分类故事

@@ -15,7 +15,6 @@ use Illuminate\Http\Response;
 /**
  * @group [API] Product
  * 商品管理
- * @authenticated
  * @package App\Http\Controllers\Api
  */
 class ProductController extends Controller
@@ -81,16 +80,18 @@ class ProductController extends Controller
     }
 
     /**
-     * Get new product
-     * 获取新品
+     * Get product list of status
+     * 根据产品状态获取产品列表
+     * @queryParam status required 商品状态(1新品,2畅销,3促销,-1下架)
      * @queryParam page 页码
      * @queryParam page_limit 每页数量
+     * @param $status
      * @param Request $request
      * @return Application|ResponseFactory|Response
      */
-    public function newProduct(Request $request)
+    public function getStatusProduct($status,Request $request)
     {
-        $results = $this->service->newProduct($request);
+        $results = $this->service->getStatusProduct($status,$request);
         return response(ResponseData::requestSuccess($results));
     }
 
@@ -114,9 +115,9 @@ class ProductController extends Controller
      * @param ProductRequest $request
      * @return JsonResponse
      */
-    public function productQuery(ProductRequest $request)
-    {
-        $results = $this->service->productQuery($request->all());
-        return response()->json(ResponseData::requestSuccess($results));
-    }
+//    public function productQuery(ProductRequest $request)
+//    {
+//        $results = $this->service->productQuery($request->all());
+//        return response()->json(ResponseData::requestSuccess($results));
+//    }
 }

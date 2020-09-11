@@ -6,6 +6,7 @@ use Faker\Generator as Faker;
 
 $factory->define(\App\Models\TheHouse::class, function (Faker $faker) {
     return [
+        'slug' => \Str::slug($faker->words(2, true)),
         'the_house_category_id' => $faker->numberBetween(1,3),
         'banner' => $faker->imageUrl(),
         'title' => $faker->words(3, true),

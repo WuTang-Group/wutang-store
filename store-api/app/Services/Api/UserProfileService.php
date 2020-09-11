@@ -16,16 +16,19 @@ class UserProfileService extends Service
         $this->profile = $profile;
     }
 
-    public function index($queries)
+    // 用户资料信息
+    public function index()
     {
         return $this->profile->whereUserId($this->user()->id)->first();
     }
 
-    public function update($queries)
+    // 更新用户资料
+    public function update($params)
     {
         try {
             $userProfile = $this->profile->whereUserId($this->user()->id);
-            $userProfile->update($queries);
+            $userProfile->update($params->all());
+            app(\App\Services\Api\MemberCodeService::class)->generateMemberCode();
         } catch (\Exception $e) {
             Log::error('用户资料编辑失败', ['message' => $e->getMessage()]);
             return false;
@@ -33,6 +36,7 @@ class UserProfileService extends Service
         return $userProfile;
     }
 
+    // 删除用户资料
     public function destroy($queries)
     {
         try {

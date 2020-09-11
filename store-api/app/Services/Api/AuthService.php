@@ -4,8 +4,8 @@ namespace App\Services\Api;
 
 use App\Enums\LoggerCollection;
 use App\Enums\Roles;
+use App\Models\MemberCode;
 use App\Models\PasswordQuestion;
-use App\Models\Profile;
 use App\Models\User;
 use App\Services\Service;
 use Illuminate\Support\Facades\DB;
@@ -29,16 +29,23 @@ class AuthService extends Service
      */
     public function register($queries)
     {
+        $requestData = $queries->except('code');
         try {
-            DB::transaction(function () use ($queries) {
-                $queries['password'] = Hash::make($queries['password']);
-                $user = $this->user->create($queries);
+            DB::transaction(function () use ($requestData) {
+                $queries['password'] = Hash::make($requestData['password']);
+                $user = $this->user->create($requestData);
 //                // 递减邀请码库存
 //                InvitationCode::whereCode($queries['invitation_code'])->increment('usage_times');
                 // 清除验证码缓存
                 \Cache::forget($queries['captcha_key']);
                 // 默认分配注册用户customer角色
                 $user->assignRole(Roles::Customer);
+                // 为用户绑定会员码
+                if ($queries->has('code')) {
+                    $member_code = MemberCode::firstWhere('code', $queries->code);
+                    $user->member_code_id = $member_code->id;
+                    $user->save();
+                }
                 // 用户注册成功自动在profile表新建占位数据行
                 $user->profile()->create(['birthday' => now()]);
             });
@@ -49,47 +56,36 @@ class AuthService extends Service
         return $queries;
     }
 
-    public function questions()
+    // 密保问题列表
+    public function getQuestionList()
     {
-        return $result = PasswordQuestion::all();
+        return PasswordQuestion::all();
     }
 
-    public function getQuestion($username)
+    // 获取用户对应的密保问题
+    public function getUserQuestion($username)
     {
-        // 获取用户的密保问题
-        try {
-            $result = User::join('password_questions', 'users.password_question_id', '=', 'password_questions.id')
-                ->where('users.username', $username)
-                ->select('users.username', 'users.password_question_id', 'password_questions.question')
-                ->get();
-        } catch (\Exception $e) {
-            Log::error('用户密保问题获取失败', ['message' => $e->getMessage()]);
-            return false;
-        }
-        return $result;
+        // 获取用户的密保问题(返回对象虽为蛇形，但本质上还是小驼峰，所以获取时需写为小驼峰)
+        return User::with(['passwordQuestion'])->firstWhere('username', $username)->passwordQuestion;
     }
 
-    public function resetPassword($queries)
+    // 重置密码(未登录)
+    public function resetPassword($params)
     {
         // 重置密码
-        $password_question_id = $queries['password_question_id'];
-        $password_answer = $queries['password_answer'];
-
-        $user_info = User::where('username', $queries['username'])
-            ->where('password_question_id', $password_question_id)
-            ->where('password_answer', $password_answer)
-            ->first();
-
+        $requestData = $params->except(['password_confirmation', 'password']);
         try {
-            $password = Hash::make($queries['password']);
-            $user = $user_info->update(['password' => $password]);
+            $user = User::where($requestData)->firstOrFail();
+            $user->password = Hash::make($params->password);
+            $user->save();
+            return $user;
         } catch (\Exception $e) {
             Log::error('重置用户密码失败', ['message' => $e->getMessage()]);
             return false;
         }
-        return $user;
     }
 
+    // 更改密码(已登录)
     public function changePassword($username, $requires)
     {
         try {

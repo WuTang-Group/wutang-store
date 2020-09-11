@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Api;
 use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UserProfileRequest;
+use App\Services\Api\MemberCodeService;
 use App\Services\Api\UserProfileService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 /**
@@ -19,31 +21,31 @@ use Illuminate\Http\Response;
 class UserProfileController extends Controller
 {
     private $service;
+    private $memberCodeService;
 
-    public function __construct(UserProfileService $service)
+    public function __construct(UserProfileService $service,MemberCodeService $memberCodeService)
     {
         $this->service = $service;
+        $this->memberCodeService = $memberCodeService;
     }
 
     /**
-     * User profile list
+     * Get user profile
      * 用户资料信息
-     * @param UserProfileRequest $request
      * @return Application|ResponseFactory|Response
      */
-    public function index(UserProfileRequest $request)
+    public function index()
     {
-        $requestData = page_limit($request->all());
-        return response(ResponseData::requestSuccess($this->service->index($requestData)));
+        return response(ResponseData::requestSuccess($this->service->index()));
     }
 
     /**
      * Update user profile
-     * 编辑用户资料
+     * 编辑用户资料(要求提示用户填写真实信息)
      * @queryParam profile_id required profile表id
      * @queryParam phone 联系方式
-     * @queryParam real_name 真实姓名
-     * @queryParam sex 性别
+     * @queryParam real_name required 真实姓名
+     * @queryParam sex required 性别
      * @queryParam birthday 生日
      * @queryParam age 年龄
      * @queryParam province 省
@@ -51,13 +53,25 @@ class UserProfileController extends Controller
      * @queryParam district 区/县
      * @queryParam address 详细地址
      * @queryParam zip 邮编
-     * @param $profile_id
      * @param UserProfileRequest $request
      * @return Application|ResponseFactory|Response
      */
     public function update(UserProfileRequest $request)
     {
-        $results = $this->service->update($request->all());
+        $results = $this->service->update($request);
+        return $results ? response(ResponseData::requestSuccess($results)) : response(ResponseData::requestFails($request->all()));
+    }
+
+    /**
+     * Bind member code
+     * 绑定上级
+     * @bodyParam code string required 上级会员码
+     * @param UserProfileRequest $request
+     * @return Application|ResponseFactory|Response
+     */
+    public function bindParentMemberCode(UserProfileRequest $request)
+    {
+        $results = $this->memberCodeService->bindParentCode($request);
         return $results ? response(ResponseData::requestSuccess($results)) : response(ResponseData::requestFails($request->all()));
     }
 

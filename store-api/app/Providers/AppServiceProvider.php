@@ -5,9 +5,11 @@ namespace App\Providers;
 use App\Models\AlipayLegacyExpress;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\TheHouse;
 use App\Observers\AlipayLegacyExpressObserver;
 use App\Observers\ProductCategoryObserver;
 use App\Observers\ProductObserver;
+use App\Observers\TheHouseObserver;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Monolog\Logger;
@@ -64,6 +66,8 @@ class AppServiceProvider extends ServiceProvider
         ProductCategory::observe(ProductCategoryObserver::class);
         // 注册 AlipayLegacyExpress 观察者
         AlipayLegacyExpress::observe(AlipayLegacyExpressObserver::class);
+        // 注册TheHouse 观察者
+        TheHouse::observe(TheHouseObserver::class);
 
         // 获取购物车商品
         $token = isset($_COOKIE['token']) ? $_COOKIE['token']:null;

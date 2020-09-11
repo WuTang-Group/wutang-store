@@ -19,7 +19,7 @@ class ProductSkuService extends Service
     public function queryList($queries)
     {
         $requestData = page_limit($queries);
-        return $this->productSku->paginate($requestData['page_limit']);
+        return $this->productSku->latest()->paginate($requestData['page_limit']);
     }
 
     public function store($queries)

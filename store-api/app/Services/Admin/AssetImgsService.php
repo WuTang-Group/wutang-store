@@ -5,9 +5,7 @@ use App\Enums\AliyunOssDir;
 use App\Handlers\OssHandler;
 use App\Models\AssetImgs;
 use App\Services\Service;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Str;
 
 class AssetImgsService extends Service
 {
@@ -20,7 +18,7 @@ class AssetImgsService extends Service
     public function queryList($queries)
     {
         $requestData = page_limit($queries);
-        return $this->assetImgs->paginate($requestData['page_limit']);
+        return $this->assetImgs->latest()->paginate($requestData['page_limit']);
     }
 
     public function store($queries)

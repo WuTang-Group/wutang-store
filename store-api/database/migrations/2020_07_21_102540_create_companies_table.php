@@ -22,7 +22,7 @@ class CreateCompaniesTable extends Migration
             $table->string('tel_number')->nullable()->comment('联系电话');
             $table->string('contact_person')->nullable()->comment('联系人');
             $table->integer('parent_id')->default(0)->comment('上级公司id，0为最高级');
-            $table->integer('level')->nullable()->comment('分级级别');
+            $table->integer('level')->default(1)->comment('分级级别,默认1最高级');
             $table->integer('status')->default(1)->comment('状态，1为激活，-1为未激活');
             $table->text('remark')->nullable()->comment('其他说明');
             $table->timestamps();

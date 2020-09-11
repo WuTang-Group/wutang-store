@@ -21,7 +21,7 @@ class CreateDepartmentsTable extends Migration
             $table->string('code')->nullable()->comment('部门编号');
             $table->string('leader')->nullable()->comment('部门负责人');
             $table->integer('parent_id')->default(0)->comment('上级部门id，0为最高级');
-            $table->integer('level')->nullable()->comment('分级级别');
+            $table->integer('level')->default(1)->comment('分级级别,默认1最高级');
             $table->integer('status')->default(1)->comment('状态,1启用，-1未启用');
             $table->text('remark')->nullable()->comment('备注');
             $table->timestamps();

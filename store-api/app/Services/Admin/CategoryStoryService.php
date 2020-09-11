@@ -23,7 +23,7 @@ class CategoryStoryService extends Service
         // 查询分类故事列表
         return $this->categoryStory->with(['productCategory' => function($query){
             $query->select('id', 'title');
-        }])->paginate($requestData['page_limit']);
+        }])->latest()->paginate($requestData['page_limit']);
     }
 
     public function store($queries)

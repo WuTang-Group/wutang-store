@@ -132,4 +132,9 @@ class User extends Authenticatable implements JWTSubject
                 ->withTimestamps()
                 ->orderBy('department_changes.created_at','desc');
     }
+
+    public function memberCode()
+    {
+        return $this->belongsTo(MemberCode::class);
+    }
 }

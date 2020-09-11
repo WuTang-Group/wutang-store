@@ -28,7 +28,7 @@ class ShopCartController extends Controller
     }
 
     /**
-     * Request shop cart items
+     * Get shop cart items
      * 请求购物车数据
      * @return Application|ResponseFactory|Response
      */
@@ -53,8 +53,8 @@ class ShopCartController extends Controller
     }
 
     /**
-     * According type to change cart item
-     * 根据type改变购物车商品数量
+     * According type to change cart item(NOT USE)
+     * 根据type改变购物车商品数量(暂未启用)
      * @queryParam type required 操作类型,可传参数为:add(点击'+'时)/reduce(点击'—'时)/fixed(需传固定数量时)
      * @queryParam product_id rquired 商品ID
      * @queryParam amount optional 可选的商品数量(type为fixed时需传该参数)

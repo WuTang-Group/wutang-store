@@ -14,10 +14,10 @@ Route::middleware('throttle:' . config('api.rate_limits.loose'))->group(function
     Route::post('captchas', 'CaptchaController@store')->name('captchas.store');
     // 用户注册
     Route::post('auth/register', 'AuthController@register')->name('auth.register');
-    // 密保问题列表
-    Route::get('question_list', 'AuthController@questionList')->name('question_list.questionList');
-    // 获取用户的密保问题
-    Route::get('questions', 'AuthController@getQuestion')->name('questions.getQuestion');
+    // 密保问题列表(注册时)
+    Route::get('question_list', 'AuthController@getQuestionList')->name('question_list.getQuestionList');
+    // 获取用户的密保问题(找回密码时)
+    Route::get('user_question', 'AuthController@getUserQuestion')->name('questions.getUserQuestion');
 });
 
 /**

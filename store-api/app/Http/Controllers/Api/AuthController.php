@@ -63,10 +63,13 @@ class AuthController extends Controller
     /**
      * Register user
      * 用户注册
+     * (PS:密保问题接口=>Get password question list;
+     * 验证码接口=>Generate captcha code and save to cache)
      * @bodyParam name string required 姓名
      * @bodyParam username string required 账号(允许:英文字符/数字/字符+数字)
      * @bodyParam password string required 密码
      * @bodyParam password string password_confirmation required 确认密码
+     * @bodyParam code string 会员码(本人申请的)
      * @bodyParam captcha_key string required 验证码的key
      * @bodyParam captcha_code string required 验证码的code
      * @bodyParam password_question_id integer required 密保问题ID

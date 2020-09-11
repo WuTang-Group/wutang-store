@@ -119,6 +119,13 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
          * Member code
          */
         Route::post('member_code/bind_parent','UserProfileController@bindParentMemberCode')->name('member_code.bind_parent.bindParentMemberCode');
+        /**
+         * The House
+         */
+        Route::get('the_house/category_list', 'TheHouseController@theHouseCategoryList')->name('the_house.theHouseCategoryList');
+        Route::get('the_house/all', 'TheHouseController@theHouseAll')->name('the_house.theHouseAll');
+        Route::get('the_house/list/{category_slug}', 'TheHouseController@theHouseList')->name('the_house.theHouseList');
+        Route::get('the_house/detail/{the_house_slug}', 'TheHouseController@theHouseDetail')->name('the_house.theHouseDetail');
     });
 
 });

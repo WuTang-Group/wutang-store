@@ -26,7 +26,7 @@ class ProductService extends Service
         $requestData = page_limit($queries);
         return $this->product->with(['productCategory' => function ($query) {
             $query->select('id', 'title');
-        }])->paginate($requestData['page_limit']);
+        }])->latest()->paginate($requestData['page_limit']);
     }
 
     public function store($queries)

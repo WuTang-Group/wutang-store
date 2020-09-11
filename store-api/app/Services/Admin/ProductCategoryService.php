@@ -24,10 +24,9 @@ class ProductCategoryService extends Service
     {
         // 查询所有商品分类
         $requestData = page_limit($queries->all());
-        $result = $this->productCategory->with(['parent'=> function($query){
+        return $this->productCategory->with(['parent'=> function($query){
             return $query->select('id', 'name');
         }])->latest()->paginate($requestData['page_limit']);
-        return $result;
     }
 
     // 添加商品分类

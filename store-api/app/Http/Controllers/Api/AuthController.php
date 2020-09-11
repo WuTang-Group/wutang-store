@@ -30,7 +30,7 @@ class AuthController extends Controller
     public function __construct(AuthService $authService)
     {
         $this->middleware('auth:api', ['except' => [
-            'login', 'register', 'questionList', 'getQuestion', 'resetPassword'
+            'login', 'register', 'getQuestionList', 'getUserQuestion', 'resetPassword'
         ]]);
         $this->authService = $authService;
         config(['logging.channels.mongodb.collection' => LoggerCollection::LoginLog]);
@@ -155,9 +155,9 @@ class AuthController extends Controller
      * 获取密保问题列表
      * @return JsonResponse
      */
-    public function questionList()
+    public function getQuestionList()
     {
-        $result = $this->authService->questions();
+        $result = $this->authService->getQuestionList();
         return $result ? response()->json(ResponseData::requestSuccess($result)) : response()->json(ResponseData::dataError());
     }
 
@@ -168,9 +168,9 @@ class AuthController extends Controller
      * @param AuthRequest $request
      * @return JsonResponse
      */
-    public function getQuestion(AuthRequest $request)
+    public function getUserQuestion(AuthRequest $request)
     {
-        $result = $this->authService->getQuestion($request->username);
+        $result = $this->authService->getUserQuestion($request->username);
         return $result ? response()->json(ResponseData::requestSuccess($result)) : response()->json(ResponseData::dataError());
     }
 
@@ -187,8 +187,8 @@ class AuthController extends Controller
      */
     public function resetPassword(AuthRequest $request)
     {
-        $result = $this->authService->resetPassword($request->all());
-        return $result ? response()->json(ResponseData::requestSuccess(null, '密码重置成功')) : response()->json(ResponseData::dataError(null, '密保问题或答案不正确'));
+        $result = $this->authService->resetPassword($request);
+        return $result ? response()->json(ResponseData::requestSuccess($result, '密码重置成功')) : response()->json(ResponseData::dataError($request->all(), '重置失败,请检查密保答案或用户'));
     }
 
     /**

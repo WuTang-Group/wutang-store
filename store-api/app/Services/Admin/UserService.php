@@ -20,7 +20,7 @@ class UserService extends Service
 
     public function queryList()
     {
-        return $this->user->all();
+        return $this->user->latest()->all();
     }
 
     public function update($username, $queries)

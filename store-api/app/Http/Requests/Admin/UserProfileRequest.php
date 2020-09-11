@@ -15,8 +15,22 @@ class UserProfileRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        switch ($this->route()->getActionMethod())
+        {
+            case 'update':
+            {
+                return [
+                    'profile_id' => 'required',
+                    'real_name' => 'required',
+                    'sex' => 'required'
+                ];
+            }
+            case 'bindMemberCode':
+            {
+                return [
+                    'code' => 'required|exists:member_codes'
+                ];
+            }
+        }
     }
 }

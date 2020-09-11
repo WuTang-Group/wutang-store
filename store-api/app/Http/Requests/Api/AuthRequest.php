@@ -39,7 +39,7 @@ class AuthRequest extends FormRequest
                     'password_answer'=>'required|string'
                 ];
             }
-            case 'getQuestion':
+            case 'getUserQuestion':
             {
                 return [
                   'username' => 'required|exists:users,username'

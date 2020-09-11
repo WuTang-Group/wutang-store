@@ -10,6 +10,7 @@
                 placeholder="输入用户名"
                 style="width: 200px;"
                 class="filter-item"
+                clearable
               />
             </el-form-item>
           </el-col>
@@ -20,6 +21,7 @@
                 placeholder="输入订单编号"
                 style="width: 200px;"
                 class="filter-item"
+                clearable
               />
             </el-form-item>
           </el-col>
@@ -30,6 +32,7 @@
                 placeholder="输入支付交易号"
                 style="width: 200px;"
                 class="filter-item"
+                clearable
               />
             </el-form-item>
           </el-col>
@@ -42,6 +45,7 @@
                 placeholder="输入收货人"
                 style="width: 200px;"
                 class="filter-item"
+                clearable
               />
             </el-form-item>
           </el-col>
@@ -52,6 +56,7 @@
                 placeholder="输入收货人联系电话"
                 style="width: 200px;"
                 class="filter-item"
+                clearable
               />
             </el-form-item>
           </el-col>
@@ -65,17 +70,27 @@
                 start-placeholder="开始日期"
                 end-placeholder="结束日期"
                 align="right"
-                @change="pickerDateValue"
               />
             </el-form-item>
           </el-col>
         </el-row>
-        <el-button v-waves class="filter-item" type="primary" style="margin-left: 20px;" icon="el-icon-search" @click="handleFilter">
-          {{ $t('table.search') }}
-        </el-button>
+        <el-row>
+          <el-col :span="6" :offset="20">
+            <el-button v-waves class="filter-item" type="primary" style="margin-left: 20px;" icon="el-icon-search" @click="handleFilter">
+              {{ $t('table.search') }}
+            </el-button>
+          </el-col>
+        </el-row>
       </el-form>
     </el-card>
     <el-card class="box-card box-cart-centent" style="margin-top: 20px;">
+      <el-row>
+        <el-col :span="6" :offset="20">
+          <el-button :loading="downloadLoading" style="margin:0 0 20px 20px;" type="primary" icon="el-icon-document" @click="handleDownload">
+            导出订单
+          </el-button>
+        </el-col>
+      </el-row>
       <el-table
         :key="tableKey"
         v-loading="listLoading"
@@ -266,8 +281,7 @@ export default {
         'username': '',
         'contact_name': '',
         'contact_phone': '',
-        'start_time': '',
-        'end_time': ''
+        'created_at': ''
       },
       pickerOptions: {
         shortcuts: [{
@@ -338,7 +352,8 @@ export default {
           id: -1,
           title: '已退款'
         }
-      ]
+      ],
+      downloadLoading: false
     }
   },
   created() {
@@ -347,6 +362,7 @@ export default {
   methods: {
     getList() {
       this.listLoading = true
+      console.log(this.listLoading)
       getList(this.listQuery).then(response => {
         this.list = response.data.data
         this.total = response.data.total
@@ -427,15 +443,6 @@ export default {
       })
       row.editStatus = false
     },
-    pickerDateValue(val) {
-      if (val) {
-        this.listQuery.start_time = val[0]
-        this.listQuery.end_time = val[1]
-      } else {
-        this.listQuery.start_time = null
-        this.listQuery.end_time = null
-      }
-    },
     cancelEdit(row) {
       row.editStatus = false
       this.$message({
@@ -443,6 +450,23 @@ export default {
         type: 'warning'
       })
       this.getList()
+    },
+    handleDownload() {
+      this.downloadLoading = true
+      import('@/vendor/Export2Excel').then(excel => {
+        const tHeader = ['订单号', '总金额', '支付交易号', '支付方式', '退款单号', '是否退款', '订单创建时间']
+        const filterVal = ['no', 'total_amount', 'payment_no', 'payment_method', 'refund_no', 'reviewed', 'created_at']
+        const list = this.list
+        const data = this.formatJson(filterVal, list)
+        excel.export_json_to_excel({
+          header: tHeader,
+          data,
+          filename: this.filename,
+          autoWidth: true,
+          bookType: 'xlsx'
+        })
+        this.downloadLoading = false
+      })
     }
   }
 }

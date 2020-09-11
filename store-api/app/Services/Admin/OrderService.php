@@ -6,7 +6,6 @@ use App\Enums\AlipayCode;
 use App\Enums\LoggerCollection;
 use App\Enums\OrderStatusCode;
 use App\Enums\UnionPayCode;
-use App\Handlers\OrderHandler;
 use App\Models\Order;
 use App\Models\User;
 use App\Services\Service;
@@ -29,25 +28,25 @@ class OrderService extends Service
         try {
             switch ($queries['status']) {
                 case UnionPayCode::Success:
-                {
-                    $this->order->whereNo($queries['orderId'])->update([
-                        'status' => OrderStatusCode::StatusPending,
-                        'payment_method' => 'unionpay',
-                        'payment_no' => $queries['queryId'],
-                        'paid_at' => now()->toDateTimeString()
-                    ]);
-                }
-                break;
+                    {
+                        $this->order->whereNo($queries['orderId'])->update([
+                            'status' => OrderStatusCode::StatusPending,
+                            'payment_method' => 'unionpay',
+                            'payment_no' => $queries['queryId'],
+                            'paid_at' => now()->toDateTimeString()
+                        ]);
+                    }
+                    break;
                 case AlipayCode::TRADE_SUCCESS:
-                {
-                    $this->order->whereNo($queries['no'])->update([
-                        'status' => OrderStatusCode::StatusPending,
-                        'payment_method' => 'alipay',
-                        'payment_no' => $queries['payment_no'],
-                        'paid_at' => now()->toDateTimeString()
-                    ]);
-                }
-                break;
+                    {
+                        $this->order->whereNo($queries['no'])->update([
+                            'status' => OrderStatusCode::StatusPending,
+                            'payment_method' => 'alipay',
+                            'payment_no' => $queries['payment_no'],
+                            'paid_at' => now()->toDateTimeString()
+                        ]);
+                    }
+                    break;
             }
         } catch (\Exception $e) {
             Log::error('订单状态改变失败', ['message' => $e->getMessage()]);
@@ -59,10 +58,28 @@ class OrderService extends Service
     // 获取订单列表
     public function queryList($queries)
     {
-        $queries = page_limit($queries);
-        return $this->order->with(['user' => function ($query) {
-            $query->select('id', 'username');
-        }, 'address'])->paginate($queries['page_limit']);
+        $requestData = page_limit($queries);
+        return Order::when($requestData['username'], function ($query, $username) {
+            // 使用username查询user的记录
+            return $query->whereHas('user', function ($query) use ($username) {
+                $query->whereUsername($username);
+            });
+        })->when($requestData['contact_name'], function ($query, $contact_name) {
+            // 使用contact_name查询address的记录
+            return $query->whereHas('address', function ($query) use ($contact_name) {
+                $query->where('contact_name', $contact_name);
+            });
+        })->when($requestData['contact_phone'], function ($query, $contact_phone) {
+            // 使用contact_phone查询address的记录
+            return $query->whereHas('address', function ($query) use ($contact_phone) {
+                $query->where('contact_phone', $contact_phone);
+            });
+        })->when($requestData['created_at'], function ($query, $created_at) {
+            return $query->whereBetween('created_at', $created_at);
+        })->where(Arr::only(array_filter($requestData), ['no', 'payment_no']))
+            ->with(['user', 'address'])
+            ->latest()
+            ->paginate($requestData['page_limit']);
     }
 
     // 搜索订单
@@ -80,9 +97,9 @@ class OrderService extends Service
 
     public function edit($orderId, $query)
     {
-        try{
+        try {
             $this->order->whereId($orderId)->update($query);
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             Log::error('订单更新失败', ['message' => $e->getMessage()]);
             return false;
         }

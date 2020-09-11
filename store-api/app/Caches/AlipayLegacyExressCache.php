@@ -3,13 +3,10 @@
 
 namespace App\Caches;
 
-
 use App\Caches\Contracts\BaseCacheInterface;
 use App\Enums\CacheKeyPrefix;
 use App\Models\AlipayLegacyExpress;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Log;
 
 class AlipayLegacyExressCache implements BaseCacheInterface
 {

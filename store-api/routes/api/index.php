@@ -81,8 +81,8 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         /**
          * User profile
          */
-        Route::get('user_profiles', 'UserProfileController@index')->name('user_profiles.index');
-        Route::put('user_profiles', 'UserProfileController@update')->name('user_profiles.update');
+        Route::get('user_profile', 'UserProfileController@index')->name('user_profile.index');
+        Route::put('user_profile', 'UserProfileController@update')->name('user_profile.update');
         /**
          * User address
          */
@@ -115,6 +115,10 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
          */
         Route::get('assetImg', 'AssetImgController@list')->name('assetImg.list');
         Route::get('assetImg/{img_location}', 'AssetImgController@getImg')->name('assetImg.getImg');
+        /**
+         * Member code
+         */
+        Route::post('member_code/bind_parent','UserProfileController@bindParentMemberCode')->name('member_code.bind_parent.bindParentMemberCode');
     });
 
 });

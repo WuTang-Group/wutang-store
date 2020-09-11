@@ -69,6 +69,10 @@ class Product extends Model
         $this->increment('stock', $amount);
     }
 
+    public function scopeType($query,$productStatus)
+    {
+        return $query->whereStatus($productStatus);
+    }
 //    public function getStatusAttribute()
 //    {
 //         switch ($this->attributes['status'])

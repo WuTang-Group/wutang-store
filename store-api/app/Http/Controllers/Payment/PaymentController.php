@@ -220,8 +220,8 @@ class PaymentController extends Controller
     }
 
     /**
-     * Alipay gateway pay request
-     * 发起支付宝网关支付请求(前端)
+     * Alipay bank gateway pay request
+     * 支付宝网银网关-发起支付
      * @queryParam no required 订单号
      * @queryParam total_amount required 总金额
      * @queryParam payment_key required 支付key
@@ -262,8 +262,8 @@ class PaymentController extends Controller
     }
 
     /**
-     * Alipay gateway return
-     * 支付宝网关支付-同步跳转(前端)
+     * Alipay bank gateway return
+     * 支付宝网银网关-同步跳转(前端)
      * @param Request $request
      * @return string
      */
@@ -287,8 +287,8 @@ class PaymentController extends Controller
     }
 
     /**
-     * Alipay gateway notify
-     * 支付宝网关支付-异步通知(服务端)
+     * Alipay bank gateway notify
+     * 支付宝网银网关-异步通知(服务端)
      * @param Request $request
      * @return string
      */

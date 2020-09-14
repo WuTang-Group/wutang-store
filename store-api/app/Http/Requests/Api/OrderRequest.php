@@ -60,6 +60,7 @@ class OrderRequest extends FormRequest
     {
         return [
             'address_id.required' => '用户地址必填',
+            'address_id.exists' => '用户地址无效',
             'no.required' => '订单号必填',
             'no.exists' => '订单号不存在'
         ];

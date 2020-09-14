@@ -16,7 +16,7 @@ class CreatePaymentsTable extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('type')->unique()->comment('支付类型');
-            $table->string('img')->comment('前端显示图片');
+            $table->string('img')->nullable()->comment('前端显示图片');
             $table->string('request_url')->nullable()->comment('发起请求路由');
             $table->integer('status')->default(1)->comment('启用状态,1激活,-1未激活');
             $table->timestamps();

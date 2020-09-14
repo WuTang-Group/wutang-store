@@ -98,7 +98,7 @@ class OrderService extends Service
                 return $order;
             });
             // 缓存订单支付倒计时
-            $cacheResult = CacheController::orderPayment($orderRequest->no);
+            $cacheResult = CacheController::orderPayment($orderRequest);
             if(!$cacheResult){
                 return false;
             }

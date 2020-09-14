@@ -147,7 +147,10 @@ export default {
   data() {
     return {
       orderDetail: {
-        // username: ''
+        address: {
+          contact_name: '',
+          contact_phone: ''
+        }
       },
       orderNo: '',
       formDisable: true,

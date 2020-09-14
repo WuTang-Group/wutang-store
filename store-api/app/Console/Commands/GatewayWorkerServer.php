@@ -78,7 +78,7 @@ class GatewayWorkerServer extends Command
         $gateway->lanIp                = '127.0.0.1';                       //内网ip,多服务器分布式部署的时候需要填写真实的内网ip
         $gateway->startPort            = 2300;                              //监听本机端口的起始端口
         $gateway->pingInterval         = 30;                                // 心跳包发送频率
-        $gateway->pingNotResponseLimit = 0;                                 //服务端主动发送心跳
+        $gateway->pingNotResponseLimit = 5;                                 //服务端主动发送心跳
         $gateway->pingData             = '{"mode":"heart"}';
         $gateway->registerAddress      = '127.0.0.1:12360';                 //注册服务地址
     }

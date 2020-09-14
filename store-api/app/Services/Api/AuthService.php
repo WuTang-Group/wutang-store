@@ -27,22 +27,22 @@ class AuthService extends Service
      * @param $queries
      * @return bool
      */
-    public function register($queries)
+    public function register($params)
     {
-        $requestData = $queries->except('code');
+        $requestData = $params->except('code');
         try {
-            DB::transaction(function () use ($requestData) {
-                $queries['password'] = Hash::make($requestData['password']);
+            DB::transaction(function () use ($requestData, $params) {
+                $requestData['password'] = Hash::make($requestData['password']);
                 $user = $this->user->create($requestData);
 //                // 递减邀请码库存
 //                InvitationCode::whereCode($queries['invitation_code'])->increment('usage_times');
                 // 清除验证码缓存
-                \Cache::forget($queries['captcha_key']);
+                \Cache::forget($requestData['captcha_key']);
                 // 默认分配注册用户customer角色
                 $user->assignRole(Roles::Customer);
                 // 为用户绑定会员码
-                if ($queries->has('code')) {
-                    $member_code = MemberCode::firstWhere('code', $queries->code);
+                if ($params->has('code')) {
+                    $member_code = MemberCode::firstWhere('code', $params->code);
                     $user->member_code_id = $member_code->id;
                     $user->save();
                 }
@@ -53,7 +53,7 @@ class AuthService extends Service
             Log::error('用户注册失败', ['message' => $e->getMessage()]);
             return false;
         }
-        return $queries;
+        return $params;
     }
 
     // 密保问题列表

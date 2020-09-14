@@ -109,6 +109,6 @@ class OrderService extends Service
     // 根据订单号获取订单详情
     public function detail($orderNo)
     {
-        return $this->order->with('items.product')->where('no', $orderNo)->first();
+        return $this->order->with('items.product', 'address')->where('no', $orderNo)->first();
     }
 }

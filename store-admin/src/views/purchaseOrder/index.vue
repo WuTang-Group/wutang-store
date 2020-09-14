@@ -101,7 +101,7 @@
         style="width: 100%;"
         :header-cell-style="{background:'#ebeef5'}"
       >
-        <el-table-column header-align="center" align="center" prop="id" label="ID" width="60" />
+        <el-table-column header-align="center" type="index" align="center" label="ID" width="60" />
         <el-table-column header-align="center" align="center" label="订单号" width="180px">
           <template slot-scope="scope">
             <router-link :to="{ name: 'ViewOrUpdate', params: { 'no': scope.row.no, 'username': scope.row.user.username }}">
@@ -183,7 +183,11 @@
         </el-table-column>>
         <el-table-column header-align="center" align="center" prop="address.contact_name" label="收货人" />
         <el-table-column header-align="center" align="center" prop="address.contact_phone" label="联系电话" width="110px" />
-        <el-table-column header-align="center" align="center" prop="address" :formatter="formatterAddress" label="收货地址" width="150px" />
+        <el-table-column header-align="center" align="center" prop="address" label="收货地址" width="150px">
+          <template slot-scope="{row}">
+            {{ row.address | filterAddress }}
+          </template>
+        </el-table-column>>
         <el-table-column header-align="center" align="center" prop="paid_at" label="支付时间" width="100px" />
         <el-table-column header-align="center" align="center" prop="created_at" label="订单创建时间" width="100px" />
         <el-table-column align="center" fixed="right" label="操作">
@@ -252,6 +256,13 @@ export default {
           return '已发货'
         case -1:
           return '未发货'
+      }
+    },
+    filterAddress(value) {
+      if (value) {
+        return value.province + value.city + value.district + value.address
+      } else {
+        return ''
       }
     }
   },
@@ -362,7 +373,6 @@ export default {
   methods: {
     getList() {
       this.listLoading = true
-      console.log(this.listLoading)
       getList(this.listQuery).then(response => {
         this.list = response.data.data
         this.total = response.data.total
@@ -372,7 +382,6 @@ export default {
           this.$set(v, 'editStatus', false)
           return v
         })
-        console.log(this.list)
       })
     },
     // 付款方式
@@ -412,11 +421,6 @@ export default {
         case -1:
           return '已退款'
       }
-    },
-    // 完整地址处理
-    formatterAddress(row) {
-      const addressInfo = row.address
-      return addressInfo.province + addressInfo.city + addressInfo.district + addressInfo.address
     },
     // 是否评价
     formatterReviewed(row) {

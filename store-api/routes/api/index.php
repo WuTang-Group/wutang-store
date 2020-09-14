@@ -103,7 +103,8 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         Route::get('orders', 'OrderController@queryList')->name('orders.queryList');
         Route::get('order_details/{no}', 'OrderController@getOrderDetail')->name('order_details.getOrderDetail');
         Route::post('orders', 'OrderController@requestCreate')->name('orders.requestCreate');
-        Route::post('orders/retry','OrderController@retryCreate')->name('orders.retryCreate');
+        Route::post('orders/retry','OrderController@retryCreate')->name('orders.retry.retryCreate');
+        Route::put('orders/cancel','OrderController@requestCancel')->name('orders.cancel.requestCancel');
         /**
          * 心愿单
          */

@@ -48,6 +48,7 @@ class OrderRequest extends FormRequest
                 ];
             }
             case 'retryCreate':
+            case 'requestCancel':
             {
                 return [
                     'no' => 'required|exists:orders'

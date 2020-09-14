@@ -67,6 +67,20 @@ class OrderController extends Controller
     }
 
     /**
+     * Cancel order
+     * 取消订单
+     * @queryParam no required 订单号
+     * @param OrderRequest $request
+     * @return Application|ResponseFactory|Response
+     */
+    public function requestCancel(OrderRequest $request)
+    {
+        $requestData = $request->all();
+        $results = $this->service->requestCancel($requestData);
+        return $results ? response(ResponseData::requestSuccess($results)) : response(ResponseData::requestFails($request->all()));
+    }
+
+    /**
      * Cancel order & Retry create order
      * 取消订单后尝试重新下单
      * @bodyParam no integer required 需要取消的订单号
@@ -75,7 +89,7 @@ class OrderController extends Controller
      */
     public function retryCreate(OrderRequest $request)
     {
-        $results = $this->service->retryCreate($request->only('no'));
+        $results = $this->service->retryCreate($request);
         return $results ? response(ResponseData::requestSuccess($results)) : response(ResponseData::requestFails($request->all()));
     }
 }

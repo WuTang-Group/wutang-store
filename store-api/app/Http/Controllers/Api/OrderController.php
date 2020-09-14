@@ -15,6 +15,8 @@ use Illuminate\Http\Response;
 /**
  * @group [API] Order
  * 订单管理
+ * status说明:(1已付款,0待付款,-1付款失败,-2取消订单)
+ * ship_status说明:(1已发货,-1未发货,0已签收)
  * @authenticated
  * @package App\Http\Controllers\Api
  */

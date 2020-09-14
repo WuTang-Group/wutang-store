@@ -9,38 +9,38 @@ class Payment extends Model
     ];
 
     /**
-     * 一对一关联AlipayBankGateway模型
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * 一对多关联AlipayBankGateway模型
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function alipayBankGateway()
     {
-        return $this->hasOne(AlipayBankGateway::class);
+        return $this->hasMany(AlipayBankGateway::class);
     }
 
     /**
-     * 一对一关联AlipayLegacyExpress模型
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * 一对多关联AlipayLegacyExpress模型
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function alipayLegacyExpress()
     {
-        return $this->hasOne(AlipayLegacyExpress::class);
+        return $this->hasMany(AlipayLegacyExpress::class);
     }
 
     /**
-     * 一对一关联Unionpay模型
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * 一对多关联Unionpay模型
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function unionpay()
     {
-        return $this->hasOne(Unionpay::class);
+        return $this->hasMany(Unionpay::class);
     }
 
     /**
-     * 一对一关联AlipayAopPage模型
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * 一对多关联AlipayAopPage模型
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function alipayAopPage()
     {
-        return $this->hasOne(AlipayAopPage::class);
+        return $this->hasMany(AlipayAopPage::class);
     }
 }

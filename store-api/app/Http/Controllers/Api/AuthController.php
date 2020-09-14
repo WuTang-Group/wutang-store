@@ -68,7 +68,7 @@ class AuthController extends Controller
      * @bodyParam name string required 姓名
      * @bodyParam username string required 账号(允许:英文字符/数字/字符+数字)
      * @bodyParam password string required 密码
-     * @bodyParam password string password_confirmation required 确认密码
+     * @bodyParam password_confirmation string required 确认密码
      * @bodyParam code string 会员码(本人申请的)
      * @bodyParam captcha_key string required 验证码的key
      * @bodyParam captcha_code string required 验证码的code
@@ -96,8 +96,8 @@ class AuthController extends Controller
             throw new HttpResponseException(ResponseData::requestDeny($request->username, '用户已存在'));
         }
         // 传参到service处理
-        $results = $this->authService->register($request->all());
-        return $results ? response()->json(ResponseData::requestSuccess($results)) : response()->json(ResponseData::requestFails());
+        $results = $this->authService->register($request);
+        return $results ? response()->json(ResponseData::requestSuccess($results)) : response()->json(ResponseData::requestFails($request->all()));
     }
 
     /**

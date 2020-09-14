@@ -4,6 +4,7 @@ namespace App\Services\Api;
 
 use App\Enums\AlipayCode;
 use App\Enums\AlipayBankGatewayCode;
+use App\Enums\CacheKeyPrefix;
 use App\Enums\LoggerCollection;
 use App\Enums\OrderStatusCode;
 use App\Enums\UnionPayCode;
@@ -15,6 +16,7 @@ use App\Models\Order;
 use App\Models\Product;
 use App\Models\UserAddress;
 use App\Services\Service;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
@@ -37,14 +39,14 @@ class OrderService extends Service
     }
 
     // 获取订单详情
-    public function getOrderDetail($queries)
+    public function getOrderDetail(string $queries)
     {
         return $this->order->query()->with(['items.product', 'address'])->whereNo($queries)->whereUserId($this->user()->id)->first();
         // return $this->order->load(['items.product'])->whereUserId($this->user()->id)->get();
     }
 
     // 创建订单
-    public function requestCreate($queries)
+    public function requestCreate(object $queries)
     {
         $user = $this->user();
         try {
@@ -99,12 +101,12 @@ class OrderService extends Service
             });
             // 缓存订单支付倒计时
             $cacheResult = CacheController::orderPayment($orderRequest);
-            if(!$cacheResult){
+            if (!$cacheResult) {
                 return false;
             }
             return [
                 'order' => $orderRequest,
-                'cache_data' =>$cacheResult
+                'cache_data' => $cacheResult
             ];
             // 取消下单队列通知，因为此时订单尚未完成，无需队列通知
             // event(new OrderStatusUpdated($orderRequest));
@@ -115,7 +117,7 @@ class OrderService extends Service
     }
 
     // 改变订单状态
-    public function changeStatus($queries)
+    public function changeStatus(object $queries)
     {
         try {
 
@@ -189,27 +191,38 @@ class OrderService extends Service
     }
 
     // 请求取消订单
-    public function requestCancel($params)
+    public function requestCancel(array $params)
     {
-        $order = $this->order->whereNo($params['no'])->first();
         try {
-            $order->status = OrderStatusCode::StatusCanceled;
-            $order->save();
+            $order = $this->order->whereNo($params['no'])->firstOrFail();
+            // 用户付款失败或者未付款方能允许用户取消订单
+            if ($order->status == 0 || $order->status == -1) {
+                $cancelOrder = DB::transaction(function () use ($order) {
+                    $order->status = OrderStatusCode::StatusCanceled;
+                    $order->save();
+                    return $order;
+                });
+                $key = CacheKeyPrefix::OrderCache . 'NO:' . $params['no'];
+                if (Cache::has($key)) {
+                    Cache::forget($key);
+                }
+                return $cancelOrder;
+            }
         } catch (\Exception $e) {
             Log::error('尝试取消订单失败', ['message' => $e->getMessage()]);
             return false;
         }
-        return $order;
     }
 
     // 尝试取消订单后重新下单
-    public function retryCreate($params)
+    public function retryCreate(object $params)
     {
+        $requestData = $params->all();
         // 取消订单->从取消的订单获取历史数据
-        $cancelledOrder = $this->requestCancel($params);
+        $cancelledOrder = $this->requestCancel($requestData);
         $user = $this->user();
         try {
-            $orderRequest = DB::transaction(function () use ($user, $params, $cancelledOrder) {
+            $orderRequest = DB::transaction(function () use ($user, $cancelledOrder) {
                 $address = UserAddress::find($cancelledOrder->user_address_id);
                 // 更新此地址 最后使用时间
                 $address->update(['last_used_at' => now()]);

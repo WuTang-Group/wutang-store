@@ -27,11 +27,12 @@ Welcome to the generated API reference.
 ## Request get alipay legacy express list
 获取支付宝即时支付-列表
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/alipay/legacy_express?page=sit&page_limit=est" \
+    -G "http://store.wutang.com/admin/alipay/legacy_express?page=culpa&page_limit=dolorem" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -42,8 +43,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "sit",
-    "page_limit": "est",
+    "page": "culpa",
+    "page_limit": "dolorem",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -86,6 +87,7 @@ Parameter | Status | Description
 ## Request store alipay legacy express data
 请求写入支付宝即时支付数据
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
@@ -93,7 +95,7 @@ curl -X POST \
     "http://store.wutang.com/admin/alipay/legacy_express" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"items":[{"pid":"esse","key":"facere","seller_email":"impedit"}]}'
+    -d '{"items":[{"pid":"doloremque","key":"quam","seller_email":"dolorum"}]}'
 
 ```
 
@@ -110,9 +112,9 @@ let headers = {
 let body = {
     "items": [
         {
-            "pid": "esse",
-            "key": "facere",
-            "seller_email": "impedit"
+            "pid": "doloremque",
+            "key": "quam",
+            "seller_email": "dolorum"
         }
     ]
 }
@@ -145,11 +147,12 @@ Parameter | Type | Status | Description
 ## Request update alipay legacy express data
 请求更新支付宝即时支付数据
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/admin/alipay/legacy_express/1?id=laborum" \
+    "http://store.wutang.com/admin/alipay/legacy_express/1?id=maiores" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -160,7 +163,7 @@ const url = new URL(
 );
 
 let params = {
-    "id": "laborum",
+    "id": "maiores",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -195,11 +198,12 @@ Parameter | Status | Description
 ## Request delete alipay legacy express data
 请求删除支付宝即时支付数据
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X DELETE \
-    "http://store.wutang.com/admin/alipay/legacy_express/1?id=a" \
+    "http://store.wutang.com/admin/alipay/legacy_express/1?id=nisi" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -210,7 +214,7 @@ const url = new URL(
 );
 
 let params = {
-    "id": "a",
+    "id": "nisi",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -245,11 +249,12 @@ Parameter | Status | Description
 ## Request update alipay legacy express status
 请求更新支付宝即时到账 支付状态
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/admin/alipay/legacy_express/status/1?id=maiores" \
+    "http://store.wutang.com/admin/alipay/legacy_express/status/1?id=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -260,7 +265,7 @@ const url = new URL(
 );
 
 let params = {
-    "id": "maiores",
+    "id": "et",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -291,6 +296,162 @@ Parameter | Status | Description
 
 <!-- END_744e1cb1066e7961e5e97f6d2b6a7610 -->
 
+#[ADMIN] Asset img
+
+静态图片管理
+<!-- START_d87b514e0b2d661024b3fe01f18fc23c -->
+## Get assetImgs list
+获取首页静态资源列表
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://store.wutang.com/admin/asset_img?page=eos&page_limit=quaerat" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://store.wutang.com/admin/asset_img"
+);
+
+let params = {
+    "page": "eos",
+    "page_limit": "quaerat",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+
+### HTTP Request
+`GET admin/asset_img`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `page` |  optional  | 页码
+    `page_limit` |  optional  | 每页数量
+
+<!-- END_d87b514e0b2d661024b3fe01f18fc23c -->
+
+<!-- START_d87de4a1217ef941a28add66dd4020f4 -->
+## save asset img
+保存首页静态资源
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "http://store.wutang.com/admin/asset_img?img=aperiam&img_location=veniam" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://store.wutang.com/admin/asset_img"
+);
+
+let params = {
+    "img": "aperiam",
+    "img_location": "veniam",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST admin/asset_img`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `img` |  required  | 图片地址
+    `img_location` |  required  | 图片位置
+
+<!-- END_d87de4a1217ef941a28add66dd4020f4 -->
+
+<!-- START_85bac2915edb3565ff46f67e3937c589 -->
+## Delete img
+删除图片资源
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://store.wutang.com/admin/asset_img/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://store.wutang.com/admin/asset_img/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`DELETE admin/asset_img/{assetImgId}`
+
+
+<!-- END_85bac2915edb3565ff46f67e3937c589 -->
+
 #[ADMIN] Category story
 
 分类故事
@@ -298,11 +459,12 @@ Parameter | Status | Description
 ## Get product category stoies
 获取产品分类故事
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/category_stories?page=ipsa&page_limit=nesciunt" \
+    -G "http://store.wutang.com/admin/category_stories?page=est&page_limit=eum" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -313,8 +475,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "ipsa",
-    "page_limit": "nesciunt",
+    "page": "est",
+    "page_limit": "eum",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -355,6 +517,7 @@ Parameter | Status | Description
 
 <!-- START_4728f4dbc09c2fe21a39191d4a9dc696 -->
 ## admin/category_stories/{CategoriesStoriesId}
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
@@ -401,11 +564,12 @@ fetch(url, {
 ## Create product category story
 添加产品分类故事
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/category_stories?title=repellendus&title_en=dolor&description=quia&description_en=illum&banner=voluptas&product_category_id=beatae" \
+    "http://store.wutang.com/admin/category_stories?title=et&title_en=dignissimos&description=magni&description_en=repellendus&banner=ratione&product_category_id=minima" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -416,12 +580,12 @@ const url = new URL(
 );
 
 let params = {
-    "title": "repellendus",
-    "title_en": "dolor",
-    "description": "quia",
-    "description_en": "illum",
-    "banner": "voluptas",
-    "product_category_id": "beatae",
+    "title": "et",
+    "title_en": "dignissimos",
+    "description": "magni",
+    "description_en": "repellendus",
+    "banner": "ratione",
+    "product_category_id": "minima",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -461,11 +625,12 @@ Parameter | Status | Description
 ## Edit product category story
 编辑产品分类故事
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/category_stories/1?title=natus&title_en=animi&description=ipsa&description_en=sequi&banner=id&product_category_id=et" \
+    "http://store.wutang.com/admin/category_stories/1?title=aut&title_en=dignissimos&description=quod&description_en=veniam&banner=placeat&product_category_id=numquam" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -476,12 +641,12 @@ const url = new URL(
 );
 
 let params = {
-    "title": "natus",
-    "title_en": "animi",
-    "description": "ipsa",
-    "description_en": "sequi",
-    "banner": "id",
-    "product_category_id": "et",
+    "title": "aut",
+    "title_en": "dignissimos",
+    "description": "quod",
+    "description_en": "veniam",
+    "banner": "placeat",
+    "product_category_id": "numquam",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -521,6 +686,7 @@ Parameter | Status | Description
 ## Delete product category story
 删除产品分类故事
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
@@ -603,11 +769,12 @@ fetch(url, {
 ## Get logs list
 获取日志列表
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/logs/1?page=totam&page_limit=et" \
+    -G "http://store.wutang.com/admin/logs/1?page=quaerat&page_limit=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -618,7 +785,7 @@ const url = new URL(
 );
 
 let params = {
-    "page": "totam",
+    "page": "quaerat",
     "page_limit": "et",
 };
 Object.keys(params)
@@ -662,11 +829,12 @@ Parameter | Status | Description
 ## Destroy logs
 删除日志(支持删除多条数据)
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X DELETE \
-    "http://store.wutang.com/admin/logs/1?ids=voluptas" \
+    "http://store.wutang.com/admin/logs/1?ids=ipsa" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -677,7 +845,7 @@ const url = new URL(
 );
 
 let params = {
-    "ids": "voluptas",
+    "ids": "ipsa",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -715,6 +883,7 @@ Parameter | Status | Description
 ## Get member code list
 获取会员码列表
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
@@ -764,11 +933,12 @@ fetch(url, {
 ## Get order list
 获取订单列表
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/order?page=sunt&page_limit=reiciendis" \
+    -G "http://store.wutang.com/admin/order?page=consequatur&page_limit=iste" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -779,8 +949,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "sunt",
-    "page_limit": "reiciendis",
+    "page": "consequatur",
+    "page_limit": "iste",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -823,6 +993,7 @@ Parameter | Status | Description
 ## Get order detail
 获取订单详情信息
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
@@ -869,11 +1040,12 @@ fetch(url, {
 ## Search order
 搜索订单
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/order?page=et&page_limit=optio&username=quas&order_no=vel&order_status=architecto" \
+    "http://store.wutang.com/admin/order?page=natus&page_limit=odit&username=perferendis&order_no=tenetur&order_status=aut" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -884,11 +1056,11 @@ const url = new URL(
 );
 
 let params = {
-    "page": "et",
-    "page_limit": "optio",
-    "username": "quas",
-    "order_no": "vel",
-    "order_status": "architecto",
+    "page": "natus",
+    "page_limit": "odit",
+    "username": "perferendis",
+    "order_no": "tenetur",
+    "order_status": "aut",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -927,6 +1099,7 @@ Parameter | Status | Description
 ## Edit order
 编辑订单
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
@@ -934,7 +1107,7 @@ curl -X POST \
     "http://store.wutang.com/admin/order/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"refund_status":"et","ship_status":"ratione","status":"quia"}'
+    -d '{"refund_status":"qui","ship_status":"voluptatem","status":"aut"}'
 
 ```
 
@@ -949,9 +1122,9 @@ let headers = {
 };
 
 let body = {
-    "refund_status": "et",
-    "ship_status": "ratione",
-    "status": "quia"
+    "refund_status": "qui",
+    "ship_status": "voluptatem",
+    "status": "aut"
 }
 
 fetch(url, {
@@ -984,11 +1157,12 @@ Parameter | Type | Status | Description
 ## Get product list
 获取产品列表
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/product?page=debitis&page_limit=est" \
+    -G "http://store.wutang.com/admin/product?page=incidunt&page_limit=ratione" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -999,8 +1173,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "debitis",
-    "page_limit": "est",
+    "page": "incidunt",
+    "page_limit": "ratione",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1043,6 +1217,7 @@ Parameter | Status | Description
 ## 「ADMIN」Get product detail by product_slug
 根据product_slug获取商品详情
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
@@ -1089,11 +1264,12 @@ fetch(url, {
 ## Create product
 新建商品
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/product?product_category_id=et&product_name=illum&product_name_en=enim&thumbnail=dolore&slug=error&short_description=quia&short_description_en=impedit&price=deleniti&sale_price=nemo&stock=voluptas&seo_title=qui&seo_keyword=voluptates&seo_description=voluptatem&benefit=a&benefit_en=nostrum&tech_description=suscipit&tech_description_en=autem&description=beatae&description_en=occaecati&usage=quia&usage_en=optio&main_image=quia&main_image_2=dolorem&benefit_image=qui&product_video=nemo&status=incidunt&rating=corrupti&sold_count=occaecati&review_count=ab" \
+    "http://store.wutang.com/admin/product?product_category_id=aspernatur&product_name=qui&product_name_en=voluptas&thumbnail=dolore&slug=itaque&short_description=totam&short_description_en=optio&price=distinctio&sale_price=impedit&stock=rerum&seo_title=facilis&seo_keyword=aut&seo_description=eius&benefit=sit&benefit_en=ut&tech_description=voluptatem&tech_description_en=corrupti&description=eveniet&description_en=nesciunt&usage=labore&usage_en=voluptatibus&main_image=ea&main_image_2=omnis&benefit_image=quam&product_video=doloremque&status=tempore&rating=placeat&sold_count=temporibus&review_count=nesciunt" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1104,35 +1280,35 @@ const url = new URL(
 );
 
 let params = {
-    "product_category_id": "et",
-    "product_name": "illum",
-    "product_name_en": "enim",
+    "product_category_id": "aspernatur",
+    "product_name": "qui",
+    "product_name_en": "voluptas",
     "thumbnail": "dolore",
-    "slug": "error",
-    "short_description": "quia",
-    "short_description_en": "impedit",
-    "price": "deleniti",
-    "sale_price": "nemo",
-    "stock": "voluptas",
-    "seo_title": "qui",
-    "seo_keyword": "voluptates",
-    "seo_description": "voluptatem",
-    "benefit": "a",
-    "benefit_en": "nostrum",
-    "tech_description": "suscipit",
-    "tech_description_en": "autem",
-    "description": "beatae",
-    "description_en": "occaecati",
-    "usage": "quia",
-    "usage_en": "optio",
-    "main_image": "quia",
-    "main_image_2": "dolorem",
-    "benefit_image": "qui",
-    "product_video": "nemo",
-    "status": "incidunt",
-    "rating": "corrupti",
-    "sold_count": "occaecati",
-    "review_count": "ab",
+    "slug": "itaque",
+    "short_description": "totam",
+    "short_description_en": "optio",
+    "price": "distinctio",
+    "sale_price": "impedit",
+    "stock": "rerum",
+    "seo_title": "facilis",
+    "seo_keyword": "aut",
+    "seo_description": "eius",
+    "benefit": "sit",
+    "benefit_en": "ut",
+    "tech_description": "voluptatem",
+    "tech_description_en": "corrupti",
+    "description": "eveniet",
+    "description_en": "nesciunt",
+    "usage": "labore",
+    "usage_en": "voluptatibus",
+    "main_image": "ea",
+    "main_image_2": "omnis",
+    "benefit_image": "quam",
+    "product_video": "doloremque",
+    "status": "tempore",
+    "rating": "placeat",
+    "sold_count": "temporibus",
+    "review_count": "nesciunt",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1195,11 +1371,12 @@ Parameter | Status | Description
 ## Edit product
 编辑商品
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/product/1?product_category_id=et&product_name=doloribus&product_name_en=dolore&thumbnail=placeat&slug=eum&short_description=maiores&short_description_en=dignissimos&price=distinctio&sale_price=aperiam&stock=temporibus&seo_title=reiciendis&seo_keyword=aut&seo_description=quibusdam&benefit=commodi&benefit_en=sint&tech_description=ut&tech_description_en=sint&description=aut&description_en=accusamus&usage=rem&usage_en=voluptas&main_image=in&main_image_2=maiores&benefit_image=nihil&product_video=perferendis&status=corrupti&rating=eos&sold_count=occaecati&review_count=inventore" \
+    "http://store.wutang.com/admin/product/1?product_category_id=quia&product_name=iure&product_name_en=natus&thumbnail=eveniet&slug=est&short_description=rerum&short_description_en=eius&price=reiciendis&sale_price=dolor&stock=architecto&seo_title=doloribus&seo_keyword=quasi&seo_description=qui&benefit=quia&benefit_en=totam&tech_description=est&tech_description_en=fugiat&description=saepe&description_en=maxime&usage=eveniet&usage_en=maxime&main_image=voluptatibus&main_image_2=voluptates&benefit_image=dolorem&product_video=necessitatibus&status=quis&rating=ut&sold_count=voluptas&review_count=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1210,35 +1387,35 @@ const url = new URL(
 );
 
 let params = {
-    "product_category_id": "et",
-    "product_name": "doloribus",
-    "product_name_en": "dolore",
-    "thumbnail": "placeat",
-    "slug": "eum",
-    "short_description": "maiores",
-    "short_description_en": "dignissimos",
-    "price": "distinctio",
-    "sale_price": "aperiam",
-    "stock": "temporibus",
-    "seo_title": "reiciendis",
-    "seo_keyword": "aut",
-    "seo_description": "quibusdam",
-    "benefit": "commodi",
-    "benefit_en": "sint",
-    "tech_description": "ut",
-    "tech_description_en": "sint",
-    "description": "aut",
-    "description_en": "accusamus",
-    "usage": "rem",
-    "usage_en": "voluptas",
-    "main_image": "in",
-    "main_image_2": "maiores",
-    "benefit_image": "nihil",
-    "product_video": "perferendis",
-    "status": "corrupti",
-    "rating": "eos",
-    "sold_count": "occaecati",
-    "review_count": "inventore",
+    "product_category_id": "quia",
+    "product_name": "iure",
+    "product_name_en": "natus",
+    "thumbnail": "eveniet",
+    "slug": "est",
+    "short_description": "rerum",
+    "short_description_en": "eius",
+    "price": "reiciendis",
+    "sale_price": "dolor",
+    "stock": "architecto",
+    "seo_title": "doloribus",
+    "seo_keyword": "quasi",
+    "seo_description": "qui",
+    "benefit": "quia",
+    "benefit_en": "totam",
+    "tech_description": "est",
+    "tech_description_en": "fugiat",
+    "description": "saepe",
+    "description_en": "maxime",
+    "usage": "eveniet",
+    "usage_en": "maxime",
+    "main_image": "voluptatibus",
+    "main_image_2": "voluptates",
+    "benefit_image": "dolorem",
+    "product_video": "necessitatibus",
+    "status": "quis",
+    "rating": "ut",
+    "sold_count": "voluptas",
+    "review_count": "et",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1301,6 +1478,7 @@ Parameter | Status | Description
 ## Delete the Product
 删除产品
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
@@ -1343,11 +1521,12 @@ fetch(url, {
 ## Get product category list
 获取产品分类列表
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/product_categories?page=modi&page_limit=perferendis" \
+    -G "http://store.wutang.com/admin/product_categories?page=voluptatem&page_limit=voluptatem" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1358,8 +1537,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "modi",
-    "page_limit": "perferendis",
+    "page": "voluptatem",
+    "page_limit": "voluptatem",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1402,6 +1581,7 @@ Parameter | Status | Description
 ## Get category detail by category_slug
 根据类目slug查询类目详情
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
@@ -1448,11 +1628,12 @@ fetch(url, {
 ## Create product category
 新建产品分类
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/product_categories?name=et&thumbnail=voluptatem&banner=repellendus&title=ipsum&title_en=et&sub_title=suscipit&describe=incidunt&describe_en=similique&describe_img=quia&parent_id=consectetur" \
+    "http://store.wutang.com/admin/product_categories?name=quia&thumbnail=et&banner=consequuntur&title=voluptates&title_en=dolorem&sub_title=et&describe=dolorem&describe_en=placeat&describe_img=autem&parent_id=ut" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1463,16 +1644,16 @@ const url = new URL(
 );
 
 let params = {
-    "name": "et",
-    "thumbnail": "voluptatem",
-    "banner": "repellendus",
-    "title": "ipsum",
-    "title_en": "et",
-    "sub_title": "suscipit",
-    "describe": "incidunt",
-    "describe_en": "similique",
-    "describe_img": "quia",
-    "parent_id": "consectetur",
+    "name": "quia",
+    "thumbnail": "et",
+    "banner": "consequuntur",
+    "title": "voluptates",
+    "title_en": "dolorem",
+    "sub_title": "et",
+    "describe": "dolorem",
+    "describe_en": "placeat",
+    "describe_img": "autem",
+    "parent_id": "ut",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1516,11 +1697,12 @@ Parameter | Status | Description
 ## Edit product category
 编辑产品分类
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/product_categories/1?name=qui&thumbnail=quia&banner=voluptate&title=natus&title_en=corrupti&sub_title=quisquam&describe=facere&describe_en=non&describe_img=in&parent_id=quae" \
+    "http://store.wutang.com/admin/product_categories/1?name=itaque&thumbnail=suscipit&banner=eligendi&title=quia&title_en=recusandae&sub_title=quia&describe=labore&describe_en=odit&describe_img=minima&parent_id=iusto" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1531,16 +1713,16 @@ const url = new URL(
 );
 
 let params = {
-    "name": "qui",
-    "thumbnail": "quia",
-    "banner": "voluptate",
-    "title": "natus",
-    "title_en": "corrupti",
-    "sub_title": "quisquam",
-    "describe": "facere",
-    "describe_en": "non",
-    "describe_img": "in",
-    "parent_id": "quae",
+    "name": "itaque",
+    "thumbnail": "suscipit",
+    "banner": "eligendi",
+    "title": "quia",
+    "title_en": "recusandae",
+    "sub_title": "quia",
+    "describe": "labore",
+    "describe_en": "odit",
+    "describe_img": "minima",
+    "parent_id": "iusto",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1584,6 +1766,7 @@ Parameter | Status | Description
 ## Delete product category
 删除产品分类
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
@@ -1626,6 +1809,7 @@ fetch(url, {
 ## Get product sku list
 获取商品SKU列表
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
@@ -1672,11 +1856,12 @@ fetch(url, {
 ## Create product sku
 新增产品SKU
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/product_sku?title=iste&description=ea&price=est&stock=aliquid&product_id=aut" \
+    "http://store.wutang.com/admin/product_sku?title=fugiat&description=voluptatem&price=nobis&stock=explicabo&product_id=ea" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1687,11 +1872,11 @@ const url = new URL(
 );
 
 let params = {
-    "title": "iste",
-    "description": "ea",
-    "price": "est",
-    "stock": "aliquid",
-    "product_id": "aut",
+    "title": "fugiat",
+    "description": "voluptatem",
+    "price": "nobis",
+    "stock": "explicabo",
+    "product_id": "ea",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1730,11 +1915,12 @@ Parameter | Status | Description
 ## Edit product sku
 编辑产品SKU
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/product_sku/1?title=et&description=at&price=quia&stock=corrupti&product_id=nesciunt" \
+    "http://store.wutang.com/admin/product_sku/1?title=fugiat&description=voluptatum&price=velit&stock=ex&product_id=doloremque" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1745,11 +1931,11 @@ const url = new URL(
 );
 
 let params = {
-    "title": "et",
-    "description": "at",
-    "price": "quia",
-    "stock": "corrupti",
-    "product_id": "nesciunt",
+    "title": "fugiat",
+    "description": "voluptatum",
+    "price": "velit",
+    "stock": "ex",
+    "product_id": "doloremque",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1788,6 +1974,7 @@ Parameter | Status | Description
 ## Delete product sku
 删除商品sku
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
@@ -1830,11 +2017,12 @@ fetch(url, {
 ## Query user list(Admin)
 查询用户数据列表
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/user?username=eveniet&page=ducimus&page_limit=dolorem" \
+    -G "http://store.wutang.com/admin/user?username=eius&page=possimus&page_limit=deserunt" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1845,9 +2033,9 @@ const url = new URL(
 );
 
 let params = {
-    "username": "eveniet",
-    "page": "ducimus",
-    "page_limit": "dolorem",
+    "username": "eius",
+    "page": "possimus",
+    "page_limit": "deserunt",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1891,11 +2079,12 @@ Parameter | Status | Description
 ## Edit user(Admin)
 修改用户资料
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/admin/user/1?name=voluptatum&email=velit&phone=omnis&avatar=rerum" \
+    "http://store.wutang.com/admin/user/1?name=facere&email=aut&phone=omnis&avatar=eligendi" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1906,10 +2095,10 @@ const url = new URL(
 );
 
 let params = {
-    "name": "voluptatum",
-    "email": "velit",
+    "name": "facere",
+    "email": "aut",
     "phone": "omnis",
-    "avatar": "rerum",
+    "avatar": "eligendi",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1947,6 +2136,7 @@ Parameter | Status | Description
 ## Delete User(Admin)
 删除用户
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
@@ -1986,11 +2176,12 @@ fetch(url, {
 ## Change password
 修改密码
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/admin/user/reset_password/1?oldPassword=adipisci&newPassword=consequatur&newPassword_confirmation=aut" \
+    "http://store.wutang.com/admin/user/reset_password/1?oldPassword=voluptate&newPassword=qui&newPassword_confirmation=similique" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2001,9 +2192,9 @@ const url = new URL(
 );
 
 let params = {
-    "oldPassword": "adipisci",
-    "newPassword": "consequatur",
-    "newPassword_confirmation": "aut",
+    "oldPassword": "voluptate",
+    "newPassword": "qui",
+    "newPassword_confirmation": "similique",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2040,11 +2231,12 @@ Parameter | Status | Description
 ## Get user info
 获取单个用户信息
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/get_user?hash_id=labore" \
+    -G "http://store.wutang.com/admin/get_user?hash_id=ea" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2055,7 +2247,7 @@ const url = new URL(
 );
 
 let params = {
-    "hash_id": "labore",
+    "hash_id": "ea",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2100,6 +2292,7 @@ Parameter | Status | Description
 ## Query user address list
 用户地址列表
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
@@ -2146,11 +2339,12 @@ fetch(url, {
 ## Create user address
 新增用户地址
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/user_addresses?province=a&city=ad&district=eius&address=iusto&zip=maiores&contact_name=ullam&contact_phone=cum" \
+    "http://store.wutang.com/admin/user_addresses?province=ratione&city=architecto&district=commodi&address=voluptates&zip=sapiente&contact_name=aut&contact_phone=qui" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2161,13 +2355,13 @@ const url = new URL(
 );
 
 let params = {
-    "province": "a",
-    "city": "ad",
-    "district": "eius",
-    "address": "iusto",
-    "zip": "maiores",
-    "contact_name": "ullam",
-    "contact_phone": "cum",
+    "province": "ratione",
+    "city": "architecto",
+    "district": "commodi",
+    "address": "voluptates",
+    "zip": "sapiente",
+    "contact_name": "aut",
+    "contact_phone": "qui",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2208,11 +2402,12 @@ Parameter | Status | Description
 ## Update user address
 编辑用户地址
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/admin/user_addresses/1?address_id=quod&province=mollitia&city=possimus&district=officia&address=tempora&zip=nisi&contact_name=ut&contact_phone=voluptatum" \
+    "http://store.wutang.com/admin/user_addresses/1?address_id=dolores&province=ut&city=accusamus&district=deserunt&address=magnam&zip=sunt&contact_name=maxime&contact_phone=odio" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2223,14 +2418,14 @@ const url = new URL(
 );
 
 let params = {
-    "address_id": "quod",
-    "province": "mollitia",
-    "city": "possimus",
-    "district": "officia",
-    "address": "tempora",
-    "zip": "nisi",
-    "contact_name": "ut",
-    "contact_phone": "voluptatum",
+    "address_id": "dolores",
+    "province": "ut",
+    "city": "accusamus",
+    "district": "deserunt",
+    "address": "magnam",
+    "zip": "sunt",
+    "contact_name": "maxime",
+    "contact_phone": "odio",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2272,11 +2467,12 @@ Parameter | Status | Description
 ## Destroy user address
 删除用户地址
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X DELETE \
-    "http://store.wutang.com/admin/user_addresses/1?address_id=recusandae" \
+    "http://store.wutang.com/admin/user_addresses/1?address_id=dolorem" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2287,7 +2483,7 @@ const url = new URL(
 );
 
 let params = {
-    "address_id": "recusandae",
+    "address_id": "dolorem",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2325,6 +2521,7 @@ Parameter | Status | Description
 ## User profile list
 用户资料信息
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
@@ -2371,11 +2568,12 @@ fetch(url, {
 ## Update user profile
 编辑用户资料
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/admin/user_profiles/1?profile_id=minima" \
+    "http://store.wutang.com/admin/user_profiles/1?profile_id=officiis" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2386,7 +2584,7 @@ const url = new URL(
 );
 
 let params = {
-    "profile_id": "minima",
+    "profile_id": "officiis",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2421,11 +2619,12 @@ Parameter | Status | Description
 ## Destroy user profile
 删除用户资料
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X DELETE \
-    "http://store.wutang.com/admin/user_profiles/1?profile_id=eum" \
+    "http://store.wutang.com/admin/user_profiles/1?profile_id=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2436,7 +2635,7 @@ const url = new URL(
 );
 
 let params = {
-    "profile_id": "eum",
+    "profile_id": "et",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2483,7 +2682,7 @@ curl -X POST \
     "http://store.wutang.com/api/auth/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"tempore","username":"omnis","password":"cupiditate","password_confirmation":"velit","code":"est","captcha_key":"illo","captcha_code":"fugit","password_question_id":3,"password_answer":"laudantium"}'
+    -d '{"name":"ut","username":"aspernatur","password":"laboriosam","password_confirmation":"et","code":"iste","captcha_key":"non","captcha_code":"voluptatem","password_question_id":15,"password_answer":"consequatur"}'
 
 ```
 
@@ -2498,15 +2697,15 @@ let headers = {
 };
 
 let body = {
-    "name": "tempore",
-    "username": "omnis",
-    "password": "cupiditate",
-    "password_confirmation": "velit",
-    "code": "est",
-    "captcha_key": "illo",
-    "captcha_code": "fugit",
-    "password_question_id": 3,
-    "password_answer": "laudantium"
+    "name": "ut",
+    "username": "aspernatur",
+    "password": "laboriosam",
+    "password_confirmation": "et",
+    "code": "iste",
+    "captcha_key": "non",
+    "captcha_code": "voluptatem",
+    "password_question_id": 15,
+    "password_answer": "consequatur"
 }
 
 fetch(url, {
@@ -2627,7 +2826,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/user_question?username=nihil" \
+    -G "http://store.wutang.com/api/user_question?username=iste" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2638,7 +2837,7 @@ const url = new URL(
 );
 
 let params = {
-    "username": "nihil",
+    "username": "iste",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2662,7 +2861,7 @@ fetch(url, {
 ```json
 {
     "data": {
-        "username": "nihil"
+        "username": "iste"
     },
     "code": 10001,
     "msg": "用户不存在"
@@ -2692,7 +2891,7 @@ curl -X POST \
     "http://store.wutang.com/api/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"username":"adipisci","password":"quisquam"}'
+    -d '{"username":"et","password":"quia"}'
 
 ```
 
@@ -2707,8 +2906,8 @@ let headers = {
 };
 
 let body = {
-    "username": "adipisci",
-    "password": "quisquam"
+    "username": "et",
+    "password": "quia"
 }
 
 fetch(url, {
@@ -2741,7 +2940,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/api/password_reset?username=vero&password_question_id=quos&password_answer=consequuntur&password=accusantium&password_confirmation=nesciunt" \
+    "http://store.wutang.com/api/password_reset?username=aut&password_question_id=esse&password_answer=dolor&password=quaerat&password_confirmation=repellat" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2752,11 +2951,11 @@ const url = new URL(
 );
 
 let params = {
-    "username": "vero",
-    "password_question_id": "quos",
-    "password_answer": "consequuntur",
-    "password": "accusantium",
-    "password_confirmation": "nesciunt",
+    "username": "aut",
+    "password_question_id": "esse",
+    "password_answer": "dolor",
+    "password": "quaerat",
+    "password_confirmation": "repellat",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2929,7 +3128,7 @@ curl -X POST \
     "http://store.wutang.com/api/auth/password_change" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"oldPassword":"asperiores","newPassword":"aliquid","newPassword_confirmation":"cumque"}'
+    -d '{"oldPassword":"architecto","newPassword":"animi","newPassword_confirmation":"aut"}'
 
 ```
 
@@ -2944,9 +3143,9 @@ let headers = {
 };
 
 let body = {
-    "oldPassword": "asperiores",
-    "newPassword": "aliquid",
-    "newPassword_confirmation": "cumque"
+    "oldPassword": "architecto",
+    "newPassword": "animi",
+    "newPassword_confirmation": "aut"
 }
 
 fetch(url, {
@@ -3073,7 +3272,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/order_details/1?no=iusto" \
+    -G "http://store.wutang.com/api/order_details/1?no=ducimus" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -3084,7 +3283,7 @@ const url = new URL(
 );
 
 let params = {
-    "no": "iusto",
+    "no": "ducimus",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -3134,7 +3333,7 @@ curl -X POST \
     "http://store.wutang.com/api/orders" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"address_id":"velit","remark":"amet"}'
+    -d '{"address_id":"aut","remark":"culpa"}'
 
 ```
 
@@ -3149,8 +3348,8 @@ let headers = {
 };
 
 let body = {
-    "address_id": "velit",
-    "remark": "amet"
+    "address_id": "aut",
+    "remark": "culpa"
 }
 
 fetch(url, {
@@ -3187,7 +3386,7 @@ curl -X POST \
     "http://store.wutang.com/api/orders/retry" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"no":7}'
+    -d '{"no":4}'
 
 ```
 
@@ -3202,7 +3401,7 @@ let headers = {
 };
 
 let body = {
-    "no": 7
+    "no": 4
 }
 
 fetch(url, {
@@ -3237,7 +3436,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/product/1?slug=autem" \
+    -G "http://store.wutang.com/api/product/1?slug=voluptatem" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -3248,7 +3447,7 @@ const url = new URL(
 );
 
 let params = {
-    "slug": "autem",
+    "slug": "voluptatem",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4398,7 +4597,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/product_status/1?status=porro&page=sed&page_limit=temporibus" \
+    -G "http://store.wutang.com/api/product_status/1?status=labore&page=ab&page_limit=esse" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -4409,9 +4608,9 @@ const url = new URL(
 );
 
 let params = {
-    "status": "porro",
-    "page": "sed",
-    "page_limit": "temporibus",
+    "status": "labore",
+    "page": "ab",
+    "page_limit": "esse",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4437,214 +4636,6 @@ fetch(url, {
     "data": {
         "current_page": 1,
         "data": [
-            {
-                "id": 18,
-                "product_category_id": 3,
-                "product_name": "黑钻焕肤水",
-                "product_name_en": "earum alias porro",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?21540",
-                "slug": "corporis-quibusdam",
-                "short_description": "Ut est mollitia omnis nam veniam blanditiis.",
-                "short_description_en": "Qui quod minima cupiditate sunt. Reiciendis perspiciatis eum ut neque expedita. Quo illum voluptas facere explicabo ipsum.",
-                "price": "3031.00",
-                "sale_price": "1.00",
-                "stock": 582,
-                "spec": null,
-                "seo_title": "alias excepturi commodi",
-                "seo_keyword": "nesciunt",
-                "seo_description": "Eligendi enim aspernatur qui sequi dignissimos.",
-                "benefit": "Earum est quis hic dolor. Occaecati veniam quisquam nam et odit. Aut voluptatem non culpa nisi necessitatibus odio ipsa voluptates. Ut iste facere et necessitatibus distinctio sunt.",
-                "benefit_en": "Rerum doloremque ducimus recusandae enim. Molestiae soluta pariatur ut aut est. Et sunt enim harum sit velit. Facere est velit consequatur.",
-                "tech_description": "Omnis quia vitae ab alias tenetur facere deserunt. Amet tempora molestiae incidunt debitis nihil alias. Commodi quos dolor officiis dolorum incidunt nisi quo. Est enim quibusdam veniam illo ipsa at ut.",
-                "tech_description_en": "Eum quia molestiae quidem ut nihil. Nesciunt illo eaque aut.",
-                "description": "Non temporibus exercitationem esse omnis hic quis quod. Commodi optio nam rerum excepturi a aut quidem. Unde consequatur nihil enim qui excepturi a.",
-                "description_en": "Voluptatem optio molestiae et dignissimos laboriosam veritatis. Sit deserunt qui sequi beatae soluta maxime. Reprehenderit mollitia recusandae accusamus quae dolor voluptatum pariatur.",
-                "usage": "Sit beatae qui nesciunt rem. Cumque odit qui consequuntur dicta id. Expedita ut debitis recusandae pariatur ad.",
-                "usage_en": "Nihil quos nemo aut aperiam repudiandae sapiente. Quis et voluptatum aperiam suscipit. Velit id quod velit voluptatem placeat officia dicta et. Eum sint voluptas tenetur quaerat molestias in consequatur ea.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?29456",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?59241",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?19323",
-                "product_video": null,
-                "status": 1,
-                "rating": 0.69,
-                "sold_count": 5569,
-                "review_count": 7937,
-                "created_at": "2020-08-21 07:36:46",
-                "updated_at": "2020-09-03 01:03:59",
-                "product_category": {
-                    "id": 3,
-                    "name": "精油",
-                    "slug": "numquam-enim",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?15534",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?89172",
-                    "title": "natus perferendis consectetur",
-                    "title_en": "sit iure temporibus",
-                    "sub_title": "officiis omnis voluptas",
-                    "describe": "Et reiciendis cupiditate qui. Harum quisquam voluptatem alias rerum quaerat est aut. Tenetur vitae modi sequi incidunt autem vel. Aut sit amet quo distinctio qui qui neque.",
-                    "describe_en": "Et blanditiis dolorum quia commodi. Beatae vel rerum quae sed aliquam reiciendis voluptatem.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?96750",
-                    "parent_id": 7,
-                    "level": 1,
-                    "created_at": "2020-08-29 00:28:43",
-                    "updated_at": "2020-08-26 11:27:04"
-                }
-            },
-            {
-                "id": 7,
-                "product_category_id": 14,
-                "product_name": "钻石冰莹面膜",
-                "product_name_en": "qui eum officiis",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?28506",
-                "slug": "at-iste",
-                "short_description": "Eos laudantium odio itaque consequuntur nulla.",
-                "short_description_en": "Vel nesciunt molestiae numquam necessitatibus magnam inventore. Distinctio aliquam voluptas sit iusto quae. Suscipit necessitatibus deleniti sunt maxime aspernatur repudiandae accusamus. Nihil soluta enim illum.",
-                "price": "135.00",
-                "sale_price": "1.00",
-                "stock": 524,
-                "spec": null,
-                "seo_title": "aperiam voluptas tempora",
-                "seo_keyword": "expedita",
-                "seo_description": "Dolore ex quibusdam sit perspiciatis nesciunt voluptatem.",
-                "benefit": "Nostrum beatae aut recusandae aut sed ea in ducimus. Voluptas ad officia repellat doloremque temporibus. Praesentium minus iste asperiores sunt adipisci animi sint. Cupiditate blanditiis aut corporis est omnis consequatur.",
-                "benefit_en": "Non deserunt non perspiciatis tenetur nam et est aspernatur. Et odit labore et sed dolorum adipisci numquam. Voluptates facere iure aut ea. Facilis quisquam autem temporibus voluptates odio non.",
-                "tech_description": "Ex itaque debitis consequuntur facilis sunt exercitationem incidunt. Recusandae necessitatibus error est. Perferendis nostrum sapiente id saepe dolorem consequuntur.",
-                "tech_description_en": "Suscipit fuga molestias aut qui saepe vel. Sequi est aut in tempore rerum alias. Rerum veniam totam minima et asperiores quo possimus.",
-                "description": "Molestiae sit saepe in ipsam. Quidem facilis numquam eum ipsam qui vero rem. Adipisci voluptatem atque tempore sed consequatur porro.",
-                "description_en": "Perspiciatis doloremque vel et corporis. Rerum recusandae eligendi et vel dolores sed. Tempore minus vitae eaque cumque repellendus laborum aspernatur. Voluptatem aut sapiente odit earum harum qui qui.",
-                "usage": "Ducimus expedita molestiae dolor placeat dolorem et. Eaque assumenda eveniet aperiam enim iste odio et adipisci. Omnis amet maxime in voluptatem. Qui voluptas quo distinctio ad non est iusto quam.",
-                "usage_en": "Aut dolor qui vel odit corporis quisquam exercitationem. Fugit aut libero quis culpa fuga voluptatum. Aut ab optio voluptatem libero. Labore vel error distinctio voluptatem itaque est vel ut.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?25440",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?23912",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?44403",
-                "product_video": null,
-                "status": 1,
-                "rating": 2.85,
-                "sold_count": 6034,
-                "review_count": 5956,
-                "created_at": "2020-08-19 23:37:56",
-                "updated_at": "2020-09-06 09:33:20",
-                "product_category": {
-                    "id": 14,
-                    "name": "隔离",
-                    "slug": "eligendi-in",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?66282",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?17516",
-                    "title": "cum in pariatur",
-                    "title_en": "aut ut aperiam",
-                    "sub_title": "sint minus voluptates",
-                    "describe": "Dolores asperiores qui voluptatem velit. Ullam omnis sapiente molestias laboriosam sed. Est eius qui laboriosam odit maxime adipisci. Accusamus et et explicabo officia incidunt.",
-                    "describe_en": "Animi aut eveniet quis qui. Consequatur nam est voluptas ut id amet ipsa sed. Nihil architecto vel animi et voluptas non.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?64481",
-                    "parent_id": 14,
-                    "level": 1,
-                    "created_at": "2020-09-06 22:01:35",
-                    "updated_at": "2020-08-29 14:51:47"
-                }
-            },
-            {
-                "id": 6,
-                "product_category_id": 8,
-                "product_name": "黑钻洁净滋养面膜",
-                "product_name_en": "voluptatibus molestias nihil",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?42706",
-                "slug": "corporis-sunt",
-                "short_description": "Blanditiis aut qui ex explicabo.",
-                "short_description_en": "Dolores sit ex enim. Blanditiis quia velit eum laborum repellendus alias placeat. Quas enim quo ipsum quia et laboriosam.",
-                "price": "1486.00",
-                "sale_price": "1.00",
-                "stock": 562,
-                "spec": null,
-                "seo_title": "autem amet accusamus",
-                "seo_keyword": "iste",
-                "seo_description": "Quaerat fuga autem ad.",
-                "benefit": "Eos velit ad blanditiis natus asperiores. Est rerum qui consectetur nulla nihil. Enim voluptatem minus soluta sed et. Iusto possimus corrupti dolores error ea ipsam.",
-                "benefit_en": "Rerum hic qui ut distinctio eius autem illum. Dolorem tempora quidem fugiat expedita natus cum aut consequuntur. Et maiores quisquam ab magnam dignissimos.",
-                "tech_description": "Et placeat sint et non laudantium unde. Ea omnis illum delectus asperiores voluptas debitis. Consectetur qui velit ipsum sunt dicta esse. Nostrum similique qui distinctio maxime.",
-                "tech_description_en": "Voluptatum tempore autem provident amet. Veniam consequatur porro id commodi modi qui. Impedit consequatur sunt ipsum odit.",
-                "description": "Illum debitis laborum dicta ab ab rem. Autem magnam neque dolorem incidunt. Ipsum laudantium pariatur quia. Molestiae sit commodi sequi sint.",
-                "description_en": "Modi laboriosam et quia nemo qui et. Ab adipisci consequuntur officiis ea et libero. Odio et omnis quia voluptatum magni qui.",
-                "usage": "Possimus ducimus laborum officiis dolor quia incidunt deleniti dolorum. Rerum distinctio quo quos aspernatur consequatur. Voluptatibus aut eos id fugit. Aperiam ea animi corrupti deserunt et.",
-                "usage_en": "Omnis qui quas incidunt quas est officia ipsum dicta. Alias architecto dolorum ea sit. Quos id consequatur maiores qui soluta accusantium.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?90015",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?82692",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?57078",
-                "product_video": null,
-                "status": 1,
-                "rating": 8.17,
-                "sold_count": 3797,
-                "review_count": 4798,
-                "created_at": "2020-08-18 11:53:29",
-                "updated_at": "2020-09-10 08:08:32",
-                "product_category": {
-                    "id": 8,
-                    "name": "腮红",
-                    "slug": "iure-necessitatibus",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?64747",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?20822",
-                    "title": "ex amet quibusdam",
-                    "title_en": "natus dolores tempora",
-                    "sub_title": "et perspiciatis velit",
-                    "describe": "Qui exercitationem veniam est dolores placeat ipsam. Provident dolorum expedita voluptatem doloribus. Nisi qui sed labore dicta veritatis in. Esse est officiis nostrum suscipit reiciendis.",
-                    "describe_en": "Delectus aut expedita in ipsum consequatur aut. Dolore sed aspernatur hic enim id est. Laudantium impedit molestiae aliquam error modi laboriosam.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?67825",
-                    "parent_id": 29,
-                    "level": 1,
-                    "created_at": "2020-08-30 08:12:31",
-                    "updated_at": "2020-09-09 14:28:00"
-                }
-            },
-            {
-                "id": 3,
-                "product_category_id": 19,
-                "product_name": "钻石冰莹面膜",
-                "product_name_en": "omnis odit accusantium",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?63171",
-                "slug": "sit-nesciunt",
-                "short_description": "Maxime quidem beatae et sit et dignissimos.",
-                "short_description_en": "Et officia vero molestias repellendus dolores sunt. Ut ducimus totam accusantium porro perspiciatis. Ullam reprehenderit sequi nesciunt facilis dolor vero. Molestias nulla esse et fuga ut sunt aut. Eius optio ut saepe eum rerum.",
-                "price": "8317.00",
-                "sale_price": "1.00",
-                "stock": 488,
-                "spec": null,
-                "seo_title": "est at nihil",
-                "seo_keyword": "earum",
-                "seo_description": "Quis occaecati velit porro sint est perferendis.",
-                "benefit": "Quasi assumenda veniam qui ad porro aperiam est nihil. Tenetur beatae explicabo et perspiciatis rerum provident aliquid. Et expedita nihil velit. Est voluptatem quia sit rem molestias quae saepe.",
-                "benefit_en": "Vel incidunt dolorum excepturi ea maiores. Ipsum consequuntur dolor est temporibus ut quod. Dolore quia occaecati eveniet dolorem omnis eaque.",
-                "tech_description": "Et voluptate beatae voluptas. Aliquid et beatae iusto qui voluptas. Nulla perspiciatis ab expedita quae et corporis. Et illo recusandae distinctio sunt. Deserunt voluptas consequatur earum quasi aut vel sapiente fugiat.",
-                "tech_description_en": "Tenetur vel cum in occaecati quod beatae vero. Qui officiis ut consequatur in. Ducimus et nemo qui. Expedita illum illo omnis assumenda.",
-                "description": "Itaque consequatur recusandae unde repellat nisi sunt. Similique accusantium nostrum ducimus et. Et possimus maiores enim quaerat impedit. Dolores corporis tempore culpa cumque.",
-                "description_en": "Autem aut sunt aperiam voluptatem et nobis et. Dolores voluptatem qui quia accusamus voluptas porro. Fuga provident iste error dicta praesentium.",
-                "usage": "Ut nam veniam repellat sequi. Ut veritatis error laboriosam culpa. Atque non quam et. Velit neque temporibus dolorem inventore.",
-                "usage_en": "Neque molestiae sed iure ut excepturi nihil. Voluptates saepe aut porro reprehenderit aut aut omnis. Soluta deserunt doloribus iure. Ducimus ullam delectus a et dolor aut optio.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?64160",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?85672",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?31387",
-                "product_video": null,
-                "status": 1,
-                "rating": 8.31,
-                "sold_count": 9215,
-                "review_count": 9712,
-                "created_at": "2020-09-02 17:10:04",
-                "updated_at": "2020-09-10 04:43:31",
-                "product_category": {
-                    "id": 19,
-                    "name": "套装C",
-                    "slug": "eos-ea",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?76863",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?67793",
-                    "title": "ut et quae",
-                    "title_en": "aliquid tempore unde",
-                    "sub_title": "excepturi illum velit",
-                    "describe": "Dolorem dolorem harum ex laborum officiis. Dolorem esse voluptatibus dolor facere. In veritatis sequi facere ipsam aut.",
-                    "describe_en": "Qui cumque ullam nobis quis omnis et. Est optio possimus et a velit aut voluptas.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?87078",
-                    "parent_id": 8,
-                    "level": 1,
-                    "created_at": "2020-08-19 10:30:55",
-                    "updated_at": "2020-09-04 12:52:10"
-                }
-            },
             {
                 "id": 8,
                 "product_category_id": 9,
@@ -4695,110 +4686,6 @@ fetch(url, {
                     "level": 1,
                     "created_at": "2020-08-24 09:18:58",
                     "updated_at": "2020-08-23 22:15:14"
-                }
-            },
-            {
-                "id": 41,
-                "product_category_id": 7,
-                "product_name": "黑钻赋颜面霜",
-                "product_name_en": "itaque placeat rerum",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?54306",
-                "slug": "est-consequatur",
-                "short_description": "Fugit doloremque aut quisquam quas velit.",
-                "short_description_en": "Quisquam eius fuga et vel autem. Iste explicabo eum officia repellendus ullam. Esse ea mollitia ut sequi nesciunt eligendi cupiditate.",
-                "price": "2470.00",
-                "sale_price": "1.00",
-                "stock": 295,
-                "spec": null,
-                "seo_title": "est et sed",
-                "seo_keyword": "numquam",
-                "seo_description": "Incidunt magni omnis fugiat non.",
-                "benefit": "Quia in ut cumque consequatur porro. Architecto dolor asperiores quis in. Est pariatur qui reiciendis voluptatem tenetur tempore. Aliquam qui ad deserunt praesentium.",
-                "benefit_en": "Asperiores reprehenderit totam vero laudantium omnis. Aut et ad et ab ea fugit dolorem. Cum voluptatibus ullam est. Esse aut molestias sint praesentium deserunt totam iusto aspernatur.",
-                "tech_description": "Minus velit quae accusamus nam officia quibusdam rerum. Labore porro et voluptatem. Animi est odit nostrum est nihil voluptate reprehenderit vitae.",
-                "tech_description_en": "Aut nobis porro ratione aut cum. Numquam aut in sunt ea quia pariatur. Eveniet vel et corporis cupiditate veritatis ut qui optio. Libero sapiente est exercitationem id.",
-                "description": "Saepe qui dolore possimus facilis reiciendis eveniet dolor et. Quaerat rerum quisquam corporis hic ducimus. Voluptatem aut dolores ut iusto voluptatibus sequi commodi.",
-                "description_en": "Eum explicabo possimus et expedita saepe. Est ex id velit laudantium blanditiis. Harum dolorem blanditiis earum dolor ea et quo neque.",
-                "usage": "Quia ipsa voluptatibus officiis eum eligendi. Nihil perferendis odio natus dolor deserunt quia quod.",
-                "usage_en": "Explicabo expedita voluptas qui natus perferendis aspernatur. Eaque inventore doloremque omnis unde inventore.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?11681",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?94583",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?21808",
-                "product_video": null,
-                "status": 1,
-                "rating": 4.26,
-                "sold_count": 3775,
-                "review_count": 1035,
-                "created_at": "2020-09-10 23:36:15",
-                "updated_at": "2020-09-03 14:23:17",
-                "product_category": {
-                    "id": 7,
-                    "name": "面霜",
-                    "slug": "quia-quisquam",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?71890",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?24943",
-                    "title": "est vero ea",
-                    "title_en": "molestias modi vero",
-                    "sub_title": "nihil nulla incidunt",
-                    "describe": "Et saepe voluptatem voluptates qui provident sit. Facilis explicabo minus rerum corrupti doloribus. Quae dolorum et quam id. Dicta ut quod voluptatem.",
-                    "describe_en": "Sint tempore impedit omnis quia placeat sed omnis. Facere est reprehenderit praesentium rerum. Ut rerum ut velit.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?34303",
-                    "parent_id": 14,
-                    "level": 1,
-                    "created_at": "2020-08-25 08:07:51",
-                    "updated_at": "2020-08-30 04:18:00"
-                }
-            },
-            {
-                "id": 10,
-                "product_category_id": 3,
-                "product_name": "黑钻洁净滋养面膜",
-                "product_name_en": "praesentium tenetur sed",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?50018",
-                "slug": "doloribus-quia",
-                "short_description": "Amet quaerat repudiandae qui accusantium quisquam omnis.",
-                "short_description_en": "Ut ullam quis placeat asperiores commodi. Cum aut eos nihil quia minus voluptatum excepturi. Voluptate sapiente in eaque impedit porro quaerat. Eum deleniti accusantium rem.",
-                "price": "2815.00",
-                "sale_price": "1.00",
-                "stock": 401,
-                "spec": null,
-                "seo_title": "sed quia et",
-                "seo_keyword": "omnis",
-                "seo_description": "Officiis et ullam rerum voluptas velit.",
-                "benefit": "Veritatis culpa deleniti similique temporibus necessitatibus. Omnis qui asperiores odio laboriosam.",
-                "benefit_en": "Esse facilis doloribus alias itaque. Perferendis sequi eaque possimus. Dolor saepe delectus dolorum.",
-                "tech_description": "Et amet necessitatibus laudantium sequi fuga dolore porro eius. Vitae enim est et repudiandae. Et iure veritatis officiis deserunt nihil mollitia omnis. Aut numquam placeat minima suscipit omnis repellendus ab soluta.",
-                "tech_description_en": "Enim unde voluptas explicabo. Accusamus aut corporis vero quo ea neque omnis laboriosam. Sint atque cum numquam neque minus.",
-                "description": "Nulla corrupti consequuntur velit libero sed molestias eveniet vel. Repellendus cupiditate fugiat voluptatem qui. Quia molestiae quia officia voluptatem molestias et. Corrupti ab esse sit aut architecto.",
-                "description_en": "Tempore ullam esse non esse quae qui in. Unde dolor rerum nisi est. Autem soluta ut tenetur tenetur occaecati quo inventore.",
-                "usage": "Dolorum ipsam sint harum. Totam in eaque praesentium qui dolor. Reprehenderit et reiciendis illum nobis.",
-                "usage_en": "Beatae quibusdam sed cum sint. Voluptatibus eos aliquam quia quia. Quis occaecati fugiat perspiciatis et magni sit consequatur.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?28591",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?64577",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?43849",
-                "product_video": null,
-                "status": 1,
-                "rating": 2.2,
-                "sold_count": 6458,
-                "review_count": 6941,
-                "created_at": "2020-08-19 08:49:22",
-                "updated_at": "2020-08-30 21:40:34",
-                "product_category": {
-                    "id": 3,
-                    "name": "精油",
-                    "slug": "numquam-enim",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?15534",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?89172",
-                    "title": "natus perferendis consectetur",
-                    "title_en": "sit iure temporibus",
-                    "sub_title": "officiis omnis voluptas",
-                    "describe": "Et reiciendis cupiditate qui. Harum quisquam voluptatem alias rerum quaerat est aut. Tenetur vitae modi sequi incidunt autem vel. Aut sit amet quo distinctio qui qui neque.",
-                    "describe_en": "Et blanditiis dolorum quia commodi. Beatae vel rerum quae sed aliquam reiciendis voluptatem.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?96750",
-                    "parent_id": 7,
-                    "level": 1,
-                    "created_at": "2020-08-29 00:28:43",
-                    "updated_at": "2020-08-26 11:27:04"
                 }
             },
             {
@@ -4854,91 +4741,91 @@ fetch(url, {
                 }
             },
             {
-                "id": 5,
-                "product_category_id": 12,
-                "product_name": "黑钻璀璨晶透肌底精华",
-                "product_name_en": "ipsam reprehenderit placeat",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?47895",
-                "slug": "enim-autem",
-                "short_description": "Veritatis explicabo hic quam.",
-                "short_description_en": "Qui eos itaque nostrum quo quaerat. Consequatur cumque omnis et quis magnam ut et.",
-                "price": "640.00",
+                "id": 3,
+                "product_category_id": 19,
+                "product_name": "钻石冰莹面膜",
+                "product_name_en": "omnis odit accusantium",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?63171",
+                "slug": "sit-nesciunt",
+                "short_description": "Maxime quidem beatae et sit et dignissimos.",
+                "short_description_en": "Et officia vero molestias repellendus dolores sunt. Ut ducimus totam accusantium porro perspiciatis. Ullam reprehenderit sequi nesciunt facilis dolor vero. Molestias nulla esse et fuga ut sunt aut. Eius optio ut saepe eum rerum.",
+                "price": "8317.00",
                 "sale_price": "1.00",
-                "stock": 745,
+                "stock": 488,
                 "spec": null,
-                "seo_title": "corrupti et repellendus",
-                "seo_keyword": "soluta",
-                "seo_description": "Molestiae aut in ea.",
-                "benefit": "Expedita ut enim cupiditate accusantium exercitationem temporibus. Ducimus optio rerum nulla dolorem voluptatum ut. Impedit expedita voluptatum repudiandae sint qui nihil sapiente repudiandae. Aspernatur ut consequuntur non dignissimos labore recusandae.",
-                "benefit_en": "Et voluptas praesentium et fugiat sapiente. Est ad nam accusamus eveniet quidem itaque ea quia. Voluptas molestiae cupiditate reprehenderit voluptatem id doloremque voluptate. Ea atque nisi repudiandae fuga.",
-                "tech_description": "Et sapiente qui mollitia non eius voluptatem porro. Ipsa fugiat qui accusamus rerum velit sapiente commodi. Libero dolore unde ullam nihil odio.",
-                "tech_description_en": "Cum omnis laudantium voluptatem rerum. Est officia adipisci ab. Sapiente velit consequatur labore voluptas suscipit dolorem. Non esse non sequi est necessitatibus culpa. Soluta fuga unde tenetur architecto libero sint.",
-                "description": "Sit quia sint eius mollitia magnam. Incidunt esse et dolores a atque earum. Ducimus nostrum perspiciatis commodi aut. Consectetur amet labore in eum voluptatem.",
-                "description_en": "Et minus et facere at. Dolorem reprehenderit velit in dolorum est omnis.",
-                "usage": "Magni eius non ipsa ut sed eius. Magni ullam quae tenetur qui dicta sed. Sed cupiditate delectus debitis quae tempora. Alias facilis voluptatem excepturi cum. Impedit voluptatem facilis exercitationem dolor.",
-                "usage_en": "Magni voluptatem dolorem consequuntur. Ut minima velit accusamus ea dolorem. Explicabo quisquam inventore possimus inventore. Provident porro sint quo atque tempora quaerat ut aspernatur. Est recusandae consequatur ab odit qui iste.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?23990",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?57132",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?93873",
+                "seo_title": "est at nihil",
+                "seo_keyword": "earum",
+                "seo_description": "Quis occaecati velit porro sint est perferendis.",
+                "benefit": "Quasi assumenda veniam qui ad porro aperiam est nihil. Tenetur beatae explicabo et perspiciatis rerum provident aliquid. Et expedita nihil velit. Est voluptatem quia sit rem molestias quae saepe.",
+                "benefit_en": "Vel incidunt dolorum excepturi ea maiores. Ipsum consequuntur dolor est temporibus ut quod. Dolore quia occaecati eveniet dolorem omnis eaque.",
+                "tech_description": "Et voluptate beatae voluptas. Aliquid et beatae iusto qui voluptas. Nulla perspiciatis ab expedita quae et corporis. Et illo recusandae distinctio sunt. Deserunt voluptas consequatur earum quasi aut vel sapiente fugiat.",
+                "tech_description_en": "Tenetur vel cum in occaecati quod beatae vero. Qui officiis ut consequatur in. Ducimus et nemo qui. Expedita illum illo omnis assumenda.",
+                "description": "Itaque consequatur recusandae unde repellat nisi sunt. Similique accusantium nostrum ducimus et. Et possimus maiores enim quaerat impedit. Dolores corporis tempore culpa cumque.",
+                "description_en": "Autem aut sunt aperiam voluptatem et nobis et. Dolores voluptatem qui quia accusamus voluptas porro. Fuga provident iste error dicta praesentium.",
+                "usage": "Ut nam veniam repellat sequi. Ut veritatis error laboriosam culpa. Atque non quam et. Velit neque temporibus dolorem inventore.",
+                "usage_en": "Neque molestiae sed iure ut excepturi nihil. Voluptates saepe aut porro reprehenderit aut aut omnis. Soluta deserunt doloribus iure. Ducimus ullam delectus a et dolor aut optio.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?64160",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?85672",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?31387",
                 "product_video": null,
                 "status": 1,
-                "rating": 8.04,
-                "sold_count": 1085,
-                "review_count": 2738,
-                "created_at": "2020-08-25 01:24:07",
-                "updated_at": "2020-08-14 12:05:54",
+                "rating": 8.31,
+                "sold_count": 9215,
+                "review_count": 9712,
+                "created_at": "2020-09-02 17:10:04",
+                "updated_at": "2020-09-10 04:43:31",
                 "product_category": {
-                    "id": 12,
-                    "name": "护肤系列",
-                    "slug": "dolore-saepe",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?26728",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?49717",
-                    "title": "repellat culpa et",
-                    "title_en": "qui culpa ut",
-                    "sub_title": "perspiciatis quod provident",
-                    "describe": "Ratione illum laudantium neque porro. Laborum rerum quo at qui error. Expedita ducimus aut possimus voluptate vero itaque alias fugiat.",
-                    "describe_en": "Dolore quaerat earum nobis velit saepe. Blanditiis veritatis corporis assumenda eius explicabo qui nam.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?41632",
-                    "parent_id": 30,
+                    "id": 19,
+                    "name": "套装C",
+                    "slug": "eos-ea",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?76863",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?67793",
+                    "title": "ut et quae",
+                    "title_en": "aliquid tempore unde",
+                    "sub_title": "excepturi illum velit",
+                    "describe": "Dolorem dolorem harum ex laborum officiis. Dolorem esse voluptatibus dolor facere. In veritatis sequi facere ipsam aut.",
+                    "describe_en": "Qui cumque ullam nobis quis omnis et. Est optio possimus et a velit aut voluptas.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?87078",
+                    "parent_id": 8,
                     "level": 1,
-                    "created_at": "2020-09-04 11:07:01",
-                    "updated_at": "2020-08-13 20:29:24"
+                    "created_at": "2020-08-19 10:30:55",
+                    "updated_at": "2020-09-04 12:52:10"
                 }
             },
             {
-                "id": 16,
+                "id": 18,
                 "product_category_id": 3,
-                "product_name": "黑钻璀璨晶透肌底精华",
-                "product_name_en": "et natus rerum",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?24456",
-                "slug": "ut-pariatur",
-                "short_description": "Qui alias nostrum optio rerum aspernatur.",
-                "short_description_en": "Itaque fugiat doloribus quia est. Qui saepe consequuntur animi aliquid id voluptates recusandae facilis. Quia vero consequuntur ullam ab odit.",
-                "price": "8926.00",
+                "product_name": "黑钻焕肤水",
+                "product_name_en": "earum alias porro",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?21540",
+                "slug": "corporis-quibusdam",
+                "short_description": "Ut est mollitia omnis nam veniam blanditiis.",
+                "short_description_en": "Qui quod minima cupiditate sunt. Reiciendis perspiciatis eum ut neque expedita. Quo illum voluptas facere explicabo ipsum.",
+                "price": "3031.00",
                 "sale_price": "1.00",
-                "stock": 860,
+                "stock": 582,
                 "spec": null,
-                "seo_title": "quisquam eos ea",
-                "seo_keyword": "rerum",
-                "seo_description": "Alias quae cumque dolores non sunt.",
-                "benefit": "Aut aliquid dolore minus soluta ipsum. Quas ex molestiae earum earum dolorum atque vero. Vero voluptatem iste labore architecto doloremque excepturi sint. At sint rem voluptates neque minima sint.",
-                "benefit_en": "Nam tenetur nihil itaque fugiat vero atque. Unde facere velit quisquam voluptatem dolorem recusandae officia. Quisquam rerum magnam est.",
-                "tech_description": "Dolorum aut facilis aut eos perspiciatis illum culpa. Et et adipisci quidem nobis est enim. Dicta nihil at quia enim dolorem accusamus alias. Suscipit fugiat aut recusandae tempora animi.",
-                "tech_description_en": "Culpa et non reprehenderit ab nihil sit. Esse nihil repudiandae natus nulla aliquam sapiente laborum reprehenderit.",
-                "description": "A ea distinctio ipsa eum eaque. Vero amet possimus iste qui sit asperiores. Ut nisi velit itaque fuga.",
-                "description_en": "Rerum commodi quo minus pariatur magni velit id dolorem. Eos corrupti non quia dicta atque minus pariatur. Ipsa sunt asperiores ut.",
-                "usage": "Dolor sunt ea vel doloremque. Sit eligendi et voluptatem ut. Ut consequatur at quia similique magni.",
-                "usage_en": "Illo mollitia velit quo magni non et nulla. Non sit et quam quidem quidem. Omnis asperiores aut et molestiae aut.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?78502",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?44134",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?66123",
+                "seo_title": "alias excepturi commodi",
+                "seo_keyword": "nesciunt",
+                "seo_description": "Eligendi enim aspernatur qui sequi dignissimos.",
+                "benefit": "Earum est quis hic dolor. Occaecati veniam quisquam nam et odit. Aut voluptatem non culpa nisi necessitatibus odio ipsa voluptates. Ut iste facere et necessitatibus distinctio sunt.",
+                "benefit_en": "Rerum doloremque ducimus recusandae enim. Molestiae soluta pariatur ut aut est. Et sunt enim harum sit velit. Facere est velit consequatur.",
+                "tech_description": "Omnis quia vitae ab alias tenetur facere deserunt. Amet tempora molestiae incidunt debitis nihil alias. Commodi quos dolor officiis dolorum incidunt nisi quo. Est enim quibusdam veniam illo ipsa at ut.",
+                "tech_description_en": "Eum quia molestiae quidem ut nihil. Nesciunt illo eaque aut.",
+                "description": "Non temporibus exercitationem esse omnis hic quis quod. Commodi optio nam rerum excepturi a aut quidem. Unde consequatur nihil enim qui excepturi a.",
+                "description_en": "Voluptatem optio molestiae et dignissimos laboriosam veritatis. Sit deserunt qui sequi beatae soluta maxime. Reprehenderit mollitia recusandae accusamus quae dolor voluptatum pariatur.",
+                "usage": "Sit beatae qui nesciunt rem. Cumque odit qui consequuntur dicta id. Expedita ut debitis recusandae pariatur ad.",
+                "usage_en": "Nihil quos nemo aut aperiam repudiandae sapiente. Quis et voluptatum aperiam suscipit. Velit id quod velit voluptatem placeat officia dicta et. Eum sint voluptas tenetur quaerat molestias in consequatur ea.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?29456",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?59241",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?19323",
                 "product_video": null,
                 "status": 1,
-                "rating": 5.5,
-                "sold_count": 6492,
-                "review_count": 7210,
-                "created_at": "2020-08-20 13:29:04",
-                "updated_at": "2020-08-15 05:47:35",
+                "rating": 0.69,
+                "sold_count": 5569,
+                "review_count": 7937,
+                "created_at": "2020-08-21 07:36:46",
+                "updated_at": "2020-09-03 01:03:59",
                 "product_category": {
                     "id": 3,
                     "name": "精油",
@@ -4958,55 +4845,55 @@ fetch(url, {
                 }
             },
             {
-                "id": 12,
-                "product_category_id": 8,
-                "product_name": "黑钻赋颜面霜",
-                "product_name_en": "voluptatem itaque quia",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?30633",
-                "slug": "repellendus-nostrum",
-                "short_description": "Neque ipsum et id recusandae omnis cupiditate.",
-                "short_description_en": "Reiciendis voluptas tempore debitis voluptas corrupti. Deserunt illum enim sed quia fugit. Non sint ipsum dolorem culpa dolorum repellendus aperiam.",
-                "price": "5282.00",
+                "id": 4,
+                "product_category_id": 18,
+                "product_name": "黑钻璀璨晶透肌底精华",
+                "product_name_en": "est et quam",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?29567",
+                "slug": "dolorem-dicta",
+                "short_description": "Nemo quo et recusandae id laboriosam.",
+                "short_description_en": "Quo quam et ut est sapiente provident. Autem blanditiis placeat atque. Recusandae qui neque neque sit veniam rem ut. Ullam officiis dicta odio similique laudantium quae.",
+                "price": "3229.00",
                 "sale_price": "1.00",
-                "stock": 42,
+                "stock": 920,
                 "spec": null,
-                "seo_title": "eum quidem odit",
-                "seo_keyword": "ut",
-                "seo_description": "Sit hic aut perferendis.",
-                "benefit": "Rerum autem culpa ipsa autem consequatur. Corporis a at excepturi praesentium eligendi est laudantium. Est reiciendis soluta et totam error quo.",
-                "benefit_en": "Consequatur qui dolore sunt. Voluptatem qui possimus quisquam rerum officia omnis.",
-                "tech_description": "Consequatur consequatur accusamus provident dolores. Veritatis omnis qui recusandae aperiam et et. Sit quibusdam ut necessitatibus rerum.",
-                "tech_description_en": "Voluptas alias aut maiores nihil. Saepe iure velit dolorem quisquam sit sunt. Error dolores minus a. Qui ratione rerum accusantium vero perspiciatis.",
-                "description": "Ullam consequuntur officia sit dolores animi excepturi. Eius qui quis iure quia qui veritatis voluptas. Accusantium alias id consequatur nisi. Illum omnis consequatur quia labore nulla quibusdam. Voluptatem nisi qui consequatur.",
-                "description_en": "Cum nesciunt qui maxime temporibus enim reprehenderit qui. Pariatur dolor sed ipsam. Perspiciatis voluptate corrupti perspiciatis consequuntur. Aut ut aut distinctio blanditiis sint quidem. Omnis eaque quibusdam eos vero aut nisi.",
-                "usage": "Autem iste quia necessitatibus quod. Laboriosam perferendis et deserunt modi voluptates consequuntur est. Illum odio autem deserunt nisi ullam sint non ratione. Magni commodi eaque accusantium iure recusandae.",
-                "usage_en": "In eum qui molestiae delectus ex. Hic esse veritatis eveniet perferendis. Autem impedit dolorem omnis voluptatem id aut.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?72858",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?70432",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?71509",
+                "seo_title": "eos ut ea",
+                "seo_keyword": "minus",
+                "seo_description": "Dolorem sequi facere sit.",
+                "benefit": "Alias esse aut qui et sequi maiores et. Occaecati mollitia molestiae voluptatem repellat labore ipsa. Quis porro vel non ratione et culpa delectus. Ut eaque alias nesciunt repudiandae.",
+                "benefit_en": "Vitae repellat omnis quaerat iure id inventore. Molestias voluptatem doloribus hic qui aut.",
+                "tech_description": "Dicta error sapiente tempore velit vel. Quos quo corporis amet animi. Facere quisquam tempore ratione sunt neque voluptate. Quidem repellat molestias id.",
+                "tech_description_en": "Ut ab sunt aut maxime nisi excepturi. Exercitationem tempore itaque pariatur ex facere consectetur. Corporis voluptatem illum est dolorem alias. Sed ea qui laudantium perspiciatis quo debitis eum saepe. Magni autem eveniet dolores in consequatur.",
+                "description": "Perferendis ducimus ipsam ea. Facere a sunt eum adipisci esse officia assumenda. Voluptatem officiis ullam quam eaque corporis sed. Rerum ut in nemo ut.",
+                "description_en": "Nisi nisi id eaque voluptate eius deserunt. Ut voluptas reiciendis facilis repellendus soluta iure aspernatur. Vel architecto autem culpa aut molestiae ipsum voluptas.",
+                "usage": "Saepe porro voluptate ut tenetur dolor voluptatum totam accusamus. Inventore labore ad molestiae hic. Ad modi quia quia atque nostrum officia. Aut aspernatur adipisci illo quibusdam impedit id.",
+                "usage_en": "Aut qui iure similique vitae distinctio accusamus. Aut ratione esse tempora distinctio et ad. Impedit consequatur quis dolores fuga libero nostrum sunt. Aut nisi et quia dolorem et et placeat atque. Et quo delectus illo ipsam.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?92476",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?96423",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?58003",
                 "product_video": null,
                 "status": 1,
-                "rating": 0.01,
-                "sold_count": 2312,
-                "review_count": 2845,
-                "created_at": "2020-08-18 15:08:22",
-                "updated_at": "2020-09-07 11:51:57",
+                "rating": 9.03,
+                "sold_count": 9443,
+                "review_count": 4726,
+                "created_at": "2020-09-05 06:28:56",
+                "updated_at": "2020-08-18 14:57:29",
                 "product_category": {
-                    "id": 8,
-                    "name": "腮红",
-                    "slug": "iure-necessitatibus",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?64747",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?20822",
-                    "title": "ex amet quibusdam",
-                    "title_en": "natus dolores tempora",
-                    "sub_title": "et perspiciatis velit",
-                    "describe": "Qui exercitationem veniam est dolores placeat ipsam. Provident dolorum expedita voluptatem doloribus. Nisi qui sed labore dicta veritatis in. Esse est officiis nostrum suscipit reiciendis.",
-                    "describe_en": "Delectus aut expedita in ipsum consequatur aut. Dolore sed aspernatur hic enim id est. Laudantium impedit molestiae aliquam error modi laboriosam.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?67825",
-                    "parent_id": 29,
+                    "id": 18,
+                    "name": "BB霜",
+                    "slug": "officia-laboriosam",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?20141",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?27064",
+                    "title": "ut commodi dolor",
+                    "title_en": "eos doloribus delectus",
+                    "sub_title": "neque omnis aliquam",
+                    "describe": "Earum placeat reiciendis nesciunt. Itaque tempore ullam perspiciatis quia beatae. Rerum qui soluta non dolorum et. Consectetur explicabo unde inventore repellendus corporis rerum nostrum.",
+                    "describe_en": "Tempora ea ut fugit deserunt doloribus est. Quis quidem unde aut suscipit omnis. Odit sed vitae aut reprehenderit. Nulla nisi sit vero repellat libero consequatur.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?75993",
+                    "parent_id": 11,
                     "level": 1,
-                    "created_at": "2020-08-30 08:12:31",
-                    "updated_at": "2020-09-09 14:28:00"
+                    "created_at": "2020-09-06 21:09:29",
+                    "updated_at": "2020-09-05 20:16:51"
                 }
             },
             {
@@ -5062,6 +4949,110 @@ fetch(url, {
                 }
             },
             {
+                "id": 33,
+                "product_category_id": 1,
+                "product_name": "黑钻臻活眼部精华",
+                "product_name_en": "dolor ab reiciendis",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?88769",
+                "slug": "nihil-officiis",
+                "short_description": "Cupiditate unde suscipit ut.",
+                "short_description_en": "Excepturi atque est architecto nobis temporibus voluptatem. Aut fugiat pariatur alias deserunt et aut. Assumenda vitae vitae veniam officia eum omnis ex.",
+                "price": "4327.00",
+                "sale_price": "1.00",
+                "stock": 853,
+                "spec": null,
+                "seo_title": "est aperiam earum",
+                "seo_keyword": "velit",
+                "seo_description": "Voluptatem ut est odit sit laboriosam.",
+                "benefit": "Praesentium eum qui cupiditate sequi facere rerum. Quis aut eos voluptatum adipisci modi. Ut ratione facilis quia. Ea repellat aut eveniet et commodi sequi.",
+                "benefit_en": "Voluptas rerum consectetur sed dolorem dolore officia eum. Est ratione aut qui a corrupti. Et ut ut molestiae fugit voluptate natus. Nobis amet temporibus amet quia possimus eum quo.",
+                "tech_description": "Non est dolorem natus. Incidunt aut ut odio nihil aspernatur sapiente. Quidem facilis iusto temporibus dolore.",
+                "tech_description_en": "Ut saepe quis adipisci rerum. Aliquam quos ex unde laboriosam et a ratione. Dolore ad impedit qui aut.",
+                "description": "Ut eligendi sed ut ipsam assumenda atque doloremque. Accusamus est tempore voluptatibus ab.",
+                "description_en": "Provident rerum incidunt molestiae et odio dolorum et. Eos distinctio omnis iure reiciendis. Et et nisi nobis libero praesentium dignissimos fugit.",
+                "usage": "Est cupiditate vel aperiam a cum est ea. Aut tempore ratione nostrum ab sapiente iure. Eius qui numquam eaque aut neque ut rerum magnam.",
+                "usage_en": "Minima ut iure et. Dolores dolores cum sunt sequi enim mollitia iste.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?69943",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?81522",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?53108",
+                "product_video": null,
+                "status": 1,
+                "rating": 4.49,
+                "sold_count": 3033,
+                "review_count": 1598,
+                "created_at": "2020-08-25 11:43:35",
+                "updated_at": "2020-08-17 23:50:06",
+                "product_category": {
+                    "id": 1,
+                    "name": "眼线",
+                    "slug": "sit-possimus",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?13169",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?88087",
+                    "title": "accusantium assumenda esse",
+                    "title_en": "dolor ea et",
+                    "sub_title": "voluptatum minima nisi",
+                    "describe": "Quis sunt velit in ut. Dolore voluptates tenetur exercitationem et veniam. Accusantium maxime voluptatum blanditiis ab dignissimos cupiditate omnis. Numquam nihil perferendis repellat provident.",
+                    "describe_en": "Occaecati veniam omnis libero ducimus aut. Aut commodi ullam cupiditate provident et assumenda. Aut aut laboriosam mollitia ut et. Vel perspiciatis dolorem qui incidunt nam.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?17693",
+                    "parent_id": 21,
+                    "level": 1,
+                    "created_at": "2020-09-06 10:54:14",
+                    "updated_at": "2020-08-20 01:59:26"
+                }
+            },
+            {
+                "id": 22,
+                "product_category_id": 20,
+                "product_name": "黑钻赋颜面霜",
+                "product_name_en": "ut natus consequatur",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?64464",
+                "slug": "tempora-officia",
+                "short_description": "Numquam perferendis ut quia consectetur.",
+                "short_description_en": "Sit maiores a et voluptatum est praesentium ab maxime. Aut ab odit ipsam id optio ea. Culpa qui commodi vitae aliquam non tempora. Impedit qui iste autem excepturi impedit culpa cupiditate.",
+                "price": "5768.00",
+                "sale_price": "1.00",
+                "stock": 791,
+                "spec": null,
+                "seo_title": "aperiam quos velit",
+                "seo_keyword": "minima",
+                "seo_description": "Illum in est veritatis eum.",
+                "benefit": "Corrupti exercitationem eum eum dignissimos molestias nemo. Incidunt non repudiandae et et non dignissimos. Velit eos rerum quaerat iusto.",
+                "benefit_en": "Nisi quae iure maxime et eos qui consequatur. Voluptas rerum voluptas dolores voluptas aut aperiam vero. Non aut et consequatur dolor.",
+                "tech_description": "Enim nostrum voluptas dolor blanditiis facilis. Id praesentium ut neque eius qui amet ut. Quibusdam aut dolorum recusandae non unde. Quas sunt enim maiores rem qui.",
+                "tech_description_en": "Voluptatem enim praesentium neque minima dicta impedit. Voluptas ea eum libero tempora temporibus debitis nihil. Numquam mollitia a voluptatum autem voluptatibus explicabo praesentium. Dignissimos nihil similique doloremque laudantium omnis quisquam qui sapiente.",
+                "description": "Suscipit animi soluta vel fugiat est. Laudantium labore et eaque sit est. Molestiae consequatur velit ut praesentium.",
+                "description_en": "Quis et excepturi facilis commodi odit illo. Laudantium odio qui reprehenderit ullam. Inventore recusandae minus fugit ducimus in temporibus. Officiis commodi reprehenderit quibusdam praesentium soluta voluptas.",
+                "usage": "Ipsa est aliquam veniam maiores. Aspernatur et est id et. Sint expedita ut earum sunt corporis aut. A consequatur enim sapiente amet velit.",
+                "usage_en": "Rerum enim labore exercitationem aspernatur ipsam quia. Est ipsa voluptates dolores est qui omnis. Praesentium laudantium qui eveniet.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?30474",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?23552",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?99018",
+                "product_video": null,
+                "status": 1,
+                "rating": 9.34,
+                "sold_count": 4354,
+                "review_count": 1295,
+                "created_at": "2020-08-15 20:07:56",
+                "updated_at": "2020-09-05 22:16:19",
+                "product_category": {
+                    "id": 20,
+                    "name": "香水",
+                    "slug": "eum-vel",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?31905",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?83996",
+                    "title": "est officia qui",
+                    "title_en": "cum porro asperiores",
+                    "sub_title": "voluptates ut impedit",
+                    "describe": "Dicta facere nulla voluptas at aliquam dolores. Expedita non vero minus est eaque et. Aperiam autem doloremque enim labore dolor.",
+                    "describe_en": "Et voluptas harum perferendis harum. Eum est eum est consequatur maxime. Eaque non possimus vel omnis aut veritatis in.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?12977",
+                    "parent_id": 18,
+                    "level": 1,
+                    "created_at": "2020-09-02 08:41:40",
+                    "updated_at": "2020-08-19 13:24:10"
+                }
+            },
+            {
                 "id": 21,
                 "product_category_id": 4,
                 "product_name": "黑钻肌光精华",
@@ -5111,6 +5102,214 @@ fetch(url, {
                     "level": 1,
                     "created_at": "2020-08-12 06:59:13",
                     "updated_at": "2020-08-25 09:48:48"
+                }
+            },
+            {
+                "id": 7,
+                "product_category_id": 14,
+                "product_name": "钻石冰莹面膜",
+                "product_name_en": "qui eum officiis",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?28506",
+                "slug": "at-iste",
+                "short_description": "Eos laudantium odio itaque consequuntur nulla.",
+                "short_description_en": "Vel nesciunt molestiae numquam necessitatibus magnam inventore. Distinctio aliquam voluptas sit iusto quae. Suscipit necessitatibus deleniti sunt maxime aspernatur repudiandae accusamus. Nihil soluta enim illum.",
+                "price": "135.00",
+                "sale_price": "1.00",
+                "stock": 524,
+                "spec": null,
+                "seo_title": "aperiam voluptas tempora",
+                "seo_keyword": "expedita",
+                "seo_description": "Dolore ex quibusdam sit perspiciatis nesciunt voluptatem.",
+                "benefit": "Nostrum beatae aut recusandae aut sed ea in ducimus. Voluptas ad officia repellat doloremque temporibus. Praesentium minus iste asperiores sunt adipisci animi sint. Cupiditate blanditiis aut corporis est omnis consequatur.",
+                "benefit_en": "Non deserunt non perspiciatis tenetur nam et est aspernatur. Et odit labore et sed dolorum adipisci numquam. Voluptates facere iure aut ea. Facilis quisquam autem temporibus voluptates odio non.",
+                "tech_description": "Ex itaque debitis consequuntur facilis sunt exercitationem incidunt. Recusandae necessitatibus error est. Perferendis nostrum sapiente id saepe dolorem consequuntur.",
+                "tech_description_en": "Suscipit fuga molestias aut qui saepe vel. Sequi est aut in tempore rerum alias. Rerum veniam totam minima et asperiores quo possimus.",
+                "description": "Molestiae sit saepe in ipsam. Quidem facilis numquam eum ipsam qui vero rem. Adipisci voluptatem atque tempore sed consequatur porro.",
+                "description_en": "Perspiciatis doloremque vel et corporis. Rerum recusandae eligendi et vel dolores sed. Tempore minus vitae eaque cumque repellendus laborum aspernatur. Voluptatem aut sapiente odit earum harum qui qui.",
+                "usage": "Ducimus expedita molestiae dolor placeat dolorem et. Eaque assumenda eveniet aperiam enim iste odio et adipisci. Omnis amet maxime in voluptatem. Qui voluptas quo distinctio ad non est iusto quam.",
+                "usage_en": "Aut dolor qui vel odit corporis quisquam exercitationem. Fugit aut libero quis culpa fuga voluptatum. Aut ab optio voluptatem libero. Labore vel error distinctio voluptatem itaque est vel ut.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?25440",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?23912",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?44403",
+                "product_video": null,
+                "status": 1,
+                "rating": 2.85,
+                "sold_count": 6034,
+                "review_count": 5956,
+                "created_at": "2020-08-19 23:37:56",
+                "updated_at": "2020-09-06 09:33:20",
+                "product_category": {
+                    "id": 14,
+                    "name": "隔离",
+                    "slug": "eligendi-in",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?66282",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?17516",
+                    "title": "cum in pariatur",
+                    "title_en": "aut ut aperiam",
+                    "sub_title": "sint minus voluptates",
+                    "describe": "Dolores asperiores qui voluptatem velit. Ullam omnis sapiente molestias laboriosam sed. Est eius qui laboriosam odit maxime adipisci. Accusamus et et explicabo officia incidunt.",
+                    "describe_en": "Animi aut eveniet quis qui. Consequatur nam est voluptas ut id amet ipsa sed. Nihil architecto vel animi et voluptas non.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?64481",
+                    "parent_id": 14,
+                    "level": 1,
+                    "created_at": "2020-09-06 22:01:35",
+                    "updated_at": "2020-08-29 14:51:47"
+                }
+            },
+            {
+                "id": 1,
+                "product_category_id": 12,
+                "product_name": "钻石冰莹面膜",
+                "product_name_en": "quae beatae repellat",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?62661",
+                "slug": "dolorum-aut",
+                "short_description": "Vitae et aperiam ut possimus quis.",
+                "short_description_en": "Eos reprehenderit ullam laboriosam animi aliquam. Ipsum quas molestias repellat dolorem aut est est ut. Qui non quo ut a magni consequatur unde. Laborum aut eius distinctio deserunt.",
+                "price": "3271.00",
+                "sale_price": "1.00",
+                "stock": 488,
+                "spec": null,
+                "seo_title": "et sunt odit",
+                "seo_keyword": "tempore",
+                "seo_description": "Dolorem placeat aut nam.",
+                "benefit": "Id ea voluptatem voluptas tenetur qui quia. Adipisci reiciendis deserunt sequi atque autem. Quam nobis repellat suscipit voluptate dolorem iusto. Nostrum quia pariatur possimus aperiam impedit eos exercitationem.",
+                "benefit_en": "Tempore labore eos est sequi ab ut maiores et. Et dicta aspernatur accusantium nesciunt cumque est. Ea nam qui sit quo in. Eveniet minima quod veniam magni eum eos rerum.",
+                "tech_description": "Qui eos dolores harum beatae. Praesentium consequuntur illum culpa esse eos. Repellendus neque omnis et non enim odio. Suscipit aliquam sit autem est dolor dignissimos.",
+                "tech_description_en": "Nostrum suscipit deserunt sed id. Hic doloribus quod consequatur itaque ducimus voluptas id animi. Vel molestiae ut maxime. Corrupti maxime sunt reiciendis qui. Aperiam est cum et consectetur velit et.",
+                "description": "Et voluptates non reiciendis et porro officia. Quisquam eos deleniti aut. Laborum ad tempore earum enim sunt et ratione et. Labore eum corporis est reprehenderit dolorum ut.",
+                "description_en": "Officia harum et reiciendis libero. Vel sapiente rem dolor. Aliquid nihil delectus quia eligendi voluptates ipsam quia. Dicta sunt illum eos voluptas et repudiandae rem.",
+                "usage": "Voluptas repellendus quo omnis nemo et ab ipsa at. Sequi labore accusantium consequuntur asperiores debitis labore. Eius molestiae praesentium reprehenderit sed. In fugiat enim eius quibusdam voluptatum tenetur.",
+                "usage_en": "Dolor quo optio maiores quos voluptatibus et iusto. Animi sint et quibusdam consequuntur est id doloribus. Qui laborum et amet repudiandae. At veniam occaecati eos tenetur autem excepturi maxime.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?73559",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?70426",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?67313",
+                "product_video": null,
+                "status": 1,
+                "rating": 8.44,
+                "sold_count": 1847,
+                "review_count": 1971,
+                "created_at": "2020-09-04 05:54:19",
+                "updated_at": "2020-08-14 07:26:52",
+                "product_category": {
+                    "id": 12,
+                    "name": "护肤系列",
+                    "slug": "dolore-saepe",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?26728",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?49717",
+                    "title": "repellat culpa et",
+                    "title_en": "qui culpa ut",
+                    "sub_title": "perspiciatis quod provident",
+                    "describe": "Ratione illum laudantium neque porro. Laborum rerum quo at qui error. Expedita ducimus aut possimus voluptate vero itaque alias fugiat.",
+                    "describe_en": "Dolore quaerat earum nobis velit saepe. Blanditiis veritatis corporis assumenda eius explicabo qui nam.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?41632",
+                    "parent_id": 30,
+                    "level": 1,
+                    "created_at": "2020-09-04 11:07:01",
+                    "updated_at": "2020-08-13 20:29:24"
+                }
+            },
+            {
+                "id": 5,
+                "product_category_id": 12,
+                "product_name": "黑钻璀璨晶透肌底精华",
+                "product_name_en": "ipsam reprehenderit placeat",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?47895",
+                "slug": "enim-autem",
+                "short_description": "Veritatis explicabo hic quam.",
+                "short_description_en": "Qui eos itaque nostrum quo quaerat. Consequatur cumque omnis et quis magnam ut et.",
+                "price": "640.00",
+                "sale_price": "1.00",
+                "stock": 745,
+                "spec": null,
+                "seo_title": "corrupti et repellendus",
+                "seo_keyword": "soluta",
+                "seo_description": "Molestiae aut in ea.",
+                "benefit": "Expedita ut enim cupiditate accusantium exercitationem temporibus. Ducimus optio rerum nulla dolorem voluptatum ut. Impedit expedita voluptatum repudiandae sint qui nihil sapiente repudiandae. Aspernatur ut consequuntur non dignissimos labore recusandae.",
+                "benefit_en": "Et voluptas praesentium et fugiat sapiente. Est ad nam accusamus eveniet quidem itaque ea quia. Voluptas molestiae cupiditate reprehenderit voluptatem id doloremque voluptate. Ea atque nisi repudiandae fuga.",
+                "tech_description": "Et sapiente qui mollitia non eius voluptatem porro. Ipsa fugiat qui accusamus rerum velit sapiente commodi. Libero dolore unde ullam nihil odio.",
+                "tech_description_en": "Cum omnis laudantium voluptatem rerum. Est officia adipisci ab. Sapiente velit consequatur labore voluptas suscipit dolorem. Non esse non sequi est necessitatibus culpa. Soluta fuga unde tenetur architecto libero sint.",
+                "description": "Sit quia sint eius mollitia magnam. Incidunt esse et dolores a atque earum. Ducimus nostrum perspiciatis commodi aut. Consectetur amet labore in eum voluptatem.",
+                "description_en": "Et minus et facere at. Dolorem reprehenderit velit in dolorum est omnis.",
+                "usage": "Magni eius non ipsa ut sed eius. Magni ullam quae tenetur qui dicta sed. Sed cupiditate delectus debitis quae tempora. Alias facilis voluptatem excepturi cum. Impedit voluptatem facilis exercitationem dolor.",
+                "usage_en": "Magni voluptatem dolorem consequuntur. Ut minima velit accusamus ea dolorem. Explicabo quisquam inventore possimus inventore. Provident porro sint quo atque tempora quaerat ut aspernatur. Est recusandae consequatur ab odit qui iste.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?23990",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?57132",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?93873",
+                "product_video": null,
+                "status": 1,
+                "rating": 8.04,
+                "sold_count": 1085,
+                "review_count": 2738,
+                "created_at": "2020-08-25 01:24:07",
+                "updated_at": "2020-08-14 12:05:54",
+                "product_category": {
+                    "id": 12,
+                    "name": "护肤系列",
+                    "slug": "dolore-saepe",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?26728",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?49717",
+                    "title": "repellat culpa et",
+                    "title_en": "qui culpa ut",
+                    "sub_title": "perspiciatis quod provident",
+                    "describe": "Ratione illum laudantium neque porro. Laborum rerum quo at qui error. Expedita ducimus aut possimus voluptate vero itaque alias fugiat.",
+                    "describe_en": "Dolore quaerat earum nobis velit saepe. Blanditiis veritatis corporis assumenda eius explicabo qui nam.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?41632",
+                    "parent_id": 30,
+                    "level": 1,
+                    "created_at": "2020-09-04 11:07:01",
+                    "updated_at": "2020-08-13 20:29:24"
+                }
+            },
+            {
+                "id": 12,
+                "product_category_id": 8,
+                "product_name": "黑钻赋颜面霜",
+                "product_name_en": "voluptatem itaque quia",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?30633",
+                "slug": "repellendus-nostrum",
+                "short_description": "Neque ipsum et id recusandae omnis cupiditate.",
+                "short_description_en": "Reiciendis voluptas tempore debitis voluptas corrupti. Deserunt illum enim sed quia fugit. Non sint ipsum dolorem culpa dolorum repellendus aperiam.",
+                "price": "5282.00",
+                "sale_price": "1.00",
+                "stock": 42,
+                "spec": null,
+                "seo_title": "eum quidem odit",
+                "seo_keyword": "ut",
+                "seo_description": "Sit hic aut perferendis.",
+                "benefit": "Rerum autem culpa ipsa autem consequatur. Corporis a at excepturi praesentium eligendi est laudantium. Est reiciendis soluta et totam error quo.",
+                "benefit_en": "Consequatur qui dolore sunt. Voluptatem qui possimus quisquam rerum officia omnis.",
+                "tech_description": "Consequatur consequatur accusamus provident dolores. Veritatis omnis qui recusandae aperiam et et. Sit quibusdam ut necessitatibus rerum.",
+                "tech_description_en": "Voluptas alias aut maiores nihil. Saepe iure velit dolorem quisquam sit sunt. Error dolores minus a. Qui ratione rerum accusantium vero perspiciatis.",
+                "description": "Ullam consequuntur officia sit dolores animi excepturi. Eius qui quis iure quia qui veritatis voluptas. Accusantium alias id consequatur nisi. Illum omnis consequatur quia labore nulla quibusdam. Voluptatem nisi qui consequatur.",
+                "description_en": "Cum nesciunt qui maxime temporibus enim reprehenderit qui. Pariatur dolor sed ipsam. Perspiciatis voluptate corrupti perspiciatis consequuntur. Aut ut aut distinctio blanditiis sint quidem. Omnis eaque quibusdam eos vero aut nisi.",
+                "usage": "Autem iste quia necessitatibus quod. Laboriosam perferendis et deserunt modi voluptates consequuntur est. Illum odio autem deserunt nisi ullam sint non ratione. Magni commodi eaque accusantium iure recusandae.",
+                "usage_en": "In eum qui molestiae delectus ex. Hic esse veritatis eveniet perferendis. Autem impedit dolorem omnis voluptatem id aut.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?72858",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?70432",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?71509",
+                "product_video": null,
+                "status": 1,
+                "rating": 0.01,
+                "sold_count": 2312,
+                "review_count": 2845,
+                "created_at": "2020-08-18 15:08:22",
+                "updated_at": "2020-09-07 11:51:57",
+                "product_category": {
+                    "id": 8,
+                    "name": "腮红",
+                    "slug": "iure-necessitatibus",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?64747",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?20822",
+                    "title": "ex amet quibusdam",
+                    "title_en": "natus dolores tempora",
+                    "sub_title": "et perspiciatis velit",
+                    "describe": "Qui exercitationem veniam est dolores placeat ipsam. Provident dolorum expedita voluptatem doloribus. Nisi qui sed labore dicta veritatis in. Esse est officiis nostrum suscipit reiciendis.",
+                    "describe_en": "Delectus aut expedita in ipsum consequatur aut. Dolore sed aspernatur hic enim id est. Laudantium impedit molestiae aliquam error modi laboriosam.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?67825",
+                    "parent_id": 29,
+                    "level": 1,
+                    "created_at": "2020-08-30 08:12:31",
+                    "updated_at": "2020-09-09 14:28:00"
                 }
             },
             {
@@ -5166,39 +5365,39 @@ fetch(url, {
                 }
             },
             {
-                "id": 48,
+                "id": 16,
                 "product_category_id": 3,
                 "product_name": "黑钻璀璨晶透肌底精华",
-                "product_name_en": "corrupti recusandae voluptates",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?79607",
-                "slug": "eum-cumque",
-                "short_description": "Ratione maiores at molestiae quibusdam sequi deserunt.",
-                "short_description_en": "Et omnis omnis distinctio voluptatum et. Optio labore quam in adipisci. Maxime qui id aliquam et voluptatem voluptatum.",
-                "price": "1611.00",
+                "product_name_en": "et natus rerum",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?24456",
+                "slug": "ut-pariatur",
+                "short_description": "Qui alias nostrum optio rerum aspernatur.",
+                "short_description_en": "Itaque fugiat doloribus quia est. Qui saepe consequuntur animi aliquid id voluptates recusandae facilis. Quia vero consequuntur ullam ab odit.",
+                "price": "8926.00",
                 "sale_price": "1.00",
-                "stock": 931,
+                "stock": 860,
                 "spec": null,
-                "seo_title": "necessitatibus est rerum",
-                "seo_keyword": "dolorem",
-                "seo_description": "Ipsum maiores ea ab.",
-                "benefit": "Minus esse incidunt error esse sed assumenda nisi. Vel debitis sit voluptatum magnam. Debitis labore dicta adipisci molestiae rerum qui eum. Et dolores minima suscipit nesciunt.",
-                "benefit_en": "Et perspiciatis voluptates est quibusdam temporibus at libero. Voluptate ut consectetur distinctio sed. Qui dolore aut quo tempore iusto. Tempora quidem est non tenetur nobis.",
-                "tech_description": "Nobis sunt repudiandae voluptatem voluptas. Dolorum tempore voluptatem illum vel. Pariatur dolorem nulla eum animi non blanditiis similique. Ab et temporibus ad vero.",
-                "tech_description_en": "Sed aut aspernatur sed inventore similique quod. Amet id rerum et vel. Corrupti dolor ratione doloribus asperiores et optio eos voluptas. Dolore tenetur est quasi minima.",
-                "description": "Deleniti quos at sit libero id. Quo similique perspiciatis et omnis et illum. Vitae similique sunt repudiandae natus omnis enim quibusdam. Et repellat qui consequatur rerum.",
-                "description_en": "Omnis dolorum aut odit rerum. Cum totam vitae non hic soluta impedit officiis. Quam aliquid dolorum et eum molestiae. Voluptas facilis nesciunt amet et dolores.",
-                "usage": "Nostrum neque placeat dolores et. Repellendus soluta molestias nesciunt omnis doloribus ullam excepturi. Laborum voluptas doloremque quos at aliquid sit.",
-                "usage_en": "Optio suscipit laborum ut atque. Ut veritatis qui sit adipisci nam odit aut ipsam. Minima laborum tempore quos est. Molestiae dicta earum qui exercitationem.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?78348",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?89515",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?56195",
+                "seo_title": "quisquam eos ea",
+                "seo_keyword": "rerum",
+                "seo_description": "Alias quae cumque dolores non sunt.",
+                "benefit": "Aut aliquid dolore minus soluta ipsum. Quas ex molestiae earum earum dolorum atque vero. Vero voluptatem iste labore architecto doloremque excepturi sint. At sint rem voluptates neque minima sint.",
+                "benefit_en": "Nam tenetur nihil itaque fugiat vero atque. Unde facere velit quisquam voluptatem dolorem recusandae officia. Quisquam rerum magnam est.",
+                "tech_description": "Dolorum aut facilis aut eos perspiciatis illum culpa. Et et adipisci quidem nobis est enim. Dicta nihil at quia enim dolorem accusamus alias. Suscipit fugiat aut recusandae tempora animi.",
+                "tech_description_en": "Culpa et non reprehenderit ab nihil sit. Esse nihil repudiandae natus nulla aliquam sapiente laborum reprehenderit.",
+                "description": "A ea distinctio ipsa eum eaque. Vero amet possimus iste qui sit asperiores. Ut nisi velit itaque fuga.",
+                "description_en": "Rerum commodi quo minus pariatur magni velit id dolorem. Eos corrupti non quia dicta atque minus pariatur. Ipsa sunt asperiores ut.",
+                "usage": "Dolor sunt ea vel doloremque. Sit eligendi et voluptatem ut. Ut consequatur at quia similique magni.",
+                "usage_en": "Illo mollitia velit quo magni non et nulla. Non sit et quam quidem quidem. Omnis asperiores aut et molestiae aut.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?78502",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?44134",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?66123",
                 "product_video": null,
                 "status": 1,
-                "rating": 1.6,
-                "sold_count": 3388,
-                "review_count": 1053,
-                "created_at": "2020-09-03 17:41:43",
-                "updated_at": "2020-09-10 22:03:22",
+                "rating": 5.5,
+                "sold_count": 6492,
+                "review_count": 7210,
+                "created_at": "2020-08-20 13:29:04",
+                "updated_at": "2020-08-15 05:47:35",
                 "product_category": {
                     "id": 3,
                     "name": "精油",
@@ -5844,7 +6043,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/product_category/1?category_slug=quis" \
+    -G "http://store.wutang.com/api/product_category/1?category_slug=laudantium" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -5855,7 +6054,7 @@ const url = new URL(
 );
 
 let params = {
-    "category_slug": "quis",
+    "category_slug": "laudantium",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -5903,7 +6102,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/category_story/1?category_slug=et" \
+    -G "http://store.wutang.com/api/category_story/1?category_slug=aperiam" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -5914,7 +6113,7 @@ const url = new URL(
 );
 
 let params = {
-    "category_slug": "et",
+    "category_slug": "aperiam",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -6016,7 +6215,7 @@ curl -X POST \
     "http://store.wutang.com/api/shop_carts" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"product_list":[{"product_id":12}]}'
+    -d '{"product_list":[{"product_id":18}]}'
 
 ```
 
@@ -6033,7 +6232,7 @@ let headers = {
 let body = {
     "product_list": [
         {
-            "product_id": 12
+            "product_id": 18
         }
     ]
 }
@@ -6069,7 +6268,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/api/shop_carts/1?type=animi&product_id=aspernatur&amount=voluptate" \
+    "http://store.wutang.com/api/shop_carts/1?type=non&product_id=soluta&amount=ut" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -6080,9 +6279,9 @@ const url = new URL(
 );
 
 let params = {
-    "type": "animi",
-    "product_id": "aspernatur",
-    "amount": "voluptate",
+    "type": "non",
+    "product_id": "soluta",
+    "amount": "ut",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -6124,7 +6323,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X DELETE \
-    "http://store.wutang.com/api/shop_carts/1?product_id=sint" \
+    "http://store.wutang.com/api/shop_carts/1?product_id=in" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -6135,7 +6334,7 @@ const url = new URL(
 );
 
 let params = {
-    "product_id": "sint",
+    "product_id": "in",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -6315,7 +6514,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/the_house/detail/1?%24the_house_slug=iure" \
+    -G "http://store.wutang.com/api/the_house/detail/1?%24the_house_slug=quo" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -6326,7 +6525,7 @@ const url = new URL(
 );
 
 let params = {
-    "$the_house_slug": "iure",
+    "$the_house_slug": "quo",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -6426,7 +6625,7 @@ curl -X POST \
     "http://store.wutang.com/api/user_addresses" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"province":"veritatis","city":"rerum","district":"omnis","address":"cupiditate","zip":12,"contact_name":"non","contact_phone":18}'
+    -d '{"province":"molestiae","city":"facere","district":"iusto","address":"corporis","zip":5,"contact_name":"atque","contact_phone":19}'
 
 ```
 
@@ -6441,13 +6640,13 @@ let headers = {
 };
 
 let body = {
-    "province": "veritatis",
-    "city": "rerum",
-    "district": "omnis",
-    "address": "cupiditate",
-    "zip": 12,
-    "contact_name": "non",
-    "contact_phone": 18
+    "province": "molestiae",
+    "city": "facere",
+    "district": "iusto",
+    "address": "corporis",
+    "zip": 5,
+    "contact_name": "atque",
+    "contact_phone": 19
 }
 
 fetch(url, {
@@ -6486,7 +6685,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/api/user_addresses/1?province=consequatur&city=corrupti&district=inventore&address=non&zip=odit&contact_name=consequatur&contact_phone=a" \
+    "http://store.wutang.com/api/user_addresses/1?province=tempora&city=doloribus&district=ducimus&address=iure&zip=autem&contact_name=dolorem&contact_phone=aspernatur" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -6497,13 +6696,13 @@ const url = new URL(
 );
 
 let params = {
-    "province": "consequatur",
-    "city": "corrupti",
-    "district": "inventore",
-    "address": "non",
-    "zip": "odit",
-    "contact_name": "consequatur",
-    "contact_phone": "a",
+    "province": "tempora",
+    "city": "doloribus",
+    "district": "ducimus",
+    "address": "iure",
+    "zip": "autem",
+    "contact_name": "dolorem",
+    "contact_phone": "aspernatur",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -6639,7 +6838,7 @@ fetch(url, {
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/api/user_profile?profile_id=cumque&phone=cumque&real_name=ea&sex=provident&birthday=nesciunt&age=pariatur&province=ad&city=velit&district=cupiditate&address=possimus&zip=sunt" \
+    "http://store.wutang.com/api/user_profile?profile_id=aliquid&phone=nesciunt&real_name=omnis&sex=deleniti&birthday=omnis&age=itaque&province=voluptatibus&city=ipsum&district=beatae&address=quos&zip=dolor" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -6650,17 +6849,17 @@ const url = new URL(
 );
 
 let params = {
-    "profile_id": "cumque",
-    "phone": "cumque",
-    "real_name": "ea",
-    "sex": "provident",
-    "birthday": "nesciunt",
-    "age": "pariatur",
-    "province": "ad",
-    "city": "velit",
-    "district": "cupiditate",
-    "address": "possimus",
-    "zip": "sunt",
+    "profile_id": "aliquid",
+    "phone": "nesciunt",
+    "real_name": "omnis",
+    "sex": "deleniti",
+    "birthday": "omnis",
+    "age": "itaque",
+    "province": "voluptatibus",
+    "city": "ipsum",
+    "district": "beatae",
+    "address": "quos",
+    "zip": "dolor",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -6713,7 +6912,7 @@ curl -X POST \
     "http://store.wutang.com/api/member_code/bind_parent" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"code":"amet"}'
+    -d '{"code":"quo"}'
 
 ```
 
@@ -6728,7 +6927,7 @@ let headers = {
 };
 
 let body = {
-    "code": "amet"
+    "code": "quo"
 }
 
 fetch(url, {
@@ -6811,7 +7010,7 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/api/wish_list?product_id=dicta" \
+    "http://store.wutang.com/api/wish_list?product_id=odit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -6822,7 +7021,7 @@ const url = new URL(
 );
 
 let params = {
-    "product_id": "dicta",
+    "product_id": "odit",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -6862,7 +7061,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X DELETE \
-    "http://store.wutang.com/api/wish_list?product_id=natus" \
+    "http://store.wutang.com/api/wish_list?product_id=porro" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -6873,7 +7072,7 @@ const url = new URL(
 );
 
 let params = {
-    "product_id": "natus",
+    "product_id": "porro",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -6915,7 +7114,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/alipay/bank_gateway/pay?no=libero&total_amount=laudantium&payment_key=consequuntur" \
+    -G "http://store.wutang.com/alipay/bank_gateway/pay?no=laudantium&total_amount=distinctio&payment_key=ex" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -6926,9 +7125,9 @@ const url = new URL(
 );
 
 let params = {
-    "no": "libero",
-    "total_amount": "laudantium",
-    "payment_key": "consequuntur",
+    "no": "laudantium",
+    "total_amount": "distinctio",
+    "payment_key": "ex",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -7061,7 +7260,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/alipay/aop_page/pay?no=quisquam&total_amount=placeat&payment_key=qui" \
+    -G "http://store.wutang.com/alipay/aop_page/pay?no=consequatur&total_amount=qui&payment_key=sit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -7072,9 +7271,9 @@ const url = new URL(
 );
 
 let params = {
-    "no": "quisquam",
-    "total_amount": "placeat",
-    "payment_key": "qui",
+    "no": "consequatur",
+    "total_amount": "qui",
+    "payment_key": "sit",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -7207,7 +7406,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/alipay/legacy_express/pay?no=aut&total_amount=perferendis&payment_key=ratione" \
+    -G "http://store.wutang.com/alipay/legacy_express/pay?no=quia&total_amount=consequuntur&payment_key=dolor" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -7218,9 +7417,9 @@ const url = new URL(
 );
 
 let params = {
-    "no": "aut",
-    "total_amount": "perferendis",
-    "payment_key": "ratione",
+    "no": "quia",
+    "total_amount": "consequuntur",
+    "payment_key": "dolor",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -7356,7 +7555,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/unionpay/pay?no=beatae&total_amount=nesciunt&payment_key=quisquam" \
+    -G "http://store.wutang.com/unionpay/pay?no=porro&total_amount=aliquam&payment_key=voluptates" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -7367,9 +7566,9 @@ const url = new URL(
 );
 
 let params = {
-    "no": "beatae",
-    "total_amount": "nesciunt",
-    "payment_key": "quisquam",
+    "no": "porro",
+    "total_amount": "aliquam",
+    "payment_key": "voluptates",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -7498,7 +7697,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/response_code?10001=quos&10003=voluptatem&20001=repellendus&40001=est&40003=itaque&40004=earum&40005=delectus&50001=optio" \
+    -G "http://store.wutang.com/api/response_code?10001=veniam&10003=a&20001=sit&40001=dolorum&40003=quia&40004=aspernatur&40005=perspiciatis&50001=harum" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -7509,14 +7708,14 @@ const url = new URL(
 );
 
 let params = {
-    "10001": "quos",
-    "10003": "voluptatem",
-    "20001": "repellendus",
-    "40001": "est",
-    "40003": "itaque",
-    "40004": "earum",
-    "40005": "delectus",
-    "50001": "optio",
+    "10001": "veniam",
+    "10003": "a",
+    "20001": "sit",
+    "40001": "dolorum",
+    "40003": "quia",
+    "40004": "aspernatur",
+    "40005": "perspiciatis",
+    "50001": "harum",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -8480,155 +8679,5 @@ fetch(url, {
 
 
 <!-- END_dc655c54894511268a36a9832a17fe87 -->
-
-<!-- START_d87b514e0b2d661024b3fe01f18fc23c -->
-## Get assetImgs list
-获取首页静态资源列表
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://store.wutang.com/admin/asset_img?page=nemo&page_limit=neque" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://store.wutang.com/admin/asset_img"
-);
-
-let params = {
-    "page": "nemo",
-    "page_limit": "neque",
-};
-Object.keys(params)
-    .forEach(key => url.searchParams.append(key, params[key]));
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (401):
-
-```json
-{
-    "message": "Unauthenticated."
-}
-```
-
-### HTTP Request
-`GET admin/asset_img`
-
-#### Query Parameters
-
-Parameter | Status | Description
---------- | ------- | ------- | -----------
-    `page` |  optional  | 页码
-    `page_limit` |  optional  | 每页数量
-
-<!-- END_d87b514e0b2d661024b3fe01f18fc23c -->
-
-<!-- START_d87de4a1217ef941a28add66dd4020f4 -->
-## save asset img
-保存首页静态资源
-
-> Example request:
-
-```bash
-curl -X POST \
-    "http://store.wutang.com/admin/asset_img?img=consequatur&img_location=reiciendis" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://store.wutang.com/admin/asset_img"
-);
-
-let params = {
-    "img": "consequatur",
-    "img_location": "reiciendis",
-};
-Object.keys(params)
-    .forEach(key => url.searchParams.append(key, params[key]));
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`POST admin/asset_img`
-
-#### Query Parameters
-
-Parameter | Status | Description
---------- | ------- | ------- | -----------
-    `img` |  required  | 图片地址
-    `img_location` |  required  | 图片位置
-
-<!-- END_d87de4a1217ef941a28add66dd4020f4 -->
-
-<!-- START_85bac2915edb3565ff46f67e3937c589 -->
-## Delete img
-删除图片资源
-
-> Example request:
-
-```bash
-curl -X DELETE \
-    "http://store.wutang.com/admin/asset_img/1" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://store.wutang.com/admin/asset_img/1"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`DELETE admin/asset_img/{assetImgId}`
-
-
-<!-- END_85bac2915edb3565ff46f67e3937c589 -->
 
 

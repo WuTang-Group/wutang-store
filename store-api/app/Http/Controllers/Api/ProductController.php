@@ -15,6 +15,7 @@ use Illuminate\Http\Response;
 /**
  * @group [API] Product
  * 商品管理
+ * status说明:(1新品,2畅销,3促销,-1下架)
  * @package App\Http\Controllers\Api
  */
 class ProductController extends Controller

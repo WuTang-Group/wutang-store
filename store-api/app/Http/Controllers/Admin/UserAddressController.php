@@ -13,6 +13,7 @@ use Illuminate\Http\Response;
 /**
  * @group [ADMIN] User address
  * 用户地址管理
+ * @authenticated
  * @package App\Http\Controllers\Admin
  */
 class UserAddressController extends Controller

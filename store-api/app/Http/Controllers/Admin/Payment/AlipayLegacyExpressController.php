@@ -14,6 +14,7 @@ use Illuminate\Http\Response;
 /**
  * @group [ADMIN-Payment] AlipayLegacyExpress manage
  * 支付宝即时到账管理类
+ * @authenticated
  * @package App\Http\Controllers\Admin\Payment
  */
 class AlipayLegacyExpressController extends Controller

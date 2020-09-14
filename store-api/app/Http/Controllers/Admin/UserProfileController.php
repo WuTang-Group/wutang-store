@@ -13,6 +13,7 @@ use Illuminate\Http\Response;
 /**
  * @group [ADMIN] User profile
  * 用户资料
+ * @authenticated
  * @package App\Http\Controllers\Admin
  */
 class UserProfileController extends Controller

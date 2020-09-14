@@ -14,6 +14,7 @@ use Illuminate\Http\Response;
 /**
  * @group [ADMIN] Logger
  * 日志管理
+ * @authenticated
  * @package App\Http\Controllers\Admin
  */
 class LoggerController extends Controller

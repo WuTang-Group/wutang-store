@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Log;
 /**
  * @group [ADMIN] Order
  * 订单管理
+ * @authenticated
  * @package App\Http\Controllers\Admin
  */
 class OrderController extends Controller

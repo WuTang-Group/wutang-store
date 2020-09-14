@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 /**
  * @group [ADMIN] Product
  * 商品管理
+ * @authenticated
  * @package App\Http\Controllers\Admin
  */
 class ProductController extends Controller

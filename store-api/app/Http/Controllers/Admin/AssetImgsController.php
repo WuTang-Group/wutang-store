@@ -8,6 +8,12 @@ use App\Http\Requests\Admin\AssetImgsRequest;
 use App\Services\Admin\AssetImgsService;
 use Illuminate\Http\Request;
 
+/**
+ * @group [ADMIN] Asset img
+ * 静态图片管理
+ * @authenticated
+ * @package App\Http\Controllers\Admin
+ */
 class AssetImgsController extends Controller
 {
     private $assetImgsService;

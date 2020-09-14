@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 /**
  * @group [ADMIN] Product skus
  * 商品sku管理
+ * @authenticated
  * @package App\Http\Controllers\Admin
  */
 class ProductSkuController extends Controller

@@ -18,6 +18,7 @@ use Illuminate\ {
 /**
  * @group [ADMIN] User
  * 用户管理
+ * @authenticated
  * @package App\Http\Controllers\Admin
  */
 class UserController extends Controller

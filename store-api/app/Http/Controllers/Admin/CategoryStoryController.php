@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Log;
 /**
  * @group [ADMIN] Category story
  * 分类故事
+ * @authenticated
  * @package App\Http\Controllers\Admin
  */
 class CategoryStoryController extends Controller

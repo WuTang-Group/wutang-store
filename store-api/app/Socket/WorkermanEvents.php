@@ -4,8 +4,10 @@
 namespace App\Socket;
 
 
+use App\Enums\CacheKeyPrefix;
+use App\Services\Api\OrderService;
 use GatewayWorker\Lib\Gateway;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
 
 class WorkermanEvents
 {
@@ -27,12 +29,16 @@ class WorkermanEvents
     public static function onConnect($client_id)
     {
         // 向当前client_id发送数据
-        //Gateway::sendToClient($client_id, "Hello $client_id");
-        // 向所有人发送
-        Gateway::sendToAll(json_encode([
-            'client_id' =>$client_id,
+        Gateway::sendToClient($client_id, json_encode([
+            'client_id' => $client_id,
             'msg' => '欢迎连入'
         ]));
+
+        // 向所有人发送
+//        Gateway::sendToAll(json_encode([
+//            'client_id' =>$client_id,
+//            'msg' => '欢迎连入'
+//        ]));
     }
 
     /**
@@ -58,10 +64,22 @@ class WorkermanEvents
         //Gateway::sendToClient($client_id, json_encode($response));
 
         // 对所有客户端发送
-        Gateway::sendToAll(json_encode([
-            'client_id' => $client_id,
-            'said_msg' =>json_decode($message)
-        ]));
+//        Gateway::sendToAll(json_encode([
+//            'client_id' => $client_id,
+//            'said_msg' =>json_decode($message)
+//        ]));
+
+        // 接收客户端消息(订单号) 并绑定uid为user id
+        $uid = auth('api')->user()->id;
+        Gateway::bindUid($client_id,$uid);
+        $session_key = CacheKeyPrefix::UserCache.$uid;
+        // 前端发送数据格式: {"no":'订单号'}
+        $client_data = json_decode($message,true);
+        // 存储到session
+        Session::put($session_key,[
+            'uid' => $uid,
+            'no' => $client_data['no']
+        ]);
     }
 
     /**
@@ -71,6 +89,13 @@ class WorkermanEvents
     public static function onClose($client_id)
     {
         //Gateway::sendToAll($client_id."logout");
-        //Log::info('close connection:' . $client_id);
+        $uid = auth('api')->user()->id;
+        $session_key = CacheKeyPrefix::UserCache.$uid;
+        $session_data = Session::get($session_key);
+        // 用户断开连接自动取消订单
+        app(OrderService::class)->requestCancel($session_data);
+//        Log::info('close connection',[
+//            'msg' => $uid
+//        ]);
     }
 }

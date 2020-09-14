@@ -16,22 +16,22 @@ class CacheController extends Controller
     }
 
     // 缓存订单支付数据
-    public static function orderPayment($params, $minute = 15)
+    public static function orderPayment($params, $minute = 30)
     {
         try {
             // 缓存15分钟过期
-            $key = CacheKeyPrefix::OrderCache . 'NO:' . $params['no'];
+            $key = CacheKeyPrefix::OrderCache . 'NO:' . $params->no;
             $expiredAt = now()->addMinutes($minute);
-            Cache::put($key, ['no' => $params['no']], $expiredAt);
+            Cache::put($key, ['no' => $params->no], $expiredAt);
             return [
                 'payment_key' => $key,
-                'expired_at' => $expiredAt,
-                'no' => $params['no']
+                'expired_at' => $expiredAt->toDateTimeString(),
+                'no' => $params->no
             ];
         } catch (\Exception $e) {
             Log::error('订单支付-缓存失败', ['message' => [
                 'msg' => $e->getMessage(),
-                'no' => $params['no']
+                'no' => $params->no
             ]]);
             return false;
         }

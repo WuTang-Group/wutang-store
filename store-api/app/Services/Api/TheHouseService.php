@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services\Api;
 
 use App\Models\TheHouse;
@@ -8,32 +9,39 @@ use App\Services\Service;
 class TheHouseService extends Service
 {
     private $theHouse, $theHouseCategory;
+
     public function __construct(TheHouse $theHouse, TheHouseCategory $theHouseCategory)
     {
         $this->theHouse = $theHouse;
         $this->theHouseCategory = $theHouseCategory;
     }
 
-    public function theHouseCategoryList()
+    // 获取the house分类列表
+    public function getCategoryList()
     {
-        return $this->theHouseCategory->latest()->all();
+        return $this->theHouseCategory->get();
     }
 
-    public function theHouseAll($param)
+    // 根据分类slug获取the house列表
+    public function getListByCategorySlug(string $categorySlug)
     {
-        return $this->theHouse->with(['theHouseCategory'=> function($query) {
-            return $query->select('id', 'name', 'slug');
-        }])->latest()->paginate($param['page_limit']);
+        return $this->theHouseCategory->whereSlug($categorySlug)->with(['theHouses'])->first();
     }
 
-
-    public function theHouseList($category_slug)
+    // 根据the house slug获取the house详情
+    public function getDetailByTheHouseSlug(string $theHouseSlug)
     {
-        return $this->theHouseCategory->with('theHouses')->whereSlug($category_slug)->latest()->first();
+        return $this->theHouse->whereSlug($theHouseSlug)->with(['theHouseContents'])->first();
     }
 
-    public function theHouseDetail($the_house_slug)
+    // 获取the house其他报道随机3条列表
+    public function getOtherCategoryList(string $categorySlug, int $length = 3)
     {
-        return $this->theHouse->with('theHouseContents')->whereSlug($the_house_slug)->get();
+        $the_house_category = $this->theHouseCategory->whereSlug($categorySlug)->with(['theHouses'])->first()->theHouses;
+        if (count($the_house_category) >= $length) {
+            return $the_house_category->random($length);
+        }
+        return $the_house_category->random(count($the_house_category));
     }
+
 }

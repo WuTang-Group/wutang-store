@@ -125,7 +125,7 @@
 		</div>
 	</div>
 </div>
-@php 
+@php
 	if($response->data->birthday) {
 		$date = explode ('-', $response->data->birthday);
 	}
@@ -184,8 +184,8 @@
 	            'province'  : $('select[name=province]').val(),
 	            'city'      : $('input[name=city]').val(),
 	        };
-	        
-			axios.put(BASE_URL+'api/user_profiles', formData)
+
+			axios.put(BASE_URL+'api/user_profile', formData)
 			  	.then(function (response) {
 			    	if(response.data.code == 20001) {
     					toastr['success'](response.data.msg);

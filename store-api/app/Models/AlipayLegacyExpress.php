@@ -12,4 +12,13 @@ class AlipayLegacyExpress extends Model
     {
         return $this->attributes['key'] = encrypt($this->attributes['key']);
     }
+
+    /**
+     * 从属关联Payment模型
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function payment()
+    {
+        return $this->belongsTo(Payment::class);
+    }
 }

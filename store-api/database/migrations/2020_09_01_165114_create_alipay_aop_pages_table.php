@@ -15,6 +15,8 @@ class CreateAlipayAopPagesTable extends Migration
     {
         Schema::create('alipay_aop_pages', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('payment_id')->comment('关联从属payments表id');
+            $table->foreign('payment_id')->references('id')->on('payments');
             $table->string('return_url')->comment('前端回调URL');
             $table->string('notify_url')->comment('异步回调URL');
             $table->integer('status')->default(1)->comment('激活状态:1激活，-1未激活');

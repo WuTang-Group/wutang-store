@@ -43,7 +43,7 @@ class AccountController extends Controller
     public function profile(Request $request)
     {
         $client = new Client(['base_uri' => env('API_URL')]);
-        $request = $client->request('GET', 'user_profiles', ['headers' => [
+        $request = $client->request('GET', 'user_profile', ['headers' => [
                 'Authorization' => 'Bearer '.$this->token
             ]
         ]);

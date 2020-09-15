@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Api;
 use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
 use App\Services\Api\TheHouseService;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
+/**
+ * @group [API] The House
+ * The house 类
+ * @package App\Http\Controllers\Api
+ */
 class TheHouseController extends Controller
 {
     private $service;
@@ -18,57 +21,53 @@ class TheHouseController extends Controller
     }
 
     /**
-     * @group [API] The House
-     * get the house category list
-     * 获取the house 分类列表
-     * @param Request $request
+     * Get the house category
+     * 获取the house分类列表(一般总共为三条)
      * @return \Illuminate\Http\JsonResponse
      */
-    public function theHouseCategoryList(Request $request)
+    public function getCategoryList()
     {
-        $result = $this->service->theHouseCategoryList();
+        $result = $this->service->getCategoryList();
         return response()->json(ResponseData::requestSuccess($result));
     }
 
     /**
-     * @group [API] The House
-     * get all the houses
-     * 获取所有的the house和对应的分类
-     * @param Request $request
+     * Get the house list by category slug
+     * 通过category内的slug获取the house 列表
+     * @urlParam category_slug required category内的slug Example:omnis-inventore
+     * @param $category_slug
      * @return \Illuminate\Http\JsonResponse
      */
-    public function theHouseAll(Request $request)
+    public function getListByCategorySlug($category_slug)
     {
-        $requestData = page_limit($request->all());
-        $result = $this->service->theHouseAll($requestData);
+        $result = $this->service->getListByCategorySlug($category_slug);
         return response()->json(ResponseData::requestSuccess($result));
     }
 
     /**
-     * @group [API] The House
-     * get the house by category
-     * 按照分类得slug获取 the house
-     * @queryQaram $category_slug 分类slug
-     * @param Request $request
+     * Get the house detail by slug
+     * 通过slug获取the house 详情
+     * @urlParam the_house_slug required the house内的slug Example:modi-rerum
+     * @param $the_house_slug
      * @return \Illuminate\Http\JsonResponse
      */
-    public function theHouseList($category_slug, Request $request)
+    public function getDetailByTheHouseSlug($the_house_slug)
     {
-        $result = $this->service->theHouseList($category_slug);
+        $result = $this->service->getDetailByTheHouseSlug($the_house_slug);
         return response()->json(ResponseData::requestSuccess($result));
     }
 
     /**
-     * @group [API] The House
-     * get the house detail
-     * 获取get house详情
-     * @queryParam $the_house_slug
-     * @param Request $request
+     * Get other list by category slug
+     * 通过分类slug获取其他推荐报道
+     * @urlParam category_slug required category内的slug Example:omnis-inventore
+     * @param $category_slug
      * @return \Illuminate\Http\JsonResponse
      */
-    public function theHouseDetail($the_house_slug, Request $request)
+    public function getOtherCategoryList($category_slug)
     {
-        $result = $this->service->theHouseDetail($the_house_slug);
+        $result = $this->service->getOtherCategoryList($category_slug);
         return response()->json(ResponseData::requestSuccess($result));
     }
+
 }

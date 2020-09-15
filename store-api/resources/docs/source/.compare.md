@@ -32,7 +32,7 @@ Welcome to the generated API reference.
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/alipay/legacy_express?page=pariatur&page_limit=et" \
+    -G "http://store.wutang.com/admin/alipay/legacy_express?page=iusto&page_limit=omnis" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -43,8 +43,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "pariatur",
-    "page_limit": "et",
+    "page": "iusto",
+    "page_limit": "omnis",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -95,7 +95,7 @@ curl -X POST \
     "http://store.wutang.com/admin/alipay/legacy_express" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"items":[{"pid":"a","key":"reiciendis","seller_email":"eligendi"}]}'
+    -d '{"items":[{"pid":"dolor","key":"maxime","seller_email":"qui"}]}'
 
 ```
 
@@ -112,9 +112,9 @@ let headers = {
 let body = {
     "items": [
         {
-            "pid": "a",
-            "key": "reiciendis",
-            "seller_email": "eligendi"
+            "pid": "dolor",
+            "key": "maxime",
+            "seller_email": "qui"
         }
     ]
 }
@@ -152,7 +152,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/admin/alipay/legacy_express/1?id=molestiae" \
+    "http://store.wutang.com/admin/alipay/legacy_express/1?id=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -163,7 +163,7 @@ const url = new URL(
 );
 
 let params = {
-    "id": "molestiae",
+    "id": "et",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -203,7 +203,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X DELETE \
-    "http://store.wutang.com/admin/alipay/legacy_express/1?id=consequuntur" \
+    "http://store.wutang.com/admin/alipay/legacy_express/1?id=pariatur" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -214,7 +214,7 @@ const url = new URL(
 );
 
 let params = {
-    "id": "consequuntur",
+    "id": "pariatur",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -254,7 +254,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/admin/alipay/legacy_express/status/1?id=vero" \
+    "http://store.wutang.com/admin/alipay/legacy_express/status/1?id=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -265,7 +265,7 @@ const url = new URL(
 );
 
 let params = {
-    "id": "vero",
+    "id": "et",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -308,7 +308,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/asset_img?page=temporibus&page_limit=voluptatum" \
+    -G "http://store.wutang.com/admin/asset_img?page=magni&page_limit=impedit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -319,8 +319,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "temporibus",
-    "page_limit": "voluptatum",
+    "page": "magni",
+    "page_limit": "impedit",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -368,7 +368,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/asset_img?img=rerum&img_location=porro" \
+    "http://store.wutang.com/admin/asset_img?img=totam&img_location=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -379,8 +379,8 @@ const url = new URL(
 );
 
 let params = {
-    "img": "rerum",
-    "img_location": "porro",
+    "img": "totam",
+    "img_location": "et",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -464,7 +464,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/category_stories?page=itaque&page_limit=sint" \
+    -G "http://store.wutang.com/admin/category_stories?page=qui&page_limit=dolorum" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -475,8 +475,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "itaque",
-    "page_limit": "sint",
+    "page": "qui",
+    "page_limit": "dolorum",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -569,7 +569,7 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/category_stories?title=et&title_en=at&description=molestiae&description_en=ut&banner=totam&product_category_id=ut" \
+    "http://store.wutang.com/admin/category_stories?title=voluptatum&title_en=et&description=necessitatibus&description_en=sunt&banner=nostrum&product_category_id=eum" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -580,12 +580,12 @@ const url = new URL(
 );
 
 let params = {
-    "title": "et",
-    "title_en": "at",
-    "description": "molestiae",
-    "description_en": "ut",
-    "banner": "totam",
-    "product_category_id": "ut",
+    "title": "voluptatum",
+    "title_en": "et",
+    "description": "necessitatibus",
+    "description_en": "sunt",
+    "banner": "nostrum",
+    "product_category_id": "eum",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -630,7 +630,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/category_stories/1?title=temporibus&title_en=aperiam&description=eligendi&description_en=aliquam&banner=praesentium&product_category_id=ducimus" \
+    "http://store.wutang.com/admin/category_stories/1?title=asperiores&title_en=provident&description=autem&description_en=quos&banner=a&product_category_id=numquam" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -641,12 +641,12 @@ const url = new URL(
 );
 
 let params = {
-    "title": "temporibus",
-    "title_en": "aperiam",
-    "description": "eligendi",
-    "description_en": "aliquam",
-    "banner": "praesentium",
-    "product_category_id": "ducimus",
+    "title": "asperiores",
+    "title_en": "provident",
+    "description": "autem",
+    "description_en": "quos",
+    "banner": "a",
+    "product_category_id": "numquam",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -774,7 +774,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/logs/1?page=doloribus&page_limit=reprehenderit" \
+    -G "http://store.wutang.com/admin/logs/1?page=eaque&page_limit=quasi" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -785,8 +785,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "doloribus",
-    "page_limit": "reprehenderit",
+    "page": "eaque",
+    "page_limit": "quasi",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -834,7 +834,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X DELETE \
-    "http://store.wutang.com/admin/logs/1?ids=molestiae" \
+    "http://store.wutang.com/admin/logs/1?ids=voluptas" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -845,7 +845,7 @@ const url = new URL(
 );
 
 let params = {
-    "ids": "molestiae",
+    "ids": "voluptas",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -938,7 +938,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/order?page=non&page_limit=quas" \
+    -G "http://store.wutang.com/admin/order?page=blanditiis&page_limit=cumque" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -949,8 +949,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "non",
-    "page_limit": "quas",
+    "page": "blanditiis",
+    "page_limit": "cumque",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1045,7 +1045,7 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/order?page=necessitatibus&page_limit=nisi&username=ducimus&order_no=quam&order_status=natus" \
+    "http://store.wutang.com/admin/order?page=et&page_limit=perferendis&username=corporis&order_no=quibusdam&order_status=velit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1056,11 +1056,11 @@ const url = new URL(
 );
 
 let params = {
-    "page": "necessitatibus",
-    "page_limit": "nisi",
-    "username": "ducimus",
-    "order_no": "quam",
-    "order_status": "natus",
+    "page": "et",
+    "page_limit": "perferendis",
+    "username": "corporis",
+    "order_no": "quibusdam",
+    "order_status": "velit",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1107,7 +1107,7 @@ curl -X POST \
     "http://store.wutang.com/admin/order/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"refund_status":"nulla","ship_status":"corporis","status":"libero"}'
+    -d '{"refund_status":"voluptas","ship_status":"qui","status":"quod"}'
 
 ```
 
@@ -1122,9 +1122,9 @@ let headers = {
 };
 
 let body = {
-    "refund_status": "nulla",
-    "ship_status": "corporis",
-    "status": "libero"
+    "refund_status": "voluptas",
+    "ship_status": "qui",
+    "status": "quod"
 }
 
 fetch(url, {
@@ -1162,7 +1162,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/product?page=repudiandae&page_limit=nostrum" \
+    -G "http://store.wutang.com/admin/product?page=neque&page_limit=eaque" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1173,8 +1173,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "repudiandae",
-    "page_limit": "nostrum",
+    "page": "neque",
+    "page_limit": "eaque",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1269,7 +1269,7 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/product?product_category_id=autem&product_name=est&product_name_en=eos&thumbnail=aspernatur&slug=reprehenderit&short_description=sequi&short_description_en=eaque&price=voluptas&sale_price=est&stock=qui&seo_title=non&seo_keyword=occaecati&seo_description=ut&benefit=numquam&benefit_en=reprehenderit&tech_description=rerum&tech_description_en=ut&description=asperiores&description_en=et&usage=minus&usage_en=voluptas&main_image=natus&main_image_2=officiis&benefit_image=explicabo&product_video=officia&status=omnis&rating=autem&sold_count=modi&review_count=itaque" \
+    "http://store.wutang.com/admin/product?product_category_id=harum&product_name=dolorum&product_name_en=aut&thumbnail=explicabo&slug=voluptas&short_description=sed&short_description_en=sit&price=iste&sale_price=repudiandae&stock=iure&seo_title=dolorem&seo_keyword=maiores&seo_description=praesentium&benefit=ratione&benefit_en=et&tech_description=vel&tech_description_en=iusto&description=impedit&description_en=temporibus&usage=animi&usage_en=provident&main_image=nostrum&main_image_2=eos&benefit_image=repellat&product_video=molestiae&status=quia&rating=velit&sold_count=quis&review_count=optio" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1280,35 +1280,35 @@ const url = new URL(
 );
 
 let params = {
-    "product_category_id": "autem",
-    "product_name": "est",
-    "product_name_en": "eos",
-    "thumbnail": "aspernatur",
-    "slug": "reprehenderit",
-    "short_description": "sequi",
-    "short_description_en": "eaque",
-    "price": "voluptas",
-    "sale_price": "est",
-    "stock": "qui",
-    "seo_title": "non",
-    "seo_keyword": "occaecati",
-    "seo_description": "ut",
-    "benefit": "numquam",
-    "benefit_en": "reprehenderit",
-    "tech_description": "rerum",
-    "tech_description_en": "ut",
-    "description": "asperiores",
-    "description_en": "et",
-    "usage": "minus",
-    "usage_en": "voluptas",
-    "main_image": "natus",
-    "main_image_2": "officiis",
-    "benefit_image": "explicabo",
-    "product_video": "officia",
-    "status": "omnis",
-    "rating": "autem",
-    "sold_count": "modi",
-    "review_count": "itaque",
+    "product_category_id": "harum",
+    "product_name": "dolorum",
+    "product_name_en": "aut",
+    "thumbnail": "explicabo",
+    "slug": "voluptas",
+    "short_description": "sed",
+    "short_description_en": "sit",
+    "price": "iste",
+    "sale_price": "repudiandae",
+    "stock": "iure",
+    "seo_title": "dolorem",
+    "seo_keyword": "maiores",
+    "seo_description": "praesentium",
+    "benefit": "ratione",
+    "benefit_en": "et",
+    "tech_description": "vel",
+    "tech_description_en": "iusto",
+    "description": "impedit",
+    "description_en": "temporibus",
+    "usage": "animi",
+    "usage_en": "provident",
+    "main_image": "nostrum",
+    "main_image_2": "eos",
+    "benefit_image": "repellat",
+    "product_video": "molestiae",
+    "status": "quia",
+    "rating": "velit",
+    "sold_count": "quis",
+    "review_count": "optio",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1376,7 +1376,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/product/1?product_category_id=qui&product_name=quam&product_name_en=non&thumbnail=aut&slug=est&short_description=sit&short_description_en=quia&price=et&sale_price=quo&stock=totam&seo_title=placeat&seo_keyword=saepe&seo_description=amet&benefit=delectus&benefit_en=voluptas&tech_description=odio&tech_description_en=ipsa&description=sint&description_en=neque&usage=accusantium&usage_en=odio&main_image=voluptate&main_image_2=adipisci&benefit_image=reprehenderit&product_video=voluptas&status=nobis&rating=pariatur&sold_count=quas&review_count=autem" \
+    "http://store.wutang.com/admin/product/1?product_category_id=sunt&product_name=illo&product_name_en=explicabo&thumbnail=quam&slug=aut&short_description=aperiam&short_description_en=et&price=nobis&sale_price=rerum&stock=ratione&seo_title=non&seo_keyword=qui&seo_description=et&benefit=odit&benefit_en=qui&tech_description=suscipit&tech_description_en=ratione&description=qui&description_en=illum&usage=quia&usage_en=nesciunt&main_image=ipsam&main_image_2=perferendis&benefit_image=deleniti&product_video=ipsam&status=ipsum&rating=dolores&sold_count=rerum&review_count=autem" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1387,34 +1387,34 @@ const url = new URL(
 );
 
 let params = {
-    "product_category_id": "qui",
-    "product_name": "quam",
-    "product_name_en": "non",
-    "thumbnail": "aut",
-    "slug": "est",
-    "short_description": "sit",
-    "short_description_en": "quia",
-    "price": "et",
-    "sale_price": "quo",
-    "stock": "totam",
-    "seo_title": "placeat",
-    "seo_keyword": "saepe",
-    "seo_description": "amet",
-    "benefit": "delectus",
-    "benefit_en": "voluptas",
-    "tech_description": "odio",
-    "tech_description_en": "ipsa",
-    "description": "sint",
-    "description_en": "neque",
-    "usage": "accusantium",
-    "usage_en": "odio",
-    "main_image": "voluptate",
-    "main_image_2": "adipisci",
-    "benefit_image": "reprehenderit",
-    "product_video": "voluptas",
-    "status": "nobis",
-    "rating": "pariatur",
-    "sold_count": "quas",
+    "product_category_id": "sunt",
+    "product_name": "illo",
+    "product_name_en": "explicabo",
+    "thumbnail": "quam",
+    "slug": "aut",
+    "short_description": "aperiam",
+    "short_description_en": "et",
+    "price": "nobis",
+    "sale_price": "rerum",
+    "stock": "ratione",
+    "seo_title": "non",
+    "seo_keyword": "qui",
+    "seo_description": "et",
+    "benefit": "odit",
+    "benefit_en": "qui",
+    "tech_description": "suscipit",
+    "tech_description_en": "ratione",
+    "description": "qui",
+    "description_en": "illum",
+    "usage": "quia",
+    "usage_en": "nesciunt",
+    "main_image": "ipsam",
+    "main_image_2": "perferendis",
+    "benefit_image": "deleniti",
+    "product_video": "ipsam",
+    "status": "ipsum",
+    "rating": "dolores",
+    "sold_count": "rerum",
     "review_count": "autem",
 };
 Object.keys(params)
@@ -1526,7 +1526,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/product_categories?page=sed&page_limit=dolores" \
+    -G "http://store.wutang.com/admin/product_categories?page=repellat&page_limit=incidunt" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1537,8 +1537,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "sed",
-    "page_limit": "dolores",
+    "page": "repellat",
+    "page_limit": "incidunt",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1633,7 +1633,7 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/product_categories?name=accusamus&thumbnail=nulla&banner=nostrum&title=quos&title_en=aut&sub_title=occaecati&describe=et&describe_en=placeat&describe_img=nobis&parent_id=qui" \
+    "http://store.wutang.com/admin/product_categories?name=quis&thumbnail=accusamus&banner=consectetur&title=sed&title_en=est&sub_title=recusandae&describe=odit&describe_en=qui&describe_img=nulla&parent_id=dignissimos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1644,16 +1644,16 @@ const url = new URL(
 );
 
 let params = {
-    "name": "accusamus",
-    "thumbnail": "nulla",
-    "banner": "nostrum",
-    "title": "quos",
-    "title_en": "aut",
-    "sub_title": "occaecati",
-    "describe": "et",
-    "describe_en": "placeat",
-    "describe_img": "nobis",
-    "parent_id": "qui",
+    "name": "quis",
+    "thumbnail": "accusamus",
+    "banner": "consectetur",
+    "title": "sed",
+    "title_en": "est",
+    "sub_title": "recusandae",
+    "describe": "odit",
+    "describe_en": "qui",
+    "describe_img": "nulla",
+    "parent_id": "dignissimos",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1702,7 +1702,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/product_categories/1?name=libero&thumbnail=fugiat&banner=qui&title=officia&title_en=non&sub_title=quaerat&describe=et&describe_en=et&describe_img=voluptatibus&parent_id=veniam" \
+    "http://store.wutang.com/admin/product_categories/1?name=iste&thumbnail=id&banner=est&title=ducimus&title_en=consequatur&sub_title=voluptatibus&describe=dolore&describe_en=sunt&describe_img=perspiciatis&parent_id=fugit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1713,16 +1713,16 @@ const url = new URL(
 );
 
 let params = {
-    "name": "libero",
-    "thumbnail": "fugiat",
-    "banner": "qui",
-    "title": "officia",
-    "title_en": "non",
-    "sub_title": "quaerat",
-    "describe": "et",
-    "describe_en": "et",
-    "describe_img": "voluptatibus",
-    "parent_id": "veniam",
+    "name": "iste",
+    "thumbnail": "id",
+    "banner": "est",
+    "title": "ducimus",
+    "title_en": "consequatur",
+    "sub_title": "voluptatibus",
+    "describe": "dolore",
+    "describe_en": "sunt",
+    "describe_img": "perspiciatis",
+    "parent_id": "fugit",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1861,7 +1861,7 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/product_sku?title=et&description=ab&price=et&stock=aut&product_id=iusto" \
+    "http://store.wutang.com/admin/product_sku?title=non&description=ullam&price=occaecati&stock=tenetur&product_id=modi" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1872,11 +1872,11 @@ const url = new URL(
 );
 
 let params = {
-    "title": "et",
-    "description": "ab",
-    "price": "et",
-    "stock": "aut",
-    "product_id": "iusto",
+    "title": "non",
+    "description": "ullam",
+    "price": "occaecati",
+    "stock": "tenetur",
+    "product_id": "modi",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1920,7 +1920,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/product_sku/1?title=enim&description=quis&price=est&stock=fugit&product_id=sit" \
+    "http://store.wutang.com/admin/product_sku/1?title=ut&description=at&price=cum&stock=perspiciatis&product_id=maxime" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1931,11 +1931,11 @@ const url = new URL(
 );
 
 let params = {
-    "title": "enim",
-    "description": "quis",
-    "price": "est",
-    "stock": "fugit",
-    "product_id": "sit",
+    "title": "ut",
+    "description": "at",
+    "price": "cum",
+    "stock": "perspiciatis",
+    "product_id": "maxime",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2022,7 +2022,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/user?username=illum&page=expedita&page_limit=alias" \
+    -G "http://store.wutang.com/admin/user?username=culpa&page=laborum&page_limit=voluptatibus" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2033,9 +2033,9 @@ const url = new URL(
 );
 
 let params = {
-    "username": "illum",
-    "page": "expedita",
-    "page_limit": "alias",
+    "username": "culpa",
+    "page": "laborum",
+    "page_limit": "voluptatibus",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2084,7 +2084,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/admin/user/1?name=in&email=officiis&phone=animi&avatar=velit" \
+    "http://store.wutang.com/admin/user/1?name=sit&email=quia&phone=nisi&avatar=deleniti" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2095,10 +2095,10 @@ const url = new URL(
 );
 
 let params = {
-    "name": "in",
-    "email": "officiis",
-    "phone": "animi",
-    "avatar": "velit",
+    "name": "sit",
+    "email": "quia",
+    "phone": "nisi",
+    "avatar": "deleniti",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2181,7 +2181,7 @@ fetch(url, {
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/admin/user/reset_password/1?oldPassword=suscipit&newPassword=iure&newPassword_confirmation=temporibus" \
+    "http://store.wutang.com/admin/user/reset_password/1?oldPassword=dolor&newPassword=repellendus&newPassword_confirmation=accusantium" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2192,9 +2192,9 @@ const url = new URL(
 );
 
 let params = {
-    "oldPassword": "suscipit",
-    "newPassword": "iure",
-    "newPassword_confirmation": "temporibus",
+    "oldPassword": "dolor",
+    "newPassword": "repellendus",
+    "newPassword_confirmation": "accusantium",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2236,7 +2236,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/get_user?hash_id=suscipit" \
+    -G "http://store.wutang.com/admin/get_user?hash_id=dolor" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2247,7 +2247,7 @@ const url = new URL(
 );
 
 let params = {
-    "hash_id": "suscipit",
+    "hash_id": "dolor",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2344,7 +2344,7 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/user_addresses?province=praesentium&city=dicta&district=distinctio&address=soluta&zip=fuga&contact_name=error&contact_phone=perferendis" \
+    "http://store.wutang.com/admin/user_addresses?province=accusantium&city=occaecati&district=porro&address=magni&zip=voluptatem&contact_name=magni&contact_phone=in" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2355,13 +2355,13 @@ const url = new URL(
 );
 
 let params = {
-    "province": "praesentium",
-    "city": "dicta",
-    "district": "distinctio",
-    "address": "soluta",
-    "zip": "fuga",
-    "contact_name": "error",
-    "contact_phone": "perferendis",
+    "province": "accusantium",
+    "city": "occaecati",
+    "district": "porro",
+    "address": "magni",
+    "zip": "voluptatem",
+    "contact_name": "magni",
+    "contact_phone": "in",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2407,7 +2407,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/admin/user_addresses/1?address_id=et&province=officiis&city=dignissimos&district=et&address=assumenda&zip=ratione&contact_name=eos&contact_phone=aspernatur" \
+    "http://store.wutang.com/admin/user_addresses/1?address_id=eum&province=excepturi&city=consequuntur&district=quia&address=provident&zip=nisi&contact_name=in&contact_phone=voluptas" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2418,14 +2418,14 @@ const url = new URL(
 );
 
 let params = {
-    "address_id": "et",
-    "province": "officiis",
-    "city": "dignissimos",
-    "district": "et",
-    "address": "assumenda",
-    "zip": "ratione",
-    "contact_name": "eos",
-    "contact_phone": "aspernatur",
+    "address_id": "eum",
+    "province": "excepturi",
+    "city": "consequuntur",
+    "district": "quia",
+    "address": "provident",
+    "zip": "nisi",
+    "contact_name": "in",
+    "contact_phone": "voluptas",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2472,7 +2472,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X DELETE \
-    "http://store.wutang.com/admin/user_addresses/1?address_id=sapiente" \
+    "http://store.wutang.com/admin/user_addresses/1?address_id=qui" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2483,7 +2483,7 @@ const url = new URL(
 );
 
 let params = {
-    "address_id": "sapiente",
+    "address_id": "qui",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2573,7 +2573,7 @@ fetch(url, {
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/admin/user_profiles/1?profile_id=accusantium" \
+    "http://store.wutang.com/admin/user_profiles/1?profile_id=ab" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2584,7 +2584,7 @@ const url = new URL(
 );
 
 let params = {
-    "profile_id": "accusantium",
+    "profile_id": "ab",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2624,7 +2624,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X DELETE \
-    "http://store.wutang.com/admin/user_profiles/1?profile_id=cum" \
+    "http://store.wutang.com/admin/user_profiles/1?profile_id=quia" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2635,7 +2635,7 @@ const url = new URL(
 );
 
 let params = {
-    "profile_id": "cum",
+    "profile_id": "quia",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2682,7 +2682,7 @@ curl -X POST \
     "http://store.wutang.com/api/auth/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"tempora","username":"eveniet","password":"sunt","password_confirmation":"suscipit","code":"nihil","captcha_key":"aut","captcha_code":"atque","password_question_id":9,"password_answer":"repudiandae"}'
+    -d '{"name":"sit","username":"aut","password":"ut","password_confirmation":"occaecati","code":"dolores","captcha_key":"qui","captcha_code":"aut","password_question_id":5,"password_answer":"tempore"}'
 
 ```
 
@@ -2697,15 +2697,15 @@ let headers = {
 };
 
 let body = {
-    "name": "tempora",
-    "username": "eveniet",
-    "password": "sunt",
-    "password_confirmation": "suscipit",
-    "code": "nihil",
-    "captcha_key": "aut",
-    "captcha_code": "atque",
-    "password_question_id": 9,
-    "password_answer": "repudiandae"
+    "name": "sit",
+    "username": "aut",
+    "password": "ut",
+    "password_confirmation": "occaecati",
+    "code": "dolores",
+    "captcha_key": "qui",
+    "captcha_code": "aut",
+    "password_question_id": 5,
+    "password_answer": "tempore"
 }
 
 fetch(url, {
@@ -2826,7 +2826,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/user_question?username=repudiandae" \
+    -G "http://store.wutang.com/api/user_question?username=commodi" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2837,7 +2837,7 @@ const url = new URL(
 );
 
 let params = {
-    "username": "repudiandae",
+    "username": "commodi",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2861,7 +2861,7 @@ fetch(url, {
 ```json
 {
     "data": {
-        "username": "repudiandae"
+        "username": "commodi"
     },
     "code": 10001,
     "msg": "用户不存在"
@@ -2891,7 +2891,7 @@ curl -X POST \
     "http://store.wutang.com/api/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"username":"sint","password":"velit"}'
+    -d '{"username":"et","password":"et"}'
 
 ```
 
@@ -2906,8 +2906,8 @@ let headers = {
 };
 
 let body = {
-    "username": "sint",
-    "password": "velit"
+    "username": "et",
+    "password": "et"
 }
 
 fetch(url, {
@@ -2940,7 +2940,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/api/password_reset?username=culpa&password_question_id=qui&password_answer=et&password=quidem&password_confirmation=modi" \
+    "http://store.wutang.com/api/password_reset?username=inventore&password_question_id=ab&password_answer=accusantium&password=eos&password_confirmation=expedita" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2951,11 +2951,11 @@ const url = new URL(
 );
 
 let params = {
-    "username": "culpa",
-    "password_question_id": "qui",
-    "password_answer": "et",
-    "password": "quidem",
-    "password_confirmation": "modi",
+    "username": "inventore",
+    "password_question_id": "ab",
+    "password_answer": "accusantium",
+    "password": "eos",
+    "password_confirmation": "expedita",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -3128,7 +3128,7 @@ curl -X POST \
     "http://store.wutang.com/api/auth/password_change" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"oldPassword":"excepturi","newPassword":"et","newPassword_confirmation":"amet"}'
+    -d '{"oldPassword":"porro","newPassword":"distinctio","newPassword_confirmation":"assumenda"}'
 
 ```
 
@@ -3143,9 +3143,9 @@ let headers = {
 };
 
 let body = {
-    "oldPassword": "excepturi",
-    "newPassword": "et",
-    "newPassword_confirmation": "amet"
+    "oldPassword": "porro",
+    "newPassword": "distinctio",
+    "newPassword_confirmation": "assumenda"
 }
 
 fetch(url, {
@@ -3274,7 +3274,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/order_details/1?no=id" \
+    -G "http://store.wutang.com/api/order_details/1?no=enim" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -3285,7 +3285,7 @@ const url = new URL(
 );
 
 let params = {
-    "no": "id",
+    "no": "enim",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -3335,7 +3335,7 @@ curl -X POST \
     "http://store.wutang.com/api/orders" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"address_id":"rerum","remark":"exercitationem"}'
+    -d '{"address_id":"non","remark":"sed"}'
 
 ```
 
@@ -3350,8 +3350,8 @@ let headers = {
 };
 
 let body = {
-    "address_id": "rerum",
-    "remark": "exercitationem"
+    "address_id": "non",
+    "remark": "sed"
 }
 
 fetch(url, {
@@ -3388,7 +3388,7 @@ curl -X POST \
     "http://store.wutang.com/api/orders/retry" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"no":20}'
+    -d '{"no":2}'
 
 ```
 
@@ -3403,7 +3403,7 @@ let headers = {
 };
 
 let body = {
-    "no": 20
+    "no": 2
 }
 
 fetch(url, {
@@ -3436,7 +3436,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/api/orders/cancel?no=et" \
+    "http://store.wutang.com/api/orders/cancel?no=doloremque" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -3447,7 +3447,7 @@ const url = new URL(
 );
 
 let params = {
-    "no": "et",
+    "no": "doloremque",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -3480,17 +3480,1119 @@ Parameter | Status | Description
 
 #[API] Product
 
-商品管理
+产品管理
 status说明:(1新品,2畅销,3促销,-1下架)
+<!-- START_86e0ac5d4f8ce9853bc22fd08f2a0109 -->
+## Get product list
+获取商品列表
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://store.wutang.com/api/products" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://store.wutang.com/api/products"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1,
+                "product_category_id": 14,
+                "product_name": "黑钻赋颜面霜",
+                "product_name_en": "explicabo necessitatibus illum",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?74169",
+                "slug": "mollitia-cum",
+                "short_description": "Libero quia occaecati asperiores nam amet nostrum.",
+                "short_description_en": "Dolore ad modi fugiat quis voluptas. Voluptates soluta cum vel autem. Quod aut quia ut eaque adipisci eos officia.",
+                "price": "2259.00",
+                "sale_price": "1.00",
+                "stock": 656,
+                "spec": null,
+                "seo_title": "accusamus qui a",
+                "seo_keyword": "reiciendis",
+                "seo_description": "Labore aut qui mollitia.",
+                "benefit": "Rerum beatae qui ut. Enim similique unde maxime asperiores et earum blanditiis. Ut id eum nulla. Harum beatae ut quia aperiam aperiam laboriosam atque.",
+                "benefit_en": "Aliquam quae ipsum excepturi explicabo necessitatibus ut omnis. Et dolor nulla eaque cumque ipsum fugit. Assumenda omnis voluptas dolorem dolor dolorum. Enim rerum repellat fugit sed. Nesciunt adipisci et est adipisci fugiat molestiae.",
+                "tech_description": "Officia dolor adipisci pariatur reprehenderit deserunt fuga eos et. At sit at odio iusto in id. Vero et eius recusandae quasi sit earum.",
+                "tech_description_en": "Eum id atque est dicta dicta voluptatibus. Voluptatem consequatur maxime officia delectus voluptatem eos. Assumenda facere doloribus occaecati cum.",
+                "description": "Beatae doloremque cum aperiam nostrum eum doloribus aut. Maxime enim non culpa sed numquam sunt. Libero porro aliquid qui numquam maxime iure sit sapiente.",
+                "description_en": "Maxime totam facere eos exercitationem exercitationem cumque. Eum perferendis velit nobis omnis sequi hic culpa. Dolor autem magni optio modi modi ipsa.",
+                "usage": "Ut voluptatibus amet et consequatur. Sed eveniet eveniet consectetur dicta sequi et ut. Nostrum aut iusto ipsam officiis.",
+                "usage_en": "Qui rem et est rerum et et amet id. Cupiditate nemo rem officiis ut. Rerum labore eligendi sunt vero.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?82989",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?65574",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?89074",
+                "product_video": null,
+                "status": 1,
+                "rating": 8.62,
+                "sold_count": 9937,
+                "review_count": 1578,
+                "created_at": "2020-09-12 08:54:31",
+                "updated_at": "2020-08-24 23:25:58",
+                "product_category": {
+                    "id": 14,
+                    "name": "眼线",
+                    "slug": "alias-dignissimos",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?47714",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?21643",
+                    "title": "doloremque exercitationem id",
+                    "title_en": "qui dolorem consequatur",
+                    "sub_title": "autem occaecati quam",
+                    "describe": "Aut perferendis et officiis totam dolorum. Blanditiis molestiae amet sapiente maxime maxime.",
+                    "describe_en": "Et molestias cumque nisi dolor. Numquam incidunt est nobis adipisci cumque. Quas voluptatum sequi eveniet. Omnis voluptate commodi eaque ratione. Quisquam quo illo iste nihil praesentium dicta aut.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?25094",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-08-16 10:17:20",
+                    "updated_at": "2020-08-28 04:56:47"
+                }
+            },
+            {
+                "id": 2,
+                "product_category_id": 15,
+                "product_name": "黑钻洁净滋养面膜",
+                "product_name_en": "quis ut totam",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?47797",
+                "slug": "atque-est",
+                "short_description": "Maxime voluptatibus molestiae cupiditate est.",
+                "short_description_en": "Minus totam qui qui dolore et ea excepturi. Odio explicabo doloremque quas temporibus provident. Ea vel voluptatibus reprehenderit.",
+                "price": "6860.00",
+                "sale_price": "1.00",
+                "stock": 837,
+                "spec": null,
+                "seo_title": "quia ipsam est",
+                "seo_keyword": "accusamus",
+                "seo_description": "Rerum voluptatem hic architecto exercitationem aut quae.",
+                "benefit": "Et facilis porro similique dolorem ratione consequatur voluptatem quia. Aut nihil dolorem reiciendis corrupti ut quibusdam consectetur. Id ut recusandae tenetur molestiae perspiciatis.",
+                "benefit_en": "Corrupti doloribus delectus facere soluta amet. Non nihil odit non accusantium modi et quae. Nisi animi voluptatem repellat. Reprehenderit veritatis rerum maiores sed voluptatem.",
+                "tech_description": "Nostrum odio at possimus itaque natus et. Ipsum voluptatibus voluptatem ipsum expedita. Et expedita quis ut laboriosam vel voluptate aut quis.",
+                "tech_description_en": "Qui quis atque modi numquam minima necessitatibus molestias unde. Laudantium animi quaerat cumque sed. Repellat aut culpa sint aliquid veritatis error.",
+                "description": "Corporis nostrum quia et natus sed facere. Consequatur eveniet totam earum voluptate id quo debitis. Id qui vero debitis et iusto.",
+                "description_en": "Quibusdam adipisci assumenda maxime voluptas ut molestiae atque. Voluptate amet error beatae dolorem. Mollitia non nam eum quam blanditiis dolorum. Qui dolore iste velit sint.",
+                "usage": "Molestiae quis quia dolores laboriosam eius illo est. Saepe dolores dolor alias culpa. Sed tenetur laboriosam quis repudiandae provident est consectetur.",
+                "usage_en": "Tempora quo alias quis voluptatem vel eveniet. Sit asperiores laboriosam sed tenetur aut expedita.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?54375",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?93510",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?55155",
+                "product_video": null,
+                "status": 1,
+                "rating": 2.32,
+                "sold_count": 6146,
+                "review_count": 1928,
+                "created_at": "2020-09-04 03:47:40",
+                "updated_at": "2020-08-19 16:28:21",
+                "product_category": {
+                    "id": 15,
+                    "name": "眼线",
+                    "slug": "in-iusto",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?69150",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?81141",
+                    "title": "non alias eius",
+                    "title_en": "delectus corporis et",
+                    "sub_title": "nesciunt repudiandae esse",
+                    "describe": "Quia in vero et. Vitae eveniet et qui velit. Ut hic unde facilis laboriosam. Totam beatae qui adipisci enim.",
+                    "describe_en": "Aut assumenda sed modi optio impedit deserunt. Nesciunt aspernatur voluptate at. Adipisci accusamus veniam nemo alias aut ut. Eos voluptates aspernatur aut perspiciatis.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?94793",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-09-08 19:34:43",
+                    "updated_at": "2020-09-13 17:58:45"
+                }
+            },
+            {
+                "id": 3,
+                "product_category_id": 13,
+                "product_name": "钻石冰莹面膜",
+                "product_name_en": "labore velit dolore",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?98686",
+                "slug": "ad-qui",
+                "short_description": "Eos quas quidem sequi iure assumenda.",
+                "short_description_en": "Nihil corporis sed dignissimos dolorem quo. Ipsa et recusandae dolores ullam iure odio ipsum maiores. Quos expedita sint sequi placeat. Itaque dicta sit eaque tempora.",
+                "price": "8261.00",
+                "sale_price": "1.00",
+                "stock": 37,
+                "spec": null,
+                "seo_title": "est velit totam",
+                "seo_keyword": "sint",
+                "seo_description": "Laboriosam a quos possimus et enim et.",
+                "benefit": "Sint in est ipsum ad dolores. Ea perspiciatis nam omnis odio magnam in beatae commodi. Aut quos aut dolor dolor reprehenderit itaque. Placeat quo laboriosam doloribus unde distinctio.",
+                "benefit_en": "Qui est tempore reiciendis ipsum molestias exercitationem saepe consequatur. Sapiente tenetur eligendi est qui. Non veniam laudantium accusantium. A cumque ipsa dicta fuga deserunt.",
+                "tech_description": "Architecto commodi earum aut totam fugit. Quod est quia nemo in sapiente aut libero. Quis voluptatem vel facere adipisci laudantium aliquam vel.",
+                "tech_description_en": "Officiis praesentium error quo odit qui. Consequatur perspiciatis ipsum atque voluptatem eaque aut magni. Dolore praesentium quisquam quia dolorem illo.",
+                "description": "Et possimus dicta nobis aut odio dignissimos et. Eligendi aut molestias consectetur autem eaque quia. Error nihil perferendis et eveniet ducimus consequatur dolores nobis.",
+                "description_en": "Ut qui ut perspiciatis ea ut laboriosam maiores. Molestiae qui asperiores quis autem expedita in. Vitae aliquid nostrum velit nihil blanditiis.",
+                "usage": "Qui iusto et eum nobis vel. Inventore beatae voluptas aut error aut. Beatae minus quis dolor.",
+                "usage_en": "Qui ut pariatur itaque. Laborum ea id assumenda facere et. In rem voluptas et totam. Sequi et labore beatae fugit qui.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?44853",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?13171",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?55639",
+                "product_video": null,
+                "status": 1,
+                "rating": 8.18,
+                "sold_count": 4929,
+                "review_count": 5925,
+                "created_at": "2020-09-07 05:38:53",
+                "updated_at": "2020-08-20 03:34:02",
+                "product_category": {
+                    "id": 13,
+                    "name": "爽肤水",
+                    "slug": "rerum-rerum",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?65402",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?68435",
+                    "title": "praesentium dicta quia",
+                    "title_en": "nam a voluptatem",
+                    "sub_title": "molestias ut non",
+                    "describe": "Doloribus labore enim et earum. Dicta numquam inventore et necessitatibus. Nobis velit est officia et a et officiis nemo. Odit in quaerat et saepe blanditiis repudiandae minus.",
+                    "describe_en": "Suscipit molestiae libero veritatis exercitationem. Non qui enim ut omnis et voluptates laboriosam. Est quia aut ea ratione animi. Nisi inventore atque totam et et quae nihil illum.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?22910",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-08-30 06:19:54",
+                    "updated_at": "2020-08-23 07:20:22"
+                }
+            },
+            {
+                "id": 4,
+                "product_category_id": 11,
+                "product_name": "钻石焕活面膜",
+                "product_name_en": "et reiciendis quia",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?61631",
+                "slug": "ut-qui",
+                "short_description": "Culpa debitis et asperiores minus aut odit.",
+                "short_description_en": "Corrupti dolores ipsum corporis minus in. Qui quis vel magni commodi quasi hic quasi earum. Delectus quibusdam ratione est esse sit. Distinctio qui blanditiis ea ad.",
+                "price": "4661.00",
+                "sale_price": "1.00",
+                "stock": 180,
+                "spec": null,
+                "seo_title": "molestiae magnam et",
+                "seo_keyword": "fugiat",
+                "seo_description": "Natus et odio ut.",
+                "benefit": "Quo aperiam officiis quaerat inventore ad sunt. Ipsa et dolorem et dolore ut aut quisquam. Voluptatem officiis excepturi officiis non sint architecto. Dolorem dolor sed illum tempore id reiciendis ut.",
+                "benefit_en": "Quaerat consequatur illum dolores qui. Officia autem quidem minus ex deserunt. Quia qui iste quos ab saepe. Nihil commodi omnis eos ipsa dolores.",
+                "tech_description": "Perferendis omnis est commodi amet rerum sint ullam inventore. Nulla omnis ullam et sequi. Dolorum qui qui sapiente porro molestiae eum omnis at. Autem molestias ut distinctio quae rem. Est odio distinctio cumque deserunt qui.",
+                "tech_description_en": "Aperiam placeat ipsam aut et recusandae. Aut rerum eos cum ipsa autem sit. Aut animi aut modi qui.",
+                "description": "Dolorem non tempora at maiores accusamus. Aspernatur perspiciatis et animi qui aspernatur fugiat ut. Occaecati et commodi ipsum blanditiis laudantium cumque. Dolor culpa molestias voluptates.",
+                "description_en": "Architecto consectetur ad corporis ut recusandae quo ut. Tempore et iure quam. Doloribus vero deleniti quae. Esse quis dolor quia aliquid illo illum temporibus. Minima distinctio quis sapiente.",
+                "usage": "Consequatur at est distinctio dolorem qui ut. Atque nulla aut perspiciatis nam. Architecto rem ut rerum magni.",
+                "usage_en": "Aut qui eos sed quo ex nobis. Delectus non modi aut ex eveniet alias voluptas. Cupiditate atque iure explicabo aut iusto. Provident rem et in enim rerum vel.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?17831",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?98154",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?85896",
+                "product_video": null,
+                "status": 2,
+                "rating": 1.46,
+                "sold_count": 3746,
+                "review_count": 2624,
+                "created_at": "2020-09-14 01:53:52",
+                "updated_at": "2020-09-09 07:20:57",
+                "product_category": {
+                    "id": 11,
+                    "name": "爽肤水",
+                    "slug": "aperiam-perferendis",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?31471",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?13679",
+                    "title": "et ut autem",
+                    "title_en": "et quia libero",
+                    "sub_title": "dolores ratione aspernatur",
+                    "describe": "Facilis animi quia quae deleniti. Eum quod delectus iste omnis. Ad sed quis aliquid et.",
+                    "describe_en": "Dicta voluptatem adipisci delectus quia molestiae libero dignissimos. Temporibus ipsa soluta vel soluta delectus id.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?94276",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-09-03 10:21:46",
+                    "updated_at": "2020-09-10 21:48:34"
+                }
+            },
+            {
+                "id": 5,
+                "product_category_id": 16,
+                "product_name": "钻石焕活面膜",
+                "product_name_en": "reprehenderit exercitationem dolorem",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?24972",
+                "slug": "corrupti-possimus",
+                "short_description": "Laboriosam soluta deleniti est modi maxime.",
+                "short_description_en": "Ut consequatur exercitationem sunt eum. Eius laboriosam saepe ad dolorem laudantium fuga accusamus. Iure autem occaecati aut rem.",
+                "price": "2138.00",
+                "sale_price": "1.00",
+                "stock": 260,
+                "spec": null,
+                "seo_title": "voluptas deleniti quidem",
+                "seo_keyword": "sapiente",
+                "seo_description": "Expedita est minima occaecati.",
+                "benefit": "Eos tempora repudiandae eos omnis molestiae nobis dolores. Quae dolorem qui non et. Rerum quidem iure aut voluptas harum aut quasi fugiat.",
+                "benefit_en": "Praesentium nesciunt quas perferendis recusandae. Porro ut optio officiis.",
+                "tech_description": "Nemo explicabo assumenda modi pariatur et. Voluptatem facilis perferendis quae perspiciatis odio. Rem qui dolore et sed voluptatem corporis. Et quis aut voluptatem enim quia totam voluptates.",
+                "tech_description_en": "Nisi libero maiores architecto deserunt libero molestias. Esse magni est modi sunt voluptas quo saepe. Eligendi est ipsum inventore id praesentium ex.",
+                "description": "Totam vel consectetur enim odit nostrum unde similique. Recusandae aut maxime enim maiores id possimus. Omnis adipisci nemo impedit. Aspernatur accusantium illum voluptatum illo tempore.",
+                "description_en": "Soluta velit ipsum atque. Facere eos quaerat rerum voluptatum soluta voluptatibus.",
+                "usage": "Natus pariatur quis dolorem error voluptas qui qui. Autem nisi quam non vel.",
+                "usage_en": "Id et illo aut quam enim. Maiores eos excepturi et animi et velit quaerat quas. Quam quae voluptatibus molestiae maiores harum totam. Qui dolorem reprehenderit quis sit laborum delectus.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?59706",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?97950",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?64668",
+                "product_video": null,
+                "status": 2,
+                "rating": 3.68,
+                "sold_count": 4770,
+                "review_count": 4949,
+                "created_at": "2020-09-13 11:10:35",
+                "updated_at": "2020-09-03 02:02:04",
+                "product_category": {
+                    "id": 16,
+                    "name": "护肤系列",
+                    "slug": "quas-ut",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?36168",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?52655",
+                    "title": "quo est velit",
+                    "title_en": "numquam tempora earum",
+                    "sub_title": "quo sequi voluptatibus",
+                    "describe": "Voluptates nemo nisi in expedita perspiciatis qui. Autem autem est sunt deserunt omnis asperiores nobis. Nesciunt deleniti sit enim suscipit et mollitia consequatur enim.",
+                    "describe_en": "Sapiente quis dolores velit id eaque aut. Architecto expedita aut illum molestias earum architecto. Magni nesciunt sit voluptate est corporis atque. Rerum cum eum dolores voluptatem et quaerat quis.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?64401",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-08-18 08:15:12",
+                    "updated_at": "2020-08-16 11:06:15"
+                }
+            },
+            {
+                "id": 6,
+                "product_category_id": 20,
+                "product_name": "黑钻璀璨晶透肌底精华",
+                "product_name_en": "dolores veniam suscipit",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?10883",
+                "slug": "autem-corporis",
+                "short_description": "Et et laborum voluptatem.",
+                "short_description_en": "Accusantium rerum similique velit error cumque. Quo quia qui itaque odit reiciendis tempore iure. Ducimus ab aspernatur error aspernatur ut molestiae.",
+                "price": "4808.00",
+                "sale_price": "1.00",
+                "stock": 244,
+                "spec": null,
+                "seo_title": "cupiditate consequuntur in",
+                "seo_keyword": "facere",
+                "seo_description": "Consectetur quaerat est sed non voluptatibus perferendis.",
+                "benefit": "In ut doloremque officia inventore sed. Esse omnis magnam et praesentium unde.",
+                "benefit_en": "Ea perferendis cumque perferendis nostrum laudantium. Tempora maiores iure aut laboriosam accusantium quidem.",
+                "tech_description": "Saepe esse atque reprehenderit voluptatem inventore velit. Aut harum nobis explicabo facilis. Maxime in officiis autem et est. Nobis repudiandae iusto quasi possimus.",
+                "tech_description_en": "Tenetur dolor fuga perferendis aut aut rerum dolores impedit. Aut necessitatibus id exercitationem dolor nostrum. Quaerat impedit ratione debitis maxime magnam eveniet alias. Ut consequuntur iste minus suscipit architecto.",
+                "description": "Omnis et sint commodi. Adipisci et corporis et quo ea assumenda beatae. Aut dolorem minima in maxime veniam.",
+                "description_en": "Fuga aliquam sunt vel amet. Eveniet ducimus soluta non. Aperiam voluptas aliquam veniam laboriosam quae dolores.",
+                "usage": "Autem nulla temporibus qui reprehenderit cumque. Expedita nisi qui et nulla molestias odit et.",
+                "usage_en": "Et omnis ea culpa autem illum odit. Rerum quia minus sint voluptate saepe fugiat exercitationem. Impedit sed eos culpa consequatur asperiores.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?76212",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?98025",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?40591",
+                "product_video": null,
+                "status": 3,
+                "rating": 8.69,
+                "sold_count": 7900,
+                "review_count": 6515,
+                "created_at": "2020-08-29 22:10:40",
+                "updated_at": "2020-08-17 17:56:03",
+                "product_category": {
+                    "id": 20,
+                    "name": "套装A",
+                    "slug": "dignissimos-et",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?39470",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?36683",
+                    "title": "sed voluptatem itaque",
+                    "title_en": "quae qui nostrum",
+                    "sub_title": "deleniti tenetur sit",
+                    "describe": "Fuga libero eum dolores quia porro omnis quasi. Dolor est voluptatibus maxime. Fuga dolore sint est labore. Illum qui incidunt dolore cupiditate iusto velit.",
+                    "describe_en": "Quia vel voluptatem incidunt ducimus ipsum et. Sit facere ut illo sequi impedit dolorem omnis. In voluptatem possimus numquam. Corrupti ratione eaque sit cumque accusamus sequi.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?73330",
+                    "parent_id": 2,
+                    "level": 2,
+                    "created_at": "2020-09-01 23:51:01",
+                    "updated_at": "2020-08-28 21:41:18"
+                }
+            },
+            {
+                "id": 7,
+                "product_category_id": 16,
+                "product_name": "黑钻焕肤水",
+                "product_name_en": "dolorem sapiente similique",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?39750",
+                "slug": "earum-error",
+                "short_description": "Quasi odio in quas delectus ut.",
+                "short_description_en": "Modi rem cumque tempora porro nostrum perferendis. Rem officiis rem doloremque officiis exercitationem. Sint enim dolorem quae facere.",
+                "price": "403.00",
+                "sale_price": "1.00",
+                "stock": 612,
+                "spec": null,
+                "seo_title": "aut dignissimos accusantium",
+                "seo_keyword": "qui",
+                "seo_description": "Illo qui consequatur nulla.",
+                "benefit": "Fugit sit quibusdam quod aliquam exercitationem eos. Aliquid atque odio aperiam dolores. Est tempora quia quia voluptate maxime expedita. Quidem amet ea reprehenderit sit.",
+                "benefit_en": "Ducimus quia corporis dicta saepe enim. Voluptas natus autem ipsam fuga accusamus explicabo. Id commodi impedit est et non eos. Non praesentium et velit non.",
+                "tech_description": "Non quas officia voluptas repudiandae architecto. Et veritatis et expedita eligendi. Et repudiandae commodi nihil amet officia error odio.",
+                "tech_description_en": "Autem ratione dolores atque vero non et. Ullam corrupti et id. Et sed fugit nihil saepe voluptatem amet. Alias illo officia omnis quia dolor earum velit dolorum.",
+                "description": "Nihil rerum optio facilis et doloremque. Velit id alias aliquam repellat enim ut temporibus.",
+                "description_en": "In ea qui ut iure adipisci. Illum vel eum delectus voluptatibus error animi. Maxime blanditiis suscipit similique.",
+                "usage": "Numquam possimus at a dicta maiores non eum inventore. Impedit et expedita aperiam officia et enim in rem. Maxime sit animi reiciendis ullam est ipsam.",
+                "usage_en": "Ad omnis quibusdam et laborum sint ea. Odit ex delectus adipisci maiores recusandae corrupti voluptatum. Rerum occaecati harum aperiam asperiores in et maiores.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?82458",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?43814",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?99634",
+                "product_video": null,
+                "status": 2,
+                "rating": 4.82,
+                "sold_count": 6567,
+                "review_count": 7729,
+                "created_at": "2020-08-29 13:02:58",
+                "updated_at": "2020-08-31 12:57:21",
+                "product_category": {
+                    "id": 16,
+                    "name": "护肤系列",
+                    "slug": "quas-ut",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?36168",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?52655",
+                    "title": "quo est velit",
+                    "title_en": "numquam tempora earum",
+                    "sub_title": "quo sequi voluptatibus",
+                    "describe": "Voluptates nemo nisi in expedita perspiciatis qui. Autem autem est sunt deserunt omnis asperiores nobis. Nesciunt deleniti sit enim suscipit et mollitia consequatur enim.",
+                    "describe_en": "Sapiente quis dolores velit id eaque aut. Architecto expedita aut illum molestias earum architecto. Magni nesciunt sit voluptate est corporis atque. Rerum cum eum dolores voluptatem et quaerat quis.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?64401",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-08-18 08:15:12",
+                    "updated_at": "2020-08-16 11:06:15"
+                }
+            },
+            {
+                "id": 8,
+                "product_category_id": 13,
+                "product_name": "黑钻璀璨晶透肌底精华",
+                "product_name_en": "maxime eos reprehenderit",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?90717",
+                "slug": "est-sunt",
+                "short_description": "Esse ut molestiae hic.",
+                "short_description_en": "Numquam dolore qui dolorem ipsum. Ad autem et est voluptatem quaerat enim. Autem qui mollitia animi perspiciatis laudantium.",
+                "price": "8414.00",
+                "sale_price": "1.00",
+                "stock": 277,
+                "spec": null,
+                "seo_title": "aut excepturi necessitatibus",
+                "seo_keyword": "ea",
+                "seo_description": "Aliquam sed ea maiores sit.",
+                "benefit": "Doloremque ut repudiandae minima culpa dolores quia. Tempora et corporis nisi aliquam veniam praesentium. Fugit amet neque amet quis. Ex animi eius minima aut.",
+                "benefit_en": "Consequuntur quaerat odit odit neque. Nemo magni fuga amet et quisquam. Quod qui est a ad. Earum et blanditiis veritatis deleniti qui provident reiciendis. Animi impedit eos qui.",
+                "tech_description": "Nam inventore incidunt natus consequuntur. Praesentium omnis illo omnis et velit distinctio. Quia ut quae repellendus est accusantium quis iusto labore.",
+                "tech_description_en": "Et molestias unde ut deleniti. Natus eaque quia et eos. Eum est et autem ea qui vel.",
+                "description": "Itaque placeat velit sed ab. Dolores quisquam voluptates inventore laudantium iure. Consequuntur ut sint provident aut modi.",
+                "description_en": "Reprehenderit dolorem temporibus facere est nisi qui. Facilis error ut et soluta accusantium id. Eius maiores tenetur quos minus cum nulla dolor. Non voluptatem quo dolorem corrupti.",
+                "usage": "Atque possimus quia dolore officiis sapiente qui. Autem architecto quas corrupti illo dolores amet doloremque et. Commodi doloribus dicta nihil est. Nulla quisquam molestias itaque iure perferendis.",
+                "usage_en": "Quaerat et corporis nesciunt vero et dolor deleniti. Minus tempore quia quo non inventore aperiam. Nam sunt et placeat distinctio cumque doloremque ut.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?37736",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?18004",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?19181",
+                "product_video": null,
+                "status": 3,
+                "rating": 1.33,
+                "sold_count": 1101,
+                "review_count": 4952,
+                "created_at": "2020-08-21 04:59:53",
+                "updated_at": "2020-09-08 18:22:55",
+                "product_category": {
+                    "id": 13,
+                    "name": "爽肤水",
+                    "slug": "rerum-rerum",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?65402",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?68435",
+                    "title": "praesentium dicta quia",
+                    "title_en": "nam a voluptatem",
+                    "sub_title": "molestias ut non",
+                    "describe": "Doloribus labore enim et earum. Dicta numquam inventore et necessitatibus. Nobis velit est officia et a et officiis nemo. Odit in quaerat et saepe blanditiis repudiandae minus.",
+                    "describe_en": "Suscipit molestiae libero veritatis exercitationem. Non qui enim ut omnis et voluptates laboriosam. Est quia aut ea ratione animi. Nisi inventore atque totam et et quae nihil illum.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?22910",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-08-30 06:19:54",
+                    "updated_at": "2020-08-23 07:20:22"
+                }
+            },
+            {
+                "id": 9,
+                "product_category_id": 13,
+                "product_name": "钻石焕活面膜",
+                "product_name_en": "laborum sint facilis",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?19037",
+                "slug": "dolorem-non",
+                "short_description": "Iste nemo ipsa tempora.",
+                "short_description_en": "Temporibus est qui similique perspiciatis consequatur quidem sed. Sapiente in aliquid ad nobis voluptatibus voluptatem velit. Est sapiente quidem amet fuga illum omnis quia. Quae quod fugit suscipit cupiditate.",
+                "price": "2956.00",
+                "sale_price": "1.00",
+                "stock": 761,
+                "spec": null,
+                "seo_title": "sint earum libero",
+                "seo_keyword": "fugiat",
+                "seo_description": "Itaque maxime autem modi odio.",
+                "benefit": "Quia aut optio deleniti quis. Tempora quam animi provident voluptate quia et. Eius odio eaque totam sunt sit facere est.",
+                "benefit_en": "Reiciendis eaque earum enim expedita. Aspernatur vero quod qui officia. Laboriosam quasi rerum in ipsum.",
+                "tech_description": "Autem amet tenetur quia quia omnis mollitia. Expedita natus quia dolores. Quis recusandae quos eos ratione. Dignissimos ex at quasi.",
+                "tech_description_en": "Occaecati a ducimus facilis nesciunt magni dolor. Consequatur amet neque corporis quia. Aperiam laborum aut nihil explicabo quisquam asperiores magnam.",
+                "description": "Nisi aut rem ipsam sequi ut est sint. Hic unde odio repellendus beatae. Aut recusandae odio aut quia qui asperiores.",
+                "description_en": "Nam quam labore delectus velit minus. Dicta aspernatur ad debitis blanditiis ducimus eum. Repellat sint autem sint sequi at nulla ipsum.",
+                "usage": "Qui asperiores ex fugit tempora et voluptatem. Voluptas odio sed molestiae earum veritatis quia.",
+                "usage_en": "Eum ut cumque dicta. Et aut inventore sequi quidem. In accusantium sunt nulla omnis omnis.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?92290",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?86810",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?59230",
+                "product_video": null,
+                "status": 1,
+                "rating": 6.68,
+                "sold_count": 6871,
+                "review_count": 4228,
+                "created_at": "2020-08-15 10:47:34",
+                "updated_at": "2020-08-24 15:37:41",
+                "product_category": {
+                    "id": 13,
+                    "name": "爽肤水",
+                    "slug": "rerum-rerum",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?65402",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?68435",
+                    "title": "praesentium dicta quia",
+                    "title_en": "nam a voluptatem",
+                    "sub_title": "molestias ut non",
+                    "describe": "Doloribus labore enim et earum. Dicta numquam inventore et necessitatibus. Nobis velit est officia et a et officiis nemo. Odit in quaerat et saepe blanditiis repudiandae minus.",
+                    "describe_en": "Suscipit molestiae libero veritatis exercitationem. Non qui enim ut omnis et voluptates laboriosam. Est quia aut ea ratione animi. Nisi inventore atque totam et et quae nihil illum.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?22910",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-08-30 06:19:54",
+                    "updated_at": "2020-08-23 07:20:22"
+                }
+            },
+            {
+                "id": 10,
+                "product_category_id": 5,
+                "product_name": "黑钻焕肤水",
+                "product_name_en": "architecto amet qui",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?86349",
+                "slug": "odit-a",
+                "short_description": "Voluptatem enim praesentium eligendi repellendus.",
+                "short_description_en": "Nulla quod rem omnis et qui veritatis at. Sed voluptatem ullam provident est maiores. A aperiam nihil a debitis unde assumenda. Mollitia veritatis ut delectus eligendi et ipsam eaque.",
+                "price": "2705.00",
+                "sale_price": "1.00",
+                "stock": 682,
+                "spec": null,
+                "seo_title": "illo omnis dolorem",
+                "seo_keyword": "suscipit",
+                "seo_description": "Vitae eos fuga ut itaque quia.",
+                "benefit": "Nam tenetur nisi voluptatibus error facere repudiandae amet. In delectus omnis deserunt optio dicta. Ut et commodi nostrum rerum dignissimos qui. Nihil dolorem dignissimos dolorem nam.",
+                "benefit_en": "Occaecati voluptatem distinctio omnis odit maxime pariatur harum tenetur. Fuga quia eum tempore consequatur distinctio nulla dolores. Ut dolor laborum quia deserunt laudantium.",
+                "tech_description": "Et facere a asperiores velit est. Eos debitis et vitae ipsum minima. Sed occaecati ipsum ab doloribus quibusdam maiores optio. Qui reprehenderit omnis dolor aut.",
+                "tech_description_en": "Ea aliquam rem enim quia quos unde. Quis qui adipisci quasi autem voluptatem. Minus incidunt tenetur eaque iure tempore tenetur ut.",
+                "description": "Quia cumque quos quia provident voluptatem quae omnis assumenda. Vel voluptas sit similique error eos optio. Et omnis blanditiis sed adipisci ut velit error possimus. Rerum ducimus quam aperiam magni. Ratione hic et deserunt nisi et accusamus delectus.",
+                "description_en": "Non cumque dolores temporibus autem quidem porro. Delectus nihil error dolore ut eveniet et quia consequuntur.",
+                "usage": "Magni inventore ea qui. Aut ut iste voluptas ea. Temporibus est vel laborum minima et eos mollitia. Hic vel beatae animi. Voluptatibus aut quis quam at voluptatum.",
+                "usage_en": "Consequatur non velit aut nesciunt sit vitae. Enim quaerat velit consequuntur pariatur aliquid. Consectetur quam aut magnam.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?21473",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?78011",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?11813",
+                "product_video": null,
+                "status": 3,
+                "rating": 1.5899999999999999,
+                "sold_count": 7012,
+                "review_count": 2144,
+                "created_at": "2020-08-25 08:03:04",
+                "updated_at": "2020-09-02 09:14:16",
+                "product_category": {
+                    "id": 5,
+                    "name": "爽肤水",
+                    "slug": "cumque-dolorem",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?52526",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?53953",
+                    "title": "dolorum velit ut",
+                    "title_en": "quia esse reprehenderit",
+                    "sub_title": "at ipsam consequuntur",
+                    "describe": "Totam ratione enim velit amet et nobis. Sint sed pariatur odio qui dolores. Repellendus in voluptatem amet suscipit est. Laboriosam aliquam dolores sed ad aut.",
+                    "describe_en": "Incidunt dicta quibusdam minima in magnam velit odit. Sint delectus officia ut et ullam nam nulla. Id iusto ipsum nihil sed esse nesciunt odit explicabo.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?20593",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-09-11 18:41:54",
+                    "updated_at": "2020-08-28 02:25:53"
+                }
+            },
+            {
+                "id": 11,
+                "product_category_id": 7,
+                "product_name": "黑钻肌光精华",
+                "product_name_en": "tempora quo rerum",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?20215",
+                "slug": "eum-et",
+                "short_description": "In tempore excepturi eveniet.",
+                "short_description_en": "Est aliquam consequatur alias impedit. Adipisci omnis ducimus in voluptate quia eius. Eum in nihil iste ea porro. In molestias nemo quis. Natus dicta quia aut quis.",
+                "price": "9442.00",
+                "sale_price": "1.00",
+                "stock": 542,
+                "spec": null,
+                "seo_title": "qui quia et",
+                "seo_keyword": "nihil",
+                "seo_description": "Dolore cumque aliquam consectetur.",
+                "benefit": "Quam in odio et asperiores excepturi esse consequuntur id. Et aut id rem aut quaerat quia consequatur. Distinctio architecto voluptates est sed. Vel fugit odio sed et magni.",
+                "benefit_en": "Cumque eveniet quasi sed aut fuga et quas. Corporis quis unde asperiores voluptates qui quae. Natus ipsum soluta iusto dolore illum ut. Est dolor iusto nihil ut asperiores molestiae animi labore.",
+                "tech_description": "Iste illo dicta aliquid nihil. Sint magnam eius laboriosam molestiae beatae reprehenderit neque. Enim et minima enim laudantium velit esse. Voluptatem similique harum sunt id mollitia.",
+                "tech_description_en": "Eum laudantium aliquid est. Libero exercitationem dolorem ullam quis et. Sunt maiores modi sint. Veniam ex minus veniam et in iure. Error aut asperiores in in qui.",
+                "description": "Rerum aut deleniti autem doloremque earum ex dolorem. Dolor iure ipsum cupiditate saepe placeat ut eveniet. Pariatur nemo voluptas maxime sequi. Nihil eos fuga harum sit magnam.",
+                "description_en": "Asperiores nam iste molestiae officiis dolor sint eos. Et eos quis nesciunt aut iure aperiam esse. Dolor impedit velit voluptatem voluptatem. Dolore placeat culpa pariatur quia reiciendis.",
+                "usage": "Architecto et amet qui. Id officia nemo facilis facilis. Officiis nostrum eos repellat est vitae quia. Dolor sint nemo est numquam ducimus ex velit.",
+                "usage_en": "Non rem ducimus minus cumque. Cupiditate quibusdam quas ea incidunt.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?27396",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?53403",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?50590",
+                "product_video": null,
+                "status": 2,
+                "rating": 2.7800000000000002,
+                "sold_count": 9762,
+                "review_count": 3311,
+                "created_at": "2020-09-12 03:01:51",
+                "updated_at": "2020-08-16 05:19:45",
+                "product_category": {
+                    "id": 7,
+                    "name": "眼线",
+                    "slug": "minima-pariatur",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?42527",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?83247",
+                    "title": "eos provident temporibus",
+                    "title_en": "modi et debitis",
+                    "sub_title": "nam sed dolore",
+                    "describe": "Maiores sint ab odit in veniam fugit quae. Unde sint dolorem laudantium accusantium velit nulla quo non. Minima et sunt perferendis dolorum distinctio.",
+                    "describe_en": "Ex beatae nostrum officiis eius suscipit explicabo voluptates. Nihil nemo libero commodi tempora enim est. Vitae aspernatur quo vel perferendis quo ratione et.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?64058",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-08-16 05:07:21",
+                    "updated_at": "2020-09-10 19:39:22"
+                }
+            },
+            {
+                "id": 12,
+                "product_category_id": 18,
+                "product_name": "黑钻赋颜面霜",
+                "product_name_en": "nam pariatur numquam",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?12548",
+                "slug": "molestiae-officiis",
+                "short_description": "Sunt debitis enim temporibus molestias dolores porro.",
+                "short_description_en": "Error saepe nulla qui ipsam. Et a asperiores nulla saepe inventore quis. At nobis eum unde quis vero praesentium rem.",
+                "price": "5340.00",
+                "sale_price": "1.00",
+                "stock": 709,
+                "spec": null,
+                "seo_title": "architecto unde velit",
+                "seo_keyword": "optio",
+                "seo_description": "Dolor nisi deserunt tempora et aliquid alias ut.",
+                "benefit": "Repellendus laborum enim et doloremque animi aut. Dolores et et ullam maiores. Voluptates exercitationem qui enim. Optio eos dicta porro iusto provident voluptas.",
+                "benefit_en": "Eius quia fugit nulla tempore. Ab et ut dolorem assumenda aut aut. Aperiam ut pariatur quod odit officia ex accusamus dolor. Eos laboriosam rem omnis repudiandae.",
+                "tech_description": "Tempore optio ex consequatur perferendis non quo distinctio. Earum at nisi officiis magni. Ea et dolor sequi placeat eius voluptatem qui. Velit exercitationem cum necessitatibus dolores earum.",
+                "tech_description_en": "Quis ut laborum dolorem necessitatibus incidunt ad. Possimus sunt nemo totam odit nisi est. Aliquam in et voluptatum dolorem et et. Quis culpa quis quibusdam explicabo assumenda est.",
+                "description": "Ipsam sint occaecati consequatur dolor sit. Et debitis nam fugiat qui quia ut quaerat veritatis. Aliquid sapiente occaecati animi qui.",
+                "description_en": "Autem sit quis et fugit quas maiores tempora. Labore nostrum velit omnis beatae dolorem pariatur nesciunt non. Et omnis eligendi necessitatibus est et adipisci rem.",
+                "usage": "Expedita nam nesciunt consequatur veniam est. Sed consequuntur fugiat alias exercitationem.",
+                "usage_en": "Accusamus ut aut voluptate beatae adipisci possimus officia. Molestiae quibusdam laudantium deserunt eos aperiam cumque molestiae at.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?40271",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?44346",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?98347",
+                "product_video": null,
+                "status": 3,
+                "rating": 7.71,
+                "sold_count": 7179,
+                "review_count": 3242,
+                "created_at": "2020-08-27 17:33:45",
+                "updated_at": "2020-08-18 22:50:22",
+                "product_category": {
+                    "id": 18,
+                    "name": "爽肤水",
+                    "slug": "autem-tempora",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?62762",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?38945",
+                    "title": "fuga velit vitae",
+                    "title_en": "magni perspiciatis iusto",
+                    "sub_title": "sed ratione vel",
+                    "describe": "Porro nesciunt id id ipsa ipsa praesentium. Quia quidem et nisi occaecati eveniet accusamus. Nulla facere dolorum est quia iure similique. Fugiat aut quisquam suscipit nisi.",
+                    "describe_en": "Rerum quod repellendus est consequatur cum. Rerum quod unde et amet fuga soluta optio. At enim repellat doloremque non sed.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?63152",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-08-16 21:37:42",
+                    "updated_at": "2020-09-05 05:49:36"
+                }
+            },
+            {
+                "id": 13,
+                "product_category_id": 1,
+                "product_name": "钻石焕活面膜",
+                "product_name_en": "aliquid fugit incidunt",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?53912",
+                "slug": "aperiam-id",
+                "short_description": "Voluptas perspiciatis consequatur et.",
+                "short_description_en": "Natus eveniet quisquam non debitis qui. Consequatur voluptatem natus voluptatem cumque magnam non culpa ex. Sed aut sit illum nostrum nihil doloremque numquam. Magni ad voluptate aut dolore error ut quo voluptatem.",
+                "price": "4564.00",
+                "sale_price": "1.00",
+                "stock": 573,
+                "spec": null,
+                "seo_title": "quo itaque molestias",
+                "seo_keyword": "est",
+                "seo_description": "Veniam sit et atque.",
+                "benefit": "A voluptatem vel nobis eligendi quo. Reiciendis voluptatem minus quis et quia. Quis dolores nihil occaecati.",
+                "benefit_en": "Culpa exercitationem aut architecto unde. Blanditiis aut qui nisi distinctio id voluptatibus quo. Soluta ut eveniet ad tenetur corrupti.",
+                "tech_description": "Reprehenderit non facilis ut exercitationem est aliquam temporibus. Voluptate velit illo occaecati sed minima. Facere ullam nulla et similique. Temporibus fugit quis qui id sint voluptatem magni.",
+                "tech_description_en": "Ipsa fugit neque non animi dicta. Optio maiores veritatis ea facilis ipsa blanditiis est. Voluptates qui dicta ipsa repellat aut quisquam quibusdam.",
+                "description": "Sint in qui tempora. Sit necessitatibus dolor corporis quae provident veritatis dolor. Voluptas quas distinctio quia non.",
+                "description_en": "Aut accusantium ullam dignissimos molestiae odit et. Dolores aut aliquid odit et et earum. Impedit sunt dolor voluptas dolorem odio et. Corporis quia blanditiis qui suscipit labore.",
+                "usage": "Quasi quisquam vel quibusdam consectetur dolore. Ex occaecati aut nulla quia voluptatem non. Nihil ab sit ratione nihil. Quos temporibus aspernatur nobis aut facilis ut et.",
+                "usage_en": "Et culpa ea quis. Cupiditate dignissimos neque architecto officia et dolores laboriosam.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?72911",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?96946",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?62254",
+                "product_video": null,
+                "status": 2,
+                "rating": 8.26,
+                "sold_count": 6398,
+                "review_count": 4838,
+                "created_at": "2020-09-10 05:10:52",
+                "updated_at": "2020-09-07 17:45:39",
+                "product_category": {
+                    "id": 1,
+                    "name": "护肤系列",
+                    "slug": "sapiente-commodi",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?90297",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?44987",
+                    "title": "ratione aut quibusdam",
+                    "title_en": "quasi enim nobis",
+                    "sub_title": "voluptatem nostrum reprehenderit",
+                    "describe": "Deleniti labore est sint molestias quia est alias. Nemo est officiis beatae nam. Hic beatae vero deleniti deleniti provident.",
+                    "describe_en": "Dicta impedit qui incidunt iure explicabo saepe vel. Sed cupiditate est incidunt et. A qui quia dolor autem.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?78712",
+                    "parent_id": 0,
+                    "level": 1,
+                    "created_at": "2020-08-25 13:07:25",
+                    "updated_at": "2020-08-28 12:04:23"
+                }
+            },
+            {
+                "id": 14,
+                "product_category_id": 20,
+                "product_name": "黑钻洁净滋养面膜",
+                "product_name_en": "aperiam eligendi sequi",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?12752",
+                "slug": "deleniti-asperiores",
+                "short_description": "Et voluptatibus aspernatur nesciunt repellendus nam.",
+                "short_description_en": "Sint totam voluptatem quo incidunt. Alias tenetur et dolorem recusandae laborum. Quis corrupti temporibus culpa.",
+                "price": "8780.00",
+                "sale_price": "1.00",
+                "stock": 786,
+                "spec": null,
+                "seo_title": "temporibus ut quas",
+                "seo_keyword": "doloribus",
+                "seo_description": "Quo amet hic soluta.",
+                "benefit": "Ut deserunt ullam qui sunt recusandae animi harum vitae. Nesciunt enim assumenda dolorem soluta cum enim. Officia molestiae est deserunt quasi et at velit.",
+                "benefit_en": "Laborum necessitatibus aut non vitae aliquid nesciunt voluptatum. Qui qui aut voluptatem voluptatem expedita voluptate sunt. Non ipsum numquam optio in fugiat esse.",
+                "tech_description": "Tempore a cumque quia vitae voluptatum sed voluptatum id. Sunt similique rerum ut voluptas rem. Veritatis dolorem natus nesciunt. Numquam voluptates enim quo inventore.",
+                "tech_description_en": "Quia itaque asperiores ab dolore. Assumenda omnis exercitationem perspiciatis explicabo ipsum. Non ullam iste praesentium inventore aspernatur.",
+                "description": "Voluptatem omnis autem ex totam autem doloribus. Unde possimus aut maiores nihil expedita rem dolorum. Qui debitis placeat repellat itaque ut aut repellat. Atque excepturi alias praesentium beatae rerum.",
+                "description_en": "Ea ut autem asperiores magnam neque totam consequatur qui. Sunt esse accusantium doloribus aut. Pariatur in rerum quis voluptas suscipit ea. Quae quos quia eius aspernatur non distinctio.",
+                "usage": "Fuga ad enim ullam repudiandae. Voluptatum exercitationem qui corporis ipsa excepturi. Commodi quia sit earum hic tenetur enim at.",
+                "usage_en": "Voluptas ut ex excepturi fuga totam aliquam. Et possimus nostrum omnis sed impedit autem impedit voluptatem. Dolorem possimus repudiandae nostrum. Consectetur iste deleniti consequatur temporibus est excepturi iste non.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?31146",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?56011",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?92674",
+                "product_video": null,
+                "status": 2,
+                "rating": 8.93,
+                "sold_count": 4501,
+                "review_count": 4875,
+                "created_at": "2020-08-22 14:56:19",
+                "updated_at": "2020-08-25 17:27:43",
+                "product_category": {
+                    "id": 20,
+                    "name": "套装A",
+                    "slug": "dignissimos-et",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?39470",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?36683",
+                    "title": "sed voluptatem itaque",
+                    "title_en": "quae qui nostrum",
+                    "sub_title": "deleniti tenetur sit",
+                    "describe": "Fuga libero eum dolores quia porro omnis quasi. Dolor est voluptatibus maxime. Fuga dolore sint est labore. Illum qui incidunt dolore cupiditate iusto velit.",
+                    "describe_en": "Quia vel voluptatem incidunt ducimus ipsum et. Sit facere ut illo sequi impedit dolorem omnis. In voluptatem possimus numquam. Corrupti ratione eaque sit cumque accusamus sequi.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?73330",
+                    "parent_id": 2,
+                    "level": 2,
+                    "created_at": "2020-09-01 23:51:01",
+                    "updated_at": "2020-08-28 21:41:18"
+                }
+            },
+            {
+                "id": 15,
+                "product_category_id": 19,
+                "product_name": "钻石冰莹面膜",
+                "product_name_en": "eos possimus dolores",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?55941",
+                "slug": "modi-distinctio",
+                "short_description": "Quod ipsa quas deserunt porro excepturi velit.",
+                "short_description_en": "Alias quaerat deleniti id soluta. Velit sint dolor officiis odit nobis ea. Consequatur iste laboriosam quos sunt quasi.",
+                "price": "4500.00",
+                "sale_price": "1.00",
+                "stock": 50,
+                "spec": null,
+                "seo_title": "veniam amet ad",
+                "seo_keyword": "vel",
+                "seo_description": "Molestiae placeat labore aliquid deleniti.",
+                "benefit": "Reiciendis exercitationem sunt et qui. Possimus qui quos voluptatem. Et exercitationem officia dolor est voluptas non. Architecto animi sapiente neque laborum dolore.",
+                "benefit_en": "Neque quibusdam sed tempora cum. Ipsa voluptatem magnam quia corrupti veritatis pariatur ab.",
+                "tech_description": "Nihil optio quia pariatur sapiente neque id qui. Nostrum et perspiciatis consequatur quia mollitia et dolorem. Neque commodi nulla voluptas sint. Porro ea a asperiores voluptatem consectetur officiis non enim.",
+                "tech_description_en": "Ut magni rerum omnis qui qui. Sequi sequi rerum ea blanditiis autem eveniet eos. Et et est qui eum illo. Exercitationem esse et excepturi eveniet.",
+                "description": "Error sed voluptatibus harum cupiditate est perferendis reprehenderit ratione. Neque autem quis ratione occaecati voluptatem. Recusandae occaecati qui quisquam cumque rerum et officia. Rem et et quia est. Alias fugit illo cumque et.",
+                "description_en": "Et accusantium eius quibusdam quo qui accusantium enim. Ad aut totam aut ullam totam autem sed. Molestiae dignissimos consequatur qui quia.",
+                "usage": "Eius culpa error tempore ut non cumque omnis possimus. Quidem consequuntur consectetur hic et. Est eius expedita enim.",
+                "usage_en": "Eaque est ad officia consequatur consequatur iusto et. Perspiciatis et est enim rem necessitatibus molestiae possimus sint. Assumenda culpa laudantium ut cupiditate aspernatur. Debitis dolorum repudiandae ipsum maxime.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?32235",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?58669",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?70505",
+                "product_video": null,
+                "status": 1,
+                "rating": 4.48,
+                "sold_count": 3849,
+                "review_count": 5706,
+                "created_at": "2020-08-17 09:23:23",
+                "updated_at": "2020-08-16 15:02:16",
+                "product_category": {
+                    "id": 19,
+                    "name": "爽肤水",
+                    "slug": "exercitationem-consequatur",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?10401",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?64284",
+                    "title": "vitae ad earum",
+                    "title_en": "est non reprehenderit",
+                    "sub_title": "blanditiis et aperiam",
+                    "describe": "Eum praesentium sint dolores adipisci excepturi. Non non quo magni vel enim quo odio.",
+                    "describe_en": "Ut quaerat rem iure sint omnis atque. Rerum nihil aut id in illum. Voluptatem et corrupti quibusdam ut.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?70538",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-08-19 08:08:20",
+                    "updated_at": "2020-08-27 12:31:35"
+                }
+            },
+            {
+                "id": 16,
+                "product_category_id": 20,
+                "product_name": "黑钻臻活眼部精华",
+                "product_name_en": "voluptate aliquid incidunt",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?35960",
+                "slug": "ut-accusamus",
+                "short_description": "Animi delectus et saepe.",
+                "short_description_en": "Accusantium facilis est ratione provident excepturi ad delectus voluptatem. Quidem molestiae voluptatem sunt dolore. Totam nemo unde dicta cumque. Ex voluptas iusto quaerat vero accusamus nisi.",
+                "price": "5468.00",
+                "sale_price": "1.00",
+                "stock": 159,
+                "spec": null,
+                "seo_title": "atque vel fugit",
+                "seo_keyword": "error",
+                "seo_description": "Atque blanditiis maiores voluptates omnis quam.",
+                "benefit": "Itaque totam voluptatum quo ea soluta. Sed maiores suscipit suscipit dolor reiciendis commodi. Rem ut accusamus harum et ut temporibus.",
+                "benefit_en": "Iste recusandae est alias. Qui nemo laudantium nihil laborum.",
+                "tech_description": "Laborum nesciunt officiis qui id. In et temporibus non quisquam dolores quia. Aut recusandae quaerat libero.",
+                "tech_description_en": "Aut blanditiis et architecto voluptatem ipsam. Voluptatem explicabo qui animi molestias iste id culpa. Cupiditate repellat inventore eius nam ratione consequatur.",
+                "description": "Reprehenderit ut laborum quo repellendus dicta iure. Harum perspiciatis eius ullam expedita. Est et aut sed itaque et. Non non sit qui illo excepturi illum consectetur non.",
+                "description_en": "Sed praesentium minima omnis labore. Temporibus dicta explicabo voluptates. Qui libero et ea voluptatem.",
+                "usage": "Molestiae adipisci a veniam. Sint illo distinctio voluptatem vel in. Accusantium quis quia repudiandae aspernatur rerum. Quas dolores vitae saepe.",
+                "usage_en": "Rem sint excepturi nesciunt tempora ut. Ut nobis architecto laboriosam aut consequuntur accusamus. Qui id id iure aut maxime nesciunt. Pariatur alias perspiciatis cum sint vero quaerat consequatur voluptas.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?59417",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?40849",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?69808",
+                "product_video": null,
+                "status": 2,
+                "rating": 5.22,
+                "sold_count": 2537,
+                "review_count": 2348,
+                "created_at": "2020-09-13 21:03:11",
+                "updated_at": "2020-09-11 17:31:22",
+                "product_category": {
+                    "id": 20,
+                    "name": "套装A",
+                    "slug": "dignissimos-et",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?39470",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?36683",
+                    "title": "sed voluptatem itaque",
+                    "title_en": "quae qui nostrum",
+                    "sub_title": "deleniti tenetur sit",
+                    "describe": "Fuga libero eum dolores quia porro omnis quasi. Dolor est voluptatibus maxime. Fuga dolore sint est labore. Illum qui incidunt dolore cupiditate iusto velit.",
+                    "describe_en": "Quia vel voluptatem incidunt ducimus ipsum et. Sit facere ut illo sequi impedit dolorem omnis. In voluptatem possimus numquam. Corrupti ratione eaque sit cumque accusamus sequi.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?73330",
+                    "parent_id": 2,
+                    "level": 2,
+                    "created_at": "2020-09-01 23:51:01",
+                    "updated_at": "2020-08-28 21:41:18"
+                }
+            },
+            {
+                "id": 17,
+                "product_category_id": 16,
+                "product_name": "黑钻璀璨晶透肌底精华",
+                "product_name_en": "soluta enim magni",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?41705",
+                "slug": "inventore-eligendi",
+                "short_description": "Dolorem ipsa expedita aut ullam autem laudantium.",
+                "short_description_en": "Voluptatem et eos laudantium ex numquam. Ex aut et et ratione deserunt non. Esse qui sit laudantium.",
+                "price": "9060.00",
+                "sale_price": "1.00",
+                "stock": 932,
+                "spec": null,
+                "seo_title": "repellendus aliquam corrupti",
+                "seo_keyword": "atque",
+                "seo_description": "Ut alias ipsum et et.",
+                "benefit": "Delectus vitae quis et consequuntur ad et. Perspiciatis animi reiciendis quasi quo asperiores quos sapiente.",
+                "benefit_en": "Quia corporis omnis dolores atque exercitationem natus. Optio nostrum maiores vel a esse quaerat. Sit minima quis asperiores harum fugit at quibusdam quis.",
+                "tech_description": "Corporis beatae velit quos a rerum eveniet. Quidem et et qui quidem beatae dolore iste. Minus eligendi sunt totam voluptas.",
+                "tech_description_en": "Quia ipsum veritatis earum necessitatibus et et odit harum. Ex reprehenderit aut sit ea nam. Velit ea molestias nesciunt non aut optio laudantium.",
+                "description": "Numquam fuga est harum eos accusantium aut nesciunt. Perferendis odio culpa enim. Sequi aut amet voluptas repellendus molestiae.",
+                "description_en": "Tempore vel dolores sit alias quia nemo. Velit unde voluptatem laboriosam facere omnis. Corporis ut inventore ut illum voluptatem ex. Placeat animi sint velit similique.",
+                "usage": "Laudantium beatae soluta deleniti optio temporibus aspernatur. Sint neque voluptas corporis quod. Quisquam aliquam voluptate sint nobis et voluptatem numquam. Ea non adipisci et quo nisi distinctio ea recusandae.",
+                "usage_en": "Dolor voluptate recusandae fugiat distinctio tempora laborum repellat. Aut est aut magnam. Est ipsum eos quasi error et laborum.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?48927",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?28148",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?40742",
+                "product_video": null,
+                "status": 2,
+                "rating": 6.38,
+                "sold_count": 3969,
+                "review_count": 3077,
+                "created_at": "2020-08-22 20:26:44",
+                "updated_at": "2020-09-12 06:45:15",
+                "product_category": {
+                    "id": 16,
+                    "name": "护肤系列",
+                    "slug": "quas-ut",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?36168",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?52655",
+                    "title": "quo est velit",
+                    "title_en": "numquam tempora earum",
+                    "sub_title": "quo sequi voluptatibus",
+                    "describe": "Voluptates nemo nisi in expedita perspiciatis qui. Autem autem est sunt deserunt omnis asperiores nobis. Nesciunt deleniti sit enim suscipit et mollitia consequatur enim.",
+                    "describe_en": "Sapiente quis dolores velit id eaque aut. Architecto expedita aut illum molestias earum architecto. Magni nesciunt sit voluptate est corporis atque. Rerum cum eum dolores voluptatem et quaerat quis.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?64401",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-08-18 08:15:12",
+                    "updated_at": "2020-08-16 11:06:15"
+                }
+            },
+            {
+                "id": 18,
+                "product_category_id": 20,
+                "product_name": "黑钻肌光精华",
+                "product_name_en": "saepe voluptatibus suscipit",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?34679",
+                "slug": "aspernatur-omnis",
+                "short_description": "Distinctio dolore a voluptas expedita sint.",
+                "short_description_en": "Nesciunt quidem provident voluptates non sed dolores voluptas autem. Autem consequatur occaecati dolore dolore possimus. Autem deleniti nostrum recusandae dolorum sunt ut magni dolorem. Eius dicta corrupti sed architecto iusto quia.",
+                "price": "8851.00",
+                "sale_price": "1.00",
+                "stock": 821,
+                "spec": null,
+                "seo_title": "accusantium asperiores numquam",
+                "seo_keyword": "est",
+                "seo_description": "Ad et facilis inventore.",
+                "benefit": "Nobis laudantium rerum harum dolor voluptas veritatis facere. Est repudiandae voluptatem quia perferendis laudantium. Atque numquam porro quae sapiente molestiae est enim. Atque molestiae ex fugit officia temporibus quos.",
+                "benefit_en": "Dicta est excepturi maxime eaque est. Repudiandae qui incidunt hic ut. Adipisci voluptates quo quis reiciendis qui veritatis fugit. Rerum deserunt et similique quae amet modi. Molestias expedita consequatur voluptas fugiat error laudantium qui quidem.",
+                "tech_description": "Aut modi ut ipsam architecto aut. Pariatur doloremque quibusdam quod ut sunt soluta. Eos ipsa ea officiis consequuntur.",
+                "tech_description_en": "In est fugit error quia doloremque. Culpa magnam est libero alias eius necessitatibus sequi consectetur. Id officia molestias cumque eius laudantium maiores facere. Quia deserunt et nobis praesentium.",
+                "description": "Necessitatibus non consequatur sit ipsam. Velit vitae dignissimos maxime perspiciatis adipisci porro cum aliquid. Iste sit deserunt voluptate ea.",
+                "description_en": "Reiciendis et dolores magnam quo exercitationem aut. Neque enim ducimus dolores. Fuga veniam corporis ut laborum mollitia quia quisquam. Et debitis a dolores doloremque quos qui dolorem.",
+                "usage": "Dolore repellendus fugit ut minima omnis. Explicabo doloremque ut tempora voluptatum saepe ullam. Sit est cum dolorum accusantium unde atque. Sed suscipit expedita et iste.",
+                "usage_en": "Eligendi sint vitae reprehenderit blanditiis. Quo quae est iusto cupiditate qui qui. Vel vel est quia sapiente illum accusamus architecto.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?90150",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?90399",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?52787",
+                "product_video": null,
+                "status": 2,
+                "rating": 2.7199999999999998,
+                "sold_count": 4922,
+                "review_count": 6669,
+                "created_at": "2020-08-20 12:52:20",
+                "updated_at": "2020-08-16 00:08:16",
+                "product_category": {
+                    "id": 20,
+                    "name": "套装A",
+                    "slug": "dignissimos-et",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?39470",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?36683",
+                    "title": "sed voluptatem itaque",
+                    "title_en": "quae qui nostrum",
+                    "sub_title": "deleniti tenetur sit",
+                    "describe": "Fuga libero eum dolores quia porro omnis quasi. Dolor est voluptatibus maxime. Fuga dolore sint est labore. Illum qui incidunt dolore cupiditate iusto velit.",
+                    "describe_en": "Quia vel voluptatem incidunt ducimus ipsum et. Sit facere ut illo sequi impedit dolorem omnis. In voluptatem possimus numquam. Corrupti ratione eaque sit cumque accusamus sequi.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?73330",
+                    "parent_id": 2,
+                    "level": 2,
+                    "created_at": "2020-09-01 23:51:01",
+                    "updated_at": "2020-08-28 21:41:18"
+                }
+            },
+            {
+                "id": 19,
+                "product_category_id": 10,
+                "product_name": "黑钻赋颜面霜",
+                "product_name_en": "autem consequatur et",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?44198",
+                "slug": "quis-odio",
+                "short_description": "Accusamus aut sunt blanditiis et.",
+                "short_description_en": "Eum nostrum quo est ut. Cum consequatur rerum debitis. Aut cumque fugit eaque aut.",
+                "price": "9076.00",
+                "sale_price": "1.00",
+                "stock": 732,
+                "spec": null,
+                "seo_title": "cupiditate rerum in",
+                "seo_keyword": "optio",
+                "seo_description": "Excepturi dicta earum quo laboriosam aut voluptatibus.",
+                "benefit": "Laborum et quo vero perferendis dolorem. Maiores quos a aut maiores ullam tenetur occaecati. Sunt natus consequatur expedita atque molestiae voluptatibus laborum cumque.",
+                "benefit_en": "Quibusdam sit fugiat commodi. Enim sunt eos temporibus enim occaecati.",
+                "tech_description": "Laborum beatae blanditiis non ratione eos et aliquid. Neque quasi illo voluptatibus et voluptatem amet cum. Nisi perspiciatis mollitia iste sequi.",
+                "tech_description_en": "Ut eum vel distinctio omnis quis deserunt. Veritatis est fugiat hic molestias reprehenderit. Quod sunt qui cum suscipit pariatur.",
+                "description": "Ut quod recusandae reprehenderit reprehenderit dolorum eum maxime velit. Assumenda deleniti esse enim optio quaerat fugiat molestias. Nisi necessitatibus necessitatibus natus.",
+                "description_en": "Consequatur odit soluta sint sed. Ut maiores sed aut dolores aut itaque. Eos ut beatae magnam sequi. Et numquam veritatis enim dolor voluptates.",
+                "usage": "Nisi non et voluptatibus odio voluptatum. Ullam aut laboriosam nihil occaecati.",
+                "usage_en": "Sunt nulla quae rerum aperiam nulla optio. Dolor quo aut occaecati a rerum. Eos qui doloremque natus quo quod minus.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?84233",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?71627",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?19259",
+                "product_video": null,
+                "status": 1,
+                "rating": 5.5600000000000005,
+                "sold_count": 1526,
+                "review_count": 3962,
+                "created_at": "2020-08-25 18:09:33",
+                "updated_at": "2020-08-18 00:27:18",
+                "product_category": {
+                    "id": 10,
+                    "name": "套装B",
+                    "slug": "dignissimos-dolore",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?86678",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?56446",
+                    "title": "impedit recusandae facilis",
+                    "title_en": "amet aut quaerat",
+                    "sub_title": "rerum est maxime",
+                    "describe": "Unde consequatur ad blanditiis ex. Reiciendis molestiae numquam sint voluptates. Eveniet et voluptas cum voluptate aliquam. At impedit veniam quis.",
+                    "describe_en": "Dolorum dolorem qui repellat facere. Qui doloremque soluta repellendus commodi et nisi. Velit ut harum velit ipsum quis ea molestiae. Facere et aspernatur doloribus expedita quo id.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?32645",
+                    "parent_id": 2,
+                    "level": 2,
+                    "created_at": "2020-08-21 16:48:08",
+                    "updated_at": "2020-08-27 09:38:50"
+                }
+            },
+            {
+                "id": 20,
+                "product_category_id": 10,
+                "product_name": "黑钻焕肤水",
+                "product_name_en": "velit nam quod",
+                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?47045",
+                "slug": "occaecati-ad",
+                "short_description": "Temporibus assumenda ea quia tempora accusamus.",
+                "short_description_en": "Placeat nam beatae distinctio mollitia. Est placeat dolorem adipisci ad et nihil. Alias ut ea quae dolor. Voluptatibus et a porro in hic quia.",
+                "price": "7097.00",
+                "sale_price": "1.00",
+                "stock": 100,
+                "spec": null,
+                "seo_title": "maiores quibusdam deserunt",
+                "seo_keyword": "ratione",
+                "seo_description": "Accusamus adipisci et sit placeat.",
+                "benefit": "Et voluptatem enim veritatis ut voluptas incidunt minima. Enim quod fugiat est est odio quisquam. Nulla distinctio perspiciatis aliquam porro. Velit pariatur aperiam ab dolorem.",
+                "benefit_en": "Consequatur ea eius dolor qui ut et. Consequuntur sint nihil fugit sit provident dicta maxime maxime. Harum quos possimus accusantium aut est. Explicabo ab dolor aspernatur non.",
+                "tech_description": "Neque porro consequatur numquam dicta enim est. Quia magni incidunt accusantium quidem laudantium tempora. Aut odio dolorem eum minus.",
+                "tech_description_en": "Consequatur accusantium sit eligendi laudantium omnis. Ut sit consequatur totam veniam asperiores. Corrupti ratione deserunt beatae consequatur. Nihil aperiam ea eaque omnis omnis nobis.",
+                "description": "Omnis voluptas inventore quas voluptatum. Nesciunt doloribus minus quod atque inventore ab culpa aut. Soluta et a cumque.",
+                "description_en": "Iure aut quis et impedit. Blanditiis quisquam magnam assumenda repellat distinctio. Quibusdam minus dignissimos eum odio non excepturi. Et sequi mollitia ut voluptatem.",
+                "usage": "Illo et reiciendis in incidunt. Voluptatum libero voluptatem totam et libero. Est optio id iusto debitis ipsa.",
+                "usage_en": "Ut ab magnam eveniet quasi dolore dolorem ipsa. Provident dignissimos quia tempore exercitationem quibusdam et. Aspernatur consequuntur modi vitae ipsa.",
+                "main_image": "https:\/\/lorempixel.com\/640\/480\/?72951",
+                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?57667",
+                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?85523",
+                "product_video": null,
+                "status": 3,
+                "rating": 7.14,
+                "sold_count": 1987,
+                "review_count": 8979,
+                "created_at": "2020-08-15 02:17:08",
+                "updated_at": "2020-09-09 18:03:43",
+                "product_category": {
+                    "id": 10,
+                    "name": "套装B",
+                    "slug": "dignissimos-dolore",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?86678",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?56446",
+                    "title": "impedit recusandae facilis",
+                    "title_en": "amet aut quaerat",
+                    "sub_title": "rerum est maxime",
+                    "describe": "Unde consequatur ad blanditiis ex. Reiciendis molestiae numquam sint voluptates. Eveniet et voluptas cum voluptate aliquam. At impedit veniam quis.",
+                    "describe_en": "Dolorum dolorem qui repellat facere. Qui doloremque soluta repellendus commodi et nisi. Velit ut harum velit ipsum quis ea molestiae. Facere et aspernatur doloribus expedita quo id.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?32645",
+                    "parent_id": 2,
+                    "level": 2,
+                    "created_at": "2020-08-21 16:48:08",
+                    "updated_at": "2020-08-27 09:38:50"
+                }
+            }
+        ],
+        "first_page_url": "http:\/\/localhost\/api\/products?page=1",
+        "from": 1,
+        "last_page": 3,
+        "last_page_url": "http:\/\/localhost\/api\/products?page=3",
+        "next_page_url": "http:\/\/localhost\/api\/products?page=2",
+        "path": "http:\/\/localhost\/api\/products",
+        "per_page": 20,
+        "prev_page_url": null,
+        "to": 20,
+        "total": 50
+    },
+    "code": 20001,
+    "msg": "操作成功"
+}
+```
+
+### HTTP Request
+`GET api/products`
+
+
+<!-- END_86e0ac5d4f8ce9853bc22fd08f2a0109 -->
+
 <!-- START_0d311bc121fa5f47763c3a964aaf3691 -->
-## Query the product detail
+## Get the product detail
 获取商品详情信息
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/product/1?slug=sed" \
+    -G "http://store.wutang.com/api/product/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -3499,12 +4601,6 @@ curl -X GET \
 const url = new URL(
     "http://store.wutang.com/api/product/1"
 );
-
-let params = {
-    "slug": "sed",
-};
-Object.keys(params)
-    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -3533,30 +4629,30 @@ fetch(url, {
 ### HTTP Request
 `GET api/product/{product_slug}`
 
-#### Query Parameters
+#### URL Parameters
 
 Parameter | Status | Description
---------- | ------- | ------- | -----------
+--------- | ------- | ------- | -------
     `slug` |  required  | 商品slug
 
 <!-- END_0d311bc121fa5f47763c3a964aaf3691 -->
 
-<!-- START_dc538d69a8586a7a3c36d4393cee42e6 -->
-## Get product list
-获取商品列表
+<!-- START_5d9492d6d76e347e7f3200ecafeb7c88 -->
+## Get product list with category slug
+根据category slug获取对应类别下的产品列表
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/product" \
+    -G "http://store.wutang.com/api/products/category/ipsa" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://store.wutang.com/api/product"
+    "http://store.wutang.com/api/products/category/ipsa"
 );
 
 let headers = {
@@ -3577,1073 +4673,24 @@ fetch(url, {
 
 ```json
 {
-    "data": {
-        "current_page": 1,
-        "data": [
-            {
-                "id": 1,
-                "product_category_id": 12,
-                "product_name": "钻石冰莹面膜",
-                "product_name_en": "quae beatae repellat",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?62661",
-                "slug": "dolorum-aut",
-                "short_description": "Vitae et aperiam ut possimus quis.",
-                "short_description_en": "Eos reprehenderit ullam laboriosam animi aliquam. Ipsum quas molestias repellat dolorem aut est est ut. Qui non quo ut a magni consequatur unde. Laborum aut eius distinctio deserunt.",
-                "price": "3271.00",
-                "sale_price": "1.00",
-                "stock": 488,
-                "spec": null,
-                "seo_title": "et sunt odit",
-                "seo_keyword": "tempore",
-                "seo_description": "Dolorem placeat aut nam.",
-                "benefit": "Id ea voluptatem voluptas tenetur qui quia. Adipisci reiciendis deserunt sequi atque autem. Quam nobis repellat suscipit voluptate dolorem iusto. Nostrum quia pariatur possimus aperiam impedit eos exercitationem.",
-                "benefit_en": "Tempore labore eos est sequi ab ut maiores et. Et dicta aspernatur accusantium nesciunt cumque est. Ea nam qui sit quo in. Eveniet minima quod veniam magni eum eos rerum.",
-                "tech_description": "Qui eos dolores harum beatae. Praesentium consequuntur illum culpa esse eos. Repellendus neque omnis et non enim odio. Suscipit aliquam sit autem est dolor dignissimos.",
-                "tech_description_en": "Nostrum suscipit deserunt sed id. Hic doloribus quod consequatur itaque ducimus voluptas id animi. Vel molestiae ut maxime. Corrupti maxime sunt reiciendis qui. Aperiam est cum et consectetur velit et.",
-                "description": "Et voluptates non reiciendis et porro officia. Quisquam eos deleniti aut. Laborum ad tempore earum enim sunt et ratione et. Labore eum corporis est reprehenderit dolorum ut.",
-                "description_en": "Officia harum et reiciendis libero. Vel sapiente rem dolor. Aliquid nihil delectus quia eligendi voluptates ipsam quia. Dicta sunt illum eos voluptas et repudiandae rem.",
-                "usage": "Voluptas repellendus quo omnis nemo et ab ipsa at. Sequi labore accusantium consequuntur asperiores debitis labore. Eius molestiae praesentium reprehenderit sed. In fugiat enim eius quibusdam voluptatum tenetur.",
-                "usage_en": "Dolor quo optio maiores quos voluptatibus et iusto. Animi sint et quibusdam consequuntur est id doloribus. Qui laborum et amet repudiandae. At veniam occaecati eos tenetur autem excepturi maxime.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?73559",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?70426",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?67313",
-                "product_video": null,
-                "status": 1,
-                "rating": 8.44,
-                "sold_count": 1847,
-                "review_count": 1971,
-                "created_at": "2020-09-04 05:54:19",
-                "updated_at": "2020-08-14 07:26:52",
-                "product_category": {
-                    "id": 12,
-                    "name": "护肤系列",
-                    "slug": "dolore-saepe",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?26728",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?49717",
-                    "title": "repellat culpa et",
-                    "title_en": "qui culpa ut",
-                    "sub_title": "perspiciatis quod provident",
-                    "describe": "Ratione illum laudantium neque porro. Laborum rerum quo at qui error. Expedita ducimus aut possimus voluptate vero itaque alias fugiat.",
-                    "describe_en": "Dolore quaerat earum nobis velit saepe. Blanditiis veritatis corporis assumenda eius explicabo qui nam.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?41632",
-                    "parent_id": 30,
-                    "level": 1,
-                    "created_at": "2020-09-04 11:07:01",
-                    "updated_at": "2020-08-13 20:29:24"
-                }
-            },
-            {
-                "id": 2,
-                "product_category_id": 20,
-                "product_name": "黑钻璀璨晶透肌底精华",
-                "product_name_en": "placeat dignissimos soluta",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?32628",
-                "slug": "tempora-in",
-                "short_description": "Autem atque sint ut vel.",
-                "short_description_en": "Sapiente aut sit nulla et qui. Quod ut aut dolores voluptatibus cumque voluptas voluptas. Qui doloremque quasi assumenda dolorem fugiat omnis. Culpa quas et expedita ipsum quis hic assumenda.",
-                "price": "9424.00",
-                "sale_price": "1.00",
-                "stock": 397,
-                "spec": null,
-                "seo_title": "tempore et natus",
-                "seo_keyword": "eum",
-                "seo_description": "Enim a facilis deserunt.",
-                "benefit": "Aut possimus non a enim voluptas quia. Ut repellendus voluptatem harum sunt repellendus. Voluptate quae nulla quod cumque. Eos asperiores velit aliquid porro est corporis.",
-                "benefit_en": "Aut corrupti magni qui animi. At non eum optio in officiis at numquam voluptatem. Ut enim ratione quas aut laborum animi.",
-                "tech_description": "Laboriosam delectus rem vel culpa. Cumque velit sunt quos officia. Consequatur consequuntur qui voluptatum explicabo molestiae.",
-                "tech_description_en": "Dolorem quia eius consequatur. Recusandae culpa expedita placeat praesentium. Ratione enim fuga ad sed odio rerum rerum. Quis voluptatum excepturi magnam dolor pariatur eos quia minima.",
-                "description": "Cumque dolore nemo voluptatem. Impedit provident exercitationem corporis vitae quis laborum veniam.",
-                "description_en": "Rerum non sunt reiciendis facere sed mollitia dolorum qui. Omnis commodi dolorem quis voluptatum voluptas ratione odio iure. Velit aut totam deleniti est a. Voluptatem rerum praesentium et qui nesciunt minima ab.",
-                "usage": "Nemo odit voluptatibus veritatis dolorem deleniti aliquam. Vero earum ipsum esse animi voluptates autem nihil. Voluptates pariatur esse qui earum neque fugiat. Earum fuga quia non neque adipisci laborum mollitia officiis.",
-                "usage_en": "Et sit similique suscipit in. Quis fugiat et fugiat est numquam. Quaerat aut tempora velit praesentium voluptas qui. Totam et labore provident natus eos et laudantium.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?67731",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?35383",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?21550",
-                "product_video": null,
-                "status": 3,
-                "rating": 9.92,
-                "sold_count": 1013,
-                "review_count": 8099,
-                "created_at": "2020-08-28 11:07:12",
-                "updated_at": "2020-09-02 21:44:07",
-                "product_category": {
-                    "id": 20,
-                    "name": "香水",
-                    "slug": "eum-vel",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?31905",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?83996",
-                    "title": "est officia qui",
-                    "title_en": "cum porro asperiores",
-                    "sub_title": "voluptates ut impedit",
-                    "describe": "Dicta facere nulla voluptas at aliquam dolores. Expedita non vero minus est eaque et. Aperiam autem doloremque enim labore dolor.",
-                    "describe_en": "Et voluptas harum perferendis harum. Eum est eum est consequatur maxime. Eaque non possimus vel omnis aut veritatis in.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?12977",
-                    "parent_id": 18,
-                    "level": 1,
-                    "created_at": "2020-09-02 08:41:40",
-                    "updated_at": "2020-08-19 13:24:10"
-                }
-            },
-            {
-                "id": 3,
-                "product_category_id": 19,
-                "product_name": "钻石冰莹面膜",
-                "product_name_en": "omnis odit accusantium",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?63171",
-                "slug": "sit-nesciunt",
-                "short_description": "Maxime quidem beatae et sit et dignissimos.",
-                "short_description_en": "Et officia vero molestias repellendus dolores sunt. Ut ducimus totam accusantium porro perspiciatis. Ullam reprehenderit sequi nesciunt facilis dolor vero. Molestias nulla esse et fuga ut sunt aut. Eius optio ut saepe eum rerum.",
-                "price": "8317.00",
-                "sale_price": "1.00",
-                "stock": 487,
-                "spec": null,
-                "seo_title": "est at nihil",
-                "seo_keyword": "earum",
-                "seo_description": "Quis occaecati velit porro sint est perferendis.",
-                "benefit": "Quasi assumenda veniam qui ad porro aperiam est nihil. Tenetur beatae explicabo et perspiciatis rerum provident aliquid. Et expedita nihil velit. Est voluptatem quia sit rem molestias quae saepe.",
-                "benefit_en": "Vel incidunt dolorum excepturi ea maiores. Ipsum consequuntur dolor est temporibus ut quod. Dolore quia occaecati eveniet dolorem omnis eaque.",
-                "tech_description": "Et voluptate beatae voluptas. Aliquid et beatae iusto qui voluptas. Nulla perspiciatis ab expedita quae et corporis. Et illo recusandae distinctio sunt. Deserunt voluptas consequatur earum quasi aut vel sapiente fugiat.",
-                "tech_description_en": "Tenetur vel cum in occaecati quod beatae vero. Qui officiis ut consequatur in. Ducimus et nemo qui. Expedita illum illo omnis assumenda.",
-                "description": "Itaque consequatur recusandae unde repellat nisi sunt. Similique accusantium nostrum ducimus et. Et possimus maiores enim quaerat impedit. Dolores corporis tempore culpa cumque.",
-                "description_en": "Autem aut sunt aperiam voluptatem et nobis et. Dolores voluptatem qui quia accusamus voluptas porro. Fuga provident iste error dicta praesentium.",
-                "usage": "Ut nam veniam repellat sequi. Ut veritatis error laboriosam culpa. Atque non quam et. Velit neque temporibus dolorem inventore.",
-                "usage_en": "Neque molestiae sed iure ut excepturi nihil. Voluptates saepe aut porro reprehenderit aut aut omnis. Soluta deserunt doloribus iure. Ducimus ullam delectus a et dolor aut optio.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?64160",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?85672",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?31387",
-                "product_video": null,
-                "status": 1,
-                "rating": 8.31,
-                "sold_count": 9215,
-                "review_count": 9712,
-                "created_at": "2020-09-02 17:10:04",
-                "updated_at": "2020-09-14 11:02:38",
-                "product_category": {
-                    "id": 19,
-                    "name": "套装C",
-                    "slug": "eos-ea",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?76863",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?67793",
-                    "title": "ut et quae",
-                    "title_en": "aliquid tempore unde",
-                    "sub_title": "excepturi illum velit",
-                    "describe": "Dolorem dolorem harum ex laborum officiis. Dolorem esse voluptatibus dolor facere. In veritatis sequi facere ipsam aut.",
-                    "describe_en": "Qui cumque ullam nobis quis omnis et. Est optio possimus et a velit aut voluptas.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?87078",
-                    "parent_id": 8,
-                    "level": 1,
-                    "created_at": "2020-08-19 10:30:55",
-                    "updated_at": "2020-09-04 12:52:10"
-                }
-            },
-            {
-                "id": 4,
-                "product_category_id": 18,
-                "product_name": "黑钻璀璨晶透肌底精华",
-                "product_name_en": "est et quam",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?29567",
-                "slug": "dolorem-dicta",
-                "short_description": "Nemo quo et recusandae id laboriosam.",
-                "short_description_en": "Quo quam et ut est sapiente provident. Autem blanditiis placeat atque. Recusandae qui neque neque sit veniam rem ut. Ullam officiis dicta odio similique laudantium quae.",
-                "price": "3229.00",
-                "sale_price": "1.00",
-                "stock": 920,
-                "spec": null,
-                "seo_title": "eos ut ea",
-                "seo_keyword": "minus",
-                "seo_description": "Dolorem sequi facere sit.",
-                "benefit": "Alias esse aut qui et sequi maiores et. Occaecati mollitia molestiae voluptatem repellat labore ipsa. Quis porro vel non ratione et culpa delectus. Ut eaque alias nesciunt repudiandae.",
-                "benefit_en": "Vitae repellat omnis quaerat iure id inventore. Molestias voluptatem doloribus hic qui aut.",
-                "tech_description": "Dicta error sapiente tempore velit vel. Quos quo corporis amet animi. Facere quisquam tempore ratione sunt neque voluptate. Quidem repellat molestias id.",
-                "tech_description_en": "Ut ab sunt aut maxime nisi excepturi. Exercitationem tempore itaque pariatur ex facere consectetur. Corporis voluptatem illum est dolorem alias. Sed ea qui laudantium perspiciatis quo debitis eum saepe. Magni autem eveniet dolores in consequatur.",
-                "description": "Perferendis ducimus ipsam ea. Facere a sunt eum adipisci esse officia assumenda. Voluptatem officiis ullam quam eaque corporis sed. Rerum ut in nemo ut.",
-                "description_en": "Nisi nisi id eaque voluptate eius deserunt. Ut voluptas reiciendis facilis repellendus soluta iure aspernatur. Vel architecto autem culpa aut molestiae ipsum voluptas.",
-                "usage": "Saepe porro voluptate ut tenetur dolor voluptatum totam accusamus. Inventore labore ad molestiae hic. Ad modi quia quia atque nostrum officia. Aut aspernatur adipisci illo quibusdam impedit id.",
-                "usage_en": "Aut qui iure similique vitae distinctio accusamus. Aut ratione esse tempora distinctio et ad. Impedit consequatur quis dolores fuga libero nostrum sunt. Aut nisi et quia dolorem et et placeat atque. Et quo delectus illo ipsam.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?92476",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?96423",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?58003",
-                "product_video": null,
-                "status": 1,
-                "rating": 9.03,
-                "sold_count": 9443,
-                "review_count": 4726,
-                "created_at": "2020-09-05 06:28:56",
-                "updated_at": "2020-08-18 14:57:29",
-                "product_category": {
-                    "id": 18,
-                    "name": "BB霜",
-                    "slug": "officia-laboriosam",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?20141",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?27064",
-                    "title": "ut commodi dolor",
-                    "title_en": "eos doloribus delectus",
-                    "sub_title": "neque omnis aliquam",
-                    "describe": "Earum placeat reiciendis nesciunt. Itaque tempore ullam perspiciatis quia beatae. Rerum qui soluta non dolorum et. Consectetur explicabo unde inventore repellendus corporis rerum nostrum.",
-                    "describe_en": "Tempora ea ut fugit deserunt doloribus est. Quis quidem unde aut suscipit omnis. Odit sed vitae aut reprehenderit. Nulla nisi sit vero repellat libero consequatur.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?75993",
-                    "parent_id": 11,
-                    "level": 1,
-                    "created_at": "2020-09-06 21:09:29",
-                    "updated_at": "2020-09-05 20:16:51"
-                }
-            },
-            {
-                "id": 5,
-                "product_category_id": 12,
-                "product_name": "黑钻璀璨晶透肌底精华",
-                "product_name_en": "ipsam reprehenderit placeat",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?47895",
-                "slug": "enim-autem",
-                "short_description": "Veritatis explicabo hic quam.",
-                "short_description_en": "Qui eos itaque nostrum quo quaerat. Consequatur cumque omnis et quis magnam ut et.",
-                "price": "640.00",
-                "sale_price": "1.00",
-                "stock": 745,
-                "spec": null,
-                "seo_title": "corrupti et repellendus",
-                "seo_keyword": "soluta",
-                "seo_description": "Molestiae aut in ea.",
-                "benefit": "Expedita ut enim cupiditate accusantium exercitationem temporibus. Ducimus optio rerum nulla dolorem voluptatum ut. Impedit expedita voluptatum repudiandae sint qui nihil sapiente repudiandae. Aspernatur ut consequuntur non dignissimos labore recusandae.",
-                "benefit_en": "Et voluptas praesentium et fugiat sapiente. Est ad nam accusamus eveniet quidem itaque ea quia. Voluptas molestiae cupiditate reprehenderit voluptatem id doloremque voluptate. Ea atque nisi repudiandae fuga.",
-                "tech_description": "Et sapiente qui mollitia non eius voluptatem porro. Ipsa fugiat qui accusamus rerum velit sapiente commodi. Libero dolore unde ullam nihil odio.",
-                "tech_description_en": "Cum omnis laudantium voluptatem rerum. Est officia adipisci ab. Sapiente velit consequatur labore voluptas suscipit dolorem. Non esse non sequi est necessitatibus culpa. Soluta fuga unde tenetur architecto libero sint.",
-                "description": "Sit quia sint eius mollitia magnam. Incidunt esse et dolores a atque earum. Ducimus nostrum perspiciatis commodi aut. Consectetur amet labore in eum voluptatem.",
-                "description_en": "Et minus et facere at. Dolorem reprehenderit velit in dolorum est omnis.",
-                "usage": "Magni eius non ipsa ut sed eius. Magni ullam quae tenetur qui dicta sed. Sed cupiditate delectus debitis quae tempora. Alias facilis voluptatem excepturi cum. Impedit voluptatem facilis exercitationem dolor.",
-                "usage_en": "Magni voluptatem dolorem consequuntur. Ut minima velit accusamus ea dolorem. Explicabo quisquam inventore possimus inventore. Provident porro sint quo atque tempora quaerat ut aspernatur. Est recusandae consequatur ab odit qui iste.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?23990",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?57132",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?93873",
-                "product_video": null,
-                "status": 1,
-                "rating": 8.04,
-                "sold_count": 1085,
-                "review_count": 2738,
-                "created_at": "2020-08-25 01:24:07",
-                "updated_at": "2020-08-14 12:05:54",
-                "product_category": {
-                    "id": 12,
-                    "name": "护肤系列",
-                    "slug": "dolore-saepe",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?26728",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?49717",
-                    "title": "repellat culpa et",
-                    "title_en": "qui culpa ut",
-                    "sub_title": "perspiciatis quod provident",
-                    "describe": "Ratione illum laudantium neque porro. Laborum rerum quo at qui error. Expedita ducimus aut possimus voluptate vero itaque alias fugiat.",
-                    "describe_en": "Dolore quaerat earum nobis velit saepe. Blanditiis veritatis corporis assumenda eius explicabo qui nam.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?41632",
-                    "parent_id": 30,
-                    "level": 1,
-                    "created_at": "2020-09-04 11:07:01",
-                    "updated_at": "2020-08-13 20:29:24"
-                }
-            },
-            {
-                "id": 6,
-                "product_category_id": 8,
-                "product_name": "黑钻洁净滋养面膜",
-                "product_name_en": "voluptatibus molestias nihil",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?42706",
-                "slug": "corporis-sunt",
-                "short_description": "Blanditiis aut qui ex explicabo.",
-                "short_description_en": "Dolores sit ex enim. Blanditiis quia velit eum laborum repellendus alias placeat. Quas enim quo ipsum quia et laboriosam.",
-                "price": "1486.00",
-                "sale_price": "1.00",
-                "stock": 562,
-                "spec": null,
-                "seo_title": "autem amet accusamus",
-                "seo_keyword": "iste",
-                "seo_description": "Quaerat fuga autem ad.",
-                "benefit": "Eos velit ad blanditiis natus asperiores. Est rerum qui consectetur nulla nihil. Enim voluptatem minus soluta sed et. Iusto possimus corrupti dolores error ea ipsam.",
-                "benefit_en": "Rerum hic qui ut distinctio eius autem illum. Dolorem tempora quidem fugiat expedita natus cum aut consequuntur. Et maiores quisquam ab magnam dignissimos.",
-                "tech_description": "Et placeat sint et non laudantium unde. Ea omnis illum delectus asperiores voluptas debitis. Consectetur qui velit ipsum sunt dicta esse. Nostrum similique qui distinctio maxime.",
-                "tech_description_en": "Voluptatum tempore autem provident amet. Veniam consequatur porro id commodi modi qui. Impedit consequatur sunt ipsum odit.",
-                "description": "Illum debitis laborum dicta ab ab rem. Autem magnam neque dolorem incidunt. Ipsum laudantium pariatur quia. Molestiae sit commodi sequi sint.",
-                "description_en": "Modi laboriosam et quia nemo qui et. Ab adipisci consequuntur officiis ea et libero. Odio et omnis quia voluptatum magni qui.",
-                "usage": "Possimus ducimus laborum officiis dolor quia incidunt deleniti dolorum. Rerum distinctio quo quos aspernatur consequatur. Voluptatibus aut eos id fugit. Aperiam ea animi corrupti deserunt et.",
-                "usage_en": "Omnis qui quas incidunt quas est officia ipsum dicta. Alias architecto dolorum ea sit. Quos id consequatur maiores qui soluta accusantium.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?90015",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?82692",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?57078",
-                "product_video": null,
-                "status": 1,
-                "rating": 8.17,
-                "sold_count": 3797,
-                "review_count": 4798,
-                "created_at": "2020-08-18 11:53:29",
-                "updated_at": "2020-09-10 08:08:32",
-                "product_category": {
-                    "id": 8,
-                    "name": "腮红",
-                    "slug": "iure-necessitatibus",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?64747",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?20822",
-                    "title": "ex amet quibusdam",
-                    "title_en": "natus dolores tempora",
-                    "sub_title": "et perspiciatis velit",
-                    "describe": "Qui exercitationem veniam est dolores placeat ipsam. Provident dolorum expedita voluptatem doloribus. Nisi qui sed labore dicta veritatis in. Esse est officiis nostrum suscipit reiciendis.",
-                    "describe_en": "Delectus aut expedita in ipsum consequatur aut. Dolore sed aspernatur hic enim id est. Laudantium impedit molestiae aliquam error modi laboriosam.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?67825",
-                    "parent_id": 29,
-                    "level": 1,
-                    "created_at": "2020-08-30 08:12:31",
-                    "updated_at": "2020-09-09 14:28:00"
-                }
-            },
-            {
-                "id": 7,
-                "product_category_id": 14,
-                "product_name": "钻石冰莹面膜",
-                "product_name_en": "qui eum officiis",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?28506",
-                "slug": "at-iste",
-                "short_description": "Eos laudantium odio itaque consequuntur nulla.",
-                "short_description_en": "Vel nesciunt molestiae numquam necessitatibus magnam inventore. Distinctio aliquam voluptas sit iusto quae. Suscipit necessitatibus deleniti sunt maxime aspernatur repudiandae accusamus. Nihil soluta enim illum.",
-                "price": "135.00",
-                "sale_price": "1.00",
-                "stock": 524,
-                "spec": null,
-                "seo_title": "aperiam voluptas tempora",
-                "seo_keyword": "expedita",
-                "seo_description": "Dolore ex quibusdam sit perspiciatis nesciunt voluptatem.",
-                "benefit": "Nostrum beatae aut recusandae aut sed ea in ducimus. Voluptas ad officia repellat doloremque temporibus. Praesentium minus iste asperiores sunt adipisci animi sint. Cupiditate blanditiis aut corporis est omnis consequatur.",
-                "benefit_en": "Non deserunt non perspiciatis tenetur nam et est aspernatur. Et odit labore et sed dolorum adipisci numquam. Voluptates facere iure aut ea. Facilis quisquam autem temporibus voluptates odio non.",
-                "tech_description": "Ex itaque debitis consequuntur facilis sunt exercitationem incidunt. Recusandae necessitatibus error est. Perferendis nostrum sapiente id saepe dolorem consequuntur.",
-                "tech_description_en": "Suscipit fuga molestias aut qui saepe vel. Sequi est aut in tempore rerum alias. Rerum veniam totam minima et asperiores quo possimus.",
-                "description": "Molestiae sit saepe in ipsam. Quidem facilis numquam eum ipsam qui vero rem. Adipisci voluptatem atque tempore sed consequatur porro.",
-                "description_en": "Perspiciatis doloremque vel et corporis. Rerum recusandae eligendi et vel dolores sed. Tempore minus vitae eaque cumque repellendus laborum aspernatur. Voluptatem aut sapiente odit earum harum qui qui.",
-                "usage": "Ducimus expedita molestiae dolor placeat dolorem et. Eaque assumenda eveniet aperiam enim iste odio et adipisci. Omnis amet maxime in voluptatem. Qui voluptas quo distinctio ad non est iusto quam.",
-                "usage_en": "Aut dolor qui vel odit corporis quisquam exercitationem. Fugit aut libero quis culpa fuga voluptatum. Aut ab optio voluptatem libero. Labore vel error distinctio voluptatem itaque est vel ut.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?25440",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?23912",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?44403",
-                "product_video": null,
-                "status": 1,
-                "rating": 2.85,
-                "sold_count": 6034,
-                "review_count": 5956,
-                "created_at": "2020-08-19 23:37:56",
-                "updated_at": "2020-09-06 09:33:20",
-                "product_category": {
-                    "id": 14,
-                    "name": "隔离",
-                    "slug": "eligendi-in",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?66282",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?17516",
-                    "title": "cum in pariatur",
-                    "title_en": "aut ut aperiam",
-                    "sub_title": "sint minus voluptates",
-                    "describe": "Dolores asperiores qui voluptatem velit. Ullam omnis sapiente molestias laboriosam sed. Est eius qui laboriosam odit maxime adipisci. Accusamus et et explicabo officia incidunt.",
-                    "describe_en": "Animi aut eveniet quis qui. Consequatur nam est voluptas ut id amet ipsa sed. Nihil architecto vel animi et voluptas non.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?64481",
-                    "parent_id": 14,
-                    "level": 1,
-                    "created_at": "2020-09-06 22:01:35",
-                    "updated_at": "2020-08-29 14:51:47"
-                }
-            },
-            {
-                "id": 8,
-                "product_category_id": 9,
-                "product_name": "黑钻洁净滋养面膜",
-                "product_name_en": "aut recusandae ab",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?74821",
-                "slug": "sit-sit",
-                "short_description": "Alias facilis laudantium debitis corporis.",
-                "short_description_en": "Dolores amet et maiores quo ipsum sed officia nihil. Ullam dolorem optio et porro est quia sint animi. Vel qui facere quisquam ut sed distinctio labore.",
-                "price": "2059.00",
-                "sale_price": "1.00",
-                "stock": 719,
-                "spec": null,
-                "seo_title": "minus fugiat doloribus",
-                "seo_keyword": "dolor",
-                "seo_description": "Quod quas dignissimos sit saepe quis.",
-                "benefit": "Explicabo labore velit quo eius at ea. Minima qui voluptas est. Natus ratione est tempora eum rerum omnis.",
-                "benefit_en": "Enim quia a et debitis adipisci id. Eveniet rerum nostrum aspernatur asperiores ut aut. Delectus qui asperiores delectus. Provident eos voluptatibus consequatur sint sint.",
-                "tech_description": "Omnis et commodi nam nihil incidunt. Odio veniam nam aspernatur. Alias fugiat natus animi et molestiae et laborum. Repudiandae non laborum occaecati vitae sed quasi nobis.",
-                "tech_description_en": "Unde autem quidem at itaque vel voluptatem iusto aut. Omnis omnis eius quidem fuga fuga est porro. Quis et aut qui architecto.",
-                "description": "Unde voluptas ex non id quos sit. Quisquam debitis est sapiente sunt. Temporibus iusto atque non aperiam amet cumque vel.",
-                "description_en": "Reprehenderit quis et dolor possimus odio esse. Eum voluptatibus molestiae recusandae qui. Sit nesciunt sed tempora.",
-                "usage": "Et nemo totam libero quo et. Qui eum cupiditate reiciendis incidunt aut eligendi iure. Dolor sed saepe repudiandae deleniti at aliquam.",
-                "usage_en": "Sint illo qui impedit sit alias officia odio. Repudiandae pariatur voluptatem magnam aut placeat. Necessitatibus hic quis ut cumque quo aut. Ratione sit velit excepturi dolorum magni incidunt tempora.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?90328",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?26935",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?91184",
-                "product_video": null,
-                "status": 1,
-                "rating": 2,
-                "sold_count": 8483,
-                "review_count": 1449,
-                "created_at": "2020-08-16 16:13:56",
-                "updated_at": "2020-08-30 05:25:43",
-                "product_category": {
-                    "id": 9,
-                    "name": "身体护理",
-                    "slug": "omnis-illum",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?22724",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?77464",
-                    "title": "quo qui aut",
-                    "title_en": "maxime ut molestiae",
-                    "sub_title": "earum ullam voluptatem",
-                    "describe": "Iusto aut aut soluta magnam ipsum quia voluptate. Ab quae magni dolor perferendis ut. Aut distinctio ad voluptatem voluptas consectetur deleniti excepturi optio.",
-                    "describe_en": "Est quo porro qui beatae voluptatibus. Qui in aut assumenda non odit quisquam qui ea. Sequi itaque consequuntur aut rerum soluta ut ipsum.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?95766",
-                    "parent_id": 30,
-                    "level": 1,
-                    "created_at": "2020-08-24 09:18:58",
-                    "updated_at": "2020-08-23 22:15:14"
-                }
-            },
-            {
-                "id": 9,
-                "product_category_id": 16,
-                "product_name": "黑钻赋颜面霜",
-                "product_name_en": "tempore blanditiis deleniti",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?71291",
-                "slug": "dolores-aut",
-                "short_description": "Velit est corporis illum ut.",
-                "short_description_en": "Id sapiente et quod deleniti fugiat sint porro. Repellat facere et quod labore error esse. Aut molestiae sint deleniti adipisci rerum iure.",
-                "price": "7643.00",
-                "sale_price": "1.00",
-                "stock": 87,
-                "spec": null,
-                "seo_title": "vel voluptatem placeat",
-                "seo_keyword": "odio",
-                "seo_description": "Dolor ut eveniet laudantium officiis rem dignissimos.",
-                "benefit": "Id enim quas doloremque ipsa cumque amet unde. Laudantium magnam delectus nemo qui. Possimus non repellat maiores id. Deserunt sit et perspiciatis non.",
-                "benefit_en": "Facilis et provident nihil magnam itaque dolor quaerat. Dignissimos perferendis quis beatae est explicabo rerum.",
-                "tech_description": "Voluptas qui reprehenderit quia quaerat quia autem. Aut et enim illo cumque et. Quibusdam tenetur ut dicta aut magnam. Et voluptatem quod nulla et non.",
-                "tech_description_en": "Ut illo eveniet et architecto excepturi ratione. Architecto qui provident qui sit. Aut quaerat error repellat provident rem sit sequi sed.",
-                "description": "Quasi minus sit iste error quo et vitae. Sed vitae pariatur possimus aliquid doloremque. Aut voluptatum dolorem laudantium et pariatur ea.",
-                "description_en": "Ut distinctio delectus et ullam at. Natus mollitia sit ipsum.",
-                "usage": "Ut dignissimos dolor sed at. Magnam sunt facere nostrum mollitia. Blanditiis voluptas omnis reiciendis at veritatis tempore totam. Cum quia numquam in porro est quasi.",
-                "usage_en": "Aliquid ducimus sunt occaecati. Dolorem eligendi dolor consequatur aut ullam eum ipsa. Aperiam omnis vel ut omnis. Est enim mollitia cupiditate laborum explicabo qui eum accusamus.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?28121",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?52117",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?51988",
-                "product_video": null,
-                "status": 2,
-                "rating": 5.52,
-                "sold_count": 7513,
-                "review_count": 1967,
-                "created_at": "2020-09-09 06:34:38",
-                "updated_at": "2020-08-13 10:48:10",
-                "product_category": {
-                    "id": 16,
-                    "name": "眼霜",
-                    "slug": "culpa-aut",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?63854",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?31891",
-                    "title": "vitae culpa dolorem",
-                    "title_en": "dolorem natus minima",
-                    "sub_title": "aut incidunt hic",
-                    "describe": "Quisquam et aliquid aperiam veniam nihil reiciendis voluptas. Eum natus voluptatem voluptate velit in est. Saepe fugiat tenetur ea consequuntur.",
-                    "describe_en": "Consequatur totam error perspiciatis voluptas ad ut aut. Veniam amet et nam tempora cum omnis. Id quaerat accusamus ducimus est cupiditate voluptas sed inventore. Est quaerat aliquid ut vel.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?47825",
-                    "parent_id": 30,
-                    "level": 1,
-                    "created_at": "2020-08-12 18:34:29",
-                    "updated_at": "2020-08-16 19:57:04"
-                }
-            },
-            {
-                "id": 10,
-                "product_category_id": 3,
-                "product_name": "黑钻洁净滋养面膜",
-                "product_name_en": "praesentium tenetur sed",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?50018",
-                "slug": "doloribus-quia",
-                "short_description": "Amet quaerat repudiandae qui accusantium quisquam omnis.",
-                "short_description_en": "Ut ullam quis placeat asperiores commodi. Cum aut eos nihil quia minus voluptatum excepturi. Voluptate sapiente in eaque impedit porro quaerat. Eum deleniti accusantium rem.",
-                "price": "2815.00",
-                "sale_price": "1.00",
-                "stock": 401,
-                "spec": null,
-                "seo_title": "sed quia et",
-                "seo_keyword": "omnis",
-                "seo_description": "Officiis et ullam rerum voluptas velit.",
-                "benefit": "Veritatis culpa deleniti similique temporibus necessitatibus. Omnis qui asperiores odio laboriosam.",
-                "benefit_en": "Esse facilis doloribus alias itaque. Perferendis sequi eaque possimus. Dolor saepe delectus dolorum.",
-                "tech_description": "Et amet necessitatibus laudantium sequi fuga dolore porro eius. Vitae enim est et repudiandae. Et iure veritatis officiis deserunt nihil mollitia omnis. Aut numquam placeat minima suscipit omnis repellendus ab soluta.",
-                "tech_description_en": "Enim unde voluptas explicabo. Accusamus aut corporis vero quo ea neque omnis laboriosam. Sint atque cum numquam neque minus.",
-                "description": "Nulla corrupti consequuntur velit libero sed molestias eveniet vel. Repellendus cupiditate fugiat voluptatem qui. Quia molestiae quia officia voluptatem molestias et. Corrupti ab esse sit aut architecto.",
-                "description_en": "Tempore ullam esse non esse quae qui in. Unde dolor rerum nisi est. Autem soluta ut tenetur tenetur occaecati quo inventore.",
-                "usage": "Dolorum ipsam sint harum. Totam in eaque praesentium qui dolor. Reprehenderit et reiciendis illum nobis.",
-                "usage_en": "Beatae quibusdam sed cum sint. Voluptatibus eos aliquam quia quia. Quis occaecati fugiat perspiciatis et magni sit consequatur.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?28591",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?64577",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?43849",
-                "product_video": null,
-                "status": 1,
-                "rating": 2.2,
-                "sold_count": 6458,
-                "review_count": 6941,
-                "created_at": "2020-08-19 08:49:22",
-                "updated_at": "2020-08-30 21:40:34",
-                "product_category": {
-                    "id": 3,
-                    "name": "精油",
-                    "slug": "numquam-enim",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?15534",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?89172",
-                    "title": "natus perferendis consectetur",
-                    "title_en": "sit iure temporibus",
-                    "sub_title": "officiis omnis voluptas",
-                    "describe": "Et reiciendis cupiditate qui. Harum quisquam voluptatem alias rerum quaerat est aut. Tenetur vitae modi sequi incidunt autem vel. Aut sit amet quo distinctio qui qui neque.",
-                    "describe_en": "Et blanditiis dolorum quia commodi. Beatae vel rerum quae sed aliquam reiciendis voluptatem.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?96750",
-                    "parent_id": 7,
-                    "level": 1,
-                    "created_at": "2020-08-29 00:28:43",
-                    "updated_at": "2020-08-26 11:27:04"
-                }
-            },
-            {
-                "id": 11,
-                "product_category_id": 9,
-                "product_name": "黑钻焕肤水",
-                "product_name_en": "doloribus molestiae in",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?82375",
-                "slug": "autem-dolores",
-                "short_description": "Sint itaque officiis alias id.",
-                "short_description_en": "Est sequi dolor et minima illum rerum consequatur. Nostrum quaerat iste doloribus id amet atque excepturi excepturi. Est est enim voluptate est fugiat.",
-                "price": "7082.00",
-                "sale_price": "1.00",
-                "stock": 662,
-                "spec": null,
-                "seo_title": "vero assumenda rerum",
-                "seo_keyword": "aspernatur",
-                "seo_description": "Nobis sit occaecati velit.",
-                "benefit": "Dignissimos voluptatibus nihil eaque autem. Eum consectetur laborum fugiat aut id nesciunt. Praesentium sunt cum est dolorem velit voluptas nesciunt. Eos eum et aut ut.",
-                "benefit_en": "Rerum itaque pariatur in tempore. Enim est rerum veniam itaque omnis. Consequuntur qui est perspiciatis voluptatum inventore.",
-                "tech_description": "Quia et odio doloremque qui voluptas ipsam facere. Nulla aut fuga laborum corporis est est voluptatem. Possimus aspernatur ut est ut eligendi vero. Blanditiis est accusantium non corrupti nobis.",
-                "tech_description_en": "Quae enim maiores est. Quis veniam magni quae. Sit distinctio soluta inventore ullam. In eos tempore quia cum earum ut doloribus.",
-                "description": "Ut est fuga ut non. Quae molestiae minima rem ullam in. Illum voluptatem soluta dolor numquam iure similique. At quidem consequatur dolorem aut recusandae.",
-                "description_en": "Accusamus voluptate ex velit. Ipsam ut quia nihil blanditiis. Repudiandae in et doloremque quod minus qui.",
-                "usage": "Nesciunt repellat incidunt quaerat et voluptatem ipsum. Aspernatur qui delectus sed exercitationem adipisci itaque eveniet similique. Dignissimos praesentium distinctio exercitationem dolorem et.",
-                "usage_en": "Est possimus voluptas et sed ratione quam aliquid totam. Quis cumque tempora aliquid sed. Quod quibusdam sint enim. Aut molestiae aut est quia.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?16957",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?97145",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?16356",
-                "product_video": null,
-                "status": 2,
-                "rating": 7.21,
-                "sold_count": 4325,
-                "review_count": 8483,
-                "created_at": "2020-08-28 11:35:01",
-                "updated_at": "2020-08-14 17:29:25",
-                "product_category": {
-                    "id": 9,
-                    "name": "身体护理",
-                    "slug": "omnis-illum",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?22724",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?77464",
-                    "title": "quo qui aut",
-                    "title_en": "maxime ut molestiae",
-                    "sub_title": "earum ullam voluptatem",
-                    "describe": "Iusto aut aut soluta magnam ipsum quia voluptate. Ab quae magni dolor perferendis ut. Aut distinctio ad voluptatem voluptas consectetur deleniti excepturi optio.",
-                    "describe_en": "Est quo porro qui beatae voluptatibus. Qui in aut assumenda non odit quisquam qui ea. Sequi itaque consequuntur aut rerum soluta ut ipsum.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?95766",
-                    "parent_id": 30,
-                    "level": 1,
-                    "created_at": "2020-08-24 09:18:58",
-                    "updated_at": "2020-08-23 22:15:14"
-                }
-            },
-            {
-                "id": 12,
-                "product_category_id": 8,
-                "product_name": "黑钻赋颜面霜",
-                "product_name_en": "voluptatem itaque quia",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?30633",
-                "slug": "repellendus-nostrum",
-                "short_description": "Neque ipsum et id recusandae omnis cupiditate.",
-                "short_description_en": "Reiciendis voluptas tempore debitis voluptas corrupti. Deserunt illum enim sed quia fugit. Non sint ipsum dolorem culpa dolorum repellendus aperiam.",
-                "price": "5282.00",
-                "sale_price": "1.00",
-                "stock": 42,
-                "spec": null,
-                "seo_title": "eum quidem odit",
-                "seo_keyword": "ut",
-                "seo_description": "Sit hic aut perferendis.",
-                "benefit": "Rerum autem culpa ipsa autem consequatur. Corporis a at excepturi praesentium eligendi est laudantium. Est reiciendis soluta et totam error quo.",
-                "benefit_en": "Consequatur qui dolore sunt. Voluptatem qui possimus quisquam rerum officia omnis.",
-                "tech_description": "Consequatur consequatur accusamus provident dolores. Veritatis omnis qui recusandae aperiam et et. Sit quibusdam ut necessitatibus rerum.",
-                "tech_description_en": "Voluptas alias aut maiores nihil. Saepe iure velit dolorem quisquam sit sunt. Error dolores minus a. Qui ratione rerum accusantium vero perspiciatis.",
-                "description": "Ullam consequuntur officia sit dolores animi excepturi. Eius qui quis iure quia qui veritatis voluptas. Accusantium alias id consequatur nisi. Illum omnis consequatur quia labore nulla quibusdam. Voluptatem nisi qui consequatur.",
-                "description_en": "Cum nesciunt qui maxime temporibus enim reprehenderit qui. Pariatur dolor sed ipsam. Perspiciatis voluptate corrupti perspiciatis consequuntur. Aut ut aut distinctio blanditiis sint quidem. Omnis eaque quibusdam eos vero aut nisi.",
-                "usage": "Autem iste quia necessitatibus quod. Laboriosam perferendis et deserunt modi voluptates consequuntur est. Illum odio autem deserunt nisi ullam sint non ratione. Magni commodi eaque accusantium iure recusandae.",
-                "usage_en": "In eum qui molestiae delectus ex. Hic esse veritatis eveniet perferendis. Autem impedit dolorem omnis voluptatem id aut.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?72858",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?70432",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?71509",
-                "product_video": null,
-                "status": 1,
-                "rating": 0.01,
-                "sold_count": 2312,
-                "review_count": 2845,
-                "created_at": "2020-08-18 15:08:22",
-                "updated_at": "2020-09-07 11:51:57",
-                "product_category": {
-                    "id": 8,
-                    "name": "腮红",
-                    "slug": "iure-necessitatibus",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?64747",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?20822",
-                    "title": "ex amet quibusdam",
-                    "title_en": "natus dolores tempora",
-                    "sub_title": "et perspiciatis velit",
-                    "describe": "Qui exercitationem veniam est dolores placeat ipsam. Provident dolorum expedita voluptatem doloribus. Nisi qui sed labore dicta veritatis in. Esse est officiis nostrum suscipit reiciendis.",
-                    "describe_en": "Delectus aut expedita in ipsum consequatur aut. Dolore sed aspernatur hic enim id est. Laudantium impedit molestiae aliquam error modi laboriosam.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?67825",
-                    "parent_id": 29,
-                    "level": 1,
-                    "created_at": "2020-08-30 08:12:31",
-                    "updated_at": "2020-09-09 14:28:00"
-                }
-            },
-            {
-                "id": 13,
-                "product_category_id": 19,
-                "product_name": "黑钻臻活眼部精华",
-                "product_name_en": "quo saepe id",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?43927",
-                "slug": "harum-pariatur",
-                "short_description": "Recusandae animi voluptatem sequi.",
-                "short_description_en": "Et deserunt suscipit animi sit. Ut id et deleniti ut. Similique natus eum at enim quas animi omnis quisquam.",
-                "price": "2623.00",
-                "sale_price": "1.00",
-                "stock": 988,
-                "spec": null,
-                "seo_title": "quas necessitatibus ea",
-                "seo_keyword": "nostrum",
-                "seo_description": "Commodi dolor aut tempore eum.",
-                "benefit": "Qui delectus distinctio quisquam velit autem. Libero ducimus omnis a ea recusandae autem. Voluptatem facere aliquid corrupti labore. Aut tenetur voluptatem ea assumenda non minus ea temporibus.",
-                "benefit_en": "Nam velit alias ducimus architecto qui illum dolorem sint. Facere qui debitis doloribus maiores debitis. Ratione et mollitia omnis fugiat recusandae maiores esse.",
-                "tech_description": "Voluptatem quaerat neque quod perferendis eaque voluptatem. Aspernatur molestiae magnam similique optio iure non qui. Nam tempora aliquam nisi voluptatibus ea veniam itaque. Consectetur enim molestias et distinctio.",
-                "tech_description_en": "Dolores ut ea facilis blanditiis. Debitis quibusdam atque ab soluta consequuntur animi occaecati. Assumenda enim iure ea itaque quisquam voluptatem. Velit eos aut provident magni.",
-                "description": "Modi expedita quaerat voluptatem deleniti. Qui facere ex dolor repellendus laudantium voluptatem non. Consequuntur aut voluptatem magni magnam voluptatibus numquam et. Voluptatem aut laborum exercitationem modi vero.",
-                "description_en": "Consequatur alias quia fugiat ad provident. Non voluptas pariatur molestias est qui. Molestiae illum qui dignissimos dolor sint dolorem.",
-                "usage": "Laborum ab officia atque similique. Quae tempore quibusdam alias. Enim ut minus architecto maxime nesciunt inventore ipsam rerum.",
-                "usage_en": "Officiis consequatur corporis accusantium accusantium quo. Sunt incidunt ipsum sit voluptate ipsum reprehenderit dignissimos nostrum. Unde quis tempora dolor minima aperiam voluptatem itaque.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?91727",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?18834",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?58913",
-                "product_video": null,
-                "status": 3,
-                "rating": 0.4,
-                "sold_count": 7612,
-                "review_count": 8213,
-                "created_at": "2020-09-10 19:36:41",
-                "updated_at": "2020-08-29 11:28:23",
-                "product_category": {
-                    "id": 19,
-                    "name": "套装C",
-                    "slug": "eos-ea",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?76863",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?67793",
-                    "title": "ut et quae",
-                    "title_en": "aliquid tempore unde",
-                    "sub_title": "excepturi illum velit",
-                    "describe": "Dolorem dolorem harum ex laborum officiis. Dolorem esse voluptatibus dolor facere. In veritatis sequi facere ipsam aut.",
-                    "describe_en": "Qui cumque ullam nobis quis omnis et. Est optio possimus et a velit aut voluptas.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?87078",
-                    "parent_id": 8,
-                    "level": 1,
-                    "created_at": "2020-08-19 10:30:55",
-                    "updated_at": "2020-09-04 12:52:10"
-                }
-            },
-            {
-                "id": 14,
-                "product_category_id": 8,
-                "product_name": "黑钻肌光精华",
-                "product_name_en": "quo optio et",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?56681",
-                "slug": "veniam-architecto",
-                "short_description": "Facere porro et adipisci.",
-                "short_description_en": "Nisi quod excepturi perspiciatis asperiores explicabo. Cum nihil modi voluptatum commodi. Aut quia quidem sed eaque repellendus blanditiis sit.",
-                "price": "1899.00",
-                "sale_price": "1.00",
-                "stock": 896,
-                "spec": null,
-                "seo_title": "vel dolores vel",
-                "seo_keyword": "nihil",
-                "seo_description": "Veritatis a sapiente optio cumque voluptates.",
-                "benefit": "Voluptatem dolorum quia ea magnam et sed. Qui magni architecto hic aperiam ab eum eligendi reiciendis. Commodi distinctio ut corrupti dolorem voluptatum. Soluta ipsa doloremque ipsam tempore in a. Ex et qui facere nihil autem neque voluptatem.",
-                "benefit_en": "Qui modi perferendis totam nulla dolorem explicabo id. Magni culpa sed possimus atque at et. Voluptate consequuntur dolore et nobis pariatur voluptates quia vel. Qui id rem cum reiciendis.",
-                "tech_description": "Rem cupiditate reprehenderit ullam facilis eius voluptas. Non minus reiciendis qui exercitationem. Enim qui officiis eum. Est mollitia quo eum eum quaerat temporibus sapiente facere.",
-                "tech_description_en": "Velit ex tenetur officia enim ex non culpa et. Veniam quasi facere quidem mollitia aliquam.",
-                "description": "Quo eligendi earum qui assumenda reiciendis. Quisquam vitae amet blanditiis inventore voluptas aut. Necessitatibus veniam est quis eius voluptatibus. Optio voluptatem rerum vel.",
-                "description_en": "Excepturi voluptates aut fuga ratione eum ut. Amet at perferendis qui eos. Eum nemo sit officia corporis voluptatem sit quis laboriosam.",
-                "usage": "Numquam magnam earum aut consectetur quo dolorem ut. Quisquam omnis dolor omnis recusandae esse ad temporibus ab. Est soluta nobis consequatur minus voluptatem veniam quia. Perspiciatis et harum nostrum sit et aliquam.",
-                "usage_en": "Quibusdam mollitia tempore quibusdam rem mollitia consequatur rerum. Ut adipisci voluptatem ut vel sit harum numquam. Et ullam aliquam voluptate in.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?47527",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?69422",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?95642",
-                "product_video": null,
-                "status": 3,
-                "rating": 2.86,
-                "sold_count": 6261,
-                "review_count": 2541,
-                "created_at": "2020-08-16 15:56:30",
-                "updated_at": "2020-09-05 02:38:33",
-                "product_category": {
-                    "id": 8,
-                    "name": "腮红",
-                    "slug": "iure-necessitatibus",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?64747",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?20822",
-                    "title": "ex amet quibusdam",
-                    "title_en": "natus dolores tempora",
-                    "sub_title": "et perspiciatis velit",
-                    "describe": "Qui exercitationem veniam est dolores placeat ipsam. Provident dolorum expedita voluptatem doloribus. Nisi qui sed labore dicta veritatis in. Esse est officiis nostrum suscipit reiciendis.",
-                    "describe_en": "Delectus aut expedita in ipsum consequatur aut. Dolore sed aspernatur hic enim id est. Laudantium impedit molestiae aliquam error modi laboriosam.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?67825",
-                    "parent_id": 29,
-                    "level": 1,
-                    "created_at": "2020-08-30 08:12:31",
-                    "updated_at": "2020-09-09 14:28:00"
-                }
-            },
-            {
-                "id": 15,
-                "product_category_id": 13,
-                "product_name": "黑钻臻活眼部精华",
-                "product_name_en": "et debitis at",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?62304",
-                "slug": "quam-id",
-                "short_description": "Doloremque amet rerum sit totam quia voluptate.",
-                "short_description_en": "Voluptatem voluptatem repellat sed totam harum. Consectetur recusandae explicabo neque. Aut esse voluptatem totam sit libero sint ut.",
-                "price": "1929.00",
-                "sale_price": "1.00",
-                "stock": 704,
-                "spec": null,
-                "seo_title": "vitae et magnam",
-                "seo_keyword": "quaerat",
-                "seo_description": "Consequatur quidem facere vel blanditiis repellat itaque.",
-                "benefit": "Voluptatum voluptatum et error excepturi earum et. Autem voluptate aut voluptas consequuntur et quo et. Consequatur vero quaerat ut aut cupiditate enim. Dolorem atque architecto voluptas sunt nisi. Sequi qui quos dolorum necessitatibus sapiente et tenetur.",
-                "benefit_en": "Doloribus illo omnis aliquid magnam aut ex dolorem. Rerum qui quo quaerat tempora culpa sed. Iste ut consequatur consectetur quia illo est. Fuga illum delectus harum pariatur neque esse qui.",
-                "tech_description": "Aut eius voluptatum dolorum aut et. Sed inventore corporis dolorem repellat. Molestiae ipsam repellat accusantium ad et molestiae tenetur.",
-                "tech_description_en": "Occaecati est qui nobis consequuntur sapiente ut. Delectus vitae tenetur reprehenderit qui voluptas et eveniet. Nulla esse sapiente ratione ea rerum. Suscipit vero cum velit dolorum delectus eos sequi nam. Vel quo consequatur deleniti voluptatem.",
-                "description": "Repellat officia vero omnis non soluta ab quas. Iure optio iure ut nostrum blanditiis ab consequatur.",
-                "description_en": "Et qui qui quo eos libero voluptatem et. Exercitationem quam quo dolor assumenda non molestias. Quos id numquam et animi earum ut cum.",
-                "usage": "Eaque amet fugit neque fugiat iste quod dolor. Sunt ullam deleniti perspiciatis omnis. Quis hic quasi a mollitia harum magnam.",
-                "usage_en": "Qui harum omnis rerum aperiam magnam nisi. Cumque vel ut corrupti labore. Sit iusto dolorem illum atque. Quas recusandae aspernatur quae sapiente tempore repellendus qui dolor.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?62747",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?19713",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?82376",
-                "product_video": null,
-                "status": 3,
-                "rating": 2.29,
-                "sold_count": 4164,
-                "review_count": 1205,
-                "created_at": "2020-08-22 21:30:09",
-                "updated_at": "2020-08-28 05:10:53",
-                "product_category": {
-                    "id": 13,
-                    "name": "眼线",
-                    "slug": "voluptatem-sunt",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?30543",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?32409",
-                    "title": "est rerum dolorem",
-                    "title_en": "incidunt consequatur consequuntur",
-                    "sub_title": "iusto dolores ex",
-                    "describe": "Et nihil itaque voluptas provident magni. Aut placeat voluptatem est numquam. Dolor ea numquam libero corporis. Nesciunt rem quibusdam quae autem accusantium reprehenderit nobis.",
-                    "describe_en": "Rem dolores fugiat quam. Illum eaque laudantium nobis. Repellat excepturi repudiandae eos et. Voluptatem neque quasi quis porro voluptatem. Aliquam aut assumenda voluptatem consectetur molestiae.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?12089",
-                    "parent_id": 13,
-                    "level": 1,
-                    "created_at": "2020-08-25 10:38:59",
-                    "updated_at": "2020-09-05 14:49:27"
-                }
-            },
-            {
-                "id": 16,
-                "product_category_id": 3,
-                "product_name": "黑钻璀璨晶透肌底精华",
-                "product_name_en": "et natus rerum",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?24456",
-                "slug": "ut-pariatur",
-                "short_description": "Qui alias nostrum optio rerum aspernatur.",
-                "short_description_en": "Itaque fugiat doloribus quia est. Qui saepe consequuntur animi aliquid id voluptates recusandae facilis. Quia vero consequuntur ullam ab odit.",
-                "price": "8926.00",
-                "sale_price": "1.00",
-                "stock": 860,
-                "spec": null,
-                "seo_title": "quisquam eos ea",
-                "seo_keyword": "rerum",
-                "seo_description": "Alias quae cumque dolores non sunt.",
-                "benefit": "Aut aliquid dolore minus soluta ipsum. Quas ex molestiae earum earum dolorum atque vero. Vero voluptatem iste labore architecto doloremque excepturi sint. At sint rem voluptates neque minima sint.",
-                "benefit_en": "Nam tenetur nihil itaque fugiat vero atque. Unde facere velit quisquam voluptatem dolorem recusandae officia. Quisquam rerum magnam est.",
-                "tech_description": "Dolorum aut facilis aut eos perspiciatis illum culpa. Et et adipisci quidem nobis est enim. Dicta nihil at quia enim dolorem accusamus alias. Suscipit fugiat aut recusandae tempora animi.",
-                "tech_description_en": "Culpa et non reprehenderit ab nihil sit. Esse nihil repudiandae natus nulla aliquam sapiente laborum reprehenderit.",
-                "description": "A ea distinctio ipsa eum eaque. Vero amet possimus iste qui sit asperiores. Ut nisi velit itaque fuga.",
-                "description_en": "Rerum commodi quo minus pariatur magni velit id dolorem. Eos corrupti non quia dicta atque minus pariatur. Ipsa sunt asperiores ut.",
-                "usage": "Dolor sunt ea vel doloremque. Sit eligendi et voluptatem ut. Ut consequatur at quia similique magni.",
-                "usage_en": "Illo mollitia velit quo magni non et nulla. Non sit et quam quidem quidem. Omnis asperiores aut et molestiae aut.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?78502",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?44134",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?66123",
-                "product_video": null,
-                "status": 1,
-                "rating": 5.5,
-                "sold_count": 6492,
-                "review_count": 7210,
-                "created_at": "2020-08-20 13:29:04",
-                "updated_at": "2020-08-15 05:47:35",
-                "product_category": {
-                    "id": 3,
-                    "name": "精油",
-                    "slug": "numquam-enim",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?15534",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?89172",
-                    "title": "natus perferendis consectetur",
-                    "title_en": "sit iure temporibus",
-                    "sub_title": "officiis omnis voluptas",
-                    "describe": "Et reiciendis cupiditate qui. Harum quisquam voluptatem alias rerum quaerat est aut. Tenetur vitae modi sequi incidunt autem vel. Aut sit amet quo distinctio qui qui neque.",
-                    "describe_en": "Et blanditiis dolorum quia commodi. Beatae vel rerum quae sed aliquam reiciendis voluptatem.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?96750",
-                    "parent_id": 7,
-                    "level": 1,
-                    "created_at": "2020-08-29 00:28:43",
-                    "updated_at": "2020-08-26 11:27:04"
-                }
-            },
-            {
-                "id": 17,
-                "product_category_id": 4,
-                "product_name": "钻石冰莹面膜",
-                "product_name_en": "aut vitae at",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?90130",
-                "slug": "quos-mollitia",
-                "short_description": "Est eum dicta et consequatur.",
-                "short_description_en": "Quisquam libero voluptates amet aspernatur animi commodi consequatur. Amet repellat autem est. Cupiditate ut vel qui.",
-                "price": "2734.00",
-                "sale_price": "1.00",
-                "stock": 835,
-                "spec": null,
-                "seo_title": "quasi pariatur dolores",
-                "seo_keyword": "placeat",
-                "seo_description": "Maxime veniam eum nam consequatur.",
-                "benefit": "Unde fuga et perspiciatis ad voluptate sed sit. Ut eligendi quos facilis facere aut itaque et.",
-                "benefit_en": "Dolor voluptas architecto ipsam laudantium voluptas est. Consequatur sint consequatur beatae possimus qui illum sit. Et nesciunt quaerat voluptate sunt quis pariatur consequatur. Dignissimos quisquam qui inventore.",
-                "tech_description": "Nulla sequi qui ut harum iure error. Ipsum fugit laboriosam impedit ipsa. Nostrum beatae qui assumenda distinctio. Mollitia illo beatae magni vel dolorum. Adipisci eos provident dolor deleniti ut rerum sequi cum.",
-                "tech_description_en": "Voluptatem dolorem dignissimos veritatis velit itaque. Consectetur totam vel esse. Quasi voluptatem quibusdam voluptas quibusdam dolor. Sit aut similique cumque repellat est.",
-                "description": "Qui est dolorum voluptatem qui. Dolorem optio soluta libero perferendis ut. Officiis nemo amet dolor suscipit consequatur autem qui.",
-                "description_en": "A tempore molestiae repudiandae saepe ea animi reprehenderit in. Necessitatibus qui blanditiis quae. Est voluptatem iusto ea quasi aut architecto aspernatur.",
-                "usage": "Consectetur voluptatem quo alias et. Tenetur dolor laborum qui numquam nesciunt et et. Aut labore doloremque dolores neque.",
-                "usage_en": "Vel rerum a accusantium quibusdam beatae adipisci reprehenderit. Perspiciatis dolor numquam exercitationem reiciendis. Sit dolorum molestiae maiores est. Consequuntur dignissimos et consequuntur dolor neque.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?64112",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?30976",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?79176",
-                "product_video": null,
-                "status": 2,
-                "rating": 7.41,
-                "sold_count": 8465,
-                "review_count": 1979,
-                "created_at": "2020-08-22 07:31:45",
-                "updated_at": "2020-08-24 09:39:05",
-                "product_category": {
-                    "id": 4,
-                    "name": "唇膏",
-                    "slug": "porro-recusandae",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?73984",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?25465",
-                    "title": "minima quia rem",
-                    "title_en": "repellat eius in",
-                    "sub_title": "dicta nobis officia",
-                    "describe": "Quasi velit unde nulla accusamus. Dolorum eligendi consequuntur deleniti adipisci ea aliquam est a. Tempora magni cum voluptates ab et delectus. Id laboriosam similique necessitatibus eos ipsa.",
-                    "describe_en": "Molestias dolores rerum ut et est. Omnis dolore et occaecati. Natus est occaecati rem occaecati rem consectetur dolorem.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?54729",
-                    "parent_id": 19,
-                    "level": 1,
-                    "created_at": "2020-08-12 06:59:13",
-                    "updated_at": "2020-08-25 09:48:48"
-                }
-            },
-            {
-                "id": 18,
-                "product_category_id": 3,
-                "product_name": "黑钻焕肤水",
-                "product_name_en": "earum alias porro",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?21540",
-                "slug": "corporis-quibusdam",
-                "short_description": "Ut est mollitia omnis nam veniam blanditiis.",
-                "short_description_en": "Qui quod minima cupiditate sunt. Reiciendis perspiciatis eum ut neque expedita. Quo illum voluptas facere explicabo ipsum.",
-                "price": "3031.00",
-                "sale_price": "1.00",
-                "stock": 582,
-                "spec": null,
-                "seo_title": "alias excepturi commodi",
-                "seo_keyword": "nesciunt",
-                "seo_description": "Eligendi enim aspernatur qui sequi dignissimos.",
-                "benefit": "Earum est quis hic dolor. Occaecati veniam quisquam nam et odit. Aut voluptatem non culpa nisi necessitatibus odio ipsa voluptates. Ut iste facere et necessitatibus distinctio sunt.",
-                "benefit_en": "Rerum doloremque ducimus recusandae enim. Molestiae soluta pariatur ut aut est. Et sunt enim harum sit velit. Facere est velit consequatur.",
-                "tech_description": "Omnis quia vitae ab alias tenetur facere deserunt. Amet tempora molestiae incidunt debitis nihil alias. Commodi quos dolor officiis dolorum incidunt nisi quo. Est enim quibusdam veniam illo ipsa at ut.",
-                "tech_description_en": "Eum quia molestiae quidem ut nihil. Nesciunt illo eaque aut.",
-                "description": "Non temporibus exercitationem esse omnis hic quis quod. Commodi optio nam rerum excepturi a aut quidem. Unde consequatur nihil enim qui excepturi a.",
-                "description_en": "Voluptatem optio molestiae et dignissimos laboriosam veritatis. Sit deserunt qui sequi beatae soluta maxime. Reprehenderit mollitia recusandae accusamus quae dolor voluptatum pariatur.",
-                "usage": "Sit beatae qui nesciunt rem. Cumque odit qui consequuntur dicta id. Expedita ut debitis recusandae pariatur ad.",
-                "usage_en": "Nihil quos nemo aut aperiam repudiandae sapiente. Quis et voluptatum aperiam suscipit. Velit id quod velit voluptatem placeat officia dicta et. Eum sint voluptas tenetur quaerat molestias in consequatur ea.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?29456",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?59241",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?19323",
-                "product_video": null,
-                "status": 1,
-                "rating": 0.69,
-                "sold_count": 5569,
-                "review_count": 7937,
-                "created_at": "2020-08-21 07:36:46",
-                "updated_at": "2020-09-03 01:03:59",
-                "product_category": {
-                    "id": 3,
-                    "name": "精油",
-                    "slug": "numquam-enim",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?15534",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?89172",
-                    "title": "natus perferendis consectetur",
-                    "title_en": "sit iure temporibus",
-                    "sub_title": "officiis omnis voluptas",
-                    "describe": "Et reiciendis cupiditate qui. Harum quisquam voluptatem alias rerum quaerat est aut. Tenetur vitae modi sequi incidunt autem vel. Aut sit amet quo distinctio qui qui neque.",
-                    "describe_en": "Et blanditiis dolorum quia commodi. Beatae vel rerum quae sed aliquam reiciendis voluptatem.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?96750",
-                    "parent_id": 7,
-                    "level": 1,
-                    "created_at": "2020-08-29 00:28:43",
-                    "updated_at": "2020-08-26 11:27:04"
-                }
-            },
-            {
-                "id": 19,
-                "product_category_id": 13,
-                "product_name": "黑钻肌光精华",
-                "product_name_en": "soluta quibusdam atque",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?37542",
-                "slug": "fuga-dolor",
-                "short_description": "Voluptates aut aperiam aut provident officiis et.",
-                "short_description_en": "Nemo sapiente adipisci hic ratione. Illo enim corrupti laborum dolorem perspiciatis asperiores. Nulla est cum quos sint dolorum sequi maiores.",
-                "price": "1223.00",
-                "sale_price": "1.00",
-                "stock": 318,
-                "spec": null,
-                "seo_title": "perferendis est voluptas",
-                "seo_keyword": "cum",
-                "seo_description": "Eaque ipsa maiores aut porro est quia.",
-                "benefit": "Dolore quod quidem sit praesentium mollitia. Voluptas sit consequatur velit totam porro hic. Voluptatibus omnis porro quae totam quia. Accusantium ipsum qui odio consequatur odio placeat cumque.",
-                "benefit_en": "Maiores officiis nisi quis consequatur odit dolorem veniam. Officiis aperiam maiores culpa. Enim quos aut sed itaque.",
-                "tech_description": "Et placeat cum accusantium enim odio nulla id sed. Modi voluptatum voluptatum rerum atque occaecati quas. Laudantium eum nihil voluptas dolore dolorem dolore. Possimus eaque porro totam illum ratione eaque.",
-                "tech_description_en": "Est eum qui reiciendis et sequi ut. Et harum veritatis autem perspiciatis. Molestiae est aut laboriosam ut nihil. Autem nihil quis quia sed molestiae.",
-                "description": "Voluptatem ut sequi nostrum minus. Occaecati quia blanditiis repellendus aliquam rerum et. Et non tempore modi. Ab eaque cum incidunt velit. Expedita vero consequatur dolorem et dolorem dolores.",
-                "description_en": "Quam labore reprehenderit quo velit velit excepturi numquam. Quia officiis autem dolorem unde facilis totam provident. Culpa aut optio hic assumenda quae.",
-                "usage": "Et possimus consequatur reprehenderit ratione eveniet sint. Qui eligendi voluptas omnis autem dolores aliquam. Nostrum saepe quia omnis rem impedit.",
-                "usage_en": "Eligendi reiciendis vel error officiis iusto aperiam. Sed autem ut velit esse quae. Illum est id deleniti natus laboriosam non.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?56532",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?72717",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?74256",
-                "product_video": null,
-                "status": 3,
-                "rating": 5.14,
-                "sold_count": 5536,
-                "review_count": 2571,
-                "created_at": "2020-08-20 04:33:33",
-                "updated_at": "2020-09-10 15:48:56",
-                "product_category": {
-                    "id": 13,
-                    "name": "眼线",
-                    "slug": "voluptatem-sunt",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?30543",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?32409",
-                    "title": "est rerum dolorem",
-                    "title_en": "incidunt consequatur consequuntur",
-                    "sub_title": "iusto dolores ex",
-                    "describe": "Et nihil itaque voluptas provident magni. Aut placeat voluptatem est numquam. Dolor ea numquam libero corporis. Nesciunt rem quibusdam quae autem accusantium reprehenderit nobis.",
-                    "describe_en": "Rem dolores fugiat quam. Illum eaque laudantium nobis. Repellat excepturi repudiandae eos et. Voluptatem neque quasi quis porro voluptatem. Aliquam aut assumenda voluptatem consectetur molestiae.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?12089",
-                    "parent_id": 13,
-                    "level": 1,
-                    "created_at": "2020-08-25 10:38:59",
-                    "updated_at": "2020-09-05 14:49:27"
-                }
-            },
-            {
-                "id": 20,
-                "product_category_id": 13,
-                "product_name": "钻石冰莹面膜",
-                "product_name_en": "labore veniam distinctio",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?60029",
-                "slug": "possimus-blanditiis",
-                "short_description": "Perspiciatis libero similique molestias aut earum.",
-                "short_description_en": "Aut consequatur perspiciatis adipisci recusandae ipsam fugit. Et voluptatibus cupiditate quis eum voluptatem. Nam voluptates eum quasi. Culpa alias ratione sint dignissimos necessitatibus deleniti.",
-                "price": "5493.00",
-                "sale_price": "1.00",
-                "stock": 800,
-                "spec": null,
-                "seo_title": "quis nihil excepturi",
-                "seo_keyword": "sed",
-                "seo_description": "Modi eos dolor consequatur minima eos.",
-                "benefit": "Voluptatem in aspernatur iusto commodi rerum sed. Dolores quis maxime aut inventore atque quia recusandae. Veniam accusamus reprehenderit dolor esse voluptas ad qui.",
-                "benefit_en": "Perferendis nostrum assumenda qui at. Autem praesentium minima nostrum aliquid exercitationem ut minus.",
-                "tech_description": "Recusandae deserunt similique et doloribus iusto quisquam. Rerum itaque dicta expedita fuga perferendis. Enim aut assumenda aut est deleniti natus. Deserunt suscipit eos quisquam dolorum error.",
-                "tech_description_en": "Voluptas qui cumque qui quisquam dolore natus. Molestiae qui delectus earum dolores et praesentium. Omnis officiis explicabo asperiores quo quasi ad assumenda. Quo id ut et officia culpa aliquid sit.",
-                "description": "Nesciunt eos odit amet quas quam consectetur ut sed. Reiciendis non reiciendis ad sit neque. Assumenda quidem non recusandae id labore nihil modi. Vel ipsa consequuntur voluptatum nisi quaerat accusantium eum.",
-                "description_en": "Ut ut et eum cum tenetur sed velit. Quo architecto accusantium perspiciatis ut et ea. Ullam laborum est repellendus facere ipsum voluptatem ut. Sit qui asperiores aspernatur esse consectetur vel nihil. Vel vitae inventore aut accusantium eveniet nihil ipsum.",
-                "usage": "Necessitatibus cupiditate impedit autem molestias est. A sed est et et odio omnis rerum. Itaque hic ut molestiae laborum impedit a. Asperiores unde omnis perferendis possimus natus dicta veniam officiis.",
-                "usage_en": "Delectus enim maiores eligendi dolore harum id accusantium placeat. Et distinctio eos similique minus. Excepturi facilis id natus consequatur perferendis.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?26560",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?88962",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?48929",
-                "product_video": null,
-                "status": 3,
-                "rating": 0.03,
-                "sold_count": 2434,
-                "review_count": 5436,
-                "created_at": "2020-08-27 12:07:19",
-                "updated_at": "2020-09-04 00:11:36",
-                "product_category": {
-                    "id": 13,
-                    "name": "眼线",
-                    "slug": "voluptatem-sunt",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?30543",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?32409",
-                    "title": "est rerum dolorem",
-                    "title_en": "incidunt consequatur consequuntur",
-                    "sub_title": "iusto dolores ex",
-                    "describe": "Et nihil itaque voluptas provident magni. Aut placeat voluptatem est numquam. Dolor ea numquam libero corporis. Nesciunt rem quibusdam quae autem accusantium reprehenderit nobis.",
-                    "describe_en": "Rem dolores fugiat quam. Illum eaque laudantium nobis. Repellat excepturi repudiandae eos et. Voluptatem neque quasi quis porro voluptatem. Aliquam aut assumenda voluptatem consectetur molestiae.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?12089",
-                    "parent_id": 13,
-                    "level": 1,
-                    "created_at": "2020-08-25 10:38:59",
-                    "updated_at": "2020-09-05 14:49:27"
-                }
-            }
-        ],
-        "first_page_url": "http:\/\/localhost\/api\/product?page=1",
-        "from": 1,
-        "last_page": 3,
-        "last_page_url": "http:\/\/localhost\/api\/product?page=3",
-        "next_page_url": "http:\/\/localhost\/api\/product?page=2",
-        "path": "http:\/\/localhost\/api\/product",
-        "per_page": 20,
-        "prev_page_url": null,
-        "to": 20,
-        "total": 50
-    },
+    "data": [],
     "code": 20001,
     "msg": "操作成功"
 }
 ```
 
 ### HTTP Request
-`GET api/product`
+`GET api/products/category/{category_slug}`
 
+#### URL Parameters
 
-<!-- END_dc538d69a8586a7a3c36d4393cee42e6 -->
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `category_slug` |  required  | 分类slug
 
-<!-- START_730a7e488c8f865233d4c59e2d2151c1 -->
+<!-- END_5d9492d6d76e347e7f3200ecafeb7c88 -->
+
+<!-- START_4a4da4338d117c2c1deb90e6ff7ddcc2 -->
 ## Get product list of status
 根据产品状态获取产品列表
 
@@ -4651,20 +4698,19 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/product_status/1?status=deleniti&page=rerum&page_limit=quasi" \
+    -G "http://store.wutang.com/api/products/status/deserunt?page=recusandae&page_limit=esse" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://store.wutang.com/api/product_status/1"
+    "http://store.wutang.com/api/products/status/deserunt"
 );
 
 let params = {
-    "status": "deleniti",
-    "page": "rerum",
-    "page_limit": "quasi",
+    "page": "recusandae",
+    "page_limit": "esse",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4683,826 +4729,226 @@ fetch(url, {
 ```
 
 
+> Example response (500):
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+### HTTP Request
+`GET api/products/status/{status}`
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `status` |  required  | 商品状态(1新品,2畅销,3促销,-1下架)
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `page` |  optional  | 页码
+    `page_limit` |  optional  | 每页数量
+
+<!-- END_4a4da4338d117c2c1deb90e6ff7ddcc2 -->
+
+<!-- START_2a763963938f9bbdf490c64f8c1c6821 -->
+## Get random innovate product list
+随机获取四条创新产品
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://store.wutang.com/api/products/innovate" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://store.wutang.com/api/products/innovate"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
 > Example response (200):
 
 ```json
 {
-    "data": {
-        "current_page": 1,
-        "data": [
-            {
-                "id": 8,
-                "product_category_id": 9,
-                "product_name": "黑钻洁净滋养面膜",
-                "product_name_en": "aut recusandae ab",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?74821",
-                "slug": "sit-sit",
-                "short_description": "Alias facilis laudantium debitis corporis.",
-                "short_description_en": "Dolores amet et maiores quo ipsum sed officia nihil. Ullam dolorem optio et porro est quia sint animi. Vel qui facere quisquam ut sed distinctio labore.",
-                "price": "2059.00",
-                "sale_price": "1.00",
-                "stock": 719,
-                "spec": null,
-                "seo_title": "minus fugiat doloribus",
-                "seo_keyword": "dolor",
-                "seo_description": "Quod quas dignissimos sit saepe quis.",
-                "benefit": "Explicabo labore velit quo eius at ea. Minima qui voluptas est. Natus ratione est tempora eum rerum omnis.",
-                "benefit_en": "Enim quia a et debitis adipisci id. Eveniet rerum nostrum aspernatur asperiores ut aut. Delectus qui asperiores delectus. Provident eos voluptatibus consequatur sint sint.",
-                "tech_description": "Omnis et commodi nam nihil incidunt. Odio veniam nam aspernatur. Alias fugiat natus animi et molestiae et laborum. Repudiandae non laborum occaecati vitae sed quasi nobis.",
-                "tech_description_en": "Unde autem quidem at itaque vel voluptatem iusto aut. Omnis omnis eius quidem fuga fuga est porro. Quis et aut qui architecto.",
-                "description": "Unde voluptas ex non id quos sit. Quisquam debitis est sapiente sunt. Temporibus iusto atque non aperiam amet cumque vel.",
-                "description_en": "Reprehenderit quis et dolor possimus odio esse. Eum voluptatibus molestiae recusandae qui. Sit nesciunt sed tempora.",
-                "usage": "Et nemo totam libero quo et. Qui eum cupiditate reiciendis incidunt aut eligendi iure. Dolor sed saepe repudiandae deleniti at aliquam.",
-                "usage_en": "Sint illo qui impedit sit alias officia odio. Repudiandae pariatur voluptatem magnam aut placeat. Necessitatibus hic quis ut cumque quo aut. Ratione sit velit excepturi dolorum magni incidunt tempora.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?90328",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?26935",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?91184",
-                "product_video": null,
-                "status": 1,
-                "rating": 2,
-                "sold_count": 8483,
-                "review_count": 1449,
-                "created_at": "2020-08-16 16:13:56",
-                "updated_at": "2020-08-30 05:25:43",
-                "product_category": {
-                    "id": 9,
-                    "name": "身体护理",
-                    "slug": "omnis-illum",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?22724",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?77464",
-                    "title": "quo qui aut",
-                    "title_en": "maxime ut molestiae",
-                    "sub_title": "earum ullam voluptatem",
-                    "describe": "Iusto aut aut soluta magnam ipsum quia voluptate. Ab quae magni dolor perferendis ut. Aut distinctio ad voluptatem voluptas consectetur deleniti excepturi optio.",
-                    "describe_en": "Est quo porro qui beatae voluptatibus. Qui in aut assumenda non odit quisquam qui ea. Sequi itaque consequuntur aut rerum soluta ut ipsum.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?95766",
-                    "parent_id": 30,
-                    "level": 1,
-                    "created_at": "2020-08-24 09:18:58",
-                    "updated_at": "2020-08-23 22:15:14"
-                }
-            },
-            {
-                "id": 1,
-                "product_category_id": 12,
-                "product_name": "钻石冰莹面膜",
-                "product_name_en": "quae beatae repellat",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?62661",
-                "slug": "dolorum-aut",
-                "short_description": "Vitae et aperiam ut possimus quis.",
-                "short_description_en": "Eos reprehenderit ullam laboriosam animi aliquam. Ipsum quas molestias repellat dolorem aut est est ut. Qui non quo ut a magni consequatur unde. Laborum aut eius distinctio deserunt.",
-                "price": "3271.00",
-                "sale_price": "1.00",
-                "stock": 488,
-                "spec": null,
-                "seo_title": "et sunt odit",
-                "seo_keyword": "tempore",
-                "seo_description": "Dolorem placeat aut nam.",
-                "benefit": "Id ea voluptatem voluptas tenetur qui quia. Adipisci reiciendis deserunt sequi atque autem. Quam nobis repellat suscipit voluptate dolorem iusto. Nostrum quia pariatur possimus aperiam impedit eos exercitationem.",
-                "benefit_en": "Tempore labore eos est sequi ab ut maiores et. Et dicta aspernatur accusantium nesciunt cumque est. Ea nam qui sit quo in. Eveniet minima quod veniam magni eum eos rerum.",
-                "tech_description": "Qui eos dolores harum beatae. Praesentium consequuntur illum culpa esse eos. Repellendus neque omnis et non enim odio. Suscipit aliquam sit autem est dolor dignissimos.",
-                "tech_description_en": "Nostrum suscipit deserunt sed id. Hic doloribus quod consequatur itaque ducimus voluptas id animi. Vel molestiae ut maxime. Corrupti maxime sunt reiciendis qui. Aperiam est cum et consectetur velit et.",
-                "description": "Et voluptates non reiciendis et porro officia. Quisquam eos deleniti aut. Laborum ad tempore earum enim sunt et ratione et. Labore eum corporis est reprehenderit dolorum ut.",
-                "description_en": "Officia harum et reiciendis libero. Vel sapiente rem dolor. Aliquid nihil delectus quia eligendi voluptates ipsam quia. Dicta sunt illum eos voluptas et repudiandae rem.",
-                "usage": "Voluptas repellendus quo omnis nemo et ab ipsa at. Sequi labore accusantium consequuntur asperiores debitis labore. Eius molestiae praesentium reprehenderit sed. In fugiat enim eius quibusdam voluptatum tenetur.",
-                "usage_en": "Dolor quo optio maiores quos voluptatibus et iusto. Animi sint et quibusdam consequuntur est id doloribus. Qui laborum et amet repudiandae. At veniam occaecati eos tenetur autem excepturi maxime.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?73559",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?70426",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?67313",
-                "product_video": null,
-                "status": 1,
-                "rating": 8.44,
-                "sold_count": 1847,
-                "review_count": 1971,
-                "created_at": "2020-09-04 05:54:19",
-                "updated_at": "2020-08-14 07:26:52",
-                "product_category": {
-                    "id": 12,
-                    "name": "护肤系列",
-                    "slug": "dolore-saepe",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?26728",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?49717",
-                    "title": "repellat culpa et",
-                    "title_en": "qui culpa ut",
-                    "sub_title": "perspiciatis quod provident",
-                    "describe": "Ratione illum laudantium neque porro. Laborum rerum quo at qui error. Expedita ducimus aut possimus voluptate vero itaque alias fugiat.",
-                    "describe_en": "Dolore quaerat earum nobis velit saepe. Blanditiis veritatis corporis assumenda eius explicabo qui nam.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?41632",
-                    "parent_id": 30,
-                    "level": 1,
-                    "created_at": "2020-09-04 11:07:01",
-                    "updated_at": "2020-08-13 20:29:24"
-                }
-            },
-            {
-                "id": 12,
-                "product_category_id": 8,
-                "product_name": "黑钻赋颜面霜",
-                "product_name_en": "voluptatem itaque quia",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?30633",
-                "slug": "repellendus-nostrum",
-                "short_description": "Neque ipsum et id recusandae omnis cupiditate.",
-                "short_description_en": "Reiciendis voluptas tempore debitis voluptas corrupti. Deserunt illum enim sed quia fugit. Non sint ipsum dolorem culpa dolorum repellendus aperiam.",
-                "price": "5282.00",
-                "sale_price": "1.00",
-                "stock": 42,
-                "spec": null,
-                "seo_title": "eum quidem odit",
-                "seo_keyword": "ut",
-                "seo_description": "Sit hic aut perferendis.",
-                "benefit": "Rerum autem culpa ipsa autem consequatur. Corporis a at excepturi praesentium eligendi est laudantium. Est reiciendis soluta et totam error quo.",
-                "benefit_en": "Consequatur qui dolore sunt. Voluptatem qui possimus quisquam rerum officia omnis.",
-                "tech_description": "Consequatur consequatur accusamus provident dolores. Veritatis omnis qui recusandae aperiam et et. Sit quibusdam ut necessitatibus rerum.",
-                "tech_description_en": "Voluptas alias aut maiores nihil. Saepe iure velit dolorem quisquam sit sunt. Error dolores minus a. Qui ratione rerum accusantium vero perspiciatis.",
-                "description": "Ullam consequuntur officia sit dolores animi excepturi. Eius qui quis iure quia qui veritatis voluptas. Accusantium alias id consequatur nisi. Illum omnis consequatur quia labore nulla quibusdam. Voluptatem nisi qui consequatur.",
-                "description_en": "Cum nesciunt qui maxime temporibus enim reprehenderit qui. Pariatur dolor sed ipsam. Perspiciatis voluptate corrupti perspiciatis consequuntur. Aut ut aut distinctio blanditiis sint quidem. Omnis eaque quibusdam eos vero aut nisi.",
-                "usage": "Autem iste quia necessitatibus quod. Laboriosam perferendis et deserunt modi voluptates consequuntur est. Illum odio autem deserunt nisi ullam sint non ratione. Magni commodi eaque accusantium iure recusandae.",
-                "usage_en": "In eum qui molestiae delectus ex. Hic esse veritatis eveniet perferendis. Autem impedit dolorem omnis voluptatem id aut.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?72858",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?70432",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?71509",
-                "product_video": null,
-                "status": 1,
-                "rating": 0.01,
-                "sold_count": 2312,
-                "review_count": 2845,
-                "created_at": "2020-08-18 15:08:22",
-                "updated_at": "2020-09-07 11:51:57",
-                "product_category": {
-                    "id": 8,
-                    "name": "腮红",
-                    "slug": "iure-necessitatibus",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?64747",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?20822",
-                    "title": "ex amet quibusdam",
-                    "title_en": "natus dolores tempora",
-                    "sub_title": "et perspiciatis velit",
-                    "describe": "Qui exercitationem veniam est dolores placeat ipsam. Provident dolorum expedita voluptatem doloribus. Nisi qui sed labore dicta veritatis in. Esse est officiis nostrum suscipit reiciendis.",
-                    "describe_en": "Delectus aut expedita in ipsum consequatur aut. Dolore sed aspernatur hic enim id est. Laudantium impedit molestiae aliquam error modi laboriosam.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?67825",
-                    "parent_id": 29,
-                    "level": 1,
-                    "created_at": "2020-08-30 08:12:31",
-                    "updated_at": "2020-09-09 14:28:00"
-                }
-            },
-            {
-                "id": 3,
-                "product_category_id": 19,
-                "product_name": "钻石冰莹面膜",
-                "product_name_en": "omnis odit accusantium",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?63171",
-                "slug": "sit-nesciunt",
-                "short_description": "Maxime quidem beatae et sit et dignissimos.",
-                "short_description_en": "Et officia vero molestias repellendus dolores sunt. Ut ducimus totam accusantium porro perspiciatis. Ullam reprehenderit sequi nesciunt facilis dolor vero. Molestias nulla esse et fuga ut sunt aut. Eius optio ut saepe eum rerum.",
-                "price": "8317.00",
-                "sale_price": "1.00",
-                "stock": 487,
-                "spec": null,
-                "seo_title": "est at nihil",
-                "seo_keyword": "earum",
-                "seo_description": "Quis occaecati velit porro sint est perferendis.",
-                "benefit": "Quasi assumenda veniam qui ad porro aperiam est nihil. Tenetur beatae explicabo et perspiciatis rerum provident aliquid. Et expedita nihil velit. Est voluptatem quia sit rem molestias quae saepe.",
-                "benefit_en": "Vel incidunt dolorum excepturi ea maiores. Ipsum consequuntur dolor est temporibus ut quod. Dolore quia occaecati eveniet dolorem omnis eaque.",
-                "tech_description": "Et voluptate beatae voluptas. Aliquid et beatae iusto qui voluptas. Nulla perspiciatis ab expedita quae et corporis. Et illo recusandae distinctio sunt. Deserunt voluptas consequatur earum quasi aut vel sapiente fugiat.",
-                "tech_description_en": "Tenetur vel cum in occaecati quod beatae vero. Qui officiis ut consequatur in. Ducimus et nemo qui. Expedita illum illo omnis assumenda.",
-                "description": "Itaque consequatur recusandae unde repellat nisi sunt. Similique accusantium nostrum ducimus et. Et possimus maiores enim quaerat impedit. Dolores corporis tempore culpa cumque.",
-                "description_en": "Autem aut sunt aperiam voluptatem et nobis et. Dolores voluptatem qui quia accusamus voluptas porro. Fuga provident iste error dicta praesentium.",
-                "usage": "Ut nam veniam repellat sequi. Ut veritatis error laboriosam culpa. Atque non quam et. Velit neque temporibus dolorem inventore.",
-                "usage_en": "Neque molestiae sed iure ut excepturi nihil. Voluptates saepe aut porro reprehenderit aut aut omnis. Soluta deserunt doloribus iure. Ducimus ullam delectus a et dolor aut optio.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?64160",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?85672",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?31387",
-                "product_video": null,
-                "status": 1,
-                "rating": 8.31,
-                "sold_count": 9215,
-                "review_count": 9712,
-                "created_at": "2020-09-02 17:10:04",
-                "updated_at": "2020-09-14 11:02:38",
-                "product_category": {
-                    "id": 19,
-                    "name": "套装C",
-                    "slug": "eos-ea",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?76863",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?67793",
-                    "title": "ut et quae",
-                    "title_en": "aliquid tempore unde",
-                    "sub_title": "excepturi illum velit",
-                    "describe": "Dolorem dolorem harum ex laborum officiis. Dolorem esse voluptatibus dolor facere. In veritatis sequi facere ipsam aut.",
-                    "describe_en": "Qui cumque ullam nobis quis omnis et. Est optio possimus et a velit aut voluptas.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?87078",
-                    "parent_id": 8,
-                    "level": 1,
-                    "created_at": "2020-08-19 10:30:55",
-                    "updated_at": "2020-09-04 12:52:10"
-                }
-            },
-            {
-                "id": 44,
-                "product_category_id": 3,
-                "product_name": "钻石冰莹面膜",
-                "product_name_en": "ab sunt incidunt",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?54538",
-                "slug": "est-est",
-                "short_description": "Cupiditate modi eos ut officia fugit temporibus.",
-                "short_description_en": "Deleniti ab ut ullam voluptatem ad ea sapiente. Ut molestias quia minima ut velit adipisci atque. Ullam ea id pariatur soluta quo. Molestiae consequatur illo rerum architecto minima omnis tempora asperiores.",
-                "price": "806.00",
-                "sale_price": "1.00",
-                "stock": 255,
-                "spec": null,
-                "seo_title": "ipsam corrupti officiis",
-                "seo_keyword": "sint",
-                "seo_description": "Labore ut inventore corrupti laborum.",
-                "benefit": "Libero dolores iure veritatis aperiam sed qui adipisci. Iure dolor ducimus nam aspernatur esse suscipit aperiam. Ad corporis et quam odit sapiente ut sit. Eos est adipisci omnis exercitationem esse vitae consectetur.",
-                "benefit_en": "Fugiat et quisquam sunt ut. Fugit laboriosam qui qui dignissimos.",
-                "tech_description": "Adipisci officia aut necessitatibus enim aut. Aperiam ut alias eaque exercitationem. Tempore impedit eum distinctio modi dicta repudiandae.",
-                "tech_description_en": "Omnis sit magni labore a voluptas. Nostrum laboriosam ea dolores quia est minus voluptatem. Itaque reiciendis amet est repudiandae delectus et voluptatibus. Dolorem saepe quod esse.",
-                "description": "Quo velit aut illum enim nulla ex. Qui corporis accusantium dolores iusto dolorem voluptatibus. Rerum perferendis quo quibusdam vel incidunt.",
-                "description_en": "Reprehenderit temporibus laboriosam aliquam ut sint explicabo repellendus. Laborum est illum hic. Architecto recusandae alias ut quia et rerum.",
-                "usage": "Provident velit non quaerat vel nisi ex. Adipisci velit repellendus qui magni. Quaerat ea eum dolor molestias assumenda id ut qui. Nam voluptate aut iste nihil ex.",
-                "usage_en": "Qui harum dolores vero voluptas quia. Tempore quia perferendis ut ut natus tempora. Officiis accusamus quod consectetur ut.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?71152",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?89389",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?43386",
-                "product_video": null,
-                "status": 1,
-                "rating": 1.02,
-                "sold_count": 7346,
-                "review_count": 1499,
-                "created_at": "2020-09-06 04:25:38",
-                "updated_at": "2020-09-08 04:47:34",
-                "product_category": {
-                    "id": 3,
-                    "name": "精油",
-                    "slug": "numquam-enim",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?15534",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?89172",
-                    "title": "natus perferendis consectetur",
-                    "title_en": "sit iure temporibus",
-                    "sub_title": "officiis omnis voluptas",
-                    "describe": "Et reiciendis cupiditate qui. Harum quisquam voluptatem alias rerum quaerat est aut. Tenetur vitae modi sequi incidunt autem vel. Aut sit amet quo distinctio qui qui neque.",
-                    "describe_en": "Et blanditiis dolorum quia commodi. Beatae vel rerum quae sed aliquam reiciendis voluptatem.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?96750",
-                    "parent_id": 7,
-                    "level": 1,
-                    "created_at": "2020-08-29 00:28:43",
-                    "updated_at": "2020-08-26 11:27:04"
-                }
-            },
-            {
-                "id": 16,
-                "product_category_id": 3,
-                "product_name": "黑钻璀璨晶透肌底精华",
-                "product_name_en": "et natus rerum",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?24456",
-                "slug": "ut-pariatur",
-                "short_description": "Qui alias nostrum optio rerum aspernatur.",
-                "short_description_en": "Itaque fugiat doloribus quia est. Qui saepe consequuntur animi aliquid id voluptates recusandae facilis. Quia vero consequuntur ullam ab odit.",
-                "price": "8926.00",
-                "sale_price": "1.00",
-                "stock": 860,
-                "spec": null,
-                "seo_title": "quisquam eos ea",
-                "seo_keyword": "rerum",
-                "seo_description": "Alias quae cumque dolores non sunt.",
-                "benefit": "Aut aliquid dolore minus soluta ipsum. Quas ex molestiae earum earum dolorum atque vero. Vero voluptatem iste labore architecto doloremque excepturi sint. At sint rem voluptates neque minima sint.",
-                "benefit_en": "Nam tenetur nihil itaque fugiat vero atque. Unde facere velit quisquam voluptatem dolorem recusandae officia. Quisquam rerum magnam est.",
-                "tech_description": "Dolorum aut facilis aut eos perspiciatis illum culpa. Et et adipisci quidem nobis est enim. Dicta nihil at quia enim dolorem accusamus alias. Suscipit fugiat aut recusandae tempora animi.",
-                "tech_description_en": "Culpa et non reprehenderit ab nihil sit. Esse nihil repudiandae natus nulla aliquam sapiente laborum reprehenderit.",
-                "description": "A ea distinctio ipsa eum eaque. Vero amet possimus iste qui sit asperiores. Ut nisi velit itaque fuga.",
-                "description_en": "Rerum commodi quo minus pariatur magni velit id dolorem. Eos corrupti non quia dicta atque minus pariatur. Ipsa sunt asperiores ut.",
-                "usage": "Dolor sunt ea vel doloremque. Sit eligendi et voluptatem ut. Ut consequatur at quia similique magni.",
-                "usage_en": "Illo mollitia velit quo magni non et nulla. Non sit et quam quidem quidem. Omnis asperiores aut et molestiae aut.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?78502",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?44134",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?66123",
-                "product_video": null,
-                "status": 1,
-                "rating": 5.5,
-                "sold_count": 6492,
-                "review_count": 7210,
-                "created_at": "2020-08-20 13:29:04",
-                "updated_at": "2020-08-15 05:47:35",
-                "product_category": {
-                    "id": 3,
-                    "name": "精油",
-                    "slug": "numquam-enim",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?15534",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?89172",
-                    "title": "natus perferendis consectetur",
-                    "title_en": "sit iure temporibus",
-                    "sub_title": "officiis omnis voluptas",
-                    "describe": "Et reiciendis cupiditate qui. Harum quisquam voluptatem alias rerum quaerat est aut. Tenetur vitae modi sequi incidunt autem vel. Aut sit amet quo distinctio qui qui neque.",
-                    "describe_en": "Et blanditiis dolorum quia commodi. Beatae vel rerum quae sed aliquam reiciendis voluptatem.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?96750",
-                    "parent_id": 7,
-                    "level": 1,
-                    "created_at": "2020-08-29 00:28:43",
-                    "updated_at": "2020-08-26 11:27:04"
-                }
-            },
-            {
-                "id": 41,
-                "product_category_id": 7,
-                "product_name": "黑钻赋颜面霜",
-                "product_name_en": "itaque placeat rerum",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?54306",
-                "slug": "est-consequatur",
-                "short_description": "Fugit doloremque aut quisquam quas velit.",
-                "short_description_en": "Quisquam eius fuga et vel autem. Iste explicabo eum officia repellendus ullam. Esse ea mollitia ut sequi nesciunt eligendi cupiditate.",
-                "price": "2470.00",
-                "sale_price": "1.00",
-                "stock": 295,
-                "spec": null,
-                "seo_title": "est et sed",
-                "seo_keyword": "numquam",
-                "seo_description": "Incidunt magni omnis fugiat non.",
-                "benefit": "Quia in ut cumque consequatur porro. Architecto dolor asperiores quis in. Est pariatur qui reiciendis voluptatem tenetur tempore. Aliquam qui ad deserunt praesentium.",
-                "benefit_en": "Asperiores reprehenderit totam vero laudantium omnis. Aut et ad et ab ea fugit dolorem. Cum voluptatibus ullam est. Esse aut molestias sint praesentium deserunt totam iusto aspernatur.",
-                "tech_description": "Minus velit quae accusamus nam officia quibusdam rerum. Labore porro et voluptatem. Animi est odit nostrum est nihil voluptate reprehenderit vitae.",
-                "tech_description_en": "Aut nobis porro ratione aut cum. Numquam aut in sunt ea quia pariatur. Eveniet vel et corporis cupiditate veritatis ut qui optio. Libero sapiente est exercitationem id.",
-                "description": "Saepe qui dolore possimus facilis reiciendis eveniet dolor et. Quaerat rerum quisquam corporis hic ducimus. Voluptatem aut dolores ut iusto voluptatibus sequi commodi.",
-                "description_en": "Eum explicabo possimus et expedita saepe. Est ex id velit laudantium blanditiis. Harum dolorem blanditiis earum dolor ea et quo neque.",
-                "usage": "Quia ipsa voluptatibus officiis eum eligendi. Nihil perferendis odio natus dolor deserunt quia quod.",
-                "usage_en": "Explicabo expedita voluptas qui natus perferendis aspernatur. Eaque inventore doloremque omnis unde inventore.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?11681",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?94583",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?21808",
-                "product_video": null,
-                "status": 1,
-                "rating": 4.26,
-                "sold_count": 3775,
-                "review_count": 1035,
-                "created_at": "2020-09-10 23:36:15",
-                "updated_at": "2020-09-03 14:23:17",
-                "product_category": {
-                    "id": 7,
-                    "name": "面霜",
-                    "slug": "quia-quisquam",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?71890",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?24943",
-                    "title": "est vero ea",
-                    "title_en": "molestias modi vero",
-                    "sub_title": "nihil nulla incidunt",
-                    "describe": "Et saepe voluptatem voluptates qui provident sit. Facilis explicabo minus rerum corrupti doloribus. Quae dolorum et quam id. Dicta ut quod voluptatem.",
-                    "describe_en": "Sint tempore impedit omnis quia placeat sed omnis. Facere est reprehenderit praesentium rerum. Ut rerum ut velit.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?34303",
-                    "parent_id": 14,
-                    "level": 1,
-                    "created_at": "2020-08-25 08:07:51",
-                    "updated_at": "2020-08-30 04:18:00"
-                }
-            },
-            {
-                "id": 6,
-                "product_category_id": 8,
-                "product_name": "黑钻洁净滋养面膜",
-                "product_name_en": "voluptatibus molestias nihil",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?42706",
-                "slug": "corporis-sunt",
-                "short_description": "Blanditiis aut qui ex explicabo.",
-                "short_description_en": "Dolores sit ex enim. Blanditiis quia velit eum laborum repellendus alias placeat. Quas enim quo ipsum quia et laboriosam.",
-                "price": "1486.00",
-                "sale_price": "1.00",
-                "stock": 562,
-                "spec": null,
-                "seo_title": "autem amet accusamus",
-                "seo_keyword": "iste",
-                "seo_description": "Quaerat fuga autem ad.",
-                "benefit": "Eos velit ad blanditiis natus asperiores. Est rerum qui consectetur nulla nihil. Enim voluptatem minus soluta sed et. Iusto possimus corrupti dolores error ea ipsam.",
-                "benefit_en": "Rerum hic qui ut distinctio eius autem illum. Dolorem tempora quidem fugiat expedita natus cum aut consequuntur. Et maiores quisquam ab magnam dignissimos.",
-                "tech_description": "Et placeat sint et non laudantium unde. Ea omnis illum delectus asperiores voluptas debitis. Consectetur qui velit ipsum sunt dicta esse. Nostrum similique qui distinctio maxime.",
-                "tech_description_en": "Voluptatum tempore autem provident amet. Veniam consequatur porro id commodi modi qui. Impedit consequatur sunt ipsum odit.",
-                "description": "Illum debitis laborum dicta ab ab rem. Autem magnam neque dolorem incidunt. Ipsum laudantium pariatur quia. Molestiae sit commodi sequi sint.",
-                "description_en": "Modi laboriosam et quia nemo qui et. Ab adipisci consequuntur officiis ea et libero. Odio et omnis quia voluptatum magni qui.",
-                "usage": "Possimus ducimus laborum officiis dolor quia incidunt deleniti dolorum. Rerum distinctio quo quos aspernatur consequatur. Voluptatibus aut eos id fugit. Aperiam ea animi corrupti deserunt et.",
-                "usage_en": "Omnis qui quas incidunt quas est officia ipsum dicta. Alias architecto dolorum ea sit. Quos id consequatur maiores qui soluta accusantium.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?90015",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?82692",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?57078",
-                "product_video": null,
-                "status": 1,
-                "rating": 8.17,
-                "sold_count": 3797,
-                "review_count": 4798,
-                "created_at": "2020-08-18 11:53:29",
-                "updated_at": "2020-09-10 08:08:32",
-                "product_category": {
-                    "id": 8,
-                    "name": "腮红",
-                    "slug": "iure-necessitatibus",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?64747",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?20822",
-                    "title": "ex amet quibusdam",
-                    "title_en": "natus dolores tempora",
-                    "sub_title": "et perspiciatis velit",
-                    "describe": "Qui exercitationem veniam est dolores placeat ipsam. Provident dolorum expedita voluptatem doloribus. Nisi qui sed labore dicta veritatis in. Esse est officiis nostrum suscipit reiciendis.",
-                    "describe_en": "Delectus aut expedita in ipsum consequatur aut. Dolore sed aspernatur hic enim id est. Laudantium impedit molestiae aliquam error modi laboriosam.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?67825",
-                    "parent_id": 29,
-                    "level": 1,
-                    "created_at": "2020-08-30 08:12:31",
-                    "updated_at": "2020-09-09 14:28:00"
-                }
-            },
-            {
-                "id": 46,
-                "product_category_id": 15,
-                "product_name": "黑钻赋颜面霜",
-                "product_name_en": "velit provident explicabo",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?63089",
-                "slug": "ipsam-a",
-                "short_description": "Possimus ut perspiciatis voluptas totam voluptatem.",
-                "short_description_en": "Assumenda quam et sit corrupti officiis dolorem. Et maiores ut ipsam eligendi. Nesciunt fugiat totam quasi laborum nihil aut voluptatem. Itaque sit iure optio.",
-                "price": "5434.00",
-                "sale_price": "1.00",
-                "stock": 692,
-                "spec": null,
-                "seo_title": "excepturi ut accusantium",
-                "seo_keyword": "ut",
-                "seo_description": "Sapiente voluptatem temporibus atque saepe rerum et.",
-                "benefit": "Et eum enim soluta officia. Itaque sunt sequi iste voluptatem iure sunt temporibus. Dolor sint numquam doloremque.",
-                "benefit_en": "Voluptatum ut quas error dicta ullam. Dolorum illum incidunt corrupti perferendis. Neque sint sed ut quasi sint ad. Ullam explicabo aut rerum et quaerat saepe et.",
-                "tech_description": "Assumenda molestias ab sint. Aut et consequatur maxime veritatis unde. Hic quam aliquid aperiam eum in consequatur ipsa.",
-                "tech_description_en": "Qui amet sit neque consequatur rerum sit blanditiis. Nam numquam aut aut omnis. Magni velit aut rerum nostrum itaque alias. Voluptatibus sunt repellat vel dolorem incidunt sequi aut.",
-                "description": "Recusandae voluptas ut eius nam ea autem vero ut. Ullam perferendis incidunt quo veniam.",
-                "description_en": "Eligendi tenetur sapiente aspernatur vel incidunt id. Deserunt molestiae enim sed ut reprehenderit qui. Fugiat recusandae dolor quae a. Eligendi nihil perspiciatis velit occaecati ut unde sint. Unde quo deserunt amet est debitis.",
-                "usage": "Pariatur sequi quasi reiciendis expedita culpa. Quod quasi accusantium quia consequatur nesciunt sunt. Illum sunt eveniet sunt sit. Odit tenetur reprehenderit et doloremque amet sapiente.",
-                "usage_en": "Itaque vero voluptas est quibusdam. At consequuntur quia voluptatibus id iure aut optio. Optio repellendus autem ut aperiam odit. Nostrum eaque recusandae dolorem eos consequatur vel maxime similique.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?50928",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?45076",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?27336",
-                "product_video": null,
-                "status": 1,
-                "rating": 2.14,
-                "sold_count": 7596,
-                "review_count": 9470,
-                "created_at": "2020-08-30 03:22:06",
-                "updated_at": "2020-08-28 02:47:39",
-                "product_category": {
-                    "id": 15,
-                    "name": "睫毛膏",
-                    "slug": "qui-autem",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?23864",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?31968",
-                    "title": "accusamus et eos",
-                    "title_en": "ipsum amet in",
-                    "sub_title": "sunt magnam nihil",
-                    "describe": "Sint saepe officiis eos reprehenderit et iste. At eum atque animi error voluptatem est magni. Mollitia commodi quam earum eius. Dolore deserunt molestiae ducimus et aliquam.",
-                    "describe_en": "Alias ea delectus consectetur iste. Est soluta quia quo. Aut sint voluptatem ut perspiciatis dignissimos.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?68338",
-                    "parent_id": 6,
-                    "level": 1,
-                    "created_at": "2020-08-21 10:10:38",
-                    "updated_at": "2020-08-24 03:12:18"
-                }
-            },
-            {
-                "id": 28,
-                "product_category_id": 16,
-                "product_name": "黑钻璀璨晶透肌底精华",
-                "product_name_en": "non possimus et",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?43645",
-                "slug": "dignissimos-amet",
-                "short_description": "Exercitationem sed occaecati molestiae suscipit.",
-                "short_description_en": "Eum non ea explicabo et amet. Nesciunt qui deserunt suscipit. Ut recusandae fugit est culpa.",
-                "price": "4230.00",
-                "sale_price": "1.00",
-                "stock": 976,
-                "spec": null,
-                "seo_title": "et blanditiis dignissimos",
-                "seo_keyword": "ea",
-                "seo_description": "Sunt magnam id et eos.",
-                "benefit": "Et rem sit aspernatur ea ea sit. Ut iure eum nisi qui repellat fugiat. Dolore architecto et accusantium et dolores. Illum sit optio quasi aperiam rerum magni.",
-                "benefit_en": "Nostrum quam et alias vel. Ut ut recusandae accusantium. Libero minus temporibus facere laboriosam eum.",
-                "tech_description": "Aut voluptatum neque quis est natus sit. Nostrum impedit animi nisi suscipit sit ullam doloremque. Dolores excepturi inventore qui eveniet numquam ullam consequatur.",
-                "tech_description_en": "Praesentium necessitatibus incidunt similique rerum ipsam tempore aut. Aut maiores possimus laudantium dolorem quas repudiandae. Omnis delectus sit soluta inventore eveniet tempora. In eaque sed repudiandae sit. Architecto consequatur ab reiciendis consequatur quas voluptas et tempore.",
-                "description": "Vel qui ut omnis itaque inventore non eaque. Quisquam adipisci fuga rerum. Qui minima delectus et sequi aut necessitatibus non.",
-                "description_en": "Eos et labore impedit sint placeat est. Non assumenda aspernatur occaecati ut expedita. Sit quia tenetur earum molestias ex sint.",
-                "usage": "Recusandae exercitationem molestiae consequatur quo. Nihil doloremque velit mollitia ullam. Ducimus inventore fuga architecto impedit quam earum blanditiis.",
-                "usage_en": "Aut necessitatibus sed cupiditate eos eligendi dicta corrupti. Maxime cupiditate at ipsam a.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?62296",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?98723",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?48280",
-                "product_video": null,
-                "status": 1,
-                "rating": 7.87,
-                "sold_count": 4353,
-                "review_count": 3760,
-                "created_at": "2020-08-20 02:32:53",
-                "updated_at": "2020-08-13 19:10:42",
-                "product_category": {
-                    "id": 16,
-                    "name": "眼霜",
-                    "slug": "culpa-aut",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?63854",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?31891",
-                    "title": "vitae culpa dolorem",
-                    "title_en": "dolorem natus minima",
-                    "sub_title": "aut incidunt hic",
-                    "describe": "Quisquam et aliquid aperiam veniam nihil reiciendis voluptas. Eum natus voluptatem voluptate velit in est. Saepe fugiat tenetur ea consequuntur.",
-                    "describe_en": "Consequatur totam error perspiciatis voluptas ad ut aut. Veniam amet et nam tempora cum omnis. Id quaerat accusamus ducimus est cupiditate voluptas sed inventore. Est quaerat aliquid ut vel.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?47825",
-                    "parent_id": 30,
-                    "level": 1,
-                    "created_at": "2020-08-12 18:34:29",
-                    "updated_at": "2020-08-16 19:57:04"
-                }
-            },
-            {
-                "id": 4,
-                "product_category_id": 18,
-                "product_name": "黑钻璀璨晶透肌底精华",
-                "product_name_en": "est et quam",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?29567",
-                "slug": "dolorem-dicta",
-                "short_description": "Nemo quo et recusandae id laboriosam.",
-                "short_description_en": "Quo quam et ut est sapiente provident. Autem blanditiis placeat atque. Recusandae qui neque neque sit veniam rem ut. Ullam officiis dicta odio similique laudantium quae.",
-                "price": "3229.00",
-                "sale_price": "1.00",
-                "stock": 920,
-                "spec": null,
-                "seo_title": "eos ut ea",
-                "seo_keyword": "minus",
-                "seo_description": "Dolorem sequi facere sit.",
-                "benefit": "Alias esse aut qui et sequi maiores et. Occaecati mollitia molestiae voluptatem repellat labore ipsa. Quis porro vel non ratione et culpa delectus. Ut eaque alias nesciunt repudiandae.",
-                "benefit_en": "Vitae repellat omnis quaerat iure id inventore. Molestias voluptatem doloribus hic qui aut.",
-                "tech_description": "Dicta error sapiente tempore velit vel. Quos quo corporis amet animi. Facere quisquam tempore ratione sunt neque voluptate. Quidem repellat molestias id.",
-                "tech_description_en": "Ut ab sunt aut maxime nisi excepturi. Exercitationem tempore itaque pariatur ex facere consectetur. Corporis voluptatem illum est dolorem alias. Sed ea qui laudantium perspiciatis quo debitis eum saepe. Magni autem eveniet dolores in consequatur.",
-                "description": "Perferendis ducimus ipsam ea. Facere a sunt eum adipisci esse officia assumenda. Voluptatem officiis ullam quam eaque corporis sed. Rerum ut in nemo ut.",
-                "description_en": "Nisi nisi id eaque voluptate eius deserunt. Ut voluptas reiciendis facilis repellendus soluta iure aspernatur. Vel architecto autem culpa aut molestiae ipsum voluptas.",
-                "usage": "Saepe porro voluptate ut tenetur dolor voluptatum totam accusamus. Inventore labore ad molestiae hic. Ad modi quia quia atque nostrum officia. Aut aspernatur adipisci illo quibusdam impedit id.",
-                "usage_en": "Aut qui iure similique vitae distinctio accusamus. Aut ratione esse tempora distinctio et ad. Impedit consequatur quis dolores fuga libero nostrum sunt. Aut nisi et quia dolorem et et placeat atque. Et quo delectus illo ipsam.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?92476",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?96423",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?58003",
-                "product_video": null,
-                "status": 1,
-                "rating": 9.03,
-                "sold_count": 9443,
-                "review_count": 4726,
-                "created_at": "2020-09-05 06:28:56",
-                "updated_at": "2020-08-18 14:57:29",
-                "product_category": {
-                    "id": 18,
-                    "name": "BB霜",
-                    "slug": "officia-laboriosam",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?20141",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?27064",
-                    "title": "ut commodi dolor",
-                    "title_en": "eos doloribus delectus",
-                    "sub_title": "neque omnis aliquam",
-                    "describe": "Earum placeat reiciendis nesciunt. Itaque tempore ullam perspiciatis quia beatae. Rerum qui soluta non dolorum et. Consectetur explicabo unde inventore repellendus corporis rerum nostrum.",
-                    "describe_en": "Tempora ea ut fugit deserunt doloribus est. Quis quidem unde aut suscipit omnis. Odit sed vitae aut reprehenderit. Nulla nisi sit vero repellat libero consequatur.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?75993",
-                    "parent_id": 11,
-                    "level": 1,
-                    "created_at": "2020-09-06 21:09:29",
-                    "updated_at": "2020-09-05 20:16:51"
-                }
-            },
-            {
-                "id": 10,
-                "product_category_id": 3,
-                "product_name": "黑钻洁净滋养面膜",
-                "product_name_en": "praesentium tenetur sed",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?50018",
-                "slug": "doloribus-quia",
-                "short_description": "Amet quaerat repudiandae qui accusantium quisquam omnis.",
-                "short_description_en": "Ut ullam quis placeat asperiores commodi. Cum aut eos nihil quia minus voluptatum excepturi. Voluptate sapiente in eaque impedit porro quaerat. Eum deleniti accusantium rem.",
-                "price": "2815.00",
-                "sale_price": "1.00",
-                "stock": 401,
-                "spec": null,
-                "seo_title": "sed quia et",
-                "seo_keyword": "omnis",
-                "seo_description": "Officiis et ullam rerum voluptas velit.",
-                "benefit": "Veritatis culpa deleniti similique temporibus necessitatibus. Omnis qui asperiores odio laboriosam.",
-                "benefit_en": "Esse facilis doloribus alias itaque. Perferendis sequi eaque possimus. Dolor saepe delectus dolorum.",
-                "tech_description": "Et amet necessitatibus laudantium sequi fuga dolore porro eius. Vitae enim est et repudiandae. Et iure veritatis officiis deserunt nihil mollitia omnis. Aut numquam placeat minima suscipit omnis repellendus ab soluta.",
-                "tech_description_en": "Enim unde voluptas explicabo. Accusamus aut corporis vero quo ea neque omnis laboriosam. Sint atque cum numquam neque minus.",
-                "description": "Nulla corrupti consequuntur velit libero sed molestias eveniet vel. Repellendus cupiditate fugiat voluptatem qui. Quia molestiae quia officia voluptatem molestias et. Corrupti ab esse sit aut architecto.",
-                "description_en": "Tempore ullam esse non esse quae qui in. Unde dolor rerum nisi est. Autem soluta ut tenetur tenetur occaecati quo inventore.",
-                "usage": "Dolorum ipsam sint harum. Totam in eaque praesentium qui dolor. Reprehenderit et reiciendis illum nobis.",
-                "usage_en": "Beatae quibusdam sed cum sint. Voluptatibus eos aliquam quia quia. Quis occaecati fugiat perspiciatis et magni sit consequatur.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?28591",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?64577",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?43849",
-                "product_video": null,
-                "status": 1,
-                "rating": 2.2,
-                "sold_count": 6458,
-                "review_count": 6941,
-                "created_at": "2020-08-19 08:49:22",
-                "updated_at": "2020-08-30 21:40:34",
-                "product_category": {
-                    "id": 3,
-                    "name": "精油",
-                    "slug": "numquam-enim",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?15534",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?89172",
-                    "title": "natus perferendis consectetur",
-                    "title_en": "sit iure temporibus",
-                    "sub_title": "officiis omnis voluptas",
-                    "describe": "Et reiciendis cupiditate qui. Harum quisquam voluptatem alias rerum quaerat est aut. Tenetur vitae modi sequi incidunt autem vel. Aut sit amet quo distinctio qui qui neque.",
-                    "describe_en": "Et blanditiis dolorum quia commodi. Beatae vel rerum quae sed aliquam reiciendis voluptatem.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?96750",
-                    "parent_id": 7,
-                    "level": 1,
-                    "created_at": "2020-08-29 00:28:43",
-                    "updated_at": "2020-08-26 11:27:04"
-                }
-            },
-            {
-                "id": 18,
-                "product_category_id": 3,
-                "product_name": "黑钻焕肤水",
-                "product_name_en": "earum alias porro",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?21540",
-                "slug": "corporis-quibusdam",
-                "short_description": "Ut est mollitia omnis nam veniam blanditiis.",
-                "short_description_en": "Qui quod minima cupiditate sunt. Reiciendis perspiciatis eum ut neque expedita. Quo illum voluptas facere explicabo ipsum.",
-                "price": "3031.00",
-                "sale_price": "1.00",
-                "stock": 582,
-                "spec": null,
-                "seo_title": "alias excepturi commodi",
-                "seo_keyword": "nesciunt",
-                "seo_description": "Eligendi enim aspernatur qui sequi dignissimos.",
-                "benefit": "Earum est quis hic dolor. Occaecati veniam quisquam nam et odit. Aut voluptatem non culpa nisi necessitatibus odio ipsa voluptates. Ut iste facere et necessitatibus distinctio sunt.",
-                "benefit_en": "Rerum doloremque ducimus recusandae enim. Molestiae soluta pariatur ut aut est. Et sunt enim harum sit velit. Facere est velit consequatur.",
-                "tech_description": "Omnis quia vitae ab alias tenetur facere deserunt. Amet tempora molestiae incidunt debitis nihil alias. Commodi quos dolor officiis dolorum incidunt nisi quo. Est enim quibusdam veniam illo ipsa at ut.",
-                "tech_description_en": "Eum quia molestiae quidem ut nihil. Nesciunt illo eaque aut.",
-                "description": "Non temporibus exercitationem esse omnis hic quis quod. Commodi optio nam rerum excepturi a aut quidem. Unde consequatur nihil enim qui excepturi a.",
-                "description_en": "Voluptatem optio molestiae et dignissimos laboriosam veritatis. Sit deserunt qui sequi beatae soluta maxime. Reprehenderit mollitia recusandae accusamus quae dolor voluptatum pariatur.",
-                "usage": "Sit beatae qui nesciunt rem. Cumque odit qui consequuntur dicta id. Expedita ut debitis recusandae pariatur ad.",
-                "usage_en": "Nihil quos nemo aut aperiam repudiandae sapiente. Quis et voluptatum aperiam suscipit. Velit id quod velit voluptatem placeat officia dicta et. Eum sint voluptas tenetur quaerat molestias in consequatur ea.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?29456",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?59241",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?19323",
-                "product_video": null,
-                "status": 1,
-                "rating": 0.69,
-                "sold_count": 5569,
-                "review_count": 7937,
-                "created_at": "2020-08-21 07:36:46",
-                "updated_at": "2020-09-03 01:03:59",
-                "product_category": {
-                    "id": 3,
-                    "name": "精油",
-                    "slug": "numquam-enim",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?15534",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?89172",
-                    "title": "natus perferendis consectetur",
-                    "title_en": "sit iure temporibus",
-                    "sub_title": "officiis omnis voluptas",
-                    "describe": "Et reiciendis cupiditate qui. Harum quisquam voluptatem alias rerum quaerat est aut. Tenetur vitae modi sequi incidunt autem vel. Aut sit amet quo distinctio qui qui neque.",
-                    "describe_en": "Et blanditiis dolorum quia commodi. Beatae vel rerum quae sed aliquam reiciendis voluptatem.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?96750",
-                    "parent_id": 7,
-                    "level": 1,
-                    "created_at": "2020-08-29 00:28:43",
-                    "updated_at": "2020-08-26 11:27:04"
-                }
-            },
-            {
-                "id": 35,
-                "product_category_id": 20,
-                "product_name": "黑钻臻活眼部精华",
-                "product_name_en": "vitae voluptatem nemo",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?86326",
-                "slug": "magnam-error",
-                "short_description": "Voluptas quisquam cupiditate et.",
-                "short_description_en": "Molestiae magnam itaque et consequatur dolore. Enim quia reprehenderit eos sed consequuntur suscipit. Non eos porro corrupti autem.",
-                "price": "7621.00",
-                "sale_price": "1.00",
-                "stock": 736,
-                "spec": null,
-                "seo_title": "aut dignissimos porro",
-                "seo_keyword": "ipsam",
-                "seo_description": "Nulla laudantium quidem rerum dolorem cum nostrum.",
-                "benefit": "Eos ab dicta iste enim cupiditate. Soluta ullam vero qui est officia. Et natus voluptate quas suscipit autem sint pariatur. Animi cumque aliquam aut et nemo culpa architecto.",
-                "benefit_en": "Rerum rerum omnis est itaque voluptatem aut quia eius. Unde aut et qui optio et rerum.",
-                "tech_description": "Laborum qui beatae beatae. Esse molestias qui omnis excepturi. Est non voluptatibus officiis aut tempore quos quo. Rem quasi neque nisi est et qui.",
-                "tech_description_en": "Consequuntur aut mollitia eaque adipisci. Totam et libero et quis. Expedita autem soluta eos ad molestias fugit quibusdam. Occaecati modi repellendus odio quod recusandae officiis.",
-                "description": "Commodi numquam et deserunt aperiam fuga in. Commodi autem perferendis fuga quis iure praesentium nobis. Et voluptatem labore dolores quidem natus.",
-                "description_en": "Repellat voluptate quia illo et ipsum cumque cupiditate. Inventore velit non asperiores adipisci.",
-                "usage": "Ut quos nemo et placeat quia temporibus deleniti. Commodi sed ad voluptatum voluptates rerum non. Natus veniam voluptatum dolor. Cupiditate autem et quia id architecto et accusantium est.",
-                "usage_en": "Ab aspernatur dolorum eligendi qui. Ad et facilis nam dolore sed praesentium et maiores. Voluptatum ab eaque aperiam quia ut adipisci. Ipsa id iusto aut culpa assumenda.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?45313",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?68444",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?60200",
-                "product_video": null,
-                "status": 1,
-                "rating": 1.25,
-                "sold_count": 2013,
-                "review_count": 3924,
-                "created_at": "2020-08-29 10:43:17",
-                "updated_at": "2020-09-08 23:09:02",
-                "product_category": {
-                    "id": 20,
-                    "name": "香水",
-                    "slug": "eum-vel",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?31905",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?83996",
-                    "title": "est officia qui",
-                    "title_en": "cum porro asperiores",
-                    "sub_title": "voluptates ut impedit",
-                    "describe": "Dicta facere nulla voluptas at aliquam dolores. Expedita non vero minus est eaque et. Aperiam autem doloremque enim labore dolor.",
-                    "describe_en": "Et voluptas harum perferendis harum. Eum est eum est consequatur maxime. Eaque non possimus vel omnis aut veritatis in.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?12977",
-                    "parent_id": 18,
-                    "level": 1,
-                    "created_at": "2020-09-02 08:41:40",
-                    "updated_at": "2020-08-19 13:24:10"
-                }
-            },
-            {
-                "id": 48,
-                "product_category_id": 3,
-                "product_name": "黑钻璀璨晶透肌底精华",
-                "product_name_en": "corrupti recusandae voluptates",
-                "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?79607",
-                "slug": "eum-cumque",
-                "short_description": "Ratione maiores at molestiae quibusdam sequi deserunt.",
-                "short_description_en": "Et omnis omnis distinctio voluptatum et. Optio labore quam in adipisci. Maxime qui id aliquam et voluptatem voluptatum.",
-                "price": "1611.00",
-                "sale_price": "1.00",
-                "stock": 931,
-                "spec": null,
-                "seo_title": "necessitatibus est rerum",
-                "seo_keyword": "dolorem",
-                "seo_description": "Ipsum maiores ea ab.",
-                "benefit": "Minus esse incidunt error esse sed assumenda nisi. Vel debitis sit voluptatum magnam. Debitis labore dicta adipisci molestiae rerum qui eum. Et dolores minima suscipit nesciunt.",
-                "benefit_en": "Et perspiciatis voluptates est quibusdam temporibus at libero. Voluptate ut consectetur distinctio sed. Qui dolore aut quo tempore iusto. Tempora quidem est non tenetur nobis.",
-                "tech_description": "Nobis sunt repudiandae voluptatem voluptas. Dolorum tempore voluptatem illum vel. Pariatur dolorem nulla eum animi non blanditiis similique. Ab et temporibus ad vero.",
-                "tech_description_en": "Sed aut aspernatur sed inventore similique quod. Amet id rerum et vel. Corrupti dolor ratione doloribus asperiores et optio eos voluptas. Dolore tenetur est quasi minima.",
-                "description": "Deleniti quos at sit libero id. Quo similique perspiciatis et omnis et illum. Vitae similique sunt repudiandae natus omnis enim quibusdam. Et repellat qui consequatur rerum.",
-                "description_en": "Omnis dolorum aut odit rerum. Cum totam vitae non hic soluta impedit officiis. Quam aliquid dolorum et eum molestiae. Voluptas facilis nesciunt amet et dolores.",
-                "usage": "Nostrum neque placeat dolores et. Repellendus soluta molestias nesciunt omnis doloribus ullam excepturi. Laborum voluptas doloremque quos at aliquid sit.",
-                "usage_en": "Optio suscipit laborum ut atque. Ut veritatis qui sit adipisci nam odit aut ipsam. Minima laborum tempore quos est. Molestiae dicta earum qui exercitationem.",
-                "main_image": "https:\/\/lorempixel.com\/640\/480\/?78348",
-                "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?89515",
-                "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?56195",
-                "product_video": null,
-                "status": 1,
-                "rating": 1.6,
-                "sold_count": 3388,
-                "review_count": 1053,
-                "created_at": "2020-09-03 17:41:43",
-                "updated_at": "2020-09-10 22:03:22",
-                "product_category": {
-                    "id": 3,
-                    "name": "精油",
-                    "slug": "numquam-enim",
-                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?15534",
-                    "banner": "https:\/\/lorempixel.com\/640\/480\/?89172",
-                    "title": "natus perferendis consectetur",
-                    "title_en": "sit iure temporibus",
-                    "sub_title": "officiis omnis voluptas",
-                    "describe": "Et reiciendis cupiditate qui. Harum quisquam voluptatem alias rerum quaerat est aut. Tenetur vitae modi sequi incidunt autem vel. Aut sit amet quo distinctio qui qui neque.",
-                    "describe_en": "Et blanditiis dolorum quia commodi. Beatae vel rerum quae sed aliquam reiciendis voluptatem.",
-                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?96750",
-                    "parent_id": 7,
-                    "level": 1,
-                    "created_at": "2020-08-29 00:28:43",
-                    "updated_at": "2020-08-26 11:27:04"
-                }
-            }
-        ],
-        "first_page_url": "http:\/\/localhost\/api\/product_status\/1?page=1",
-        "from": 1,
-        "last_page": 2,
-        "last_page_url": "http:\/\/localhost\/api\/product_status\/1?page=2",
-        "next_page_url": "http:\/\/localhost\/api\/product_status\/1?page=2",
-        "path": "http:\/\/localhost\/api\/product_status\/1",
-        "per_page": 15,
-        "prev_page_url": null,
-        "to": 15,
-        "total": 22
-    },
+    "data": [
+        {
+            "id": 36,
+            "product_category_id": 16,
+            "product_name": "黑钻臻活眼部精华",
+            "product_name_en": "non reprehenderit mollitia",
+            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?66859",
+            "slug": "voluptates-impedit",
+            "short_description": "Aut non eos rerum enim dolor consequatur.",
+            "short_description_en": "Sunt iure rem dolorem vel. Voluptas dolores et cumque ipsa dolor. Quidem tempora dolorum natus modi laborum consequatur rerum. Non voluptates exercitationem sint ipsa voluptatibus voluptatem.",
+            "price": "3004.00",
+            "sale_price": "1.00",
+            "stock": 270,
+            "spec": null,
+            "seo_title": "aut et et",
+            "seo_keyword": "modi",
+            "seo_description": "Consectetur eligendi nulla non et culpa asperiores.",
+            "benefit": "Sint quo in recusandae exercitationem. Recusandae a et voluptatem unde. Rem fugit et minima vero odio.",
+            "benefit_en": "Qui labore voluptatem dolor eveniet. Consectetur doloremque sed mollitia et molestiae quis ex perferendis. Corrupti architecto sint autem.",
+            "tech_description": "Eveniet illo fugiat in dignissimos. Fuga voluptatem sit vero beatae. Sit ab dignissimos doloribus rerum distinctio unde error ea.",
+            "tech_description_en": "Aut quo eum iusto nam velit sint qui. Excepturi et sit ut repellendus fugit non labore. Voluptatem recusandae non ut vero culpa nam. Eaque libero rem sint recusandae consectetur praesentium.",
+            "description": "Eum nam totam dolor est et maiores voluptatum. Eum fuga necessitatibus harum qui debitis rerum molestiae. Vel consequatur non placeat repellat quidem perferendis.",
+            "description_en": "Fugiat sint ut maiores itaque neque perspiciatis libero. Deserunt quis suscipit omnis aliquid eius. Quia sit expedita eaque eos dolorum aliquid quae ex. Velit sed voluptatibus voluptas fugiat quia autem.",
+            "usage": "Quis similique beatae sint et placeat harum vero. Aut aperiam porro aut quaerat. Aut et sapiente explicabo dolores alias. Rem eaque quidem dolorem nihil rerum.",
+            "usage_en": "Provident asperiores molestiae et saepe tenetur quam est error. Veritatis distinctio est neque. Excepturi architecto quam eos aliquid provident. Quia excepturi quia blanditiis ipsam ad.",
+            "main_image": "https:\/\/lorempixel.com\/640\/480\/?50902",
+            "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?19042",
+            "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?39332",
+            "product_video": null,
+            "status": 1,
+            "rating": 7.57,
+            "sold_count": 9255,
+            "review_count": 8454,
+            "created_at": "2020-08-30 07:39:13",
+            "updated_at": "2020-09-12 10:45:41"
+        },
+        {
+            "id": 34,
+            "product_category_id": 14,
+            "product_name": "黑钻洁净滋养面膜",
+            "product_name_en": "officiis iusto iste",
+            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?49142",
+            "slug": "cumque-similique",
+            "short_description": "Quas cupiditate molestiae nam qui veniam.",
+            "short_description_en": "Magnam et quia est aliquid quo cupiditate quos reiciendis. Labore quis voluptatibus libero quo. Qui repellat quae et aut velit similique quam.",
+            "price": "6448.00",
+            "sale_price": "1.00",
+            "stock": 31,
+            "spec": null,
+            "seo_title": "ipsam dolor et",
+            "seo_keyword": "corrupti",
+            "seo_description": "Enim aut voluptas voluptates sunt.",
+            "benefit": "Rerum qui sed voluptatem sit. Nihil et adipisci aut voluptatum est at sed. Aut veritatis ut porro ut. Itaque est est rem ab quaerat. Necessitatibus laborum ut sit aliquam in non sint.",
+            "benefit_en": "Cupiditate nobis modi sapiente veritatis est qui omnis. Minus ipsam et consequatur vel rerum totam. Non aut excepturi doloribus sit et ut. Earum eveniet velit possimus facere qui. Ut et consequatur accusamus aperiam distinctio.",
+            "tech_description": "Et reiciendis odio itaque commodi id culpa. Architecto sed consequatur minima excepturi cumque tenetur. Eos molestiae nulla aut itaque.",
+            "tech_description_en": "Esse neque dolores consequatur. Excepturi enim ullam odit ea modi distinctio.",
+            "description": "Eius modi aut ipsa consequatur vel. Nostrum distinctio aut ipsa aut ut sunt doloremque reprehenderit. Nisi consequatur corporis itaque quas adipisci temporibus. Architecto porro laboriosam architecto at aut facilis.",
+            "description_en": "Et tempore vero est aut voluptas corrupti tenetur. Quo velit adipisci inventore est sed recusandae saepe.",
+            "usage": "Facilis numquam modi et vel qui autem beatae. Consequatur qui voluptatem et ut. Quaerat natus non ipsum asperiores quia nesciunt dolor ad. Voluptas dolores commodi voluptatibus praesentium architecto.",
+            "usage_en": "Rem modi voluptatem fugit et dolorum omnis tempora ut. Labore expedita quisquam ab dicta enim neque sed. Qui est praesentium nostrum incidunt odit ut.",
+            "main_image": "https:\/\/lorempixel.com\/640\/480\/?40201",
+            "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?30609",
+            "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?68430",
+            "product_video": null,
+            "status": 1,
+            "rating": 3.66,
+            "sold_count": 3664,
+            "review_count": 1290,
+            "created_at": "2020-08-22 15:49:58",
+            "updated_at": "2020-09-14 17:22:42"
+        },
+        {
+            "id": 46,
+            "product_category_id": 16,
+            "product_name": "黑钻赋颜面霜",
+            "product_name_en": "recusandae voluptates architecto",
+            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?36646",
+            "slug": "perferendis-eos",
+            "short_description": "Quo veniam magnam et.",
+            "short_description_en": "Et hic impedit enim laudantium. Est eum ea ducimus sint. Aut maxime rerum corrupti ut odit. Repellat asperiores quam repudiandae at et facere fuga.",
+            "price": "6768.00",
+            "sale_price": "1.00",
+            "stock": 685,
+            "spec": null,
+            "seo_title": "tenetur similique aliquam",
+            "seo_keyword": "eveniet",
+            "seo_description": "Et deserunt autem officiis iure numquam itaque.",
+            "benefit": "Ipsa vitae nesciunt earum dolores quia qui. Quia a repudiandae rerum. Voluptas nostrum unde iure eos voluptas et. Dolor molestias ipsa a nisi quia. Exercitationem perspiciatis pariatur qui eligendi sit dolore et.",
+            "benefit_en": "Excepturi optio voluptas id odio nemo cumque. Quaerat quia tempora ut nisi consequatur. Molestias reprehenderit corporis architecto.",
+            "tech_description": "Consequatur assumenda illo sit dolor. Officiis asperiores error officiis maxime nulla. Esse autem porro unde nemo quo blanditiis dolor.",
+            "tech_description_en": "Quas corrupti cum quam accusantium quidem corporis. Eos voluptatem nihil est aliquid a quia et. Facere harum reprehenderit rerum ex inventore occaecati.",
+            "description": "Qui ipsum earum similique. Et perspiciatis vel assumenda inventore modi enim aut. Qui saepe occaecati voluptas.",
+            "description_en": "Cupiditate corporis quidem perspiciatis. Quasi labore nihil cumque ab cupiditate. Nihil veritatis sunt voluptatem voluptatem alias vero quod. Labore vel repellat velit est.",
+            "usage": "Reiciendis rem et molestias impedit aut atque quis. Qui dolores asperiores praesentium ut est voluptatem. Dolorem qui cumque eum qui.",
+            "usage_en": "Corporis iste ab dolorum placeat ad et. Quos quia facere suscipit facere aperiam repudiandae harum. Est rerum maiores explicabo enim laboriosam.",
+            "main_image": "https:\/\/lorempixel.com\/640\/480\/?30404",
+            "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?54625",
+            "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?93361",
+            "product_video": null,
+            "status": 1,
+            "rating": 4.99,
+            "sold_count": 1553,
+            "review_count": 7440,
+            "created_at": "2020-08-20 22:17:01",
+            "updated_at": "2020-08-26 08:27:08"
+        },
+        {
+            "id": 2,
+            "product_category_id": 15,
+            "product_name": "黑钻洁净滋养面膜",
+            "product_name_en": "quis ut totam",
+            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?47797",
+            "slug": "atque-est",
+            "short_description": "Maxime voluptatibus molestiae cupiditate est.",
+            "short_description_en": "Minus totam qui qui dolore et ea excepturi. Odio explicabo doloremque quas temporibus provident. Ea vel voluptatibus reprehenderit.",
+            "price": "6860.00",
+            "sale_price": "1.00",
+            "stock": 837,
+            "spec": null,
+            "seo_title": "quia ipsam est",
+            "seo_keyword": "accusamus",
+            "seo_description": "Rerum voluptatem hic architecto exercitationem aut quae.",
+            "benefit": "Et facilis porro similique dolorem ratione consequatur voluptatem quia. Aut nihil dolorem reiciendis corrupti ut quibusdam consectetur. Id ut recusandae tenetur molestiae perspiciatis.",
+            "benefit_en": "Corrupti doloribus delectus facere soluta amet. Non nihil odit non accusantium modi et quae. Nisi animi voluptatem repellat. Reprehenderit veritatis rerum maiores sed voluptatem.",
+            "tech_description": "Nostrum odio at possimus itaque natus et. Ipsum voluptatibus voluptatem ipsum expedita. Et expedita quis ut laboriosam vel voluptate aut quis.",
+            "tech_description_en": "Qui quis atque modi numquam minima necessitatibus molestias unde. Laudantium animi quaerat cumque sed. Repellat aut culpa sint aliquid veritatis error.",
+            "description": "Corporis nostrum quia et natus sed facere. Consequatur eveniet totam earum voluptate id quo debitis. Id qui vero debitis et iusto.",
+            "description_en": "Quibusdam adipisci assumenda maxime voluptas ut molestiae atque. Voluptate amet error beatae dolorem. Mollitia non nam eum quam blanditiis dolorum. Qui dolore iste velit sint.",
+            "usage": "Molestiae quis quia dolores laboriosam eius illo est. Saepe dolores dolor alias culpa. Sed tenetur laboriosam quis repudiandae provident est consectetur.",
+            "usage_en": "Tempora quo alias quis voluptatem vel eveniet. Sit asperiores laboriosam sed tenetur aut expedita.",
+            "main_image": "https:\/\/lorempixel.com\/640\/480\/?54375",
+            "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?93510",
+            "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?55155",
+            "product_video": null,
+            "status": 1,
+            "rating": 2.32,
+            "sold_count": 6146,
+            "review_count": 1928,
+            "created_at": "2020-09-04 03:47:40",
+            "updated_at": "2020-08-19 16:28:21"
+        }
+    ],
     "code": 20001,
     "msg": "操作成功"
 }
 ```
 
 ### HTTP Request
-`GET api/product_status/{status}`
+`GET api/products/innovate`
 
-#### Query Parameters
 
-Parameter | Status | Description
---------- | ------- | ------- | -----------
-    `status` |  required  | 商品状态(1新品,2畅销,3促销,-1下架)
-    `page` |  optional  | 页码
-    `page_limit` |  optional  | 每页数量
+<!-- END_2a763963938f9bbdf490c64f8c1c6821 -->
 
-<!-- END_730a7e488c8f865233d4c59e2d2151c1 -->
+#[API] Product Category
 
+产品分类
 <!-- START_eb9c398471efceb42098dee938d34a4f -->
 ## Get product category list
-获取商品分类列表
+获取产品分类列表
 
 > Example request:
 
@@ -5539,543 +4985,517 @@ fetch(url, {
     "data": [
         {
             "id": 1,
-            "name": "眼线",
-            "slug": "sit-possimus",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?13169",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?88087",
-            "title": "accusantium assumenda esse",
-            "title_en": "dolor ea et",
-            "sub_title": "voluptatum minima nisi",
-            "describe": "Quis sunt velit in ut. Dolore voluptates tenetur exercitationem et veniam. Accusantium maxime voluptatum blanditiis ab dignissimos cupiditate omnis. Numquam nihil perferendis repellat provident.",
-            "describe_en": "Occaecati veniam omnis libero ducimus aut. Aut commodi ullam cupiditate provident et assumenda. Aut aut laboriosam mollitia ut et. Vel perspiciatis dolorem qui incidunt nam.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?17693",
-            "parent_id": 21,
+            "name": "护肤系列",
+            "slug": "sapiente-commodi",
+            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?90297",
+            "banner": "https:\/\/lorempixel.com\/640\/480\/?44987",
+            "title": "ratione aut quibusdam",
+            "title_en": "quasi enim nobis",
+            "sub_title": "voluptatem nostrum reprehenderit",
+            "describe": "Deleniti labore est sint molestias quia est alias. Nemo est officiis beatae nam. Hic beatae vero deleniti deleniti provident.",
+            "describe_en": "Dicta impedit qui incidunt iure explicabo saepe vel. Sed cupiditate est incidunt et. A qui quia dolor autem.",
+            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?78712",
+            "parent_id": 0,
             "level": 1,
-            "created_at": "2020-09-06 10:54:14",
-            "updated_at": "2020-08-20 01:59:26",
-            "parent_title": "quidem voluptatum at"
+            "created_at": "2020-08-25 13:07:25",
+            "updated_at": "2020-08-28 12:04:23",
+            "children": [
+                {
+                    "id": 3,
+                    "name": "身体护理",
+                    "slug": "ut-et",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?50353",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?33297",
+                    "title": "repudiandae aut voluptatem",
+                    "title_en": "omnis consequatur dolores",
+                    "sub_title": "saepe voluptatem dolore",
+                    "describe": "Quas voluptatum dolorem aut id saepe. Exercitationem sint inventore rerum repellat in autem. Excepturi autem et omnis molestiae sed nemo quisquam illo.",
+                    "describe_en": "Et non mollitia enim architecto eos. Qui necessitatibus suscipit suscipit quos eos. Natus esse non exercitationem earum est aut quia magni.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?80922",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-08-26 01:21:22",
+                    "updated_at": "2020-08-20 18:26:51"
+                },
+                {
+                    "id": 4,
+                    "name": "唇膏",
+                    "slug": "aut-nobis",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?79558",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?71310",
+                    "title": "explicabo cupiditate dolorem",
+                    "title_en": "autem fugiat quia",
+                    "sub_title": "modi magnam officiis",
+                    "describe": "Et inventore voluptatum aut. In non voluptatum voluptatibus et maiores reprehenderit. Placeat omnis repellendus eos consequatur. Qui et sed ducimus laborum.",
+                    "describe_en": "Vel ducimus labore sit autem rem laborum reiciendis. Magnam in rerum ab. Ut aut architecto aperiam delectus fuga non quis.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?58509",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-09-03 23:34:33",
+                    "updated_at": "2020-08-17 10:09:09"
+                },
+                {
+                    "id": 5,
+                    "name": "爽肤水",
+                    "slug": "cumque-dolorem",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?52526",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?53953",
+                    "title": "dolorum velit ut",
+                    "title_en": "quia esse reprehenderit",
+                    "sub_title": "at ipsam consequuntur",
+                    "describe": "Totam ratione enim velit amet et nobis. Sint sed pariatur odio qui dolores. Repellendus in voluptatem amet suscipit est. Laboriosam aliquam dolores sed ad aut.",
+                    "describe_en": "Incidunt dicta quibusdam minima in magnam velit odit. Sint delectus officia ut et ullam nam nulla. Id iusto ipsum nihil sed esse nesciunt odit explicabo.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?20593",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-09-11 18:41:54",
+                    "updated_at": "2020-08-28 02:25:53"
+                },
+                {
+                    "id": 6,
+                    "name": "彩妆盘",
+                    "slug": "fuga-aliquam",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?60444",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?70048",
+                    "title": "optio iste doloremque",
+                    "title_en": "magni et quidem",
+                    "sub_title": "quo ipsa necessitatibus",
+                    "describe": "Totam impedit molestiae aut molestiae. Sit molestias nihil ducimus aperiam error a. Voluptates molestias ea repudiandae assumenda recusandae expedita.",
+                    "describe_en": "Aspernatur incidunt ut aut. Tempore qui aut vero vero aut possimus. Amet quis vel minima sed maxime.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?64107",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-09-08 03:03:32",
+                    "updated_at": "2020-09-02 06:51:45"
+                },
+                {
+                    "id": 7,
+                    "name": "眼线",
+                    "slug": "minima-pariatur",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?42527",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?83247",
+                    "title": "eos provident temporibus",
+                    "title_en": "modi et debitis",
+                    "sub_title": "nam sed dolore",
+                    "describe": "Maiores sint ab odit in veniam fugit quae. Unde sint dolorem laudantium accusantium velit nulla quo non. Minima et sunt perferendis dolorum distinctio.",
+                    "describe_en": "Ex beatae nostrum officiis eius suscipit explicabo voluptates. Nihil nemo libero commodi tempora enim est. Vitae aspernatur quo vel perferendis quo ratione et.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?64058",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-08-16 05:07:21",
+                    "updated_at": "2020-09-10 19:39:22"
+                },
+                {
+                    "id": 8,
+                    "name": "粉底液",
+                    "slug": "voluptatem-adipisci",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?27351",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?57502",
+                    "title": "molestiae nihil laudantium",
+                    "title_en": "dolorem fugiat facere",
+                    "sub_title": "esse eum dignissimos",
+                    "describe": "Eius eligendi consequatur voluptatibus commodi. Est nulla veniam et quam aut non numquam sequi. Quidem omnis atque asperiores quaerat quidem. Et soluta debitis quibusdam laboriosam non quod.",
+                    "describe_en": "Ipsam quos vero in dolor. Aperiam nihil sed quas explicabo.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?68039",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-09-08 17:37:00",
+                    "updated_at": "2020-08-27 15:15:12"
+                },
+                {
+                    "id": 9,
+                    "name": "眼线",
+                    "slug": "excepturi-non",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?29597",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?12122",
+                    "title": "non et facilis",
+                    "title_en": "itaque eligendi voluptatem",
+                    "sub_title": "quasi similique ut",
+                    "describe": "Animi exercitationem quaerat impedit reprehenderit tempora. Ipsum ut et quasi rerum libero doloribus iusto quod. Ut nemo velit aspernatur porro maiores.",
+                    "describe_en": "Autem possimus nobis impedit ea. Eos unde sit vitae consequuntur pariatur in exercitationem. Et inventore explicabo nemo commodi vitae sed.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?72764",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-09-07 20:25:26",
+                    "updated_at": "2020-08-15 01:23:20"
+                },
+                {
+                    "id": 11,
+                    "name": "爽肤水",
+                    "slug": "aperiam-perferendis",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?31471",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?13679",
+                    "title": "et ut autem",
+                    "title_en": "et quia libero",
+                    "sub_title": "dolores ratione aspernatur",
+                    "describe": "Facilis animi quia quae deleniti. Eum quod delectus iste omnis. Ad sed quis aliquid et.",
+                    "describe_en": "Dicta voluptatem adipisci delectus quia molestiae libero dignissimos. Temporibus ipsa soluta vel soluta delectus id.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?94276",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-09-03 10:21:46",
+                    "updated_at": "2020-09-10 21:48:34"
+                },
+                {
+                    "id": 12,
+                    "name": "香水",
+                    "slug": "rerum-iure",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?73893",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?98180",
+                    "title": "inventore rerum et",
+                    "title_en": "nobis optio nam",
+                    "sub_title": "quod officiis assumenda",
+                    "describe": "Eum veniam aut debitis quibusdam quibusdam dolorem aut. Vel odit et inventore aut. Aut consequuntur deleniti optio corporis mollitia.",
+                    "describe_en": "Voluptatibus consequatur sapiente ullam aliquid. Quaerat atque tempore amet. Et ad recusandae impedit enim nobis accusamus illo explicabo.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?13253",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-09-03 14:09:39",
+                    "updated_at": "2020-08-21 04:26:20"
+                },
+                {
+                    "id": 13,
+                    "name": "爽肤水",
+                    "slug": "rerum-rerum",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?65402",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?68435",
+                    "title": "praesentium dicta quia",
+                    "title_en": "nam a voluptatem",
+                    "sub_title": "molestias ut non",
+                    "describe": "Doloribus labore enim et earum. Dicta numquam inventore et necessitatibus. Nobis velit est officia et a et officiis nemo. Odit in quaerat et saepe blanditiis repudiandae minus.",
+                    "describe_en": "Suscipit molestiae libero veritatis exercitationem. Non qui enim ut omnis et voluptates laboriosam. Est quia aut ea ratione animi. Nisi inventore atque totam et et quae nihil illum.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?22910",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-08-30 06:19:54",
+                    "updated_at": "2020-08-23 07:20:22"
+                },
+                {
+                    "id": 14,
+                    "name": "眼线",
+                    "slug": "alias-dignissimos",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?47714",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?21643",
+                    "title": "doloremque exercitationem id",
+                    "title_en": "qui dolorem consequatur",
+                    "sub_title": "autem occaecati quam",
+                    "describe": "Aut perferendis et officiis totam dolorum. Blanditiis molestiae amet sapiente maxime maxime.",
+                    "describe_en": "Et molestias cumque nisi dolor. Numquam incidunt est nobis adipisci cumque. Quas voluptatum sequi eveniet. Omnis voluptate commodi eaque ratione. Quisquam quo illo iste nihil praesentium dicta aut.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?25094",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-08-16 10:17:20",
+                    "updated_at": "2020-08-28 04:56:47"
+                },
+                {
+                    "id": 15,
+                    "name": "眼线",
+                    "slug": "in-iusto",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?69150",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?81141",
+                    "title": "non alias eius",
+                    "title_en": "delectus corporis et",
+                    "sub_title": "nesciunt repudiandae esse",
+                    "describe": "Quia in vero et. Vitae eveniet et qui velit. Ut hic unde facilis laboriosam. Totam beatae qui adipisci enim.",
+                    "describe_en": "Aut assumenda sed modi optio impedit deserunt. Nesciunt aspernatur voluptate at. Adipisci accusamus veniam nemo alias aut ut. Eos voluptates aspernatur aut perspiciatis.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?94793",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-09-08 19:34:43",
+                    "updated_at": "2020-09-13 17:58:45"
+                },
+                {
+                    "id": 16,
+                    "name": "护肤系列",
+                    "slug": "quas-ut",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?36168",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?52655",
+                    "title": "quo est velit",
+                    "title_en": "numquam tempora earum",
+                    "sub_title": "quo sequi voluptatibus",
+                    "describe": "Voluptates nemo nisi in expedita perspiciatis qui. Autem autem est sunt deserunt omnis asperiores nobis. Nesciunt deleniti sit enim suscipit et mollitia consequatur enim.",
+                    "describe_en": "Sapiente quis dolores velit id eaque aut. Architecto expedita aut illum molestias earum architecto. Magni nesciunt sit voluptate est corporis atque. Rerum cum eum dolores voluptatem et quaerat quis.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?64401",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-08-18 08:15:12",
+                    "updated_at": "2020-08-16 11:06:15"
+                },
+                {
+                    "id": 17,
+                    "name": "面膜",
+                    "slug": "architecto-est",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?41808",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?59179",
+                    "title": "et perspiciatis doloribus",
+                    "title_en": "fugit id dolorem",
+                    "sub_title": "officiis enim molestiae",
+                    "describe": "Quod quisquam non corrupti ipsum neque ut. Doloribus et quis expedita deleniti eum aperiam. Temporibus consequuntur dolores et distinctio quia. Aut laborum quo ad et sapiente recusandae itaque.",
+                    "describe_en": "Cum et omnis ipsa qui dolor qui animi sit. Placeat deleniti sequi est harum. Aut voluptas voluptatibus facilis earum quis itaque quo.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?30675",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-08-17 08:32:28",
+                    "updated_at": "2020-09-03 08:00:18"
+                },
+                {
+                    "id": 18,
+                    "name": "爽肤水",
+                    "slug": "autem-tempora",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?62762",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?38945",
+                    "title": "fuga velit vitae",
+                    "title_en": "magni perspiciatis iusto",
+                    "sub_title": "sed ratione vel",
+                    "describe": "Porro nesciunt id id ipsa ipsa praesentium. Quia quidem et nisi occaecati eveniet accusamus. Nulla facere dolorum est quia iure similique. Fugiat aut quisquam suscipit nisi.",
+                    "describe_en": "Rerum quod repellendus est consequatur cum. Rerum quod unde et amet fuga soluta optio. At enim repellat doloremque non sed.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?63152",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-08-16 21:37:42",
+                    "updated_at": "2020-09-05 05:49:36"
+                },
+                {
+                    "id": 19,
+                    "name": "爽肤水",
+                    "slug": "exercitationem-consequatur",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?10401",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?64284",
+                    "title": "vitae ad earum",
+                    "title_en": "est non reprehenderit",
+                    "sub_title": "blanditiis et aperiam",
+                    "describe": "Eum praesentium sint dolores adipisci excepturi. Non non quo magni vel enim quo odio.",
+                    "describe_en": "Ut quaerat rem iure sint omnis atque. Rerum nihil aut id in illum. Voluptatem et corrupti quibusdam ut.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?70538",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-08-19 08:08:20",
+                    "updated_at": "2020-08-27 12:31:35"
+                },
+                {
+                    "id": 21,
+                    "name": "爽肤水",
+                    "slug": "laborum-eius",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?20028",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?32014",
+                    "title": "iure nesciunt omnis",
+                    "title_en": "esse at amet",
+                    "sub_title": "doloribus cum dignissimos",
+                    "describe": "Ut est veritatis dolor odio fuga unde omnis. Dolorem quis architecto hic non repellat. Non id saepe nam.",
+                    "describe_en": "Sunt sint aliquid maiores quaerat quo labore. Facere distinctio at eos corrupti rem eligendi.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?24828",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-09-01 10:48:52",
+                    "updated_at": "2020-09-08 19:37:14"
+                },
+                {
+                    "id": 22,
+                    "name": "爽肤水",
+                    "slug": "dicta-ab",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?54956",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?78504",
+                    "title": "nam voluptas incidunt",
+                    "title_en": "quod expedita at",
+                    "sub_title": "officiis iste fugit",
+                    "describe": "Hic quam dolores id rerum est. Ex quisquam occaecati officiis quis. Labore voluptatem beatae et.",
+                    "describe_en": "Reprehenderit modi ut placeat quis et voluptatem cumque. Rerum autem quia ut accusamus veritatis et. Harum sed unde vel.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?35102",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-09-02 06:46:53",
+                    "updated_at": "2020-09-06 21:44:23"
+                },
+                {
+                    "id": 23,
+                    "name": "粉底液",
+                    "slug": "animi-aspernatur",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?18797",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?15914",
+                    "title": "voluptas rerum id",
+                    "title_en": "est earum deleniti",
+                    "sub_title": "consequatur qui dignissimos",
+                    "describe": "Repellat est ex velit accusamus non omnis placeat. Sed ut rerum est sunt. Nisi ducimus impedit itaque repellendus eum.",
+                    "describe_en": "Ut fuga sed pariatur hic. Mollitia consequuntur vel autem laborum quis suscipit eos. Iste non inventore distinctio tempora tempora. Accusantium nihil aut delectus ut facilis alias quas.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?10049",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-09-04 16:46:33",
+                    "updated_at": "2020-09-02 14:51:44"
+                },
+                {
+                    "id": 24,
+                    "name": "唇膏",
+                    "slug": "nihil-dignissimos",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?89099",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?64036",
+                    "title": "magni dolores vel",
+                    "title_en": "accusantium ipsa est",
+                    "sub_title": "nemo molestias qui",
+                    "describe": "Sequi sint officia at inventore dignissimos facilis facere et. Facilis soluta fugit fugiat ea itaque. Enim autem omnis veritatis unde totam.",
+                    "describe_en": "Sit quas enim architecto et. Odio consequatur repellat ea sint. Totam veritatis tempora dolores nobis laborum culpa est.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?74632",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-09-11 00:42:29",
+                    "updated_at": "2020-09-11 14:12:04"
+                },
+                {
+                    "id": 25,
+                    "name": "BB霜",
+                    "slug": "minima-suscipit",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?85054",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?17647",
+                    "title": "rerum qui eos",
+                    "title_en": "quod ea non",
+                    "sub_title": "cum est tempore",
+                    "describe": "Blanditiis ut cum omnis quos. Et voluptate voluptas assumenda asperiores architecto provident.",
+                    "describe_en": "Ea explicabo omnis enim. Repellat accusamus in culpa laborum. Vel veritatis provident blanditiis quis mollitia aspernatur laborum. Omnis sit et voluptas mollitia ut est itaque.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?51441",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-09-07 12:48:17",
+                    "updated_at": "2020-08-28 11:14:38"
+                },
+                {
+                    "id": 26,
+                    "name": "面霜",
+                    "slug": "nulla-perspiciatis",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?95140",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?71428",
+                    "title": "ut nihil quia",
+                    "title_en": "fuga veritatis eligendi",
+                    "sub_title": "nihil doloribus pariatur",
+                    "describe": "Repellendus expedita numquam necessitatibus eaque. Et sint et facere suscipit reprehenderit laborum. Consequatur possimus doloremque id dolores.",
+                    "describe_en": "Ullam qui nesciunt illo repellat et. Vitae a asperiores accusantium voluptatibus possimus quae. Ex eligendi molestiae consectetur totam.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?68811",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-09-06 11:14:06",
+                    "updated_at": "2020-08-19 04:55:06"
+                },
+                {
+                    "id": 27,
+                    "name": "眼霜",
+                    "slug": "odio-autem",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?41396",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?40234",
+                    "title": "ea quis voluptatem",
+                    "title_en": "vitae laudantium consequatur",
+                    "sub_title": "enim saepe eos",
+                    "describe": "Dolorum et qui non sapiente veritatis voluptatum eaque aut. Quod non amet tempora qui et. Quos enim fugiat optio nulla ut.",
+                    "describe_en": "Aut non repellendus qui esse doloremque est deleniti. Enim sunt et et non. Perspiciatis autem doloremque debitis voluptate. Consequatur commodi molestias et facilis.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?93357",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-08-20 08:02:25",
+                    "updated_at": "2020-08-25 15:16:17"
+                },
+                {
+                    "id": 28,
+                    "name": "香水",
+                    "slug": "nostrum-praesentium",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?49810",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?78193",
+                    "title": "aliquid deleniti error",
+                    "title_en": "sed velit et",
+                    "sub_title": "omnis veritatis laudantium",
+                    "describe": "Iste illum commodi velit dolorem aperiam. Vel dolorem ut enim quibusdam blanditiis quidem consequuntur non. Id assumenda molestias consectetur temporibus delectus voluptas et.",
+                    "describe_en": "Quidem nihil provident optio at. Occaecati harum sit quidem exercitationem. Quas qui ducimus voluptas officiis aut. Et sed est nihil molestiae enim.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?60942",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-08-21 06:11:36",
+                    "updated_at": "2020-08-20 13:24:39"
+                },
+                {
+                    "id": 29,
+                    "name": "眼霜",
+                    "slug": "voluptas-quisquam",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?31208",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?47091",
+                    "title": "expedita quae expedita",
+                    "title_en": "totam eaque minus",
+                    "sub_title": "reprehenderit dolor aut",
+                    "describe": "Tempora nulla fuga rem. Temporibus temporibus molestiae vero temporibus. Odit qui est ratione doloremque dolor. Adipisci maxime qui assumenda ex rerum.",
+                    "describe_en": "Corporis sed soluta ad consequatur ullam corporis fugit. Dicta eos ullam praesentium beatae molestiae aut ullam. Cum rerum fuga dolores aspernatur.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?75259",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-08-20 11:51:26",
+                    "updated_at": "2020-08-16 22:44:43"
+                },
+                {
+                    "id": 30,
+                    "name": "睫毛膏",
+                    "slug": "error-placeat",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?26130",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?82854",
+                    "title": "repellat voluptatibus quos",
+                    "title_en": "vitae assumenda minus",
+                    "sub_title": "quis ea illo",
+                    "describe": "Rerum odit velit dolore unde. Est dolorem facilis beatae nulla quis illum. Ut laboriosam qui temporibus ipsa excepturi.",
+                    "describe_en": "Mollitia eum accusamus distinctio rem hic maiores facere. Voluptatum omnis vel vero ratione. Maiores est inventore doloribus id ullam quod fugiat qui. Repellat et quia delectus eaque.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?58406",
+                    "parent_id": 1,
+                    "level": 2,
+                    "created_at": "2020-09-08 21:44:08",
+                    "updated_at": "2020-09-12 13:46:20"
+                }
+            ]
         },
         {
             "id": 2,
-            "name": "套装B",
-            "slug": "numquam-voluptates",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?85058",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?83044",
-            "title": "temporibus magni qui",
-            "title_en": "amet et repudiandae",
-            "sub_title": "quae architecto rerum",
-            "describe": "Perspiciatis fugiat voluptates neque quia vero. Iusto labore ducimus et ex. Ratione illum quia velit et. Eum autem sed eveniet accusantium voluptatem unde. Nesciunt commodi quia et et.",
-            "describe_en": "Enim temporibus accusantium et itaque ipsa accusamus. Animi quia et libero fugit veniam voluptatem laborum. Est harum modi minima. Repellendus corporis consequuntur pariatur quia alias.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?29364",
-            "parent_id": 17,
-            "level": 1,
-            "created_at": "2020-09-06 17:05:26",
-            "updated_at": "2020-09-07 11:19:57",
-            "parent_title": "unde qui voluptates"
-        },
-        {
-            "id": 3,
-            "name": "精油",
-            "slug": "numquam-enim",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?15534",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?89172",
-            "title": "natus perferendis consectetur",
-            "title_en": "sit iure temporibus",
-            "sub_title": "officiis omnis voluptas",
-            "describe": "Et reiciendis cupiditate qui. Harum quisquam voluptatem alias rerum quaerat est aut. Tenetur vitae modi sequi incidunt autem vel. Aut sit amet quo distinctio qui qui neque.",
-            "describe_en": "Et blanditiis dolorum quia commodi. Beatae vel rerum quae sed aliquam reiciendis voluptatem.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?96750",
-            "parent_id": 7,
-            "level": 1,
-            "created_at": "2020-08-29 00:28:43",
-            "updated_at": "2020-08-26 11:27:04",
-            "parent_title": "est vero ea"
-        },
-        {
-            "id": 4,
-            "name": "唇膏",
-            "slug": "porro-recusandae",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?73984",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?25465",
-            "title": "minima quia rem",
-            "title_en": "repellat eius in",
-            "sub_title": "dicta nobis officia",
-            "describe": "Quasi velit unde nulla accusamus. Dolorum eligendi consequuntur deleniti adipisci ea aliquam est a. Tempora magni cum voluptates ab et delectus. Id laboriosam similique necessitatibus eos ipsa.",
-            "describe_en": "Molestias dolores rerum ut et est. Omnis dolore et occaecati. Natus est occaecati rem occaecati rem consectetur dolorem.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?54729",
-            "parent_id": 19,
-            "level": 1,
-            "created_at": "2020-08-12 06:59:13",
-            "updated_at": "2020-08-25 09:48:48",
-            "parent_title": "ut et quae"
-        },
-        {
-            "id": 5,
-            "name": "眼线",
-            "slug": "eligendi-illo",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?87772",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?88151",
-            "title": "voluptatem reiciendis rerum",
-            "title_en": "ducimus qui rerum",
-            "sub_title": "qui harum et",
-            "describe": "Ipsam ratione ex ad explicabo est omnis facilis. Eaque id ex ut dolorem fugit voluptas esse. Corporis corrupti omnis consectetur.",
-            "describe_en": "Incidunt repudiandae aut dolores excepturi. Et impedit soluta veritatis occaecati non. Dignissimos quis cum ex vel a.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?76782",
-            "parent_id": 22,
-            "level": 1,
-            "created_at": "2020-08-31 21:54:17",
-            "updated_at": "2020-08-27 00:28:26",
-            "parent_title": "nihil deleniti iste"
-        },
-        {
-            "id": 6,
-            "name": "面膜",
-            "slug": "earum-quo",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?80563",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?49328",
-            "title": "dolore porro ab",
-            "title_en": "saepe ipsam a",
-            "sub_title": "minus omnis cumque",
-            "describe": "In cupiditate sit aspernatur rem repudiandae quasi. Ut et id odit in natus dicta ipsa. Perferendis nostrum aut facilis et aut distinctio quo eveniet.",
-            "describe_en": "Exercitationem animi et quaerat tempore numquam. Eum voluptates delectus molestiae tempora. Natus molestiae voluptas necessitatibus quam aut. Vitae molestias non molestias qui.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?76648",
-            "parent_id": 23,
-            "level": 1,
-            "created_at": "2020-08-17 08:00:30",
-            "updated_at": "2020-09-10 04:49:36",
-            "parent_title": "et illum quibusdam"
-        },
-        {
-            "id": 7,
-            "name": "面霜",
-            "slug": "quia-quisquam",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?71890",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?24943",
-            "title": "est vero ea",
-            "title_en": "molestias modi vero",
-            "sub_title": "nihil nulla incidunt",
-            "describe": "Et saepe voluptatem voluptates qui provident sit. Facilis explicabo minus rerum corrupti doloribus. Quae dolorum et quam id. Dicta ut quod voluptatem.",
-            "describe_en": "Sint tempore impedit omnis quia placeat sed omnis. Facere est reprehenderit praesentium rerum. Ut rerum ut velit.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?34303",
-            "parent_id": 14,
-            "level": 1,
-            "created_at": "2020-08-25 08:07:51",
-            "updated_at": "2020-08-30 04:18:00",
-            "parent_title": "cum in pariatur"
-        },
-        {
-            "id": 8,
-            "name": "腮红",
-            "slug": "iure-necessitatibus",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?64747",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?20822",
-            "title": "ex amet quibusdam",
-            "title_en": "natus dolores tempora",
-            "sub_title": "et perspiciatis velit",
-            "describe": "Qui exercitationem veniam est dolores placeat ipsam. Provident dolorum expedita voluptatem doloribus. Nisi qui sed labore dicta veritatis in. Esse est officiis nostrum suscipit reiciendis.",
-            "describe_en": "Delectus aut expedita in ipsum consequatur aut. Dolore sed aspernatur hic enim id est. Laudantium impedit molestiae aliquam error modi laboriosam.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?67825",
-            "parent_id": 29,
-            "level": 1,
-            "created_at": "2020-08-30 08:12:31",
-            "updated_at": "2020-09-09 14:28:00",
-            "parent_title": "beatae unde aliquid"
-        },
-        {
-            "id": 9,
-            "name": "身体护理",
-            "slug": "omnis-illum",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?22724",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?77464",
-            "title": "quo qui aut",
-            "title_en": "maxime ut molestiae",
-            "sub_title": "earum ullam voluptatem",
-            "describe": "Iusto aut aut soluta magnam ipsum quia voluptate. Ab quae magni dolor perferendis ut. Aut distinctio ad voluptatem voluptas consectetur deleniti excepturi optio.",
-            "describe_en": "Est quo porro qui beatae voluptatibus. Qui in aut assumenda non odit quisquam qui ea. Sequi itaque consequuntur aut rerum soluta ut ipsum.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?95766",
-            "parent_id": 30,
-            "level": 1,
-            "created_at": "2020-08-24 09:18:58",
-            "updated_at": "2020-08-23 22:15:14",
-            "parent_title": "voluptatem consequatur provident"
-        },
-        {
-            "id": 10,
-            "name": "爽肤水",
-            "slug": "enim-placeat",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?59969",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?84520",
-            "title": "quisquam eaque ex",
-            "title_en": "numquam aliquid occaecati",
-            "sub_title": "distinctio officia blanditiis",
-            "describe": "Ipsa maiores iure omnis distinctio in doloremque consequatur. Eius sequi delectus error est. Cumque sed iusto sunt vel qui aliquam eos.",
-            "describe_en": "Accusamus amet voluptatem officiis dicta. Amet officiis reprehenderit perspiciatis ut sint et deserunt. Aut nostrum sed qui quam nostrum deleniti nemo.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?27467",
-            "parent_id": 24,
-            "level": 1,
-            "created_at": "2020-09-01 20:06:52",
-            "updated_at": "2020-09-05 21:13:51",
-            "parent_title": "numquam nihil assumenda"
-        },
-        {
-            "id": 11,
-            "name": "粉底液",
-            "slug": "est-deleniti",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?42427",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?36514",
-            "title": "ex tempore vero",
-            "title_en": "aut harum corrupti",
-            "sub_title": "assumenda est quidem",
-            "describe": "Aut quae quo omnis consequatur quibusdam beatae in. Consequatur eveniet facilis numquam sapiente. Qui impedit voluptate ut aliquid.",
-            "describe_en": "Et accusantium maiores qui sunt. Qui omnis ullam id est ab consequatur. Officia laboriosam porro explicabo fugiat hic dicta. Tempore minima aut qui ratione voluptas.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?67477",
-            "parent_id": 24,
-            "level": 1,
-            "created_at": "2020-09-09 21:55:53",
-            "updated_at": "2020-08-26 01:59:09",
-            "parent_title": "numquam nihil assumenda"
-        },
-        {
-            "id": 12,
-            "name": "护肤系列",
-            "slug": "dolore-saepe",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?26728",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?49717",
-            "title": "repellat culpa et",
-            "title_en": "qui culpa ut",
-            "sub_title": "perspiciatis quod provident",
-            "describe": "Ratione illum laudantium neque porro. Laborum rerum quo at qui error. Expedita ducimus aut possimus voluptate vero itaque alias fugiat.",
-            "describe_en": "Dolore quaerat earum nobis velit saepe. Blanditiis veritatis corporis assumenda eius explicabo qui nam.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?41632",
-            "parent_id": 30,
-            "level": 1,
-            "created_at": "2020-09-04 11:07:01",
-            "updated_at": "2020-08-13 20:29:24",
-            "parent_title": "voluptatem consequatur provident"
-        },
-        {
-            "id": 13,
-            "name": "眼线",
-            "slug": "voluptatem-sunt",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?30543",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?32409",
-            "title": "est rerum dolorem",
-            "title_en": "incidunt consequatur consequuntur",
-            "sub_title": "iusto dolores ex",
-            "describe": "Et nihil itaque voluptas provident magni. Aut placeat voluptatem est numquam. Dolor ea numquam libero corporis. Nesciunt rem quibusdam quae autem accusantium reprehenderit nobis.",
-            "describe_en": "Rem dolores fugiat quam. Illum eaque laudantium nobis. Repellat excepturi repudiandae eos et. Voluptatem neque quasi quis porro voluptatem. Aliquam aut assumenda voluptatem consectetur molestiae.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?12089",
-            "parent_id": 13,
-            "level": 1,
-            "created_at": "2020-08-25 10:38:59",
-            "updated_at": "2020-09-05 14:49:27",
-            "parent_title": "est rerum dolorem"
-        },
-        {
-            "id": 14,
-            "name": "隔离",
-            "slug": "eligendi-in",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?66282",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?17516",
-            "title": "cum in pariatur",
-            "title_en": "aut ut aperiam",
-            "sub_title": "sint minus voluptates",
-            "describe": "Dolores asperiores qui voluptatem velit. Ullam omnis sapiente molestias laboriosam sed. Est eius qui laboriosam odit maxime adipisci. Accusamus et et explicabo officia incidunt.",
-            "describe_en": "Animi aut eveniet quis qui. Consequatur nam est voluptas ut id amet ipsa sed. Nihil architecto vel animi et voluptas non.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?64481",
-            "parent_id": 14,
-            "level": 1,
-            "created_at": "2020-09-06 22:01:35",
-            "updated_at": "2020-08-29 14:51:47",
-            "parent_title": "cum in pariatur"
-        },
-        {
-            "id": 15,
-            "name": "睫毛膏",
-            "slug": "qui-autem",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?23864",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?31968",
-            "title": "accusamus et eos",
-            "title_en": "ipsum amet in",
-            "sub_title": "sunt magnam nihil",
-            "describe": "Sint saepe officiis eos reprehenderit et iste. At eum atque animi error voluptatem est magni. Mollitia commodi quam earum eius. Dolore deserunt molestiae ducimus et aliquam.",
-            "describe_en": "Alias ea delectus consectetur iste. Est soluta quia quo. Aut sint voluptatem ut perspiciatis dignissimos.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?68338",
-            "parent_id": 6,
-            "level": 1,
-            "created_at": "2020-08-21 10:10:38",
-            "updated_at": "2020-08-24 03:12:18",
-            "parent_title": "dolore porro ab"
-        },
-        {
-            "id": 16,
-            "name": "眼霜",
-            "slug": "culpa-aut",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?63854",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?31891",
-            "title": "vitae culpa dolorem",
-            "title_en": "dolorem natus minima",
-            "sub_title": "aut incidunt hic",
-            "describe": "Quisquam et aliquid aperiam veniam nihil reiciendis voluptas. Eum natus voluptatem voluptate velit in est. Saepe fugiat tenetur ea consequuntur.",
-            "describe_en": "Consequatur totam error perspiciatis voluptas ad ut aut. Veniam amet et nam tempora cum omnis. Id quaerat accusamus ducimus est cupiditate voluptas sed inventore. Est quaerat aliquid ut vel.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?47825",
-            "parent_id": 30,
-            "level": 1,
-            "created_at": "2020-08-12 18:34:29",
-            "updated_at": "2020-08-16 19:57:04",
-            "parent_title": "voluptatem consequatur provident"
-        },
-        {
-            "id": 17,
-            "name": "洁面",
-            "slug": "labore-recusandae",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?93123",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?94237",
-            "title": "unde qui voluptates",
-            "title_en": "velit quae aut",
-            "sub_title": "molestias consequatur harum",
-            "describe": "Enim corporis quae exercitationem exercitationem est dolore sed. Libero quod quia nihil voluptatem eos aut iusto. Accusamus dolor enim eum voluptate odio deleniti.",
-            "describe_en": "Aut vitae perferendis nesciunt. Maxime nam explicabo non eaque illo ex. Voluptatem et tempora ut enim. Quo laborum ut non accusamus assumenda.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?71597",
-            "parent_id": 8,
-            "level": 1,
-            "created_at": "2020-08-22 21:17:29",
-            "updated_at": "2020-09-10 00:02:18",
-            "parent_title": "ex amet quibusdam"
-        },
-        {
-            "id": 18,
-            "name": "BB霜",
-            "slug": "officia-laboriosam",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?20141",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?27064",
-            "title": "ut commodi dolor",
-            "title_en": "eos doloribus delectus",
-            "sub_title": "neque omnis aliquam",
-            "describe": "Earum placeat reiciendis nesciunt. Itaque tempore ullam perspiciatis quia beatae. Rerum qui soluta non dolorum et. Consectetur explicabo unde inventore repellendus corporis rerum nostrum.",
-            "describe_en": "Tempora ea ut fugit deserunt doloribus est. Quis quidem unde aut suscipit omnis. Odit sed vitae aut reprehenderit. Nulla nisi sit vero repellat libero consequatur.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?75993",
-            "parent_id": 11,
-            "level": 1,
-            "created_at": "2020-09-06 21:09:29",
-            "updated_at": "2020-09-05 20:16:51",
-            "parent_title": "ex tempore vero"
-        },
-        {
-            "id": 19,
-            "name": "套装C",
-            "slug": "eos-ea",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?76863",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?67793",
-            "title": "ut et quae",
-            "title_en": "aliquid tempore unde",
-            "sub_title": "excepturi illum velit",
-            "describe": "Dolorem dolorem harum ex laborum officiis. Dolorem esse voluptatibus dolor facere. In veritatis sequi facere ipsam aut.",
-            "describe_en": "Qui cumque ullam nobis quis omnis et. Est optio possimus et a velit aut voluptas.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?87078",
-            "parent_id": 8,
-            "level": 1,
-            "created_at": "2020-08-19 10:30:55",
-            "updated_at": "2020-09-04 12:52:10",
-            "parent_title": "ex amet quibusdam"
-        },
-        {
-            "id": 20,
-            "name": "香水",
-            "slug": "eum-vel",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?31905",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?83996",
-            "title": "est officia qui",
-            "title_en": "cum porro asperiores",
-            "sub_title": "voluptates ut impedit",
-            "describe": "Dicta facere nulla voluptas at aliquam dolores. Expedita non vero minus est eaque et. Aperiam autem doloremque enim labore dolor.",
-            "describe_en": "Et voluptas harum perferendis harum. Eum est eum est consequatur maxime. Eaque non possimus vel omnis aut veritatis in.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?12977",
-            "parent_id": 18,
-            "level": 1,
-            "created_at": "2020-09-02 08:41:40",
-            "updated_at": "2020-08-19 13:24:10",
-            "parent_title": "ut commodi dolor"
-        },
-        {
-            "id": 21,
-            "name": "精油",
-            "slug": "repellendus-ab",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?32489",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?98239",
-            "title": "quidem voluptatum at",
-            "title_en": "officia qui recusandae",
-            "sub_title": "harum recusandae enim",
-            "describe": "Ut id atque qui voluptate magnam possimus. Quia earum rerum et repellat rerum. A est qui dolor.",
-            "describe_en": "Modi non ut voluptatem et iste tempora nihil cumque. Asperiores aliquam qui optio ex. Rem ullam optio odit consectetur omnis iusto rem.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?99075",
-            "parent_id": 23,
-            "level": 1,
-            "created_at": "2020-08-13 09:47:31",
-            "updated_at": "2020-08-19 08:39:01",
-            "parent_title": "et illum quibusdam"
-        },
-        {
-            "id": 22,
-            "name": "隔离",
-            "slug": "voluptatum-nesciunt",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?94307",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?67833",
-            "title": "nihil deleniti iste",
-            "title_en": "sapiente distinctio reprehenderit",
-            "sub_title": "quidem eos voluptate",
-            "describe": "Et aut quo nisi. Neque cumque aut et dolore quo perferendis explicabo. Optio fugiat quia et reprehenderit est. Expedita iusto est repellendus aut magnam velit.",
-            "describe_en": "Perspiciatis labore recusandae occaecati qui rerum est. Incidunt beatae enim corporis totam. Eaque quia inventore aspernatur eum veritatis.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?42287",
-            "parent_id": 9,
-            "level": 1,
-            "created_at": "2020-08-21 08:36:03",
-            "updated_at": "2020-08-28 22:32:43",
-            "parent_title": "quo qui aut"
-        },
-        {
-            "id": 23,
-            "name": "隔离",
-            "slug": "et-et",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?66341",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?85728",
-            "title": "et illum quibusdam",
-            "title_en": "eos sed maxime",
-            "sub_title": "quae eum odit",
-            "describe": "Est nostrum odio quia consequuntur. Corporis blanditiis error quas. Nesciunt veritatis sed tempore at. Omnis quibusdam esse consequuntur natus.",
-            "describe_en": "Earum ex corrupti aut dolores amet fugiat. Reprehenderit voluptatibus quo ducimus molestiae nobis dolores nobis.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?31609",
-            "parent_id": 27,
-            "level": 1,
-            "created_at": "2020-08-22 18:25:29",
-            "updated_at": "2020-08-24 17:11:29",
-            "parent_title": "itaque sed accusamus"
-        },
-        {
-            "id": 24,
-            "name": "面霜",
-            "slug": "autem-et",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?19483",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?15324",
-            "title": "numquam nihil assumenda",
-            "title_en": "ullam esse ut",
-            "sub_title": "praesentium aut eum",
-            "describe": "Pariatur excepturi nemo odit iure fugit. Rerum qui sit non natus rerum dolor perferendis. Sed cupiditate quo labore veniam alias laborum perspiciatis expedita.",
-            "describe_en": "Et nulla quod omnis sit sunt. Numquam et dolores sit dolor aut laudantium necessitatibus. Et natus libero qui tempora.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?50913",
-            "parent_id": 9,
-            "level": 1,
-            "created_at": "2020-08-28 12:48:07",
-            "updated_at": "2020-08-30 02:59:51",
-            "parent_title": "quo qui aut"
-        },
-        {
-            "id": 25,
-            "name": "洁面",
-            "slug": "voluptatum-sint",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?22456",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?30846",
-            "title": "dolore consequuntur autem",
-            "title_en": "commodi qui voluptas",
-            "sub_title": "aut ullam quidem",
-            "describe": "Necessitatibus praesentium consequuntur sed molestiae quia officia. Consequatur officiis ut quis animi sit. Ea voluptatem aperiam animi esse. Inventore non quia ea modi.",
-            "describe_en": "Molestias autem perspiciatis repellendus. Maxime et soluta consequatur aliquid ut. Soluta et recusandae sapiente qui placeat fuga.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?55969",
-            "parent_id": 16,
-            "level": 1,
-            "created_at": "2020-09-09 02:48:19",
-            "updated_at": "2020-09-10 00:41:59",
-            "parent_title": "vitae culpa dolorem"
-        },
-        {
-            "id": 26,
-            "name": "精油",
-            "slug": "occaecati-sit",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?60153",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?89904",
-            "title": "ea qui temporibus",
-            "title_en": "autem qui eius",
-            "sub_title": "optio dignissimos modi",
-            "describe": "Quia assumenda ut autem non quaerat minima praesentium. Fugiat non architecto voluptate.",
-            "describe_en": "Commodi aspernatur similique corrupti libero porro laboriosam. Rem dolorem eligendi qui inventore. Sunt provident eligendi pariatur laborum.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?40957",
-            "parent_id": 24,
-            "level": 1,
-            "created_at": "2020-09-03 23:44:33",
-            "updated_at": "2020-08-19 10:22:27",
-            "parent_title": "numquam nihil assumenda"
-        },
-        {
-            "id": 27,
             "name": "套装系列",
-            "slug": "voluptatum-molestiae",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?80686",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?32684",
-            "title": "itaque sed accusamus",
-            "title_en": "magnam recusandae necessitatibus",
-            "sub_title": "maxime maxime minima",
-            "describe": "Aut qui id neque sed aspernatur enim ut. Corrupti quos velit et distinctio unde nesciunt. Voluptatum vitae rerum et quasi.",
-            "describe_en": "Delectus beatae sunt vero. Impedit est et minus necessitatibus. In et aut illo.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?46623",
-            "parent_id": 15,
-            "level": 1,
-            "created_at": "2020-08-24 15:18:07",
-            "updated_at": "2020-08-26 06:11:30",
-            "parent_title": "accusamus et eos"
-        },
-        {
-            "id": 28,
-            "name": "BB霜",
-            "slug": "consequuntur-maxime",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?21583",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?83393",
-            "title": "perspiciatis error ut",
-            "title_en": "et rerum quidem",
-            "sub_title": "illo officiis assumenda",
-            "describe": "Voluptatem asperiores dolorem voluptas est. Corrupti quo quam dicta exercitationem dicta rerum fugit. Ipsum vel a temporibus consequatur et libero commodi.",
-            "describe_en": "At qui quaerat nobis cum unde. Error est iure dicta adipisci repellendus quos et eveniet. Nisi fugiat recusandae corrupti qui voluptas tempore earum.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?21215",
-            "parent_id": 28,
-            "level": 1,
-            "created_at": "2020-09-08 17:45:47",
-            "updated_at": "2020-08-12 20:06:51",
-            "parent_title": "perspiciatis error ut"
-        },
-        {
-            "id": 29,
-            "name": "洁面",
-            "slug": "enim-praesentium",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?79308",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?57732",
-            "title": "beatae unde aliquid",
-            "title_en": "tempore possimus eum",
-            "sub_title": "cupiditate velit ullam",
-            "describe": "Veniam nobis qui consequatur eos. Saepe fugit in fuga est. Dolorem et sit omnis soluta qui nihil vel vel. Nihil facilis inventore quae deleniti vel. Possimus non corporis sed corrupti et.",
-            "describe_en": "Autem voluptatem id eos ipsam aut ullam fuga. Vero ullam sit facilis sunt consequatur sed. Id id sapiente quis perferendis tempore esse. Adipisci aspernatur placeat incidunt cupiditate deserunt.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?41742",
+            "slug": "dolor-consequatur",
+            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?87168",
+            "banner": "https:\/\/lorempixel.com\/640\/480\/?64296",
+            "title": "nisi quo est",
+            "title_en": "neque enim sunt",
+            "sub_title": "omnis qui velit",
+            "describe": "Possimus reiciendis voluptatum est consequatur asperiores accusantium. Et minima odio enim est sunt reiciendis. Vero corrupti sit totam. Eveniet voluptas rerum iure et omnis labore.",
+            "describe_en": "Nihil atque in alias enim voluptas dicta. Possimus necessitatibus qui iure. Omnis beatae error tempora pariatur. Ex est voluptates deserunt dolores rerum aspernatur.",
+            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?17252",
             "parent_id": 0,
             "level": 1,
-            "created_at": "2020-08-13 11:09:49",
-            "updated_at": "2020-08-15 14:26:31",
-            "parent_title": null
-        },
-        {
-            "id": 30,
-            "name": "洁面",
-            "slug": "aut-rerum",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?43905",
-            "banner": "https:\/\/lorempixel.com\/640\/480\/?16042",
-            "title": "voluptatem consequatur provident",
-            "title_en": "eaque sit qui",
-            "sub_title": "sint eos unde",
-            "describe": "Aut possimus facilis veritatis qui reiciendis nemo. Dolorum qui suscipit aut et blanditiis quia. Sint quia unde libero adipisci. Enim et consequatur mollitia ipsa.",
-            "describe_en": "Asperiores et sed explicabo voluptatem porro. Sit voluptas iste illum repudiandae minus optio. Aspernatur quam ea a nobis est ut molestias. Sed reiciendis beatae consequatur officia.",
-            "describe_img": "https:\/\/lorempixel.com\/640\/480\/?58566",
-            "parent_id": 2,
-            "level": 1,
-            "created_at": "2020-09-07 15:25:45",
-            "updated_at": "2020-09-03 02:42:48",
-            "parent_title": "temporibus magni qui"
+            "created_at": "2020-08-16 14:17:02",
+            "updated_at": "2020-08-31 05:40:58",
+            "children": [
+                {
+                    "id": 10,
+                    "name": "套装B",
+                    "slug": "dignissimos-dolore",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?86678",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?56446",
+                    "title": "impedit recusandae facilis",
+                    "title_en": "amet aut quaerat",
+                    "sub_title": "rerum est maxime",
+                    "describe": "Unde consequatur ad blanditiis ex. Reiciendis molestiae numquam sint voluptates. Eveniet et voluptas cum voluptate aliquam. At impedit veniam quis.",
+                    "describe_en": "Dolorum dolorem qui repellat facere. Qui doloremque soluta repellendus commodi et nisi. Velit ut harum velit ipsum quis ea molestiae. Facere et aspernatur doloribus expedita quo id.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?32645",
+                    "parent_id": 2,
+                    "level": 2,
+                    "created_at": "2020-08-21 16:48:08",
+                    "updated_at": "2020-08-27 09:38:50"
+                },
+                {
+                    "id": 20,
+                    "name": "套装A",
+                    "slug": "dignissimos-et",
+                    "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?39470",
+                    "banner": "https:\/\/lorempixel.com\/640\/480\/?36683",
+                    "title": "sed voluptatem itaque",
+                    "title_en": "quae qui nostrum",
+                    "sub_title": "deleniti tenetur sit",
+                    "describe": "Fuga libero eum dolores quia porro omnis quasi. Dolor est voluptatibus maxime. Fuga dolore sint est labore. Illum qui incidunt dolore cupiditate iusto velit.",
+                    "describe_en": "Quia vel voluptatem incidunt ducimus ipsum et. Sit facere ut illo sequi impedit dolorem omnis. In voluptatem possimus numquam. Corrupti ratione eaque sit cumque accusamus sequi.",
+                    "describe_img": "https:\/\/lorempixel.com\/640\/480\/?73330",
+                    "parent_id": 2,
+                    "level": 2,
+                    "created_at": "2020-09-01 23:51:01",
+                    "updated_at": "2020-08-28 21:41:18"
+                }
+            ]
         }
     ],
     "code": 20001,
@@ -6089,66 +5509,7 @@ fetch(url, {
 
 <!-- END_eb9c398471efceb42098dee938d34a4f -->
 
-<!-- START_780e33b02e03b4552400dedc5e68f35e -->
-## get product of product category
-获取对应类别下的产品
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://store.wutang.com/api/product_category/1?category_slug=deleniti" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://store.wutang.com/api/product_category/1"
-);
-
-let params = {
-    "category_slug": "deleniti",
-};
-Object.keys(params)
-    .forEach(key => url.searchParams.append(key, params[key]));
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (200):
-
-```json
-{
-    "data": [],
-    "code": 20001,
-    "msg": "操作成功"
-}
-```
-
-### HTTP Request
-`GET api/product_category/{category_slug}`
-
-#### Query Parameters
-
-Parameter | Status | Description
---------- | ------- | ------- | -----------
-    `category_slug` |  required  | 分类slug
-
-<!-- END_780e33b02e03b4552400dedc5e68f35e -->
-
-<!-- START_e74135bde1e41803ad4087410acd02b8 -->
+<!-- START_fb8ef5aefefb2ded53bec9ec54fed76b -->
 ## Get product category story
 获取产品分类故事
 
@@ -6156,21 +5517,15 @@ Parameter | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/category_story/1?category_slug=est" \
+    -G "http://store.wutang.com/api/product_category/story/aut" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://store.wutang.com/api/category_story/1"
+    "http://store.wutang.com/api/product_category/story/aut"
 );
-
-let params = {
-    "category_slug": "est",
-};
-Object.keys(params)
-    .forEach(key => url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -6197,15 +5552,119 @@ fetch(url, {
 ```
 
 ### HTTP Request
-`GET api/category_story/{category_slug}`
+`GET api/product_category/story/{category_slug}`
 
-#### Query Parameters
+#### URL Parameters
 
 Parameter | Status | Description
---------- | ------- | ------- | -----------
+--------- | ------- | ------- | -------
     `category_slug` |  required  | 分类slug
 
-<!-- END_e74135bde1e41803ad4087410acd02b8 -->
+<!-- END_fb8ef5aefefb2ded53bec9ec54fed76b -->
+
+<!-- START_b3072780c2c8472661d7828e03e15075 -->
+## Get product category over view
+获取产品分类概述(目前分为&#039;套装系列&#039;和&#039;护肤系列&#039;一级分类,只需取其下列二级分类的name,slug,thumbnail,title,title_en,sub_title)
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://store.wutang.com/api/product_category/overview/similique" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://store.wutang.com/api/product_category/overview/similique"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": null,
+    "code": 20001,
+    "msg": "操作成功"
+}
+```
+
+### HTTP Request
+`GET api/product_category/overview/{name}`
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `name` |  required  | 分类名称
+
+<!-- END_b3072780c2c8472661d7828e03e15075 -->
+
+<!-- START_6161f09b99a5441c67beadab83bea7e0 -->
+## Get explore product category list
+随机获取同分类下三条数据
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://store.wutang.com/api/product_category/explore/ipsa" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://store.wutang.com/api/product_category/explore/ipsa"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (500):
+
+```json
+{
+    "message": "Server Error"
+}
+```
+
+### HTTP Request
+`GET api/product_category/explore/{category_slug}`
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `category_slug` |  required  | 分类slug
+
+<!-- END_6161f09b99a5441c67beadab83bea7e0 -->
 
 #[API] Shop cart
 
@@ -6269,7 +5728,7 @@ curl -X POST \
     "http://store.wutang.com/api/shop_carts" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"product_list":[{"product_id":13}]}'
+    -d '{"product_list":[{"product_id":10}]}'
 
 ```
 
@@ -6286,7 +5745,7 @@ let headers = {
 let body = {
     "product_list": [
         {
-            "product_id": 13
+            "product_id": 10
         }
     ]
 }
@@ -6322,7 +5781,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/api/shop_carts/1?type=aut&product_id=et&amount=ipsa" \
+    "http://store.wutang.com/api/shop_carts/1?type=distinctio&product_id=aspernatur&amount=aliquid" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -6333,9 +5792,9 @@ const url = new URL(
 );
 
 let params = {
-    "type": "aut",
-    "product_id": "et",
-    "amount": "ipsa",
+    "type": "distinctio",
+    "product_id": "aspernatur",
+    "amount": "aliquid",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -6377,7 +5836,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X DELETE \
-    "http://store.wutang.com/api/shop_carts/1?product_id=mollitia" \
+    "http://store.wutang.com/api/shop_carts/1?product_id=iste" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -6388,7 +5847,7 @@ const url = new URL(
 );
 
 let params = {
-    "product_id": "mollitia",
+    "product_id": "iste",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -6421,23 +5880,23 @@ Parameter | Status | Description
 
 #[API] The House
 
-
-<!-- START_cac6efe827c80cbcea0782fd4fe52e51 -->
-## get the house category list
-获取the house 分类列表
+The house 类
+<!-- START_469fd9ffec0fb19fa33198a1456d3b9c -->
+## Get the house category
+获取the house分类列表(一般总共为三条)
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/the_house/category_list" \
+    -G "http://store.wutang.com/api/the_house/category" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://store.wutang.com/api/the_house/category_list"
+    "http://store.wutang.com/api/the_house/category"
 );
 
 let headers = {
@@ -6454,36 +5913,69 @@ fetch(url, {
 ```
 
 
-> Example response (401):
+> Example response (200):
 
 ```json
 {
-    "message": "Unauthenticated."
+    "data": [
+        {
+            "id": 1,
+            "name": "精湛科艺",
+            "slug": "omnis-inventore",
+            "banner": "https:\/\/lorempixel.com\/640\/480\/?40298",
+            "title": "veritatis dolorem aut",
+            "sub_title": "aut ad ut",
+            "created_at": "2020-05-22 20:52:39",
+            "updated_at": "2019-12-19 23:25:34"
+        },
+        {
+            "id": 2,
+            "name": "精彩内容",
+            "slug": "accusantium-dolores",
+            "banner": "https:\/\/lorempixel.com\/640\/480\/?43198",
+            "title": "et natus quae",
+            "sub_title": "amet quidem ea",
+            "created_at": "2020-06-08 16:32:16",
+            "updated_at": "2020-09-07 16:06:03"
+        },
+        {
+            "id": 3,
+            "name": "品牌介绍",
+            "slug": "magnam-officiis",
+            "banner": "https:\/\/lorempixel.com\/640\/480\/?99257",
+            "title": "nisi molestiae sit",
+            "sub_title": "ab est sit",
+            "created_at": "2020-02-18 15:20:58",
+            "updated_at": "2019-10-10 14:15:21"
+        }
+    ],
+    "code": 20001,
+    "msg": "操作成功"
 }
 ```
 
 ### HTTP Request
-`GET api/the_house/category_list`
+`GET api/the_house/category`
 
 
-<!-- END_cac6efe827c80cbcea0782fd4fe52e51 -->
+<!-- END_469fd9ffec0fb19fa33198a1456d3b9c -->
 
-<!-- START_6a7694a9af351507e21a51e735ffaece -->
-## get all the houses
-获取所有的the house和对应的分类
+<!-- START_05a7ee53707fcad41f4d343e2e1536de -->
+## Get the house list by category slug
+通过category内的slug获取the house 列表
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/the_house/all" \
+    -G "http://store.wutang.com/api/the_house/category/omnis-inventore" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://store.wutang.com/api/the_house/all"
+    "http://store.wutang.com/api/the_house/category/omnis-inventore"
 );
 
 let headers = {
@@ -6500,122 +5992,460 @@ fetch(url, {
 ```
 
 
-> Example response (401):
+> Example response (200):
 
 ```json
 {
-    "message": "Unauthenticated."
+    "data": {
+        "id": 1,
+        "name": "精湛科艺",
+        "slug": "omnis-inventore",
+        "banner": "https:\/\/lorempixel.com\/640\/480\/?40298",
+        "title": "veritatis dolorem aut",
+        "sub_title": "aut ad ut",
+        "created_at": "2020-05-22 20:52:39",
+        "updated_at": "2019-12-19 23:25:34",
+        "the_houses": [
+            {
+                "id": 1,
+                "slug": "modi-rerum",
+                "the_house_category_id": 1,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?85996",
+                "title": "illum quam ut",
+                "sub_title": "aut omnis officiis",
+                "describe": "Sapiente reprehenderit labore libero adipisci iste. Et vero dolor quo qui eum sequi.",
+                "created_at": "2020-02-10 01:28:27",
+                "updated_at": "2019-10-15 01:02:33"
+            },
+            {
+                "id": 2,
+                "slug": "voluptatem-minus",
+                "the_house_category_id": 1,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?39091",
+                "title": "est quod iusto",
+                "sub_title": "et dolorem similique",
+                "describe": "Ratione qui ut et temporibus. Eum saepe consequuntur nam explicabo suscipit illo esse.",
+                "created_at": "2020-03-15 00:47:12",
+                "updated_at": "2020-04-01 03:10:42"
+            },
+            {
+                "id": 5,
+                "slug": "sint-deleniti",
+                "the_house_category_id": 1,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?72763",
+                "title": "eum non animi",
+                "sub_title": "molestias quo accusamus",
+                "describe": "Sed autem vitae vero ut facilis. Molestiae qui rerum quis beatae sint. Mollitia tempore error ea et sed quisquam. Ut quam tenetur omnis consequatur impedit.",
+                "created_at": "2020-06-07 14:26:30",
+                "updated_at": "2019-11-17 12:34:45"
+            },
+            {
+                "id": 8,
+                "slug": "nesciunt-animi",
+                "the_house_category_id": 1,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?86847",
+                "title": "at explicabo est",
+                "sub_title": "omnis cum saepe",
+                "describe": "Corrupti minima et fuga aut. Voluptatum aut qui alias debitis. Consequuntur est illum vel quia optio quia.",
+                "created_at": "2020-04-23 03:38:57",
+                "updated_at": "2020-06-02 22:59:42"
+            },
+            {
+                "id": 9,
+                "slug": "soluta-soluta",
+                "the_house_category_id": 1,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?14549",
+                "title": "rerum impedit autem",
+                "sub_title": "consequatur facere consectetur",
+                "describe": "Maiores accusantium veniam nam culpa id pariatur praesentium. A officiis et eos deserunt. Qui asperiores at unde. Voluptas repellat in illo dolores.",
+                "created_at": "2019-10-09 04:49:02",
+                "updated_at": "2020-04-27 05:52:27"
+            },
+            {
+                "id": 12,
+                "slug": "id-corrupti",
+                "the_house_category_id": 1,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?24964",
+                "title": "velit similique assumenda",
+                "sub_title": "aut eos quidem",
+                "describe": "Reprehenderit excepturi hic odit consequatur fuga. Hic in nostrum magni. Debitis nisi similique sequi velit. Est autem sit dolor atque est.",
+                "created_at": "2019-10-20 14:13:14",
+                "updated_at": "2020-08-17 00:18:08"
+            },
+            {
+                "id": 14,
+                "slug": "corrupti-aut",
+                "the_house_category_id": 1,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?10939",
+                "title": "aut nemo voluptates",
+                "sub_title": "est non et",
+                "describe": "Sed ipsum quas voluptatem et iure dolores qui. Autem fugiat aut quidem. Dolorem et sed autem recusandae quae et. Odio dolorum ab hic necessitatibus laborum. Non ut ut rerum vero.",
+                "created_at": "2019-11-13 16:53:51",
+                "updated_at": "2019-11-19 00:04:47"
+            },
+            {
+                "id": 15,
+                "slug": "odio-laborum",
+                "the_house_category_id": 1,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?49643",
+                "title": "dolores molestiae accusantium",
+                "sub_title": "laudantium esse quae",
+                "describe": "Qui expedita error dolorem porro hic quos. Vitae dolores in atque tenetur nisi dolores. Voluptatum iusto et modi ea in. Possimus ut natus quis qui atque enim aliquid.",
+                "created_at": "2019-12-22 10:21:11",
+                "updated_at": "2020-02-28 12:52:52"
+            },
+            {
+                "id": 19,
+                "slug": "praesentium-et",
+                "the_house_category_id": 1,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?29347",
+                "title": "odio vel esse",
+                "sub_title": "nobis doloribus quia",
+                "describe": "Ullam eius doloremque amet aut veniam qui delectus cupiditate. Voluptatem voluptatem reiciendis tempore voluptatem consequuntur accusamus minus. Ad doloribus assumenda eligendi et aut.",
+                "created_at": "2020-04-13 11:46:58",
+                "updated_at": "2019-09-19 13:06:27"
+            },
+            {
+                "id": 21,
+                "slug": "corrupti-voluptas",
+                "the_house_category_id": 1,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?32187",
+                "title": "enim ullam culpa",
+                "sub_title": "optio est impedit",
+                "describe": "Et harum reiciendis nihil neque similique. Sint possimus laudantium quo velit illum consequuntur. Quo sequi quo exercitationem ut dolor ducimus. Libero in optio ullam corrupti aut ut veniam sunt.",
+                "created_at": "2020-05-04 20:39:57",
+                "updated_at": "2020-05-17 16:45:24"
+            },
+            {
+                "id": 22,
+                "slug": "ut-iure",
+                "the_house_category_id": 1,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?52916",
+                "title": "similique magnam repudiandae",
+                "sub_title": "dolorum cumque voluptas",
+                "describe": "Voluptatum nisi officiis eos ut impedit voluptate. Quisquam autem et repellendus est perferendis vel. Impedit iste consequatur distinctio fugiat est.",
+                "created_at": "2020-04-06 06:59:07",
+                "updated_at": "2020-01-03 15:24:37"
+            },
+            {
+                "id": 24,
+                "slug": "explicabo-blanditiis",
+                "the_house_category_id": 1,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?35901",
+                "title": "veniam consectetur consequatur",
+                "sub_title": "dignissimos et eligendi",
+                "describe": "Aspernatur nihil soluta tempora rem nesciunt incidunt. Maxime necessitatibus a itaque a sit. Qui consequatur aperiam enim.",
+                "created_at": "2020-05-14 21:45:18",
+                "updated_at": "2019-12-08 17:32:43"
+            },
+            {
+                "id": 30,
+                "slug": "ducimus-beatae",
+                "the_house_category_id": 1,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?86122",
+                "title": "iusto autem eveniet",
+                "sub_title": "accusamus et et",
+                "describe": "Quaerat nostrum omnis minima magni ipsum unde. Dolorum quis mollitia exercitationem. Voluptates et rerum rerum ea qui.",
+                "created_at": "2019-11-05 05:30:50",
+                "updated_at": "2019-11-09 00:35:38"
+            },
+            {
+                "id": 35,
+                "slug": "tempore-nesciunt",
+                "the_house_category_id": 1,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?87403",
+                "title": "recusandae ut minus",
+                "sub_title": "nesciunt aliquid quo",
+                "describe": "Omnis repellat qui recusandae quis. Quia explicabo in fugit necessitatibus possimus voluptatem at veniam.",
+                "created_at": "2020-06-11 19:53:04",
+                "updated_at": "2020-06-07 23:02:47"
+            },
+            {
+                "id": 36,
+                "slug": "temporibus-voluptatem",
+                "the_house_category_id": 1,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?56386",
+                "title": "ipsum blanditiis magni",
+                "sub_title": "quia et aut",
+                "describe": "Eum esse culpa sunt odio. Autem incidunt eligendi corrupti velit molestias quas. Aliquid ea voluptate et reprehenderit sapiente necessitatibus. Ea officia earum quo sint.",
+                "created_at": "2020-07-15 12:14:10",
+                "updated_at": "2020-03-14 01:06:32"
+            },
+            {
+                "id": 42,
+                "slug": "aliquid-est",
+                "the_house_category_id": 1,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?42206",
+                "title": "fugiat omnis fugit",
+                "sub_title": "et sit perspiciatis",
+                "describe": "Et ea provident natus et. Aspernatur qui sed rerum et qui quia. Autem quo incidunt ut amet id facilis.",
+                "created_at": "2019-11-17 09:07:06",
+                "updated_at": "2019-10-15 06:11:12"
+            },
+            {
+                "id": 43,
+                "slug": "qui-dolorem",
+                "the_house_category_id": 1,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?36569",
+                "title": "provident ex et",
+                "sub_title": "accusantium repellat rerum",
+                "describe": "Ipsam voluptate rerum eligendi quia et ut fugit. Et aut dolorum quos maxime quis consequuntur rerum. Non in aut perferendis qui cumque numquam sed. Deserunt nihil ex aut.",
+                "created_at": "2020-07-30 02:53:06",
+                "updated_at": "2020-02-06 18:39:08"
+            },
+            {
+                "id": 44,
+                "slug": "qui-hic",
+                "the_house_category_id": 1,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?35479",
+                "title": "et nemo distinctio",
+                "sub_title": "ab velit incidunt",
+                "describe": "Nihil quisquam consequuntur aliquam et itaque quasi est. Dicta et odio ducimus voluptatem eveniet. Modi ducimus esse expedita voluptatem. Dolore accusantium sed perferendis non ipsam quidem.",
+                "created_at": "2020-04-26 03:17:58",
+                "updated_at": "2019-10-28 13:57:11"
+            },
+            {
+                "id": 46,
+                "slug": "dolor-cupiditate",
+                "the_house_category_id": 1,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?36802",
+                "title": "earum voluptas molestiae",
+                "sub_title": "aut et et",
+                "describe": "Odit error quis iste. Aut dolorem tempora quisquam doloremque aliquid. Temporibus qui aut consequatur. Eveniet in sed iusto officiis.",
+                "created_at": "2020-02-08 00:58:32",
+                "updated_at": "2020-06-11 03:25:05"
+            },
+            {
+                "id": 48,
+                "slug": "eius-qui",
+                "the_house_category_id": 1,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?23041",
+                "title": "facilis architecto enim",
+                "sub_title": "consectetur rem et",
+                "describe": "Accusamus illum expedita ratione. Ea sint laboriosam deleniti. Laboriosam reiciendis dolore repellendus molestiae.",
+                "created_at": "2020-06-21 20:26:26",
+                "updated_at": "2020-08-05 22:43:23"
+            },
+            {
+                "id": 49,
+                "slug": "expedita-odio",
+                "the_house_category_id": 1,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?84934",
+                "title": "nobis ipsam recusandae",
+                "sub_title": "molestias rerum tempora",
+                "describe": "Reiciendis iste voluptatem sint. Ut corrupti esse sunt. Laborum tempore rem sunt recusandae. Accusamus vel incidunt delectus sed.",
+                "created_at": "2019-12-05 16:14:20",
+                "updated_at": "2020-09-10 11:20:11"
+            }
+        ]
+    },
+    "code": 20001,
+    "msg": "操作成功"
 }
 ```
 
 ### HTTP Request
-`GET api/the_house/all`
+`GET api/the_house/category/{category_slug}`
 
-
-<!-- END_6a7694a9af351507e21a51e735ffaece -->
-
-<!-- START_a85c4057c3c539f382f989f5a186eb79 -->
-## get the house by category
-按照分类得slug获取 the house
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://store.wutang.com/api/the_house/list/1" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://store.wutang.com/api/the_house/list/1"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (401):
-
-```json
-{
-    "message": "Unauthenticated."
-}
-```
-
-### HTTP Request
-`GET api/the_house/list/{category_slug}`
-
-
-<!-- END_a85c4057c3c539f382f989f5a186eb79 -->
-
-<!-- START_d773caffc77cb8034a7452fa46565c47 -->
-## get the house detail
-获取get house详情
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://store.wutang.com/api/the_house/detail/1?%24the_house_slug=eius" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://store.wutang.com/api/the_house/detail/1"
-);
-
-let params = {
-    "$the_house_slug": "eius",
-};
-Object.keys(params)
-    .forEach(key => url.searchParams.append(key, params[key]));
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (401):
-
-```json
-{
-    "message": "Unauthenticated."
-}
-```
-
-### HTTP Request
-`GET api/the_house/detail/{the_house_slug}`
-
-#### Query Parameters
+#### URL Parameters
 
 Parameter | Status | Description
---------- | ------- | ------- | -----------
-    `$the_house_slug` |  optional  | 
+--------- | ------- | ------- | -------
+    `category_slug` |  required  | category内的slug
 
-<!-- END_d773caffc77cb8034a7452fa46565c47 -->
+<!-- END_05a7ee53707fcad41f4d343e2e1536de -->
+
+<!-- START_ff0b66c41b1115c0fae4802591c8b3d4 -->
+## Get the house detail by slug
+通过slug获取the house 详情
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://store.wutang.com/api/the_house/modi-rerum" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://store.wutang.com/api/the_house/modi-rerum"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": {
+        "id": 1,
+        "slug": "modi-rerum",
+        "the_house_category_id": 1,
+        "banner": "https:\/\/lorempixel.com\/640\/480\/?85996",
+        "title": "illum quam ut",
+        "sub_title": "aut omnis officiis",
+        "describe": "Sapiente reprehenderit labore libero adipisci iste. Et vero dolor quo qui eum sequi.",
+        "created_at": "2020-02-10 01:28:27",
+        "updated_at": "2019-10-15 01:02:33",
+        "the_house_contents": [
+            {
+                "id": 18,
+                "the_house_id": 1,
+                "title": "nisi nisi fugit",
+                "content": "Sit qui unde nostrum voluptas quia beatae corrupti. Vitae tempora vel velit magnam. Dolorum est sit dicta excepturi.",
+                "img": "https:\/\/lorempixel.com\/640\/480\/?51688",
+                "img_desc": "excepturi laudantium beatae",
+                "created_at": "2020-07-03 09:53:58",
+                "updated_at": "2020-09-03 14:36:09"
+            },
+            {
+                "id": 19,
+                "the_house_id": 1,
+                "title": "facilis officiis rem",
+                "content": "Minima nihil eligendi eos aliquid. Vel ducimus consectetur cum ut sit. Ea repudiandae placeat et impedit quo rem praesentium.",
+                "img": "https:\/\/lorempixel.com\/640\/480\/?13175",
+                "img_desc": "maiores perferendis vitae",
+                "created_at": "2019-11-14 10:47:01",
+                "updated_at": "2020-02-06 05:19:07"
+            },
+            {
+                "id": 41,
+                "the_house_id": 1,
+                "title": "voluptas ducimus sed",
+                "content": "Rerum deleniti maiores perspiciatis vel error ut id. Illo voluptas molestiae vel facilis et pariatur. Non velit et sequi et hic nulla dolores. Vel ex vel quia aut assumenda nisi ipsum tenetur.",
+                "img": "https:\/\/lorempixel.com\/640\/480\/?58135",
+                "img_desc": "libero sit ab",
+                "created_at": "2020-01-01 04:24:13",
+                "updated_at": "2020-09-09 09:28:48"
+            },
+            {
+                "id": 48,
+                "the_house_id": 1,
+                "title": "reiciendis animi iusto",
+                "content": "Iure et ipsum eos reprehenderit accusantium. Nihil a qui architecto doloribus deserunt et. Fuga architecto molestias neque sit.",
+                "img": "https:\/\/lorempixel.com\/640\/480\/?74663",
+                "img_desc": "similique ut aut",
+                "created_at": "2019-12-25 01:23:19",
+                "updated_at": "2019-12-14 18:22:21"
+            }
+        ]
+    },
+    "code": 20001,
+    "msg": "操作成功"
+}
+```
+
+### HTTP Request
+`GET api/the_house/{the_house_slug}`
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `the_house_slug` |  required  | the house内的slug
+
+<!-- END_ff0b66c41b1115c0fae4802591c8b3d4 -->
+
+<!-- START_146ab37bbafe51fbf23b315b864e8d86 -->
+## Get other list by category slug
+通过分类slug获取其他推荐报道
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://store.wutang.com/api/the_house/other/omnis-inventore" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://store.wutang.com/api/the_house/other/omnis-inventore"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": [
+        {
+            "id": 8,
+            "slug": "nesciunt-animi",
+            "the_house_category_id": 1,
+            "banner": "https:\/\/lorempixel.com\/640\/480\/?86847",
+            "title": "at explicabo est",
+            "sub_title": "omnis cum saepe",
+            "describe": "Corrupti minima et fuga aut. Voluptatum aut qui alias debitis. Consequuntur est illum vel quia optio quia.",
+            "created_at": "2020-04-23 03:38:57",
+            "updated_at": "2020-06-02 22:59:42"
+        },
+        {
+            "id": 9,
+            "slug": "soluta-soluta",
+            "the_house_category_id": 1,
+            "banner": "https:\/\/lorempixel.com\/640\/480\/?14549",
+            "title": "rerum impedit autem",
+            "sub_title": "consequatur facere consectetur",
+            "describe": "Maiores accusantium veniam nam culpa id pariatur praesentium. A officiis et eos deserunt. Qui asperiores at unde. Voluptas repellat in illo dolores.",
+            "created_at": "2019-10-09 04:49:02",
+            "updated_at": "2020-04-27 05:52:27"
+        },
+        {
+            "id": 43,
+            "slug": "qui-dolorem",
+            "the_house_category_id": 1,
+            "banner": "https:\/\/lorempixel.com\/640\/480\/?36569",
+            "title": "provident ex et",
+            "sub_title": "accusantium repellat rerum",
+            "describe": "Ipsam voluptate rerum eligendi quia et ut fugit. Et aut dolorum quos maxime quis consequuntur rerum. Non in aut perferendis qui cumque numquam sed. Deserunt nihil ex aut.",
+            "created_at": "2020-07-30 02:53:06",
+            "updated_at": "2020-02-06 18:39:08"
+        }
+    ],
+    "code": 20001,
+    "msg": "操作成功"
+}
+```
+
+### HTTP Request
+`GET api/the_house/other/{category_slug}`
+
+#### URL Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -------
+    `category_slug` |  required  | category内的slug
+
+<!-- END_146ab37bbafe51fbf23b315b864e8d86 -->
 
 #[API] User address
 
@@ -6679,7 +6509,7 @@ curl -X POST \
     "http://store.wutang.com/api/user_addresses" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"province":"tenetur","city":"repudiandae","district":"non","address":"sequi","zip":17,"contact_name":"tempore","contact_phone":17}'
+    -d '{"province":"exercitationem","city":"repellat","district":"consequatur","address":"ut","zip":4,"contact_name":"debitis","contact_phone":3}'
 
 ```
 
@@ -6694,13 +6524,13 @@ let headers = {
 };
 
 let body = {
-    "province": "tenetur",
-    "city": "repudiandae",
-    "district": "non",
-    "address": "sequi",
-    "zip": 17,
-    "contact_name": "tempore",
-    "contact_phone": 17
+    "province": "exercitationem",
+    "city": "repellat",
+    "district": "consequatur",
+    "address": "ut",
+    "zip": 4,
+    "contact_name": "debitis",
+    "contact_phone": 3
 }
 
 fetch(url, {
@@ -6739,7 +6569,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/api/user_addresses/1?province=repudiandae&city=voluptatem&district=dolorem&address=repellendus&zip=sed&contact_name=et&contact_phone=aut" \
+    "http://store.wutang.com/api/user_addresses/1?province=ad&city=et&district=perspiciatis&address=dolorem&zip=nemo&contact_name=animi&contact_phone=quos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -6750,13 +6580,13 @@ const url = new URL(
 );
 
 let params = {
-    "province": "repudiandae",
-    "city": "voluptatem",
-    "district": "dolorem",
-    "address": "repellendus",
-    "zip": "sed",
-    "contact_name": "et",
-    "contact_phone": "aut",
+    "province": "ad",
+    "city": "et",
+    "district": "perspiciatis",
+    "address": "dolorem",
+    "zip": "nemo",
+    "contact_name": "animi",
+    "contact_phone": "quos",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -6892,7 +6722,7 @@ fetch(url, {
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/api/user_profile?profile_id=et&phone=sunt&real_name=est&sex=ut&birthday=enim&age=sunt&province=dolor&city=explicabo&district=laborum&address=omnis&zip=quos" \
+    "http://store.wutang.com/api/user_profile?profile_id=harum&phone=ut&real_name=enim&sex=non&birthday=dolorem&age=voluptate&province=excepturi&city=id&district=ut&address=et&zip=aperiam" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -6903,17 +6733,17 @@ const url = new URL(
 );
 
 let params = {
-    "profile_id": "et",
-    "phone": "sunt",
-    "real_name": "est",
-    "sex": "ut",
-    "birthday": "enim",
-    "age": "sunt",
-    "province": "dolor",
-    "city": "explicabo",
-    "district": "laborum",
-    "address": "omnis",
-    "zip": "quos",
+    "profile_id": "harum",
+    "phone": "ut",
+    "real_name": "enim",
+    "sex": "non",
+    "birthday": "dolorem",
+    "age": "voluptate",
+    "province": "excepturi",
+    "city": "id",
+    "district": "ut",
+    "address": "et",
+    "zip": "aperiam",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -6966,7 +6796,7 @@ curl -X POST \
     "http://store.wutang.com/api/member_code/bind_parent" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"code":"suscipit"}'
+    -d '{"code":"beatae"}'
 
 ```
 
@@ -6981,7 +6811,7 @@ let headers = {
 };
 
 let body = {
-    "code": "suscipit"
+    "code": "beatae"
 }
 
 fetch(url, {
@@ -7064,7 +6894,7 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/api/wish_list?product_id=necessitatibus" \
+    "http://store.wutang.com/api/wish_list?product_id=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -7075,7 +6905,7 @@ const url = new URL(
 );
 
 let params = {
-    "product_id": "necessitatibus",
+    "product_id": "et",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -7115,7 +6945,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X DELETE \
-    "http://store.wutang.com/api/wish_list?product_id=dignissimos" \
+    "http://store.wutang.com/api/wish_list?product_id=ut" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -7126,7 +6956,7 @@ const url = new URL(
 );
 
 let params = {
-    "product_id": "dignissimos",
+    "product_id": "ut",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -7168,7 +6998,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/alipay/bank_gateway/pay?no=velit&total_amount=dolorem&payment_key=dolorem" \
+    -G "http://store.wutang.com/alipay/bank_gateway/pay?no=dicta&total_amount=qui&payment_key=debitis" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -7179,9 +7009,9 @@ const url = new URL(
 );
 
 let params = {
-    "no": "velit",
-    "total_amount": "dolorem",
-    "payment_key": "dolorem",
+    "no": "dicta",
+    "total_amount": "qui",
+    "payment_key": "debitis",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -7314,7 +7144,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/alipay/aop_page/pay?no=nihil&total_amount=ea&payment_key=dolor" \
+    -G "http://store.wutang.com/alipay/aop_page/pay?no=non&total_amount=sit&payment_key=quia" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -7325,9 +7155,9 @@ const url = new URL(
 );
 
 let params = {
-    "no": "nihil",
-    "total_amount": "ea",
-    "payment_key": "dolor",
+    "no": "non",
+    "total_amount": "sit",
+    "payment_key": "quia",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -7460,7 +7290,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/alipay/legacy_express/pay?no=beatae&total_amount=iure&payment_key=minus" \
+    -G "http://store.wutang.com/alipay/legacy_express/pay?no=sed&total_amount=beatae&payment_key=ut" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -7471,9 +7301,9 @@ const url = new URL(
 );
 
 let params = {
-    "no": "beatae",
-    "total_amount": "iure",
-    "payment_key": "minus",
+    "no": "sed",
+    "total_amount": "beatae",
+    "payment_key": "ut",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -7609,7 +7439,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/unionpay/pay?no=nemo&total_amount=quo&payment_key=pariatur" \
+    -G "http://store.wutang.com/unionpay/pay?no=aspernatur&total_amount=aliquid&payment_key=ut" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -7620,9 +7450,9 @@ const url = new URL(
 );
 
 let params = {
-    "no": "nemo",
-    "total_amount": "quo",
-    "payment_key": "pariatur",
+    "no": "aspernatur",
+    "total_amount": "aliquid",
+    "payment_key": "ut",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -7751,7 +7581,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/response_code?10001=deleniti&10003=adipisci&20001=quidem&40001=ab&40003=cum&40004=dignissimos&40005=voluptatum&50001=quasi" \
+    -G "http://store.wutang.com/api/response_code?10001=blanditiis&10003=tempore&20001=dolores&40001=sapiente&40003=quas&40004=quam&40005=aspernatur&50001=quaerat" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -7762,14 +7592,14 @@ const url = new URL(
 );
 
 let params = {
-    "10001": "deleniti",
-    "10003": "adipisci",
-    "20001": "quidem",
-    "40001": "ab",
-    "40003": "cum",
-    "40004": "dignissimos",
-    "40005": "voluptatum",
-    "50001": "quasi",
+    "10001": "blanditiis",
+    "10003": "tempore",
+    "20001": "dolores",
+    "40001": "sapiente",
+    "40003": "quas",
+    "40004": "quam",
+    "40005": "aspernatur",
+    "50001": "quaerat",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));

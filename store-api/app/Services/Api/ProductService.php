@@ -2,13 +2,9 @@
 
 namespace App\Services\Api;
 
-use App\Enums\ProductStatusCode;
 use App\Models\Product;
 use App\Models\ProductCategory;
-use App\Models\ProductCategoryStory;
 use App\Services\Service;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 
 class ProductService extends Service
 {
@@ -21,53 +17,42 @@ class ProductService extends Service
     }
 
     // 获取指定slug的产品详情
-    public function index($queries)
+    public function getDetail(string $param)
     {
-        return $this->product->with('productCategory')->whereSlug($queries)->first();
-    }
-
-    // 获取商品类别
-    public function categoryQueryList()
-    {
-        return DB::table('product_categories as p1')
-            ->leftJoin('product_categories as p2', 'p1.parent_id', '=', 'p2.id')
-            ->select('p1.*', 'p2.title as parent_title')
-            ->orderBy('id', 'asc')
-            ->get();
+        return $this->product->with('productCategory')->whereSlug($param)->first();
     }
 
     // 所有商品列表
-    public function productQueryList($queries)
+    public function getList(object $params)
     {
-        $requestData = page_limit($queries->all());
+        $requestData = page_limit($params->all());
         return $this->product->with(['productCategory'])->paginate($requestData['page_limit']);
     }
 
     // 获取对应类别下的产品
-    public function getCategoryProduct($category_slug, $queries)
+    public function getListByCategorySlug(string $category_slug)
     {
-        $requestData = page_limit($queries->all());
         //return $this->product->with('product_category')->paginate($requestData['page_limit']);
-        return $this->productCategory->with('parent', 'children', 'products')->whereSlug($category_slug)->get();
+        return $this->productCategory->with(['products'])->whereSlug($category_slug)->get();
     }
 
-    // 获取不同状态的产品
-    public function getStatusProduct($status,$params)
+    // 随机获取不同状态的产品
+    public function getListByStatus(int $status, object $params)
     {
         $requestData = page_limit($params->all());
         // 根据不同状态获取不同状态下的产品随机输出
         return $this->product->with(['productCategory'])->type($status)->inRandomOrder()->paginate($requestData['page_limit']);
     }
 
-    // 获取产品分类故事
-    public function categoryStory($queries)
+    // 随机获取4条创新产品
+    public function getListByInnovate()
     {
-        return ProductCategory::with('parent', 'productCategoryStories')->whereSlug($queries)->get();
+        return $this->product->whereStatus(1)->inRandomOrder()->take(4)->get();
     }
 
     // 根据商品ID列表获取商品详情列表
-    public function productQuery($queries)
-    {
-        return $this->product->whereIn('id', $queries['id_list'])->get();
-    }
+//    public function productQuery($queries)
+//    {
+//        return $this->product->whereIn('id', $queries['id_list'])->get();
+//    }
 }

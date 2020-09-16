@@ -36,11 +36,15 @@ Route::group(['namespace' => 'Payment'], function () {
             // 支付后通知url
             Route::post('unionpay/notify', 'PaymentController@unionpayNotify')->name('unionpay.unionpayNotify');
         });
+        /**
+         * 登录后可访问
+         */
+        Route::group(['middleware' => ['auth:api', 'verified']], function () {
+            /**
+             * Web payment list
+             */
+            Route::get('payments/web', 'WebPaymentController@getList')->name('payments.web.getList');
+        });
     });
-
-    /**
-     * Web Payment
-     */
-    require_once base_path('routes/payment/web.php');
 });
 

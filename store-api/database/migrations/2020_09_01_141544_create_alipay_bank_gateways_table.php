@@ -15,7 +15,7 @@ class CreateAlipayBankGatewaysTable extends Migration
     {
         Schema::create('alipay_bank_gateways', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('payment_id')->comment('关联从属payments表id');
+            $table->unsignedBigInteger('payment_id')->nullable()->comment('关联从属payments表id');
             $table->foreign('payment_id')->references('id')->on('payments');
             $table->string('merch_id')->comment('商户编号');
             $table->string('product')->comment('产品编号:801,802等');

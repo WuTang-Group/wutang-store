@@ -15,7 +15,7 @@ class CreateAlipayLegacyExpressesTable extends Migration
     {
         Schema::create('alipay_legacy_expresses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('payment_id')->comment('关联从属payments表id');
+            $table->unsignedBigInteger('payment_id')->nullable()->comment('关联从属payments表id');
             $table->foreign('payment_id')->references('id')->on('payments');
             $table->string('pid')->comment('商户id');
             $table->string('key')->comment('商户密钥');

@@ -5,7 +5,7 @@ namespace App\Models;
 class Payment extends Model
 {
     protected $fillable = [
-        'type', 'img', 'status'
+        'type', 'img', 'status','request_url'
     ];
 
     /**

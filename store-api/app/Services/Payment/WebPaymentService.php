@@ -42,7 +42,9 @@ class WebPaymentService extends Service
                             'type' => $paymentType,
                             'request_url' => route('alipay.legacy_express.payByAlipayLegacyExpress')
                         ]);
-                        (new AlipayLegacyExpress())->payment()->associate($payment);
+                        $alipayLegacyExpress = AlipayLegacyExpress::firstWhere('status', 1);
+                        $alipayLegacyExpress->payment()->associate($payment);
+                        $alipayLegacyExpress->save();
                     }
                     break;
                 case PaymentType::AlipayAopPage:
@@ -75,14 +77,25 @@ class WebPaymentService extends Service
     public function update(object $params, string $paymentType)
     {
         try {
-            $payment = $this->payment->whereType($paymentType)->first();
-            // 传递数据时，若对应type下的数据有值
-            if (!is_null($payment)) {
-                if ($params->status == -1) {
-                    $this->destroy($paymentType);
-                }
+            switch ($paymentType) {
+                case PaymentType::AlipayLegacyExpress:
+                    {
+                        $model = AlipayLegacyExpress::find($params->id);
+                        // 如果是-1
+                        if ($params->status == -1) {
+                            // 移除关联
+                            $model->payment_id = NULL;
+                            $model->save();
+                            $this->destroy($paymentType);
+                        }
+                        // 如果是1
+                        if($params->status == 1) {
+                            $this->store($paymentType);
+                        }
+                    }
+                    break;
             }
-            return true;
+            return $model;
         } catch (\Exception $e) {
             Log::error('支付管理-更新失败', [
                 'msg' => $e->getMessage()

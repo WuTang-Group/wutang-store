@@ -22,11 +22,12 @@ class AlipayLegacyExpressService extends Service
     public function index($params)
     {
         $requestData = page_limit($params->all());
-        $key = CacheKeyPrefix::AlipayLegacyExpressAll;
-        $result = Cache::get($key, function () {
-            return $this->alipayLegacyExpress->get();
-        });
-        return $result->paginate($requestData['page_limit']);
+//        $key = CacheKeyPrefix::AlipayLegacyExpressAll;
+//        $result = Cache::get($key, function () {
+//            return $this->alipayLegacyExpress->get();
+//        });
+//        return $result->paginate($requestData['page_limit']);
+        return $this->alipayLegacyExpress->paginate($requestData['page_limit']);
     }
 
     // 新增数据-可批量

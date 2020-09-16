@@ -34,7 +34,12 @@ export default {
     AssetImg: '图片资源管理',
     'assetImgList': '图片资源列表',
     'createAssetImg': '新增图片资源',
-    MemberCode: '会员码'
+    MemberCode: '会员码',
+    theHouse: 'The House',
+    'theHouseList': 'The House列表',
+    'houseCategoryList': 'The House分类列表',
+    'theHouseContent': 'The House正文列表',
+    'createOrView': '创建/查看'
   },
   navbar: {
     dashboard: '首页',

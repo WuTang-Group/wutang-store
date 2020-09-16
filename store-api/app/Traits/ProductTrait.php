@@ -13,7 +13,7 @@ trait ProductTrait
     protected function product()
     {
         $client = new Client(['base_uri' => env('API_URL')]);
-        $request = $client->request('GET', 'product_status/1');
+        $request = $client->request('GET', 'products/status/1');
         $response = json_decode($request->getBody());
 
         return $response;

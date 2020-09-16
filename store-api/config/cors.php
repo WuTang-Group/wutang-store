@@ -23,7 +23,8 @@ return [
      */
     'paths' => [
         'api/*',
-        'admin/*'
+        'admin/*',
+        'payment/*'
     ],
 
     /*

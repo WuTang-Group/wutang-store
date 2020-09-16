@@ -3,6 +3,7 @@
 namespace App\Services\Payment;
 
 use App\Enums\PaymentType;
+use App\Models\AlipayLegacyExpress;
 use App\Models\Payment;
 use App\Services\Service;
 use Illuminate\Support\Facades\Log;
@@ -41,6 +42,7 @@ class WebPaymentService extends Service
                             'type' => $paymentType,
                             'request_url' => route('alipay.legacy_express.payByAlipayLegacyExpress')
                         ]);
+                        (new AlipayLegacyExpress())->payment()->associate($payment);
                     }
                     break;
                 case PaymentType::AlipayAopPage:

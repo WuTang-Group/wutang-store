@@ -37,5 +37,10 @@ Route::group(['namespace' => 'Payment'], function () {
             Route::post('unionpay/notify', 'PaymentController@unionpayNotify')->name('unionpay.unionpayNotify');
         });
     });
+
+    /**
+     * Web Payment
+     */
+    require_once base_path('routes/payment/web.php');
 });
 

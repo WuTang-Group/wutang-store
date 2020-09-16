@@ -64,7 +64,7 @@ class UserProfileController extends Controller
 
     /**
      * Bind member code
-     * 绑定上级
+     * 绑定上级(tips:需提交个人资料后方能提交绑定上级，否则会不予通过)
      * @bodyParam code string required 上级会员码
      * @param UserProfileRequest $request
      * @return Application|ResponseFactory|Response

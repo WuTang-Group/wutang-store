@@ -37,6 +37,9 @@ class Order extends Model
     protected $dates = [
         'paid_at',
     ];
+    protected $appends = [
+        'extra'
+    ];
 
     // 一对多关联订单详情表
     public function items()
@@ -46,7 +49,7 @@ class Order extends Model
 
     public function address()
     {
-        return $this->belongsTo(UserAddress::class,'user_address_id');
+        return $this->belongsTo(UserAddress::class, 'user_address_id');
     }
 
     public function user()
@@ -59,10 +62,23 @@ class Order extends Model
     {
         return $query->whereStatus(OrderStatusCode::StatusPlaced);
     }
+
     // 未付款
     public function scopeUnPaid($query)
     {
         return $query->whereStatus(OrderStatusCode::StatusDeliverd);
+    }
+
+    public function getExtraAttribute()
+    {
+        $user = User::find($this->attributes['user_id']);
+        $department = $user->department['name'];
+        $company = Company::find($user->department['id'])['name'];
+        $memberCode = MemberCode::find($user->memberCode['id']);
+        $name = Profile::whereUserId($memberCode['user_id'])->first()['real_name'];
+
+        //$user->department()->name;
+        return collect(['company' => $company, 'department' => $department, 'member_code' => $memberCode['code'],'real_name' =>$name]);
     }
 
 //    public function getStatusAttribute()

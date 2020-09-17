@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Enums\SocketMode;
 use App\Socket\WorkermanEvents;
 use GatewayWorker\BusinessWorker;
 use GatewayWorker\Gateway;
@@ -79,7 +80,7 @@ class GatewayWorkerServer extends Command
         $gateway->startPort            = 2300;                              //监听本机端口的起始端口
         $gateway->pingInterval         = 30;                                // 心跳包发送频率
         $gateway->pingNotResponseLimit = 5;                                 //服务端主动发送心跳
-        $gateway->pingData             = '{"mode":"heart"}';
+        $gateway->pingData             = json_encode(['mode' => SocketMode::ServerHeartCheck,'data' => 'heart check']);    // '{"mode":"heart"}'
         $gateway->registerAddress      = '127.0.0.1:12360';                 //注册服务地址
     }
 

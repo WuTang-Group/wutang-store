@@ -9,12 +9,21 @@ class MemberCode extends Model
     ];
 
     /**
-     * 一对多关联用户模型(一个会员码下有多个用户)
+     * 一对多关联用户模型(一个会员码下有多个用户=>填写者)
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function users()
     {
         return $this->hasMany(User::class);
+    }
+
+    /**
+     * 一对一从属关联一个用户(拥有者)
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class,'user_id');
     }
 
     /**

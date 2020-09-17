@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Enums\SocketMode;
 use App\Events\OrderStatusUpdated;
 use GatewayWorker\Lib\Gateway;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -36,6 +37,6 @@ class SendOrderStatusNotification implements ShouldQueue
     {
         //\Log::info($event->order);
         Gateway::$registerAddress = '127.0.0.1:12360';
-        Gateway::sendToAll(json_encode(['mode' => 'server_message','data' =>$event->order]));
+        Gateway::sendToAll(json_encode(['mode' => SocketMode::ServerOrderNotify,'data' =>$event->order]));
     }
 }

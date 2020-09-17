@@ -29,7 +29,7 @@ class WorkermanEvents
      */
     public static function onConnect($client_id)
     {
-        // 向当前client_id发送数据
+        // 向当前client_id发送连接通知
         Gateway::sendToClient($client_id, json_encode([
             'mode' => SocketMode::ServerCommonMessage,
             'data' => [
@@ -37,6 +37,16 @@ class WorkermanEvents
                 'msg' => '欢迎连入'
             ]
         ]));
+        // 用户登录后连接绑定uid
+        if (auth('api')->check()) {
+            $uid = auth('api')->user()->id;
+            Gateway::bindUid($client_id, $uid);
+            $session_key = CacheKeyPrefix::UserCache . $uid;
+            // 存储到session
+            Session::put($session_key, [
+                'uid' => $uid,
+            ]);
+        }
 
         // 向所有人发送
 //        Gateway::sendToAll(json_encode([
@@ -75,19 +85,27 @@ class WorkermanEvents
 //                'msg' => $message
 //            ]
 //        ]));
-
-        // 接收客户端消息(订单号) 并绑定uid为user id
-        if (auth('api')->check()) {
-            $uid = auth('api')->user()->id;
-            Gateway::bindUid($client_id, $uid);
-            $session_key = CacheKeyPrefix::UserCache . $uid;
-            // 前端发送数据格式: {"no":'订单号'}
-            $client_data = json_decode($message, true);
-            // 存储到session
-            Session::put($session_key, [
-                'uid' => $uid,
-                'no' => $client_data['no']
-            ]);
+        $client_data = json_decode($message, true);
+        // 客户端的心跳检测(若传递则表示正常)
+        if ($client_data['mode'] == SocketMode::ClientHeartCheck) {
+            // 回传心跳
+            Gateway::sendToClient($client_id, json_encode([
+                'mode' => SocketMode::ServerHeartCheck,
+                'data' => 'heart check'
+            ]));
+        }
+        // 客户端传送的消息
+        if($client_data['mode'] == SocketMode::ClientOrderNotify) {
+            // 替换session内的值
+            if (auth('api')->check()) {
+                $uid = auth('api')->user()->id;
+                $session_key = CacheKeyPrefix::UserCache . $uid;
+                // 存储到session
+                Session::put($session_key, [
+                    'uid' => $uid,
+                    'no' => $client_data['data']['no']
+                ]);
+            }
         }
     }
 

@@ -9,6 +9,15 @@ class Department extends Model
     ];
 
     /**
+     * 从属关联公司模型
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
+
+    /**
      * 从属关联本身parent id
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

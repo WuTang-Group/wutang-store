@@ -1,13 +1,13 @@
 <?php
 namespace App\Services\Api;
 
-use App\Models\AssetImgs;
+use App\Models\AssetImg;
 use App\Services\Service;
 
 class AssetImgService extends Service
 {
     private $assetImgs;
-    public function __construct(AssetImgs $assetImgs)
+    public function __construct(AssetImg $assetImgs)
     {
         $this->assetImgs = $assetImgs;
     }

@@ -3,14 +3,14 @@ namespace App\Services\Admin;
 
 use App\Enums\AliyunOssDir;
 use App\Handlers\OssHandler;
-use App\Models\AssetImgs;
+use App\Models\AssetImg;
 use App\Services\Service;
 use Illuminate\Support\Facades\Log;
 
 class AssetImgsService extends Service
 {
     private $assetImgs;
-    public function __construct(AssetImgs $assetImgs)
+    public function __construct(AssetImg $assetImgs)
     {
         $this->assetImgs = $assetImgs;
     }

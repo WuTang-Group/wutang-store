@@ -16,7 +16,9 @@ class CreateAssetImgsTable extends Migration
         Schema::create('asset_imgs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('img')->comment('图片url');
-            $table->string('img_location')->comment('图片位置');
+            $table->integer('img_location')->comment('图片位置如1|参照AssetImgLocation枚举类');
+            $table->string('type')->comment('类型如:banner,discover|参照AssetImgType枚举类');
+            $table->unsignedBigInteger('product_id')->nullable()->comment('关联的产品id');
             $table->timestamps();
         });
     }

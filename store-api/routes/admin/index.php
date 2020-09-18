@@ -104,18 +104,27 @@ Route::group(['namespace' => 'Admin'], function () {
         /**
          * The House
          */
-        Route::get('the_house/list', 'TheHouseController@getTheHouseList')->name('the_house.list');
-        Route::get('the_house/detail/{slug}', 'TheHouseController@theHouseDetailBySlug')->name('the_house.detail');
-        Route::post('the_house/store', 'TheHouseController@theHouseStore')->name('the_house.store');
-        Route::put('the_house/update/{slug}', 'TheHouseController@theHouseUpdateBySlug')->name('the_house.update');
-        Route::delete('the_house/destroy/{slug}', 'TheHouseController@theHouseDestroyBySlug')->name('the_house.destroy');
+        Route::get('the_houses', 'TheHouseController@getTheHouseList')->name('the_house.list');
+        Route::get('the_house/{slug}', 'TheHouseController@theHouseDetailBySlug')->name('the_house.detail');
+        Route::post('the_house', 'TheHouseController@theHouseStore')->name('the_house.store');
+        Route::post('the_house/{slug}', 'TheHouseController@theHouseUpdateBySlug')->name('the_house.update');
+        Route::delete('the_house/{slug}', 'TheHouseController@theHouseDestroyBySlug')->name('the_house.destroy');
         /**
          * The House Category
          */
-        Route::get('the_house/category_list', 'TheHouseCategoryController@getTheHouseCategoryList')->name('the_house.category_list');
+        Route::get('the_house/category/list', 'TheHouseCategoryController@getTheHouseCategoryList')->name('the_house_category.list');
+        Route::get('the_house/category/{slug}', 'TheHouseCategoryController@getCategoryDetailBySlug')->name('the_house_category.detail');
+        Route::post('the_house/category', 'TheHouseCategoryController@categoryStore')->name('the_house_category.store');
+        Route::post('the_house/category/{slug}', 'TheHouseCategoryController@CategoryUpdateBySlug')->name('the_house_category.update');
+        Route::delete('the_house/category/{slug}', 'categoryDestroyBySlug@CategoryUpdateBySlug')->name('the_house_category.delete');
         /**
          * The House Content
          */
-        Route::get('the_house/content_list', 'TheHouseContentController@getTheHouseContentList')->name('the_house.content_list');
+        Route::get('the_house_content/list', 'TheHouseContentController@getTheHouseContentList')->name('the_house_content.list');
+        Route::get('the_house_content/{id}', 'TheHouseContentController@getContentDetailById')->name('the_house_content.detail');
+        Route::post('the_house_content', 'TheHouseContentController@contentStore')->name('the_house_content.store');
+        Route::post('the_house_content/{id}', 'TheHouseContentController@ContentUpdateById')->name('the_house_content.update');
+        Route::delete('the_house_content/{id}', 'TheHouseContentController@contentDestroyById')->name('the_house_content.delete');
+
     });
 });

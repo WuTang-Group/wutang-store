@@ -93,6 +93,35 @@
         </el-col>
       </el-row>
     </el-card>
+    <el-card v-if="status==='view'" class="box-card" shadow="hover">
+      <div slot="header" class="clearfix" style="margin-top: 10px; float: right">
+        <router-link :to="{name:'ContentView', params: { status: 'create', content_id: '', the_house_id: form.id }}">
+          <el-button v-waves>添加</el-button>
+        </router-link>
+      </div>
+      <div slot="header" class="clearfix">
+        <span>The House Content</span>
+      </div>
+      <el-table
+        :data="form.the_house_contents"
+        style="width: 100%"
+        :row-style="{height: '10px'}"
+        border
+        :header-cell-style="{background:'#ebeef5'}"
+      >
+        <el-table-column type="index" header-align="center" align="center" label="序号" width="60" />
+        <el-table-column header-align="center" align="center" prop="title" label="文案标题" />
+        <el-table-column header-align="center" align="center" prop="content" label="文案正文" />
+        <el-table-column header-align="center" align="center" label="文案配图">
+          <template slot-scope="{row}">
+            <el-image style="width: 100px;height: 100px;" :src="row.img" fit="scale-down" @click="previewImgAction(row.img)" />
+          </template>
+        </el-table-column>
+        <el-table-column header-align="center" align="center" prop="img_desc" label="图片描述" />
+        <el-table-column header-align="center" align="center" prop="created_at" label="创建时间" />
+        <el-table-column header-align="center" align="center" prop="updated_at" label="更新时间" />
+      </el-table>
+    </el-card>
     <!--    图片预览弹框-->
     <el-dialog
       title="图片预览"
@@ -300,7 +329,7 @@ export default {
 
 <style lang="scss">
   /*上传图片完成后隐藏按钮*/
-  .hideBanner .el-upload--picture-card {
+  .hideImg .el-upload--picture-card {
     display: none;
   }
   .theHouseText {

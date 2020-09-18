@@ -39,7 +39,9 @@ export default {
     'theHouseList': 'The House列表',
     'houseCategoryList': 'The House分类列表',
     'theHouseContent': 'The House正文列表',
-    'createOrView': '创建/查看'
+    'createOrView': '创建/查看',
+    'houseCategoryView': '创建/查看',
+    'contentView': '创建/查看'
   },
   navbar: {
     dashboard: '首页',

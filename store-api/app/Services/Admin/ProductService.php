@@ -32,7 +32,8 @@ class ProductService extends Service
     public function store($queries)
     {
         // 添加商品
-        $requestData = $this->saveOss($queries);
+        $requestData = saveOss($queries, ['thumbnail', 'main_image',
+            'main_image_2', 'benefit_image', 'product_video']);
         try {
             $products = $this->product->create($requestData);
         } catch (\Exception $e) {
@@ -44,7 +45,8 @@ class ProductService extends Service
 
     public function edit($queries, $product_slug)
     {
-        $requestData = $this->saveOss($queries);
+        $requestData = saveOss($queries, ['thumbnail', 'main_image',
+            'main_image_2', 'benefit_image', 'product_video']);
         try {
             $products = $this->product->whereSlug($product_slug)->update($requestData);
         } catch (\Exception $e) {
@@ -79,27 +81,27 @@ class ProductService extends Service
     }
 
 
-    public static function saveOss($array)
-    {
-        // 保存文件到OSS中，返回url
-        $filtered = Arr::where($array, function ($value, $key) {
-            return Str::contains($key, ['thumbnail', 'main_image',
-                    'main_image_2', 'benefit_image', 'product_video']) && $key;
-        });
-        foreach ($filtered as $key => $value) {
-            // 图片存储到OSS，本地保存OSS地址
-            if (is_object($array[$key])) {
-                try {
-                    $ossRes = OssHandler::save($array[$key], AliyunOssDir::Product);  // 图片存储到OSS
-                    $ossRes ? $array[$key] = $ossRes['data'] : null;
-                } catch (\Exception $e) {
-                    Log::error($e->getMessage());
-                    $array[$key] = null;
-                }
-            }
-        }
-        return $array;
-    }
+//    public static function saveOss($array)
+//    {
+//        // 保存文件到OSS中，返回url
+//        $filtered = Arr::where($array, function ($value, $key) {
+//            return Str::contains($key, ['thumbnail', 'main_image',
+//                    'main_image_2', 'benefit_image', 'product_video']) && $key;
+//        });
+//        foreach ($filtered as $key => $value) {
+//            // 图片存储到OSS，本地保存OSS地址
+//            if (is_object($array[$key])) {
+//                try {
+//                    $ossRes = OssHandler::save($array[$key], AliyunOssDir::Product);  // 图片存储到OSS
+//                    $ossRes ? $array[$key] = $ossRes['data'] : null;
+//                } catch (\Exception $e) {
+//                    Log::error($e->getMessage());
+//                    $array[$key] = null;
+//                }
+//            }
+//        }
+//        return $array;
+//    }
 
     public function productQuery($product_slug)
     {

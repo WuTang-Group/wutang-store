@@ -123,6 +123,15 @@ class User extends Authenticatable implements JWTSubject
     }
 
     /**
+     * 从属管理部门模型
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
+
+    /**
      * 多对多关联部门表(多个用户拥有多个部门变更数据，中间表为部门表更表)
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
@@ -133,6 +142,10 @@ class User extends Authenticatable implements JWTSubject
                 ->orderBy('department_changes.created_at','desc');
     }
 
+    /**
+     * 从属关联会员码模型
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function memberCode()
     {
         return $this->belongsTo(MemberCode::class);

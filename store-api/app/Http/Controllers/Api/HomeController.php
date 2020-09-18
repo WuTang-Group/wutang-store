@@ -10,7 +10,7 @@ use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Response;
 
 /**
- * @group [HOME] Index
+ * @group [API-Home] Index
  * 首页数据类
  * @package App\Http\Controllers\Api
  */

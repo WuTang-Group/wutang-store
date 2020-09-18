@@ -27,6 +27,14 @@ const paymentRouter = {
       meta: {
         title: 'createLegacyExpress'
       }
+    },
+    {
+      path: 'payment-list',
+      component: () => import('@/views/payment/payment/index'),
+      name: 'PaymentList',
+      meta: {
+        title: 'paymentList'
+      }
     }
   ]
 }

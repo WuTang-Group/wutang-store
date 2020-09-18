@@ -37,7 +37,17 @@ const theHouseRouter = {
       name: 'HouseCategoryList',
       meta: {
         title: 'houseCategoryList',
-        icon: ''
+        noCache: true
+      }
+    },
+    {
+      path: 'category-view',
+      component: () => import('@/views/theHouse/theHouseCategory/components/createOrView'),
+      redirect: '',
+      hidden: true,
+      name: 'HouseCategoryView',
+      meta: {
+        title: 'houseCategoryView'
       }
     },
     {
@@ -47,7 +57,17 @@ const theHouseRouter = {
       name: 'ContentList',
       meta: {
         title: 'theHouseContent',
-        icon: ''
+        noCache: true
+      }
+    },
+    {
+      path: 'content-view',
+      component: () => import('@/views/theHouse/theHouseContent/components/createOrView'),
+      redirect: '',
+      name: 'ContentView',
+      hidden: true,
+      meta: {
+        title: 'contentView'
       }
     }
   ]

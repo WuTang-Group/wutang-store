@@ -32,7 +32,7 @@ Welcome to the generated API reference.
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/alipay/legacy_express?page=tenetur&page_limit=ut" \
+    -G "http://store.wutang.com/admin/alipay/legacy_express?page=autem&page_limit=voluptas" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -43,8 +43,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "tenetur",
-    "page_limit": "ut",
+    "page": "autem",
+    "page_limit": "voluptas",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -95,7 +95,7 @@ curl -X POST \
     "http://store.wutang.com/admin/alipay/legacy_express" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"items":[{"pid":"est","key":"consequatur","seller_email":"nihil"}]}'
+    -d '{"items":[{"pid":"commodi","key":"ab","seller_email":"itaque"}]}'
 
 ```
 
@@ -112,9 +112,9 @@ let headers = {
 let body = {
     "items": [
         {
-            "pid": "est",
-            "key": "consequatur",
-            "seller_email": "nihil"
+            "pid": "commodi",
+            "key": "ab",
+            "seller_email": "itaque"
         }
     ]
 }
@@ -152,7 +152,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/admin/alipay/legacy_express/1?id=voluptatum" \
+    "http://store.wutang.com/admin/alipay/legacy_express/1?id=aut" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -163,7 +163,7 @@ const url = new URL(
 );
 
 let params = {
-    "id": "voluptatum",
+    "id": "aut",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -203,7 +203,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X DELETE \
-    "http://store.wutang.com/admin/alipay/legacy_express/1?id=velit" \
+    "http://store.wutang.com/admin/alipay/legacy_express/1?id=qui" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -214,7 +214,7 @@ const url = new URL(
 );
 
 let params = {
-    "id": "velit",
+    "id": "qui",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -254,7 +254,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/admin/alipay/legacy_express/status/1?id=assumenda" \
+    "http://store.wutang.com/admin/alipay/legacy_express/status/1?id=ut" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -265,7 +265,7 @@ const url = new URL(
 );
 
 let params = {
-    "id": "assumenda",
+    "id": "ut",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -308,7 +308,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/asset_img?page=est&page_limit=eaque" \
+    -G "http://store.wutang.com/admin/asset_img?page=quo&page_limit=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -319,8 +319,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "est",
-    "page_limit": "eaque",
+    "page": "quo",
+    "page_limit": "et",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -368,7 +368,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/asset_img?img=sit&img_location=similique" \
+    "http://store.wutang.com/admin/asset_img?img=delectus&img_location=facere" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -379,8 +379,8 @@ const url = new URL(
 );
 
 let params = {
-    "img": "sit",
-    "img_location": "similique",
+    "img": "delectus",
+    "img_location": "facere",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -464,7 +464,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/category_stories?page=nihil&page_limit=quo" \
+    -G "http://store.wutang.com/admin/category_stories?page=ipsa&page_limit=aut" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -475,8 +475,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "nihil",
-    "page_limit": "quo",
+    "page": "ipsa",
+    "page_limit": "aut",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -569,7 +569,7 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/category_stories?title=amet&title_en=et&description=officiis&description_en=provident&banner=doloribus&product_category_id=soluta" \
+    "http://store.wutang.com/admin/category_stories?title=et&title_en=officiis&description=ratione&description_en=quis&banner=voluptatem&product_category_id=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -580,12 +580,12 @@ const url = new URL(
 );
 
 let params = {
-    "title": "amet",
-    "title_en": "et",
-    "description": "officiis",
-    "description_en": "provident",
-    "banner": "doloribus",
-    "product_category_id": "soluta",
+    "title": "et",
+    "title_en": "officiis",
+    "description": "ratione",
+    "description_en": "quis",
+    "banner": "voluptatem",
+    "product_category_id": "et",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -630,7 +630,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/category_stories/1?title=esse&title_en=quis&description=et&description_en=molestiae&banner=aut&product_category_id=sint" \
+    "http://store.wutang.com/admin/category_stories/1?title=sit&title_en=deleniti&description=sequi&description_en=ut&banner=beatae&product_category_id=fugit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -641,12 +641,12 @@ const url = new URL(
 );
 
 let params = {
-    "title": "esse",
-    "title_en": "quis",
-    "description": "et",
-    "description_en": "molestiae",
-    "banner": "aut",
-    "product_category_id": "sint",
+    "title": "sit",
+    "title_en": "deleniti",
+    "description": "sequi",
+    "description_en": "ut",
+    "banner": "beatae",
+    "product_category_id": "fugit",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -774,7 +774,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/logs/1?page=nulla&page_limit=vero" \
+    -G "http://store.wutang.com/admin/logs/1?page=cumque&page_limit=hic" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -785,8 +785,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "nulla",
-    "page_limit": "vero",
+    "page": "cumque",
+    "page_limit": "hic",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -834,7 +834,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X DELETE \
-    "http://store.wutang.com/admin/logs/1?ids=et" \
+    "http://store.wutang.com/admin/logs/1?ids=corporis" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -845,7 +845,7 @@ const url = new URL(
 );
 
 let params = {
-    "ids": "et",
+    "ids": "corporis",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -938,7 +938,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/order?page=neque&page_limit=quae" \
+    -G "http://store.wutang.com/admin/order?page=dolorum&page_limit=non" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -949,8 +949,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "neque",
-    "page_limit": "quae",
+    "page": "dolorum",
+    "page_limit": "non",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1045,7 +1045,7 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/order?page=ut&page_limit=sapiente&username=porro&order_no=quia&order_status=eveniet" \
+    "http://store.wutang.com/admin/order?page=adipisci&page_limit=repellat&username=eos&order_no=corporis&order_status=nulla" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1056,11 +1056,11 @@ const url = new URL(
 );
 
 let params = {
-    "page": "ut",
-    "page_limit": "sapiente",
-    "username": "porro",
-    "order_no": "quia",
-    "order_status": "eveniet",
+    "page": "adipisci",
+    "page_limit": "repellat",
+    "username": "eos",
+    "order_no": "corporis",
+    "order_status": "nulla",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1107,7 +1107,7 @@ curl -X POST \
     "http://store.wutang.com/admin/order/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"refund_status":"nihil","ship_status":"asperiores","status":"est"}'
+    -d '{"refund_status":"qui","ship_status":"aut","status":"et"}'
 
 ```
 
@@ -1122,9 +1122,9 @@ let headers = {
 };
 
 let body = {
-    "refund_status": "nihil",
-    "ship_status": "asperiores",
-    "status": "est"
+    "refund_status": "qui",
+    "ship_status": "aut",
+    "status": "et"
 }
 
 fetch(url, {
@@ -1162,7 +1162,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/product?page=consequatur&page_limit=ea" \
+    -G "http://store.wutang.com/admin/product?page=perspiciatis&page_limit=non" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1173,8 +1173,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "consequatur",
-    "page_limit": "ea",
+    "page": "perspiciatis",
+    "page_limit": "non",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1269,7 +1269,7 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/product?product_category_id=quia&product_name=non&product_name_en=deleniti&thumbnail=laudantium&slug=eaque&short_description=excepturi&short_description_en=dolor&price=et&sale_price=id&stock=id&seo_title=nemo&seo_keyword=qui&seo_description=dicta&benefit=voluptas&benefit_en=provident&tech_description=consequuntur&tech_description_en=necessitatibus&description=laboriosam&description_en=sunt&usage=dicta&usage_en=laudantium&main_image=debitis&main_image_2=totam&benefit_image=suscipit&product_video=dolorem&status=ratione&rating=quis&sold_count=sint&review_count=dolorem" \
+    "http://store.wutang.com/admin/product?product_category_id=et&product_name=excepturi&product_name_en=illum&thumbnail=nulla&slug=error&short_description=architecto&short_description_en=qui&price=nulla&sale_price=explicabo&stock=pariatur&seo_title=consequuntur&seo_keyword=iusto&seo_description=aut&benefit=ipsum&benefit_en=placeat&tech_description=et&tech_description_en=veritatis&description=blanditiis&description_en=ducimus&usage=eum&usage_en=possimus&main_image=repellendus&main_image_2=quo&benefit_image=ullam&product_video=aut&status=quasi&rating=aut&sold_count=earum&review_count=eum" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1280,35 +1280,35 @@ const url = new URL(
 );
 
 let params = {
-    "product_category_id": "quia",
-    "product_name": "non",
-    "product_name_en": "deleniti",
-    "thumbnail": "laudantium",
-    "slug": "eaque",
-    "short_description": "excepturi",
-    "short_description_en": "dolor",
-    "price": "et",
-    "sale_price": "id",
-    "stock": "id",
-    "seo_title": "nemo",
-    "seo_keyword": "qui",
-    "seo_description": "dicta",
-    "benefit": "voluptas",
-    "benefit_en": "provident",
-    "tech_description": "consequuntur",
-    "tech_description_en": "necessitatibus",
-    "description": "laboriosam",
-    "description_en": "sunt",
-    "usage": "dicta",
-    "usage_en": "laudantium",
-    "main_image": "debitis",
-    "main_image_2": "totam",
-    "benefit_image": "suscipit",
-    "product_video": "dolorem",
-    "status": "ratione",
-    "rating": "quis",
-    "sold_count": "sint",
-    "review_count": "dolorem",
+    "product_category_id": "et",
+    "product_name": "excepturi",
+    "product_name_en": "illum",
+    "thumbnail": "nulla",
+    "slug": "error",
+    "short_description": "architecto",
+    "short_description_en": "qui",
+    "price": "nulla",
+    "sale_price": "explicabo",
+    "stock": "pariatur",
+    "seo_title": "consequuntur",
+    "seo_keyword": "iusto",
+    "seo_description": "aut",
+    "benefit": "ipsum",
+    "benefit_en": "placeat",
+    "tech_description": "et",
+    "tech_description_en": "veritatis",
+    "description": "blanditiis",
+    "description_en": "ducimus",
+    "usage": "eum",
+    "usage_en": "possimus",
+    "main_image": "repellendus",
+    "main_image_2": "quo",
+    "benefit_image": "ullam",
+    "product_video": "aut",
+    "status": "quasi",
+    "rating": "aut",
+    "sold_count": "earum",
+    "review_count": "eum",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1376,7 +1376,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/product/1?product_category_id=explicabo&product_name=ad&product_name_en=autem&thumbnail=amet&slug=ut&short_description=incidunt&short_description_en=voluptatem&price=est&sale_price=quaerat&stock=nihil&seo_title=dolore&seo_keyword=fugit&seo_description=ipsa&benefit=est&benefit_en=eos&tech_description=accusantium&tech_description_en=perspiciatis&description=consectetur&description_en=architecto&usage=deleniti&usage_en=eum&main_image=quia&main_image_2=voluptas&benefit_image=et&product_video=et&status=eos&rating=similique&sold_count=sit&review_count=qui" \
+    "http://store.wutang.com/admin/product/1?product_category_id=est&product_name=nisi&product_name_en=vero&thumbnail=quia&slug=eum&short_description=occaecati&short_description_en=enim&price=fuga&sale_price=aut&stock=porro&seo_title=numquam&seo_keyword=quidem&seo_description=culpa&benefit=et&benefit_en=debitis&tech_description=quia&tech_description_en=non&description=voluptatum&description_en=officia&usage=non&usage_en=quae&main_image=quibusdam&main_image_2=est&benefit_image=odio&product_video=sunt&status=dolor&rating=quaerat&sold_count=velit&review_count=sint" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1387,35 +1387,35 @@ const url = new URL(
 );
 
 let params = {
-    "product_category_id": "explicabo",
-    "product_name": "ad",
-    "product_name_en": "autem",
-    "thumbnail": "amet",
-    "slug": "ut",
-    "short_description": "incidunt",
-    "short_description_en": "voluptatem",
-    "price": "est",
-    "sale_price": "quaerat",
-    "stock": "nihil",
-    "seo_title": "dolore",
-    "seo_keyword": "fugit",
-    "seo_description": "ipsa",
-    "benefit": "est",
-    "benefit_en": "eos",
-    "tech_description": "accusantium",
-    "tech_description_en": "perspiciatis",
-    "description": "consectetur",
-    "description_en": "architecto",
-    "usage": "deleniti",
-    "usage_en": "eum",
-    "main_image": "quia",
-    "main_image_2": "voluptas",
-    "benefit_image": "et",
-    "product_video": "et",
-    "status": "eos",
-    "rating": "similique",
-    "sold_count": "sit",
-    "review_count": "qui",
+    "product_category_id": "est",
+    "product_name": "nisi",
+    "product_name_en": "vero",
+    "thumbnail": "quia",
+    "slug": "eum",
+    "short_description": "occaecati",
+    "short_description_en": "enim",
+    "price": "fuga",
+    "sale_price": "aut",
+    "stock": "porro",
+    "seo_title": "numquam",
+    "seo_keyword": "quidem",
+    "seo_description": "culpa",
+    "benefit": "et",
+    "benefit_en": "debitis",
+    "tech_description": "quia",
+    "tech_description_en": "non",
+    "description": "voluptatum",
+    "description_en": "officia",
+    "usage": "non",
+    "usage_en": "quae",
+    "main_image": "quibusdam",
+    "main_image_2": "est",
+    "benefit_image": "odio",
+    "product_video": "sunt",
+    "status": "dolor",
+    "rating": "quaerat",
+    "sold_count": "velit",
+    "review_count": "sint",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1526,7 +1526,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/product_categories?page=iusto&page_limit=sed" \
+    -G "http://store.wutang.com/admin/product_categories?page=inventore&page_limit=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1537,8 +1537,8 @@ const url = new URL(
 );
 
 let params = {
-    "page": "iusto",
-    "page_limit": "sed",
+    "page": "inventore",
+    "page_limit": "et",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1633,7 +1633,7 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/product_categories?name=voluptates&thumbnail=facere&banner=neque&title=quidem&title_en=rem&sub_title=et&describe=voluptas&describe_en=voluptas&describe_img=assumenda&parent_id=ipsum" \
+    "http://store.wutang.com/admin/product_categories?name=excepturi&thumbnail=illum&banner=et&title=eum&title_en=sit&sub_title=et&describe=quaerat&describe_en=doloribus&describe_img=officiis&parent_id=neque" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1644,16 +1644,16 @@ const url = new URL(
 );
 
 let params = {
-    "name": "voluptates",
-    "thumbnail": "facere",
-    "banner": "neque",
-    "title": "quidem",
-    "title_en": "rem",
+    "name": "excepturi",
+    "thumbnail": "illum",
+    "banner": "et",
+    "title": "eum",
+    "title_en": "sit",
     "sub_title": "et",
-    "describe": "voluptas",
-    "describe_en": "voluptas",
-    "describe_img": "assumenda",
-    "parent_id": "ipsum",
+    "describe": "quaerat",
+    "describe_en": "doloribus",
+    "describe_img": "officiis",
+    "parent_id": "neque",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1702,7 +1702,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/product_categories/1?name=tempore&thumbnail=reprehenderit&banner=veniam&title=est&title_en=praesentium&sub_title=sunt&describe=sint&describe_en=est&describe_img=fugit&parent_id=et" \
+    "http://store.wutang.com/admin/product_categories/1?name=ut&thumbnail=et&banner=ut&title=unde&title_en=eos&sub_title=enim&describe=repellat&describe_en=nulla&describe_img=fuga&parent_id=consequatur" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1713,16 +1713,16 @@ const url = new URL(
 );
 
 let params = {
-    "name": "tempore",
-    "thumbnail": "reprehenderit",
-    "banner": "veniam",
-    "title": "est",
-    "title_en": "praesentium",
-    "sub_title": "sunt",
-    "describe": "sint",
-    "describe_en": "est",
-    "describe_img": "fugit",
-    "parent_id": "et",
+    "name": "ut",
+    "thumbnail": "et",
+    "banner": "ut",
+    "title": "unde",
+    "title_en": "eos",
+    "sub_title": "enim",
+    "describe": "repellat",
+    "describe_en": "nulla",
+    "describe_img": "fuga",
+    "parent_id": "consequatur",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1861,7 +1861,7 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/product_sku?title=nesciunt&description=labore&price=esse&stock=in&product_id=ad" \
+    "http://store.wutang.com/admin/product_sku?title=eos&description=natus&price=enim&stock=omnis&product_id=laborum" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1872,11 +1872,11 @@ const url = new URL(
 );
 
 let params = {
-    "title": "nesciunt",
-    "description": "labore",
-    "price": "esse",
-    "stock": "in",
-    "product_id": "ad",
+    "title": "eos",
+    "description": "natus",
+    "price": "enim",
+    "stock": "omnis",
+    "product_id": "laborum",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -1920,7 +1920,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/product_sku/1?title=laudantium&description=voluptas&price=magni&stock=dolores&product_id=magnam" \
+    "http://store.wutang.com/admin/product_sku/1?title=dolor&description=magni&price=voluptate&stock=voluptas&product_id=eos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -1931,11 +1931,11 @@ const url = new URL(
 );
 
 let params = {
-    "title": "laudantium",
-    "description": "voluptas",
-    "price": "magni",
-    "stock": "dolores",
-    "product_id": "magnam",
+    "title": "dolor",
+    "description": "magni",
+    "price": "voluptate",
+    "stock": "voluptas",
+    "product_id": "eos",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2022,7 +2022,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/user?username=fuga&page=animi&page_limit=nisi" \
+    -G "http://store.wutang.com/admin/user?username=laudantium&page=non&page_limit=quisquam" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2033,9 +2033,9 @@ const url = new URL(
 );
 
 let params = {
-    "username": "fuga",
-    "page": "animi",
-    "page_limit": "nisi",
+    "username": "laudantium",
+    "page": "non",
+    "page_limit": "quisquam",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2084,7 +2084,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/admin/user/1?name=sequi&email=rerum&phone=suscipit&avatar=et" \
+    "http://store.wutang.com/admin/user/1?name=autem&email=impedit&phone=dolore&avatar=suscipit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2095,10 +2095,10 @@ const url = new URL(
 );
 
 let params = {
-    "name": "sequi",
-    "email": "rerum",
-    "phone": "suscipit",
-    "avatar": "et",
+    "name": "autem",
+    "email": "impedit",
+    "phone": "dolore",
+    "avatar": "suscipit",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2181,7 +2181,7 @@ fetch(url, {
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/admin/user/reset_password/1?oldPassword=voluptas&newPassword=tempora&newPassword_confirmation=aliquid" \
+    "http://store.wutang.com/admin/user/reset_password/1?oldPassword=fugit&newPassword=dolore&newPassword_confirmation=autem" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2192,9 +2192,9 @@ const url = new URL(
 );
 
 let params = {
-    "oldPassword": "voluptas",
-    "newPassword": "tempora",
-    "newPassword_confirmation": "aliquid",
+    "oldPassword": "fugit",
+    "newPassword": "dolore",
+    "newPassword_confirmation": "autem",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2236,7 +2236,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/admin/get_user?hash_id=esse" \
+    -G "http://store.wutang.com/admin/get_user?hash_id=dolorem" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2247,7 +2247,7 @@ const url = new URL(
 );
 
 let params = {
-    "hash_id": "esse",
+    "hash_id": "dolorem",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2344,7 +2344,7 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/admin/user_addresses?province=unde&city=et&district=dignissimos&address=aspernatur&zip=cupiditate&contact_name=qui&contact_phone=ea" \
+    "http://store.wutang.com/admin/user_addresses?province=ut&city=natus&district=est&address=voluptatem&zip=accusantium&contact_name=saepe&contact_phone=commodi" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2355,13 +2355,13 @@ const url = new URL(
 );
 
 let params = {
-    "province": "unde",
-    "city": "et",
-    "district": "dignissimos",
-    "address": "aspernatur",
-    "zip": "cupiditate",
-    "contact_name": "qui",
-    "contact_phone": "ea",
+    "province": "ut",
+    "city": "natus",
+    "district": "est",
+    "address": "voluptatem",
+    "zip": "accusantium",
+    "contact_name": "saepe",
+    "contact_phone": "commodi",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2407,7 +2407,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/admin/user_addresses/1?address_id=delectus&province=adipisci&city=dolore&district=numquam&address=fuga&zip=facere&contact_name=suscipit&contact_phone=architecto" \
+    "http://store.wutang.com/admin/user_addresses/1?address_id=maiores&province=rerum&city=velit&district=et&address=inventore&zip=deserunt&contact_name=est&contact_phone=maxime" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2418,14 +2418,14 @@ const url = new URL(
 );
 
 let params = {
-    "address_id": "delectus",
-    "province": "adipisci",
-    "city": "dolore",
-    "district": "numquam",
-    "address": "fuga",
-    "zip": "facere",
-    "contact_name": "suscipit",
-    "contact_phone": "architecto",
+    "address_id": "maiores",
+    "province": "rerum",
+    "city": "velit",
+    "district": "et",
+    "address": "inventore",
+    "zip": "deserunt",
+    "contact_name": "est",
+    "contact_phone": "maxime",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2472,7 +2472,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X DELETE \
-    "http://store.wutang.com/admin/user_addresses/1?address_id=officiis" \
+    "http://store.wutang.com/admin/user_addresses/1?address_id=iure" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2483,7 +2483,7 @@ const url = new URL(
 );
 
 let params = {
-    "address_id": "officiis",
+    "address_id": "iure",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2573,7 +2573,7 @@ fetch(url, {
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/admin/user_profiles/1?profile_id=nostrum" \
+    "http://store.wutang.com/admin/user_profiles/1?profile_id=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2584,7 +2584,7 @@ const url = new URL(
 );
 
 let params = {
-    "profile_id": "nostrum",
+    "profile_id": "et",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2624,7 +2624,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X DELETE \
-    "http://store.wutang.com/admin/user_profiles/1?profile_id=est" \
+    "http://store.wutang.com/admin/user_profiles/1?profile_id=porro" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2635,7 +2635,7 @@ const url = new URL(
 );
 
 let params = {
-    "profile_id": "est",
+    "profile_id": "porro",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2665,6 +2665,134 @@ Parameter | Status | Description
     `profile_id` |  required  | profile表id
 
 <!-- END_3bff74743c9d0809b89e6ed687f7c6fe -->
+
+#[API-Home] Index
+
+首页数据类
+<!-- START_2b349f7f0ce1ce2ae13b3d385ae6e476 -->
+## Get Home data list
+获取首页数据信息列表
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://store.wutang.com/api/home" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://store.wutang.com/api/home"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": {
+        "banner": {
+            "id": 3,
+            "img": "https:\/\/lorempixel.com\/640\/480\/?67598",
+            "img_location": 1,
+            "type": "banner",
+            "product_id": 3,
+            "created_at": "2020-08-27 09:04:29",
+            "updated_at": "2020-09-10 14:15:39",
+            "product": {
+                "id": 3,
+                "slug": "id-odit"
+            }
+        },
+        "discover": [
+            {
+                "id": 8,
+                "img": "https:\/\/lorempixel.com\/640\/480\/?65352",
+                "img_location": 1,
+                "type": "discover",
+                "product_id": 1,
+                "created_at": "2020-09-17 20:07:54",
+                "updated_at": "2020-08-31 01:50:32",
+                "product": {
+                    "id": 1,
+                    "slug": "earum-esse"
+                }
+            },
+            {
+                "id": 10,
+                "img": "https:\/\/lorempixel.com\/640\/480\/?61450",
+                "img_location": 1,
+                "type": "discover",
+                "product_id": 1,
+                "created_at": "2020-08-29 19:37:23",
+                "updated_at": "2020-09-13 23:59:03",
+                "product": {
+                    "id": 1,
+                    "slug": "earum-esse"
+                }
+            }
+        ],
+        "the_house": [
+            {
+                "id": 6,
+                "slug": "non-dolor",
+                "the_house_category_id": 2,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?26608",
+                "title": "possimus est molestias",
+                "sub_title": "perspiciatis aliquam iste",
+                "describe": "Voluptatem earum quia iusto expedita non quia. Laborum placeat natus fugit corrupti ad. Ut facilis voluptatum est velit. Cupiditate voluptatum dolorem et dicta modi inventore.",
+                "created_at": "2020-07-24 11:47:46",
+                "updated_at": "2020-07-13 22:45:15"
+            },
+            {
+                "id": 43,
+                "slug": "accusamus-et",
+                "the_house_category_id": 1,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?78314",
+                "title": "eum impedit voluptates",
+                "sub_title": "dolorem explicabo distinctio",
+                "describe": "Praesentium et fuga voluptatem sint. Non nisi voluptatem et delectus consectetur omnis. Aliquam beatae illum quia.",
+                "created_at": "2020-04-02 19:17:49",
+                "updated_at": "2020-07-28 09:44:37"
+            },
+            {
+                "id": 47,
+                "slug": "aut-qui",
+                "the_house_category_id": 1,
+                "banner": "https:\/\/lorempixel.com\/640\/480\/?86134",
+                "title": "porro omnis eaque",
+                "sub_title": "quia voluptatem velit",
+                "describe": "Consequatur sint non aut ut quos. Ut quaerat ab sed dignissimos. Perspiciatis itaque ullam ducimus maxime. Nihil nemo corporis nam molestiae iusto.",
+                "created_at": "2020-09-17 10:06:38",
+                "updated_at": "2020-07-24 01:57:59"
+            }
+        ]
+    },
+    "code": 20001,
+    "msg": "操作成功"
+}
+```
+
+### HTTP Request
+`GET api/home`
+
+
+<!-- END_2b349f7f0ce1ce2ae13b3d385ae6e476 -->
 
 #[API-Payment] Web payment list
 
@@ -2732,7 +2860,7 @@ curl -X POST \
     "http://store.wutang.com/api/auth/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"name":"quo","username":"consequuntur","password":"hic","password_confirmation":"magni","code":"quidem","captcha_key":"suscipit","captcha_code":"consequuntur","password_question_id":5,"password_answer":"non"}'
+    -d '{"name":"suscipit","username":"culpa","password":"amet","password_confirmation":"est","code":"ipsa","captcha_key":"amet","captcha_code":"ut","password_question_id":4,"password_answer":"quisquam"}'
 
 ```
 
@@ -2747,15 +2875,15 @@ let headers = {
 };
 
 let body = {
-    "name": "quo",
-    "username": "consequuntur",
-    "password": "hic",
-    "password_confirmation": "magni",
-    "code": "quidem",
-    "captcha_key": "suscipit",
-    "captcha_code": "consequuntur",
-    "password_question_id": 5,
-    "password_answer": "non"
+    "name": "suscipit",
+    "username": "culpa",
+    "password": "amet",
+    "password_confirmation": "est",
+    "code": "ipsa",
+    "captcha_key": "amet",
+    "captcha_code": "ut",
+    "password_question_id": 4,
+    "password_answer": "quisquam"
 }
 
 fetch(url, {
@@ -2876,7 +3004,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/user_question?username=occaecati" \
+    -G "http://store.wutang.com/api/user_question?username=molestias" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -2887,7 +3015,7 @@ const url = new URL(
 );
 
 let params = {
-    "username": "occaecati",
+    "username": "molestias",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -2911,7 +3039,7 @@ fetch(url, {
 ```json
 {
     "data": {
-        "username": "occaecati"
+        "username": "molestias"
     },
     "code": 10001,
     "msg": "用户不存在"
@@ -2941,7 +3069,7 @@ curl -X POST \
     "http://store.wutang.com/api/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"username":"explicabo","password":"aut"}'
+    -d '{"username":"saepe","password":"commodi"}'
 
 ```
 
@@ -2956,8 +3084,8 @@ let headers = {
 };
 
 let body = {
-    "username": "explicabo",
-    "password": "aut"
+    "username": "saepe",
+    "password": "commodi"
 }
 
 fetch(url, {
@@ -2990,7 +3118,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/api/password_reset?username=facilis&password_question_id=ea&password_answer=placeat&password=est&password_confirmation=architecto" \
+    "http://store.wutang.com/api/password_reset?username=et&password_question_id=hic&password_answer=ea&password=est&password_confirmation=aspernatur" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -3001,11 +3129,11 @@ const url = new URL(
 );
 
 let params = {
-    "username": "facilis",
-    "password_question_id": "ea",
-    "password_answer": "placeat",
+    "username": "et",
+    "password_question_id": "hic",
+    "password_answer": "ea",
     "password": "est",
-    "password_confirmation": "architecto",
+    "password_confirmation": "aspernatur",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -3178,7 +3306,7 @@ curl -X POST \
     "http://store.wutang.com/api/auth/password_change" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"oldPassword":"iste","newPassword":"inventore","newPassword_confirmation":"rem"}'
+    -d '{"oldPassword":"architecto","newPassword":"labore","newPassword_confirmation":"qui"}'
 
 ```
 
@@ -3193,9 +3321,9 @@ let headers = {
 };
 
 let body = {
-    "oldPassword": "iste",
-    "newPassword": "inventore",
-    "newPassword_confirmation": "rem"
+    "oldPassword": "architecto",
+    "newPassword": "labore",
+    "newPassword_confirmation": "qui"
 }
 
 fetch(url, {
@@ -3324,7 +3452,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/order_details/1?no=eum" \
+    -G "http://store.wutang.com/api/order_details/1?no=sint" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -3335,7 +3463,7 @@ const url = new URL(
 );
 
 let params = {
-    "no": "eum",
+    "no": "sint",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -3385,7 +3513,7 @@ curl -X POST \
     "http://store.wutang.com/api/orders" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"address_id":"deleniti","remark":"libero"}'
+    -d '{"address_id":"nam","remark":"necessitatibus"}'
 
 ```
 
@@ -3400,8 +3528,8 @@ let headers = {
 };
 
 let body = {
-    "address_id": "deleniti",
-    "remark": "libero"
+    "address_id": "nam",
+    "remark": "necessitatibus"
 }
 
 fetch(url, {
@@ -3486,7 +3614,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/api/orders/cancel?no=et" \
+    "http://store.wutang.com/api/orders/cancel?no=odio" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -3497,7 +3625,7 @@ const url = new URL(
 );
 
 let params = {
-    "no": "et",
+    "no": "odio",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4695,14 +4823,14 @@ Parameter | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/products/category/fugiat" \
+    -G "http://store.wutang.com/api/products/category/mollitia" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://store.wutang.com/api/products/category/fugiat"
+    "http://store.wutang.com/api/products/category/mollitia"
 );
 
 let headers = {
@@ -4748,19 +4876,19 @@ Parameter | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/products/status/molestias?page=omnis&page_limit=nam" \
+    -G "http://store.wutang.com/api/products/status/eos?page=in&page_limit=aut" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://store.wutang.com/api/products/status/molestias"
+    "http://store.wutang.com/api/products/status/eos"
 );
 
 let params = {
-    "page": "omnis",
-    "page_limit": "nam",
+    "page": "in",
+    "page_limit": "aut",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -4842,6 +4970,111 @@ fetch(url, {
 {
     "data": [
         {
+            "id": 18,
+            "product_category_id": 15,
+            "product_name": "黑钻肌光精华",
+            "product_name_en": "nostrum tempora voluptatem",
+            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?22555",
+            "slug": "dolores-optio",
+            "short_description": "Excepturi autem corrupti omnis quo.",
+            "short_description_en": "Quasi labore est alias ut sequi illum. Deserunt alias delectus placeat perspiciatis. Est aliquam qui praesentium repudiandae dolorem. Fuga velit dolores nostrum voluptas dolorum.",
+            "price": "3734.00",
+            "sale_price": "1.00",
+            "stock": 619,
+            "spec": null,
+            "seo_title": "tempore autem eveniet",
+            "seo_keyword": "ut",
+            "seo_description": "Sint esse quis recusandae et sit aut.",
+            "benefit": "Repudiandae rerum qui est quae ipsum et est. Et molestiae sunt adipisci ducimus incidunt earum. Non modi dolores expedita itaque qui neque alias.",
+            "benefit_en": "Nobis recusandae itaque sit quis dolore. Adipisci deleniti qui dicta eum repudiandae quia repudiandae. Aspernatur quam saepe dicta tenetur. Cupiditate officia ipsum maiores.",
+            "tech_description": "Aut deleniti saepe minus ullam. Dolores qui asperiores optio est deserunt id. Qui aspernatur quo provident doloremque repellat. Maxime fugit ut omnis reiciendis nesciunt. Dolore dolorum consectetur aut nostrum.",
+            "tech_description_en": "Nam voluptates aperiam reiciendis corporis aliquid et. Qui nobis impedit totam. Excepturi magnam eum ducimus consequatur est nesciunt.",
+            "description": "Accusantium beatae id ut ipsam consequatur a enim. Et velit distinctio suscipit et possimus cupiditate. Nihil qui beatae aut sint ut.",
+            "description_en": "Omnis quibusdam et soluta velit. Debitis itaque optio et quia. Nam molestiae in sint id ullam voluptas. Tempore iusto ad repellat quo occaecati.",
+            "usage": "Quisquam et et illo error quos sed dolore. Autem eum quo quas optio necessitatibus. Et vel illum laboriosam tenetur.",
+            "usage_en": "Quis eos nobis ad cupiditate saepe quo repellendus. Aliquam neque et aliquid sint id cupiditate excepturi. Sed dolorem nulla nihil laborum quo. Sequi quod quia et assumenda expedita.",
+            "main_image": "https:\/\/lorempixel.com\/640\/480\/?93343",
+            "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?70203",
+            "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?99481",
+            "product_video": null,
+            "status": 1,
+            "rating": 7.92,
+            "sold_count": 7382,
+            "review_count": 6113,
+            "created_at": "2020-09-01 22:29:51",
+            "updated_at": "2020-09-07 04:54:54"
+        },
+        {
+            "id": 45,
+            "product_category_id": 16,
+            "product_name": "钻石冰莹面膜",
+            "product_name_en": "facilis nemo odio",
+            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?34280",
+            "slug": "est-nam",
+            "short_description": "Et id id sunt et laboriosam odio.",
+            "short_description_en": "Ut architecto natus quia voluptatem id eius et. Veritatis cumque itaque reprehenderit aut. Est aut quod nobis consequatur ab nam. Tempore est optio amet.",
+            "price": "459.00",
+            "sale_price": "1.00",
+            "stock": 413,
+            "spec": null,
+            "seo_title": "qui illum dolorem",
+            "seo_keyword": "nisi",
+            "seo_description": "Corporis occaecati explicabo quis cumque consequuntur.",
+            "benefit": "In et ut sit aut ipsum qui ratione et. Animi iusto deleniti ad id rerum non est. Et beatae id reiciendis est quidem. Recusandae a voluptatem possimus autem reiciendis sunt.",
+            "benefit_en": "Pariatur corrupti tenetur aut consequuntur. Sit error similique perferendis voluptatem est.",
+            "tech_description": "Aut est eum enim itaque in qui. Aut aliquam ut cupiditate ad ratione numquam voluptates explicabo. Quod qui sint repellendus earum. Facere ut accusantium impedit nihil consequuntur nulla.",
+            "tech_description_en": "Qui minus aut et temporibus et consequatur molestiae. Rerum dicta et id. Sunt laudantium ut rerum distinctio.",
+            "description": "Quasi aut facilis reprehenderit assumenda quaerat quis minus. Adipisci autem atque sed blanditiis tempore. Ullam iste vel aut. Perferendis maxime culpa blanditiis.",
+            "description_en": "Nihil libero molestiae officiis voluptas. Unde nostrum accusamus et nostrum non illo dicta. Beatae quae id est dolor. Accusamus dignissimos dolor optio eveniet.",
+            "usage": "Omnis velit quis sit quia consectetur labore vero. Quaerat libero quo asperiores veniam. Aut aspernatur dolores voluptatibus et cumque voluptatum. Non quis molestias enim aliquam rerum.",
+            "usage_en": "Corporis quam voluptas doloremque. Natus nulla ipsa et ullam. Iure error ab qui. Ut autem qui maiores quod consequuntur. Consequatur omnis tempore in dolores voluptatum magni aut.",
+            "main_image": "https:\/\/lorempixel.com\/640\/480\/?36397",
+            "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?89117",
+            "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?99106",
+            "product_video": null,
+            "status": 1,
+            "rating": 5.97,
+            "sold_count": 2121,
+            "review_count": 8322,
+            "created_at": "2020-08-30 03:57:07",
+            "updated_at": "2020-09-11 20:19:07"
+        },
+        {
+            "id": 41,
+            "product_category_id": 14,
+            "product_name": "黑钻臻活眼部精华",
+            "product_name_en": "aut ex quod",
+            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?42422",
+            "slug": "quod-aut",
+            "short_description": "Qui nihil autem omnis hic soluta.",
+            "short_description_en": "Cumque non maiores rem. Quod adipisci asperiores similique aliquam provident pariatur eos. Numquam et et consequuntur voluptas. Natus asperiores et neque provident nemo earum consequatur.",
+            "price": "5490.00",
+            "sale_price": "1.00",
+            "stock": 777,
+            "spec": null,
+            "seo_title": "consequatur ipsum consectetur",
+            "seo_keyword": "quia",
+            "seo_description": "Nemo tenetur dolorem culpa magnam veniam unde.",
+            "benefit": "Pariatur pariatur corporis fuga doloremque aut saepe corporis numquam. Odit unde sed ipsum fugit.",
+            "benefit_en": "Culpa aperiam quis consectetur. Animi animi eveniet facere quibusdam neque consequatur delectus doloribus. Deleniti occaecati magnam itaque.",
+            "tech_description": "Repellat rem odio quia sed quia quia. Dignissimos earum laboriosam voluptatibus et. Quae illum adipisci quam minima consequatur quasi.",
+            "tech_description_en": "Aut corporis non dolorem laborum quia amet. Aut et est dolorem occaecati. Ad aut dolores dignissimos.",
+            "description": "Eum assumenda aperiam quis sint facilis vel illum. Deserunt voluptas quas laudantium eum minus. Id laboriosam occaecati ut. Omnis fugit esse molestiae et blanditiis non praesentium magni.",
+            "description_en": "Quaerat impedit quibusdam non est error veritatis quasi. Assumenda harum quia pariatur corporis deleniti.",
+            "usage": "Hic reiciendis perferendis libero. Sint quidem esse non impedit qui aperiam. Asperiores asperiores ipsam culpa doloribus et aliquid. Iusto doloribus odio voluptas voluptate est.",
+            "usage_en": "Ex quia impedit ea. Adipisci ut est ipsa vero qui. Autem omnis ducimus vitae blanditiis nemo.",
+            "main_image": "https:\/\/lorempixel.com\/640\/480\/?78458",
+            "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?87274",
+            "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?28276",
+            "product_video": null,
+            "status": 1,
+            "rating": 6.8,
+            "sold_count": 4614,
+            "review_count": 3581,
+            "created_at": "2020-09-06 19:54:59",
+            "updated_at": "2020-08-24 17:09:34"
+        },
+        {
             "id": 28,
             "product_category_id": 12,
             "product_name": "黑钻赋颜面霜",
@@ -4875,111 +5108,6 @@ fetch(url, {
             "review_count": 6004,
             "created_at": "2020-09-09 16:10:35",
             "updated_at": "2020-08-30 07:16:04"
-        },
-        {
-            "id": 27,
-            "product_category_id": 10,
-            "product_name": "黑钻焕肤水",
-            "product_name_en": "culpa omnis eos",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?15467",
-            "slug": "debitis-est",
-            "short_description": "Magni dolorem facilis repellendus.",
-            "short_description_en": "Accusamus numquam magnam quia optio voluptates odio ipsa. Repudiandae vitae molestias officiis ut. Enim dolorem veritatis dicta repudiandae sunt suscipit corporis. Excepturi sint ea tenetur aut.",
-            "price": "3446.00",
-            "sale_price": "1.00",
-            "stock": 748,
-            "spec": null,
-            "seo_title": "maxime repudiandae sed",
-            "seo_keyword": "necessitatibus",
-            "seo_description": "Quas consequatur odit cumque.",
-            "benefit": "Facere sit consequatur odio autem omnis possimus illo. Est sapiente ex a odio sit. Sed sed labore porro et minus iste. Voluptate facilis dolorem nihil qui ut.",
-            "benefit_en": "Rerum omnis voluptatum quam nobis recusandae culpa accusamus. Dolor est eligendi fuga minima nostrum. Doloribus possimus expedita facilis id reprehenderit vel eligendi in. Sit libero temporibus debitis perferendis nobis blanditiis aperiam.",
-            "tech_description": "Et nisi voluptatum quod qui. Architecto doloribus praesentium sit a explicabo ut nesciunt. Omnis id sunt ut omnis quasi ipsam velit.",
-            "tech_description_en": "Excepturi ipsam nam autem iste eveniet qui enim. Dolor velit fugit aut mollitia. Laudantium velit omnis labore aut. Repellendus iste incidunt illo officia quas illum fugit.",
-            "description": "Id molestiae voluptatem eos atque. Optio sit cumque et sed voluptates. Pariatur sit voluptas impedit. Ipsa facere consequatur minima aliquid quod.",
-            "description_en": "Nihil vel inventore placeat. Distinctio quia odio quae est repellendus voluptates asperiores nesciunt. Sapiente saepe porro et tenetur dolor et.",
-            "usage": "Possimus temporibus laborum quia tenetur culpa ut et. Excepturi est provident corporis vel nisi. Ut beatae beatae ex culpa.",
-            "usage_en": "Corrupti excepturi est qui sint quos beatae tempore. Voluptate rem maxime voluptatibus at vel. Tenetur ratione praesentium molestiae. Quos a ipsam vero necessitatibus.",
-            "main_image": "https:\/\/lorempixel.com\/640\/480\/?40368",
-            "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?86046",
-            "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?69647",
-            "product_video": null,
-            "status": 1,
-            "rating": 4.12,
-            "sold_count": 4706,
-            "review_count": 7118,
-            "created_at": "2020-09-14 18:05:11",
-            "updated_at": "2020-08-30 19:26:52"
-        },
-        {
-            "id": 22,
-            "product_category_id": 5,
-            "product_name": "黑钻洁净滋养面膜",
-            "product_name_en": "porro incidunt dicta",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?19518",
-            "slug": "alias-ea",
-            "short_description": "Dolorem non voluptas cumque.",
-            "short_description_en": "Earum nesciunt excepturi ullam dolores. Blanditiis temporibus praesentium veniam.",
-            "price": "2123.00",
-            "sale_price": "1.00",
-            "stock": 412,
-            "spec": null,
-            "seo_title": "omnis accusantium et",
-            "seo_keyword": "iusto",
-            "seo_description": "Corporis deserunt perspiciatis veritatis.",
-            "benefit": "Rem est sed sed doloremque esse. Nemo nesciunt repellat tempore unde. Alias aperiam rem placeat et. Molestiae aut error rem culpa quis rerum illo iure. Alias et sit quam doloremque nisi.",
-            "benefit_en": "Mollitia iusto voluptas ullam sunt porro. Sapiente et dolor est enim minima aut a. Reiciendis quas molestias ea cumque aut et.",
-            "tech_description": "Officiis doloribus reiciendis delectus rerum. Sunt aliquid molestiae ducimus. Dignissimos harum et quia velit odit voluptatem qui.",
-            "tech_description_en": "Exercitationem a ea libero et. Aut odit temporibus eos earum hic et quisquam. Ut nisi quibusdam qui cumque.",
-            "description": "Aliquid non autem quia distinctio quaerat. In voluptatem distinctio dolorem totam recusandae quia. Voluptate natus dolore animi enim mollitia.",
-            "description_en": "Expedita laudantium qui quia quas est. Quod omnis aperiam modi aspernatur consequuntur dolorem ipsam aut. Id qui labore quaerat consequatur assumenda. Quidem ut adipisci officiis. Voluptatem nihil asperiores ex nihil et consectetur eveniet.",
-            "usage": "Incidunt magni in necessitatibus harum. Ratione eum itaque asperiores ut. Autem iusto corporis accusantium a rerum. Aspernatur similique minus nemo suscipit nostrum ullam magni.",
-            "usage_en": "Itaque earum aut aliquam ut libero. In non reiciendis voluptatem ea ut. Voluptas neque velit et dolorum expedita quis repudiandae. Mollitia omnis quis voluptatum repellat voluptatibus modi sunt. Repellat repellat sed necessitatibus.",
-            "main_image": "https:\/\/lorempixel.com\/640\/480\/?81980",
-            "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?54617",
-            "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?72384",
-            "product_video": null,
-            "status": 1,
-            "rating": 5.01,
-            "sold_count": 3110,
-            "review_count": 1801,
-            "created_at": "2020-08-29 18:27:54",
-            "updated_at": "2020-09-04 16:41:20"
-        },
-        {
-            "id": 9,
-            "product_category_id": 16,
-            "product_name": "黑钻焕肤水",
-            "product_name_en": "deleniti doloremque voluptas",
-            "thumbnail": "https:\/\/lorempixel.com\/640\/480\/?76881",
-            "slug": "cum-expedita",
-            "short_description": "Praesentium molestiae doloremque deleniti.",
-            "short_description_en": "Quo odit illum minima in sunt voluptatibus. Libero quibusdam officia in rerum quas officiis ea. Explicabo labore saepe ipsum ea hic eveniet minus culpa.",
-            "price": "6048.00",
-            "sale_price": "1.00",
-            "stock": 330,
-            "spec": null,
-            "seo_title": "quia et officia",
-            "seo_keyword": "et",
-            "seo_description": "Dolor est sit tempore et.",
-            "benefit": "Recusandae assumenda eaque dolore sit deserunt eveniet tempora. Doloribus aut soluta distinctio. Est porro perferendis at accusamus ut.",
-            "benefit_en": "Animi ducimus enim quia beatae eaque quam quasi voluptate. Autem voluptatem tenetur totam rem dignissimos perferendis. Et aut aliquam occaecati possimus nostrum recusandae laudantium. Voluptas non ut unde.",
-            "tech_description": "Tempora fugit itaque possimus tempora quas. Ea voluptatum quia laudantium sit eum natus in. Sint accusamus earum dolor et itaque fugiat.",
-            "tech_description_en": "Est ipsa modi at libero non quia nam in. Perferendis iure quasi ipsa voluptatem non. Ipsa ab voluptate non quia inventore qui. Enim magnam dolorum maiores earum.",
-            "description": "Ea officia quibusdam praesentium nihil ut reiciendis. Tempora magnam sint atque assumenda. Culpa fugiat velit aut dolores dolores.",
-            "description_en": "Ratione quasi eos voluptatum molestias. Ex voluptatum voluptas et natus corporis vero. Voluptas aut commodi earum et.",
-            "usage": "Et ut veniam unde ex quas. Perferendis tenetur sunt nisi mollitia reiciendis delectus. Corrupti est ullam dolorem. Ut doloribus omnis ut deleniti inventore aperiam enim accusamus.",
-            "usage_en": "Repellat rem corporis ea quos voluptatibus id. Reiciendis assumenda maiores corporis adipisci dolorem. In autem mollitia quibusdam minus dolor minima. Blanditiis saepe quia ducimus quisquam porro corrupti rerum. Ut non porro dolorum delectus alias veritatis.",
-            "main_image": "https:\/\/lorempixel.com\/640\/480\/?27539",
-            "main_image_2": "https:\/\/lorempixel.com\/640\/480\/?38167",
-            "benefit_image": "https:\/\/lorempixel.com\/640\/480\/?29454",
-            "product_video": null,
-            "status": 1,
-            "rating": 3.23,
-            "sold_count": 6177,
-            "review_count": 9125,
-            "created_at": "2020-09-05 20:01:16",
-            "updated_at": "2020-08-28 22:59:28"
         }
     ],
     "code": 20001,
@@ -5909,14 +6037,14 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/product_category/story/soluta" \
+    -G "http://store.wutang.com/api/product_category/story/sit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://store.wutang.com/api/product_category/story/soluta"
+    "http://store.wutang.com/api/product_category/story/sit"
 );
 
 let headers = {
@@ -5962,14 +6090,14 @@ Parameter | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/product_category/overview/est" \
+    -G "http://store.wutang.com/api/product_category/overview/consequatur" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://store.wutang.com/api/product_category/overview/est"
+    "http://store.wutang.com/api/product_category/overview/consequatur"
 );
 
 let headers = {
@@ -6015,14 +6143,14 @@ Parameter | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/product_category/explore/facere" \
+    -G "http://store.wutang.com/api/product_category/explore/ex" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://store.wutang.com/api/product_category/explore/facere"
+    "http://store.wutang.com/api/product_category/explore/ex"
 );
 
 let headers = {
@@ -6120,7 +6248,7 @@ curl -X POST \
     "http://store.wutang.com/api/shop_carts" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"product_list":[{"product_id":8}]}'
+    -d '{"product_list":[{"product_id":6}]}'
 
 ```
 
@@ -6137,7 +6265,7 @@ let headers = {
 let body = {
     "product_list": [
         {
-            "product_id": 8
+            "product_id": 6
         }
     ]
 }
@@ -6173,7 +6301,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/api/shop_carts/1?type=veniam&product_id=praesentium&amount=sunt" \
+    "http://store.wutang.com/api/shop_carts/1?type=commodi&product_id=qui&amount=ratione" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -6184,9 +6312,9 @@ const url = new URL(
 );
 
 let params = {
-    "type": "veniam",
-    "product_id": "praesentium",
-    "amount": "sunt",
+    "type": "commodi",
+    "product_id": "qui",
+    "amount": "ratione",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -6228,7 +6356,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X DELETE \
-    "http://store.wutang.com/api/shop_carts/1?product_id=aut" \
+    "http://store.wutang.com/api/shop_carts/1?product_id=qui" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -6239,7 +6367,7 @@ const url = new URL(
 );
 
 let params = {
-    "product_id": "aut",
+    "product_id": "qui",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -6571,7 +6699,7 @@ curl -X POST \
     "http://store.wutang.com/api/user_addresses" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"province":"enim","city":"in","district":"quod","address":"ut","zip":10,"contact_name":"quis","contact_phone":6}'
+    -d '{"province":"quod","city":"laudantium","district":"a","address":"omnis","zip":2,"contact_name":"consequuntur","contact_phone":14}'
 
 ```
 
@@ -6586,13 +6714,13 @@ let headers = {
 };
 
 let body = {
-    "province": "enim",
-    "city": "in",
-    "district": "quod",
-    "address": "ut",
-    "zip": 10,
-    "contact_name": "quis",
-    "contact_phone": 6
+    "province": "quod",
+    "city": "laudantium",
+    "district": "a",
+    "address": "omnis",
+    "zip": 2,
+    "contact_name": "consequuntur",
+    "contact_phone": 14
 }
 
 fetch(url, {
@@ -6631,7 +6759,7 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/api/user_addresses/1?province=quae&city=quam&district=eius&address=in&zip=aut&contact_name=placeat&contact_phone=quidem" \
+    "http://store.wutang.com/api/user_addresses/1?province=ducimus&city=repellat&district=omnis&address=nihil&zip=dignissimos&contact_name=sed&contact_phone=in" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -6642,13 +6770,13 @@ const url = new URL(
 );
 
 let params = {
-    "province": "quae",
-    "city": "quam",
-    "district": "eius",
-    "address": "in",
-    "zip": "aut",
-    "contact_name": "placeat",
-    "contact_phone": "quidem",
+    "province": "ducimus",
+    "city": "repellat",
+    "district": "omnis",
+    "address": "nihil",
+    "zip": "dignissimos",
+    "contact_name": "sed",
+    "contact_phone": "in",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -6784,7 +6912,7 @@ fetch(url, {
 
 ```bash
 curl -X PUT \
-    "http://store.wutang.com/api/user_profile?profile_id=quisquam&phone=possimus&real_name=voluptatem&sex=qui&birthday=quidem&age=ab&province=explicabo&city=possimus&district=fugiat&address=voluptatibus&zip=laborum" \
+    "http://store.wutang.com/api/user_profile?profile_id=aut&phone=velit&real_name=pariatur&sex=et&birthday=aut&age=et&province=pariatur&city=reiciendis&district=exercitationem&address=et&zip=iste" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -6795,17 +6923,17 @@ const url = new URL(
 );
 
 let params = {
-    "profile_id": "quisquam",
-    "phone": "possimus",
-    "real_name": "voluptatem",
-    "sex": "qui",
-    "birthday": "quidem",
-    "age": "ab",
-    "province": "explicabo",
-    "city": "possimus",
-    "district": "fugiat",
-    "address": "voluptatibus",
-    "zip": "laborum",
+    "profile_id": "aut",
+    "phone": "velit",
+    "real_name": "pariatur",
+    "sex": "et",
+    "birthday": "aut",
+    "age": "et",
+    "province": "pariatur",
+    "city": "reiciendis",
+    "district": "exercitationem",
+    "address": "et",
+    "zip": "iste",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -6858,7 +6986,7 @@ curl -X POST \
     "http://store.wutang.com/api/member_code/bind_parent" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"code":"minus"}'
+    -d '{"code":"blanditiis"}'
 
 ```
 
@@ -6873,7 +7001,7 @@ let headers = {
 };
 
 let body = {
-    "code": "minus"
+    "code": "blanditiis"
 }
 
 fetch(url, {
@@ -6956,7 +7084,7 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://store.wutang.com/api/wish_list?product_id=quidem" \
+    "http://store.wutang.com/api/wish_list?product_id=tenetur" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -6967,7 +7095,7 @@ const url = new URL(
 );
 
 let params = {
-    "product_id": "quidem",
+    "product_id": "tenetur",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -7007,7 +7135,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X DELETE \
-    "http://store.wutang.com/api/wish_list?product_id=quod" \
+    "http://store.wutang.com/api/wish_list?product_id=fugit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -7018,7 +7146,7 @@ const url = new URL(
 );
 
 let params = {
-    "product_id": "quod",
+    "product_id": "fugit",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -7060,7 +7188,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/alipay/bank_gateway/pay?no=facere&total_amount=animi&payment_key=incidunt" \
+    -G "http://store.wutang.com/alipay/bank_gateway/pay?no=maiores&total_amount=aut&payment_key=error" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -7071,9 +7199,9 @@ const url = new URL(
 );
 
 let params = {
-    "no": "facere",
-    "total_amount": "animi",
-    "payment_key": "incidunt",
+    "no": "maiores",
+    "total_amount": "aut",
+    "payment_key": "error",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -7206,7 +7334,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/alipay/aop_page/pay?no=quod&total_amount=recusandae&payment_key=eligendi" \
+    -G "http://store.wutang.com/alipay/aop_page/pay?no=ipsum&total_amount=ad&payment_key=dolores" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -7217,9 +7345,9 @@ const url = new URL(
 );
 
 let params = {
-    "no": "quod",
-    "total_amount": "recusandae",
-    "payment_key": "eligendi",
+    "no": "ipsum",
+    "total_amount": "ad",
+    "payment_key": "dolores",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -7352,7 +7480,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/alipay/legacy_express/pay?no=dolorem&total_amount=reiciendis&payment_key=provident" \
+    -G "http://store.wutang.com/alipay/legacy_express/pay?no=qui&total_amount=saepe&payment_key=ad" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -7363,9 +7491,9 @@ const url = new URL(
 );
 
 let params = {
-    "no": "dolorem",
-    "total_amount": "reiciendis",
-    "payment_key": "provident",
+    "no": "qui",
+    "total_amount": "saepe",
+    "payment_key": "ad",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -7501,7 +7629,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/unionpay/pay?no=dolor&total_amount=ducimus&payment_key=voluptates" \
+    -G "http://store.wutang.com/unionpay/pay?no=nisi&total_amount=amet&payment_key=numquam" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -7512,9 +7640,9 @@ const url = new URL(
 );
 
 let params = {
-    "no": "dolor",
-    "total_amount": "ducimus",
-    "payment_key": "voluptates",
+    "no": "nisi",
+    "total_amount": "amet",
+    "payment_key": "numquam",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -7643,7 +7771,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://store.wutang.com/api/response_code?10001=accusamus&10003=aut&20001=eius&40001=maxime&40003=aut&40004=temporibus&40005=ut&50001=aut" \
+    -G "http://store.wutang.com/api/response_code?10001=omnis&10003=eum&20001=ut&40001=consequatur&40003=quaerat&40004=voluptatibus&40005=quis&50001=veniam" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -7654,14 +7782,14 @@ const url = new URL(
 );
 
 let params = {
-    "10001": "accusamus",
-    "10003": "aut",
-    "20001": "eius",
-    "40001": "maxime",
-    "40003": "aut",
-    "40004": "temporibus",
-    "40005": "ut",
-    "50001": "aut",
+    "10001": "omnis",
+    "10003": "eum",
+    "20001": "ut",
+    "40001": "consequatur",
+    "40003": "quaerat",
+    "40004": "voluptatibus",
+    "40005": "quis",
+    "50001": "veniam",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -7698,131 +7826,6 @@ Parameter | Status | Description
     `50001` |  optional  | 操作失败
 
 <!-- END_77797615aeaa4fce9a94150989aed46f -->
-
-<!-- START_2b349f7f0ce1ce2ae13b3d385ae6e476 -->
-## Get Home data list
-获取首页数据信息列表
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://store.wutang.com/api/home" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://store.wutang.com/api/home"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (200):
-
-```json
-{
-    "data": {
-        "banner": {
-            "id": 3,
-            "img": "https:\/\/lorempixel.com\/640\/480\/?67598",
-            "img_location": 1,
-            "type": "banner",
-            "product_id": 3,
-            "created_at": "2020-08-27 09:04:29",
-            "updated_at": "2020-09-10 14:15:39",
-            "product": {
-                "id": 3,
-                "slug": "id-odit"
-            }
-        },
-        "discover": [
-            {
-                "id": 8,
-                "img": "https:\/\/lorempixel.com\/640\/480\/?65352",
-                "img_location": 1,
-                "type": "discover",
-                "product_id": 1,
-                "created_at": "2020-09-17 20:07:54",
-                "updated_at": "2020-08-31 01:50:32",
-                "product": {
-                    "id": 1,
-                    "slug": "earum-esse"
-                }
-            },
-            {
-                "id": 10,
-                "img": "https:\/\/lorempixel.com\/640\/480\/?61450",
-                "img_location": 1,
-                "type": "discover",
-                "product_id": 1,
-                "created_at": "2020-08-29 19:37:23",
-                "updated_at": "2020-09-13 23:59:03",
-                "product": {
-                    "id": 1,
-                    "slug": "earum-esse"
-                }
-            }
-        ],
-        "the_house": [
-            {
-                "id": 27,
-                "slug": "exercitationem-qui",
-                "the_house_category_id": 3,
-                "banner": "https:\/\/lorempixel.com\/640\/480\/?85964",
-                "title": "repellat quia et",
-                "sub_title": "aut temporibus modi",
-                "describe": "Quas ut rerum eaque voluptatum alias maxime. Deleniti placeat ab incidunt sed. Sit perferendis magni non inventore non atque nulla.",
-                "created_at": "2020-06-01 04:41:57",
-                "updated_at": "2020-06-02 18:05:41"
-            },
-            {
-                "id": 50,
-                "slug": "eaque-eligendi",
-                "the_house_category_id": 1,
-                "banner": "https:\/\/lorempixel.com\/640\/480\/?33036",
-                "title": "fugiat quae ducimus",
-                "sub_title": "impedit est sed",
-                "describe": "Vel ut sit dolor eos quo dolor. Et assumenda maiores facere id consequatur consequatur assumenda. Provident est beatae asperiores animi nihil excepturi odio asperiores.",
-                "created_at": "2019-10-14 23:47:46",
-                "updated_at": "2020-05-10 17:09:57"
-            },
-            {
-                "id": 9,
-                "slug": "enim-sequi",
-                "the_house_category_id": 1,
-                "banner": "https:\/\/lorempixel.com\/640\/480\/?95040",
-                "title": "corrupti harum labore",
-                "sub_title": "porro neque temporibus",
-                "describe": "Autem et sed aut odit voluptas necessitatibus dolorum. Aut vel qui culpa nam tempore autem ullam. Quia est nostrum saepe doloremque porro necessitatibus in. Quisquam odio ut repellendus quod.",
-                "created_at": "2020-01-29 15:57:32",
-                "updated_at": "2020-01-24 23:39:17"
-            }
-        ]
-    },
-    "code": 20001,
-    "msg": "操作成功"
-}
-```
-
-### HTTP Request
-`GET api/home`
-
-
-<!-- END_2b349f7f0ce1ce2ae13b3d385ae6e476 -->
 
 <!-- START_d6a1cbe2a7e532be5e5e4df518f94318 -->
 ## get img resource list

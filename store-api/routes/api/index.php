@@ -44,6 +44,10 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
      */
     Route::group(['middleware' => 'guest'], function () {
         /**
+         * Index
+         */
+        Route::get('home','HomeController@getList')->name('home.getList');
+        /**
          * Product
          */
         // 所有产品列表

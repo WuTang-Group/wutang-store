@@ -6,11 +6,12 @@ use App\Models\AlipayLegacyExpress;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\TheHouse;
+use App\Models\TheHouseCategory;
 use App\Observers\AlipayLegacyExpressObserver;
 use App\Observers\ProductCategoryObserver;
 use App\Observers\ProductObserver;
+use App\Observers\TheHouseCategoryObserver;
 use App\Observers\TheHouseObserver;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Monolog\Logger;
 use Yansongda\Pay\Pay;
@@ -68,6 +69,8 @@ class AppServiceProvider extends ServiceProvider
         AlipayLegacyExpress::observe(AlipayLegacyExpressObserver::class);
         // 注册TheHouse 观察者
         TheHouse::observe(TheHouseObserver::class);
+        // 注册TheHouseCategory 观察者
+        TheHouseCategory::observe(TheHouseCategoryObserver::class);
 
         // 获取购物车商品
         $token = isset($_COOKIE['token']) ? $_COOKIE['token']:null;

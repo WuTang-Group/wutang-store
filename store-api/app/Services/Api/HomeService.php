@@ -33,8 +33,8 @@ class HomeService extends Service
     {
         return $this->assetImg->whereType(AssetImgType::Banner)->whereImgLocation(AssetImgLocation::Index)
             ->with(['product' => function ($query) {
-                $query->select('id', 'slug');
-            }])->first();
+                $query->select('id', 'slug','product_name','product_name_en');
+            }])->first()->makeHidden(['created_at','updated_at']);
     }
 
     // 获取首页discover列表数据
@@ -42,14 +42,14 @@ class HomeService extends Service
     {
         return $this->assetImg->whereType(AssetImgType::Discover)->whereImgLocation(AssetImgLocation::Index)
                 ->with(['product'=>function($query){
-                    $query->select('id','slug');
-                }])->get();
+                    $query->select('id','slug','product_name','product_name_en');
+                }])->get()->makeHidden(['created_at','updated_at']);
     }
 
     // 获取the house 列表数据
     public function getTheHouseList()
     {
-        return $this->theHouse->inRandomOrder()->take(3)->get();
+        return $this->theHouse->inRandomOrder()->take(3)->get()->makeHidden(['created_at','updated_at']);
     }
 
 }

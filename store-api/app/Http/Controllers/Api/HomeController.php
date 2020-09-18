@@ -9,6 +9,11 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Response;
 
+/**
+ * @group [HOME] Index
+ * 首页数据类
+ * @package App\Http\Controllers\Api
+ */
 class HomeController extends Controller
 {
     private $service;

@@ -37,6 +37,8 @@ class Order extends Model
     protected $dates = [
         'paid_at',
     ];
+
+    // 自定义增添返回数据对象
     protected $appends = [
         'extra'
     ];
@@ -47,11 +49,19 @@ class Order extends Model
         return $this->hasMany(OrderItem::class);
     }
 
+    /**
+     * 从属关联地址模型
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function address()
     {
         return $this->belongsTo(UserAddress::class, 'user_address_id');
     }
 
+    /**
+     * 从属关联用户模型
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -69,6 +79,10 @@ class Order extends Model
         return $query->whereStatus(OrderStatusCode::StatusDeliverd);
     }
 
+    /**
+     * 返回额外数据
+     * @return \Illuminate\Support\Collection
+     */
     public function getExtraAttribute()
     {
         $user = User::find($this->attributes['user_id']);

@@ -30,12 +30,12 @@ class TheHouseService extends Service
 
     public function theHouseDetailBySlug(string $slug)
     {
-        return $this->theHouse->with('theHouseCategory')->where('slug', $slug)->first();
+        return $this->theHouse->with('theHouseCategory', 'theHouseContents')->where('slug', $slug)->first();
     }
 
     public function theHouseStore(array $param)
     {
-        $requestData = $this->saveOss($param);
+        $requestData = saveOss($param, ['banner']);
         try {
             $this->theHouse->create($requestData);
         } catch (\Exception $e) {
@@ -47,7 +47,7 @@ class TheHouseService extends Service
 
     public function theHouseUpdateBySlug(string $slug, array $param)
     {
-        $requestData = $this->saveOss($param);
+        $requestData = saveOss($param, ['banner']);
         try{
             $this->theHouse->where('slug', $slug)->update($requestData);
         } catch (\Exception $e) {

@@ -3,6 +3,12 @@
  * 自定义助手函数库
  */
 
+use App\Enums\AliyunOssDir;
+use App\Handlers\OssHandler;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
+
 /**
  * 分页助手
  * @param null $queries
@@ -34,4 +40,27 @@ function custom_each(&$array)
         $res = false;
     }
     return $res;
+}
+
+// 保存静态资源到aliyun OSS
+function saveOss(array $params, array $saveField)
+{
+    // 保存文件到OSS中，返回url
+    $filtered = Arr::where($params, function ($value, $key) use($saveField) {
+        return Str::contains($key, $saveField) && $key;
+    });
+    foreach ($filtered as $key => $value) {
+        // 图片存储到OSS，本地保存OSS地址
+        if (is_object($params[$key])) {
+            try {
+                $ossRes = OssHandler::save($params[$key], AliyunOssDir::Product);  // 图片存储到OSS
+                Log::info($ossRes);
+                $ossRes ? $params[$key] = $ossRes['data'] : null;
+            } catch (\Exception $e) {
+                Log::error($e->getMessage());
+                $params[$key] = null;
+            }
+        }
+    }
+    return $params;
 }

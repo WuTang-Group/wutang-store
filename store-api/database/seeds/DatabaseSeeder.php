@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TheHouseCategoriesTableSeeder::class);
         $this->call(TheHousesTableSeeder::class);
         $this->call(TheHouseContentsTableSeeder::class);
+        $this->call(AssetImgTableSeeder::class);
 
         Model::reguard();
     }

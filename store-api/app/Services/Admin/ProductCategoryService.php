@@ -32,7 +32,7 @@ class ProductCategoryService extends Service
     // 添加商品分类
     public function store($queries)
     {
-        $requestData = $this->saveOss($queries);
+        $requestData = saveOss($queries, ['thumbnail', 'banner', 'describe_img']);
         if(Arr::has($queries, 'parent_id'))
         {
             if($this->productCategory->find($queries['parent_id'])->doesntExist())
@@ -53,7 +53,7 @@ class ProductCategoryService extends Service
     // 编辑产品分类
     public function edit($queries, $category_slug)
     {
-        $requestData = $this->saveOss($queries);
+        $requestData = saveOss($queries, ['thumbnail', 'banner', 'describe_img']);
         if(Arr::has($queries, 'parent_id'))
         {
             if($this->productCategory->find($queries['parent_id'])->doesntExist())
@@ -83,25 +83,25 @@ class ProductCategoryService extends Service
     }
 
     // 保存文件到OSS中，返回url
-    public static function saveOss($array)
-    {
-        $filtered = Arr::where($array, function ($value, $key) {
-            return Str::contains($key, ['thumbnail', 'banner', 'describe_img']) && $key;
-        });
-        foreach ($filtered as $key => $value) {
-            // 图片存储到OSS，本地保存OSS地址
-            if (is_object($array[$key])){
-                try {
-                    $ossRes = OssHandler::save($array[$key], AliyunOssDir::ProductCategory);  // 图片存储到OSS
-                    $ossRes ? $array[$key] = $ossRes['data'] : null;
-                } catch (\Exception $e) {
-                    Log::error('OSS文件上传失败', ['message' => $e->getMessage()]);
-                    $array[$key] = null;
-                }
-            }
-        }
-        return $array;
-    }
+//    public static function saveOss($array)
+//    {
+//        $filtered = Arr::where($array, function ($value, $key) {
+//            return Str::contains($key, ['thumbnail', 'banner', 'describe_img']) && $key;
+//        });
+//        foreach ($filtered as $key => $value) {
+//            // 图片存储到OSS，本地保存OSS地址
+//            if (is_object($array[$key])){
+//                try {
+//                    $ossRes = OssHandler::save($array[$key], AliyunOssDir::ProductCategory);  // 图片存储到OSS
+//                    $ossRes ? $array[$key] = $ossRes['data'] : null;
+//                } catch (\Exception $e) {
+//                    Log::error('OSS文件上传失败', ['message' => $e->getMessage()]);
+//                    $array[$key] = null;
+//                }
+//            }
+//        }
+//        return $array;
+//    }
 
     public function categoryQuery($category_slug)
     {

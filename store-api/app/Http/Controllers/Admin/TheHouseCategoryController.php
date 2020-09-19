@@ -35,7 +35,7 @@ class TheHouseCategoryController extends Controller
         return $result ? response()->json(ResponseData::requestSuccess()) : response()->json(ResponseData::paramError($request->all()));
     }
 
-    public function CategoryUpdateBySlug($slug, Request $request)
+    public function categoryUpdateBySlug($slug, Request $request)
     {
         $requestData = $request->only(['name', 'banner', 'title', 'sub_title']);
         $result = $this->service->categoryUpdateBySlug($slug, $requestData);

@@ -230,5 +230,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Omnipay' => Ignited\LaravelOmnipay\Facades\OmnipayFacade::class
     ],
+    'key_salt' => [
+        'base' => '1AkO72KM3s1oJVz6n0v41NmgksDKVh5r2Rf/eJ2uzDw',
+        'seven' => '2KM3s1oJVz6n0v41NmgksDKVh5r',
+    ],
 
 ];

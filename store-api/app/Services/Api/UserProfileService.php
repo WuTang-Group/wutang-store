@@ -28,7 +28,7 @@ class UserProfileService extends Service
         try {
 //            $userProfile = $this->profile->whereUserId($this->user()->id);
 //            $userProfile->user()->update($params->except('profile_id'));
-            $userProfile = $this->user()->profile()->update($params->except('profile_id'));
+            $userProfile = $this->user()->profile()->update($params->all());
             app(\App\Services\Api\MemberCodeService::class)->generateMemberCode();
         } catch (\Exception $e) {
             Log::error('用户资料编辑失败', ['message' => $e->getMessage()]);

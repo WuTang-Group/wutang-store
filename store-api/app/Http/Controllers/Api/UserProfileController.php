@@ -42,7 +42,6 @@ class UserProfileController extends Controller
     /**
      * Update user profile
      * 编辑用户资料(要求提示用户填写真实信息)
-     * @queryParam profile_id required profile表id
      * @queryParam phone 联系方式
      * @queryParam real_name required 真实姓名
      * @queryParam sex required 性别

@@ -20,7 +20,6 @@ class UserProfileRequest extends FormRequest
             case 'update':
             {
                 return [
-                    'profile_id' => 'required|integer',
                     'real_name' => 'required',
                     'sex' => 'required|integer',
                     'birthday' => 'date',

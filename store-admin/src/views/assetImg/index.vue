@@ -29,11 +29,9 @@
         :header-cell-style="{background:'#ebeef5'}"
       >
         <el-table-column align="center" type="index" header-align="center" label="序号" width="60" />
-        <el-table-column align="center" header-align="center" label="图片位置" show-overflow-tooltip prop="description">
-          <template slot-scope="scope">
-            <p v-html="scope.row.img_location" />
-          </template>
-        </el-table-column>
+        <el-table-column align="center" header-align="center" label="图片位置" show-overflow-tooltip prop="img_location" :formatter="formatterLocation" />
+        <el-table-column align="center" header-align="center" label="图片类型" show-overflow-tooltip prop="type" />
+        <el-table-column align="center" header-align="center" label="关联产品" show-overflow-tooltip prop="product.product_name" />
         <el-table-column align="center" header-align="center" label="图片">
           <template slot-scope="{row}">
             <el-image style="width: 100px;height: 100px;" :src="row.img" fit="scale-down" @click="previewImgAction(row.img)" />
@@ -171,6 +169,14 @@ export default {
     },
     handleMouseMove() {
       this.isActive = false
+    },
+    formatterLocation(row) {
+      switch (row.img_location) {
+        case 1:
+          return '首页'
+        default:
+          return '其他'
+      }
     }
   }
 }

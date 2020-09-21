@@ -53,9 +53,9 @@ class ProductController extends Controller
     }
 
     /**
-     * Get product list with category slug
-     * 根据category slug获取对应类别下的产品列表
-     * @urlParam category_slug required 分类slug
+     * Get product list by category slug
+     * 通过category slug获取对应类别下的产品列表
+     * @urlParam category_slug required 分类slug Example:vitae-harum
      * @param $category_slug
      * @return Application|ResponseFactory|Response
      */

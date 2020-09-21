@@ -37,13 +37,13 @@ class ProductCategoryController extends Controller
     /**
      * Get product category over view
      * 获取产品分类概述(目前分为'套装系列'和'护肤系列'一级分类,只需取其下列二级分类的name,slug,thumbnail,title,title_en,sub_title)
-     * @urlParam name required 分类名称
-     * @param $name string 分类名称
+     * @urlParam categpory_slug required 分类slug Example:voluptatem-fuga
+     * @param $categpory_slug
      * @return Application|ResponseFactory|Response
      */
-    public function getOverview($name)
+    public function getOverview($categpory_slug)
     {
-        $result = $this->service->getOverview($name);
+        $result = $this->service->getOverview($categpory_slug);
         return response(ResponseData::requestSuccess($result));
     }
 

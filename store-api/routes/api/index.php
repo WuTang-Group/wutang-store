@@ -66,7 +66,7 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         Route::get('product_category', 'ProductCategoryController@getList')->name('product_category.getList');
         Route::get('product_category/story/{category_slug}','ProductCategoryController@getStory')->name('product_category.story.getStory');
         // 产品分类概述(按分类名称)
-        Route::get('product_category/overview/{name}','ProductCategoryController@getOverview')->name('product_category.overview.getOverview');
+        Route::get('product_category/overview/{categpory_slug}','ProductCategoryController@getOverview')->name('product_category.overview.getOverview');
         // 探索推荐(属于分类推荐)
         Route::get('product_category/explore/{category_slug}','ProductCategoryController@getListByExplore')->name('product_category.explore.getListByExplore');
         /**
@@ -77,6 +77,10 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         Route::get('the_house/category/{category_slug}','TheHouseController@getListByCategorySlug')->name('the_house.category.getListByCategorySlug');
         Route::get('the_house/{the_house_slug}','TheHouseController@getDetailByTheHouseSlug')->name('the_house.getDetailByTheHouseSlug');
         Route::get('the_house/other/{category_slug}','TheHouseController@getOtherCategoryList')->name('the_house.other.getOtherCategoryList');
+        /**
+         * Navbar
+         */
+        Route::get('navbar/product_categories','NavbarController@getProductCategoryTitleList')->name('navbar.product_categories.getProductCategoryTitleList');
     });
 
     /**

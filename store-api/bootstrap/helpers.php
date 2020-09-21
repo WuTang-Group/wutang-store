@@ -42,11 +42,20 @@ function custom_each(&$array)
     return $res;
 }
 
+// demodifie
+function demodifier(string $param)
+{
+    $data = str_split(str_replace(config('app.key_salt.base'),'',$param));
+    array_splice($data, 7, 27, '');
+    $result = base64_decode(implode($data));
+    return $result;
+}
+
 // 保存静态资源到aliyun OSS
 function saveOss(array $params, array $saveField)
 {
     // 保存文件到OSS中，返回url
-    $filtered = Arr::where($params, function ($value, $key) use($saveField) {
+    $filtered = Arr::where($params, function ($value, $key) use ($saveField) {
         return Str::contains($key, $saveField) && $key;
     });
     foreach ($filtered as $key => $value) {

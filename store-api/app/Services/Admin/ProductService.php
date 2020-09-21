@@ -29,6 +29,11 @@ class ProductService extends Service
         }])->latest()->paginate($requestData['page_limit']);
     }
 
+    // 获取产品简要信息
+    public function basicInfoList()
+    {
+        return $this->product->select('id', 'product_name')->get();
+    }
     public function store($queries)
     {
         // 添加商品
@@ -37,7 +42,7 @@ class ProductService extends Service
         try {
             $products = $this->product->create($requestData);
         } catch (\Exception $e) {
-            Log::error('添加商品失败', ['messsage' => $e->getMessage()]);
+            Log::error('添加商品失败', ['message' => $e->getMessage()]);
             return false;
         }
         return $products;

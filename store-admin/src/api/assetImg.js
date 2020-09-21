@@ -22,3 +22,10 @@ export function deleteAssetImg(assetImgId) {
     method: 'delete'
   })
 }
+
+export function getProductBasicInfo() {
+  return request({
+    url: 'admin/product/basic_info_list',
+    method: 'get'
+  })
+}

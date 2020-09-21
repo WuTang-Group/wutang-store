@@ -18,8 +18,10 @@ class AssetImgsRequest extends FormRequest
             case 'store':
             {
                 return [
-                    'img'=>'required|image',
-                    'img_location'=>'required|unique:asset_imgs,img_location'
+                    'img'=>'required',
+                    'img_location'=>'required',
+                    'type'=>'required',
+                    'product_id'=>'required|exists:products,id',
                 ];
             }
 
@@ -29,7 +31,7 @@ class AssetImgsRequest extends FormRequest
     public function messages()
     {
         return [
-            'img:unique'=>'改位置已有图片，请编辑'
+            'product_id:exists'=>'产品不存在'
         ];
     }
 }

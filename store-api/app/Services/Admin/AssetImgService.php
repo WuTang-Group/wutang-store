@@ -7,27 +7,27 @@ use App\Models\AssetImg;
 use App\Services\Service;
 use Illuminate\Support\Facades\Log;
 
-class AssetImgsService extends Service
+class AssetImgService extends Service
 {
-    private $assetImgs;
-    public function __construct(AssetImg $assetImgs)
+    private $assetImg;
+    public function __construct(AssetImg $assetImg)
     {
-        $this->assetImgs = $assetImgs;
+        $this->assetImg = $assetImg;
     }
 
     public function queryList($queries)
     {
         $requestData = page_limit($queries);
-        return $this->assetImgs->latest()->paginate($requestData['page_limit']);
+        return $this->assetImg->with('product')->latest()->paginate($requestData['page_limit']);
     }
 
     public function store($queries)
     {
         $requestData = $this->saveOss($queries);
         try {
-            $this->assetImgs->create($requestData);
+            $this->assetImg->create($requestData);
         }catch (\Exception $e){
-            Log::error('添加失败', ['messsage' => $e->getMessage()]);
+            Log::error('添加失败', ['message' => $e->getMessage()]);
             return false;
         }
         return $requestData;
@@ -36,7 +36,7 @@ class AssetImgsService extends Service
     public function destroy($assetImgId)
     {
         try{
-            $assetImgObject = $this->assetImgs->whereId($assetImgId)->first();
+            $assetImgObject = $this->assetImg->whereId($assetImgId)->first();
             if ($assetImgObject){
                 OssHandler::delete($assetImgObject['img']);   //删除oss地址
                 $assetImgObject->delete();  // 删除表中记录

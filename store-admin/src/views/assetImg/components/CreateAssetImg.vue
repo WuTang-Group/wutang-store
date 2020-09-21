@@ -4,8 +4,39 @@
       <el-form ref="form" :model="form" label-position="left">
         <el-row :gutter="10">
           <el-col :span="8">
+            <el-form-item label="关联产品" prop="product_id">
+              <el-select v-model="form.product_id" placeholder="请选择" style="width: 250px">
+                <el-option
+                  v-for="item in productList"
+                  :key="item.id"
+                  :label="item.product_name"
+                  :value="item.id"
+                />
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
             <el-form-item label="图片位置" prop="img_location">
-              <el-input v-model="form.img_location" style="width: 250px" />
+              <el-select v-model="form.img_location" placeholder="请选择" style="width: 250px">
+                <el-option
+                  v-for="item in img_location"
+                  :key="item.id"
+                  :label="item.desc"
+                  :value="item.id"
+                />
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="8">
+            <el-form-item label="图片位置" prop="type">
+              <el-select v-model="form.type" placeholder="请选择" style="width: 250px">
+                <el-option
+                  v-for="item in typeList"
+                  :key="item.type"
+                  :label="item.type"
+                  :value="item.type"
+                />
+              </el-select>
             </el-form-item>
           </el-col>
         </el-row>
@@ -44,7 +75,7 @@
 </template>
 
 <script>
-import { createAssetImg } from '@/api/assetImg'
+import { createAssetImg, getProductBasicInfo } from '@/api/assetImg'
 
 export default {
   name: 'CreateAssetImg',
@@ -53,22 +84,44 @@ export default {
       flag: '',
       form: {
         img: '',
-        img_location: ''
+        img_location: '',
+        type: '',
+        product_id: ''
       },
       hideUploadImg: false,
       limitCount: 1,
-      imgList: []
+      imgList: [],
+      productList: [],
+      img_location: [
+        {
+          id: 1,
+          desc: '首页'
+        },
+        {
+          id: -1,
+          desc: '其他'
+        }
+      ],
+      typeList: [
+        {
+          type: 'banner'
+        },
+        {
+          type: 'discover'
+        }
+      ]
     }
   },
   watch: {},
   created() {
+    this.getProductBasicInfo()
   },
   methods: {
     updateValue() {
-      console.log(this.form)
       const postForm = new FormData()
-      postForm.append('img', this.form.img)
-      postForm.append('img_location', this.form.img_location)
+      for (const val in this.form) {
+        postForm.append(val, this.form[val])
+      }
       // 添加所有参数
       createAssetImg(postForm).then((response) => {
         if (response.code === 20001) {
@@ -85,7 +138,12 @@ export default {
         }
       })
     },
-    // 创建类目成功后初始化数据
+    getProductBasicInfo() {
+      getProductBasicInfo().then((response) => {
+        this.productList = response.data
+      })
+    },
+    // 创建成功后初始化数据
     initFormData() {
       this.$refs['form'].resetFields()
       this.imgList = []

@@ -62,6 +62,7 @@ Route::group(['namespace' => 'Admin'], function () {
          * product
          */
         Route::get('product', 'ProductController@queryList')->name('product.queryList');
+        Route::get('product/basic_info_list', 'ProductController@basicInfoList')->name('product.basicInfoList');
         Route::get('product/{product_slug}', 'ProductController@productQuery')->name('product.productQuery');
         Route::post('product', 'ProductController@store')->name('product.store');
         Route::post('product/{product_slug}', 'ProductController@edit')->name('product.edit');
@@ -87,12 +88,12 @@ Route::group(['namespace' => 'Admin'], function () {
         Route::get('logs/{collection}', 'LoggerController@queryList')->name('logs.queryList');
         Route::delete('logs/{collection}', 'LoggerController@destroy')->name('logs.destroy');
         Route::post('testUpload', 'InvitationController@test');
-        /*
+        /**
          * img resource
         */
-        Route::get('asset_img', 'AssetImgsController@queryList')->name('asset_img.queryList');
-        Route::post('asset_img', 'AssetImgsController@store')->name('asset_img.store');
-        Route::delete('asset_img/{assetImgId}', 'AssetImgsController@destroy')->name('asset_img.destroy');
+        Route::get('asset_img', 'AssetImgController@queryList')->name('asset_img.queryList');
+        Route::post('asset_img', 'AssetImgController@store')->name('asset_img.store');
+        Route::delete('asset_img/{assetImgId}', 'AssetImgController@destroy')->name('asset_img.destroy');
         /**
          * Member codes
          */

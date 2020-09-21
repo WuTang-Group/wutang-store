@@ -21,7 +21,7 @@ class TheHouseController extends Controller
     }
 
     /**
-     * Get House list
+     * Get The House list
      * 获取Get House列表
      * @queryParam page 页码
      * @queryParam page_limit 每页数量

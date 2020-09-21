@@ -39,9 +39,7 @@ class Order extends Model
     ];
 
     // 自定义增添返回数据对象
-    protected $appends = [
-        'extra'
-    ];
+    protected $appends = ['extra'];
 
     // 一对多关联订单详情表
     public function items()

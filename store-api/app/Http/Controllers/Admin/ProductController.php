@@ -39,6 +39,17 @@ class ProductController extends Controller
     }
 
     /**
+     * Get product basic information list
+     * 获取产品简要信息列表
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function basicInfoList()
+    {
+        $result = $this->productService->basicInfoList();
+        return response()->json(ResponseData::requestSuccess($result));
+    }
+
+    /**
      * Create product
      * 新建商品
      * @queryParam product_category_id 所属产品分类id

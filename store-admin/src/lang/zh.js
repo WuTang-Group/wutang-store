@@ -38,7 +38,7 @@ export default {
     theHouse: 'The House',
     'theHouseList': 'The House列表',
     'houseCategoryList': 'The House分类列表',
-    'theHouseContent': 'The House正文列表',
+    'theHouseContent': 'The House文案列表',
     'createOrView': '创建/查看',
     'houseCategoryView': '创建/查看',
     'contentView': '创建/查看'

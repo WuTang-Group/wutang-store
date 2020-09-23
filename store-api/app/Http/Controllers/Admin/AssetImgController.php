@@ -53,6 +53,18 @@ class AssetImgController extends Controller
         return $result? response()->json(ResponseData::requestSuccess($request)): response()->json(ResponseData::requestFails($request->all()));
     }
 
+    /**
+     * Update asset_img
+     * 更新静态资源
+     * @bodyParam img required 图片地址
+     * @bodyParam img_location required 图片位置
+     * @bodyParam type required 类型
+     * @bodyParam product_id 关联产品
+     * @urlParam assetImgId required Example: 2
+     * @param $assetImgId
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function update($assetImgId, Request $request)
     {
         $requestData = $request->only(['img', 'img_location', 'type', 'product_id']);

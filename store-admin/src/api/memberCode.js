@@ -6,3 +6,10 @@ export function list() {
     method: 'get'
   })
 }
+
+export function memberCodeDetail(member_code) {
+  return request({
+    url: 'admin/member_code/' + member_code,
+    method: 'get'
+  })
+}

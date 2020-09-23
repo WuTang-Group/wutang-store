@@ -28,7 +28,7 @@
             </el-form-item>
           </el-col>
           <el-col :span="8">
-            <el-form-item label="图片位置" prop="type">
+            <el-form-item label="图片类型" prop="type">
               <el-select v-model="form.type" placeholder="请选择" style="width: 250px">
                 <el-option
                   v-for="item in typeList"
@@ -75,13 +75,14 @@
 </template>
 
 <script>
-import { createAssetImg, getProductBasicInfo } from '@/api/assetImg'
+import { createAssetImg, getProductBasicInfo, updateAssetImg } from '@/api/assetImg'
 
 export default {
   name: 'CreateAssetImg',
   data() {
     return {
       flag: '',
+      status: '',
       form: {
         img: '',
         img_location: '',
@@ -114,29 +115,63 @@ export default {
   },
   watch: {},
   created() {
+    this.getInitData()
     this.getProductBasicInfo()
   },
   methods: {
-    updateValue() {
-      const postForm = new FormData()
-      for (const val in this.form) {
-        postForm.append(val, this.form[val])
+    // 获取初始化数据
+    getInitData() {
+      this.status = this.$route.params.status
+      if (this.status === 'view') {
+        this.form = this.$route.params.data
+      } else if (this.status === 'edit') {
+        this.form = this.$route.params.data
+        this.imgList.push({ 'url': this.form.img })
+        this.hideUploadImg = true
       }
-      // 添加所有参数
-      createAssetImg(postForm).then((response) => {
-        if (response.code === 20001) {
-          this.$message({
-            message: '图片添加成功！',
-            type: 'success'
-          })
-          this.initFormData()
-        } else {
-          this.$message({
-            message: '图片添加失败，请检查输入参数！',
-            type: 'error'
-          })
+    },
+    updateValue() {
+      if (this.status === 'create') {
+        const postForm = new FormData()
+        for (const val in this.form) {
+          postForm.append(val, this.form[val])
         }
-      })
+        // 添加所有参数
+        createAssetImg(postForm).then((response) => {
+          if (response.code === 20001) {
+            this.$message({
+              message: '图片添加成功！',
+              type: 'success'
+            })
+            this.initFormData()
+          } else {
+            this.$message({
+              message: '图片添加失败，请检查输入参数！',
+              type: 'error'
+            })
+          }
+        })
+      } else if (this.status === 'edit') {
+        const postForm = new FormData()
+        for (const val in this.form) {
+          postForm.append(val, this.form[val])
+        }
+        // 添加所有参数
+        updateAssetImg(this.form.id, postForm).then((response) => {
+          if (response.code === 20001) {
+            this.$message({
+              message: '更新成功！',
+              type: 'success'
+            })
+            this.initFormData()
+          } else {
+            this.$message({
+              message: '更新失败失败，请检查输入参数！',
+              type: 'error'
+            })
+          }
+        })
+      }
     },
     getProductBasicInfo() {
       getProductBasicInfo().then((response) => {

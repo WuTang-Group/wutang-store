@@ -8,6 +8,10 @@ Route::group(['namespace' => 'Admin'], function () {
      * 登录后的路由组
      */
     Route::middleware('auth:api')->group(function () {
+        /*
+         * Enums
+         */
+        Route::get('enums/{name}', 'EnumController@getEnumList')->name('enums.getEnumList');
         /**
          * User info
          */
@@ -90,14 +94,14 @@ Route::group(['namespace' => 'Admin'], function () {
         Route::post('testUpload', 'InvitationController@test');
         /**
          * img resource
-        */
+         */
         Route::get('asset_img', 'AssetImgController@queryList')->name('asset_img.queryList');
         Route::post('asset_img', 'AssetImgController@store')->name('asset_img.store');
         Route::delete('asset_img/{assetImgId}', 'AssetImgController@destroy')->name('asset_img.destroy');
         /**
          * Member codes
          */
-        Route::get('member_codes','MemberCodeController@index')->name('member_codes.index');
+        Route::get('member_codes', 'MemberCodeController@index')->name('member_codes.index');
         /**
          * Payment
          */

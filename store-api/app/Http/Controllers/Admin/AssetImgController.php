@@ -6,6 +6,7 @@ use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AssetImgsRequest;
 use App\Services\Admin\AssetImgService;
+use http\Env\Response;
 use Illuminate\Http\Request;
 
 /**
@@ -50,6 +51,13 @@ class AssetImgController extends Controller
         $requestData = $request->only(['img', 'img_location', 'type', 'product_id']);
         $result = $this->assetImgService->store(array_filter($requestData));
         return $result? response()->json(ResponseData::requestSuccess($request)): response()->json(ResponseData::requestFails($request->all()));
+    }
+
+    public function update($assetImgId, Request $request)
+    {
+        $requestData = $request->only(['img', 'img_location', 'type', 'product_id']);
+        $result = $this->assetImgService->update($assetImgId, $requestData);
+        return $result ? response()->json(ResponseData::requestSuccess()): response()->json(ResponseData::paramError($request->all()));
     }
 
     /**

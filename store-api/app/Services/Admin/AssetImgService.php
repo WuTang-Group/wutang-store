@@ -33,6 +33,18 @@ class AssetImgService extends Service
         return $requestData;
     }
 
+    public function update($assetImgId, $param)
+    {
+        $requestData = saveOss($param, ['img']);
+        try {
+            $this->assetImg->find($assetImgId)->update($requestData);
+        } catch(\Exception $e) {
+            Log::error('更新失败', ['message' => $e->getMessage()]);
+            return false;
+        }
+        return true;
+    }
+
     public function destroy($assetImgId)
     {
         try{

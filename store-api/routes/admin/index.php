@@ -97,11 +97,13 @@ Route::group(['namespace' => 'Admin'], function () {
          */
         Route::get('asset_img', 'AssetImgController@queryList')->name('asset_img.queryList');
         Route::post('asset_img', 'AssetImgController@store')->name('asset_img.store');
+        Route::post('asset_img/{assetImgId}', 'AssetImgController@update')->name('asset_img.update');
         Route::delete('asset_img/{assetImgId}', 'AssetImgController@destroy')->name('asset_img.destroy');
         /**
          * Member codes
          */
         Route::get('member_codes', 'MemberCodeController@index')->name('member_codes.index');
+        Route::get('member_code/{member_code}','MemberCodeController@memberCodeDetail')->name('member_codes.detail');
         /**
          * Payment
          */

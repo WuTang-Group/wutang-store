@@ -29,3 +29,11 @@ export function getProductBasicInfo() {
     method: 'get'
   })
 }
+
+export function updateAssetImg(assetImgId, data) {
+  return request({
+    url: 'admin/asset_img/' + assetImgId,
+    method: 'post',
+    data
+  })
+}

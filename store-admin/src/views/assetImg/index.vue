@@ -14,7 +14,7 @@
     </el-card>
     <el-card class="box-card box-card-centent" style="margin-top: 20px;">
       <div slot="header" class="clearfix">
-        <router-link :to="{name:'CreateAssetImg'}">
+        <router-link :to="{name:'CreateAssetImg', params: {status: 'create', data: null}}">
           <el-button v-waves>添加</el-button>
         </router-link>
       </div>
@@ -45,6 +45,11 @@
           label="操作"
         >
           <template slot-scope="scope">
+            <el-tooltip class="item" effect="dark" content="编辑" placement="top">
+              <router-link :to="{name:'CreateAssetImg', params: { status: 'edit', data: scope.row}}">
+                <el-button type="primary" icon="el-icon-edit" circle style="margin-right: 5px" />
+              </router-link>
+            </el-tooltip>
             <el-tooltip class="item" effect="dark" content="删除" placement="top">
               <el-button type="danger" icon="el-icon-delete" circle @click="deleteConfirm(scope.row.id)" />
             </el-tooltip>

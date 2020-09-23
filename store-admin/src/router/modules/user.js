@@ -41,7 +41,7 @@ const userRouter = {
     },
     {
       path: '',
-      component: () => import('@/views/user/menberCode'),
+      component: () => import('@/views/user/memberCode'),
       name: 'MemberCode',
       meta: {
         title: 'MemberCode',

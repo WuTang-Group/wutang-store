@@ -20,4 +20,9 @@ class MemberCodeService extends Service
         $parentId = $requestData['parent_id'] ?? 0;
         return MemberCode::with(['children'])->whereParentId($parentId)->get();
     }
+
+    public function memberCodeDetail($member_code)
+    {
+        return $this->memberCode->with('user')->where('code', $member_code)->first();
+    }
 }

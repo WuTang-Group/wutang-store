@@ -37,4 +37,10 @@ class MemberCodeController extends Controller
         $result = $this->service->index($request);
         return response(ResponseData::requestSuccess($result));
     }
+
+    public function memberCodeDetail($member_code)
+    {
+        $result = $this->service->memberCodeDetail($member_code);
+        return response()->json(ResponseData::requestSuccess($result));
+    }
 }

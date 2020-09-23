@@ -22,9 +22,10 @@ return [
      * Example: ['api/*']
      */
     'paths' => [
-        'api/*',
-        'admin/*',
-        'payment/*'
+        '*',
+//        'api/*',
+//        'admin/*',
+//        'payment/*'
     ],
 
     /*

@@ -41,7 +41,7 @@
 </head>
 <body class="{{ Request::is('/') ? 'home ' : null }}{{ !empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en' ? 'en':'cn' }}">
     <div id="app">
-        @include('layouts.partials.header', ['count' => $count])
+        @include('layouts.partials.header', ['count' => $count ?? ''])
         <main class="main-content">
             @yield('content')
         </main>
@@ -56,13 +56,13 @@
                         <a class="nav-item tx-dark-gray mr-4" id="nav-account-tab" data-toggle="tab" href="#nav-account" role="tab" aria-controls="nav-account" aria-selected="true">
                         @else
                         <a class="nav-item tx-dark-gray mr-4" href="/my-account">
-                        @endif    
+                        @endif
                             <img src="{{ URL::asset('assets/images/icon/account.png') }}" class="img-fluid" alt="">
                         </a>
                         <a class="nav-item tx-dark-gray mini-cart position-relative" id="nav-mini-cart-tab" data-toggle="tab" href="#nav-mini-cart" role="tab" aria-controls="nav-mini-cart" aria-selected="true">
                             <img src="{{ URL::asset('assets/images/icon/shopping-bag.png') }}" class="img-fluid" alt="">
                             <span class="count">
-                                {{ $count?: 0 }}
+                                {{--{{ $count ?? ''?: 0 }}--}}99
                             </span>
                         </a>
                     </div>
@@ -98,7 +98,7 @@
                         @endif
                         <div class="tab-pane fade" id="nav-mini-cart" role="tabpanel" aria-labelledby="nav-mini-cart-tab">
                             <div id="mcart" class="mini-cart">
-                                @include('partials.mini-cart', ['cart_collection' => $cart_collection])
+                                @include('partials.mini-cart', ['cart_collection' => $cart_collection ?? ''])
                             </div>
                         </div>
                     </div>
@@ -141,7 +141,7 @@
     <script src="{{ URL::asset('assets/vendor/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ URL::asset('assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     @yield('footer_vendor_scripts')
-    @if(!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en') 
+    @if(!empty($_COOKIE['locale']) && $_COOKIE['locale'] == 'en')
     <script src="{{ URL::asset('assets/js/lang/en.js') }}"></script>
     @else
     <script src="{{ URL::asset('assets/js/lang/cn.js') }}"></script>
@@ -150,10 +150,10 @@
     <!--<script src="{{ URL::asset('assets/js/cart.js') }}"></script>-->
     <script src="{{ URL::asset('assets/js/main.js') }}"></script>
     <script src="{{ URL::asset('assets/js/axios.js') }}"></script>
-    @if(Request::is('checkout','my-account','my-account/order/*')) 
+    @if(Request::is('checkout','my-account','my-account/order/*'))
     <script src="{{ URL::asset('assets/js/payment.js') }}"></script>
     @endif
-    
+
     @yield('footer_scripts')
 </body>
 </html>

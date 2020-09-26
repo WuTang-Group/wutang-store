@@ -129,7 +129,7 @@
                             <a href="javascript:void(0)" onclick="openNav('mini-cart')">
                             @endif
                                 <span class="count">
-                                    {{ $count?: 0 }}
+                                    {{ $count ?? ''?: 0 }}
                                 </span>
                             </a>
                         </li>

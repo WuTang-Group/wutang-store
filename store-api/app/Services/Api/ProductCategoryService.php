@@ -41,7 +41,7 @@ class ProductCategoryService extends Service
             $product_category = $this->productCategory->whereSlug($slug)->firstOrFail();
             // 级别为1时,获取子分类下数据
             if ($product_category->level == 1) {
-                $levelProductCategory  = $this->productCategory->whereLevel(1)->with(['children'])->first()->children;
+                $levelProductCategory  = $this->productCategory->whereSlug($product_category->slug)->whereLevel(1)->with(['children'])->first()->children;
             }
             // 级别为2时(无子分类)
             if ($product_category->level == 2) {

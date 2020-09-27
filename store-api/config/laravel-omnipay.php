@@ -44,12 +44,17 @@ return [
         'Alipay_LegacyExpress' => [
             'driver' => 'Alipay_LegacyExpress',
             'options' => [
-                'partner' => env('ALI_EXPRESS_PID'),  // 合作伙伴pid
-                'key' => env('ALI_EXPRESS_KEY'),  // md5密钥
-                'sellerEmail' => env('ALI_EXPRESS_SELLER_EMAIL'),  // 商户邮箱
-                'returnUrl' => env('ALI_EXPRESS_RETURN_URL'),  // 回调地址
-                'notifyUrl' => env('ALI_EXPRESS_NOTIFY_URL'),  // 异步通知地址
+//                'partner' => env('ALI_EXPRESS_PID'),  // 合作伙伴pid
+//                'key' => env('ALI_EXPRESS_KEY'),  // md5密钥
+//                'sellerEmail' => env('ALI_EXPRESS_SELLER_EMAIL'),  // 商户邮箱
+//                'returnUrl' => env('ALI_EXPRESS_RETURN_URL'),  // 回调地址
+//                'notifyUrl' => env('ALI_EXPRESS_NOTIFY_URL'),  // 异步通知地址
                 //'cacert' => resource_path('pay/alipay/cacert.pem') // cacert.pem文件位置
+                'partner' => '',  // 合作伙伴pid
+                'key' => '',  // md5密钥
+                'sellerEmail' => '',  // 商户邮箱
+                'returnUrl' => '',  // 回调地址
+                'notifyUrl' => '',  // 异步通知地址
             ]
         ],
     ]

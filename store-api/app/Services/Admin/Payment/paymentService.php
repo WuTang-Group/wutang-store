@@ -1,6 +1,7 @@
 <?php
 namespace App\Services\Admin\Payment;
 
+use App\Enums\AliyunOssDir;
 use App\Models\Payment;
 use App\Services\Service;
 use Illuminate\Support\Facades\Log;
@@ -21,7 +22,7 @@ class paymentService extends Service
 
     public function paymentImgStoreById($id, $params)
     {
-        $requestData = saveOss($params, ['img']);
+        $requestData = saveOss($params, ['img'],AliyunOssDir::Payments);
         try{
             $this->payment->find($id)->update($requestData);
         } catch(\Exception $e) {

@@ -30,7 +30,7 @@
               </el-col>
               <el-col :span="8">
                 <el-form-item label="是否启用">
-                  <el-input v-model="memberCodeDetail.status" :formatter="formatterStatus" />
+                  <el-input v-model="memberCodeDetail.status" :readonly="formDisable" />
                 </el-form-item>
               </el-col>
             </el-row>
@@ -118,10 +118,15 @@ export default {
       memberCodeDetail(row.code).then((response) => {
         this.memberCodeDetail = response.data
         this.loadingDetail = true
+        switch (this.memberCodeDetail.status) {
+          case 1:
+            this.memberCodeDetail.status = '启用'
+            break
+          case -1:
+            this.memberCodeDetail.status = '未启用'
+            break
+        }
       })
-    },
-    formatterStatus(row) {
-      console.log(row)
     }
   }
 }

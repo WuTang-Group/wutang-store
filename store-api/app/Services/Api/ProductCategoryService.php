@@ -4,6 +4,7 @@ namespace App\Services\Api;
 
 use App\Models\ProductCategory;
 use App\Services\Service;
+use Illuminate\Support\Facades\Log;
 
 class ProductCategoryService extends Service
 {
@@ -36,10 +37,22 @@ class ProductCategoryService extends Service
     // 随机获取同分类下3条数据
     public function getListByExplore(string $slug, int $length = 3)
     {
-        $product_category = $this->productCategory->whereSlug($slug)->with(['children'])->first()->children;
-        if (count($product_category) >= $length) {
-            return $product_category->random($length);
+        try {
+            $product_category = $this->productCategory->whereSlug($slug)->firstOrFail();
+            // 级别为1时,获取子分类下数据
+            if ($product_category->level == 1) {
+                $levelProductCategory  = $this->productCategory->whereLevel(1)->with(['children'])->first()->children;
+            }
+            // 级别为2时(无子分类)
+            if ($product_category->level == 2) {
+                $levelProductCategory = $product_category->whereLevel(2)->whereParentId($product_category->parent_id)->get();
+            }
+            if (count($levelProductCategory) >= $length) {
+                return $levelProductCategory->random($length);
+            }
+            return $levelProductCategory->random(count($levelProductCategory));
+        } catch (\Exception $e) {
+            return [];
         }
-        return $product_category->random(count($product_category));
     }
 }

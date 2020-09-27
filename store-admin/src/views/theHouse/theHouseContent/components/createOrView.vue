@@ -179,7 +179,6 @@ export default {
     // 获取the house 详情
     getContentDetail() {
       contentDetail(this.content_id).then((response) => {
-        console.log(response)
         this.form = response.data
         this.bannerList.push({ 'url': this.form.img })
       })
@@ -300,7 +299,7 @@ export default {
 
 <style lang="scss">
   /*上传图片完成后隐藏按钮*/
-  .hideImg .el-upload--picture-card {
+  .hideBanner .el-upload--picture-card {
     display: none;
   }
   .theHouseText {

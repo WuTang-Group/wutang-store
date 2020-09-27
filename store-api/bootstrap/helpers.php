@@ -52,7 +52,7 @@ function demodifier(string $param)
 }
 
 // 保存静态资源到aliyun OSS
-function saveOss(array $params, array $saveField)
+function saveOss(array $params, array $saveField,string $folder = 'Products')
 {
     // 保存文件到OSS中，返回url
     $filtered = Arr::where($params, function ($value, $key) use ($saveField) {
@@ -62,7 +62,7 @@ function saveOss(array $params, array $saveField)
         // 图片存储到OSS，本地保存OSS地址
         if (is_object($params[$key])) {
             try {
-                $ossRes = OssHandler::save($params[$key], AliyunOssDir::Product);  // 图片存储到OSS
+                $ossRes = OssHandler::save($params[$key], $folder);  // 图片存储到OSS
                 Log::info($ossRes);
                 $ossRes ? $params[$key] = $ossRes['data'] : null;
             } catch (\Exception $e) {

@@ -110,7 +110,6 @@
         :header-cell-style="{background:'#ebeef5'}"
       >
         <el-table-column type="index" header-align="center" align="center" label="序号" width="60" />
-        <!--        <el-table-column header-align="center" align="center" prop="title" label="文案标题" />-->
         <el-table-column header-align="center" align="center" label="文案标题">
           <template slot-scope="scope">
             <router-link :to="{name: 'ContentView',params: {status: 'view', content_id: scope.row.id}}">
@@ -207,8 +206,6 @@ export default {
         this.the_house_slug = this.$route.params.the_house_slug
         // 获取初始化数据
         this.getHouseDetail()
-        // 图片上传初始化
-        this.hideUploadBanner = true
       }
     },
     // 获取the house列表
@@ -222,6 +219,8 @@ export default {
       theHouseDetail(this.the_house_slug).then((response) => {
         this.form = response.data
         this.bannerList.push({ 'url': this.form.banner })
+        // 图片上传初始化
+        this.hideUploadBanner = true
       })
     },
     // 调起富文本dialog
@@ -344,7 +343,7 @@ export default {
 
 <style lang="scss">
   /*上传图片完成后隐藏按钮*/
-  .hideImg .el-upload--picture-card {
+  .hideBanner .el-upload--picture-card {
     display: none;
   }
   .theHouseText {

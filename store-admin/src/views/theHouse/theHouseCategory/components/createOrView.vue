@@ -262,7 +262,7 @@ export default {
 
 <style lang="scss">
   /*上传图片完成后隐藏按钮*/
-  .hideImg .el-upload--picture-card {
+  .hideBanner .el-upload--picture-card {
     display: none;
   }
   .theHouseText {

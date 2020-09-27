@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Payment;
 
-use App\Enums\{AlipayCode, AlipayBankGatewayCode, LoggerCollection, UnionPayCode};
+use App\Enums\{AlipayCode, AlipayBankGatewayCode, LoggerCollection, PaymentType, UnionPayCode};
 use App\Handlers\ResponseData;
+use App\Models\Payment;
 use App\Payments\AlipayBankGateway;
 use App\Payments\AlipayLegacyExpress;
 use App\Http\ {
@@ -18,6 +19,7 @@ use Illuminate\{Contracts\Foundation\Application,
     Http\Response,
     Support\Arr,
     Support\Facades\App,
+    Support\Facades\Crypt,
     Support\Facades\Log
 };
 
@@ -30,10 +32,12 @@ class PaymentController extends Controller
 {
 
     private $orderService;
+    private $payment;
 
-    public function __construct(OrderService $orderService)
+    public function __construct(OrderService $orderService, Payment $payment)
     {
         $this->orderService = $orderService;
+        $this->payment = $payment;
         config(['logging.channels.mongodb.collection' => LoggerCollection::PayLog]);
     }
 
@@ -344,6 +348,15 @@ class PaymentController extends Controller
         // return $alipaySubmit;
         //***********************************************************************
         try {
+            $payments = $this->payment->whereType(PaymentType::AlipayLegacyExpress)->whereStatus(1)->with(['alipayLegacyExpress'])->firstOrFail()->alipayLegacyExpress;
+            // 设置配置文件
+            config([
+                'laravel-omnipay.gateways.Alipay_LegacyExpress.options.partner' => $payments[0]['pid'],
+                'laravel-omnipay.gateways.Alipay_LegacyExpress.options.key' => Crypt::decrypt($payments[0]['key']),
+                'laravel-omnipay.gateways.Alipay_LegacyExpress.options.sellerEmail' => $payments[0]['seller_email'],
+                'laravel-omnipay.gateways.Alipay_LegacyExpress.options.returnUrl' => $payments[0]['return_url'],
+                'laravel-omnipay.gateways.Alipay_LegacyExpress.options.notifyUrl' => $payments[0]['notify_url']
+            ]);
             $gateway = \Omnipay::gateway('Alipay_LegacyExpress'); // 发起支付调用Ominipay的网关
             $response = $gateway->purchase($parameter)->send();
 

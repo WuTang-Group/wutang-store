@@ -229,10 +229,6 @@ export default {
         }
       })
     },
-    formatterStatus() {
-      console.log('sfdsf')
-      return '时刻提防'
-    },
     // 点击预览图片
     previewImgAction(url) {
       this.previewImg = url

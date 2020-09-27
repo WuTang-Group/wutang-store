@@ -86,7 +86,7 @@ class UserAddressController extends Controller
     }
 
     /**
-     * Destroy user Address
+     * Destroy user Address(API)
      * 删除用户地址
      * @param $address_id
      * @return \Illuminate\Http\JsonResponse

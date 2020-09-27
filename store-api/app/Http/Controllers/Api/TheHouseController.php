@@ -45,7 +45,7 @@ class TheHouseController extends Controller
     }
 
     /**
-     * Get the house detail by slug
+     * Get the house detail by slug(API)
      * 通过slug获取the house 详情
      * @urlParam the_house_slug required the house内的slug Example:modi-rerum
      * @param $the_house_slug

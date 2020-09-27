@@ -17,6 +17,7 @@ $factory->define(Product::class, function (Faker $faker) {
         'price' => $faker->randomNumber(4),
         'sale_price' => '1.00',
         'stock' => $faker->randomNumber(3),
+        'spec' => $faker->randomElement(['50 ml / 1.7 fl. oz','30 ml / 1.0 oz.','60 ml / 2.0 oz','160 ml / 2.0 oz','150 ml / 2.0 oz']),
         'seo_title' => $faker->words(3, true),
         'seo_keyword' => $faker->word(),
         'seo_description' => $faker->sentence(5, true),

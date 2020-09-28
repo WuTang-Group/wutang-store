@@ -37,11 +37,15 @@ class TheHouseService extends Service
     // 获取the house其他报道随机3条列表
     public function getOtherCategoryList(string $categorySlug, int $length = 3)
     {
-        $the_house_category = $this->theHouseCategory->whereSlug($categorySlug)->with(['theHouses'])->first()->theHouses;
-        if (count($the_house_category) >= $length) {
-            return $the_house_category->random($length);
+        try {
+            $the_house_category = $this->theHouseCategory->whereSlug($categorySlug)->with(['theHouses'])->firstOrFail()->theHouses;
+            if (count($the_house_category) >= $length) {
+                return $the_house_category->random($length);
+            }
+            return $the_house_category->random(count($the_house_category));
+        }catch (\Exception $e) {
+            return [];
         }
-        return $the_house_category->random(count($the_house_category));
     }
 
 }

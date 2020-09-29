@@ -9,9 +9,15 @@ use App\Http\Requests\Admin\UserRequest;
 use App\Models\Traits\HashIdHelper;
 use App\Models\User;
 use App\Services\Admin\UserService;
+use Exception;
 use Hashids;
-use Illuminate\ {
-    Http\Request,Support\Facades\Auth,Support\Facades\Log,
+use Illuminate\{Contracts\Foundation\Application,
+    Contracts\Routing\ResponseFactory,
+    Http\JsonResponse,
+    Http\Request,
+    Http\Response,
+    Support\Facades\Auth,
+    Support\Facades\Log,
     Support\Str
 };
 
@@ -36,29 +42,51 @@ class UserController extends Controller
      * @queryParam username 用户名(选填)
      * @queryParam page 页码，默认1
      * @queryParam page_limit 每页数量，默认20
-     * @return \Illuminate\Http\JsonResponse
+     * @return Application|ResponseFactory|JsonResponse|Response
      */
     public function queryList(Request $request)
     {
-        $requestData = page_limit($request);
         // 管理员
-        $userRoles = $this->user()->getRoleNames();
-        if (Str::contains($userRoles, Roles::Admin)) {
-            if($requestData->username)
-            {
-                $results = User::where('username', $requestData->username)
-                    ->active()->paginate($requestData['page_limit']);
-            }else
-            {
-                $results = User::with('profile')->active()->paginate($requestData['page_limit']);
-            }
-            return response()->json(ResponseData::requestSuccess($results));
-        } else {
-            $res = User::whereId($this->user()->id)->get();
-            return response()->json(ResponseData::requestSuccess($res));
-        }
+//        $userRoles = $this->user()->getRoleNames();
+//        if (Str::contains($userRoles, Roles::Admin)) {
+//            if($requestData->username)
+//            {
+//                $results = User::where('username', $requestData->username)
+//                    ->active()->paginate($requestData['page_limit']);
+//            }else{
+//                $results = User::with('profile')->active()->paginate($requestData['page_limit']);
+//            }
+//            return response()->json(ResponseData::requestSuccess($results));
+//        } else {
+//            $res = User::whereId($this->user()->id)->get();
+//            return response()->json(ResponseData::requestSuccess($res));
+//        }
+        $users = $this->service->queryList($request);
+        return response(ResponseData::requestSuccess($users));
 
 
+    }
+
+    /**
+     * Request store user data
+     * 请求新增用户数据
+     * @bodyParam username string required 用户名
+     * @bodyParam password string required 密码
+     * @bodyParam name string required 姓名
+     * @bodyParam role string required 角色名
+     * @bodyParam company string required 公司
+     * @bodyParam department string required 部门
+     * @bodyParam sex integer optional 性别
+     * @bodyParam phone integer optional 手机号
+     * @bodyParam email string optional 邮箱
+     * @bodyParam member_code string optional 会员码
+     * @param UserRequest $request
+     * @return Application|ResponseFactory|Response
+     */
+    public function store(UserRequest $request)
+    {
+        $store = $this->service->store($request);
+        return $store ? response(ResponseData::requestSuccess($store)) : response(ResponseData::requestFails($request->all()));
     }
 
     /**
@@ -70,7 +98,7 @@ class UserController extends Controller
      * @queryParam avatar 头像
      * @param $username
      * @param UserRequest $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function update($username, Request $request)
     {
@@ -88,7 +116,7 @@ class UserController extends Controller
      * Delete User(Admin)
      * 删除用户
      * @param $username
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function destroy($username)
     {
@@ -104,7 +132,7 @@ class UserController extends Controller
      * @queryParam newPassword_confirmation required 确认密码
      * @param $username
      * @param UserRequest $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function resetPassword($username, UserRequest $request)
     {
@@ -125,7 +153,7 @@ class UserController extends Controller
             $result = $this->service->resetPassword($username, $request);
             return $result ? response()->json(ResponseData::requestSuccess()) : response()->json(ResponseData::requestFails());
         } else {
-            return response()->json(ResponseData::paramError(null,'旧密码错误'));
+            return response()->json(ResponseData::paramError(null, '旧密码错误'));
         }
 
     }
@@ -135,18 +163,15 @@ class UserController extends Controller
      * 获取单个用户信息
      * @queryParam hash_id required hash加密的ID
      * @param UserRequest $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function info(UserRequest $request)
     {
         $id = Hashids::decode($request->hash_id)[0];
-        try
-        {
+        try {
             $res = $this->user()->with('profile')->find($id);
             return response()->json(ResponseData::requestSuccess($res));
-        }
-        catch (\Exception $e)
-        {
+        } catch (Exception $e) {
             Log::error($e);
             return response()->json(ResponseData::paramError());
         }

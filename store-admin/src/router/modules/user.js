@@ -11,7 +11,7 @@ const userRouter = {
   meta: {
     title: 'userManager',
     icon: 'peoples',
-    roles: ['admin', 'editor'] // you can set roles in root nav
+    roles: ['admin'] // you can set roles in root nav
   },
   children: [
     {
@@ -21,16 +21,10 @@ const userRouter = {
       meta: { title: 'userList', isBack: false, noCache: true }
     },
     {
-      path: 'permission',
-      component: () => import('@/views/table/inline-edit-table'),
-      name: 'Permission',
-      meta: { title: 'permission' }
-    },
-    {
-      path: 'role',
-      component: () => import('@/views/table/inline-edit-table'),
-      name: 'Role',
-      meta: { title: 'role' }
+      path: 'role-and-permission',
+      component: () => import('@/views/user/role'),
+      name: 'RoleAndPermission',
+      meta: { title: 'roleAndPermission' }
     },
     {
       path: 'edit/:id(\\w+)',

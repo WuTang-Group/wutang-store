@@ -8,7 +8,8 @@ const logisticsRouter = {
   name: 'Logistics',
   meta: {
     title: 'Logistics',
-    icon: 'logistics'
+    icon: 'logistics',
+    roles: ['admin']
   },
   children: [
     {

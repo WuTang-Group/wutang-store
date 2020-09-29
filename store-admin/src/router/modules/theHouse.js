@@ -8,7 +8,8 @@ const theHouseRouter = {
   name: 'TheHouse',
   meta: {
     title: 'theHouse',
-    icon: 'table'
+    icon: 'table',
+    roles: ['admin', 'editor']
   },
   children: [
     {

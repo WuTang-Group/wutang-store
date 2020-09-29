@@ -8,7 +8,8 @@ const productRouter = {
   name: 'Product',
   meta: {
     title: 'product',
-    icon: 'goods'
+    icon: 'goods',
+    roles: ['admin', 'editor']
   },
   children: [
     {

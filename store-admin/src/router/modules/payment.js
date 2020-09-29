@@ -7,7 +7,8 @@ const paymentRouter = {
   alwaysShow: true,
   meta: {
     title: 'Payment',
-    icon: 'payment'
+    icon: 'payment',
+    roles: ['admin']
   },
   children: [
     {

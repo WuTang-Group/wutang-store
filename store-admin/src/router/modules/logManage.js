@@ -8,7 +8,8 @@ const logManage = {
   name: 'LogManage',
   meta: {
     title: 'logManage',
-    icon: 'documentation'
+    icon: 'documentation',
+    roles: ['admin']
   },
   children: [
     {

@@ -8,7 +8,8 @@ const assetImgRouter = {
   name: 'AssetImg',
   meta: {
     title: 'AssetImg',
-    icon: 'icon'
+    icon: 'icon',
+    roles: ['admin', 'editor']
   },
   children: [
     {

@@ -8,7 +8,8 @@ const categoryRouter = {
   name: 'Category',
   meta: {
     title: 'category',
-    icon: 'list'
+    icon: 'list',
+    roles: ['admin', 'editor']
   },
   children: [
     {

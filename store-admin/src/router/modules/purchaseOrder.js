@@ -8,7 +8,8 @@ const orderRouter = {
   name: 'PurchaseOrder',
   meta: {
     title: 'PurchaseOrder',
-    icon: 'order'
+    icon: 'order',
+    roles: ['admin']
   },
   children: [
     {

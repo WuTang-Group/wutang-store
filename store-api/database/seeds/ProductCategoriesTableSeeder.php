@@ -11,7 +11,7 @@ class ProductCategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        $productCategory = factory(\App\Models\ProductCategory::class)->times(30)->make();
+        $productCategory = factory(\App\Models\ProductCategory::class)->times(10)->make();
         \App\Models\ProductCategory::insert($productCategory->toArray());
     }
 }

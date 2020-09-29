@@ -17,6 +17,8 @@ Route::group(['namespace' => 'Admin'], function () {
          */
         // 获取用户列表信息
         Route::get('user', 'UserController@queryList')->name('user.queryList');
+        // 新增用户
+        Route::post('user','UserController@store')->name('user.store');
         // 更新用户信息
         Route::put('user/{username}', 'UserController@update')->name('user.update');
         // 删除用户
@@ -109,6 +111,10 @@ Route::group(['namespace' => 'Admin'], function () {
          */
         require_once base_path('routes/admin/payment.php');
         /**
+         * Permissions
+         */
+        require_once base_path('routes/admin/permission.php');
+        /**
          * The House
          */
         Route::get('the_houses', 'TheHouseController@getTheHouseList')->name('the_house.list');
@@ -132,6 +138,11 @@ Route::group(['namespace' => 'Admin'], function () {
         Route::post('the_house_content', 'TheHouseContentController@contentStore')->name('the_house_content.store');
         Route::post('the_house_content/{id}', 'TheHouseContentController@ContentUpdateById')->name('the_house_content.update');
         Route::delete('the_house_content/{id}', 'TheHouseContentController@contentDestroyById')->name('the_house_content.delete');
+        /**
+         * Companies
+         */
+        Route::get('companies','CompanyController@getList')->name('companies.getList');
+        Route::get('company/departments/{company_name}','CompanyController@getDepartmentListByCompany')->name('company.departments.getDepartmentListByCompany');
 
     });
 });

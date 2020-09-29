@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique()->comment('用户名:即用户账号');
             $table->string('email')->nullable()->unique()->comment('邮箱');
             $table->timestamp('email_verified_at')->nullable()->comment('邮箱验证时间');
-            $table->string('password_answer')->comment('密保问题答案');
+            $table->string('password_answer')->nullable()->comment('密保问题答案');
             $table->string('phone')->nullable()->unique()->comment('手机号');
             $table->string('password')->comment('密码');
             $table->rememberToken();

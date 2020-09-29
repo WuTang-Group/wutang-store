@@ -18,6 +18,7 @@ import './icons' // icon
 import './permission' // permission control
 import './utils/error-log' // error log
 import VueParticles from 'vue-particles' // 粒子动画
+import _lodash from 'lodash' // _lodash
 
 import * as filters from './filters' // global filters
 
@@ -35,6 +36,9 @@ Vue.use(Element, {
 
 // 全局注册粒子动画
 Vue.use(VueParticles)
+
+// 全局注册
+Vue.use(_lodash)
 
 // register global utility filters
 Object.keys(filters).forEach(key => {

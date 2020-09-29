@@ -40,9 +40,9 @@ class CompanyController extends Controller
     }
 
     /**
-     * Get depatments by company id
-     * 根据公司ID获取下辖部门列表
-     * @urlParam company_id 公司id
+     * Get depatments by company name
+     * 根据公司名称获取下辖部门列表
+     * @urlParam company_name 公司名称
      * @param $company_name
      * @return Application|ResponseFactory|Response
      */

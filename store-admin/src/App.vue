@@ -28,3 +28,13 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+  /* 鼠标移入表格行样式 */
+  .el-table--enable-row-hover .el-table__body tr:hover > td {
+    cursor: pointer;
+  }
+  /* 去除抽屉标题蓝色边框 */
+  .el-drawer__header span:focus {
+    outline: 0;
+  }
+</style>

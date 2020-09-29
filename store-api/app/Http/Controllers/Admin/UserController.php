@@ -76,10 +76,10 @@ class UserController extends Controller
      * @bodyParam role string required 角色名
      * @bodyParam company string required 公司
      * @bodyParam department string required 部门
-     * @bodyParam sex integer optional 性别
-     * @bodyParam phone integer optional 手机号
-     * @bodyParam email string optional 邮箱
-     * @bodyParam member_code string optional 会员码
+     * @bodyParam sex integer 性别
+     * @bodyParam phone integer 手机号
+     * @bodyParam email string 邮箱
+     * @bodyParam member_code string 会员码
      * @param UserRequest $request
      * @return Application|ResponseFactory|Response
      */

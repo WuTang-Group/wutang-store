@@ -13,4 +13,9 @@ class DepartmentService extends Service
         $this->department = $department;
     }
 
+    public function getList()
+    {
+        return $this->department->get();
+    }
+
 }

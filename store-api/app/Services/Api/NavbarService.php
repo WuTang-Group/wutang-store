@@ -16,6 +16,8 @@ class NavbarService extends Service
     // 获取导航产品分类标题
     public function getProductCategoryTitleList()
     {
-        return $this->productCategory->whereParentId(0)->get(['name','slug']);
+        return $this->productCategory->whereParentId(0)->with(['children' => function($query){
+            $query->select('parent_id','name','slug');
+        }])->get()->makeHidden(['thumbnail','banner','title','title_en','sub_title','describe','describe_en','describe_img','created_at','updated_at']);
     }
 }

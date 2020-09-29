@@ -24,7 +24,7 @@ class User extends Authenticatable implements JWTSubject
         'password_question_id','password_answer','department_id','member_code_id'
     ];
 
-//    protected $appends = ['hash_id']; //hash_id显示字段
+    protected $appends = ['hash_id']; //hash_id显示字段
 
     /**
      * The attributes that should be hidden for arrays.

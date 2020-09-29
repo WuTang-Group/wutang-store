@@ -25,7 +25,9 @@ class ProductCategoryService extends Service
     // 获取产品分类概述
     public function getOverview(string $categpory_slug)
     {
-        return $this->productCategory->whereSlug($categpory_slug)->with('children')->first();
+        return $this->productCategory->whereSlug($categpory_slug)->with(['children' => function($query){
+            $query->select('parent_id','name','slug','thumbnail','title','title_en');
+        }])->first()->makeHidden(['thumbnail','banner','describe','describe_en','describe_img','created_at','updated_at']);
     }
 
     // 获取分类故事

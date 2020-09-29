@@ -33,7 +33,9 @@ class ProductService extends Service
     public function getListByCategorySlug(string $category_slug)
     {
         //return $this->product->with('product_category')->paginate($requestData['page_limit']);
-        return $this->productCategory->with(['products'])->whereSlug($category_slug)->get();
+        return $this->productCategory->with(['products' =>function($query){
+            $query->select('product_category_id','product_name','product_name_en','thumbnail','slug','short_description','price','sale_price');
+        }])->whereSlug($category_slug)->get()->makeHidden(['thumbnail','describe','describe_en','describe_img','created_at','updated_at']);
     }
 
     // 随机获取不同状态的产品

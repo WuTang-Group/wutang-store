@@ -39,6 +39,14 @@ export function fetchUserList(params) {
   })
 }
 
+export function storeUser(data) {
+  return request({
+    url: 'admin/user',
+    method: 'post',
+    data
+  })
+}
+
 export function editUserInfo(params) {
   return request({
     url: `admin/user/${params.username}`,

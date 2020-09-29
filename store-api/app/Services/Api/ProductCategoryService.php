@@ -43,11 +43,13 @@ class ProductCategoryService extends Service
             $product_category = $this->productCategory->whereSlug($slug)->firstOrFail();
             // 级别为1时,获取子分类下数据
             if ($product_category->level == 1) {
-                $levelProductCategory  = $this->productCategory->whereSlug($product_category->slug)->whereLevel(1)->with(['children'])->first()->children;
+                $levelProductCategory  = $this->productCategory->whereSlug($product_category->slug)->whereLevel(1)->with(['children' => function($query){
+                    $query->select('parent_id','name','slug','thumbnail','title','title_en','sub_title');
+                }])->first()->children;
             }
             // 级别为2时(无子分类)
             if ($product_category->level == 2) {
-                $levelProductCategory = $product_category->whereLevel(2)->whereParentId($product_category->parent_id)->get();
+                $levelProductCategory = $product_category->whereLevel(2)->whereParentId($product_category->parent_id)->get(['id']);
             }
             if (count($levelProductCategory) >= $length) {
                 return $levelProductCategory->random($length);

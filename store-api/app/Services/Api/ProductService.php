@@ -49,7 +49,9 @@ class ProductService extends Service
     // 随机获取4条创新产品
     public function getListByInnovate()
     {
-        return $this->product->whereStatus(1)->inRandomOrder()->take(4)->get();
+        return $this->product->whereStatus(1)->inRandomOrder()->take(4)->get([
+            'product_category_id','product_name','product_name_en','thumbnail','slug','short_description','price','sale_price'
+        ]);
     }
 
     // 根据商品ID列表获取商品详情列表

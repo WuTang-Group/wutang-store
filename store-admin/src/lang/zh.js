@@ -4,7 +4,7 @@ export default {
     userManager: '用户管理',
     'userList': '用户列表',
     'permission': '权限管理',
-    'role': '角色管理',
+    'roleAndPermission': '角色权限管理',
     category: '类目管理',
     'categoryList': '类目列表',
     'categoryCreate': '新建类目',

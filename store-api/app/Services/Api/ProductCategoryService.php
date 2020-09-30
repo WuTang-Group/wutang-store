@@ -49,7 +49,7 @@ class ProductCategoryService extends Service
             }
             // 级别为2时(无子分类)
             if ($product_category->level == 2) {
-                $levelProductCategory = $product_category->whereLevel(2)->whereParentId($product_category->parent_id)->get(['id']);
+                $levelProductCategory = $product_category->whereLevel(2)->whereParentId($product_category->parent_id)->get(['id','name','slug','thumbnail','title','title_en','sub_title']);
             }
             if (count($levelProductCategory) >= $length) {
                 return $levelProductCategory->random($length);

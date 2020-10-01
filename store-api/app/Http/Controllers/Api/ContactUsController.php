@@ -44,10 +44,10 @@ class ContactUsController extends Controller
     /**
      * Store the contact us data
      * 写入联系我们的数据
-     * @bodyParam name required string 姓名
-     * @bodyParam type required integer 留言类型
-     * @bodyParam order_no optional string 订单号
-     * @bodyParam content required text 具体内容
+     * @bodyParam name string required 姓名
+     * @bodyParam type integer required 留言类型
+     * @bodyParam order_no string optional 订单号
+     * @bodyParam content text required 具体内容
      * @param ContactUsRequest $request
      * @return Application|ResponseFactory|Response
      */

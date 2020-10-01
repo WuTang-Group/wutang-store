@@ -31,11 +31,12 @@ class OrderService extends Service
     }
 
     // 获取订单列表
-    public function queryList()
+    public function queryList(object $params)
     {
+        $requestData = page_limit($params->all());
 //        return $this->order->query()->with(['items.product', 'items.productSku'])
 //            ->whereUserId($this->user()->id)->orderBy('created_at', 'desc');
-        return $this->order->load(['items.product'])->whereUserId($this->user()->id)->get();
+        return $this->order->load(['items.product'])->whereUserId($this->user()->id)->paginate($requestData['page_limit']);
     }
 
     // 获取订单详情

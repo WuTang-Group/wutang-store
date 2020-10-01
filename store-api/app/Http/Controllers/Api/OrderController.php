@@ -31,11 +31,14 @@ class OrderController extends Controller
     /**
      * Get order list
      * 获取订单列表
+     * @queryParam page 页码
+     * @queryParam page_limit 分页条目
+     * @param Request $request
      * @return Application|ResponseFactory|Response
      */
-    public function queryList()
+    public function queryList(Request $request)
     {
-        $results = $this->service->queryList();
+        $results = $this->service->queryList($request);
         return response(ResponseData::requestSuccess($results));
     }
 

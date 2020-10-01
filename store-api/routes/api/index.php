@@ -101,6 +101,11 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
          * Member code
          */
         Route::post('member_code/bind_parent','UserProfileController@bindParentMemberCode')->name('member_code.bind_parent.bindParentMemberCode');
+        /**
+         * Contact us
+         */
+        Route::get('contact_us/types','ContactUsController@getTypeList')->name('contact_us.types.getTypeList');
+        Route::post('contact_us','ContactUsController@store')->name('contact_us.store');
     });
 
 });

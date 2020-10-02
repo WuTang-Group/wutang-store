@@ -29,6 +29,8 @@ class WishListController extends Controller
     /**
      * Get wish list
      * 获取心愿单商品列表
+     * @queryParam page 页码
+     * @queryParam page_limit 分页条目
      * @param Request $request
      * @return JsonResponse
      */

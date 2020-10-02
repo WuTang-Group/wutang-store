@@ -6,9 +6,10 @@ use App\Services\Service;
 class WishListService extends Service
 {
     // 心愿单列表
-    public function index($params)
+    public function index(object $params)
     {
-        return $params->user()->wishLists()->get();
+        $requestData = $params->all();
+        return $this->user()->wishLists()->paginate($requestData['page_limit']);
     }
 
     // 加入心愿单

@@ -91,7 +91,7 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
          */
         Route::get('wish_list','WishListController@index')->name('wish_list.index');
         Route::post('wish_list', 'WishListController@store')->name('wish_list.store');
-        Route::delete('wish_list', 'WishListController@delete')->name('wish_list.delete');
+        Route::delete('wish_list/{product_id}', 'WishListController@delete')->name('wish_list.delete');
         /**
          * img resource
          */

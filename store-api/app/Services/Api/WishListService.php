@@ -8,7 +8,7 @@ class WishListService extends Service
     // 心愿单列表
     public function index(object $params)
     {
-        $requestData = $params->all();
+        $requestData = page_limit($params->all());
         return $this->user()->wishLists()->paginate($requestData['page_limit']);
     }
 
@@ -31,7 +31,6 @@ class WishListService extends Service
     public function delete($productId,$params)
     {
         $user = $params->user();
-        $user->favoriteProducts()->detach($productId);  // detach取消多对多关联
-        return [];
+        return $user->wishLists()->detach($productId);  // detach取消多对多关联
     }
 }

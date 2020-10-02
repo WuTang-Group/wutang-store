@@ -43,7 +43,7 @@ class WishListController extends Controller
     /**
      * Request Add product to wish list
      * 请求将商品加入心愿单
-     * @queryParam product_id integer required 商品id
+     * @urlParam product_id required 商品id
      * @param $product_id
      * @param Request $request
      * @return Application|ResponseFactory|Response

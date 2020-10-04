@@ -46,6 +46,8 @@ class CreateProductsTable extends Migration
             $table->float('rating')->default(5)->comment('商品平均评分');
             $table->unsignedInteger('sold_count')->default(0)->comment('销量');
             $table->unsignedInteger('review_count')->default(0)->comment('评价数量');
+            $table->unsignedBigInteger('parent_id')->default(0)->comment('父级id');
+            $table->integer('level')->default(2)->comment('层级,默认为2级:即普通子产品,1级为父级产品');
             $table->timestamps();
         });
     }

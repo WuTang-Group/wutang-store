@@ -11,7 +11,7 @@ class ShopCartTableSeeder extends Seeder
      */
     public function run()
     {
-        $shopCarts = factory(\App\Models\ShopCartItem::class)->times(50)->make();
+        $shopCarts = factory(\App\Models\ShopCartItem::class)->times(30)->make();
         \App\Models\ShopCartItem::insert($shopCarts->toArray());
     }
 }

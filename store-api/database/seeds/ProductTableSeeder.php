@@ -11,7 +11,7 @@ class ProductTableSeeder extends Seeder
      */
     public function run()
     {
-        $product = factory(\App\Models\Product::class)->times(50)->make();
+        $product = factory(\App\Models\Product::class)->times(30)->make();
         \App\Models\Product::insert($product->toArray());
     }
 }

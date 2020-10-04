@@ -36,11 +36,24 @@ class Product extends Model
         'rating',
         'spec',
         'sold_count',
-        'review_count'
+        'review_count',
+        'parent_id',
+        'level'
     ];
     protected $casts = [
         'on_sale' => 'boolean', // on_sale 是一个布尔类型的字段
     ];
+
+    // 产品父级
+    public function parent() {
+        return $this->belongsTo(Product::class, 'parent_id');
+    }
+
+    // 产品子级
+    public function child() {
+        return $this->hasMany(Product::class, 'parent_id');
+    }
+
     // 一对多关联ProductSku模型
     public function skus()
     {

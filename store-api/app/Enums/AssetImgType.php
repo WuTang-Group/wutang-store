@@ -13,4 +13,5 @@ final class AssetImgType extends Enum
 {
     const Banner = 'banner';  // banner
     const Discover = 'discover'; // discover
+    const ThisMonthRecommannd = 'this_month_recommand'; // 当月推荐
 }

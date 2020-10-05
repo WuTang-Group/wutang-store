@@ -53,15 +53,17 @@ class ProductController extends Controller
     }
 
     /**
-     * Get product list by category slug
-     * 通过category slug获取对应类别下的产品列表
-     * @urlParam category_slug required 分类slug Example:vitae-harum
-     * @param $category_slug
+     * Get product list by slug and type
+     * 通过导航类别和slug获取对应类别下的产品列表
+     * @urlParam navbar_category_type required 导航产品类型(可选值为:product或product_category_skin_care(参照Navbar接口返回数据)) Example:product_category_skin_care
+     * @urlParam slug required Navbar返回的slug值
+     * @param $navbar_category_type
+     * @param $slug
      * @return Application|ResponseFactory|Response
      */
-    public function getListByCategorySlug($category_slug)
+    public function getListBySlug($navbar_category_type,$slug)
     {
-        $results = $this->service->getListByCategorySlug($category_slug);
+        $results = $this->service->getListBySlug($navbar_category_type,$slug);
         return response(ResponseData::requestSuccess($results));
     }
 
@@ -74,6 +76,18 @@ class ProductController extends Controller
     {
         $result = $this->service->getListByInnovate();
         return response(ResponseData::requestSuccess($result));
+    }
+
+
+    /**
+     * Get explore product list
+     * 随机获取产品三条数据
+     * @return Application|ResponseFactory|Response
+     */
+    public function getListByExplore()
+    {
+        $results = $this->service->getListByExplore();
+        return response(ResponseData::requestSuccess($results));
     }
 
     /**

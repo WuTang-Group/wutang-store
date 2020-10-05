@@ -36,14 +36,14 @@ class ProductCategoryController extends Controller
 
     /**
      * Get product category over view
-     * 获取产品分类概述(目前分为'套装系列'和'护肤系列'一级分类,只需取其下列二级分类的name,slug,thumbnail,title,title_en,sub_title)
-     * @urlParam categpory_slug required 分类slug Example:voluptatem-fuga
-     * @param $categpory_slug
+     * 获取分类概述(目前主要分类为'护肤系列';产品类为'产品系列')
+     * @urlParam navbar_category_type required 通过Navbar接口获取到的type值 Example:product
+     * @param $navbar_category_type
      * @return Application|ResponseFactory|Response
      */
-    public function getOverview($categpory_slug)
+    public function getOverview($navbar_category_type)
     {
-        $result = $this->service->getOverview($categpory_slug);
+        $result = $this->service->getOverview($navbar_category_type);
         return response(ResponseData::requestSuccess($result));
     }
 
@@ -57,19 +57,6 @@ class ProductCategoryController extends Controller
     public function getStory($category_slug)
     {
         $results = $this->service->getStory($category_slug);
-        return response(ResponseData::requestSuccess($results));
-    }
-
-    /**
-     * Get explore product category list
-     * 随机获取同分类下三条数据
-     * @urlParam category_slug required 分类slug
-     * @param $category_slug
-     * @return Application|ResponseFactory|Response
-     */
-    public function getListByExplore($category_slug)
-    {
-        $results = $this->service->getListByExplore($category_slug);
         return response(ResponseData::requestSuccess($results));
     }
 

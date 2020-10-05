@@ -17,7 +17,9 @@ class ProductCategory extends Model
         'thumbnail',
         'banner',
         'describe_img',
-        'parent_id'
+        'type',
+        'parent_id',
+        'level'
     ];
 
     /**

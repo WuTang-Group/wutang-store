@@ -2,6 +2,8 @@
 
 namespace App\Services\Api;
 
+use App\Enums\NavbarCategoryType;
+use App\Enums\ProductCategoryType;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Services\Service;
@@ -30,12 +32,30 @@ class ProductService extends Service
     }
 
     // 获取对应类别下的产品
-    public function getListByCategorySlug(string $category_slug)
+    public function getListBySlug(string $navbar_category_type, string $slug)
     {
+        switch ($navbar_category_type) {
+            case NavbarCategoryType::Product:
+            {
+                return $this->product->whereParentId(0)->whereLevel(1)->whereSlug($slug)->with(['children' => function ($query) {
+                    $query->select('parent_id', 'slug', 'product_name', 'product_name_en', 'thumbnail', 'short_description', 'price', 'sale_price', 'level');
+                }])->get()->makeHidden([
+                    'short_description_en', 'seo_title', 'seo_keyword', 'seo_description', 'benefit', 'benefit_en', 'tech_description',
+                    'tech_description_en', 'description', 'description_en', 'usage', 'usage_en', 'main_image', 'main_image_2', 'benefit_image', 'product_video',
+                    'status', 'rating', 'sold_count', 'review_count', 'created_at', 'updated_at'
+                ]);
+            }
+            case NavbarCategoryType::ProductCategorySkinCare:
+            {
+                return $this->productCategory->whereSlug($slug)->with(['products' => function($query) {
+                    $query->select('product_category_id','slug','product_name','product_name_en','thumbnail','short_description','price','sale_price');
+                }])->get()->makeHidden(['thumbnail','describe_en','describe_img','parent_id','type','created_at','updated_at']);
+            }
+        }
         //return $this->product->with('product_category')->paginate($requestData['page_limit']);
-        return $this->productCategory->with(['products' =>function($query){
-            $query->select('product_category_id','product_name','product_name_en','thumbnail','slug','short_description','price','sale_price');
-        }])->whereSlug($category_slug)->get()->makeHidden(['thumbnail','describe','describe_en','describe_img','created_at','updated_at']);
+//        return $this->productCategory->with(['products' =>function($query){
+//            $query->select('product_category_id','product_name','product_name_en','thumbnail','slug','short_description','price','sale_price');
+//        }])->whereSlug($category_slug)->get()->makeHidden(['thumbnail','describe','describe_en','describe_img','created_at','updated_at']);
     }
 
     // 随机获取不同状态的产品
@@ -50,8 +70,14 @@ class ProductService extends Service
     public function getListByInnovate()
     {
         return $this->product->whereStatus(1)->inRandomOrder()->take(4)->get([
-            'product_category_id','product_name','product_name_en','thumbnail','slug','short_description','price','sale_price'
+            'product_category_id', 'product_name', 'product_name_en', 'thumbnail', 'slug', 'short_description', 'price', 'sale_price'
         ]);
+    }
+
+    // 随机获取三条继续探索产品
+    public function getListByExplore()
+    {
+        return $this->product->inRandomOrder()->take(3)->get(['id', 'thumbnail', 'slug', 'product_name', 'product_name_en']);
     }
 
     // 根据商品ID列表获取商品详情列表

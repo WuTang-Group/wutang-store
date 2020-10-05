@@ -2,17 +2,21 @@
 
 namespace App\Services\Api;
 
+use App\Enums\NavbarCategoryType;
+use App\Enums\ProductCategoryType;
+use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Services\Service;
 use Illuminate\Support\Facades\Log;
 
 class ProductCategoryService extends Service
 {
-    private $productCategory;
+    private $productCategory,$product;
 
-    public function __construct(ProductCategory $productCategory)
+    public function __construct(Product $product,ProductCategory $productCategory)
     {
         $this->productCategory = $productCategory;
+        $this->product = $product;
     }
 
 
@@ -22,12 +26,23 @@ class ProductCategoryService extends Service
         return $this->productCategory->has('children')->with(['children'])->get();
     }
 
-    // 获取产品分类概述
-    public function getOverview(string $categpory_slug)
+    // 获取导航产品分类概述
+    public function getOverview(string $navbar_category_type)
     {
-        return $this->productCategory->whereSlug($categpory_slug)->with(['children' => function($query){
-            $query->select('parent_id','name','slug','thumbnail','title','title_en');
-        }])->first()->makeHidden(['thumbnail','banner','describe','describe_en','describe_img','created_at','updated_at']);
+        switch ($navbar_category_type)
+        {
+            case NavbarCategoryType::Product:
+            {
+                return $this->product->whereParentId(0)->whereLevel(1)->get(['id','slug','thumbnail','product_name','product_name_en']);
+            }
+            case NavbarCategoryType::ProductCategorySkinCare:
+            {
+                return $this->productCategory->whereType(ProductCategoryType::SkinCare)->get(['id','name','thumbnail','title','sub_title','title_en']);
+            }
+        }
+//        return $this->productCategory->whereSlug($category_type)->with(['children' => function($query){
+//            $query->select('parent_id','name','slug','thumbnail','title','title_en');
+//        }])->first()->makeHidden(['thumbnail','banner','describe','describe_en','describe_img','created_at','updated_at']);
     }
 
     // 获取分类故事
@@ -36,7 +51,7 @@ class ProductCategoryService extends Service
         return $this->productCategory->with(['productCategoryStories'])->whereSlug($slug)->get();
     }
 
-    // 随机获取同分类下3条数据
+    // 随机获取同分类下3条数据(继续探索)
     public function getListByExplore(string $slug, int $length = 3)
     {
         try {

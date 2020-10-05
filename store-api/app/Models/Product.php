@@ -50,7 +50,7 @@ class Product extends Model
     }
 
     // 产品子级
-    public function child() {
+    public function children() {
         return $this->hasMany(Product::class, 'parent_id');
     }
 

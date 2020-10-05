@@ -25,6 +25,7 @@ class CreateProductCategoriesTable extends Migration
             $table->text('describe')->nullable()->comment('分类描述');
             $table->text('describe_en')->nullable()->comment('分类英文描述');
             $table->text('describe_img')->nullable()->comment('分类描述图(显示于中下描述位置,与描述匹配)');
+            $table->integer('type')->default(1)->comment('分类类,默认为1护肤,具体参照ProductCategoryType枚举类');
             $table->unsignedBigInteger('parent_id')->default(0)->comment('分类从属关系,0为默认一级分类');
             $table->integer('level')->default(1)->comment('分类级别');
             $table->timestamps();

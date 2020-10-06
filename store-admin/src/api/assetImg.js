@@ -37,3 +37,10 @@ export function updateAssetImg(assetImgId, data) {
     data
   })
 }
+
+export function getEnum(name) {
+  return request({
+    url: 'admin/enums/' + name,
+    method: 'get'
+  })
+}

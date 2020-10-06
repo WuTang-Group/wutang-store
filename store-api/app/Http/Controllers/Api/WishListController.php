@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\WishListRequest;
 use App\Services\Api\WishListService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
@@ -44,13 +45,12 @@ class WishListController extends Controller
      * Request Add product to wish list
      * 请求将商品加入心愿单
      * @bodyParam product_id integer required 商品id
-     * @param $product_id
-     * @param Request $request
+     * @param WishListRequest $request
      * @return Application|ResponseFactory|Response
      */
-    public function store($product_id,Request $request)
+    public function store(WishListRequest $request)
     {
-        $results = $this->service->store($product_id,$request);
+        $results = $this->service->store($request);
         return response(ResponseData::requestSuccess($results));
     }
 

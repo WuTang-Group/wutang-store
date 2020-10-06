@@ -13,16 +13,16 @@ class WishListService extends Service
     }
 
     // 加入心愿单
-    public function store($productId,$params)
+    public function store(object $params)
     {
-        $user = $params->user();
+        $user = $this->user();
         //attach将用户与商品关联
         // 判断用户若与商品并没关联则进行关联
-        if ($user->wishLists()->find($productId)) {
+        if ($user->wishLists()->find($params->product_id)) {
             return [];
         }
 
-        $user->wishLists()->attach($productId);
+        $user->wishLists()->attach($params->product_id);
 
         return [];
     }

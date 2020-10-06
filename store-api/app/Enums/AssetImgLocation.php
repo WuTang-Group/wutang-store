@@ -13,4 +13,5 @@ use BenSampo\Enum\Enum;
 final class AssetImgLocation extends Enum
 {
     const Index = 1; // 首页
+    const Other = -1; // 其他
 }

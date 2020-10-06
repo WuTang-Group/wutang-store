@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Api;
 
 use App\Http\Requests\FormRequest;
+use App\Models\UserWishList;
 
 class WishListRequest extends FormRequest
 {
@@ -19,7 +20,12 @@ class WishListRequest extends FormRequest
             case 'store':
             {
                 return [
-                    'product_id' => 'required|integer'
+                    'product_id' => ['required','integer',function($attribute, $value, $fail){
+                        $userWishList = UserWishList::whereUserId(auth('api')->user()->id)->find($value);
+                        if($userWishList){
+                            return $fail('该商品已在心愿单');
+                        }
+                    }]
                 ];
             }
         }

@@ -21,7 +21,7 @@ class WishListRequest extends FormRequest
             {
                 return [
                     'product_id' => ['required','integer',function($attribute, $value, $fail){
-                        $userWishList = UserWishList::whereUserId(auth('api')->user()->id)->find($value);
+                        $userWishList = UserWishList::whereUserId(auth('api')->user()->id)->whereProductId($value)->first();
                         if($userWishList){
                             return $fail('该商品已在心愿单');
                         }

@@ -49,7 +49,7 @@ class HomeService extends Service
             return $this->assetImg->whereType(AssetImgType::ThisMonthRecommannd)->whereImgLocation(AssetImgLocation::Index)
                 ->with(['product' => function ($query) {
                     $query->select('id', 'slug', 'product_name', 'product_name_en');
-                }])->firstOrFail()->makeHidden(['created_at', 'updated_at']);
+                }])->get()->makeHidden(['created_at', 'updated_at']);
         } catch (\Exception $e) {
             return [];
         }

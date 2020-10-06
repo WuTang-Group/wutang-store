@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import { createAssetImg, getProductBasicInfo, updateAssetImg } from '@/api/assetImg'
+import { createAssetImg, getProductBasicInfo, updateAssetImg, getEnum } from '@/api/assetImg'
 
 export default {
   name: 'CreateAssetImg',
@@ -93,28 +93,14 @@ export default {
       limitCount: 1,
       imgList: [],
       productList: [],
-      img_location: [
-        {
-          id: 1,
-          desc: '首页'
-        },
-        {
-          id: -1,
-          desc: '其他'
-        }
-      ],
-      typeList: [
-        {
-          type: 'banner'
-        },
-        {
-          type: 'discover'
-        }
-      ]
+      img_location: [],
+      typeList: []
     }
   },
   watch: {},
   created() {
+    this.getAssetImgType()
+    this.getAssetImgLocation()
     this.getInitData()
     this.getProductBasicInfo()
   },
@@ -129,6 +115,24 @@ export default {
         this.imgList.push({ 'url': this.form.img })
         this.hideUploadImg = true
       }
+    },
+    getAssetImgType() {
+      getEnum('AssetImgType').then((response) => {
+        const assetImgList = response.data.values
+        for (let i = 0; i < assetImgList.length; i++) {
+          this.typeList.push({ type: assetImgList[i] })
+        }
+      })
+    },
+    getAssetImgLocation() {
+      getEnum('AssetImgLocation').then((response) => {
+        console.log(response.data)
+        const assetImgLocationKeys = response.data.keys
+        const assetImgLocationValues = response.data.values
+        for (let i = 0; i < assetImgLocationValues.length; i++) {
+          this.img_location.push({ id: assetImgLocationValues[i], desc: assetImgLocationKeys[i] })
+        }
+      })
     },
     updateValue() {
       if (this.status === 'create') {

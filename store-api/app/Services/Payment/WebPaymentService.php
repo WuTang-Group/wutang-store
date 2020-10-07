@@ -7,6 +7,7 @@ use App\Models\AlipayLegacyExpress;
 use App\Models\Payment;
 use App\Services\Service;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\URL;
 
 class WebPaymentService extends Service
 {
@@ -32,7 +33,7 @@ class WebPaymentService extends Service
                     {
                         $payment = $this->payment->firstOrCreate(['type' => $paymentType], [
                             'type' => $paymentType,
-                            'request_url' => route('alipay.bank_gateway.payByAlipayBankGateway')
+                            'request_url' => URL::route('alipay.bank_gateway.payByAlipayBankGateway',[],false)  // 存入URI(除去域名)
                         ]);
                     }
                     break;
@@ -40,7 +41,7 @@ class WebPaymentService extends Service
                     {
                         $payment = $this->payment->firstOrCreate(['type' => $paymentType], [
                             'type' => $paymentType,
-                            'request_url' => route('alipay.legacy_express.payByAlipayLegacyExpress')
+                            'request_url' => URL::route('alipay.legacy_express.payByAlipayLegacyExpress',[],false)
                         ]);
                         $alipayLegacyExpress = AlipayLegacyExpress::firstWhere('status', 1);
                         $alipayLegacyExpress->payment()->associate($payment);
@@ -51,7 +52,7 @@ class WebPaymentService extends Service
                     {
                         $payment = $this->payment->firstOrCreate(['type' => $paymentType], [
                             'type' => $paymentType,
-                            'request_url' => route('alipay.aop_page.payByAlipayAopPage')
+                            'request_url' => URL::route('alipay.aop_page.payByAlipayAopPage',[],false)
                         ]);
                     }
                     break;
@@ -59,7 +60,7 @@ class WebPaymentService extends Service
                     {
                         $payment = $this->payment->firstOrCreate(['type' => $paymentType], [
                             'type' => $paymentType,
-                            'request_url' => route('unionpay.payByUnionpay')
+                            'request_url' => URL::route('unionpay.payByUnionpay',[],false)
                         ]);
                     }
                     break;

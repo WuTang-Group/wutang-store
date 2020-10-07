@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\ShopCartRequest;
+use App\Models\Order;
+use App\Models\Product;
+use App\Models\ShopCartItem;
 use App\Services\Api\ShopCartService;
 use Illuminate\ {
     Contracts\Foundation\Application,
@@ -48,6 +51,25 @@ class ShopCartController extends Controller
      */
     public function store(ShopCartRequest $request)
     {
+        $productList = $request->product_list;
+        foreach ($productList as $value) {
+            if (!$product = Product::find($value['product_id'])) {
+                return response(ResponseData::productNotExist($value['product_id']));
+            }
+            if ($product->stock === 0) {
+                return response(ResponseData::productSoldOut($value['product_id']));
+            }
+            if (ShopCartItem::whereUserId($this->user()->id)->whereProductId($value['product_id'])->first()) {
+                return response(ResponseData::productShopCartExist($value['product_id']));
+            }
+            // 判断用户是否买过该商品
+            $orderItem = Order::whereHas('items', function ($query) use ($value) {
+                $query->whereProductId($value['product_id']);
+            })->with('items')->whereUserId($this->user()->id)->paid()->get();
+            if (!$orderItem->isEmpty()) {
+                return response(ResponseData::productBought($value['product_id']));
+            }
+        }
         $results = $this->service->store($request);
         return $results ? response(ResponseData::requestSuccess($results)) : response(ResponseData::requestFails($request->all()));
     }

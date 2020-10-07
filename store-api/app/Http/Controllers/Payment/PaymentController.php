@@ -426,10 +426,8 @@ class PaymentController extends Controller
         try {
             if ($requestData['trade_status'] == AlipayCode::TRADE_SUCCESS || $requestData['trade_status'] == AlipayCode::TRADE_FINISHED) {
                 $requestData['status'] = AlipayCode::TRADE_SUCCESS;
+                $requestData['order_no'] = $requestData['out_trade_no'];
                 $this->orderService->changeStatus($requestData);
-                Log::info('支付宝即时到账-支付成功', ['message' => [
-                    'order_no' => $requestData['out_trade_no']
-                ]]);
 
                 return 'success'; // 固定返回success
             } else {
@@ -437,13 +435,13 @@ class PaymentController extends Controller
                 $this->orderService->changeStatus($requestData);
                 Log::info('支付宝即时到账-支付失败', ['message' => [
                     'msg' => '支付失败',
-                    'order_no' => $requestData['no']
+                    'order_no' => $requestData['out_trade_no']
                 ]]);
             }
         } catch (\Exception $e) {
             Log::error('支付宝即时到账-异步通知失败', ['message' => [
                 'msg' => $e->getMessage(),
-                'order_no' => $requestData['no']
+                'order_no' => $requestData['out_trade_no']
             ]]);
             return response(ResponseData::requestFails($requestData, '异步通知失败'));
         }

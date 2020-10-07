@@ -135,12 +135,15 @@ class OrderService extends Service
                     break;
                 case AlipayCode::TRADE_SUCCESS:
                     {
-                        $this->order->whereNo($queries['out_trade_no'])->update([
+                        $this->order->whereNo($queries['order_no'])->update([
                             'status' => OrderStatusCode::StatusPlaced,
                             'payment_method' => 'alipay',
                             'payment_no' => $queries['payment_no'],
                             'paid_at' => now()->toDateTimeString()
                         ]);
+                        Log::info('支付宝即时到账-支付成功', ['message' => [
+                            'order_no' => $queries['order_no']
+                        ]]);
                     }
                     break;
                 case AlipayBankGatewayCode::PaySuccess:

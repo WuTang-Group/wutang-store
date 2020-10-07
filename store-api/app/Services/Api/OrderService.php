@@ -118,7 +118,7 @@ class OrderService extends Service
     }
 
     // 改变订单状态
-    public function changeStatus(object $queries)
+    public function changeStatus(array $queries)
     {
         try {
 

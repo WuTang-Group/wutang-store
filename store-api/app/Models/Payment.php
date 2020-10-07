@@ -8,6 +8,11 @@ class Payment extends Model
         'type', 'img', 'status','request_url'
     ];
 
+    public function getRequestUrlAttribute()
+    {
+        return config('app.url').$this->attributes['request_url'];
+    }
+
     /**
      * 一对多关联AlipayBankGateway模型
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

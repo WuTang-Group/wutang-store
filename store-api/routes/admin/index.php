@@ -70,6 +70,7 @@ Route::group(['namespace' => 'Admin'], function () {
         Route::get('product', 'ProductController@queryList')->name('product.queryList');
         Route::get('product/basic_info_list', 'ProductController@basicInfoList')->name('product.basicInfoList');
         Route::get('product/{product_slug}', 'ProductController@productQuery')->name('product.productQuery');
+        Route::get('products/parent', 'ProductController@parentProducts')->name('product.parent');
         Route::post('product', 'ProductController@store')->name('product.store');
         Route::post('product/{product_slug}', 'ProductController@edit')->name('product.edit');
         Route::delete('product/{product_slug}', 'ProductController@deleteProduct')->name('product.deleteProduct');

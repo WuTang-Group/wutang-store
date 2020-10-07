@@ -13,6 +13,44 @@
               <el-input v-model="form.product_name_en" />
             </el-form-item>
           </el-col>
+          <!--          <el-col :span="7">-->
+          <!--            <el-form-item label="商品所属类目" prop="product_category_id">-->
+          <!--              <el-select v-model="form.product_category_id" placeholder="请选择" style="width: 190px">-->
+          <!--                <el-option-->
+          <!--                  v-for="item in product_category"-->
+          <!--                  :key="item.id"-->
+          <!--                  :label="item.title"-->
+          <!--                  :value="item.id"-->
+          <!--                />-->
+          <!--              </el-select>-->
+          <!--            </el-form-item>-->
+          <!--          </el-col>-->
+        </el-row>
+        <el-row>
+          <el-col :span="7">
+            <el-form-item label="所属商品" prop="parent_id">
+              <el-select v-model="form.parent_id" placeholder="请选择" style="width: 190px">
+                <el-option
+                  v-for="item in parent_product"
+                  :key="item.id"
+                  :label="item.product_name"
+                  :value="item.id"
+                />
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="7">
+            <el-form-item label="Level" prop="product_name_en">
+              <el-select v-model="form.level" placeholder="请选择" style="width: 190px">
+                <el-option
+                  v-for="item in level"
+                  :key="item.id"
+                  :label="item.id"
+                  :value="item.id"
+                />
+              </el-select>
+            </el-form-item>
+          </el-col>
           <el-col :span="7">
             <el-form-item label="商品所属类目" prop="product_category_id">
               <el-select v-model="form.product_category_id" placeholder="请选择" style="width: 190px">
@@ -373,7 +411,7 @@
 </template>
 
 <script>
-import { productStore } from '@/api/product'
+import { productStore, getParentProduct } from '@/api/product'
 import Tinymce from '@/components/Tinymce'
 import { getList } from '@/api/category'
 export default {
@@ -415,13 +453,22 @@ export default {
         product_category_id: '',
         product_video: '',
         usage: '',
-        usage_en: ''
+        usage_en: '',
+        parent_id: 0,
+        level: 2
       },
       product_category: {
         id: '',
         slug: '',
         title: ''
       },
+      parent_product: [
+        { id: 0, product_name: '无' }
+      ],
+      level: [
+        { id: 1 },
+        { id: 2 }
+      ],
       previewImgDialogVisible: false,
       previewImg: '',
       // 富文本
@@ -547,6 +594,7 @@ export default {
   },
   created() {
     this.getCategoryList()
+    this.getParentProduct()
   },
   methods: {
     // 获取类目列表
@@ -556,6 +604,11 @@ export default {
       }
       getList(param).then((response) => {
         this.product_category = response.data.data
+      })
+    },
+    getParentProduct() {
+      getParentProduct().then((response) => {
+        this.parent_product = this.parent_product.concat(response.data)
       })
     },
     // 提交表单

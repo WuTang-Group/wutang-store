@@ -43,6 +43,7 @@ class PaymentRequest extends FormRequest
     {
         return [
             'no.required' => '订单号必填',
+            'no.exists' => '订单号不存在',
             'total_amount.required' => '总金额必填',
             'payment_key.required' => '支付key必填'
         ];

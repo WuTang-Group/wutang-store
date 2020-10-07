@@ -13,15 +13,15 @@ class AlipayLegacyExpress extends Model
         return $this->attributes['key'] = encrypt($this->attributes['key']);
     }
 
-    public function getReturnUrlAttribute()
-    {
-        return config('app.url').$this->attributes['return_url'];
-    }
+//    public function getReturnUrlAttribute()
+//    {
+//        return config('app.url').$this->attributes['return_url'];
+//    }
 
-    public function getNotifyUrlAttribute()
-    {
-        return config('app.url').$this->attributes['notify_url'];
-    }
+//    public function getNotifyUrlAttribute()
+//    {
+//        return config('app.url').$this->attributes['notify_url'];
+//    }
 
     /**
      * 从属关联Payment模型

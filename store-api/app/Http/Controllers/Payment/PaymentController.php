@@ -354,8 +354,8 @@ class PaymentController extends Controller
                 'laravel-omnipay.gateways.Alipay_LegacyExpress.options.partner' => $payments[0]['pid'],
                 'laravel-omnipay.gateways.Alipay_LegacyExpress.options.key' => Crypt::decrypt($payments[0]['key']),
                 'laravel-omnipay.gateways.Alipay_LegacyExpress.options.sellerEmail' => $payments[0]['seller_email'],
-                'laravel-omnipay.gateways.Alipay_LegacyExpress.options.returnUrl' => $payments[0]['return_url'],
-                'laravel-omnipay.gateways.Alipay_LegacyExpress.options.notifyUrl' => $payments[0]['notify_url']
+                'laravel-omnipay.gateways.Alipay_LegacyExpress.options.returnUrl' => config('app.url').$payments[0]['return_url'],
+                'laravel-omnipay.gateways.Alipay_LegacyExpress.options.notifyUrl' => config('app.urssl').$payments[0]['notify_url']
             ]);
             $gateway = \Omnipay::gateway('Alipay_LegacyExpress'); // 发起支付调用Ominipay的网关
             $response = $gateway->purchase($parameter)->send();

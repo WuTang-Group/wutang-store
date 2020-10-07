@@ -37,3 +37,10 @@ export function productDelete(product_slug) {
     method: 'delete'
   })
 }
+
+export function getParentProduct() {
+  return request({
+    url: 'admin/products/parent',
+    method: 'get'
+  })
+}

@@ -79,4 +79,40 @@ class ResponseData
             'msg' => is_null($msg) ? '授权无效' : $msg
         ];
     }
+
+    public static function productShopCartExist($data = null, $msg = null): array
+    {
+        return [
+            'data' => $data,
+            'code' => ResponseStatusCode::ProductShopCartExist,
+            'msg' => is_null($msg) ? '商品已存在购物车中' : $msg
+        ];
+    }
+
+    public static function productBought($data = null, $msg = null): array
+    {
+        return [
+            'data' => $data,
+            'code' => ResponseStatusCode::ProductBought,
+            'msg' => is_null($msg) ? '已购买过该商品' : $msg
+        ];
+    }
+
+    public static function productNotExist($data = null, $msg = null): array
+    {
+        return [
+            'data' => $data,
+            'code' => ResponseStatusCode::ProductNotExist,
+            'msg' => is_null($msg) ? '商品不存在' : $msg
+        ];
+    }
+
+    public static function productSoldOut($data = null, $msg = null): array
+    {
+        return [
+            'data' => $data,
+            'code' => ResponseStatusCode::ProductSoldOut,
+            'msg' => is_null($msg) ? '商品已售罄' : $msg
+        ];
+    }
 }

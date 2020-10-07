@@ -7,6 +7,7 @@ use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ProductRequest;
 use App\Services\Admin\ProductService;
+use http\Env\Response;
 use Illuminate\Http\Request;
 
 /**
@@ -198,5 +199,15 @@ class ProductController extends Controller
     {
         $result = $this->productService->deleteProduct($product_slug);
         return $result ? response()->json(ResponseData::requestSuccess()) : response()->json(ResponseData::requestFails());
+    }
+
+    /**
+     * get parent products
+     * 获取父级产品列表
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function parentProducts() {
+        $result = $this->productService->parentProducts();
+        return response()->json(ResponseData::requestSuccess($result));
     }
 }

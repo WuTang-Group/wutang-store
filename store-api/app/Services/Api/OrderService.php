@@ -135,7 +135,7 @@ class OrderService extends Service
                     break;
                 case AlipayCode::TRADE_SUCCESS:
                     {
-                        $this->order->whereNo($queries['order_no'])->update([
+                        $this->order->whereNo($queries['out_trade_no'])->update([
                             'status' => OrderStatusCode::StatusPlaced,
                             'payment_method' => 'alipay',
                             'payment_no' => $queries['payment_no'],

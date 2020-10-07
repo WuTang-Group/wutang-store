@@ -17,6 +17,10 @@ class ResponseCodeController extends Controller
      * @queryParam 40004 查询为空
      * @queryParam 40005 请求过期
      * @queryParam 50001 操作失败
+     * @queryParam P1001 产品存在购物车
+     * @queryParam P1002 已购买过该商品
+     * @queryParam P4004 商品不存在
+     * @queryParam P4005 商品售罄
      */
     public function index(){}
 }

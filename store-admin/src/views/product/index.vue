@@ -37,6 +37,8 @@
           </template>
         </el-table-column>
         <el-table-column header-align="center" label="商品名称(英文)" prop="product_name_en" align="center" />
+        <el-table-column header-align="center" label="所属商品" prop="parent.product_name" align="center" />
+        <el-table-column header-align="center" label="Level" prop="level" align="center" />
         <el-table-column header-align="center" label="所属分类" prop="product_category.title" align="center" />
         <el-table-column header-align="center" label="产品缩略图" align="center" width="125">
           <template slot-scope="{row}">

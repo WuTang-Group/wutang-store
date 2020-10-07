@@ -138,7 +138,7 @@ class OrderService extends Service
                         $this->order->whereNo($queries['order_no'])->update([
                             'status' => OrderStatusCode::StatusPlaced,
                             'payment_method' => 'alipay',
-                            'payment_no' => $queries['payment_no'],
+                            'payment_no' => $queries['trade_no'],
                             'paid_at' => now()->toDateTimeString()
                         ]);
                         Log::info('支付宝即时到账-支付成功', ['message' => [

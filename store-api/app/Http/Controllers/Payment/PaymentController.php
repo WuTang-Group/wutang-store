@@ -359,6 +359,10 @@ class PaymentController extends Controller
             ]);
             $gateway = \Omnipay::gateway('Alipay_LegacyExpress'); // 发起支付调用Ominipay的网关
             $response = $gateway->purchase($parameter)->send();
+            Log::info('支付宝即时到账-支付发起', ['message' => [
+                'msg' => '支付宝即时到账-支付发起',
+                'order_no' => $requestData['no']
+            ]]);
 
             return response(ResponseData::requestSuccess(['pay_url' => $response->getRedirectUrl()]));
         } catch (\Exception $e) {

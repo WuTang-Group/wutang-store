@@ -25,7 +25,7 @@ class PaymentRequest extends FormRequest
             case 'payByUnionpay':
             {
                 return [
-                    'no' => ['required','exists:order'],
+                    'no' => ['required','exists:orders'],
                     'total_amount' => 'required',
                     'payment_key' => ['required',function($attribute, $value, $fail) {
                         if(!Cache::get($value)){

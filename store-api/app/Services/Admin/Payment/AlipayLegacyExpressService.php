@@ -8,6 +8,7 @@ use App\Services\Service;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\URL;
 
 class AlipayLegacyExpressService extends Service
 {
@@ -44,8 +45,8 @@ class AlipayLegacyExpressService extends Service
                         $express->save();
                     }
                 }
-                $value['return_url'] = route('alipay.legacy_express.alipayLegacyExpressReturn');
-                $value['notify_url'] = route('alipay.legacy_express.alipayLegacyExpressNotify');
+                $value['return_url'] = URL::route('alipay.legacy_express.alipayLegacyExpressReturn',[],false);
+                $value['notify_url'] = URL::route('alipay.legacy_express.alipayLegacyExpressNotify',[],false);
                 $result[] = $this->alipayLegacyExpress->create($value);
             }
             return $result;

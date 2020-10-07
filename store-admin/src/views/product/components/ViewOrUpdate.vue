@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <el-card v-loading="loading" class="box-card-header" shadow="hover" style="margin-bottom: 10px">
-      <el-form ref="formRules" :model="form" :rules="formRules" :inline="true" label-position="right" label-width="120px">
+      <el-form ref="formRules" :model="form" :inline="true" label-position="right" label-width="120px">
         <el-row>
           <el-col :span="7">
             <el-form-item label="商品名称" prop="product_name">
@@ -11,6 +11,33 @@
           <el-col :span="7">
             <el-form-item label="商品英文名称" prop="product_name_en">
               <el-input v-model="form.product_name_en" :readonly="formDisable" />
+            </el-form-item>
+          </el-col>
+          <!--          <el-col :span="7">-->
+          <!--            <el-form-item label="商品所属类目" prop="product_category_id">-->
+          <!--              <el-select v-model="form.product_category_id" placeholder="请选择" :disabled="formDisable" style="width: 190px">-->
+          <!--                <el-option-->
+          <!--                  v-for="item in product_category"-->
+          <!--                  :key="item.id"-->
+          <!--                  :label="item.title"-->
+          <!--                  :value="item.id"-->
+          <!--                />-->
+          <!--              </el-select>-->
+          <!--            </el-form-item>-->
+          <!--          </el-col>-->
+        </el-row>
+        <el-row>
+          <el-col :span="7">
+            <el-form-item v-if="form.parent" label="所属商品" prop="parent">
+              <el-input v-model="form.parent.product_name" :readonly="formDisable" />
+            </el-form-item>
+            <el-form-item v-else label="所属商品" prop="parent">
+              <el-input :readonly="formDisable" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="7">
+            <el-form-item label="Level" prop="level">
+              <el-input v-model="form.level" :readonly="formDisable" />
             </el-form-item>
           </el-col>
           <el-col :span="7">
@@ -423,7 +450,11 @@ export default {
         product_category_id: '',
         product_video: '',
         usage: '',
-        usage_en: ''
+        usage_en: '',
+        parent: {
+          id: '',
+          product_name: ''
+        }
       },
       product_category: {
         id: '',
@@ -495,6 +526,12 @@ export default {
         ],
         status: [
           { required: true, message: '请选择商品状态', trigger: 'change' }
+        ],
+        parent: [
+          { required: true, message: '请选择上级商品', trigger: 'change' }
+        ],
+        level: [
+          { required: true, message: '请选择级别', trigger: 'change' }
         ],
         stock: [
           { required: true, message: '请输入商品库存量', trigger: 'blur' },

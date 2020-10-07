@@ -97,8 +97,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapPaymentRoutes()
     {
-        Route::prefix('api')
-            ->namespace($this->namespace)
+        Route::namespace($this->namespace)
             ->group(base_path('routes/payment/index.php'));
     }
 }

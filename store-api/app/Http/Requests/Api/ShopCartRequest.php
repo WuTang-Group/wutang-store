@@ -24,22 +24,22 @@ class ShopCartRequest extends FormRequest
                 return [
                     'product_list' => 'required|array',
                     'product_list.*.product_id' => ['required', function ($attribute, $value, $fail) {
-                        if (!$product = Product::find($value)) {
-                            return $fail('该商品不存在'.$value);
-                        }
-                        if ($product->stock === 0) {
-                            return $fail('该商品已售完'.$value);
-                        }
-                        if (ShopCartItem::whereUserId($this->user('api')->id)->whereProductId($value)->first()) {
-                            return $fail('您购物车已有该商品'.$value);
-                        }
-                        // 判断用户是否买过该商品
-                        $orderItem = Order::whereHas('items', function ($query) use ($value) {
-                            $query->whereProductId($value);
-                        })->with('items')->whereUserId($this->user()->id)->paid()->get();
-                        if (!$orderItem->isEmpty()) {
-                            return $fail('您已购买过该商品'.$value);
-                        }
+//                        if (!$product = Product::find($value)) {
+//                            return $fail('该商品不存在'.$value);
+//                        }
+//                        if ($product->stock === 0) {
+//                            return $fail('该商品已售完'.$value);
+//                        }
+//                        if (ShopCartItem::whereUserId($this->user('api')->id)->whereProductId($value)->first()) {
+//                            return $fail('您购物车已有该商品'.$value);
+//                        }
+//                        // 判断用户是否买过该商品
+//                        $orderItem = Order::whereHas('items', function ($query) use ($value) {
+//                            $query->whereProductId($value);
+//                        })->with('items')->whereUserId($this->user()->id)->paid()->get();
+//                        if (!$orderItem->isEmpty()) {
+//                            return $fail('您已购买过该商品'.$value);
+//                        }
                         // 判断用户订单中是否存在未付款商品
                         $orderItem = Order::whereHas('items', function ($query) use ($value) {
                             $query->whereProductId($value);

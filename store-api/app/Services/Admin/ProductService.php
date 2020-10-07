@@ -26,7 +26,11 @@ class ProductService extends Service
         $requestData = page_limit($queries);
         return $this->product->with(['productCategory' => function ($query) {
             $query->select('id', 'title');
-        }])->latest()->paginate($requestData['page_limit']);
+        }])->
+        with(['parent' => function ($query) {
+            $query->select('id', 'product_name');
+        }])->
+        latest()->paginate($requestData['page_limit']);
     }
 
     // 获取产品简要信息
@@ -34,6 +38,7 @@ class ProductService extends Service
     {
         return $this->product->select('id', 'product_name')->get();
     }
+
     public function store($queries)
     {
         // 添加商品
@@ -110,7 +115,14 @@ class ProductService extends Service
 
     public function productQuery($product_slug)
     {
-        Log::info($product_slug);
-        return $this->product->with('productCategory')->where('slug', $product_slug)->first();
+        return $this->product->with('productCategory')->
+        with(['parent' => function ($query) {
+            $query->select('id', 'product_name');
+        }])->where('slug', $product_slug)->first();
+    }
+
+    public function parentProducts()
+    {
+        return $this->product->where(['parent_id' => 0, 'level' => 1])->select('id', 'product_name')->get();
     }
 }

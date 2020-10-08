@@ -38,7 +38,7 @@ class OrderService extends Service
         $requestData = page_limit($params->all());
 //        return $this->order->query()->with(['items.product', 'items.productSku'])
 //            ->whereUserId($this->user()->id)->orderBy('created_at', 'desc');
-        return $this->order->load(['items.product'])->whereUserId($this->user()->id)->paginate($requestData['page_limit']);
+        return $this->order->load(['items.product'])->whereUserId($this->user()->id)->where('status','!=',OrderStatusCode::StatusCanceled)->paginate($requestData['page_limit']);
     }
 
     // 获取订单详情

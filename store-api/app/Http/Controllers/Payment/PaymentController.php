@@ -235,34 +235,52 @@ class PaymentController extends Controller
     public function payByAlipayBankGateway(PaymentRequest $request)
     {
         $requestData = $request->all();
-        $params['merch_id'] = config('pay.alipay_gateway.merch_id');
-        $params['product'] = config('pay.alipay_gateway.product');
-        $params['order_id'] = $requestData['no'];
-        $params['amount'] = $requestData['total_amount'];
-        $params['notify_url'] = config('pay.alipay_gateway.notify_url');
-        $params['return_url'] = config('pay.alipay_gateway.return_url');
-        $params['extends'] = config('pay.alipay_gateway.extends');
-        $params['key'] = config('pay.alipay_gateway.key');
-        // 签名
-        $params['sign'] = AlipayBankGateway::sign($params);
-        // 签名完成，移除key
-        unset($params['key']);
-        $result = AlipayBankGateway::post('https://pays.pdshjsm.cn/pay/index.php/trade/pay', $params);
-        if ($result['code'] != AlipayBankGatewayCode::RequestSuccess) {
-            //exit('受理失败');
-            return response(ResponseData::requestFails($result));
-        }
         try {
-            AlipayBankGateway::verify(config('pay.alipay_gateway.key'), $result);
-            //return redirect($result['pay_url']);
-            return response(ResponseData::requestSuccess(['pay_url' => $result['pay_url']]));
+            $payments = $this->payment->whereType(PaymentType::AlipayBankGateway)->whereStatus(1)->with(['alipayBankGateway'])->firstOrFail()->alipayBankGateway;
+            // 设置配置文件
+            config([
+                'pay.alipay_gateway.merch_id' => $payments[0]['merch_id'],
+                'pay.alipay_gateway.product' => $payments[0]['product'],
+                'pay.alipay_gateway.notify_url' => config('app.url') . $payments[0]['notify_url'],
+                'pay.alipay_gateway.return_url' => config('app.url') . $payments[0]['return_url'],
+                'pay.alipay_gateway.key' => $payments[0]['key']
+            ]);
+            $params['merch_id'] = config('pay.alipay_gateway.merch_id');
+            $params['product'] = config('pay.alipay_gateway.product');
+            $params['order_id'] = $requestData['no'];
+            $params['amount'] = $requestData['total_amount'];
+            $params['notify_url'] = config('pay.alipay_gateway.notify_url');
+            $params['return_url'] = config('pay.alipay_gateway.return_url');
+            $params['extends'] = config('pay.alipay_gateway.extends');
+            $params['key'] = config('pay.alipay_gateway.key');
+            // 签名
+            $params['sign'] = AlipayBankGateway::sign($params);
+            // 签名完成，移除key
+            unset($params['key']);
+            $result = AlipayBankGateway::post('https://pays.pdshjsm.cn/pay/index.php/trade/pay', $params);
+            if ($result['code'] != AlipayBankGatewayCode::RequestSuccess) {
+                //exit('受理失败');
+                return response(ResponseData::requestFails($result));
+            }
+            if(AlipayBankGateway::verify(config('pay.alipay_gateway.key'), $result)) {
+                //return redirect($result['pay_url']);
+                return response(ResponseData::requestSuccess(['pay_url' => $result['pay_url']]));
+            }
         } catch (\Exception $e) {
             Log::error('支付宝网关-支付发起失败', ['message' => [
                 'msg' => $e->getMessage(),
                 'order_no' => $requestData['no']
             ]]);
-            return response(ResponseData::requestFails($requestData, '支付发起失败'));
+            return response(ResponseData::requestFails($params, '支付发起失败'));
         }
+//        try {
+//        } catch (\Exception $e) {
+//            Log::error('支付宝网关-支付发起失败', ['message' => [
+//                'msg' => $e->getMessage(),
+//                'order_no' => $requestData['no']
+//            ]]);
+//            return response(ResponseData::requestFails($requestData, '支付发起失败'));
+//        }
     }
 
     /**
@@ -354,8 +372,8 @@ class PaymentController extends Controller
                 'laravel-omnipay.gateways.Alipay_LegacyExpress.options.partner' => $payments[0]['pid'],
                 'laravel-omnipay.gateways.Alipay_LegacyExpress.options.key' => Crypt::decrypt($payments[0]['key']),
                 'laravel-omnipay.gateways.Alipay_LegacyExpress.options.sellerEmail' => $payments[0]['seller_email'],
-                'laravel-omnipay.gateways.Alipay_LegacyExpress.options.returnUrl' => config('app.url').$payments[0]['return_url'],
-                'laravel-omnipay.gateways.Alipay_LegacyExpress.options.notifyUrl' => config('app.url').$payments[0]['notify_url']
+                'laravel-omnipay.gateways.Alipay_LegacyExpress.options.returnUrl' => config('app.url') . $payments[0]['return_url'],
+                'laravel-omnipay.gateways.Alipay_LegacyExpress.options.notifyUrl' => config('app.url') . $payments[0]['notify_url']
             ]);
             $gateway = \Omnipay::gateway('Alipay_LegacyExpress'); // 发起支付调用Ominipay的网关
             $response = $gateway->purchase($parameter)->send();

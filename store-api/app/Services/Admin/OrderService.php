@@ -2,10 +2,10 @@
 
 namespace App\Services\Admin;
 
-use App\Enums\AlipayCode;
+use App\Enums\Payment\AlipayCode;
 use App\Enums\LoggerCollection;
 use App\Enums\OrderStatusCode;
-use App\Enums\UnionPayCode;
+use App\Enums\Payment\UnionPayCode;
 use App\Models\Order;
 use App\Models\User;
 use App\Services\Service;

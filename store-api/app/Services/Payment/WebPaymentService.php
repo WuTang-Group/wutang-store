@@ -2,7 +2,7 @@
 
 namespace App\Services\Payment;
 
-use App\Enums\PaymentType;
+use App\Enums\Payment\PaymentType;
 use App\Models\AlipayLegacyExpress;
 use App\Models\Payment;
 use App\Services\Service;

@@ -16,4 +16,9 @@ class AlipayBankGateway extends Model
     {
         return $this->belongsTo(Payment::class);
     }
+
+    public function getKeyAttribute()
+    {
+        return $this->attributes['key'] = encrypt($this->attributes['key']);
+    }
 }

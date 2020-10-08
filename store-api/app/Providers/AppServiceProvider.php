@@ -8,12 +8,14 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\TheHouse;
 use App\Models\TheHouseCategory;
+use App\Models\UnionPayGateway;
 use App\Observers\AlipayBankGatewayObserver;
 use App\Observers\AlipayLegacyExpressObserver;
 use App\Observers\ProductCategoryObserver;
 use App\Observers\ProductObserver;
 use App\Observers\TheHouseCategoryObserver;
 use App\Observers\TheHouseObserver;
+use App\Observers\UnionPayGatewayObserver;
 use Illuminate\Support\ServiceProvider;
 use Monolog\Logger;
 use Yansongda\Pay\Pay;
@@ -71,6 +73,8 @@ class AppServiceProvider extends ServiceProvider
         AlipayLegacyExpress::observe(AlipayLegacyExpressObserver::class);
         // 注册 AlipayBankGateway 观察者
         AlipayBankGateway::observe(AlipayBankGatewayObserver::class);
+        // 注册 UnionPayGateway观察者
+        UnionPayGateway::observe(UnionPayGatewayObserver::class);
         // 注册TheHouse 观察者
         TheHouse::observe(TheHouseObserver::class);
         // 注册TheHouseCategory 观察者

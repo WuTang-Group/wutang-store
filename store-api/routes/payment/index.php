@@ -35,6 +35,14 @@ Route::group(['namespace' => 'Payment'], function () {
         // 支付后通知url
         Route::post('unionpay/notify', 'PaymentController@unionpayNotify')->name('unionpay.unionpayNotify');
         /**
+         * 银联网关支付(第三方)
+         */
+        // 银行代码
+        Route::get('unionpay_gateway/pay','PaymentController@payByUnionPayGateway')->name('unionpay_gateway.pay.payByUnionPayGateway');
+        Route::get('unionpay_gateway/bank_code','PaymentController@unionPayGatewayBankCodeList')->name('unionpay_gateway.bank_code.unionPayGatewayBankCodeList');
+        Route::get('unionpay_gateway/return','PaymentController@unionPayGatewayReturn')->name('unionpay_gateway.return.unionPayGatewayReturn');
+        Route::post('unionpay_gateway/notify','PaymentController@unionPayGatewayNotify')->name('unionpay_gateway.notify.unionPayGatewayNotify');
+        /**
          * 登录后可访问
          */
         Route::group(['middleware' => ['auth:api', 'verified']], function () {

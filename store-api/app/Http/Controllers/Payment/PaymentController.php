@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Payment;
 
-use App\Enums\{AlipayCode, AlipayBankGatewayCode, LoggerCollection, PaymentType, UnionPayCode};
+use App\Enums\{LoggerCollection,
+    Payment\AlipayCode,
+    Payment\AlipayBankGatewayCode,
+    Payment\PaymentType,
+    Payment\UnionPayCode};
 use App\Handlers\ResponseData;
 use App\Models\Payment;
 use App\Payments\AlipayBankGateway;
@@ -262,7 +266,7 @@ class PaymentController extends Controller
                 //exit('受理失败');
                 return response(ResponseData::requestFails($result));
             }
-            if(AlipayBankGateway::verify(config('pay.alipay_gateway.key'), $result)) {
+            if (AlipayBankGateway::verify(config('pay.alipay_gateway.key'), $result)) {
                 //return redirect($result['pay_url']);
                 return response(ResponseData::requestSuccess(['pay_url' => $result['pay_url']]));
             }
@@ -467,5 +471,20 @@ class PaymentController extends Controller
             ]]);
             return response(ResponseData::requestFails($requestData, '异步通知失败'));
         }
+    }
+
+    public function payByUnionPayGateway(PaymentRequest $request)
+    {
+
+    }
+
+    public function unionPayGatewayReturn()
+    {
+
+    }
+
+    public function unionPayGatewayNotify()
+    {
+
     }
 }

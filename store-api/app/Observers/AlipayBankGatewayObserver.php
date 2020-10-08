@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Enums\PaymentType;
+use App\Enums\Payment\PaymentType;
 use App\Models\AlipayBankGateway;
 use App\Services\Payment\WebPaymentService;
 

@@ -3,7 +3,7 @@
 namespace App\Observers;
 
 use App\Caches\AlipayLegacyExressCache;
-use App\Enums\PaymentType;
+use App\Enums\Payment\PaymentType;
 use App\Models\AlipayLegacyExpress;
 use App\Services\Payment\WebPaymentService;
 

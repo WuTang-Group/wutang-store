@@ -48,4 +48,13 @@ class Payment extends Model
     {
         return $this->hasMany(AlipayAopPage::class);
     }
+
+    /**
+     * 一对多关联UnionPayGateway模型
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function unionPayGateway()
+    {
+        return $this->hasMany(UnionPayGateway::class);
+    }
 }

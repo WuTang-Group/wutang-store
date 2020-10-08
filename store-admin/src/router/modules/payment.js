@@ -12,6 +12,14 @@ const paymentRouter = {
   },
   children: [
     {
+      path: 'payment-list',
+      component: () => import('@/views/payment/payment/index'),
+      name: 'PaymentList',
+      meta: {
+        title: 'paymentList'
+      }
+    },
+    {
       path: 'legacy-express-list',
       component: () => import('@/views/payment/AlipayLegacyExpress/index'),
       name: 'LegacyExpressList',
@@ -30,11 +38,21 @@ const paymentRouter = {
       }
     },
     {
-      path: 'payment-list',
-      component: () => import('@/views/payment/payment/index'),
-      name: 'PaymentList',
+      path: 'bank-gateway-list',
+      component: () => import('@/views/payment/AlipayBankGateway/index'),
+      name: 'BankGatewayList',
       meta: {
-        title: 'paymentList'
+        title: 'bankGatewayList',
+        noCache: true
+      }
+    },
+    {
+      path: 'create-bank-gateway',
+      component: () => import('@/views/payment/AlipayBankGateway/components/create-bank-gateway'),
+      name: 'CreateBankGateway',
+      hidden: true,
+      meta: {
+        title: 'createBankGateway'
       }
     }
   ]

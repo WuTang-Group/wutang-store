@@ -2,11 +2,13 @@
 
 namespace App\Providers;
 
+use App\Models\AlipayBankGateway;
 use App\Models\AlipayLegacyExpress;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\TheHouse;
 use App\Models\TheHouseCategory;
+use App\Observers\AlipayBankGatewayObserver;
 use App\Observers\AlipayLegacyExpressObserver;
 use App\Observers\ProductCategoryObserver;
 use App\Observers\ProductObserver;
@@ -67,6 +69,8 @@ class AppServiceProvider extends ServiceProvider
         ProductCategory::observe(ProductCategoryObserver::class);
         // 注册 AlipayLegacyExpress 观察者
         AlipayLegacyExpress::observe(AlipayLegacyExpressObserver::class);
+        // 注册 AlipayBankGateway 观察者
+        AlipayBankGateway::observe(AlipayBankGatewayObserver::class);
         // 注册TheHouse 观察者
         TheHouse::observe(TheHouseObserver::class);
         // 注册TheHouseCategory 观察者

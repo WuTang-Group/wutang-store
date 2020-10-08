@@ -8,6 +8,16 @@ Route::post('alipay/legacy_express','Payment\AlipayLegacyExpressController@store
 Route::put('alipay/legacy_express/{id}','Payment\AlipayLegacyExpressController@update')->name('alipay.legacy_express.update');
 Route::delete('alipay/legacy_express/{id}','Payment\AlipayLegacyExpressController@delete')->name('alipay.legacy_express.delete');
 Route::put('alipay/legacy_express/status/{id}','Payment\AlipayLegacyExpressController@updateStatus')->name('alipay.legacy_express.status.updateStatus');
-
+/**
+ * payment
+ */
 Route::get('payment', 'Payment\paymentController@getPayments')->name('payment');
 Route::post('payment/{id}', 'Payment\paymentController@paymentImgStoreById')->name('payment');
+/**
+ * Alipay Bank Gateway
+ */
+Route::get('alipay/bank_gateway', 'Payment\AlipayBankGatewayController@index')->name('alipay.bank_gateway.index');
+Route::post('alipay/bank_gateway', 'Payment\AlipayBankGatewayController@store')->name('alipay.bank_gateway.store');
+Route::put('alipay/bank_gateway/{id}', 'Payment\AlipayBankGatewayController@update')->name('alipay.bank_gateway.update');
+Route::put('alipay/bank_gateway/status/{id}', 'Payment\AlipayBankGatewayController@updateStatus')->name('alipay.bank_gateway.updateStatus');
+Route::delete('alipay/bank_gateway/{id}', 'Payment\AlipayBankGatewayController@delete')->name('alipay.bank_gateway.delete');

@@ -16,6 +16,11 @@ use App\Payments\AlipayLegacyExpress\AlipayCore;
 use App\Payments\AlipayLegacyExpress\AlipayMD5;
 use DOMDocument;
 
+/**
+ * Class AlipayLegacyExpress
+ * 支付宝即时到账
+ * @package App\Payments
+ */
 class AlipayLegacyExpress
 {
 

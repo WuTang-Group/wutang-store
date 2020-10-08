@@ -6,6 +6,11 @@ namespace App\Payments;
 
 use GuzzleHttp\Client;
 
+/**
+ * Class AlipayBankGateway
+ * 支付宝网关支付(第三方转发)
+ * @package App\Payments
+ */
 class AlipayBankGateway
 {
     /**

@@ -2,23 +2,25 @@
 
 namespace App\Services\Api;
 
-use App\Enums\AlipayCode;
-use App\Enums\AlipayBankGatewayCode;
-use App\Enums\CacheKeyPrefix;
-use App\Enums\LoggerCollection;
-use App\Enums\OrderStatusCode;
-use App\Enums\UnionPayCode;
+use App\Caches\OrderPaymentCache;
+use App\Enums\ {
+    AlipayCode,
+    AlipayBankGatewayCode,
+    CacheKeyPrefix,
+    LoggerCollection,
+    OrderStatusCode,
+    UnionPayCode
+};
 use App\Events\OrderStatusUpdated;
 use App\Exceptions\InvalidRequestException;
 use App\Handlers\OrderHandler;
-use App\Http\Controllers\Api\CacheController;
-use App\Models\Order;
-use App\Models\Product;
-use App\Models\UserAddress;
+use App\Models\{
+    Order, Product, UserAddress
+};
 use App\Services\Service;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\{
+    Facades\Cache, Facades\DB, Facades\Log
+};
 
 class OrderService extends Service
 {
@@ -101,7 +103,7 @@ class OrderService extends Service
                 return $order;
             });
             // 缓存订单支付倒计时
-            $cacheResult = CacheController::orderPayment($orderRequest);
+            $cacheResult = OrderPaymentCache::store($orderRequest);
             if (!$cacheResult) {
                 return false;
             }

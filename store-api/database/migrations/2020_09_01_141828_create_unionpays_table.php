@@ -19,7 +19,7 @@ class CreateUnionpaysTable extends Migration
 //            $table->foreign('payment_id')->references('id')->on('payments')->onUpdate('cascade');
             $table->string('return_url')->comment('前端回调URL');
             $table->string('notify_url')->comment('异步回调URL');
-            $table->integer('status')->default(1)->comment('激活状态:1激活，-1未激活');
+            $table->integer('status')->default(-1)->comment('激活状态:1激活，-1未激活');
             $table->timestamps();
         });
     }

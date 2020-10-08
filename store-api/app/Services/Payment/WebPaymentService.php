@@ -3,8 +3,10 @@
 namespace App\Services\Payment;
 
 use App\Enums\Payment\PaymentType;
+use App\Models\AlipayBankGateway;
 use App\Models\AlipayLegacyExpress;
 use App\Models\Payment;
+use App\Models\UnionPayGateway;
 use App\Services\Service;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
@@ -35,6 +37,9 @@ class WebPaymentService extends Service
                             'type' => $paymentType,
                             'request_url' => URL::route('alipay.bank_gateway.payByAlipayBankGateway',[],false)  // 存入URI(除去域名)
                         ]);
+                        $alipayBankGateway = AlipayBankGateway::firstWhere('status', 1);
+                        $alipayBankGateway->payment()->associate($payment);
+                        $alipayBankGateway->save();
                     }
                     break;
                 case PaymentType::AlipayLegacyExpress:
@@ -64,6 +69,16 @@ class WebPaymentService extends Service
                         ]);
                     }
                     break;
+                case PaymentType::UnionPayGateway:
+                {
+                    $payment = $this->payment->firstOrCreate(['type' => $paymentType],[
+                        'type' => $paymentType,
+                        'request_url' => URL::route('unionpay_gateway.pay.payByUnionPayGateway'.[].false)
+                    ]);
+                    $unionPayGateway = UnionPayGateway::firstWhere('status', 1);
+                    $unionPayGateway->payment()->associate($payment);
+                    $unionPayGateway->save();
+                }
             }
             return $payment;
         } catch (\Exception $e) {

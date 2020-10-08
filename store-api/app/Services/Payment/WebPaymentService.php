@@ -35,7 +35,7 @@ class WebPaymentService extends Service
                     {
                         $payment = $this->payment->firstOrCreate(['type' => $paymentType], [
                             'type' => $paymentType,
-                            'request_url' => URL::route('alipay.bank_gateway.payByAlipayBankGateway',[],false)  // 存入URI(除去域名)
+                            'request_url' => URL::route('alipay.bank_gateway.payByAlipayBankGateway', [], false)  // 存入URI(除去域名)
                         ]);
                         $alipayBankGateway = AlipayBankGateway::firstWhere('status', 1);
                         $alipayBankGateway->payment()->associate($payment);
@@ -46,7 +46,7 @@ class WebPaymentService extends Service
                     {
                         $payment = $this->payment->firstOrCreate(['type' => $paymentType], [
                             'type' => $paymentType,
-                            'request_url' => URL::route('alipay.legacy_express.payByAlipayLegacyExpress',[],false)
+                            'request_url' => URL::route('alipay.legacy_express.payByAlipayLegacyExpress', [], false)
                         ]);
                         $alipayLegacyExpress = AlipayLegacyExpress::firstWhere('status', 1);
                         $alipayLegacyExpress->payment()->associate($payment);
@@ -57,7 +57,7 @@ class WebPaymentService extends Service
                     {
                         $payment = $this->payment->firstOrCreate(['type' => $paymentType], [
                             'type' => $paymentType,
-                            'request_url' => URL::route('alipay.aop_page.payByAlipayAopPage',[],false)
+                            'request_url' => URL::route('alipay.aop_page.payByAlipayAopPage', [], false)
                         ]);
                     }
                     break;
@@ -65,15 +65,15 @@ class WebPaymentService extends Service
                     {
                         $payment = $this->payment->firstOrCreate(['type' => $paymentType], [
                             'type' => $paymentType,
-                            'request_url' => URL::route('unionpay.payByUnionpay',[],false)
+                            'request_url' => URL::route('unionpay.payByUnionpay', [], false)
                         ]);
                     }
                     break;
                 case PaymentType::UnionPayGateway:
                 {
-                    $payment = $this->payment->firstOrCreate(['type' => $paymentType],[
+                    $payment = $this->payment->firstOrCreate(['type' => $paymentType], [
                         'type' => $paymentType,
-                        'request_url' => URL::route('unionpay_gateway.pay.payByUnionPayGateway',[],false)
+                        'request_url' => URL::route('unionpay_gateway.pay.payByUnionPayGateway', [], false)
                     ]);
                     $unionPayGateway = UnionPayGateway::firstWhere('status', 1);
                     $unionPayGateway->payment()->associate($payment);
@@ -105,7 +105,35 @@ class WebPaymentService extends Service
                             $this->destroy($paymentType);
                         }
                         // 如果是1
-                        if($params->status == 1) {
+                        if ($params->status == 1) {
+                            $this->store($paymentType);
+                        }
+                    }
+                    break;
+                case PaymentType::AlipayBankGateway:
+                    {
+                        $model = AlipayBankGateway::find($params->id);
+                        if ($params->status == -1) {
+                            $model->payment_id = NULL;
+                            $model->save();
+                            $this->destroy($paymentType);
+                        }
+
+                        if ($params->status == 1) {
+                            $this->store($paymentType);
+                        }
+                    }
+                    break;
+                case PaymentType::UnionPayGateway:
+                    {
+                        $model = UnionPayGateway::find($params->id);
+                        if ($params->status == -1) {
+                            $model->payment_id = NULL;
+                            $model->save();
+                            $this->destroy($paymentType);
+                        }
+
+                        if ($params->status == 1) {
                             $this->store($paymentType);
                         }
                     }

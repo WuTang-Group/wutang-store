@@ -11,4 +11,5 @@ final class PaymentType extends Enum
     const AlipayLegacyExpress = 'alipay_legacy_express';  // 支付宝即时到账
     const AlipayAopPage = 'alipay_aop_page';  // 支付宝电脑网页
     const Unionpay = 'unionpay';  // 银联支付
+    const UnionPayGateway = 'unionpay_gateway';  // 银联网关支付(第三方)
 }

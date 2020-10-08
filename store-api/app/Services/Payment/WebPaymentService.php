@@ -73,7 +73,7 @@ class WebPaymentService extends Service
                 {
                     $payment = $this->payment->firstOrCreate(['type' => $paymentType],[
                         'type' => $paymentType,
-                        'request_url' => URL::route('unionpay_gateway.pay.payByUnionPayGateway'.[].false)
+                        'request_url' => URL::route('unionpay_gateway.pay.payByUnionPayGateway',[],false)
                     ]);
                     $unionPayGateway = UnionPayGateway::firstWhere('status', 1);
                     $unionPayGateway->payment()->associate($payment);

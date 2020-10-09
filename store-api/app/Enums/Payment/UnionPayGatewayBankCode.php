@@ -27,4 +27,6 @@ final class UnionPayGatewayBankCode extends Enum
 //    const SPDB = '浦发银行';  // 浦发银行
     const SHB = '上海银行';   // 上海银行
     const ECITIC = '中信银行';  // 中信银行
+    const CZB='浙商银行';
+    const CBB = '渤海银行';
 }

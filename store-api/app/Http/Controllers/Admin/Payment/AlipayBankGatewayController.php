@@ -73,15 +73,6 @@ class AlipayBankGatewayController extends Controller
         return $result ? response(ResponseData::requestSuccess($result)) : response(ResponseData::requestFails($request->all()));
     }
 
-
-    /**
-     * Request update alipay legacy express status
-     * 请求更新支付宝即时到账 支付状态
-     * @queryParam id required id值
-     * @param $id
-     * @param Request $request
-     * @return Application|ResponseFactory|Response
-     */
     /**
      * Request update alipay bank gateway status
      * 请求更新支付宝网关 支付状态

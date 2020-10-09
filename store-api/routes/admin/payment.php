@@ -21,3 +21,12 @@ Route::post('alipay/bank_gateway', 'Payment\AlipayBankGatewayController@store')-
 Route::put('alipay/bank_gateway/{id}', 'Payment\AlipayBankGatewayController@update')->name('alipay.bank_gateway.update');
 Route::put('alipay/bank_gateway/status/{id}', 'Payment\AlipayBankGatewayController@updateStatus')->name('alipay.bank_gateway.updateStatus');
 Route::delete('alipay/bank_gateway/{id}', 'Payment\AlipayBankGatewayController@delete')->name('alipay.bank_gateway.delete');
+/**
+ * Union Pay Gateway
+ */
+Route::get('union_pay/gateway', 'Payment\UnionPayGatewayController@index')->name('union.pay.gateway.index');
+Route::post('union_pay/gateway', 'Payment\UnionPayGatewayController@store')->name('union.pay.gateway.store');
+Route::put('union_pay/gateway/{id}', 'Payment\UnionPayGatewayController@update')->name('union.pay.gateway.update');
+Route::put('union_pay/gateway/status/{id}', 'Payment\UnionPayGatewayController@updateStatus')->name('union.pay.gateway.updateStatus');
+Route::delete('union_pay/gateway/{id}', 'Payment\UnionPayGatewayController@delete')->name('union.pay.gateway.delete');
+

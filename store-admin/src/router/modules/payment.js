@@ -54,6 +54,24 @@ const paymentRouter = {
       meta: {
         title: 'createBankGateway'
       }
+    },
+    {
+      path: 'union-gateway-list',
+      component: () => import('@/views/payment/UnionPayGateway/index'),
+      name: 'UnionGatewayList',
+      meta: {
+        title: 'unionGatewayList',
+        noCache: true
+      }
+    },
+    {
+      path: 'create-union-gateway',
+      component: () => import('@/views/payment/UnionPayGateway/components/create-union-gateway'),
+      name: 'CreateUnionGateway',
+      hidden: true,
+      meta: {
+        title: 'createUnionGateway'
+      }
     }
   ]
 }

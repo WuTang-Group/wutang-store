@@ -20,7 +20,7 @@ Route::group(['namespace' => 'Admin'], function () {
         // 新增用户
         Route::post('user','UserController@store')->name('user.store');
         // 更新用户信息
-        Route::put('user/{username}', 'UserController@update')->name('user.update');
+        Route::put('user/{hash_id}', 'UserController@update')->name('user.update');
         // 删除用户
         Route::delete('user/{username}', 'UserController@destroy')->name('user.destroy');
         // 修改密码

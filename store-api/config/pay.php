@@ -23,7 +23,7 @@ return [
             'file' => storage_path('logs/wechat_pay.log'),
         ],
     ],
-    // 支付网关
+    // 支付宝网关
     'alipay_gateway' => [
         'merch_id' => env('ALI_GATEWAY_MECH_ID'),
         'product' => env('ALI_GATEWAY_PRODUCT'),
@@ -48,5 +48,17 @@ return [
         'input_charset' => strtolower('utf-8'),
         'transport' => 'http',
         'cacert' => resource_path('pay/alipay/cacert.pem')  // cacert.pem文件位置
+    ],
+    // 银联网关
+    'unionpay_gateway' => [
+        'cpid' => '1289',  // CP标识
+        'cp_trade_no' => '',  // 订单号
+        'fee' => '',  // 支付金额(以分为单位)
+        'jump_url' => 'http://120.79.173.163:9100/unionpay_gateway/return',  // 前端回调地址
+        'notify_url' => 'http://120.79.173.163:9100/unionpay_gateway/notify', // 异步通知地址
+        'sign' => '',  // 签名
+        'key' => 'elo5glm8jiu15x', // 支付密钥
+        'pay_type' => 51,  // 支付方式 默认网银，参考UnionPayGatewayPayType
+        'bank_code' => 'POST'  //  银行，代码参考UnionPayGatewayBankCode枚举类
     ],
 ];

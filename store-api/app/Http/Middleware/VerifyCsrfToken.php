@@ -24,6 +24,7 @@ class VerifyCsrfToken extends Middleware
         'alipay/legacy_express/notify',
         'unionpay/return',
         'unionpay/notify',
+        'unionpay_gateway/return',
         'unionpay_gateway/notify'
     ];
 }

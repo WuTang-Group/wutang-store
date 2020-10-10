@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Payment;
 
+use App\Payments\UnionPayGateway;
 use App\Enums\{LoggerCollection,
     Payment\AlipayCode,
     Payment\AlipayBankGatewayCode,
     Payment\PaymentType,
-    Payment\UnionPayCode};
+    Payment\UnionPayCode,
+    Payment\UnionPayGatewayBankCode};
 use App\Handlers\ResponseData;
 use App\Models\Payment;
 use App\Payments\AlipayBankGateway;
@@ -475,16 +477,46 @@ class PaymentController extends Controller
 
     public function payByUnionPayGateway(PaymentRequest $request)
     {
+        $requestData = $request->all();
+        $params['cpid'] = config('pay.unionpay_gateway.cpid');
+        $params['cp_trade_no'] = date('Ymd') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);;
+        $params['fee'] = $requestData['total_amount'];
+        $params['jump_url'] = config('pay.unionpay_gateway.jump_url');
+        $params['notify_url'] = config('pay.unionpay_gateway.notify_url');
+        $params['pay_type'] = config('pay.unionpay_gateway.pay_type');
+        $params['bank_code'] = $requestData['bank_code'];
+        $params['sign'] = UnionPayGateway::sign($params,config('pay.unionpay_gateway.key'));
+        $stream = UnionPayGateway::get('http://api.wyaiya.com/pay/ap.php', $params);
+        //return response(ResponseData::requestSuccess($str));
+        Log::info('银联网银网关-支付发起', ['message' => [
+            'msg' => '银联网银网关-支付发起',
+            'order_no' => $params['cp_trade_no']
+        ]]);
+        return $stream;
 
     }
 
-    public function unionPayGatewayReturn()
+    /**
+     * Get union pay gateway bank code list
+     * 获取银联网关支付-银行代码列表
+     * @return array
+     */
+    public function unionPayGatewayBankCodeList()
     {
-
+        return ResponseData::requestSuccess(UnionPayGatewayBankCode::toArray());
     }
 
-    public function unionPayGatewayNotify()
+    public function unionPayGatewayReturn(Request $request)
     {
+//        Log::info($request->all());
+    }
 
+    public function unionPayGatewayNotify(Request $request)
+    {
+        config(['logging.channels.mongodb.collection' => LoggerCollection::OrderLog]);
+        Log::info('支付宝即时到账-支付成功', ['message' => [
+            'order_no' => '',
+            'data' => $request->all()
+        ]]);
     }
 }

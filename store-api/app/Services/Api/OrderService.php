@@ -3,14 +3,14 @@
 namespace App\Services\Api;
 
 use App\Caches\OrderPaymentCache;
-use App\Enums\ {
-    Payment\AlipayCode,
+use App\Enums\{Payment\AlipayCode,
     Payment\AlipayBankGatewayCode,
     CacheKeyPrefix,
     LoggerCollection,
     OrderStatusCode,
-    Payment\UnionPayCode
-};
+    Payment\PaymentType,
+    Payment\UnionPayCode,
+    Payment\UnionPayGatewayResultCode};
 use App\Events\OrderStatusUpdated;
 use App\Exceptions\InvalidRequestException;
 use App\Handlers\OrderHandler;
@@ -129,21 +129,24 @@ class OrderService extends Service
                     {
                         $this->order->whereNo($queries['order_no'])->update([
                             'status' => OrderStatusCode::StatusPlaced,
-                            'payment_method' => 'unionpay',
+                            'payment_method' => PaymentType::Unionpay,
                             'payment_no' => $queries['queryId'],
                             'paid_at' => now()->toDateTimeString()
                         ]);
+                        Log::info('订单交易成功', ['message' => [
+                            'order_no' => $queries['order_no']
+                        ]]);
                     }
                     break;
                 case AlipayCode::TRADE_SUCCESS:
                     {
                         $this->order->whereNo($queries['order_no'])->update([
                             'status' => OrderStatusCode::StatusPlaced,
-                            'payment_method' => 'alipay',
+                            'payment_method' => PaymentType::AlipayLegacyExpress,
                             'payment_no' => $queries['trade_no'],
                             'paid_at' => now()->toDateTimeString()
                         ]);
-                        Log::info('支付宝即时到账-支付成功', ['message' => [
+                        Log::info('订单交易成功', ['message' => [
                             'order_no' => $queries['order_no']
                         ]]);
                     }
@@ -152,7 +155,7 @@ class OrderService extends Service
                     {
                         $order = $this->order->whereNo($queries['order_no'])->update([
                             'status' => OrderStatusCode::StatusPlaced,
-                            'payment_method' => 'alipay_gateway',
+                            'payment_method' => PaymentType::AlipayBankGateway,
                             'payment_no' => $queries['out_order_no'],
                             'paid_at' => now()->toDateTimeString(),
                             'extra' => json_encode([
@@ -165,18 +168,35 @@ class OrderService extends Service
                                 'pay_time' => $queries['pay_time']  // 支付时间
                             ])
                         ]);
-                        Log::info('支付宝网关支付成功', ['message' => $order]);
+                        Log::info('订单交易成功', ['message' => [
+                            'order_no' => $queries['order_no']
+                        ]]);
                     }
                     break;
                 case AlipayBankGatewayCode::PayFaild:
                     {
                         $order = $this->order->whereNo($queries['order_no'])->update([
                             'status' => OrderStatusCode::StatusReceived,
-                            'payment_method' => 'alipay_gateway',
+                            'payment_method' => PaymentType::AlipayBankGateway,
                             'payment_no' => $queries['out_order_no'],
                             'paid_at' => now()->toDateTimeString(),
                         ]);
-                        Log::info('支付宝网关支付失败', ['message' => $order]);
+                        Log::info('订单交易失败', ['message' => [
+                            'order_no' => $queries['order_no']
+                        ]]);
+                    }
+                    break;
+                case UnionPayGatewayResultCode::Success:
+                    {
+                        $this->order->whereNo($queries['order_no'])->update([
+                            'status' => OrderStatusCode::StatusPlaced,
+                            'payment_method' => PaymentType::UnionPayGateway,
+                            'payment_no' => $queries['pay_transaction_id'],
+                            'paid_at' => now()->toDateTimeString(),
+                        ]);
+                        Log::info('订单交易成功', ['message' => [
+                            'order_no' => $queries['order_no']
+                        ]]);
                     }
                     break;
                 default:
@@ -185,6 +205,9 @@ class OrderService extends Service
                         'status' => OrderStatusCode::StatusReceived,
                         'payment_method' => NULL,
                     ]);
+                    Log::info('订单交易失败', ['message' => [
+                        'order_no' => $queries['order_no']
+                    ]]);
                 }
             }
             $order = $this->order->whereNo($queries['order_no'])->first();
@@ -215,7 +238,10 @@ class OrderService extends Service
                 return $cancelOrder;
             }
         } catch (\Exception $e) {
-            Log::error('尝试取消订单失败', ['message' => $e->getMessage()]);
+            Log::error('订单取消失败', ['message' => [
+                'msg' => $e->getMessage(),
+                'order_no' => $params['no']
+            ]]);
             return false;
         }
     }

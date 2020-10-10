@@ -25,9 +25,9 @@ class AlipayLegacyExpressObserver
     public function created(AlipayLegacyExpress $alipayLegacyExpress)
     {
         if ($alipayLegacyExpress->status == 1) {
+            $this->cache->save($alipayLegacyExpress);
             app(WebPaymentService::class)->store(PaymentType::AlipayLegacyExpress);
         }
-        //$this->cache->create($alipayLegacyExpress);
     }
 
     /**
@@ -38,8 +38,12 @@ class AlipayLegacyExpressObserver
      */
     public function updated(AlipayLegacyExpress $alipayLegacyExpress)
     {
+        if ($alipayLegacyExpress->status == 1) {
+            $this->cache->save($alipayLegacyExpress);
+        } else {
+            $this->cache->delete($alipayLegacyExpress);
+        }
         app(WebPaymentService::class)->update($alipayLegacyExpress, PaymentType::AlipayLegacyExpress);
-        //$this->cache->update($alipayLegacyExpress);
     }
 
     /**
@@ -50,8 +54,8 @@ class AlipayLegacyExpressObserver
      */
     public function deleted(AlipayLegacyExpress $alipayLegacyExpress)
     {
+        $this->cache->delete($alipayLegacyExpress);
         app(WebPaymentService::class)->destroy(PaymentType::AlipayLegacyExpress);
-        //$this->cache->delete($alipayLegacyExpress);
     }
 
     /**

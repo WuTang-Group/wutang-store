@@ -49,9 +49,9 @@ export function storeUser(data) {
 
 export function editUserInfo(params) {
   return request({
-    url: `admin/user/${params.username}`,
+    url: `admin/user/${params.hash_id}`,
     method: 'put',
-    data: params.data
+    data: params
   })
 }
 

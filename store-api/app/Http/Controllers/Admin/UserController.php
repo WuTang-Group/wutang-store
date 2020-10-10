@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Enums\Roles;
 use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UserRequest;
-use App\Models\Traits\HashIdHelper;
-use App\Models\User;
 use App\Services\Admin\UserService;
 use Exception;
-use Hashids;
 use Illuminate\{Contracts\Foundation\Application,
     Contracts\Routing\ResponseFactory,
     Http\JsonResponse,
@@ -18,7 +14,6 @@ use Illuminate\{Contracts\Foundation\Application,
     Http\Response,
     Support\Facades\Auth,
     Support\Facades\Log,
-    Support\Str
 };
 
 /**
@@ -100,16 +95,10 @@ class UserController extends Controller
      * @param UserRequest $request
      * @return JsonResponse
      */
-    public function update($username, Request $request)
+    public function update($hash_id, Request $request)
     {
-        $requestData = $request->only([
-            'name',
-            'email',
-            'phone',
-            'avatar'
-        ]);
-        $results = $this->service->update($username, $requestData);
-        return $results ? response()->json(ResponseData::requestSuccess($results)) : response()->json(ResponseData::requestFails($requestData));
+        $results = $this->service->update($hash_id, $request);
+        return $results ? response()->json(ResponseData::requestSuccess($results)) : response()->json(ResponseData::requestFails($request->all()));
     }
 
     /**

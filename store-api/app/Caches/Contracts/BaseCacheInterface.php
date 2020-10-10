@@ -4,6 +4,11 @@
 namespace App\Caches\Contracts;
 
 
+/**
+ * Interface BaseCacheInterface
+ * 基础缓存接口
+ * @package App\Caches\Contracts
+ */
 interface BaseCacheInterface
 {
     /**
@@ -11,14 +16,7 @@ interface BaseCacheInterface
      * @param $params
      * @return mixed
      */
-    public function create($params);
-
-    /**
-     * 更新缓存
-     * @param $params
-     * @return mixed
-     */
-    public function update($params);
+    public function save($params);
 
     /**
      * 删除缓存

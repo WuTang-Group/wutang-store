@@ -7,7 +7,7 @@ namespace App\Payments;
 use GuzzleHttp\Client;
 
 /**
- * Class UnionPayGateway
+ * Class UnionPayGatewayCache
  * 第三方银联支付
  * @package App\Payments
  */
@@ -15,8 +15,8 @@ class UnionPayGateway
 {
     /**
      * 生成签名
-     * @param array $parameters
-     * @param string $key
+     * @param array $parameters 参数数组
+     * @param string $key 支付密钥
      * @return string
      */
     public static function sign($parameters, $key)
@@ -34,8 +34,8 @@ class UnionPayGateway
 
     /**
      * 验签
-     * @param array $parameters
-     * @param string $key
+     * @param array $parameters 参数数组
+     * @param string $key 支付密钥
      * @return bool
      */
     public static function verify($parameters, $key)
@@ -57,9 +57,9 @@ class UnionPayGateway
 
     /**
      * 发送支付请求
-     * @param string $url
-     * @param array $data
-     * @param int $time_out
+     * @param string $url 请求地址
+     * @param array $data 请求参数
+     * @param int $time_out 超时时间
      * @return \Psr\Http\Message\StreamInterface|string
      */
     public static function get($url, $data, $time_out = 10)

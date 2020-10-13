@@ -41,7 +41,7 @@
           <template v-slot="{row,$index}">
             <div v-if="row.username!=='admin'"> <!-- 管理员账号不能编辑 -->
               <el-button type="primary" icon="el-icon-edit" circle @click="handleUpdate(row,$index)" />
-              <el-button type="danger" icon="el-icon-delete" circle />
+              <!--              <el-button type="danger" icon="el-icon-delete" circle @click="handleDelete(row)" />-->
             </div>
           </template>
         </el-table-column>
@@ -123,11 +123,21 @@
           <el-form-item label="会员码">
             <el-input v-model="userForm.member_code" placeholder="输入注册会员码" />
           </el-form-item>
+          <el-form-item v-if="drawerTitle!=='新增用户'" label="是否启用" prop="status" required>
+            <el-select v-model="userForm.status" :remote="true" :loading="selectLoading" placeholder="是否启用" style="width: 100%">
+              <el-option
+                v-for="item in status_list"
+                :key="item.id"
+                :label="item.desc"
+                :value="item.id"
+              />
+            </el-select>
+          </el-form-item>
         </el-form>
         <el-row>
           <el-col align="center">
             <el-button type="primary" @click="onDrawerSubmit('userForm')">提交</el-button>
-            <el-button @click="resetUserForm('userForm')">取消</el-button>
+            <el-button @click="handleCancel('userForm')">取消</el-button>
           </el-col>
         </el-row>
       </div>
@@ -136,7 +146,7 @@
 </template>
 <script>
 import { mapState } from 'vuex'
-import { fetchUserList, storeUser } from '@/api/user'
+import { fetchUserList, storeUser, editUserInfo } from '@/api/user'
 import { getRoles } from '@/api/role'
 import { getCompanies, getDepartmentsByCompanyName } from '@/api/company'
 import Pagination from '@/components/Pagination'
@@ -180,8 +190,19 @@ export default {
         role: '',
         member_code: '',
         company: '',
-        department: ''
+        department: '',
+        status: 0
       },
+      status_list: [
+        {
+          id: 1,
+          desc: '启用'
+        },
+        {
+          id: -1,
+          desc: '禁用'
+        }
+      ],
       rules: { // 验证规则
         username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
         password: [
@@ -267,14 +288,15 @@ export default {
         sex: row.profile.sex,
         phone: row.phone,
         email: row.email,
-        role: row.role,
+        role: row.role !== '无' ? row.role : '',
         member_code: row.member_code ? row.member_code.code : '',
         company: row.department ? row.department.company.name : '',
-        department: row.department ? row.department.name : ''
+        department: row.department ? row.department.name : '',
+        hash_id: row.hash_id,
+        status: row.status
       })
       this.drawer = true
       this.drawerDirection = 'rtl'
-      // console.log(row, index)
     },
     // 抽屉内提交事件
     onDrawerSubmit(formName) {
@@ -294,6 +316,8 @@ export default {
             }).catch(response => {
               console.log(response)
             })
+          } else {
+            this.handleSubmit()
           }
         } else {
           console.log('error submit!!')
@@ -301,9 +325,39 @@ export default {
         }
       })
     },
+    // 提交更新到后台
+    handleSubmit() {
+      editUserInfo(this.userForm).then((response) => {
+        console.log(response)
+        if (response.code === 20001) {
+          this.$notify({
+            title: '成功',
+            message: '更新成功',
+            type: 'success'
+          })
+        } else {
+          this.$notify({
+            title: '失败',
+            message: '更新失败',
+            type: 'error'
+          })
+        }
+      })
+    },
     // 重置表单
     resetUserForm(formName) {
       this.$refs[formName].resetFields()
+    },
+    handleCancel(formName) {
+      if (this.drawerTitle === '新增用户') {
+        this.$refs[formName].resetFields() // 重置表单
+      } else {
+        this.drawer = false // 关闭抽屉
+        this.getUserList()
+      }
+    },
+    handleDelete(row) {
+      console.log(row)
     }
     // 抽屉关闭前事件
     // handleDrawerClose(done) {

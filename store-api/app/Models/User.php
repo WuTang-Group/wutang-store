@@ -4,7 +4,6 @@ namespace App\Models;
 
 use App\Enums\UserStatus;
 use App\Models\Traits\HashIdHelper;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
@@ -12,7 +11,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class User extends Authenticatable implements JWTSubject
 {
-    use Notifiable,HasRoles,HashIdHelper;
+    use Notifiable, HasRoles, HashIdHelper;
 
     /**
      * The attributes that are mass assignable.
@@ -20,8 +19,8 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name','username', 'email', 'password','phone','invitation_code','avatar',
-        'password_question_id','password_answer','department_id','member_code_id'
+        'name', 'username', 'email', 'password', 'phone', 'invitation_code', 'avatar',
+        'password_question_id', 'password_answer', 'department_id', 'member_code_id', 'status'
     ];
 
     protected $appends = ['hash_id']; //hash_id显示字段
@@ -32,7 +31,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $hidden = [
-        'id','password', 'remember_token',
+        'id', 'password', 'remember_token',
     ];
 
     /**
@@ -117,9 +116,9 @@ class User extends Authenticatable implements JWTSubject
      */
     public function wishLists()
     {
-        return $this->belongsToMany(Product::class,'user_wish_lists')
-                ->withTimestamps()  // 中间表带时间戳
-                ->orderBy('user_wish_lists.created_at','desc');  // 根据中间表的创建时间倒序排序
+        return $this->belongsToMany(Product::class, 'user_wish_lists')
+            ->withTimestamps()  // 中间表带时间戳
+            ->orderBy('user_wish_lists.created_at', 'desc');  // 根据中间表的创建时间倒序排序
     }
 
     /**
@@ -137,9 +136,9 @@ class User extends Authenticatable implements JWTSubject
      */
     public function departmentChanges()
     {
-        return $this->belongsToMany(Department::class,'department_changes')
-                ->withTimestamps()
-                ->orderBy('department_changes.created_at','desc');
+        return $this->belongsToMany(Department::class, 'department_changes')
+            ->withTimestamps()
+            ->orderBy('department_changes.created_at', 'desc');
     }
 
     /**

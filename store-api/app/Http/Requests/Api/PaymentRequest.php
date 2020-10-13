@@ -44,13 +44,13 @@ class PaymentRequest extends FormRequest
                     'no' => ['required'],
                     'total_amount' => 'required',
                     'bank_code' => ['required',new EnumKey(UnionPayGatewayBankCode::class)],
-//                    'payment_key' => ['required',function($attribute, $value, $fail) {
-//                        if(!Cache::get($value)){
-//                            // 取消订单
-//                            Order::whereNo($value)->update(['status' => OrderStatusCode::StatusCanceled]);
-//                            return $fail('支付已超时');
-//                        }
-//                    }]
+                    'payment_key' => ['required',function($attribute, $value, $fail) {
+                        if(!Cache::get($value)){
+                            // 取消订单
+                            Order::whereNo($value)->update(['status' => OrderStatusCode::StatusCanceled]);
+                            return $fail('支付已超时');
+                        }
+                    }]
                 ];
             }
         }

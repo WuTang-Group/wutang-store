@@ -23,3 +23,11 @@ export function getPayLog(query) {
     params: query
   })
 }
+
+export function getOrderLog(query) {
+  return request({
+    url: 'admin/logs/order_logs',
+    method: 'get',
+    params: query
+  })
+}

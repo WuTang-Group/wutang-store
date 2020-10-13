@@ -37,7 +37,7 @@ class ProductCategoryService extends Service
             }
             case NavbarCategoryType::ProductCategorySkinCare:
             {
-                return $this->productCategory->whereType(ProductCategoryType::SkinCare)->get(['id','name','thumbnail','title','sub_title','title_en']);
+                return $this->productCategory->whereType(ProductCategoryType::SkinCare)->get(['id', 'slug','name','thumbnail','title','sub_title','title_en']);
             }
         }
 //        return $this->productCategory->whereSlug($category_type)->with(['children' => function($query){

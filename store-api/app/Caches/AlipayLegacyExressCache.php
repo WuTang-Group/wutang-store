@@ -20,7 +20,7 @@ class AlipayLegacyExressCache implements BaseModelCacheInterface
 
     public function save($model)
     {
-        $key = CacheKeyPrefix::AlipayLegacyExpress . $model->id;
+        $key = CacheKeyPrefix::AlipayLegacyExpress;
         if (Cache::has($key)) {
             Cache::forget($key);
         }
@@ -29,7 +29,7 @@ class AlipayLegacyExressCache implements BaseModelCacheInterface
 
     public function delete($model)
     {
-        $key = CacheKeyPrefix::AlipayLegacyExpress . $model->id;
+        $key = CacheKeyPrefix::AlipayLegacyExpress;
         if (Cache::has($key)) {
             Cache::forget($key);
         }

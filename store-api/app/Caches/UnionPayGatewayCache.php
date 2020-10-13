@@ -20,7 +20,7 @@ class UnionPayGatewayCache implements BaseModelCacheInterface
 
     public function save($model)
     {
-        $key = CacheKeyPrefix::UnionpayGateway . $model->id;
+        $key = CacheKeyPrefix::UnionpayGateway;
         if (Cache::has($key)) {
             Cache::forget($key);
         }
@@ -29,7 +29,7 @@ class UnionPayGatewayCache implements BaseModelCacheInterface
 
     public function delete($model)
     {
-        $key = CacheKeyPrefix::UnionpayGateway . $model->id;
+        $key = CacheKeyPrefix::UnionpayGateway;
         if (Cache::has($key)) {
             Cache::forget($key);
         }

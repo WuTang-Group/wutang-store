@@ -20,7 +20,7 @@ class AlipayBankGatewayCache implements BaseModelCacheInterface
 
     public function save($model)
     {
-        $key = CacheKeyPrefix::AlipayBankGateway . $model->id;
+        $key = CacheKeyPrefix::AlipayBankGateway;
         if (Cache::has($key)) {
             Cache::forget($key);
         }
@@ -29,7 +29,7 @@ class AlipayBankGatewayCache implements BaseModelCacheInterface
 
     public function delete($model)
     {
-        $key = CacheKeyPrefix::AlipayBankGateway . $model->id;
+        $key = CacheKeyPrefix::AlipayBankGateway;
         if (Cache::has($key)) {
             Cache::forget($key);
         }

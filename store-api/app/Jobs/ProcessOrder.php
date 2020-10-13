@@ -14,6 +14,7 @@ class ProcessOrder implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     private $tries = 3; // 队列最大尝试次数
+    public $timeout = 10; // 超时
     protected $order;
 
     /**

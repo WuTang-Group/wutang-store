@@ -36,6 +36,7 @@ export default {
     'SystemLog': '系统日志',
     'LoginLog': '登录日志',
     'payLog': '支付日志',
+    'orderLog': '订单日志',
     AssetImg: '图片资源管理',
     'assetImgList': '图片资源列表',
     'createAssetImg': '新增图片资源',

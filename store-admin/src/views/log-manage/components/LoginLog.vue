@@ -11,7 +11,6 @@
         style="width: 100%"
       >
         <el-table-column header-align="center" align="center" label="序号" type="index" />
-        <!-- <el-table-column header-align="center" align="center" prop="_id.$oid" label="ID" width="220" />-->
         <el-table-column header-align="center" align="center" show-overflow-tooltip prop="context.username" label="用户名" width="150" />
         <el-table-column header-align="center" align="center" show-overflow-tooltip prop="message" label="提示信息" width="150" />
         <el-table-column header-align="center" align="center" show-overflow-tooltip prop="extra.url" label="请求URI" width="250" />
@@ -50,7 +49,7 @@
         :total="total"
         :page.sync="listQuery.page"
         :limit.sync="listQuery.page_limit"
-        @pagination="getSystemLogList"
+        @pagination="list"
       />
     </el-card>
   </div>
@@ -59,7 +58,6 @@
 <script>
 import { getLoginLog } from '@/api/log'
 import Pagination from '@/components/Pagination'
-// import { genderMap } from './common/common'
 
 export default {
   name: 'LoginLog',
@@ -97,7 +95,7 @@ export default {
   data() {
     return {
       listLoading: false,
-      list: null,
+      list: [],
       listQuery: {
         page: 1,
         page_limit: 20
@@ -118,7 +116,6 @@ export default {
       getLoginLog(this.listQuery).then(response => {
         this.total = response.data.total
         this.list = response.data.data
-        console.log(response.data)
       }).finally(() => {
         this.listLoading = false
       })

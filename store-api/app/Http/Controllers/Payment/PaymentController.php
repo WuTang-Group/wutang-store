@@ -588,7 +588,7 @@ class PaymentController extends Controller
             $params['jump_url'] = $cacheData->jump_url;
             $params['notify_url'] = $cacheData->notify_url;
             $params['pay_type'] = $cacheData->pay_type;
-            //$params['bank_code'] = $requestData['bank_code'];
+            //$params['bank_code'] = $requestData['bank_code'];  // 返回参数无bank_code。若必须使用bank_code签名，可使用缓存名+订单号方式缓存
             $params['sign'] = $requestData['sign'];
 
             if (!UnionPayGateway::verify($params, config('pay.unionpay_gateway.key'))) {

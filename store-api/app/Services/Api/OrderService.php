@@ -10,7 +10,8 @@ use App\Enums\{Payment\AlipayCode,
     OrderStatusCode,
     Payment\PaymentType,
     Payment\UnionPayCode,
-    Payment\UnionPayGatewayResultCode};
+    Payment\UnionPayGatewayResultCode
+};
 use App\Events\OrderStatusUpdated;
 use App\Exceptions\InvalidRequestException;
 use App\Handlers\OrderHandler;
@@ -114,7 +115,10 @@ class OrderService extends Service
             // 取消下单队列通知，因为此时订单尚未完成，无需队列通知
             // event(new OrderStatusUpdated($orderRequest));
         } catch (\Exception $e) {
-            Log::error('订单下单失败', ['message' => $e->getMessage()]);
+            Log::error('订单创建失败', [
+                'message' => $e->getMessage(),
+                'order_no' => ''
+            ]);
             return false;
         }
     }
@@ -133,9 +137,10 @@ class OrderService extends Service
                             'payment_no' => $queries['queryId'],
                             'paid_at' => now()->toDateTimeString()
                         ]);
-                        Log::info('订单交易成功', ['message' => [
+                        Log::info('订单交易成功', [
+                            'message' => '订单交易成功',
                             'order_no' => $queries['order_no']
-                        ]]);
+                        ]);
                     }
                     break;
                 case AlipayCode::TRADE_SUCCESS:
@@ -146,9 +151,10 @@ class OrderService extends Service
                             'payment_no' => $queries['trade_no'],
                             'paid_at' => now()->toDateTimeString()
                         ]);
-                        Log::info('订单交易成功', ['message' => [
+                        Log::info('订单交易成功', [
+                            'message' => '订单交易成功',
                             'order_no' => $queries['order_no']
-                        ]]);
+                        ]);
                     }
                     break;
                 case AlipayBankGatewayCode::PaySuccess:
@@ -168,9 +174,10 @@ class OrderService extends Service
                                 'pay_time' => $queries['pay_time']  // 支付时间
                             ])
                         ]);
-                        Log::info('订单交易成功', ['message' => [
+                        Log::info('订单交易成功', [
+                            'message' => '订单交易成功',
                             'order_no' => $queries['order_no']
-                        ]]);
+                        ]);
                     }
                     break;
                 case AlipayBankGatewayCode::PayFaild:
@@ -181,9 +188,10 @@ class OrderService extends Service
                             'payment_no' => $queries['out_order_no'],
                             'paid_at' => now()->toDateTimeString(),
                         ]);
-                        Log::info('订单交易失败', ['message' => [
+                        Log::info('订单交易成功', [
+                            'message' => '订单交易成功',
                             'order_no' => $queries['order_no']
-                        ]]);
+                        ]);
                     }
                     break;
                 case UnionPayGatewayResultCode::Success:
@@ -194,9 +202,10 @@ class OrderService extends Service
                             'payment_no' => $queries['pay_transaction_id'],
                             'paid_at' => now()->toDateTimeString(),
                         ]);
-                        Log::info('订单交易成功', ['message' => [
+                        Log::info('订单交易成功', [
+                            'message' => '订单交易成功',
                             'order_no' => $queries['order_no']
-                        ]]);
+                        ]);
                     }
                     break;
                 default:
@@ -205,15 +214,19 @@ class OrderService extends Service
                         'status' => OrderStatusCode::StatusReceived,
                         'payment_method' => NULL,
                     ]);
-                    Log::info('订单交易失败', ['message' => [
+                    Log::info('订单交易失败', [
+                        'message' => '订单交易失败',
                         'order_no' => $queries['order_no']
-                    ]]);
+                    ]);
                 }
             }
             $order = $this->order->whereNo($queries['order_no'])->first();
             event(new OrderStatusUpdated($order));
         } catch (\Exception $e) {
-            Log::error('订单状态改变失败', ['message' => $e->getMessage()]);
+            Log::error('订单状态改变失败', [
+                'message' => $e->getMessage(),
+                'order_no' => $queries['order_no']
+            ]);
             return false;
         }
         return $queries;
@@ -238,31 +251,31 @@ class OrderService extends Service
                 return $cancelOrder;
             }
         } catch (\Exception $e) {
-            Log::error('订单取消失败', ['message' => [
+            Log::error('订单取消失败', [
+                'message' => '订单取消失败',
                 'msg' => $e->getMessage(),
                 'order_no' => $params['no']
-            ]]);
+            ]);
             return false;
         }
     }
 
-    // 尝试取消订单后重新下单
+    // 尝试从取消或支付失败的订单再次下单(即重新下单)
     public function retryCreate(object $params)
     {
         $requestData = $params->all();
-        // 取消订单->从取消的订单获取历史数据
-        $cancelledOrder = $this->requestCancel($requestData);
+        $oldOrder = $this->order->whereNo($requestData['no'])->first();
         $user = $this->user();
         try {
-            $orderRequest = DB::transaction(function () use ($user, $cancelledOrder) {
-                $address = UserAddress::find($cancelledOrder->user_address_id);
+            $orderRequest = DB::transaction(function () use ($user, $oldOrder) {
+                $address = UserAddress::find($oldOrder->user_address_id);
                 // 更新此地址 最后使用时间
                 $address->update(['last_used_at' => now()]);
                 // 创建一个新订单
                 $order = new Order([
                     'no' => OrderHandler::createOnlyId(),
-                    'user_address_id' => $cancelledOrder->user_address_id,
-                    'remark' => $cancelledOrder->remark ?? NULL,
+                    'user_address_id' => $oldOrder->user_address_id,
+                    'remark' => $oldOrder->remark ?? NULL,
                     'total_amount' => 0,
                 ]);
                 $order->user_id = $user->id;
@@ -271,7 +284,7 @@ class OrderService extends Service
 
                 $totalAmount = 0;
                 // 查找历史订单items数据
-                $historyItems = $cancelledOrder->items()->get();
+                $historyItems = $oldOrder->items()->get();
                 // 遍历items数据
                 foreach ($historyItems as $data) {
                     $product = Product::find($data['product_id']);
@@ -296,7 +309,10 @@ class OrderService extends Service
             // 取消下单队列通知，因为此时订单尚未完成，无需队列通知
             // event(new OrderStatusUpdated($orderRequest));
         } catch (\Exception $e) {
-            Log::error('重新下单失败', ['message' => $e->getMessage()]);
+            Log::error('重新下单失败', [
+                'message' => $e->getMessage(),
+                'order_no' => $requestData['no']
+            ]);
             return false;
         }
         return $orderRequest;

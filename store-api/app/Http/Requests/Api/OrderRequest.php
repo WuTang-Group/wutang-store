@@ -3,7 +3,9 @@
 namespace App\Http\Requests\Api;
 
 
+use App\Enums\OrderStatusCode;
 use App\Http\Requests\FormRequest;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Validation\Rule;
 
@@ -47,12 +49,20 @@ class OrderRequest extends FormRequest
 //                    'items.*.amount' => ['required', 'integer', 'min:1'],
                 ];
             }
-            case 'retryCreate':
             case 'requestCancel':
             {
                 return [
                     'no' => 'required|exists:orders'
                 ];
+            }
+            case 'retryCreate':
+            {
+                return ['no' => 'required|exists:orders',function($attribute,$value,$fail){
+                    $order = Order::whereNo($value)->whereStatus(OrderStatusCode::StatusPlaced)->first();
+                    if($order){
+                        return $fail('订单已付过款');
+                    }
+                }];
             }
         }
     }

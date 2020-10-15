@@ -74,9 +74,12 @@ class AuthRequest extends FormRequest
             'username.required' => '用户名必填',
             'username.min' => '用户名长度不小于6位',
             'password.required' => '密码必填',
-            'password_confirmation.required' => '确认密码必填',
+            'password.confirmed' => '两次密码不一致',
             'password_question_id.exists' => '密保问题不存在',
-            'username.exists' => '用户不存在'
+            'username.exists' => '用户不存在',
+            'captcha_key' => '请输入验证码的key',
+            'captcha_code' => '请输入验证码的code',
+
         ];
     }
 }

@@ -38,18 +38,18 @@ class ProductService extends Service
             case NavbarCategoryType::Product:
             {
                 return $this->product->whereParentId(0)->whereLevel(1)->whereSlug($slug)->with(['children' => function ($query) {
-                    $query->select('parent_id', 'slug', 'product_name', 'product_name_en', 'thumbnail', 'short_description', 'price', 'sale_price', 'level');
+                    $query->select('parent_id', 'slug', 'product_name', 'product_name_en', 'thumbnail', 'short_description', 'price', 'sale_price', 'benefit', 'benefit_image', 'level');
                 }])->get()->makeHidden([
-                    'short_description_en', 'seo_title', 'seo_keyword', 'seo_description', 'benefit', 'benefit_en', 'tech_description',
-                    'tech_description_en', 'description', 'description_en', 'usage', 'usage_en', 'main_image', 'main_image_2', 'benefit_image', 'product_video',
+                    'short_description_en', 'seo_title', 'seo_keyword', 'seo_description', 'benefit_en', 'tech_description',
+                    'tech_description_en', 'description', 'description_en', 'usage', 'usage_en', 'main_image', 'main_image_2', 'product_video',
                     'status', 'rating', 'sold_count', 'review_count', 'created_at', 'updated_at'
                 ]);
             }
             case NavbarCategoryType::ProductCategorySkinCare:
             {
-                return $this->productCategory->whereSlug($slug)->with(['products' => function($query) {
-                    $query->select('product_category_id','slug','product_name','product_name_en','thumbnail','short_description','price','sale_price');
-                }])->get()->makeHidden(['thumbnail','describe_en','describe_img','parent_id','type','created_at','updated_at']);
+                return $this->productCategory->whereSlug($slug)->with(['products' => function ($query) {
+                    $query->select('product_category_id', 'slug', 'product_name', 'product_name_en', 'thumbnail', 'short_description', 'price', 'sale_price');
+                }])->get()->makeHidden(['thumbnail', 'describe_en', 'describe_img', 'parent_id', 'type', 'created_at', 'updated_at']);
             }
         }
         //return $this->product->with('product_category')->paginate($requestData['page_limit']);

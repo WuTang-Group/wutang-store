@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Payment;
 
 use App\Payments\UnionPayGateway;
-use App\Enums\{LoggerCollection,
+use App\Enums\{CacheKeyPrefix,
+    LoggerCollection,
     Payment\AlipayCode,
     Payment\AlipayBankGatewayCode,
     Payment\PaymentType,
     Payment\UnionPayCode,
-    Payment\UnionPayGatewayBankCode};
+    Payment\UnionPayGatewayBankCode,
+    Payment\UnionPayGatewayResultCode
+};
 use App\Handlers\ResponseData;
 use App\Models\Payment;
 use App\Payments\AlipayBankGateway;
@@ -25,6 +28,7 @@ use Illuminate\{Contracts\Foundation\Application,
     Http\Response,
     Support\Arr,
     Support\Facades\App,
+    Support\Facades\Cache,
     Support\Facades\Crypt,
     Support\Facades\Log
 };
@@ -74,7 +78,7 @@ class PaymentController extends Controller
             //$response->redirect(); // 跳转支付
             return response(ResponseData::requestSuccess(['pay_url' => $response->getRedirectUrl()]));
         } catch (\Exception $e) {
-            Log::error('支付宝网关-支付发起失败', ['message' => [
+            Log::error('银联支付-发起失败', ['message' => [
                 'msg' => $e->getMessage(),
                 'order_no' => $requestData['no']
             ]]);
@@ -124,15 +128,16 @@ class PaymentController extends Controller
                 // 调整订单号名称
                 $requestData['order_no'] = $requestData['order_id'];
                 $this->orderService->changeStatus($requestData);
-                Log::info('支付宝网关-支付成功', ['message' => [
-                    'order_no' => $requestData['no'],
+                Log::info('银联支付-支付成功', ['message' => [
+                    'order_no' => $requestData['order_no'],
+                    'msg' => $requestData,
                     'pay_time' => $requestData['extra']['pay_time']
                 ]]);
             }
         } catch (\Exception $e) {
             Log::error('银联支付-异步通知失败', ['message' => [
                 'msg' => $e->getMessage(),
-                'order_no' => $requestData['no']
+                'order_no' => $requestData['order_no']
             ]]);
             return response(ResponseData::requestFails($requestData, '异步通知失败'));
         }
@@ -172,7 +177,7 @@ class PaymentController extends Controller
         } catch (\Exception $e) {
             Log::error('支付宝WEB-支付发起失败', ['message' => [
                 'msg' => $e->getMessage(),
-                'order_no' => $requestData['no']
+                'order_no' => $requestData['out_trade_no']
             ]]);
             return response(ResponseData::requestFails($requestData, '支付发起失败'));
         }
@@ -193,7 +198,7 @@ class PaymentController extends Controller
         } catch (Exception $e) {
             Log::error('支付宝WEB-前端回调失败', ['message' => [
                 'msg' => $e->getMessage(),
-                'order_no' => $requestData['no']
+                'order_no' => $requestData['out_trade_no']
             ]]);
             return response(ResponseData::requestFails($requestData, '前端回调失败'));
         }
@@ -222,7 +227,8 @@ class PaymentController extends Controller
             $this->orderService->changeStatus($requestData);
 
             Log::info('支付宝WEB-支付成功', ['message' => [
-                'order_no' => $requestData['order_no']
+                'order_no' => $requestData['out_trade_no'],
+                'msg' => $requestData
             ]]);
             return app('alipay')->success();  //  返回数据给支付宝
         }
@@ -241,24 +247,20 @@ class PaymentController extends Controller
     public function payByAlipayBankGateway(PaymentRequest $request)
     {
         $requestData = $request->all();
+        if (!Cache::has(CacheKeyPrefix::AlipayBankGateway)) {
+            return response(ResponseData::dataError('', '配置读取失败，请稍后重试'));
+        }
         try {
-            $payments = $this->payment->whereType(PaymentType::AlipayBankGateway)->whereStatus(1)->with(['alipayBankGateway'])->firstOrFail()->alipayBankGateway;
-            // 设置配置文件
-            config([
-                'pay.alipay_gateway.merch_id' => $payments[0]['merch_id'],
-                'pay.alipay_gateway.product' => $payments[0]['product'],
-                'pay.alipay_gateway.notify_url' => config('app.url') . $payments[0]['notify_url'],
-                'pay.alipay_gateway.return_url' => config('app.url') . $payments[0]['return_url'],
-                'pay.alipay_gateway.key' => $payments[0]['key']
-            ]);
-            $params['merch_id'] = config('pay.alipay_gateway.merch_id');
-            $params['product'] = config('pay.alipay_gateway.product');
+            $cacheData = Cache::get(CacheKeyPrefix::AlipayBankGateway);
+            // 参数
+            $params['merch_id'] = $cacheData->merch_id;
+            $params['product'] = $cacheData->product;
             $params['order_id'] = $requestData['no'];
             $params['amount'] = $requestData['total_amount'];
-            $params['notify_url'] = config('pay.alipay_gateway.notify_url');
-            $params['return_url'] = config('pay.alipay_gateway.return_url');
+            $params['notify_url'] = $cacheData->notify_url;
+            $params['return_url'] = $cacheData->return_url;
             $params['extends'] = config('pay.alipay_gateway.extends');
-            $params['key'] = config('pay.alipay_gateway.key');
+            $params['key'] = Crypt::decrypt($cacheData->key);
             // 签名
             $params['sign'] = AlipayBankGateway::sign($params);
             // 签名完成，移除key
@@ -279,14 +281,7 @@ class PaymentController extends Controller
             ]]);
             return response(ResponseData::requestFails($params, '支付发起失败'));
         }
-//        try {
-//        } catch (\Exception $e) {
-//            Log::error('支付宝网关-支付发起失败', ['message' => [
-//                'msg' => $e->getMessage(),
-//                'order_no' => $requestData['no']
-//            ]]);
-//            return response(ResponseData::requestFails($requestData, '支付发起失败'));
-//        }
+
     }
 
     /**
@@ -299,16 +294,20 @@ class PaymentController extends Controller
     {
         $requestData = $request->all();
         if ($requestData['code'] != AlipayBankGatewayCode::RequestSuccess) {
-            return '受理失败';
+            return response(ResponseData::paramError('', '受理失败'));
+        }
+        if (!Cache::has(CacheKeyPrefix::AlipayBankGateway)) {
+            return response(ResponseData::dataError('', '配置读取失败，请稍后重试'));
         }
         try {
-            AlipayBankGateway::verify(config('pay.alipay_gateway.key'), $requestData);
+            $cacheData = Cache::get(CacheKeyPrefix::AlipayBankGateway);
+            AlipayBankGateway::verify(Crypt::decrypt($cacheData->key), $requestData);
 
             return redirect()->route('my-account'); // 返回订单界面
         } catch (\Exception $e) {
             Log::error('支付宝网关-前端回调失败', ['message' => [
                 'msg' => $e->getMessage(),
-                'order_no' => $requestData['no']
+                'order_no' => $requestData['order_id']
             ]]);
             return response(ResponseData::requestFails($requestData, '前端回调失败'));
         }
@@ -324,20 +323,26 @@ class PaymentController extends Controller
     {
         $requestData = $request->all();
         if ($requestData['code'] != AlipayBankGatewayCode::RequestSuccess) {
-            return '受理失败';
+            return response(ResponseData::paramError('', '受理失败'));
         }
+        if (!Cache::has(CacheKeyPrefix::AlipayBankGateway)) {
+            return response(ResponseData::dataError('', '配置读取失败，请稍后重试'));
+        }
+        $cacheData = Cache::get(CacheKeyPrefix::AlipayBankGateway);
+
         try {
-            AlipayBankGateway::verify(config('pay.alipay_gateway.key'), $requestData);
+            AlipayBankGateway::verify(Crypt::decrypt($cacheData->key), $requestData);
             // 调整订单号名称
             $requestData['order_no'] = $requestData['order_id'];
             $this->orderService->changeStatus($requestData);
             Log::info('支付宝网关-支付成功', ['message' => [
-                'order_no' => $requestData['no']
+                'order_no' => $requestData['order_no'],
+                'msg' => $requestData,
             ]]);
         } catch (\Exception $e) {
             Log::error('支付宝网关-异步通知失败', ['message' => [
                 'msg' => $e->getMessage(),
-                'order_no' => $requestData['no']
+                'order_no' => $requestData['order_no']
             ]]);
             return response(ResponseData::requestFails($requestData, '异步通知失败'));
         }
@@ -371,22 +376,22 @@ class PaymentController extends Controller
         // Log::info('支付宝即时到账-支付发起', ['message' => $parameter]);
         // return $alipaySubmit;
         //***********************************************************************
+        if (!Cache::has(CacheKeyPrefix::AlipayLegacyExpress)) {
+            return response(ResponseData::dataError('', '配置读取失败，请稍后重试'));
+        }
+        $cacheData = Cache::get(CacheKeyPrefix::AlipayLegacyExpress);
+
         try {
-            $payments = $this->payment->whereType(PaymentType::AlipayLegacyExpress)->whereStatus(1)->with(['alipayLegacyExpress'])->firstOrFail()->alipayLegacyExpress;
             // 设置配置文件
             config([
-                'laravel-omnipay.gateways.Alipay_LegacyExpress.options.partner' => $payments[0]['pid'],
-                'laravel-omnipay.gateways.Alipay_LegacyExpress.options.key' => Crypt::decrypt($payments[0]['key']),
-                'laravel-omnipay.gateways.Alipay_LegacyExpress.options.sellerEmail' => $payments[0]['seller_email'],
-                'laravel-omnipay.gateways.Alipay_LegacyExpress.options.returnUrl' => config('app.url') . $payments[0]['return_url'],
-                'laravel-omnipay.gateways.Alipay_LegacyExpress.options.notifyUrl' => config('app.url') . $payments[0]['notify_url']
+                'laravel-omnipay.gateways.Alipay_LegacyExpress.options.partner' => $cacheData->pid,
+                'laravel-omnipay.gateways.Alipay_LegacyExpress.options.key' => Crypt::decrypt($cacheData->key),
+                'laravel-omnipay.gateways.Alipay_LegacyExpress.options.sellerEmail' => $cacheData->seller_email,
+                'laravel-omnipay.gateways.Alipay_LegacyExpress.options.returnUrl' => $cacheData->return_url,
+                'laravel-omnipay.gateways.Alipay_LegacyExpress.options.notifyUrl' => $cacheData->notify_url
             ]);
             $gateway = \Omnipay::gateway('Alipay_LegacyExpress'); // 发起支付调用Ominipay的网关
             $response = $gateway->purchase($parameter)->send();
-            Log::info('支付宝即时到账-支付发起', ['message' => [
-                'msg' => '支付宝即时到账-支付发起',
-                'order_no' => $requestData['no']
-            ]]);
 
             return response(ResponseData::requestSuccess(['pay_url' => $response->getRedirectUrl()]));
         } catch (\Exception $e) {
@@ -408,13 +413,26 @@ class PaymentController extends Controller
     public function alipayLegacyExpressReturn(Request $request)
     {
         $requestData = $request->all();
+        if (!Cache::has(CacheKeyPrefix::AlipayLegacyExpress)) {
+            return response(ResponseData::dataError('', '配置读取失败，请稍后重试'));
+        }
+        $cacheData = Cache::get(CacheKeyPrefix::AlipayLegacyExpress);
+
+        // 设置配置文件
+        config([
+            'pay.alipay_legacy_express.partner' => $cacheData->pid,
+            'pay.alipay_legacy_express.key' => Crypt::decrypt($cacheData->key),
+            'pay.alipay_legacy_express.sellerEmail' => $cacheData->seller_email,
+            'pay.alipay_legacy_express.returnUrl' => $cacheData->return_url,
+            'pay.alipay_legacy_express.notifyUrl' => $cacheData->notify_url
+        ]);
         // 配置参数
         $config = config('pay.alipay_legacy_express');
         $alipayNotify = new AlipayLegacyExpress\AlipayNotify($config);
         $verifyResult = $alipayNotify->verifyReturn();
         // 验签
         if (!$verifyResult) {
-            return response(ResponseData::requestFails($requestData, '验签失败'));
+            return response(ResponseData::paramError($requestData, '验签失败'));
         }
         try {
             if ($requestData['trade_status'] == AlipayCode::TRADE_SUCCESS || $requestData['trade_status'] == AlipayCode::TRADE_FINISHED) {
@@ -427,7 +445,7 @@ class PaymentController extends Controller
         } catch (\Exception $e) {
             Log::error('支付宝即时到账-前端回调失败', ['message' => [
                 'msg' => $e->getMessage(),
-                'order_no' => $requestData['no']
+                'order_no' => $requestData['out_trade_no']
             ]]);
             return response(ResponseData::requestFails($requestData, '前端回调失败'));
         }
@@ -443,19 +461,37 @@ class PaymentController extends Controller
     public function alipayLegacyExpressNotify(Request $request)
     {
         $requestData = $request->all();
+        if (!Cache::has(CacheKeyPrefix::AlipayLegacyExpress)) {
+            return response(ResponseData::dataError('', '配置读取失败，请稍后重试'));
+        }
+        $cacheData = Cache::get(CacheKeyPrefix::AlipayLegacyExpress);
+
+        // 设置配置文件
+        config([
+            'pay.alipay_legacy_express.partner' => $cacheData->pid,
+            'pay.alipay_legacy_express.key' => Crypt::decrypt($cacheData->key),
+            'pay.alipay_legacy_express.sellerEmail' => $cacheData->seller_email,
+            'pay.alipay_legacy_express.returnUrl' => $cacheData->return_url,
+            'pay.alipay_legacy_express.notifyUrl' => $cacheData->notify_url
+        ]);
         // 配置参数
         $config = config('pay.alipay_legacy_express');
         $alipayNotify = new AlipayLegacyExpress\AlipayNotify($config);
         $verifyResult = $alipayNotify->verifyNotify();
         // 验签
         if (!$verifyResult) {
-            return response(ResponseData::requestFails($requestData, '验签失败'));
+            return response(ResponseData::paramError($requestData, '验签失败'));
         }
         try {
             if ($requestData['trade_status'] == AlipayCode::TRADE_SUCCESS || $requestData['trade_status'] == AlipayCode::TRADE_FINISHED) {
                 $requestData['status'] = AlipayCode::TRADE_SUCCESS;
                 $requestData['order_no'] = $requestData['out_trade_no'];
                 $this->orderService->changeStatus($requestData);
+
+                Log::info('支付宝即时到账-支付成功', ['message' => [
+                    'order_no' => $requestData['order_no'],
+                    'msg' => $requestData,
+                ]]);
 
                 return 'success'; // 固定返回success
             } else {
@@ -475,24 +511,40 @@ class PaymentController extends Controller
         }
     }
 
+    /**
+     * Unionpay bank gateway request
+     * 银联网关支付-发起支付
+     * @queryParam no required 订单号
+     * @queryParam total_amount required 总金额
+     * @queryParam payment_key required 支付key
+     * @queryParam bank_code required 银行代码
+     * @param PaymentRequest $request
+     * @return Application|ResponseFactory|Response|\Psr\Http\Message\StreamInterface|string
+     */
     public function payByUnionPayGateway(PaymentRequest $request)
     {
         $requestData = $request->all();
-        $params['cpid'] = config('pay.unionpay_gateway.cpid');
-        $params['cp_trade_no'] = date('Ymd') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);;
-        $params['fee'] = $requestData['total_amount'];
-        $params['jump_url'] = config('pay.unionpay_gateway.jump_url');
-        $params['notify_url'] = config('pay.unionpay_gateway.notify_url');
-        $params['pay_type'] = config('pay.unionpay_gateway.pay_type');
-        $params['bank_code'] = $requestData['bank_code'];
-        $params['sign'] = UnionPayGateway::sign($params,config('pay.unionpay_gateway.key'));
-        $stream = UnionPayGateway::get('http://api.wyaiya.com/pay/ap.php', $params);
-        //return response(ResponseData::requestSuccess($str));
-        Log::info('银联网银网关-支付发起', ['message' => [
-            'msg' => '银联网银网关-支付发起',
-            'order_no' => $params['cp_trade_no']
-        ]]);
-        return $stream;
+        if (!Cache::get(CacheKeyPrefix::UnionpayGateway)) {
+            return response(ResponseData::dataError('', '配置读取失败，请稍后重试'));
+        }
+        $cacheData = Cache::get(CacheKeyPrefix::UnionpayGateway);
+        try {
+            $params['cpid'] = $cacheData->cpid;
+            $params['cp_trade_no'] = $requestData['no'];
+            $params['fee'] = $requestData['total_amount'] * 100;  // 传递的是以元为单位，需乘以100
+            $params['jump_url'] = $cacheData->jump_url;
+            $params['notify_url'] = $cacheData->notify_url;
+            $params['pay_type'] = $cacheData->pay_type;
+            $params['sign'] = UnionPayGateway::sign($params, config('pay.unionpay_gateway.key'));
+            $params['bank_code'] = $requestData['bank_code'];
+            return UnionPayGateway::get('http://api.wyaiya.com/pay/ap.php', $params);
+        } catch (\Exception $e) {
+            Log::info('银联网银网关-支付发起', ['message' => [
+                'msg' => '银联网银网关-支付发起',
+                'order_no' => $params['cp_trade_no']
+            ]]);
+            return response(ResponseData::requestFails($requestData, '银联网银网关-支付发起失败'));
+        }
 
     }
 
@@ -506,17 +558,59 @@ class PaymentController extends Controller
         return ResponseData::requestSuccess(UnionPayGatewayBankCode::toArray());
     }
 
+    /**
+     * Unionpay gateway return
+     * 银联网关支付-前端回调
+     * @param Request $request
+     */
     public function unionPayGatewayReturn(Request $request)
     {
 //        Log::info($request->all());
     }
 
-    public function unionPayGatewayNotify(Request $request)
+    /**
+     * Unionpay gateway notify
+     * 银联网关支付-异步回调
+     * @param PaymentRequest $request
+     * @return Application|ResponseFactory|Response|string
+     */
+    public function unionPayGatewayNotify(PaymentRequest $request)
     {
-        config(['logging.channels.mongodb.collection' => LoggerCollection::OrderLog]);
-        Log::info('支付宝即时到账-支付成功', ['message' => [
-            'order_no' => '',
-            'data' => $request->all()
-        ]]);
+        $requestData = $request->all();
+        if (!Cache::get(CacheKeyPrefix::UnionpayGateway)) {
+            return response(ResponseData::dataError('', '配置读取失败，请稍后重试'));
+        }
+        $cacheData = Cache::get(CacheKeyPrefix::UnionpayGateway);
+        try {
+            $params['cpid'] = $requestData['cpid'];
+            $params['cp_trade_no'] = $requestData['cp_trade_no'];
+            $params['fee'] = $requestData['fee'] / 100;  // 返回的是分为单位，需除以100
+            $params['jump_url'] = $cacheData->jump_url;
+            $params['notify_url'] = $cacheData->notify_url;
+            $params['pay_type'] = $cacheData->pay_type;
+            //$params['bank_code'] = $requestData['bank_code'];  // 返回参数无bank_code。若必须使用bank_code签名，可使用缓存名+订单号方式缓存
+            $params['sign'] = $requestData['sign'];
+
+            if (!UnionPayGateway::verify($params, config('pay.unionpay_gateway.key'))) {
+                return response(ResponseData::paramError($requestData, '验签失败'));
+            }
+            if ($requestData['result_code'] == 0) {
+                $requestData['status'] = UnionPayGatewayResultCode::Success;
+                $this->orderService->changeStatus($requestData);
+
+                Log::info('银联网关-支付成功', ['message' => [
+                    'order_no' => $requestData['cp_trade_no'],
+                    'msg' => $requestData,
+                ]]);
+                // 固定返回
+                return 'success';
+            }
+        } catch (\Exception $e) {
+            Log::error('银联网关-异步通知失败', ['message' => [
+                'msg' => $e->getMessage(),
+                'order_no' => $requestData['cp_trade_no']
+            ]]);
+            return response(ResponseData::requestFails($requestData, '异步通知失败'));
+        }
     }
 }

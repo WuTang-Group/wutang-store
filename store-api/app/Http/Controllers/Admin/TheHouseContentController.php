@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
-use App\Services\Admin\theHouseContentService;
+use App\Services\Admin\TheHouseContentService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 

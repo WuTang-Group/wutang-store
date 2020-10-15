@@ -31,7 +31,9 @@ class TheHouseService extends Service
     // 根据the house slug获取the house详情
     public function getDetailByTheHouseSlug(string $theHouseSlug)
     {
-        return $this->theHouse->whereSlug($theHouseSlug)->with(['theHouseContents'])->first();
+        return $this->theHouse->whereSlug($theHouseSlug)->with(['theHouseCategory' => function($query){
+            $query->select('id', 'name');
+        }])->with(['theHouseContents'])->first();
     }
 
     // 获取the house其他报道随机3条列表

@@ -12,4 +12,9 @@ class TheHouseContent extends Model
     {
         return $this->belongsTo(TheHouse::class);
     }
+
+    public function theHouseCategory()
+    {
+        return $this->hasMany(TheHouseCategory::class);
+    }
 }

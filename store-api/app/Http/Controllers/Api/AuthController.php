@@ -54,11 +54,11 @@ class AuthController extends Controller
         if (!$token) {
             throw new HttpResponseException(ResponseData::dataError($request->all(), '用户名或密码有误'));
         }
-        \Log::info('用户登录',[
+        \Log::info('用户登录', [
             'username' => $request->username,
             'status' => '成功',
             'login_time' => now()->toDateTimeString(),
-            'ip' =>$request->ip()
+            'ip' => $request->ip()
         ]);
         return $this->respondWithToken($token);
     }
@@ -79,20 +79,22 @@ class AuthController extends Controller
      * @bodyParam password_answer string required 密保问题答案
      * @param AuthRequest $request
      * @return Application|ResponseFactory|JsonResponse|Response
-     * @throws HttpResponseException
      */
     public function register(AuthRequest $request)
     {
         $captchaData = \Cache::get($request->captcha_key);
-        if (!$captchaData) {
-            return response(ResponseData::dataError($request->captcha_code, '验证码无效'));
-            //throw new HttpResponseException(ResponseData::dataError($request->captcha_code, '验证码无效'));
-        }
-        if (!hash_equals(strtolower($captchaData['code']), strtolower($request->captcha_code))) {
-            // 验证错误就清除缓存
-            \Cache::forget($request->captcha_key);
-            return response(ResponseData::paramError($request->captcha_code, '验证码错误'));
-            //throw new HttpResponseException(ResponseData::dataError($request->captcha_code, '验证码错误'));
+        // 开发环境时校验验证吗
+        if (app()->environment() == 'production') {
+            if (!$captchaData) {
+                return response(ResponseData::dataError($request->captcha_code, '验证码无效'));
+                //throw new HttpResponseException(ResponseData::dataError($request->captcha_code, '验证码无效'));
+            }
+            if (!hash_equals(strtolower($captchaData['code']), strtolower($request->captcha_code))) {
+                // 验证错误就清除缓存
+                \Cache::forget($request->captcha_key);
+                return response(ResponseData::paramError($request->captcha_code, '验证码错误'));
+                //throw new HttpResponseException(ResponseData::dataError($request->captcha_code, '验证码错误'));
+            }
         }
         $user = User::whereUsername($request->username)->first();
         if ($user) {
@@ -226,7 +228,7 @@ class AuthController extends Controller
             $result = $this->authService->changePassword($username, $request);
             return $result ? response()->json(ResponseData::requestSuccess()) : response()->json(ResponseData::requestFails());
         } else {
-            return response()->json(ResponseData::paramError(null,'旧密码错误'));
+            return response()->json(ResponseData::paramError(null, '旧密码错误'));
         }
 
     }

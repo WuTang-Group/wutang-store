@@ -45,7 +45,7 @@ class AuthService extends Service
 //                    $member_code = MemberCode::firstWhere('code', $params->code);
 //                    $user->member_code_id = $member_code->id;
 //                    $user->save();
-                    Log::info('有code');
+                    Log::info('有code为:',['msg' => $params->code]);
                 }
                 // 用户注册成功自动在profile表新建占位数据行
                 $user->profile()->create(['birthday' => now()]);

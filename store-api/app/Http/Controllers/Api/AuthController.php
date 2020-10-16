@@ -9,7 +9,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\AuthRequest;
 use App\Models\User;
 use App\Services\Api\AuthService;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -75,25 +78,28 @@ class AuthController extends Controller
      * @bodyParam password_question_id integer required 密保问题ID
      * @bodyParam password_answer string required 密保问题答案
      * @param AuthRequest $request
-     * @return JsonResponse
+     * @return Application|ResponseFactory|JsonResponse|Response
      * @throws HttpResponseException
      */
     public function register(AuthRequest $request)
     {
         $captchaData = \Cache::get($request->captcha_key);
         if (!$captchaData) {
-            throw new HttpResponseException(ResponseData::dataError($request->captcha_code, '验证码无效'));
+            return response(ResponseData::dataError($request->captcha_code, '验证码无效'));
+            //throw new HttpResponseException(ResponseData::dataError($request->captcha_code, '验证码无效'));
         }
         if (!hash_equals(strtolower($captchaData['code']), strtolower($request->captcha_code))) {
             // 验证错误就清除缓存
             \Cache::forget($request->captcha_key);
-            throw new HttpResponseException(ResponseData::dataError($request->captcha_code, '验证码错误'));
+            return response(ResponseData::paramError($request->captcha_code, '验证码错误'));
+            //throw new HttpResponseException(ResponseData::dataError($request->captcha_code, '验证码错误'));
         }
         $user = User::whereUsername($request->username)->first();
         if ($user) {
             // 清除验证码缓存
             \Cache::forget($request->captcha_key);
-            throw new HttpResponseException(ResponseData::requestDeny($request->username, '用户已存在'));
+            return response(ResponseData::dataExist($request->username, '用户已存在'));
+            //throw new HttpResponseException(ResponseData::requestDeny($request->username, '用户已存在'));
         }
         // 传参到service处理
         $results = $this->authService->register($request);

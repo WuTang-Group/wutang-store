@@ -4,6 +4,7 @@ namespace App\Http\Requests\Api;
 
 
 use App\Http\Requests\FormRequest;
+use App\Models\MemberCode;
 use Illuminate\Support\Facades\Log;
 
 class AuthRequest extends FormRequest
@@ -32,6 +33,14 @@ class AuthRequest extends FormRequest
                     'password' => 'required|alpha_dash|min:6|confirmed',
                     'password_confirmation' => 'required|same:password',
 //                    'invitation_code' => 'required|string',
+                    'code' => [function ($attribute, $value, $fail) {
+                        if ($value) {
+                            $memberCode = MemberCode::whereCode($value)->first();
+                            if (!$memberCode) {
+                                return $fail('会员码有误');
+                            }
+                        }
+                    }],
                     'captcha_key' => 'required|string',
                     'captcha_code' => 'required|string',
                     'password_question_id' => 'required|exists:password_questions,id',

@@ -26,6 +26,15 @@ class ResponseData
         ];
     }
 
+    public static function dataExist($data = null, $msg = null): array
+    {
+        return [
+            'data' => $data,
+            'code' => ResponseStatusCode::DataExist,
+            'msg' => is_null($msg) ? '数据已存在' : $msg
+        ];
+    }
+
     public static function requestSuccess($data = null, $msg = null): array
     {
         return [

@@ -41,8 +41,8 @@ class AuthService extends Service
                 // 默认分配注册用户customer角色
                 $user->assignRole(Roles::Customer);
                 // 为用户绑定会员码
-                if ($params->has('code')) {
-                    $member_code = MemberCode::firstWhere('code', $params->code);
+                if (isset($params->code)) {
+                    $member_code = MemberCode::whereCode($params->code)->first();
                     $user->member_code_id = $member_code->id;
                     $user->save();
                 }

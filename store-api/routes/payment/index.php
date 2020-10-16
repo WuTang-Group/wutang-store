@@ -45,7 +45,7 @@ Route::group(['namespace' => 'Payment'], function () {
         /**
          * 登录后可访问
          */
-        Route::group(['middleware' => ['auth:api', 'verified']], function () {
+        Route::group(['middleware' => ['auth:api']], function () {
             /**
              * Web payment list
              */

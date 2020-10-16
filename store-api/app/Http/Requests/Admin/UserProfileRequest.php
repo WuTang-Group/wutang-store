@@ -37,4 +37,15 @@ class UserProfileRequest extends FormRequest
             }
         }
     }
+
+    public function message()
+    {
+        return [
+            'real_name.required' => 'real_name必填',
+            'sex' => [
+                'required' => 'sex必填',
+                'integer' => 'sex必须为数字，1为男，0为女，-1为其他'
+            ]
+        ];
+    }
 }

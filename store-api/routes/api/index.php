@@ -29,10 +29,10 @@ Route::middleware('throttle:' . config('api.rate_limits.loose'))->group(function
  */
 Route::middleware('throttle:' . config('api.rate_limits.sign'))
     ->group(function () {
-        // token无效或失效,针对处理该问题闭包路由
-        Route::get('/unauthorized', function () {
-            return response()->json(\App\Handlers\ResponseData::tokenExpired());
-        })->name('unauth.login');
+//        // token无效或失效,针对处理该问题闭包路由
+//        Route::get('/unauthorized', function () {
+//            return response()->json(\App\Handlers\ResponseData::tokenExpired());
+//        })->name('unauth.login');
         // 用户登录
         Route::post('auth/login', 'AuthController@login')->name('auth.login');
         // 重置密码
@@ -47,7 +47,7 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
     /**
      * 需登录的路由组
      */
-    Route::group(['middleware' => ['auth:api', 'verified']], function () {
+    Route::group(['middleware' => ['auth:api']], function () {
         /**
          * auth route
          */

@@ -14,7 +14,7 @@ class FakerDataHandler
      */
     public function getImageUrl()
     {
-        $data = file_get_contents('assets/json/landscape.json');  // 图片地址库
+        $data = file_get_contents(public_path('assets/json/landscape.json'));  // 图片地址库
         $arr_data = json_decode($data, true);
         return Arr::random($arr_data['landscape']);
     }

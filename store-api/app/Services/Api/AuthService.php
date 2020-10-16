@@ -41,11 +41,10 @@ class AuthService extends Service
                 // 默认分配注册用户customer角色
                 $user->assignRole(Roles::Customer);
                 // 为用户绑定会员码
-                if ($params->has('code')) {
-//                    $member_code = MemberCode::firstWhere('code', $params->code);
-//                    $user->member_code_id = $member_code->id;
-//                    $user->save();
-                    Log::info('有code为:',['msg' => $params->code]);
+                if (isset($params->code)) {
+                    $member_code = MemberCode::whereCode($params->code)->first();
+                    $user->member_code_id = $member_code->id;
+                    $user->save();
                 }
                 // 用户注册成功自动在profile表新建占位数据行
                 $user->profile()->create(['birthday' => now()]);

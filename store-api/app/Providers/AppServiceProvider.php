@@ -80,26 +80,26 @@ class AppServiceProvider extends ServiceProvider
         // 注册TheHouseCategory 观察者
         TheHouseCategory::observe(TheHouseCategoryObserver::class);
 
-        // 获取购物车商品
-        $token = isset($_COOKIE['token']) ? $_COOKIE['token']:null;
-
-        $cart_collection = null;
-
-        if($token) { //用户已登录
-            $client = new Client(['base_uri' => env('API_URL')]);
-            $request = $client->request('GET', 'shop_carts', ['headers' => [
-                    'Authorization' => 'Bearer '.$token
-                ]
-            ]);
-            $cart_collection = json_decode($request->getBody());
-        }
-
-        if(isset($cart_collection->code) && $cart_collection->code != 20001) {
-            $cart_collection = null;
-        }
-        $count = isset($cart_collection->data[0]) ? count($cart_collection->data[0]->shop_cart_items):0;
-
-        View::share('cart_collection', $cart_collection);
-        View::share('count', $count);
+//        // 获取购物车商品
+//        $token = isset($_COOKIE['token']) ? $_COOKIE['token']:null;
+//
+//        $cart_collection = null;
+//
+//        if($token) { //用户已登录
+//            $client = new Client(['base_uri' => env('API_URL')]);
+//            $request = $client->request('GET', 'shop_carts', ['headers' => [
+//                    'Authorization' => 'Bearer '.$token
+//                ]
+//            ]);
+//            $cart_collection = json_decode($request->getBody());
+//        }
+//
+//        if(isset($cart_collection->code) && $cart_collection->code != 20001) {
+//            $cart_collection = null;
+//        }
+//        $count = isset($cart_collection->data[0]) ? count($cart_collection->data[0]->shop_cart_items):0;
+//
+//        View::share('cart_collection', $cart_collection);
+//        View::share('count', $count);
     }
 }

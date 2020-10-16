@@ -56,7 +56,7 @@ class ProductCategoryService extends Service
         $requestData = saveOss($queries, ['thumbnail', 'banner', 'describe_img']);
         if(Arr::has($queries, 'parent_id'))
         {
-            if($this->productCategory->find($queries['parent_id'])->doesntExist())
+            if($this->productCategory->where(['parent_id' => $queries['parent_id']])->doesntExist())
             {
                 return false;
             }

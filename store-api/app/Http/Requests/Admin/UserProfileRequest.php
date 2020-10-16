@@ -15,8 +15,7 @@ class UserProfileRequest extends FormRequest
      */
     public function rules()
     {
-        switch ($this->route()->getActionMethod())
-        {
+        switch ($this->route()->getActionMethod()) {
             case 'update':
             {
                 return [
@@ -29,7 +28,11 @@ class UserProfileRequest extends FormRequest
             case 'bindMemberCode':
             {
                 return [
-                    'code' => 'required|exists:member_codes'
+                    'code' => ['required', 'exists:member_codes', function ($attribute, $value, $fail) {
+                        if(!$this->user()->profile->real_name){
+                            return $fail('个人资料不能为空');
+                        }
+                    }]
                 ];
             }
         }

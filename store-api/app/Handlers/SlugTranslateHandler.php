@@ -74,6 +74,7 @@ class SlugTranslateHandler
 
     public function pinyin($text)
     {
-        return Str::slug(app(Pinyin::class)->permalink($text));
+        //Str::slug(app(Pinyin::class)->permalink($text))
+        return Str::limit(app(Pinyin::class)->permalink($text),19,'');
     }
 }

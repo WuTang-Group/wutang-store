@@ -2,6 +2,7 @@
 
 namespace App\Services\Api;
 
+use App\Models\MemberCode;
 use App\Models\Profile;
 use App\Services\Service;
 use Illuminate\Support\Facades\Log;
@@ -19,7 +20,9 @@ class UserProfileService extends Service
     // 用户资料信息
     public function index()
     {
-        return $this->profile->whereUserId($this->user()->id)->first();
+        $profile = $this->profile->whereUserId($this->user()->id)->first();
+        $profile->member_code = MemberCode::whereUserId($this->user()->id)->value('code') ?? '';  // 增加返回用户会员码
+        return $profile;
     }
 
     // 更新用户资料

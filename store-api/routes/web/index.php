@@ -1,5 +1,10 @@
 <?php
 
+// token无效或失效,针对处理该问题闭包路由
+Route::get('/unauthorized', function () {
+    return response()->json(\App\Handlers\ResponseData::tokenExpired());
+})->name('unauth.login');
+
 Route::group(['middleware' => ['web']], function () use ($router) {
 	Route::get('/', 'Web\HomeController@index');
 

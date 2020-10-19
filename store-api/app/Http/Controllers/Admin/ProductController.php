@@ -35,7 +35,7 @@ class ProductController extends Controller
      */
     public function queryList(Request $request)
     {
-        $result = $this->productService->queryList($request);
+        $result = $this->productService->queryList($request->all());
         return response()->json(ResponseData::requestSuccess($result));
     }
 

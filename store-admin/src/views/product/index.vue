@@ -1,16 +1,76 @@
 <template>
   <div class="app-container">
     <el-card class="box-card filter-container">
-      <el-input
-        v-model="listQuery.title"
-        placeholder="输入商品名称"
-        style="width: 200px;"
-        class="filter-item"
-        @keyup.enter.native="handleFilter"
-      />
-      <el-button class="filter-item" type="primary" style="margin-left: 20px;" icon="el-icon-search" @click="handleFilter">
-        {{ $t('table.search') }}
-      </el-button>
+      <el-form ref="listQuery" :model="listQuery">
+        <el-row>
+          <el-col :span="6">
+            <el-form-item label="商品名称">
+              <el-input
+                v-model="listQuery.product_name"
+                placeholder="输入商品名称"
+                style="width: 200px;"
+                class="filter-item"
+                clearable
+              />
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="英文名称">
+              <el-input
+                v-model="listQuery.product_name_en"
+                placeholder="输入商品名称(英文)"
+                style="width: 200px;"
+                class="filter-item"
+                clearable
+              />
+            </el-form-item>
+          </el-col>
+          <el-col :span="10">
+            <el-form-item label="商品创建时间">
+              <el-date-picker
+                v-model="listQuery.created_at"
+                type="datetimerange"
+                :picker-options="pickerOptions"
+                range-separator="至"
+                start-placeholder="开始日期"
+                end-placeholder="结束日期"
+                align="right"
+              />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="6">
+            <el-form-item label="产品类目">
+              <el-input
+                v-model="listQuery.product_category"
+                placeholder="输入产品类目"
+                style="width: 200px;"
+                class="filter-item"
+                clearable
+              />
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="所属商品">
+              <el-input
+                v-model="listQuery.parent_product"
+                placeholder="输入所属商品"
+                style="width: 200px;"
+                class="filter-item"
+                clearable
+              />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="6" :offset="20">
+            <el-button v-waves class="filter-item" type="primary" style="margin-left: 20px;" icon="el-icon-search" @click="handleFilter">
+              {{ $t('table.search') }}
+            </el-button>
+          </el-col>
+        </el-row>
+      </el-form>
     </el-card>
     <el-card class="box-card box-card-centent" style="margin-top: 20px;">
       <div slot="header" class="clearfix">
@@ -24,6 +84,7 @@
         :data="list"
         border
         fit
+        stripe
         highlight-current-row
         style="width: 100%;"
         :header-cell-style="{background:'#ebeef5'}"
@@ -39,7 +100,7 @@
         <el-table-column header-align="center" label="商品名称(英文)" prop="product_name_en" align="center" />
         <el-table-column header-align="center" label="所属商品" prop="parent.product_name" align="center" />
         <el-table-column header-align="center" label="Level" prop="level" align="center" />
-        <el-table-column header-align="center" label="所属分类" prop="product_category.title" align="center" />
+        <el-table-column header-align="center" label="所属分类" prop="product_category.name" align="center" />
         <el-table-column header-align="center" label="产品缩略图" align="center" width="125">
           <template slot-scope="{row}">
             <el-image style="width: 100px;height: 100px;" :src="row.thumbnail" fit="scale-down" @click="previewImgAction(row.thumbnail)" />
@@ -50,8 +111,8 @@
         <el-table-column header-align="center" label="库存" prop="stock" align="center" />
         <el-table-column header-align="center" label="规格" prop="spec" align="center" />
         <el-table-column header-align="center" label="状态" prop="status" :formatter="formatStatus" align="center" />
-        <el-table-column header-align="center" label="创建时间" prop="created_at" align="center" />
-        <el-table-column header-align="center" label="更新时间" prop="updated_at" align="center" />
+        <el-table-column header-align="center" label="创建时间" prop="created_at" align="center" sortable />
+        <el-table-column header-align="center" label="更新时间" prop="updated_at" align="center" sortable />
         <el-table-column
           header-align="center"
           align="center"
@@ -103,8 +164,13 @@ export default {
       list: null,
       total: 0,
       listQuery: {
-        'page': 1,
-        'page_limit': 10
+        page: 1,
+        page_limit: 10,
+        product_name: '',
+        product_name_en: '',
+        parent_product: '',
+        product_category: '',
+        created_at: ''
       },
       listLoading: true,
       tableKey: 0,
@@ -114,6 +180,33 @@ export default {
       viewOrUpdateData: {
         status: '',
         product_slug: ''
+      },
+      pickerOptions: {
+        shortcuts: [{
+          text: '最近一周',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
+            picker.$emit('pick', [start, end])
+          }
+        }, {
+          text: '最近一个月',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
+            picker.$emit('pick', [start, end])
+          }
+        }, {
+          text: '最近三个月',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
+            picker.$emit('pick', [start, end])
+          }
+        }]
       }
     }
   },
@@ -139,7 +232,7 @@ export default {
       return row.status === 1 ? '新品' : row.status === 2 ? '畅销' : row.status === 3 ? '促销' : row.status === -1 ? '下架' : '其他'
     },
     handleFilter() {
-      console.log('123')
+      this.getList()
     },
     // 删除确认
     deleteConfirm(product_slug) {

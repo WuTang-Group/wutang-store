@@ -63,7 +63,6 @@ function saveOss(array $params, array $saveField,string $folder = 'Products')
         if (is_object($params[$key])) {
             try {
                 $ossRes = OssHandler::save($params[$key], $folder);  // 图片存储到OSS
-                Log::info($ossRes);
                 $ossRes ? $params[$key] = $ossRes['data'] : null;
             } catch (\Exception $e) {
                 Log::error($e->getMessage());

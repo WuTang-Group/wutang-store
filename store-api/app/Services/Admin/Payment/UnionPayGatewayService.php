@@ -39,7 +39,6 @@ class UnionPayGatewayService extends Service
                 }
                 $value['jump_url'] = URL::route('unionpay_gateway.return.unionPayGatewayReturn',[],false);
                 $value['notify_url'] = URL::route('unionpay_gateway.notify.unionPayGatewayNotify',[],false);
-                Log::info($value);
                 $result[] = $this->unionPayGateway->create($value);
             }
             return $result;
@@ -53,7 +52,6 @@ class UnionPayGatewayService extends Service
     public function update($id, $params)
     {
         // 判断key是否被修改
-        Log::info($params);
         try {
             // 如果解密成功则未修改，删除此值，无需更新
             decrypt($params['key']);

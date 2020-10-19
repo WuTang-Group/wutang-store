@@ -30,7 +30,6 @@ class UserService extends Service
     public function store($params)
     {
         try {
-            Log::info($params);
             $requestFilterData = $params->except(['role', 'company', 'department', 'member_code']);
             $requestFilterData['password'] = Hash::make($params->password);
             $user = DB::transaction(function () use ($requestFilterData, $params) {
@@ -68,13 +67,11 @@ class UserService extends Service
 
     public function update($hash_id, $queries)
     {
-        Log::info($queries);
         $id = Hashids::decode($hash_id)[0];
         try {
             $user = $this->user->find($id);
             DB::transaction(function() use($user, $queries) {
                 $userData = $queries->only(['username', 'name', 'phone', 'email', 'status']);
-                Log::info($userData);
                 $user->update($userData);
 
                 if ($queries->filled('sex')) {

@@ -427,7 +427,6 @@ export default {
       return row.reviewed ? '已评价' : '未评价'
     },
     handleFilter() {
-      console.log(this.listQuery)
       this.getList()
     },
     confirmEdit(row) {

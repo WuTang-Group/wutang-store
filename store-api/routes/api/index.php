@@ -71,7 +71,7 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
         Route::post('user_addresses', 'UserAddressController@store')->name('user_addresses.store');
         Route::put('user_addresses/{address_id}', 'UserAddressController@edit')->name('user_addresses.edit');
         Route::delete('user_addresses/{address_id}', 'UserAddressController@destroy')->name('user_addresses.destroy');
-        Route::put('user_addresses/set_default/{address_id}', 'UserAddressController@set_default')->name('user_addresses.set_default');
+        Route::put('user_addresses/set_default/{address_id}', 'UserAddressController@setDefault')->name('user_addresses.set_default.setDefault');
         /**
          * 购物车
          */

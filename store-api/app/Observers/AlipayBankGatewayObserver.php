@@ -2,19 +2,13 @@
 
 namespace App\Observers;
 
-use App\Caches\AlipayBankGatewayCache;
+use App\Caches\PaymentCache;
 use App\Enums\Payment\PaymentType;
 use App\Models\AlipayBankGateway;
 use App\Services\Payment\WebPaymentService;
 
 class AlipayBankGatewayObserver
 {
-    private $cache;
-
-    public function __construct(AlipayBankGatewayCache $cache)
-    {
-        $this->cache = $cache;
-    }
 
     /**
      * Handle the alipay legacy express "created" event.
@@ -25,8 +19,8 @@ class AlipayBankGatewayObserver
     public function created(AlipayBankGateway $alipayBankGateway)
     {
         if ($alipayBankGateway->status == 1) {
+            (new PaymentCache(PaymentType::AlipayBankGateway))->save($alipayBankGateway);
             app(WebPaymentService::class)->store(PaymentType::AlipayBankGateway);
-            $this->cache->save($alipayBankGateway);
         }
     }
 
@@ -39,9 +33,9 @@ class AlipayBankGatewayObserver
     public function updated(AlipayBankGateway $alipayBankGateway)
     {
         if ($alipayBankGateway->status == 1) {
-            $this->cache->save($alipayBankGateway);
+            (new PaymentCache(PaymentType::AlipayBankGateway))->save($alipayBankGateway);
         } else {
-            $this->cache->delete($alipayBankGateway);
+            (new PaymentCache(PaymentType::AlipayBankGateway))->delete();
         }
         app(WebPaymentService::class)->update($alipayBankGateway, PaymentType::AlipayBankGateway);
     }
@@ -54,7 +48,7 @@ class AlipayBankGatewayObserver
      */
     public function deleted(AlipayBankGateway $alipayBankGateway)
     {
-        $this->cache->delete($alipayBankGateway);
+        (new PaymentCache(PaymentType::AlipayBankGateway))->delete();
         app(WebPaymentService::class)->destroy(PaymentType::AlipayBankGateway);
     }
 }

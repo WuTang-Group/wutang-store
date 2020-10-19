@@ -85,7 +85,6 @@ class CategoryStoryService extends Service
 
     public function storyDetail($categoriesStoriesId)
     {
-        Log::info($categoriesStoriesId);
         return $this->categoryStory->with(['productCategory' => function($query){
             $query->select('id', 'title');
         }])->where('id',$categoriesStoriesId)->first();

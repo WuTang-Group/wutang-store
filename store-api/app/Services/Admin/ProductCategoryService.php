@@ -40,7 +40,6 @@ class ProductCategoryService extends Service
                 return false;
             }
         }
-        Log::info($requestData);
         try {
             $productCategories = $this->productCategory->create($requestData);
         } catch (\Exception $e) {

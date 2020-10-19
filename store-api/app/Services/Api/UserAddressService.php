@@ -58,7 +58,7 @@ class UserAddressService extends Service
         return $userAddress;
     }
 
-    public function set_default($address_id)
+    public function setDefault($address_id)
     {
         try {
             DB::transaction(function () use ($address_id){

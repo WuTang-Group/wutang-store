@@ -20,8 +20,7 @@ interface BaseModelCacheInterface
 
     /**
      * 删除缓存
-     * @param object $model 模型对象
      * @return mixed
      */
-    public function delete($model);
+    public function delete();
 }

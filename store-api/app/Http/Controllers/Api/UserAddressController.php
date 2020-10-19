@@ -99,7 +99,7 @@ class UserAddressController extends Controller
 
     /** Set default address
      * 设置用户的默认收货地址
-     * @urlParam address_id 地址id
+     * @urlParam address_id required 地址id
      * @param $address_id
      * @return \Illuminate\Http\JsonResponse
      */

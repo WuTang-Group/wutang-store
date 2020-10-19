@@ -4,6 +4,7 @@ namespace App\Services\Api;
 
 use App\Models\UserAddress;
 use App\Services\Service;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class UserAddressService extends Service
@@ -55,5 +56,20 @@ class UserAddressService extends Service
             return false;
         }
         return $userAddress;
+    }
+
+    public function set_default($address_id)
+    {
+        try {
+            DB::transaction(function () use ($address_id){
+                $this->userAddress->find($address_id)->whereUserId($this->user()->id)->update(['is_default' => 1]);
+                $this->userAddress->where('id', '<>', $address_id)->whereUserId($this->user()->id)->update(['is_default' => 0]);
+            });
+        } catch (\Exception $e) {
+            Log::error('设置默认地址失败', ['msg' => $e->getMessage()]);
+            return false;
+        }
+        return true;
+
     }
 }

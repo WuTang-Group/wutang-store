@@ -96,4 +96,16 @@ class UserAddressController extends Controller
         $result = $this->service->destroy($address_id);
         return $result ? response()->json(ResponseData::requestSuccess()) : response()->json(ResponseData::requestFails());
     }
+
+    /** Set default address
+     * 设置用户的默认收货地址
+     * @queryParam address_id required 用户收货地址
+     * @param $address_id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function set_default($address_id)
+    {
+        $result = $this->service->set_default($address_id);
+        return $result ? response()->json(ResponseData::requestSuccess()) : response()->json(ResponseData::paramError());
+    }
 }

@@ -86,7 +86,7 @@ class AuthRequest extends FormRequest
             'password.required' => '密码必填',
             'password.confirmed' => '两次密码不一致',
             'password_question_id.exists' => '密保问题不存在',
-            'password.alpha_dash' => '密码仅允许:字母、数字、破折号或下划线',
+            'password.alpha_dash' => '密码仅允许:字母、数字、破折号(-)或下划线(_)',
             'password.min' => '密码长度不小于6位',
             'username.exists' => '用户不存在',
             'captcha_key.required' => '请输入验证码的key',

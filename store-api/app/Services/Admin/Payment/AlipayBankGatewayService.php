@@ -27,7 +27,6 @@ class AlipayBankGatewayService extends Service
     public function store($params)
     {
         $requestData = $params->all();
-        Log::info($requestData);
         try {
             foreach ($requestData['items'] as $value) {
                 if ($value['status'] == 1) {
@@ -40,7 +39,6 @@ class AlipayBankGatewayService extends Service
                 }
                 $value['return_url'] = URL::route('alipay.bank_gateway.alipayBankGatewayReturn',[],false);
                 $value['notify_url'] = URL::route('alipay.bank_gateway.alipayBankGatewayNotify',[],false);
-                Log::info($value);
                 $result[] = $this->alipayBankGateway->create($value);
             }
             return $result;
@@ -54,7 +52,6 @@ class AlipayBankGatewayService extends Service
     public function update($id, $params)
     {
         // 判断key是否被修改
-        Log::info($params);
         try {
             // 如果解密成功则未修改，删除此值，无需更新
             decrypt($params['key']);

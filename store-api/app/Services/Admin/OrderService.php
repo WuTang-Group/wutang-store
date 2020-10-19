@@ -58,23 +58,25 @@ class OrderService extends Service
     // 获取订单列表
     public function queryList($queries)
     {
+        Log:;info($queries);
         $requestData = page_limit($queries);
-        return Order::when(isset($requestData['username']) ?? NULL, function ($query, $username) {
+        return Order::when($requestData['username'] ?? NULL, function ($query, $username) {
             // 使用username查询user的记录
+            Log::info($username);
             return $query->whereHas('user', function ($query) use ($username) {
                 $query->whereUsername($username);
             });
-        })->when(isset($requestData['contact_name']) ?? NULL, function ($query, $contact_name) {
+        })->when($requestData['contact_name'] ?? NULL, function ($query, $contact_name) {
             // 使用contact_name查询address的记录
             return $query->whereHas('address', function ($query) use ($contact_name) {
                 $query->where('contact_name', $contact_name);
             });
-        })->when(isset($requestData['contact_phone']) ?? NULL, function ($query, $contact_phone) {
+        })->when($requestData['contact_phone'] ?? NULL, function ($query, $contact_phone) {
             // 使用contact_phone查询address的记录
             return $query->whereHas('address', function ($query) use ($contact_phone) {
                 $query->where('contact_phone', $contact_phone);
             });
-        })->when(isset($requestData['created_at']) ?? NULL, function ($query, $created_at) {
+        })->when($requestData['created_at'] ?? NULL, function ($query, $created_at) {
             return $query->whereBetween('created_at', $created_at);
         })->where(Arr::only(array_filter($requestData), ['no', 'payment_no']))
             ->with(['user', 'address'])

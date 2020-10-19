@@ -2,14 +2,11 @@
 
 namespace App\Services\Admin;
 
-use App\Enums\AliyunOssDir;
 use App\Enums\ProductStatusCode;
-use App\Handlers\OssHandler;
 use App\Models\Product;
 use App\Services\Service;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Str;
 
 class ProductService extends Service
 {
@@ -24,8 +21,22 @@ class ProductService extends Service
     {
         // 商品列表
         $requestData = page_limit($queries);
-        return $this->product->with(['productCategory' => function ($query) {
-            $query->select('id', 'title');
+        return $this->product->when($requestData['product_category'] ?? NULL, function ($query, $product_category) {
+            return $query->whereHas('productCategory', function ($query) use ($product_category) {
+                $query->whereName($product_category);
+            });
+        })->
+        when($requestData['parent_product'] ?? NULL, function($query, $parent_product) {
+            return $query->whereHas('parent', function($query) use($parent_product) {
+               $query->where('product_name', $parent_product);
+            });
+        })->
+            when($requestData['created_at'] ?? NULL, function ($query, $created_at) {
+                return $query->whereBetween('created_at', $created_at);
+        })->
+        where(Arr::only(array_filter($requestData), ['product_name', 'product_name_en']))->
+        with(['productCategory' => function ($query) {
+            $query->select('id', 'name');
         }])->
         with(['parent' => function ($query) {
             $query->select('id', 'product_name');

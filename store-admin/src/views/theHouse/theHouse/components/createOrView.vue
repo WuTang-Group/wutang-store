@@ -285,8 +285,6 @@ export default {
       if (this.status === 'create') {
         this.theHouseStore()
       } else if (this.status === 'edit') {
-        console.log(this.form)
-        console.log(this.status)
         this.theHouseUpdate()
       }
     },
@@ -316,9 +314,7 @@ export default {
       for (const key in this.form) {
         postForm.append(key, this.form[key])
       }
-      console.log(this.form.slug)
       theHouseUpdate(this.form.slug, postForm).then((response) => {
-        console.log(response)
         if (response.code === 20001) {
           this.$message({
             type: 'success',
@@ -334,6 +330,10 @@ export default {
     },
     initFormData() {
       this.$refs['form'].resetFields()
+      this.form.title = ''
+      this.form.sub_title = ''
+      this.form.describe = ''
+      this.form.banner = ''
       this.bannerList = []
       this.hideUploadBanner = false
     }

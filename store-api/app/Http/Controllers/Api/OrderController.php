@@ -84,9 +84,9 @@ class OrderController extends Controller
     }
 
     /**
-     * Cancel order & Retry create order
-     * 取消订单后尝试重新下单
-     * @bodyParam no integer required 需要取消的订单号
+     * Retry create order
+     * 以原订单尝试重新下单
+     * @bodyParam no integer required 原订单号
      * @param OrderRequest $request
      * @return Application|ResponseFactory|Response
      */

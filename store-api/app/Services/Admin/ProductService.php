@@ -2,7 +2,9 @@
 
 namespace App\Services\Admin;
 
+use App\Enums\AliyunOssDir;
 use App\Enums\ProductStatusCode;
+use App\Handlers\OssHandler;
 use App\Models\Product;
 use App\Services\Service;
 use Illuminate\Support\Arr;
@@ -54,9 +56,9 @@ class ProductService extends Service
     {
         // 添加商品
         $requestData = saveOss($queries, ['thumbnail', 'main_image',
-            'main_image_2', 'benefit_image', 'product_video']);
+            'main_image_2', 'benefit_image', 'product_video'], AliyunOssDir::Product);
         try {
-            $products = $this->product->create($requestData);
+            $products = $this->product->create($requestData['params']);
         } catch (\Exception $e) {
             Log::error('添加商品失败', ['message' => $e->getMessage()]);
             return false;
@@ -67,14 +69,19 @@ class ProductService extends Service
     public function edit($queries, $product_slug)
     {
         $requestData = saveOss($queries, ['thumbnail', 'main_image',
-            'main_image_2', 'benefit_image', 'product_video']);
+            'main_image_2', 'benefit_image', 'product_video'], AliyunOssDir::Product);
         try {
-            $products = $this->product->whereSlug($product_slug)->update($requestData);
+            $products = $this->product->whereSlug($product_slug);
+            // 获取更新资源字段的旧值，从Aliyun oss中删除
+            foreach ($requestData['old_oss'] as $key) {
+                OssHandler::delete($products->first()->$key);
+            }
+            $products->update($requestData['params']);
         } catch (\Exception $e) {
             Log::error('编辑商品失败', ['message' => $e->getMessage()]);
             return false;
         }
-        return $products;
+        return true;
     }
 
     public function destroy($product_slug)

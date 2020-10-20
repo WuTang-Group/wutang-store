@@ -35,9 +35,9 @@ class TheHouseService extends Service
 
     public function theHouseStore(array $param)
     {
-        $requestData = saveOss($param, ['banner']);
+        $requestData = saveOss($param, ['banner'], AliyunOssDir::TheHouse);
         try {
-            $this->theHouse->create($requestData);
+            $this->theHouse->create($requestData['params']);
         } catch (\Exception $e) {
             Log::error('添加The House失败', ['message' => $e->getMessage()]);
             return false;
@@ -47,9 +47,14 @@ class TheHouseService extends Service
 
     public function theHouseUpdateBySlug(string $slug, array $param)
     {
-        $requestData = saveOss($param, ['banner']);
+        $requestData = saveOss($param, ['banner'], AliyunOssDir::TheHouse);
         try{
-            $this->theHouse->where('slug', $slug)->update($requestData);
+            $theHouse = $this->theHouse->where('slug', $slug);
+            // 获取更新资源字段的旧值，从Aliyun oss中删除
+            foreach ($requestData['old_oss'] as $key) {
+                OssHandler::delete($theHouse->first()->$key);
+            }
+            $theHouse->update($requestData['params']);
         } catch (\Exception $e) {
             Log::error('更新The House失败', ['message' => $e->getMessage()]);
             return false;

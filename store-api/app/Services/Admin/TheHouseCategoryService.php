@@ -1,6 +1,8 @@
 <?php
 namespace App\Services\Admin;
 
+use App\Enums\AliyunOssDir;
+use App\Handlers\OssHandler;
 use App\Models\TheHouseCategory;
 use App\Services\Service;
 use Illuminate\Support\Facades\Log;
@@ -29,9 +31,9 @@ class TheHouseCategoryService extends Service
     // 创建
     public function categoryStore(array $params)
     {
-        $requestData = saveOss($params, ['banner']);
+        $requestData = saveOss($params, ['banner'], AliyunOssDir::TheHouseCategory);
         try{
-            $this->theHouseCategory->create($requestData);
+            $this->theHouseCategory->create($requestData['params']);
         } catch(\Exception $e){
             Log::error( '创建失败', ['message' => $e->getMessage()]);
             return false;
@@ -42,9 +44,14 @@ class TheHouseCategoryService extends Service
     // 更新
     public function categoryUpdateBySlug(string $slug, array $params)
     {
-        $requestData = saveOss($params, ['banner']);
+        $requestData = saveOss($params, ['banner'], AliyunOssDir::TheHouseCategory);
         try{
-            $this->theHouseCategory->whereSlug($slug)->update($requestData);
+            $theHouseCategory = $this->theHouseCategory->whereSlug($slug);
+            // 获取更新资源字段的旧值，从Aliyun oss中删除
+            foreach ($requestData['old_oss'] as $key) {
+                OssHandler::delete($theHouseCategory->first()->$key);
+            }
+            $theHouseCategory->update($requestData['params']);
         } catch(\Exception $e) {
             Log::error( '更新失败', ['message' => $e->getMessage()]);
             return false;

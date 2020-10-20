@@ -29,17 +29,9 @@ class CategoryStoryService extends Service
     public function store($queries)
     {
         // 新增分类故事列表
-        if (is_object($queries['banner'])) {
-            try {
-                $ossRes = OssHandler::save($queries['banner'], AliyunOssDir::ProductCategoryStory);  // 图片存储到OSS
-                $ossRes ? $queries['banner'] = $ossRes['data'] : null;
-            } catch (\Exception $e) {
-                Log::error('分类故事banner操作失败', ['message' => $e->getMessage()]);
-                return false;
-            }
-        }
+        $requestData = saveOss($queries, ['banner'], AliyunOssDir::ProductCategoryStory);
         try {
-            $categoryStories = $this->categoryStory->create($queries);
+            $categoryStories = $this->categoryStory->create($requestData['params']);
         } catch (\Exception $e) {
             Log::error('分类故事新增失败', ['message' => $e->getMessage()]);
             return false;
@@ -51,22 +43,19 @@ class CategoryStoryService extends Service
     public function edit($queries, $categoriesStoriesId)
     {
         // 编辑分类故事
-        if (is_object($queries['banner'])) {
-            try {
-                $ossRes = OssHandler::save($queries['banner'], AliyunOssDir::ProductCategoryStory);  // 图片存储到OSS
-                $ossRes ? $queries['banner'] = $ossRes['data'] : null;
-            } catch (\Exception $e) {
-                Log::error('分类故事banner操作失败',['message'=>$e->getMessage()]);
-                return false;
-            }
-        }
+        $requestData = saveOss($queries, ['banner'], AliyunOssDir::ProductCategoryStory);
         try {
-            $res = $this->categoryStory->where('id', $categoriesStoriesId)->update($queries);
+            $categoryStory = $this->categoryStory->where('id', $categoriesStoriesId);
+            // 获取更新资源字段的旧值，从Aliyun oss中删除
+            foreach ($requestData['old_oss'] as $key) {
+                OssHandler::delete($categoryStory->first()->$key);
+            }
+            $categoryStory->update($requestData['params']);
         } catch (\Exception $e) {
             Log::error('分类故事编辑失败',['message'=>$e->getMessage()]);
             return false;
         }
-        return $res;
+        return true;
 
     }
 

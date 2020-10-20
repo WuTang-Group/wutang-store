@@ -32,7 +32,7 @@ class ProductCategoryService extends Service
     // 添加商品分类
     public function store($queries)
     {
-        $requestData = saveOss($queries, ['thumbnail', 'banner', 'describe_img']);
+        $requestData = saveOss($queries, ['thumbnail', 'banner', 'describe_img'], AliyunOssDir::ProductCategoryStory);
         if(Arr::has($queries, 'parent_id'))
         {
             if($this->productCategory->find($queries['parent_id'])->doesntExist())
@@ -41,7 +41,7 @@ class ProductCategoryService extends Service
             }
         }
         try {
-            $productCategories = $this->productCategory->create($requestData);
+            $productCategories = $this->productCategory->create($requestData['params']);
         } catch (\Exception $e) {
             Log::error('添加商品分类失败', ['message' => $e->getMessage()]);
             return false;
@@ -52,7 +52,7 @@ class ProductCategoryService extends Service
     // 编辑产品分类
     public function edit($queries, $category_slug)
     {
-        $requestData = saveOss($queries, ['thumbnail', 'banner', 'describe_img']);
+        $requestData = saveOss($queries, ['thumbnail', 'banner', 'describe_img'], AliyunOssDir::ProductCategory);
         if(Arr::has($queries, 'parent_id'))
         {
             if($this->productCategory->where(['parent_id' => $queries['parent_id']])->doesntExist())
@@ -61,12 +61,17 @@ class ProductCategoryService extends Service
             }
         }
         try {
-            $productCategories = $this->productCategory->where('slug', $category_slug)->update($requestData);
+            $productCategories = $this->productCategory->where('slug', $category_slug);
+            // 获取更新资源字段的旧值，从Aliyun oss中删除
+            foreach ($requestData['old_oss'] as $key) {
+                OssHandler::delete($productCategories->first()->$key);
+            }
+            $productCategories->update($requestData['params']);
         } catch (\Exception $e) {
             Log::error('编辑产品分类失败', ['message' => $e->getMessage()]);
             return false;
         }
-        return $productCategories;
+        return true;
     }
 
     public function destroy($category_slug)

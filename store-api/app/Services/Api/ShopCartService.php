@@ -29,7 +29,7 @@ class ShopCartService extends Service
 
         $shopCartItems = $this->user()->shopCartItems;
         return $shopCartItems->map(function ($item, $key){
-            $product = Product::whereId($item['product_id'])->get(['product_name','product_name_en','thumbnail','slug','price','sale_price']);
+            $product = Product::whereId($item['product_id'])->get(['product_name','product_name_en','thumbnail','slug','price','sale_price','spec']);
             $item['product'] = $product;
             return $item;
         });

@@ -151,7 +151,7 @@ export default {
               type: 'success'
             })
             // 刷新数据
-            this.getTheHouseList()
+            this.getTheHouseCategoryList()
           } else {
             this.$message({
               message: '删除失败！',

@@ -10,6 +10,11 @@ use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+/**
+ * @group [API] MemberCode
+ * 会员码管理
+ * @package App\Http\Controllers\Api
+ */
 class MemberCodeController extends Controller
 {
     private $service;

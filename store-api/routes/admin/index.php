@@ -128,7 +128,7 @@ Route::group(['namespace' => 'Admin'], function () {
          */
         Route::get('the_house/category/list', 'TheHouseCategoryController@getTheHouseCategoryList')->name('the_house_category.list');
         Route::get('the_house/category/{slug}', 'TheHouseCategoryController@getCategoryDetailBySlug')->name('the_house_category.detail');
-        Route::post('the_house/category', 'TheHouseCategoryController@categoryStore')->name('the_house_category.store');
+        Route::post('the_house/category/store', 'TheHouseCategoryController@categoryStore')->name('the_house_category.store');
         Route::post('the_house/category/{slug}', 'TheHouseCategoryController@categoryUpdateBySlug')->name('the_house_category.update');
         Route::delete('the_house/category/{slug}', 'TheHouseCategoryController@categoryDestroyBySlug')->name('the_house_category.delete');
         /**

@@ -63,7 +63,9 @@ class CategoryStoryService extends Service
     {
         // 删除分类故事
         try {
-            $categoryStories = $this->categoryStory->whereId( $categoriesStoriesId)->delete();
+            $categoryStories = $this->categoryStory->whereId( $categoriesStoriesId)->first();
+            OssHandler::delete($categoryStories['banner']);
+            $categoryStories->delete();
         } catch (\Exception $e) {
             Log::error('分类故事删除失败',['message'=>$e->getMessage()]);
             return false;

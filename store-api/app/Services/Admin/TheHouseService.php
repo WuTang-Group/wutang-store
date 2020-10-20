@@ -65,7 +65,9 @@ class TheHouseService extends Service
     public function theHouseDestroyBySlug(string $slug)
     {
         try{
-            $this->theHouse->whereSlug($slug)->delete();
+            $theHouse = $this->theHouse->whereSlug($slug)->first();
+            OssHandler::delete($theHouse->banner);  //删除aliyun oss线上数据
+            $theHouse->delete();
         } catch(\Exception $e) {
             Log::error('删除失败！', ['message' => $e->getMessage()]);
             return false;
@@ -73,24 +75,24 @@ class TheHouseService extends Service
         return true;
     }
 
-    public static function saveOss(array $array)
-    {
-        // 保存文件到OSS中，返回url
-        $filtered = Arr::where($array, function ($value, $key) {
-            return Str::contains($key, ['banner']) && $key;
-        });
-        foreach ($filtered as $key => $value) {
-            // 图片存储到OSS，本地保存OSS地址
-            if (is_object($array[$key])) {
-                try {
-                    $ossRes = OssHandler::save($array[$key], AliyunOssDir::Product);  // 图片存储到OSS
-                    $ossRes ? $array[$key] = $ossRes['data'] : null;
-                } catch (\Exception $e) {
-                    Log::error($e->getMessage());
-                    $array[$key] = null;
-                }
-            }
-        }
-        return $array;
-    }
+//    public static function saveOss(array $array)
+//    {
+//        // 保存文件到OSS中，返回url
+//        $filtered = Arr::where($array, function ($value, $key) {
+//            return Str::contains($key, ['banner']) && $key;
+//        });
+//        foreach ($filtered as $key => $value) {
+//            // 图片存储到OSS，本地保存OSS地址
+//            if (is_object($array[$key])) {
+//                try {
+//                    $ossRes = OssHandler::save($array[$key], AliyunOssDir::Product);  // 图片存储到OSS
+//                    $ossRes ? $array[$key] = $ossRes['data'] : null;
+//                } catch (\Exception $e) {
+//                    Log::error($e->getMessage());
+//                    $array[$key] = null;
+//                }
+//            }
+//        }
+//        return $array;
+//    }
 }

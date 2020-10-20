@@ -61,7 +61,9 @@ class TheHouseContentService extends Service
     public function contentDestroyById(int $id)
     {
         try{
-            $this->theHouseContent->find($id)->delete();
+            $theHouseContent = $this->theHouseContent->find($id);
+            OssHandler::delete($theHouseContent->img);
+            $theHouseContent->delete();
         } catch(\Exception $e) {
             Log::error('删除失败！', ['message' => $e->getMessage()]);
             return false;

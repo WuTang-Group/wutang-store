@@ -77,8 +77,13 @@ class ProductCategoryService extends Service
     public function destroy($category_slug)
     {
         // 删除分类
+        $categories_imgs = ['thumbnail', 'banner', 'describe_img'];
         try {
-            $productCategories = $this->productCategory->where('slug', $category_slug)->delete();
+            $productCategories = $this->productCategory->where('slug', $category_slug)->first();
+            foreach ($categories_imgs as $value) {
+                OssHandler::delete($productCategories[$value]);
+            }
+            $productCategories->delete;
         } catch (\Exception $e) {
             Log::error('删除产品分类失败', ['message' => $e->getMessage()]);
             return false;

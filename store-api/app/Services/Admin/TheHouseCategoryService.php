@@ -63,7 +63,9 @@ class TheHouseCategoryService extends Service
     public function categoryDestroyBySlug(string $slug)
     {
         try{
-            $this->theHouseCategory->whereSlug($slug)->delete();
+            $theHouseCategory = $this->theHouseCategory->whereSlug($slug)->first();
+            OssHandler::delete($theHouseCategory['banner']);
+            $theHouseCategory->delete();
         } catch(\Exception $e) {
             Log::error( '删除失败', ['message' => $e->getMessage()]);
             return false;

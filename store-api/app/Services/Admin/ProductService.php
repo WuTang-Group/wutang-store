@@ -28,13 +28,13 @@ class ProductService extends Service
                 $query->whereName($product_category);
             });
         })->
-        when($requestData['parent_product'] ?? NULL, function($query, $parent_product) {
-            return $query->whereHas('parent', function($query) use($parent_product) {
-               $query->where('product_name', $parent_product);
+        when($requestData['parent_product'] ?? NULL, function ($query, $parent_product) {
+            return $query->whereHas('parent', function ($query) use ($parent_product) {
+                $query->where('product_name', $parent_product);
             });
         })->
-            when($requestData['created_at'] ?? NULL, function ($query, $created_at) {
-                return $query->whereBetween('created_at', $created_at);
+        when($requestData['created_at'] ?? NULL, function ($query, $created_at) {
+            return $query->whereBetween('created_at', $created_at);
         })->
         where(Arr::only(array_filter($requestData), ['product_name', 'product_name_en']))->
         with(['productCategory' => function ($query) {
@@ -98,9 +98,15 @@ class ProductService extends Service
 
     public function deleteProduct($product_slug)
     {
+        $products_imgs = ['thumbnail', 'main_image',
+            'main_image_2', 'benefit_image', 'product_video'];
         // 删除商品
         try {
-            $products = $this->product->whereSlug($product_slug)->delete();
+            $products = $this->product->whereSlug($product_slug)->first();
+            foreach ($products_imgs as $value) {
+                OssHandler::delete($products[$value]);
+            }
+            $products->delete();
         } catch (\Exception $e) {
             Log::error('删除商品失败', ['message' => $e->getMessage()]);
             return false;

@@ -3,6 +3,7 @@
 namespace App\Services\Api;
 
 use App\Caches\OrderPaymentCache;
+use App\Handlers\DiscountHandler;
 use App\Enums\{Payment\AlipayCode,
     Payment\AlipayBankGatewayCode,
     CacheKeyPrefix,
@@ -94,6 +95,11 @@ class OrderService extends Service
                     }
                 }
 
+                // 判断若有上级会员码，则享受折扣优惠
+                $checkCodeParent = app(MemberCodeService::class)->checkCodeParent();
+                if ($checkCodeParent) {
+                    $totalAmount = DiscountHandler::discount($totalAmount);
+                }
                 // 更新订单总金额
                 $order->update(['total_amount' => $totalAmount]);
 
@@ -260,7 +266,7 @@ class OrderService extends Service
         }
     }
 
-    // 尝试从取消或支付失败的订单再次下单(即重新下单)
+    // 重新下单
     public function retryCreate(object $params)
     {
         $requestData = $params->all();
@@ -301,7 +307,11 @@ class OrderService extends Service
                         throw new InvalidRequestException('该商品库存不足');
                     }
                 }
-
+                // 判断若有上级会员码，则享受折扣优惠
+                $checkCodeParent = app(MemberCodeService::class)->checkCodeParent();
+                if ($checkCodeParent) {
+                    $totalAmount = DiscountHandler::discount($totalAmount);
+                }
                 // 更新订单总金额
                 $order->update(['total_amount' => $totalAmount]);
                 return $order;

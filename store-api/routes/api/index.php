@@ -102,6 +102,7 @@ Route::middleware('throttle:' . config('api.rate_limits.access'))->group(functio
          * Member code
          */
         Route::post('member_code/bind_parent','UserProfileController@bindParentMemberCode')->name('member_code.bind_parent.bindParentMemberCode');
+        Route::get('member_code/check','MemberCodeController@checkCodeParent')->name('member_code.check.checkCodeParent');
         /**
          * Contact us
          */

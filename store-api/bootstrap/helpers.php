@@ -55,6 +55,7 @@ function demodifier(string $param)
 function saveOss(array $params, array $saveField,string $folder = 'Products')
 {
     // 保存文件到OSS中，返回url
+    $old_oss = [];
     $filtered = Arr::where($params, function ($value, $key) use ($saveField) {
         return Str::contains($key, $saveField) && $key;
     });
@@ -62,6 +63,7 @@ function saveOss(array $params, array $saveField,string $folder = 'Products')
         // 图片存储到OSS，本地保存OSS地址
         if (is_object($params[$key])) {
             try {
+                array_push($old_oss, $key);
                 $ossRes = OssHandler::save($params[$key], $folder);  // 图片存储到OSS
                 $ossRes ? $params[$key] = $ossRes['data'] : null;
             } catch (\Exception $e) {
@@ -70,5 +72,5 @@ function saveOss(array $params, array $saveField,string $folder = 'Products')
             }
         }
     }
-    return $params;
+    return ['params' => $params, 'old_oss' => $old_oss];
 }

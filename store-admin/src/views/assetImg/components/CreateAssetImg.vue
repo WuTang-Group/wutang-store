@@ -167,7 +167,6 @@ export default {
               message: '更新成功！',
               type: 'success'
             })
-            this.initFormData()
           } else {
             this.$message({
               message: '更新失败失败，请检查输入参数！',

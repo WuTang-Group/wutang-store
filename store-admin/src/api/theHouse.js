@@ -57,7 +57,7 @@ export function theHouseCategoryDetail(slug) {
 
 export function theHouseCategoryStore(data) {
   return request({
-    url: '/admin/the_house/category',
+    url: '/admin/the_house/category/store',
     method: 'post',
     data
   })

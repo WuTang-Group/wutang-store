@@ -45,7 +45,7 @@
                 <el-option
                   v-for="item in level"
                   :key="item.id"
-                  :label="item.id"
+                  :label="item.msg"
                   :value="item.id"
                 />
               </el-select>
@@ -466,8 +466,12 @@ export default {
         { id: 0, product_name: '无' }
       ],
       level: [
-        { id: 1 },
-        { id: 2 }
+        { id: 1,
+          msg: '套装'
+        },
+        { id: 2,
+          msg: '单品'
+        }
       ],
       previewImgDialogVisible: false,
       previewImg: '',

@@ -12,4 +12,7 @@ final class AliyunOssDir extends Enum
     const ProductCategoryStory = 'ProductCategoryStories';
     const AssetImg = 'AssetImgs';
     const Payments = 'Payments';
+    const TheHouse = 'TheHouse';
+    const TheHouseCategory = 'TheHouseCategory';
+    const TheHouseContent = 'TheHouseContent';
 }

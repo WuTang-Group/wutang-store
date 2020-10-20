@@ -3,6 +3,7 @@
 namespace App\Services\Api;
 
 use App\Enums\ShopCartItemType;
+use App\Models\Product;
 use App\Models\ShopCartItem;
 use App\Models\User;
 use App\Services\Service;
@@ -19,7 +20,19 @@ class ShopCartService extends Service
 
     public function queryList()
     {
-        return User::with(['shopCartItems', 'shopCartItems.product'])->whereId($this->user()->id)->get();
+//        return User::with(['shopCartItems.product' =>function($query){
+//            $query->select('id');
+//        }])->whereId($this->user()->id)->get()->makeHidden([
+//            'department_id','member_code_id','password_question_id','email','email_verified_at','password_answer','phone','avatar',
+//            'status','created_at','updated_at'
+//            ]);
+
+        $shopCartItems = $this->user()->shopCartItems;
+        return $shopCartItems->map(function ($item, $key){
+            $product = Product::whereId($item['product_id'])->get(['product_name','product_name_en','thumbnail','slug','price','sale_price','spec']);
+            $item['product'] = $product;
+            return $item;
+        });
     }
 
     public function store($queries)

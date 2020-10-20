@@ -99,13 +99,13 @@ class UserAddressController extends Controller
 
     /** Set default address
      * 设置用户的默认收货地址
-     * @queryParam address_id required 用户收货地址
+     * @urlParam address_id required 地址id
      * @param $address_id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function set_default($address_id)
+    public function setDefault($address_id)
     {
-        $result = $this->service->set_default($address_id);
+        $result = $this->service->setDefault($address_id);
         return $result ? response()->json(ResponseData::requestSuccess()) : response()->json(ResponseData::paramError());
     }
 }

@@ -67,7 +67,7 @@ class HomeService extends Service
     // 获取the house 列表数据
     public function getTheHouseList()
     {
-        return $this->theHouse->inRandomOrder()->take(3)->get()->makeHidden(['created_at', 'updated_at']);
+        return $this->theHouse->with(['theHouseCategory'])->inRandomOrder()->take(3)->get()->makeHidden(['created_at', 'updated_at']);
     }
 
 }

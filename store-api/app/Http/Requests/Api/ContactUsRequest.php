@@ -19,7 +19,7 @@ class ContactUsRequest extends FormRequest
             case 'store':
             {
                 return [
-                    'name' => 'required',
+//                    'name' => 'required',
                     'type' => 'required',
                     'content' => 'required'
                 ];
@@ -30,7 +30,7 @@ class ContactUsRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => '姓名必填',
+//            'name.required' => '姓名必填',
             'type.required' => '类型必选',
             'content.required' => '内容必填'
         ];

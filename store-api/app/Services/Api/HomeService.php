@@ -35,7 +35,7 @@ class HomeService extends Service
         try {
             return $this->assetImg->whereType(AssetImgType::Banner)->whereImgLocation(AssetImgLocation::Index)
                 ->with(['product' => function ($query) {
-                    $query->select('id', 'slug', 'product_name', 'product_name_en');
+                    $query->select('id', 'slug', 'product_name', 'product_name_en', 'product_video');
                 }])->firstOrFail()->makeHidden(['created_at', 'updated_at']);
         } catch (\Exception $e) {
             return '';

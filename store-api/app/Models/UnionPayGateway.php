@@ -18,4 +18,14 @@ class UnionPayGateway extends Model
     {
         return $this->belongsTo(Payment::class);
     }
+
+    public function getJumpUrlAttribute()
+    {
+        return config('app.url').$this->attributes['jump_url'];
+    }
+
+    public function getNotifyUrlAttribute()
+    {
+        return config('app.url').$this->attributes['notify_url'];
+    }
 }

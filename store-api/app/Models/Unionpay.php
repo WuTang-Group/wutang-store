@@ -12,4 +12,14 @@ class Unionpay extends Model
     {
         return $this->belongsTo(Payment::class);
     }
+
+    public function getReturnUrlAttribute()
+    {
+        return config('app.url').$this->attributes['return_url'];
+    }
+
+    public function getNotifyUrlAttribute()
+    {
+        return config('app.url').$this->attributes['notify_url'];
+    }
 }

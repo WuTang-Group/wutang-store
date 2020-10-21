@@ -507,7 +507,7 @@ class PaymentController extends Controller
                 'msg' => $e->getMessage(),
                 'order_no' => $requestData['out_trade_no']
             ]]);
-            return response(ResponseData::requestFails($requestData, '异步通知失败'));
+//            return response(ResponseData::requestFails($requestData, '异步通知失败'));
         }
     }
 

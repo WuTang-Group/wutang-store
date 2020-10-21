@@ -2,6 +2,7 @@
 namespace App\Services\Admin\Payment;
 
 use App\Enums\AliyunOssDir;
+use App\Handlers\OssHandler;
 use App\Models\Payment;
 use App\Services\Service;
 use Illuminate\Support\Facades\Log;
@@ -24,7 +25,9 @@ class paymentService extends Service
     {
         $requestData = saveOss($params, ['img'],AliyunOssDir::Payments);
         try{
-            $this->payment->find($id)->update($requestData);
+            $payment = $this->payment->find($id);
+            OssHandler::delete($payment->img);
+            $payment->update($requestData['params']);
         } catch(\Exception $e) {
             Log::error('保存支付Logo失败',['message' => $e->getMessage()]);
             return false;

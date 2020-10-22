@@ -10,6 +10,7 @@ class ResponseCodeController extends Controller
      * ResponseCode explain
      * 本方法仅作返回code通用说明(无其他作用)
      * @queryParam 10001 参数有误
+     * @queryParam 10002 数据已存在
      * @queryParam 10003 数据有误
      * @queryParam 20001 操作成功
      * @queryParam 40001 禁止访问

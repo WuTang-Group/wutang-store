@@ -34,4 +34,8 @@ final class CacheKeyPrefix extends Enum
     const AlipayLegacyExpressAll = self::AlipayLegacyExpress . 'ALL';  // alipay_legacy_expresses模型全部数据
     const AlipayBankGateway = 'QS:ALIPAYBANKGATEWAYS:';  // alipay_bank_gateways表
     const UnionpayGateway = 'QS:UNIONPAYGATEWAYS:';  // union_pay_gateways
+    /**
+     * UnionpayGateway
+     */
+    const UnionpayGatewayBankCode = 'QS:UNIONPAYGATEWAYS:BANKCODE:';
 }

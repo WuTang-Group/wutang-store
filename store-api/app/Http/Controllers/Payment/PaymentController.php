@@ -303,7 +303,8 @@ class PaymentController extends Controller
             $cacheData = Cache::get(CacheKeyPrefix::AlipayBankGateway);
             AlipayBankGateway::verify(Crypt::decrypt($cacheData->key), $requestData);
 
-            return redirect()->route('my-account'); // 返回订单界面
+            // return redirect()->route('my-account'); // 返回订单界面
+            return response(ResponseData::requestSuccess($requestData['order_id'], '支付成功'));
         } catch (\Exception $e) {
             Log::error('支付宝网关-前端回调失败', ['message' => [
                 'msg' => $e->getMessage(),
@@ -436,10 +437,12 @@ class PaymentController extends Controller
         }
         try {
             if ($requestData['trade_status'] == AlipayCode::TRADE_SUCCESS || $requestData['trade_status'] == AlipayCode::TRADE_FINISHED) {
-                return redirect()->route('my-account');
+                // return redirect()->route('my-account');
+                return response(ResponseData::requestSuccess($requestData['out_trade_no'], '支付成功'));
                 //return '付款成功';
             } else {
-                return redirect()->route('my-account');
+                // return redirect()->route('my-account');
+                return response(ResponseData::requestFails($requestData['out_trade_no'], '支付失败'));
                 //return '付款失败';
             }
         } catch (\Exception $e) {
@@ -535,8 +538,11 @@ class PaymentController extends Controller
             $params['jump_url'] = $cacheData->jump_url;
             $params['notify_url'] = $cacheData->notify_url;
             $params['pay_type'] = $cacheData->pay_type;
-            $params['sign'] = UnionPayGateway::sign($params, config('pay.unionpay_gateway.key'));
             $params['bank_code'] = $requestData['bank_code'];
+            $params['sign'] = UnionPayGateway::sign($params, config('pay.unionpay_gateway.key'));
+            // 缓存banck_code以用于验签
+            $key = CacheKeyPrefix::UnionpayGatewayBankCode . $requestData['no'];
+            Cache::put($key, $requestData['bank_code'], now()->addMinutes(120));  // 120分钟自动过期
             return UnionPayGateway::get('http://api.wyaiya.com/pay/ap.php', $params);
         } catch (\Exception $e) {
             Log::info('银联网银网关-支付发起', ['message' => [
@@ -562,10 +568,12 @@ class PaymentController extends Controller
      * Unionpay gateway return
      * 银联网关支付-前端回调
      * @param Request $request
+     * @return Application|ResponseFactory|Response
      */
     public function unionPayGatewayReturn(Request $request)
     {
 //        Log::info($request->all());
+        return response(ResponseData::requestSuccess($request->all(),'支付完成'));
     }
 
     /**
@@ -588,10 +596,14 @@ class PaymentController extends Controller
             $params['jump_url'] = $cacheData->jump_url;
             $params['notify_url'] = $cacheData->notify_url;
             $params['pay_type'] = $cacheData->pay_type;
-            //$params['bank_code'] = $requestData['bank_code'];  // 返回参数无bank_code。若必须使用bank_code签名，可使用缓存名+订单号方式缓存
+            // 通过缓存获取bank_code
+            $key = CacheKeyPrefix::UnionpayGatewayBankCode . $requestData['cp_trade_no'];
+            $params['bank_code'] = Cache::has(Cache::get($key)) ? Cache::get($key) : '';
             $params['sign'] = $requestData['sign'];
 
             if (!UnionPayGateway::verify($params, config('pay.unionpay_gateway.key'))) {
+                // 删除缓存
+                Cache::forget($key);
                 return response(ResponseData::paramError($requestData, '验签失败'));
             }
             if ($requestData['result_code'] == 0) {

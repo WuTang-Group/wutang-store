@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\UserProfileRequest;
+use App\Http\Requests\Api\UserProfileRequest;
 use App\Services\Api\MemberCodeService;
 use App\Services\Api\UserProfileService;
 use Illuminate\Contracts\Foundation\Application;
@@ -23,7 +23,7 @@ class UserProfileController extends Controller
     private $service;
     private $memberCodeService;
 
-    public function __construct(UserProfileService $service,MemberCodeService $memberCodeService)
+    public function __construct(UserProfileService $service, MemberCodeService $memberCodeService)
     {
         $this->service = $service;
         $this->memberCodeService = $memberCodeService;

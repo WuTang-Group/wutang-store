@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Enums\UserStatus;
-use App\Models\Traits\HashIdHelper;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
@@ -11,7 +10,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class User extends Authenticatable implements JWTSubject
 {
-    use Notifiable, HasRoles, HashIdHelper;
+    use Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -22,8 +21,6 @@ class User extends Authenticatable implements JWTSubject
         'name', 'username', 'email', 'password', 'phone', 'invitation_code', 'avatar',
         'password_question_id', 'password_answer', 'department_id', 'member_code_id', 'status'
     ];
-
-    protected $appends = ['hash_id']; //hash_id显示字段
 
     /**
      * The attributes that should be hidden for arrays.

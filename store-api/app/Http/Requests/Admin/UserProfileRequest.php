@@ -45,6 +45,10 @@ class UserProfileRequest extends FormRequest
             'sex' => [
                 'required' => 'sex必填',
                 'integer' => 'sex必须为数字，1为男，0为女，-1为其他'
+            ],
+            'code' => [
+                'required' => '会员码必填',
+                'exists' => '上级会员码不存在'
             ]
         ];
     }

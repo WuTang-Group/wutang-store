@@ -39,6 +39,9 @@ class AuthRequest extends FormRequest
                             if (!$memberCode) {
                                 return $fail('会员码有误');
                             }
+                            if ($this->user()->id == $memberCode->user_id) {
+                                return $fail('不允许绑定自身会员码');
+                            }
                         }
                     }],
                     'captcha_key' => 'required|string',

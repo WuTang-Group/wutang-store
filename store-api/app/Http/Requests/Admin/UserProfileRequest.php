@@ -25,7 +25,7 @@ class UserProfileRequest extends FormRequest
                     'age' => 'integer'
                 ];
             }
-            case 'bindMemberCode':
+            case 'bindParentMemberCode':
             {
                 return [
                     'code' => ['required', 'exists:member_codes', function ($attribute, $value, $fail) {

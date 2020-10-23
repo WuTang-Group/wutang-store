@@ -25,16 +25,6 @@ class UserProfileRequest extends FormRequest
                     'age' => 'integer'
                 ];
             }
-            case 'bindParentMemberCode':
-            {
-                return [
-                    'code' => ['required', 'exists:member_codes', function ($attribute, $value, $fail) {
-                        if(!$this->user()->profile->real_name){
-                            return $fail('个人资料不能为空');
-                        }
-                    }]
-                ];
-            }
         }
     }
 

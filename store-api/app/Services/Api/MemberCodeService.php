@@ -58,7 +58,7 @@ class MemberCodeService extends Service
             return $params->code;
         } catch (\Exception $e) {
             Log::error('会员码绑定失败', ['message' => $e->getMessage()]);
-            return $e->getMessage();
+            return false;
         }
     }
 

@@ -37,12 +37,18 @@ class UserProfileService extends Service
 //            $userProfile = $this->profile->whereUserId($this->user()->id);
 //            $userProfile->user()->update($params->except('profile_id'));
             $userProfile = $this->user()->profile()->update($params->all());
-            app(\App\Services\Api\MemberCodeService::class)->generateMemberCode();
+            $memberCode = app(\App\Services\Api\MemberCodeService::class)->generateMemberCode();
+            // 如果有上级会员码，则自身会员码level从该上级会员码基础上+1
+            $parentMemberCode = MemberCode::whereId($this->user()->member_code_id)->first();
+            if ($parentMemberCode) {
+                $memberCode->level = $parentMemberCode->level + 1;
+                $memberCode->save();
+            }
+            return $userProfile;
         } catch (\Exception $e) {
             Log::error('用户资料编辑失败', ['message' => $e->getMessage()]);
             return false;
         }
-        return $userProfile;
     }
 
     // 删除用户资料

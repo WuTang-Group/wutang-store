@@ -142,7 +142,7 @@ class User extends Authenticatable implements JWTSubject
     }
 
     /**
-     * 从属关联会员码模型
+     * 从属关联会员码模型(属于哪个会员码)
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function memberCode()

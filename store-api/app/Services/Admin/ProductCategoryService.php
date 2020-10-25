@@ -83,7 +83,7 @@ class ProductCategoryService extends Service
             foreach ($categories_imgs as $value) {
                 OssHandler::delete($productCategories[$value]);
             }
-            $productCategories->delete;
+            $productCategories->delete();
         } catch (\Exception $e) {
             Log::error('删除产品分类失败', ['message' => $e->getMessage()]);
             return false;

@@ -48,6 +48,11 @@
             <p v-html="scope.row.content" />
           </template>
         </el-table-column>
+        <el-table-column header-align="center" align="center" show-overflow-tooltip label="所属TheHouse">
+          <template slot-scope="scope">
+            <p v-html="scope.row.the_house.title" />
+          </template>
+        </el-table-column>
         <el-table-column header-align="center" align="center" label="图片描述">
           <template slot-scope="scope">
             <p v-html="scope.row.img_desc" />

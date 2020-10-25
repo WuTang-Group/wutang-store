@@ -99,7 +99,7 @@
         </el-table-column>
         <el-table-column header-align="center" label="商品名称(英文)" prop="product_name_en" align="center" />
         <el-table-column header-align="center" label="所属商品" prop="parent.product_name" align="center" />
-        <el-table-column header-align="center" label="Level" prop="level" align="center" />
+        <el-table-column header-align="center" label="Level" prop="level" :formatter="formatLevel" align="center" />
         <el-table-column header-align="center" label="所属分类" prop="product_category.name" align="center" />
         <el-table-column header-align="center" label="产品缩略图" align="center" width="125">
           <template slot-scope="{row}">
@@ -230,6 +230,9 @@ export default {
     },
     formatStatus(row, column) {
       return row.status === 1 ? '新品' : row.status === 2 ? '畅销' : row.status === 3 ? '促销' : row.status === -1 ? '下架' : '其他'
+    },
+    formatLevel(row, column) {
+      return row.level === 1 ? '套装' : row.level === 2 ? '单品' : '其他'
     },
     handleFilter() {
       this.getList()

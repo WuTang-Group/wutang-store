@@ -154,7 +154,7 @@
                 />
               </el-select>
             </template>
-            <span v-else>{{ row.refund_status | filterOrderStatus }}</span>
+            <span v-else>{{ row.refund_status | filterOrderRefundStatus }}</span>
           </template>
         </el-table-column>
         <el-table-column header-align="center" align="center" prop="refund_no" label="退款单号" />
@@ -256,6 +256,14 @@ export default {
           return '已发货'
         case -1:
           return '未发货'
+      }
+    },
+    filterOrderRefundStatus(value) {
+      switch (value) {
+        case 1:
+          return '未退款'
+        case -1:
+          return '已退款'
       }
     },
     filterAddress(value) {

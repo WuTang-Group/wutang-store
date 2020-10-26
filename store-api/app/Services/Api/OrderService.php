@@ -16,9 +16,7 @@ use App\Enums\{Payment\AlipayCode,
 use App\Events\OrderStatusUpdated;
 use App\Exceptions\InvalidRequestException;
 use App\Handlers\OrderHandler;
-use App\Models\{
-    Order, Product, UserAddress
-};
+use App\Models\{Order, OrderItem, Product, UserAddress};
 use App\Services\Service;
 use Illuminate\Support\{
     Facades\Cache, Facades\DB, Facades\Log
@@ -107,15 +105,20 @@ class OrderService extends Service
                 $productIds = collect($items)->pluck('product_id');
                 $user->shopCartItems()->whereIn('product_id', $productIds)->delete();
 
-                return $order->with(['items.product'])->first();
+                return $order;
             });
             // 缓存订单支付倒计时
             $cacheResult = OrderPaymentCache::store($orderRequest);
             if (!$cacheResult) {
                 return false;
             }
+            // 返回订单下子数据
+            $orderItems = OrderItem::with(['product' => function ($query) {
+                $query->select(['id', 'thumbnail', 'product_name', 'product_name_en', 'slug', 'price', 'sale_price']);
+            }])->whereOrderId($orderRequest->id)->get();
             return [
-                'order' => $orderRequest,
+                'order'=>$orderRequest,
+                'order_items' => $orderItems,
                 'cache_data' => $cacheResult
             ];
             // 取消下单队列通知，因为此时订单尚未完成，无需队列通知
@@ -314,8 +317,22 @@ class OrderService extends Service
                 }
                 // 更新订单总金额
                 $order->update(['total_amount' => $totalAmount]);
-                return $order->with(['items.product'])->first();
+                return $order;
             });
+            // 缓存订单支付倒计时
+            $cacheResult = OrderPaymentCache::store($orderRequest);
+            if (!$cacheResult) {
+                return false;
+            }
+            // 返回订单下子数据
+            $orderItems = OrderItem::with(['product' => function ($query) {
+                $query->select(['id', 'thumbnail', 'product_name', 'product_name_en', 'slug', 'price', 'sale_price']);
+            }])->whereOrderId($orderRequest->id)->get();
+            return [
+                'order'=>$orderRequest,
+                'order_items' => $orderItems,
+                'cache_data' => $cacheResult
+            ];
             // 取消下单队列通知，因为此时订单尚未完成，无需队列通知
             // event(new OrderStatusUpdated($orderRequest));
         } catch (\Exception $e) {
@@ -325,6 +342,5 @@ class OrderService extends Service
             ]);
             return false;
         }
-        return $orderRequest;
     }
 }

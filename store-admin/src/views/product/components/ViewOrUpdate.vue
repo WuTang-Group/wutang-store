@@ -357,6 +357,7 @@
             <el-form-item label="使用方法背景图">
               <el-image v-if="formDisable" style="width: 120px;height: 120px;" :src="form.usage_image" fit="scale-down" @click="previewImgAction(form.usage_image)" />
               <el-upload
+                v-else
                 ref="uploadUsageImage"
                 :class="{hideUsageImage:hideUploadUsageImage}"
                 name="UsageImage"
@@ -375,7 +376,9 @@
           </el-col>
           <el-col :span="6">
             <el-form-item label="科技介绍背景图">
+              <el-image v-if="formDisable" style="width: 120px;height: 120px;" :src="form.tech_image" fit="scale-down" @click="previewImgAction(form.tech_image)" />
               <el-upload
+                v-else
                 ref="uploadTechImage"
                 :class="{hideTechImage:hideUploadTechImage}"
                 name="tech_image"

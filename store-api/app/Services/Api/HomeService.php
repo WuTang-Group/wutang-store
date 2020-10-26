@@ -35,7 +35,7 @@ class HomeService extends Service
         try {
             return $this->assetImg->whereType(AssetImgType::Banner)->whereImgLocation(AssetImgLocation::Index)
                 ->with(['product' => function ($query) {
-                    $query->select('id', 'slug', 'product_name', 'product_name_en', 'product_video');
+                    $query->select('id', 'slug', 'product_name', 'product_name_en', 'product_video','level');
                 }])->firstOrFail()->makeHidden(['created_at', 'updated_at']);
         } catch (\Exception $e) {
             return '';
@@ -48,7 +48,7 @@ class HomeService extends Service
         try {
             return $this->assetImg->whereType(AssetImgType::ThisMonthRecommannd)->whereImgLocation(AssetImgLocation::Index)
                 ->with(['product' => function ($query) {
-                    $query->select('id', 'slug', 'product_name', 'product_name_en');
+                    $query->select('id', 'slug', 'product_name', 'product_name_en','level');
                 }])->get()->makeHidden(['created_at', 'updated_at']);
         } catch (\Exception $e) {
             return [];
@@ -60,7 +60,7 @@ class HomeService extends Service
     {
         return $this->assetImg->whereType(AssetImgType::Discover)->whereImgLocation(AssetImgLocation::Index)
             ->with(['product' => function ($query) {
-                $query->select('id', 'slug', 'product_name', 'product_name_en');
+                $query->select('id', 'slug', 'product_name', 'product_name_en','level');
             }])->get()->makeHidden(['created_at', 'updated_at']);
     }
 

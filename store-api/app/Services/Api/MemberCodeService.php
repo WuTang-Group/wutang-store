@@ -62,17 +62,23 @@ class MemberCodeService extends Service
         }
     }
 
-    // 校验会员码上级
+    // 校验是否填写会员码
     public function checkCodeParent()
     {
-        $userMemberCode = MemberCode::whereUserId(auth('api')->user()->id)->first();
-        if (!$userMemberCode) {
-            return false; // 用户未申请会员码
+//        $userMemberCode = MemberCode::whereUserId(auth('api')->user()->id)->first();
+//        // 只要有上级会员码即可
+////        if (!$userMemberCode) {
+////            return false; // 用户未申请会员码
+////        }
+//        if (!$userMemberCode->parent_id) {
+//            return false; // 用户未绑定上级会员码
+//        }
+//        // 上级会员码
+//        return auth('api')->user()->memberCode->code;
+        $code = auth('api')->user()->memberCode;
+        if (!$code) {
+            return false;
         }
-        if (!$userMemberCode->parent_id) {
-            return false; // 用户未绑定上级会员码
-        }
-        // 上级会员码
-        return auth('api')->user()->memberCode->code;
+        return $code->code;
     }
 }

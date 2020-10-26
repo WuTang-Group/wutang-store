@@ -107,7 +107,7 @@ class OrderService extends Service
                 $productIds = collect($items)->pluck('product_id');
                 $user->shopCartItems()->whereIn('product_id', $productIds)->delete();
 
-                return $order;
+                return $order->with(['items.product'])->first();
             });
             // 缓存订单支付倒计时
             $cacheResult = OrderPaymentCache::store($orderRequest);
@@ -314,7 +314,7 @@ class OrderService extends Service
                 }
                 // 更新订单总金额
                 $order->update(['total_amount' => $totalAmount]);
-                return $order;
+                return $order->with(['items.product'])->first();
             });
             // 取消下单队列通知，因为此时订单尚未完成，无需队列通知
             // event(new OrderStatusUpdated($orderRequest));

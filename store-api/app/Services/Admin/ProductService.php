@@ -56,7 +56,7 @@ class ProductService extends Service
     {
         // 添加商品
         $requestData = saveOss($queries, ['thumbnail', 'main_image',
-            'main_image_2', 'benefit_image', 'product_video'], AliyunOssDir::Product);
+            'main_image_2', 'benefit_image', 'product_video', 'usage_image', 'tech_image'], AliyunOssDir::Product);
         try {
             $products = $this->product->create($requestData['params']);
         } catch (\Exception $e) {
@@ -69,7 +69,7 @@ class ProductService extends Service
     public function edit($queries, $product_slug)
     {
         $requestData = saveOss($queries, ['thumbnail', 'main_image',
-            'main_image_2', 'benefit_image', 'product_video'], AliyunOssDir::Product);
+            'main_image_2', 'benefit_image', 'product_video', 'usage_image', 'tech_image'], AliyunOssDir::Product);
         try {
             $products = $this->product->whereSlug($product_slug);
             // 获取更新资源字段的旧值，从Aliyun oss中删除
@@ -99,7 +99,7 @@ class ProductService extends Service
     public function deleteProduct($product_slug)
     {
         $products_imgs = ['thumbnail', 'main_image',
-            'main_image_2', 'benefit_image', 'product_video'];
+            'main_image_2', 'benefit_image', 'product_video', 'usage_image', 'tech_image'];
         // 删除商品
         try {
             $products = $this->product->whereSlug($product_slug)->first();

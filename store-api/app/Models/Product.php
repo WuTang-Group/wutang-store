@@ -38,7 +38,9 @@ class Product extends Model
         'sold_count',
         'review_count',
         'parent_id',
-        'level'
+        'level',
+        'usage_image',
+        'tech_image'
     ];
     protected $casts = [
         'on_sale' => 'boolean', // on_sale 是一个布尔类型的字段

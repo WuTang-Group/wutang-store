@@ -13,18 +13,6 @@
               <el-input v-model="form.product_name_en" :readonly="formDisable" />
             </el-form-item>
           </el-col>
-          <!--          <el-col :span="7">-->
-          <!--            <el-form-item label="商品所属类目" prop="product_category_id">-->
-          <!--              <el-select v-model="form.product_category_id" placeholder="请选择" :disabled="formDisable" style="width: 190px">-->
-          <!--                <el-option-->
-          <!--                  v-for="item in product_category"-->
-          <!--                  :key="item.id"-->
-          <!--                  :label="item.title"-->
-          <!--                  :value="item.id"-->
-          <!--                />-->
-          <!--              </el-select>-->
-          <!--            </el-form-item>-->
-          <!--          </el-col>-->
         </el-row>
         <el-row>
           <el-col :span="7">
@@ -300,7 +288,6 @@
                 :on-remove="handleThumbnailRemove"
               >
                 <el-button size="small" plain type="primary">点击上传</el-button>
-                <div slot="tip" class="el-upload__tip">只能上传一张jpg/png文件，且不超过500kb</div>
               </el-upload>
             </el-form-item>
           </el-col>
@@ -359,6 +346,46 @@
                 :file-list="BenefitImageList"
                 :on-change="handleBenefitImageChange"
                 :on-remove="handleBenefitImageRemove"
+              >
+                <el-button size="small" plain type="primary">点击上传</el-button>
+              </el-upload>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="6">
+            <el-form-item label="使用方法背景图">
+              <el-image v-if="formDisable" style="width: 120px;height: 120px;" :src="form.usage_image" fit="scale-down" @click="previewImgAction(form.usage_image)" />
+              <el-upload
+                ref="uploadUsageImage"
+                :class="{hideUsageImage:hideUploadUsageImage}"
+                name="UsageImage"
+                action="#"
+                list-type="picture-card"
+                :auto-upload="false"
+                :limit="limitCountUsageImage"
+                :file-list="UsageImageList"
+                :on-change="handleUsageImageChange"
+                :on-remove="handleUsageImageRemove"
+              >
+                <el-button size="small" plain type="primary">点击上传</el-button>
+                <div slot="tip" class="el-upload__tip">只能上传一张jpg/png文件，且不超过500kb</div>
+              </el-upload>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="科技介绍背景图">
+              <el-upload
+                ref="uploadTechImage"
+                :class="{hideTechImage:hideUploadTechImage}"
+                name="tech_image"
+                action="#"
+                list-type="picture-card"
+                :auto-upload="false"
+                :limit="limitCountTechImage"
+                :file-list="TechImageList"
+                :on-change="handleTechImageChange"
+                :on-remove="handleTechImageRemove"
               >
                 <el-button size="small" plain type="primary">点击上传</el-button>
               </el-upload>
@@ -452,6 +479,8 @@ export default {
         benefit_en: '',
         tech_description: '',
         tech_description_en: '',
+        usage_image: '',
+        tech_image: '',
         description: '',
         description_en: '',
         main_image: '',
@@ -510,6 +539,14 @@ export default {
       hideUploadBenefitImage: false,
       limitCountBenefitImage: 1,
       BenefitImageList: [],
+      // 使用方法背景图
+      hideUploadUsageImage: false,
+      limitCountUsageImage: 1,
+      UsageImageList: [],
+      // 科技介绍背景图
+      hideUploadTechImage: false,
+      limitCountTechImage: 1,
+      TechImageList: [],
       // 商品视频
       hideUploadProductVideo: false,
       limitCountProductVideo: 1,
@@ -666,6 +703,14 @@ export default {
         if (this.form.main_image_2) {
           this.BenefitImageList.push({ 'url': this.form.benefit_image })
           this.hideUploadBenefitImage = true
+        }
+        if (this.form.usage_image) {
+          this.UsageImageList.push({ 'url': this.form.usage_image })
+          this.hideUploadUsageImage = true
+        }
+        if (this.form.tech_image) {
+          this.TechImageList.push({ 'url': this.form.tech_image })
+          this.hideUploadTechImage = true
         }
         this.loading = false
       })
@@ -844,6 +889,24 @@ export default {
       this.hideUploadBenefitImage = fileList.length >= this.limitCountBenefitImage
       this.form.benefit_image = null
     },
+    // 使用方法背景图
+    handleUsageImageChange(file, fileList) {
+      this.hideUploadUsageImage = fileList.length >= this.limitCountUsageImage
+      this.form.usage_image = file.raw
+    },
+    handleUsageImageRemove(file, fileList) {
+      this.hideUploadUsageImage = fileList.length >= this.limitCountUsageImage
+      this.form.usage_image = null
+    },
+    // 科技介绍背景图
+    handleTechImageChange(file, fileList) {
+      this.hideUploadTechImage = fileList.length >= this.limitCountTechImage
+      this.form.tech_image = file.raw
+    },
+    handleTechImageRemove(file, fileList) {
+      this.hideUploadTechImage = fileList.length >= this.limitCountTechImage
+      this.form.tech_image = null
+    },
     // 产品视频
     handleProductVideoChange(file, fileList) {
       this.hideUploadProductVideo = fileList.length >= this.limitCountProductVideo
@@ -873,6 +936,12 @@ export default {
     display: none;
   }
   .hideBenefitImage .el-upload--picture-card {
+    display: none;
+  }
+  .hideUsageImage .el-upload--picture-card {
+    display: none;
+  }
+  .hideTechImage .el-upload--picture-card {
     display: none;
   }
   .hideProductVideo .el-upload--picture-card {

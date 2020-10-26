@@ -70,10 +70,12 @@ class ProductController extends Controller
      * @queryParam benefit_en 英文产品功效
      * @queryParam tech_description 科技介绍
      * @queryParam tech_description_en 英文科技介绍
+     * @queryParam tech_image 科技介绍背景图片
      * @queryParam description 产品细节
      * @queryParam description_en 英文产品细节
      * @queryParam usage 使用方法
      * @queryParam usage_en 英文使用方法
+     * @queryParam usage_image 使用方法图片
      * @queryParam main_image required 页面主图
      * @queryParam main_image_2 required 页面主图2:用于较低分辨率设备
      * @queryParam benefit_image 功效背景图
@@ -111,10 +113,12 @@ class ProductController extends Controller
      * @queryParam benefit_en 英文产品功效
      * @queryParam tech_description 科技介绍
      * @queryParam tech_description_en 英文科技介绍
+     * @queryParam tech_image 科技介绍背景图片
      * @queryParam description 产品细节
      * @queryParam description_en 英文产品细节
      * @queryParam usage 使用方法
      * @queryParam usage_en 英文使用方法
+     * @queryParam usage_image 使用方法图片
      * @queryParam main_image 页面主图
      * @queryParam main_image_2 页面主图2:用于较低分辨率设备
      * @queryParam benefit_image 功效背景图
@@ -159,7 +163,10 @@ class ProductController extends Controller
             'spec',
             'sold_count',
             'review_count',
-            'product_video'
+            'product_video',
+            'usage_image',
+            'tech_image',
+            'parent_id'
         ]);
         $result = $this->productService->edit($queries, $product_slug);
         return $result ? response()->json(ResponseData::requestSuccess()) : response()->json(ResponseData::requestFails($request->all()));

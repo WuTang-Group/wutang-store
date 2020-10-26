@@ -242,6 +242,20 @@ export default {
     },
     // 提交数据
     submitTheHouse() {
+      // 限制title、content不可为空
+      if (!this.form.title) {
+        this.$message({
+          message: '文案标题不可为空！',
+          type: 'warning'
+        })
+        return false
+      } else if (!this.form.content) {
+        this.$message({
+          message: '文案正文不可为空！',
+          type: 'warning'
+        })
+        return false
+      }
       if (this.status === 'create') {
         this.contentStore()
       } else if (this.status === 'edit') {
@@ -260,6 +274,7 @@ export default {
             type: 'success',
             message: '创建成功！'
           })
+          this.closePageButton()
         } else {
           this.$message({
             type: 'error',
@@ -280,6 +295,7 @@ export default {
             type: 'success',
             message: '更新成功！'
           })
+          this.closePageButton()
         } else {
           this.$message({
             type: 'error',

@@ -327,6 +327,7 @@ export default {
             message: '更新成功！',
             type: 'success'
           })
+          this.closePageButton()
         } else {
           this.$message({
             message: '更新失败!',

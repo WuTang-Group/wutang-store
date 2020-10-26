@@ -303,6 +303,7 @@ export default {
             type: 'success'
           })
           this.initFormData()
+          this.closePageButton()
         } else {
           this.$message({
             message: '类目创建失败，请检查输入参数！',

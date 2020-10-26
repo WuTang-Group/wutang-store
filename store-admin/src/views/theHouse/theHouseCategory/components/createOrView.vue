@@ -205,6 +205,26 @@ export default {
     },
     // 提交数据
     submitTheHouse() {
+      // 限制name、sub_title、title不可为空
+      if (!this.form.name) {
+        this.$message({
+          message: '分类名称不可为空！',
+          type: 'warning'
+        })
+        return false
+      } else if (!this.form.sub_title) {
+        this.$message({
+          message: '副标题不可为空！',
+          type: 'warning'
+        })
+        return false
+      } else if (!this.form.title) {
+        this.$message({
+          message: '标题不可为空！',
+          type: 'warning'
+        })
+        return false
+      }
       if (this.status === 'create') {
         this.theHouseCategoryStore()
       } else if (this.status === 'edit') {
@@ -223,6 +243,7 @@ export default {
             type: 'success',
             message: '创建成功！'
           })
+          this.closePageButton()
         } else {
           this.$message({
             type: 'error',
@@ -236,13 +257,13 @@ export default {
       for (const key in this.form) {
         postForm1.append(key, this.form[key])
       }
-      console.log(postForm1.get('name'))
       theHouseCategoryUpdate(this.form.slug, postForm1).then((response) => {
         if (response.code === 20001) {
           this.$message({
             type: 'success',
             message: '更新成功！'
           })
+          this.closePageButton()
         } else {
           this.$message({
             type: 'error',

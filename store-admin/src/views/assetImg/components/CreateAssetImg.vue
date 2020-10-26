@@ -144,13 +144,14 @@ export default {
         createAssetImg(postForm).then((response) => {
           if (response.code === 20001) {
             this.$message({
-              message: '图片添加成功！',
+              message: '资源添加成功！',
               type: 'success'
             })
             this.initFormData()
+            this.closePageButton()
           } else {
             this.$message({
-              message: '图片添加失败，请检查输入参数！',
+              message: '资源添加失败，请检查输入参数！',
               type: 'error'
             })
           }
@@ -167,6 +168,7 @@ export default {
               message: '更新成功！',
               type: 'success'
             })
+            this.closePageButton()
           } else {
             this.$message({
               message: '更新失败失败，请检查输入参数！',

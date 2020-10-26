@@ -40,7 +40,7 @@
             </el-form-item>
           </el-col>
           <el-col :span="7">
-            <el-form-item label="Level" prop="product_name_en">
+            <el-form-item label="Level" prop="level">
               <el-select v-model="form.level" placeholder="请选择" style="width: 190px">
                 <el-option
                   v-for="item in level"
@@ -663,6 +663,7 @@ export default {
             type: 'success'
           })
           this.initFormData()
+          this.closePageButton()
         } else {
           this.$message({
             message: '商品创建失败，请检查参数！',

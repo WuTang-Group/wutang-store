@@ -28,16 +28,27 @@
         </el-row>
         <el-row>
           <el-col :span="7">
-            <el-form-item v-if="form.parent" label="所属商品" prop="parent">
-              <el-input v-model="form.parent.product_name" :readonly="formDisable" />
-            </el-form-item>
-            <el-form-item v-else label="所属商品" prop="parent">
-              <el-input :readonly="formDisable" />
+            <el-form-item label="所属商品" prop="parent_id">
+              <el-select v-model="form.parent_id" placeholder="请选择" :disabled="formDisable" style="width: 190px">
+                <el-option
+                  v-for="item in parent_product"
+                  :key="item.id"
+                  :label="item.product_name"
+                  :value="item.id"
+                />
+              </el-select>
             </el-form-item>
           </el-col>
           <el-col :span="7">
             <el-form-item label="Level" prop="level">
-              <el-input v-model="form.level" :readonly="formDisable" />
+              <el-select v-model="form.level" placeholder="请选择" :disabled="formDisable" style="width: 190px">
+                <el-option
+                  v-for="item in level"
+                  :key="item.id"
+                  :label="item.msg"
+                  :value="item.id"
+                />
+              </el-select>
             </el-form-item>
           </el-col>
           <el-col :span="7">
@@ -408,7 +419,7 @@
 </template>
 
 <script>
-import { productDetail, productUpdate } from '@/api/product'
+import { getParentProduct, productDetail, productUpdate } from '@/api/product'
 import Tinymce from '@/components/Tinymce'
 import { getList } from '@/api/category'
 export default {
@@ -479,6 +490,9 @@ export default {
         'usage',
         'usage_en'
       ],
+      parent_product: [
+        { id: 0, product_name: '无' }
+      ],
       // 图片上传
       // 缩略图
       hideUploadThumbnail: false,
@@ -505,6 +519,14 @@ export default {
         { 'flag': 2, 'msg': '畅销' },
         { 'flag': 3, 'msg': '促销' },
         { 'flag': -1, 'msg': '下架' }
+      ],
+      level: [
+        { id: 1,
+          msg: '套装'
+        },
+        { id: 2,
+          msg: '单品'
+        }
       ],
       formRules: {
         product_name: [
@@ -594,6 +616,7 @@ export default {
     this.getProductData()
     this.getProductDetail()
     this.getCategoryList()
+    this.getParentProduct()
   },
   methods: {
     // 获取初始化数据
@@ -611,6 +634,11 @@ export default {
       }
       getList(param).then((response) => {
         this.product_category = response.data.data
+      })
+    },
+    getParentProduct() {
+      getParentProduct().then((response) => {
+        this.parent_product = this.parent_product.concat(response.data)
       })
     },
     // 获取商品详情数据
@@ -688,6 +716,9 @@ export default {
             message: '商品更新成功！',
             type: 'success'
           })
+          this.closePageButton()
+          // this.$store.dispatch('tagsView/delView', this.$route)
+          // this.$router.go(-1)
         } else {
           this.$message({
             message: '商品更新失败，请检查参数！',

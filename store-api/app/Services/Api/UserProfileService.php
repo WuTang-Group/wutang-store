@@ -22,11 +22,7 @@ class UserProfileService extends Service
     {
         $profile = $this->profile->whereUserId($this->user()->id)->first();
         $profile->member_code = MemberCode::whereUserId($this->user()->id)->value('code') ?? '';  // 增加返回用户会员码
-        try {
-            $profile->parent_member_code = $profile->member_code ? MemberCode::whereCode($profile->member_code)->has('parent')->firstOrFail()->parent->code : '';
-        } catch (\Exception $e) {
-            $profile->parent_member_code = '';
-        }
+        $profile->parent_member_code = $profile->member_code ? MemberCode::whereId($this->user()->member_code_id)->value('code') : '';
         return $profile;
     }
 

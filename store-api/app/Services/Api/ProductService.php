@@ -77,7 +77,7 @@ class ProductService extends Service
     // 随机获取三条继续探索产品
     public function getListByExplore()
     {
-        return $this->product->inRandomOrder()->take(3)->get(['id', 'thumbnail', 'slug', 'product_name', 'product_name_en']);
+        return $this->product->whereLevel(2)->inRandomOrder()->take(3)->get(['id', 'thumbnail', 'slug', 'product_name', 'product_name_en']);
     }
 
     // 根据商品ID列表获取商品详情列表

@@ -38,10 +38,10 @@ class ProductService extends Service
             case NavbarCategoryType::Product:
             {
                 return $this->product->whereParentId(0)->whereLevel(1)->whereSlug($slug)->with(['children' => function ($query) {
-                    $query->select('parent_id', 'slug', 'product_name', 'product_name_en', 'thumbnail', 'short_description', 'price', 'sale_price', 'benefit', 'benefit_image', 'level');
+                    $query->select('parent_id', 'slug', 'product_name', 'product_name_en', 'thumbnail', 'short_description', 'price', 'sale_price', 'benefit', 'benefit_image', 'level', 'product_video', 'main_image');
                 }])->get()->makeHidden([
                     'short_description_en', 'seo_title', 'seo_keyword', 'seo_description', 'benefit_en', 'tech_description',
-                    'tech_description_en', 'description', 'description_en', 'usage', 'usage_en', 'main_image', 'main_image_2', 'product_video',
+                    'tech_description_en', 'description', 'description_en', 'usage', 'usage_en', 'main_image_2',
                     'status', 'rating', 'sold_count', 'review_count', 'created_at', 'updated_at'
                 ]);
             }

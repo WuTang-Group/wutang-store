@@ -54,12 +54,13 @@ class TheHouseController extends Controller
      * @bodyParam the_house_category_id required The House Category表的id
      * @bodyParam describe required 简要描述
      * @bodyParam banner required Banner图
+     * @bodyParam thumbnail 缩略图
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function theHouseStore(Request $request)
     {
-        $requestData = $request->only(['title', 'sub_title', 'the_house_category_id', 'describe', 'banner']);
+        $requestData = $request->only(['title', 'sub_title', 'thumbnail', 'the_house_category_id', 'describe', 'banner']);
         $result = $this->service->theHouseStore($requestData);
         return $result? response()->json(ResponseData::requestSuccess()): response()->json(ResponseData::paramError($request->all()));
     }
@@ -72,6 +73,7 @@ class TheHouseController extends Controller
      * @bodyParam the_house_category_id required The House Category表的id
      * @bodyParam describe required 简要描述
      * @bodyParam banner required Banner图
+     * @bodyParam thumbnail 缩略图
      * @urlParam slug required The House的slug Example: et-pariatur
      * @param $slug
      * @param Request $request
@@ -79,7 +81,7 @@ class TheHouseController extends Controller
      */
     public function theHouseUpdateBySlug($slug, Request $request)
     {
-        $requestData = $request->only(['title', 'sub_title', 'the_house_category_id', 'describe', 'banner']);
+        $requestData = $request->only(['title', 'sub_title', 'thumbnail', 'the_house_category_id', 'describe', 'banner']);
         $result = $this->service->theHouseUpdateBySlug($slug, $requestData);
         return $result? response()->json(ResponseData::requestSuccess()):response()->json(ResponseData::paramError($request->all()));
     }

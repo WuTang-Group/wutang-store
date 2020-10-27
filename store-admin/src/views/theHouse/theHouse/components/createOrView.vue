@@ -59,6 +59,8 @@
               </el-collapse>
             </div>
           </el-col>
+        </el-row>
+        <el-row>
           <el-col :span="10">
             <el-form-item label="banner图">
               <el-image v-if="formDisable" style="width: 120px;height: 120px;" :src="form.banner" fit="scale-down" @click="previewImgAction(form.banner)" />
@@ -74,6 +76,27 @@
                 :file-list="bannerList"
                 :on-change="handleBannerChange"
                 :on-remove="handleBannerRemove"
+              >
+                <el-button size="small" type="primary">点击上传</el-button>
+                <div slot="tip" class="el-upload__tip">只能上传一张jpg/png文件，且不超过500kb</div>
+              </el-upload>
+            </el-form-item>
+          </el-col>
+          <el-col :span="10">
+            <el-form-item label="缩略图">
+              <el-image v-if="formDisable" style="width: 120px;height: 120px;" :src="form.thumbnail" fit="scale-down" @click="previewImgAction(form.thumbnail)" />
+              <el-upload
+                v-else
+                ref="uploadThumbnail"
+                :class="{hideThumbnail:hideUploadThumbnail}"
+                name="thumbnail"
+                action="#"
+                list-type="picture-card"
+                :auto-upload="false"
+                :limit="limitCountThumbnail"
+                :file-list="thumbnailList"
+                :on-change="handleThumbnailChange"
+                :on-remove="handleThumbnailRemove"
               >
                 <el-button size="small" type="primary">点击上传</el-button>
                 <div slot="tip" class="el-upload__tip">只能上传一张jpg/png文件，且不超过500kb</div>
@@ -170,6 +193,7 @@ export default {
         title: '',
         sub_title: '',
         describe: '',
+        thumbnail: '',
         banner: '',
         the_house_category_id: ''
       },
@@ -185,6 +209,10 @@ export default {
       hideUploadBanner: false,
       limitCountBanner: 1,
       bannerList: [],
+      // 缩略图
+      hideUploadThumbnail: false,
+      limitCountThumbnail: 1,
+      thumbnailList: [],
       // 图片dialog
       previewImg: '',
       previewImgDialogVisible: false
@@ -219,8 +247,10 @@ export default {
       theHouseDetail(this.the_house_slug).then((response) => {
         this.form = response.data
         this.bannerList.push({ 'url': this.form.banner })
+        this.thumbnailList.push({ 'url': this.form.thumbnail })
         // 图片上传初始化
         this.hideUploadBanner = true
+        this.hideUploadThumbnail = true
       })
     },
     // 调起富文本dialog
@@ -269,6 +299,15 @@ export default {
     handleBannerRemove(file, fileList) {
       this.hideUploadBanner = fileList.length >= this.limitCountBanner
       this.form.banner = null
+    },
+    // 图片上传
+    handleThumbnailChange(file, fileList) {
+      this.hideUploadThumbnail = fileList.length >= this.limitCountThumbnail
+      this.form.thumbnail = file.raw
+    },
+    handleThumbnailRemove(file, fileList) {
+      this.hideUploadThumbnail = fileList.length >= this.limitCountThumbnail
+      this.form.thumbnail = null
     },
     // 点击预览图片
     previewImgAction(url) {
@@ -358,6 +397,9 @@ export default {
       this.form.banner = ''
       this.bannerList = []
       this.hideUploadBanner = false
+      this.form.thumbnail = ''
+      this.thumbnailList = []
+      this.hideUploadThumbnail = false
     }
   }
 }
@@ -366,6 +408,9 @@ export default {
 <style lang="scss">
   /*上传图片完成后隐藏按钮*/
   .hideBanner .el-upload--picture-card {
+    display: none;
+  }
+  .hideThumbnail .el-upload--picture-card {
     display: none;
   }
   .theHouseText {

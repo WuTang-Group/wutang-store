@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\ProductRequest;
 use App\Services\Admin\ProductService;
 use http\Env\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 /**
  * @group [ADMIN] Product

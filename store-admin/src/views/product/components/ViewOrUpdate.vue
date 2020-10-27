@@ -490,7 +490,7 @@ export default {
         main_image_2: '',
         benefit_image: '',
         thumbnail: '',
-        product_category_id: '',
+        product_category_id: 0,
         product_video: '',
         usage: '',
         usage_en: '',
@@ -499,11 +499,9 @@ export default {
           product_name: ''
         }
       },
-      product_category: {
-        id: '',
-        slug: '',
-        title: ''
-      },
+      product_category: [
+        { id: 0, name: '无' }
+      ],
       previewImgDialogVisible: false,
       previewImg: '',
       // 富文本
@@ -583,9 +581,9 @@ export default {
           { required: true, message: '请输入商品优惠价格', trigger: 'blur' },
           { pattern: '^([1-9]\\d{0,9}|0)(\\.\\d{1,2}){1}$', message: '请输入两位小数的优惠价格', trigger: 'blur' }
         ],
-        product_category_id: [
-          { required: true, message: '请选择商品类目', trigger: 'change' }
-        ],
+        // product_category_id: [
+        //   { required: true, message: '请选择商品类目', trigger: 'change' }
+        // ],
         status: [
           { required: true, message: '请选择商品状态', trigger: 'change' }
         ],
@@ -673,7 +671,7 @@ export default {
         page_limit: 40
       }
       getList(param).then((response) => {
-        this.product_category = response.data.data
+        this.product_category = this.product_category.concat(response.data.data)
       })
     },
     getParentProduct() {
@@ -686,6 +684,7 @@ export default {
       this.loading = true
       productDetail(this.product_slug).then(response => {
         this.form = response.data
+        this.form.product_category_id = this.form.product_category_id ? this.form.product_category_id : 0
         // 图片上传初始图片
         if (this.form.product_video && this.form.product_video !== 'null') {
           this.ProductVideoList.push({ 'url': this.form.product_video })

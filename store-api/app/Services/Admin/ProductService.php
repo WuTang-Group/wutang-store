@@ -68,6 +68,7 @@ class ProductService extends Service
 
     public function edit($queries, $product_slug)
     {
+        $queries['product_category_id']  = $queries['product_category_id'] ? $queries['product_category_id'] : null;
         $requestData = saveOss($queries, ['thumbnail', 'main_image',
             'main_image_2', 'benefit_image', 'product_video', 'usage_image', 'tech_image'], AliyunOssDir::Product);
         try {

@@ -54,7 +54,7 @@ class TheHouseController extends Controller
      * @bodyParam the_house_category_id required The House Category表的id
      * @bodyParam describe required 简要描述
      * @bodyParam banner required Banner图
-     * @bodyParam thumbnail 缩略图
+     * @bodyParam thumbnail image 缩略图
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
@@ -73,7 +73,7 @@ class TheHouseController extends Controller
      * @bodyParam the_house_category_id required The House Category表的id
      * @bodyParam describe required 简要描述
      * @bodyParam banner required Banner图
-     * @bodyParam thumbnail 缩略图
+     * @bodyParam thumbnail image 缩略图
      * @urlParam slug required The House的slug Example: et-pariatur
      * @param $slug
      * @param Request $request

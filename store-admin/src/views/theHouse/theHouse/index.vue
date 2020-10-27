@@ -54,9 +54,9 @@
             <p v-html="scope.row.describe" />
           </template>
         </el-table-column>
-        <el-table-column header-align="center" align="center" label="banner图">
+        <el-table-column header-align="center" align="center" label="缩略图">
           <template slot-scope="{row}">
-            <el-image style="width: 100px;height: 100px;" :src="row.banner" fit="scale-down" @click="previewImgAction(row.banner)" />
+            <el-image style="width: 100px;height: 100px;" :src="row.thumbnail" fit="scale-down" @click="previewImgAction(row.thumbnail)" />
           </template>
         </el-table-column>
         <el-table-column header-align="center" align="center" prop="created_at" label="创建时间" width="180px" />

@@ -7,6 +7,7 @@ class AssetImg extends Model
     protected $fillable = [
         'img',
         'img_location',
+        'video',
         'type',
         'product_id',
     ];

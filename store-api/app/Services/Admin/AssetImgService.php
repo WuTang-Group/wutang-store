@@ -23,7 +23,7 @@ class AssetImgService extends Service
 
     public function store($queries)
     {
-        $requestData = saveOss($queries, ['img'], AliyunOssDir::AssetImg);
+        $requestData = saveOss($queries, ['img', 'video'], AliyunOssDir::AssetImg);
         try {
             $this->assetImg->create($requestData['params']);
         }catch (\Exception $e){
@@ -35,7 +35,7 @@ class AssetImgService extends Service
 
     public function update($assetImgId, $param)
     {
-        $requestData = saveOss($param, ['img'], AliyunOssDir::AssetImg);
+        $requestData = saveOss($param, ['img', 'video'], AliyunOssDir::AssetImg);
         try {
             $assetImg = $this->assetImg->whereId($assetImgId);
             // 获取更新资源字段的旧值，从Aliyun oss中删除
@@ -52,10 +52,13 @@ class AssetImgService extends Service
 
     public function destroy($assetImgId)
     {
+        $asset_videos = ['img', 'video'];
         try{
             $assetImgObject = $this->assetImg->whereId($assetImgId)->first();
             if ($assetImgObject){
-                OssHandler::delete($assetImgObject['img']);   //删除oss地址
+                foreach ($asset_videos as $value) {
+                    OssHandler::delete($assetImgObject[$value]);   //删除oss地址
+                }
                 $assetImgObject->delete();  // 删除表中记录
             }else {
                 return false;

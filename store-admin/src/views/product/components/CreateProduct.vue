@@ -391,11 +391,11 @@
           <el-col :span="6">
             <el-form-item label="商品视频">
               <el-upload
-                ref="uploadBProductVideo"
+                ref="uploadProductVideo"
                 :class="{hideProductVideo:hideUploadProductVideo}"
                 name="product_video"
                 action="#"
-                list-type="picture"
+                list-type="text"
                 :auto-upload="false"
                 :limit="limitCountProductVideo"
                 :file-list="ProductVideoList"
@@ -863,7 +863,7 @@ export default {
     },
     handleProductVideoRemove(file, fileList) {
       this.hideUploadProductVideo = fileList.length >= this.limitCountProductVideo
-      this.form.product_videl = null
+      this.form.product_video = null
     },
     // 关闭页面
     closePageButton() {

@@ -61,15 +61,36 @@
             </el-form-item>
           </el-col>
         </el-row>
-        <el-row style="margin-bottom: 50px">
-          <el-col :span="2" :offset="8">
-            <el-button type="success" @click="updateValue()">提交</el-button>
-          </el-col>
-          <el-col :span="2">
-            <el-button type="info" plain @click="closePageButton">返回</el-button>
+        <el-row>
+          <el-col :span="6">
+            <el-form-item label="视频">
+              <el-upload
+                ref="uploadVideo"
+                :class="{hideVideo:hideUploadVideo}"
+                name="video"
+                action="#"
+                list-type="text"
+                :auto-upload="false"
+                :limit="limitCountVideo"
+                :file-list="videoList"
+                :on-change="handleVideoChange"
+                :on-remove="handleVideoRemove"
+              >
+                <el-button v-if="!hideUploadVideo" size="small" plain type="primary">点击上传</el-button>
+                <div slot="tip" class="el-upload__tip">只能上传一个视频，且不超过50M</div>
+              </el-upload>
+            </el-form-item>
           </el-col>
         </el-row>
       </el-form>
+      <el-row style="margin-bottom: 50px">
+        <el-col :span="2" :offset="8">
+          <el-button type="success" @click="updateValue()">提交</el-button>
+        </el-col>
+        <el-col :span="2">
+          <el-button type="info" plain @click="closePageButton">返回</el-button>
+        </el-col>
+      </el-row>
     </el-card>
   </div>
 </template>
@@ -86,6 +107,7 @@ export default {
       form: {
         img: '',
         img_location: '',
+        video: '',
         type: '',
         product_id: ''
       },
@@ -94,7 +116,11 @@ export default {
       imgList: [],
       productList: [],
       img_location: [],
-      typeList: []
+      typeList: [],
+      // 商品视频
+      hideUploadVideo: false,
+      limitCountVideo: 1,
+      videoList: []
     }
   },
   watch: {},
@@ -112,8 +138,14 @@ export default {
         this.form = this.$route.params.data
       } else if (this.status === 'edit') {
         this.form = this.$route.params.data
-        this.imgList.push({ 'url': this.form.img })
-        this.hideUploadImg = true
+        if (this.form.img && this.form.img !== 'null') {
+          this.imgList.push({ 'url': this.form.img })
+          this.hideUploadImg = true
+        }
+        if (this.form.video && this.form.video !== 'null') {
+          this.videoList.push({ 'url': this.form.video })
+          this.hideUploadVideo = true
+        }
       }
     },
     getAssetImgType() {
@@ -197,6 +229,15 @@ export default {
       this.hideUploadImg = fileList.length >= this.limitCount
       this.form.img = null
     },
+    // 产品视频
+    handleVideoChange(file, fileList) {
+      this.hideUploadVideo = fileList.length >= this.limitCountVideo
+      this.form.video = file.raw
+    },
+    handleVideoRemove(file, fileList) {
+      this.hideUploadVideo = fileList.length >= this.limitCountVideo
+      this.form.video = null
+    },
     // 关闭页面
     closePageButton() {
       this.$store.dispatch('tagsView/delView', this.$route)
@@ -209,6 +250,9 @@ export default {
 <style lang="scss">
 /*上传图片完成后隐藏按钮*/
 .hideImg .el-upload--picture-card {
+  display: none;
+}
+.hideVideo .el-upload--picture-card {
   display: none;
 }
 

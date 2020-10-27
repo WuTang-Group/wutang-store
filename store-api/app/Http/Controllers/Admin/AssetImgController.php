@@ -39,6 +39,7 @@ class AssetImgController extends Controller
      * Save asset img
      * 保存首页静态资源
      * @bodyParam img required 图片地址
+     * @bodyParam video image 视频地址
      * @bodyParam img_location required 图片位置
      * @bodyParam type required 类型
      * @bodyParam product_id 关联产品
@@ -47,7 +48,7 @@ class AssetImgController extends Controller
      */
     public function store(AssetImgsRequest $request)
     {
-        $requestData = $request->only(['img', 'img_location', 'type', 'product_id']);
+        $requestData = $request->only(['img', 'img_location', 'video', 'type', 'product_id']);
         $result = $this->assetImgService->store(array_filter($requestData));
         return $result? response()->json(ResponseData::requestSuccess($request)): response()->json(ResponseData::requestFails($request->all()));
     }
@@ -56,6 +57,7 @@ class AssetImgController extends Controller
      * Update asset_img
      * 更新静态资源
      * @bodyParam img required 图片地址
+     * @bodyParam video image 视频地址
      * @bodyParam img_location required 图片位置
      * @bodyParam type required 类型
      * @bodyParam product_id 关联产品
@@ -66,7 +68,7 @@ class AssetImgController extends Controller
      */
     public function update($assetImgId, Request $request)
     {
-        $requestData = $request->only(['img', 'img_location', 'type', 'product_id']);
+        $requestData = $request->only(['img', 'img_location', 'video', 'type', 'product_id']);
         $result = $this->assetImgService->update($assetImgId, $requestData);
         return $result ? response()->json(ResponseData::requestSuccess()): response()->json(ResponseData::paramError($request->all()));
     }

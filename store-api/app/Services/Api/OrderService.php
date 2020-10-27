@@ -11,10 +11,10 @@ use App\Enums\{Payment\AlipayCode,
     OrderStatusCode,
     Payment\PaymentType,
     Payment\UnionPayCode,
-    Payment\UnionPayGatewayResultCode
+    Payment\UnionPayGatewayResultCode,
+    ResponseStatusCode
 };
 use App\Events\OrderStatusUpdated;
-use App\Exceptions\InvalidRequestException;
 use App\Handlers\OrderHandler;
 use App\Models\{Order, OrderItem, Product, UserAddress};
 use App\Services\Service;
@@ -89,7 +89,11 @@ class OrderService extends Service
                     $item->save();
                     $totalAmount += $price * $data['amount'];
                     if ($product->decreaseStock($data['amount']) <= 0) {
-                        throw new InvalidRequestException('该商品库存不足');
+                        //throw new InvalidRequestException('该商品库存不足');
+                        return [
+                            'status' => ResponseStatusCode::ProductSoldOut,
+                            'result' => $product
+                        ];
                     }
                 }
 
@@ -117,9 +121,12 @@ class OrderService extends Service
                 $query->select(['id', 'thumbnail', 'product_name', 'product_name_en', 'slug', 'price', 'sale_price']);
             }])->whereOrderId($orderRequest->id)->get();
             return [
-                'order'=>$orderRequest,
-                'order_items' => $orderItems,
-                'cache_data' => $cacheResult
+                'status' => ResponseStatusCode::RequestSuccess,
+                'result' => [
+                    'order' => $orderRequest,
+                    'order_items' => $orderItems,
+                    'cache_data' => $cacheResult
+                ]
             ];
             // 取消下单队列通知，因为此时订单尚未完成，无需队列通知
             // event(new OrderStatusUpdated($orderRequest));
@@ -307,7 +314,11 @@ class OrderService extends Service
                     $item->save();
                     $totalAmount += $price * $data['amount'];
                     if ($product->decreaseStock($data['amount']) <= 0) {
-                        throw new InvalidRequestException('该商品库存不足');
+                        //throw new InvalidRequestException('该商品库存不足');
+                        return [
+                            'status' => ResponseStatusCode::ProductSoldOut,
+                            'result' => $product
+                        ];
                     }
                 }
                 // 判断若有上级会员码，则享受折扣优惠
@@ -329,9 +340,12 @@ class OrderService extends Service
                 $query->select(['id', 'thumbnail', 'product_name', 'product_name_en', 'slug', 'price', 'sale_price']);
             }])->whereOrderId($orderRequest->id)->get();
             return [
-                'order'=>$orderRequest,
-                'order_items' => $orderItems,
-                'cache_data' => $cacheResult
+                'status' => ResponseStatusCode::RequestSuccess,
+                'result' => [
+                    'order' => $orderRequest,
+                    'order_items' => $orderItems,
+                    'cache_data' => $cacheResult
+                ]
             ];
             // 取消下单队列通知，因为此时订单尚未完成，无需队列通知
             // event(new OrderStatusUpdated($orderRequest));

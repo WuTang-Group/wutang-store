@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Enums\ResponseStatusCode;
 use App\Handlers\ResponseData;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\OrderRequest;
@@ -23,6 +24,7 @@ use Illuminate\Http\Response;
 class OrderController extends Controller
 {
     private $service;
+
     public function __construct(OrderService $service)
     {
         $this->service = $service;
@@ -66,7 +68,21 @@ class OrderController extends Controller
     public function requestCreate(OrderRequest $request)
     {
         $results = $this->service->requestCreate($request);
-        return $results ? response(ResponseData::requestSuccess($results)) : response(ResponseData::requestFails($request->all()));
+        switch ($results['status']) {
+            case ResponseStatusCode::RequestSuccess:
+            {
+                return response(ResponseData::requestSuccess($results['result']));
+            }
+            case ResponseStatusCode::ProductSoldOut:
+            {
+                return response(ResponseData::productSoldOut($results['result']));
+            }
+            default:
+            {
+                return response(ResponseData::requestFails());
+            }
+        }
+        //return $results ? response(ResponseData::requestSuccess($results)) : response(ResponseData::requestFails($request->all()));
     }
 
     /**
@@ -93,6 +109,20 @@ class OrderController extends Controller
     public function retryCreate(OrderRequest $request)
     {
         $results = $this->service->retryCreate($request);
-        return $results ? response(ResponseData::requestSuccess($results)) : response(ResponseData::requestFails($request->all()));
+        switch ($results['status']) {
+            case ResponseStatusCode::RequestSuccess:
+            {
+                return response(ResponseData::requestSuccess($results['result']));
+            }
+            case ResponseStatusCode::ProductSoldOut:
+            {
+                return response(ResponseData::productSoldOut($results['result']));
+            }
+            default:
+            {
+                return response(ResponseData::requestFails());
+            }
+        }
+        //return $results ? response(ResponseData::requestSuccess($results)) : response(ResponseData::requestFails($request->all()));
     }
 }

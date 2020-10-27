@@ -35,7 +35,7 @@ class TheHouseService extends Service
 
     public function theHouseStore(array $param)
     {
-        $requestData = saveOss($param, ['banner'], AliyunOssDir::TheHouse);
+        $requestData = saveOss($param, ['banner', 'thumbnail'], AliyunOssDir::TheHouse);
         try {
             $this->theHouse->create($requestData['params']);
         } catch (\Exception $e) {
@@ -47,7 +47,7 @@ class TheHouseService extends Service
 
     public function theHouseUpdateBySlug(string $slug, array $param)
     {
-        $requestData = saveOss($param, ['banner'], AliyunOssDir::TheHouse);
+        $requestData = saveOss($param, ['banner', 'thumbnail'], AliyunOssDir::TheHouse);
         try{
             $theHouse = $this->theHouse->where('slug', $slug);
             // 获取更新资源字段的旧值，从Aliyun oss中删除
@@ -64,9 +64,12 @@ class TheHouseService extends Service
 
     public function theHouseDestroyBySlug(string $slug)
     {
+        $theHouse_imgs = ['banner', 'thumbnail'];
         try{
             $theHouse = $this->theHouse->whereSlug($slug)->first();
-            OssHandler::delete($theHouse->banner);  //删除aliyun oss线上数据
+            foreach ($theHouse_imgs as $value) {
+                OssHandler::delete($theHouse[$value]);
+            }
             $theHouse->delete();
         } catch(\Exception $e) {
             Log::error('删除失败！', ['message' => $e->getMessage()]);

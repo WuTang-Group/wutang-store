@@ -16,7 +16,7 @@ class ProductRequest extends FormRequest
             case 'store':
             {
                 return [
-                    'product_category_id' => 'exists:product_categories,id',
+//                    'product_category_id' => 'exists:product_categories,id',
                     'product_name' => 'required|string',
                     'product_name_en' => 'required|string',
                     'price' => ['required', 'regex:~\d{1,}\.\d{2}$~'],
@@ -28,7 +28,7 @@ class ProductRequest extends FormRequest
             case 'edit':
             {
                 return [
-                    'product_category_id' => 'exists:product_categories,id',
+//                    'product_category_id' => 'exists:product_categories,id',
                     'price' => ['regex:~\d{1,}\.\d{2}$~'],
                     'sale_price' => ['regex:~\d{1,}\.\d{2}$~'],
                     'stock' => 'integer',

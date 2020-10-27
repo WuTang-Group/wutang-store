@@ -478,18 +478,16 @@ export default {
         usage_image: '',
         tech_image: '',
         thumbnail: '',
-        product_category_id: '',
+        product_category_id: 0,
         product_video: '',
         usage: '',
         usage_en: '',
         parent_id: 0,
         level: 2
       },
-      product_category: {
-        id: '',
-        slug: '',
-        title: ''
-      },
+      product_category: [
+        { id: 0, name: '无' }
+      ],
       parent_product: [
         { id: 0, product_name: '无' }
       ],
@@ -569,9 +567,9 @@ export default {
           { required: true, message: '请输入商品优惠价格', trigger: 'blur' },
           { pattern: '^([1-9]\\d{0,9}|0)(\\.\\d{1,2}){1}$', message: '请输入两位小数的优惠价格', trigger: 'blur' }
         ],
-        product_category_id: [
-          { required: true, message: '请选择商品类目', trigger: 'change' }
-        ],
+        // product_category_id: [
+        //   { required: true, message: '请选择商品类目', trigger: 'change' }
+        // ],
         status: [
           { required: true, message: '请选择商品状态', trigger: 'change' }
         ],
@@ -643,7 +641,7 @@ export default {
         page_limit: 40
       }
       getList(param).then((response) => {
-        this.product_category = response.data.data
+        this.product_category = this.product_category.concat(response.data.data)
       })
     },
     getParentProduct() {

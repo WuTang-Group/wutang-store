@@ -19,6 +19,7 @@ class OssHandler
      */
     public static function save($file, $ossFolder, $disk = 'aliyun')
     {
+        $ossFolder = app()->environment() == 'production' ? $ossFolder : 'Tests';
         try {
             $storage = Storage::disk($disk);
             $ossdata = $storage->put($ossFolder,$file);

@@ -59,7 +59,7 @@ service.interceptors.response.use(
     }
   },
   error => {
-    if (error.response.status === 401) {
+    if (error.response.status === 401 || error.response.code === 40005) {
       // to re-login
       MessageBox.confirm('You have been logged out, please re-login again', 'Confirm logout', {
         confirmButtonText: 'Re-Login',

@@ -705,6 +705,12 @@ export default {
           })
         }
         this.loading = false
+      }).catch(err => {
+        this.loading = true
+        this.$message({
+          message: '网络错误！',
+          type: 'error'
+        })
       })
     },
     // 创建商品成功后初始化数据

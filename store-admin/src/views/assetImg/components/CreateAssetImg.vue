@@ -191,7 +191,6 @@ export default {
           }
           this.loading = false
         }).catch(err => {
-          console.log(err, '123456edit')
           this.loading = false
           this.$message({
             message: '网络错误！',
@@ -206,7 +205,6 @@ export default {
         // 添加所有参数
         this.loading = true
         updateAssetImg(this.form.id, postForm).then((response) => {
-          console.log(response, 'response')
           if (response.code === 20001) {
             this.$message({
               message: '更新成功！',
@@ -221,7 +219,6 @@ export default {
           }
           this.loading = false
         }).catch(err => {
-          console.log(err, '123456')
           this.loading = false
           this.$message({
             message: '网络错误！',

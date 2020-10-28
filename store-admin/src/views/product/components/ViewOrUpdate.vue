@@ -420,7 +420,7 @@
         <el-row v-if="!formDisable" style="margin-bottom: 50px">
           <el-form-item>
             <el-col :span="2" :offset="8">
-              <el-button type="success" @click="submitProduct('formRules')">提交</el-button>
+              <el-button type="success" :loading="loading2" @click="submitProduct('formRules')">提交</el-button>
             </el-col>
             <el-col :span="2">
               <el-button type="info" plain @click="closePageButton">返回</el-button>
@@ -462,6 +462,7 @@ export default {
       formDisable: false,
       product_slug: '',
       loading: false,
+      loading2: false,
       form: {
         product_name: '',
         product_name_en: '',
@@ -757,6 +758,8 @@ export default {
       for (const val in this.form) {
         postForm.append(val, this.form[val])
       }
+      console.log(new Date())
+      this.loading2 = true
       productUpdate(this.product_slug, postForm).then((response) => {
         if (response.code === 20001) {
           this.$message({
@@ -772,6 +775,15 @@ export default {
             type: 'error'
           })
         }
+        this.loading2 = false
+        console.log(new Date())
+      }).catch(err => {
+        this.$message({
+          message: '网络错误！',
+          type: 'error'
+        })
+        this.loading2 = false
+        console.log(new Date())
       })
     },
     // 点击预览图片

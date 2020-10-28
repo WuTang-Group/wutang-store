@@ -85,7 +85,7 @@
       </el-form>
       <el-row style="margin-bottom: 50px">
         <el-col :span="2" :offset="8">
-          <el-button type="success" @click="updateValue()">提交</el-button>
+          <el-button type="success" :loading="loading" @click="updateValue()">提交</el-button>
         </el-col>
         <el-col :span="2">
           <el-button type="info" plain @click="closePageButton">返回</el-button>
@@ -120,7 +120,8 @@ export default {
       // 商品视频
       hideUploadVideo: false,
       limitCountVideo: 1,
-      videoList: []
+      videoList: [],
+      loading: false
     }
   },
   watch: {},
@@ -173,6 +174,7 @@ export default {
           postForm.append(val, this.form[val])
         }
         // 添加所有参数
+        this.loading = true
         createAssetImg(postForm).then((response) => {
           if (response.code === 20001) {
             this.$message({
@@ -187,6 +189,14 @@ export default {
               type: 'error'
             })
           }
+          this.loading = false
+        }).catch(err => {
+          console.log(err, '123456edit')
+          this.loading = false
+          this.$message({
+            message: '网络错误！',
+            type: 'error'
+          })
         })
       } else if (this.status === 'edit') {
         const postForm = new FormData()
@@ -194,7 +204,9 @@ export default {
           postForm.append(val, this.form[val])
         }
         // 添加所有参数
+        this.loading = true
         updateAssetImg(this.form.id, postForm).then((response) => {
+          console.log(response, 'response')
           if (response.code === 20001) {
             this.$message({
               message: '更新成功！',
@@ -207,6 +219,14 @@ export default {
               type: 'error'
             })
           }
+          this.loading = false
+        }).catch(err => {
+          console.log(err, '123456')
+          this.loading = false
+          this.$message({
+            message: '网络错误！',
+            type: 'error'
+          })
         })
       }
     },

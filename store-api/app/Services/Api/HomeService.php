@@ -6,7 +6,9 @@ use App\Enums\AssetImgLocation;
 use App\Enums\AssetImgType;
 use App\Models\AssetImg;
 use App\Models\TheHouse;
+use App\Models\TheHouseCategory;
 use App\Services\Service;
+use Illuminate\Support\Arr;
 
 class HomeService extends Service
 {
@@ -67,7 +69,12 @@ class HomeService extends Service
     // 获取the house 列表数据
     public function getTheHouseList()
     {
-        return $this->theHouse->with(['theHouseCategory'])->inRandomOrder()->take(3)->get()->makeHidden(['created_at', 'updated_at']);
+        //        return $this->theHouse->with(['theHouseCategory'])->inRandomOrder()->take(3)->get()->makeHidden(['created_at', 'updated_at']);
+        $query = TheHouseCategory::with(['theHouses'])->get()->toArray();
+        foreach ($query as $key=>$value) {
+            $query[$key]['the_houses'] = Arr::random($value['the_houses']);
+        }
+        return $query;
     }
 
 }

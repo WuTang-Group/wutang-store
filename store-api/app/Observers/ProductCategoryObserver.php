@@ -2,18 +2,18 @@
 
 namespace App\Observers;
 
-use App\Handlers\SlugTranslateHandler;
 use App\Models\ProductCategory;
+use Illuminate\Support\Str;
 
 class ProductCategoryObserver
 {
     public function saving(ProductCategory $category)
     {
         // XSS 过滤
-        $category->describe = clean($category->describe, 'custom');
+//        $category->describe = clean($category->describe, 'custom');
 
         if (!$category->slug) {
-            $category->slug = app(SlugTranslateHandler::class)->translate($category->describe);
+            $category->slug = Str::random();
         }
     }
 }
